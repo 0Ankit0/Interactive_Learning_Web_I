@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 1: Introduction to Web Technologies</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/unit.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">Unit 1: Introduction to Web Technologies</span>
+      </div>
+    </nav>
+
+    <header class="unit-header">
+      <div class="container">
+        <div class="unit-header-content">
+          <div class="unit-icon-large">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="unit-header-text">
+            <h1 class="unit-title">Unit 1: Introduction to Web Technologies</h1>
+            <p class="unit-subtitle">4 hours • 6 Topics</p>
+            <p class="unit-description">
+              Explore the foundations of web technologies, client-server
+              architecture, and the protocols that power the modern web.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="unit-progress"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="topics-grid">
+          <div class="topic-card" data-topic="1.1">
+            <div class="topic-header">
+              <div class="topic-number">1.1</div>
+              <h3 class="topic-title">Evolution of the Web</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Discover the fascinating history of the World Wide Web, from its
+                inception to modern web applications and search engines.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">History of web</span>
+                <span class="subtopic">WWW</span>
+                <span class="subtopic">URL</span>
+                <span class="subtopic">Version of web</span>
+                <span class="subtopic">Search engine</span>
+                <span class="subtopic">Website vs Web application</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 45 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.1', 'evolution-of-web')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="1.2">
+            <div class="topic-header">
+              <div class="topic-number">1.2</div>
+              <h3 class="topic-title">Client-Server Architecture</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Understand the fundamental architecture that powers all web
+                interactions and how clients communicate with servers.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">Client-side components</span>
+                <span class="subtopic">Server-side components</span>
+                <span class="subtopic">Request-response cycle</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 30 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.2', 'client-server-architecture')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="1.3">
+            <div class="topic-header">
+              <div class="topic-number">1.3</div>
+              <h3 class="topic-title">Web Browsers and Web Servers</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn about different web browsers, their capabilities,
+                cross-browser compatibility, and how web servers handle
+                requests.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">Web browsers</span>
+                <span class="subtopic">Cross-browser compatibility</span>
+                <span class="subtopic">Web servers</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 40 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.3', 'browsers-and-servers')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="1.4">
+            <div class="topic-header">
+              <div class="topic-number">1.4</div>
+              <h3 class="topic-title">Basic Protocols</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Explore the fundamental protocols that enable web communication,
+                including HTTP/HTTPS and the request-response mechanism.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">Protocol overview</span>
+                <span class="subtopic">HTTP/HTTPS</span>
+                <span class="subtopic">HTTP requests</span>
+                <span class="subtopic">HTTP responses</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 50 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.4', 'basic-protocols')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="1.5">
+            <div class="topic-header">
+              <div class="topic-number">1.5</div>
+              <h3 class="topic-title">DNS and its Hierarchy</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Understand how domain names are resolved to IP addresses and the
+                hierarchical structure of the Domain Name System.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">DNS basics</span>
+                <span class="subtopic">DNS hierarchy</span>
+                <span class="subtopic">Domain resolution</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 35 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.5', 'dns-hierarchy')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="1.6">
+            <div class="topic-header">
+              <div class="topic-number">1.6</div>
+              <h3 class="topic-title">Client-side vs Server-side Scripting</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Compare and contrast client-side and server-side scripting
+                languages, their use cases, and advantages.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic">Client-side scripting</span>
+                <span class="subtopic">Server-side scripting</span>
+                <span class="subtopic">Comparison</span>
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 40 min</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('1.6', 'scripting-languages')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="unit-summary">
+          <h2>Unit Summary</h2>
+          <div class="summary-content">
+            <div class="summary-text">
+              <p>
+                In this unit, you'll build a solid foundation in web
+                technologies. You'll learn about the evolution of the web,
+                understand client-server architecture, explore web browsers and
+                servers, master basic protocols like HTTP/HTTPS, understand DNS,
+                and differentiate between client-side and server-side scripting.
+              </p>
+              <div class="learning-outcomes">
+                <h3>Learning Outcomes</h3>
+                <ul>
+                  <li>Describe the evolution and versions of the web</li>
+                  <li>Explain client-server architecture and its components</li>
+                  <li>
+                    Understand web browsers and cross-browser compatibility
+                  </li>
+                  <li>
+                    Master HTTP/HTTPS protocols and request-response cycle
+                  </li>
+                  <li>Comprehend DNS hierarchy and domain resolution</li>
+                  <li>
+                    Differentiate between client-side and server-side scripting
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="summary-visual">
+              <div class="concept-map">
+                <div class="concept-node main">Web Technologies</div>
+                <div class="concept-node">Client-Server</div>
+                <div class="concept-node">Protocols</div>
+                <div class="concept-node">DNS</div>
+                <div class="concept-node">Scripting</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/unit.js"></script>
+  </body>
+</html>
