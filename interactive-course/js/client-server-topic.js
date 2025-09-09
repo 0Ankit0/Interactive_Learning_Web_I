@@ -227,6 +227,7 @@ function checkAnswer(button, isCorrect) {
 function initializeDragAndDrop() {
     const draggableItems = document.querySelectorAll('.draggable-item');
     const dropZones = document.querySelectorAll('.drop-area');
+    const dropZoneContainers = document.querySelectorAll('.drop-zone');
 
     draggableItems.forEach(item => {
         item.addEventListener('dragstart', handleDragStart);
@@ -239,73 +240,159 @@ function initializeDragAndDrop() {
         zone.addEventListener('dragenter', handleDragEnter);
         zone.addEventListener('dragleave', handleDragLeave);
     });
+
+    // Also add listeners to drop zone containers for better UX
+    dropZoneContainers.forEach(container => {
+        container.addEventListener('dragover', handleDragOver);
+        container.addEventListener('dragenter', function (e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+        });
+        container.addEventListener('dragleave', function (e) {
+            // Only remove if not entering a child element
+            if (!this.contains(e.relatedTarget)) {
+                this.classList.remove('drag-over');
+            }
+        });
+        container.addEventListener('drop', function (e) {
+            this.classList.remove('drag-over');
+        });
+    });
 }
 
 function handleDragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.dataset.type);
     e.dataTransfer.setData('text/html', e.target.outerHTML);
-    e.target.style.opacity = '0.5';
+    e.dataTransfer.setData('element-id', e.target.dataset.type + '-' + Date.now());
+
+    // Add visual feedback
+    e.target.classList.add('dragging');
+    e.target.style.opacity = '0.7';
+
+    // Store reference to dragged element
+    window.draggedElement = e.target;
 }
 
 function handleDragEnd(e) {
     e.target.style.opacity = '1';
+    e.target.classList.remove('dragging');
+
+    // Clear reference
+    window.draggedElement = null;
 }
 
 function handleDragOver(e) {
     e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
 }
 
 function handleDragEnter(e) {
     e.preventDefault();
-    e.target.classList.add('drag-over');
+    const dropArea = e.target.closest('.drop-area');
+    if (dropArea) {
+        dropArea.classList.add('drag-over');
+    }
 }
 
 function handleDragLeave(e) {
-    e.target.classList.remove('drag-over');
+    const dropArea = e.target.closest('.drop-area');
+    if (dropArea && !dropArea.contains(e.relatedTarget)) {
+        dropArea.classList.remove('drag-over');
+    }
 }
 
 function handleDrop(e) {
     e.preventDefault();
-    e.target.classList.remove('drag-over');
+
+    const dropArea = e.target.closest('.drop-area');
+    const dropZone = e.target.closest('.drop-zone');
+
+    if (!dropArea || !dropZone) return;
+
+    dropArea.classList.remove('drag-over');
+    dropZone.classList.remove('drag-over');
 
     const itemType = e.dataTransfer.getData('text/plain');
     const itemHTML = e.dataTransfer.getData('text/html');
-    const dropZone = e.target.closest('.drop-zone');
     const acceptedType = dropZone.dataset.accept;
 
     if (itemType === acceptedType) {
-        e.target.innerHTML += itemHTML;
+        // Check if this specific item is already in any drop zone
+        const allDropAreas = document.querySelectorAll('.drop-area');
+        let itemAlreadyPlaced = false;
+
+        allDropAreas.forEach(area => {
+            if (area.querySelector(`[data-type="${itemType}"]`) &&
+                area.querySelector(`[data-type="${itemType}"]`).textContent === window.draggedElement.textContent) {
+                itemAlreadyPlaced = true;
+            }
+        });
+
+        if (itemAlreadyPlaced) {
+            showDropFeedback(dropZone, false, 'Item already placed!');
+            return;
+        }
+
+        // Add item to drop area
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = itemHTML;
+        const newItem = tempDiv.firstElementChild;
+
+        // Modify the new item for drop area
+        newItem.draggable = false;
+        newItem.style.opacity = '1';
+        newItem.classList.remove('dragging');
+
+        dropArea.appendChild(newItem);
+
+        // Update score
+        console.log('Score before increment:', roleGameScore);
         roleGameScore++;
+        console.log('Score after increment:', roleGameScore);
         updateRoleGameScore();
 
-        // Remove original item
-        const originalItem = document.querySelector(`[data-type="${itemType}"]`);
-        if (originalItem && originalItem.parentNode.classList.contains('game-items')) {
-            originalItem.remove();
+        // Remove original item from game items
+        if (window.draggedElement && window.draggedElement.parentNode.classList.contains('game-items')) {
+            window.draggedElement.remove();
         }
 
         // Show success feedback
-        showDropFeedback(e.target, true);
+        showDropFeedback(dropZone, true, 'Correct!');
+
+        // Check if game is complete
+        if (roleGameScore === 4) {
+            setTimeout(() => {
+                showGameCompletion();
+            }, 1000);
+        }
     } else {
-        showDropFeedback(e.target, false);
+        showDropFeedback(dropZone, false, 'Wrong category!');
     }
 }
 
 function updateRoleGameScore() {
+    console.log('Updating score to:', roleGameScore);
     const scoreElement = document.getElementById('role-game-score');
+    console.log('Score element found:', scoreElement);
+
     if (scoreElement) {
         scoreElement.textContent = `Score: ${roleGameScore}/4`;
+        console.log('Score updated to:', scoreElement.textContent);
 
         if (roleGameScore === 4) {
-            scoreElement.innerHTML += ' <span style="color: #4CAF50;">Perfect!</span>';
+            scoreElement.innerHTML += ' <span style="color: #4CAF50; font-weight: bold;">🎉 Perfect!</span>';
+        } else if (roleGameScore >= 2) {
+            scoreElement.innerHTML += ' <span style="color: #FF9800;">Good progress!</span>';
         }
+    } else {
+        console.error('Score element not found!');
     }
 }
 
-function showDropFeedback(element, success) {
+function showDropFeedback(element, success, message = '') {
     const feedback = document.createElement('div');
     feedback.className = `drop-feedback ${success ? 'success' : 'error'}`;
-    feedback.textContent = success ? '✓ Correct!' : '✗ Wrong category';
+    feedback.textContent = message || (success ? '✓ Correct!' : '✗ Wrong category');
 
     element.appendChild(feedback);
 
@@ -314,6 +401,50 @@ function showDropFeedback(element, success) {
             feedback.parentNode.removeChild(feedback);
         }
     }, 2000);
+}
+
+function showGameCompletion() {
+    const gameElement = document.querySelector('.role-game');
+    const completionMessage = document.createElement('div');
+    completionMessage.className = 'game-completion';
+    completionMessage.innerHTML = `
+        <div class="completion-content">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've successfully identified all client and server components!</p>
+            <button onclick="resetRoleGame()" class="btn-primary">Play Again</button>
+        </div>
+    `;
+
+    gameElement.appendChild(completionMessage);
+}
+
+function resetRoleGame() {
+    // Reset score
+    roleGameScore = 0;
+    updateRoleGameScore();
+
+    // Clear drop areas
+    document.querySelectorAll('.drop-area').forEach(area => {
+        area.innerHTML = '';
+    });
+
+    // Restore original items
+    const gameItems = document.querySelector('.game-items');
+    gameItems.innerHTML = `
+        <div class="draggable-item" draggable="true" data-type="client">Chrome Browser</div>
+        <div class="draggable-item" draggable="true" data-type="server">Apache Web Server</div>
+        <div class="draggable-item" draggable="true" data-type="client">Spotify App</div>
+        <div class="draggable-item" draggable="true" data-type="server">MySQL Database</div>
+    `;
+
+    // Remove completion message
+    const completion = document.querySelector('.game-completion');
+    if (completion) {
+        completion.remove();
+    }
+
+    // Reinitialize drag and drop
+    initializeDragAndDrop();
 }
 
 // HTTP Request Builder
