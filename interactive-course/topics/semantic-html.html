@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML - Interactive Learning</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit2.html">Unit 2</a>
+        <span class="separator">/</span>
+        <span class="current">Semantic HTML</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">2.4 Semantic HTML</h1>
+            <p class="topic-subtitle">Meaningful Structure • 90 minutes</p>
+            <p class="topic-description">
+              Learn to create meaningful, accessible web pages using semantic
+              HTML elements that improve SEO, accessibility, and code
+              maintainability.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >What is Semantic HTML?</a
+                >
+              </li>
+              <li>
+                <a href="#structure" onclick="scrollToSection('structure')"
+                  >Structural Elements</a
+                >
+              </li>
+              <li>
+                <a href="#content" onclick="scrollToSection('content')"
+                  >Content Elements</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#accessibility"
+                  onclick="scrollToSection('accessibility')"
+                  >Accessibility Benefits</a
+                >
+              </li>
+              <li>
+                <a href="#seo" onclick="scrollToSection('seo')"
+                  >SEO Advantages</a
+                >
+              </li>
+              <li>
+                <a href="#practice" onclick="scrollToSection('practice')"
+                  >Interactive Practice</a
+                >
+              </li>
+              <li>
+                <a href="#resources" onclick="scrollToSection('resources')"
+                  >Video Resources</a
+                >
+              </li>
+              <li>
+                <a href="#quiz" onclick="scrollToSection('quiz')"
+                  >Knowledge Check</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content">
+            <section id="introduction" class="content-section">
+              <h2><i class="fas fa-lightbulb"></i> What is Semantic HTML?</h2>
+
+              <div class="info-card">
+                <h3>Semantic vs Non-Semantic</h3>
+                <p>
+                  Semantic HTML uses elements that clearly describe their
+                  meaning to both browsers and developers. Instead of generic
+                  &lt;div&gt; elements, semantic elements like &lt;header&gt;,
+                  &lt;article&gt;, and &lt;footer&gt; tell us exactly what
+                  content they contain.
+                </p>
+              </div>
+
+              <div class="comparison-demo">
+                <h3>Before and After Comparison</h3>
+
+                <div class="comparison-grid">
+                  <div class="comparison-item">
+                    <h4>❌ Non-Semantic (Bad)</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;div class="header"&gt;
+    &lt;div class="logo"&gt;My Website&lt;/div&gt;
+    &lt;div class="nav"&gt;
+        &lt;div&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="content"&gt;
+    &lt;div class="post"&gt;
+        &lt;div class="title"&gt;Article Title&lt;/div&gt;
+        &lt;div class="text"&gt;Article content...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+    &lt;div&gt;Copyright 2025&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="comparison-item">
+                    <h4>✅ Semantic (Good)</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;a href="#"&gt;Home&lt;/a&gt;
+        &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Article Title&lt;/h2&gt;
+        &lt;p&gt;Article content...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright 2025&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="benefits-list">
+                  <h4>Why Semantic HTML Matters:</h4>
+                  <ul>
+                    <li>
+                      <strong>Accessibility:</strong> Screen readers understand
+                      the content structure
+                    </li>
+                    <li>
+                      <strong>SEO:</strong> Search engines better understand
+                      your content
+                    </li>
+                    <li>
+                      <strong>Maintainability:</strong> Code is easier to read
+                      and modify
+                    </li>
+                    <li>
+                      <strong>Styling:</strong> CSS can target semantic elements
+                      directly
+                    </li>
+                    <li>
+                      <strong>Future-proof:</strong> Works better with new
+                      technologies
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section id="structure" class="content-section">
+              <h2><i class="fas fa-building"></i> Structural Elements</h2>
+
+              <div class="semantic-elements">
+                <h3>Main Structural Elements</h3>
+
+                <div class="element-showcase">
+                  <div
+                    class="element-demo"
+                    onclick="highlightElement('header')"
+                  >
+                    <div class="element-icon"><i class="fas fa-crown"></i></div>
+                    <h4>&lt;header&gt;</h4>
+                    <p>
+                      Contains introductory content, site branding, navigation
+                    </p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Page header, article header,
+                      section header
+                    </div>
+                  </div>
+
+                  <div class="element-demo" onclick="highlightElement('nav')">
+                    <div class="element-icon">
+                      <i class="fas fa-compass"></i>
+                    </div>
+                    <h4>&lt;nav&gt;</h4>
+                    <p>
+                      Contains navigation links for the site or page section
+                    </p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Main navigation, breadcrumbs, page
+                      links
+                    </div>
+                  </div>
+
+                  <div class="element-demo" onclick="highlightElement('main')">
+                    <div class="element-icon">
+                      <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h4>&lt;main&gt;</h4>
+                    <p>Contains the main content of the document</p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Primary content area (only one per
+                      page)
+                    </div>
+                  </div>
+
+                  <div
+                    class="element-demo"
+                    onclick="highlightElement('section')"
+                  >
+                    <div class="element-icon">
+                      <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h4>&lt;section&gt;</h4>
+                    <p>Groups related content together with a heading</p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Chapters, tabs, themed content
+                      groups
+                    </div>
+                  </div>
+
+                  <div
+                    class="element-demo"
+                    onclick="highlightElement('article')"
+                  >
+                    <div class="element-icon">
+                      <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>&lt;article&gt;</h4>
+                    <p>Self-contained content that could stand alone</p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Blog posts, news articles,
+                      comments
+                    </div>
+                  </div>
+
+                  <div class="element-demo" onclick="highlightElement('aside')">
+                    <div class="element-icon">
+                      <i class="fas fa-sidebar"></i>
+                    </div>
+                    <h4>&lt;aside&gt;</h4>
+                    <p>Content indirectly related to main content</p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Sidebars, callout boxes, related
+                      links
+                    </div>
+                  </div>
+
+                  <div
+                    class="element-demo"
+                    onclick="highlightElement('footer')"
+                  >
+                    <div class="element-icon">
+                      <i class="fas fa-anchor"></i>
+                    </div>
+                    <h4>&lt;footer&gt;</h4>
+                    <p>Contains footer information for its nearest ancestor</p>
+                    <div class="element-usage">
+                      <strong>Usage:</strong> Page footer, article footer,
+                      copyright info
+                    </div>
+                  </div>
+                </div>
+
+                <div class="page-structure-demo">
+                  <h3>Complete Page Structure</h3>
+                  <div class="structure-visual">
+                    <div class="structure-header" id="demo-header">
+                      <span>&lt;header&gt;</span>
+                      <div class="structure-nav" id="demo-nav">&lt;nav&gt;</div>
+                    </div>
+                    <div class="structure-main" id="demo-main">
+                      <span>&lt;main&gt;</span>
+                      <div class="structure-content">
+                        <div class="structure-article" id="demo-article">
+                          &lt;article&gt;
+                        </div>
+                        <div class="structure-section" id="demo-section">
+                          &lt;section&gt;
+                        </div>
+                      </div>
+                      <div class="structure-aside" id="demo-aside">
+                        &lt;aside&gt;
+                      </div>
+                    </div>
+                    <div class="structure-footer" id="demo-footer">
+                      &lt;footer&gt;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="content" class="content-section">
+              <h2><i class="fas fa-text-height"></i> Content Elements</h2>
+
+              <div class="content-elements">
+                <h3>Semantic Content Elements</h3>
+
+                <div class="content-grid">
+                  <div class="content-example">
+                    <h4>&lt;time&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;time datetime="2025-09-09"&gt;September 9, 2025&lt;/time&gt;
+&lt;time datetime="14:30"&gt;2:30 PM&lt;/time&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <time datetime="2025-09-09">September 9, 2025</time><br />
+                      <time datetime="14:30">2:30 PM</time>
+                    </div>
+                  </div>
+
+                  <div class="content-example">
+                    <h4>&lt;progress&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <progress value="70" max="100">70%</progress>
+                      <span>70% Complete</span>
+                    </div>
+                  </div>
+
+                  <div class="content-example">
+                    <h4>&lt;mark&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;p&gt;The &lt;mark&gt;highlighted text&lt;/mark&gt; stands out.&lt;/p&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <p>The <mark>highlighted text</mark> stands out.</p>
+                    </div>
+                  </div>
+
+                  <div class="content-example">
+                    <h4>&lt;figure&gt; & &lt;figcaption&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;figure&gt;
+    &lt;img src="chart.jpg" alt="Sales Chart"&gt;
+    &lt;figcaption&gt;Q3 Sales Performance&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <figure class="demo-figure">
+                        <div class="demo-image">📊</div>
+                        <figcaption>Q3 Sales Performance</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+
+                  <div class="content-example">
+                    <h4>&lt;details&gt; & &lt;summary&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;details&gt;
+    &lt;summary&gt;Click to expand&lt;/summary&gt;
+    &lt;p&gt;Hidden content here!&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <details>
+                        <summary>Click to expand</summary>
+                        <p>Hidden content here!</p>
+                      </details>
+                    </div>
+                  </div>
+
+                  <div class="content-example">
+                    <h4>&lt;blockquote&gt;</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;blockquote cite="https://example.com"&gt;
+    &lt;p&gt;This is a quote from someone famous.&lt;/p&gt;
+    &lt;footer&gt;— Famous Person&lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                    </div>
+                    <div class="example-result">
+                      <blockquote>
+                        <p>This is a quote from someone famous.</p>
+                        <footer>— Famous Person</footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="semantic-builder">
+                <h3>Semantic Page Builder</h3>
+                <p>
+                  Drag and drop semantic elements to build a proper page
+                  structure:
+                </p>
+
+                <div class="builder-workspace">
+                  <div class="element-toolbox">
+                    <h4>Available Elements:</h4>
+                    <div class="draggable-elements">
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="header"
+                      >
+                        <i class="fas fa-crown"></i> &lt;header&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="nav"
+                      >
+                        <i class="fas fa-compass"></i> &lt;nav&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="main"
+                      >
+                        <i class="fas fa-newspaper"></i> &lt;main&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="article"
+                      >
+                        <i class="fas fa-file-alt"></i> &lt;article&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="section"
+                      >
+                        <i class="fas fa-layer-group"></i> &lt;section&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="aside"
+                      >
+                        <i class="fas fa-sidebar"></i> &lt;aside&gt;
+                      </div>
+                      <div
+                        class="draggable-element"
+                        draggable="true"
+                        data-element="footer"
+                      >
+                        <i class="fas fa-anchor"></i> &lt;footer&gt;
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="page-canvas">
+                    <h4>Page Structure:</h4>
+                    <div id="page-builder" class="drop-zone">
+                      <p>Drop semantic elements here to build your page</p>
+                    </div>
+
+                    <div class="builder-controls">
+                      <button
+                        class="btn-primary"
+                        onclick="generateSemanticHTML()"
+                      >
+                        Generate HTML
+                      </button>
+                      <button class="btn-secondary" onclick="clearBuilder()">
+                        Clear All
+                      </button>
+                      <button class="btn-secondary" onclick="loadTemplate()">
+                        Load Template
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="generated-code">
+                    <h4>Generated HTML:</h4>
+                    <pre id="semantic-html-output">
+&lt;!-- Build your semantic structure --&gt;</pre
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="accessibility" class="content-section">
+              <h2>
+                <i class="fas fa-universal-access"></i> Accessibility Benefits
+              </h2>
+
+              <div class="info-card">
+                <h3>Making the Web Accessible</h3>
+                <p>
+                  Semantic HTML is the foundation of web accessibility. It helps
+                  screen readers, keyboard navigation, and other assistive
+                  technologies understand and navigate your content effectively.
+                </p>
+              </div>
+
+              <div class="accessibility-demo">
+                <h3>Screen Reader Simulation</h3>
+                <p>
+                  Experience how a screen reader interprets semantic vs
+                  non-semantic HTML:
+                </p>
+
+                <div class="screen-reader-demo">
+                  <div class="demo-controls">
+                    <button
+                      class="btn-primary"
+                      onclick="simulateScreenReader('semantic')"
+                    >
+                      Read Semantic Version
+                    </button>
+                    <button
+                      class="btn-secondary"
+                      onclick="simulateScreenReader('nonsemantic')"
+                    >
+                      Read Non-Semantic Version
+                    </button>
+                  </div>
+
+                  <div class="reader-output">
+                    <h4>Screen Reader Output:</h4>
+                    <div id="reader-text" class="reader-text">
+                      Click a button above to simulate screen reader navigation
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accessibility-checklist">
+                  <h4>Accessibility Checklist:</h4>
+                  <div class="checklist-grid">
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="headings"
+                      />
+                      <span class="checkmark"></span>
+                      Use proper heading hierarchy (h1 → h2 → h3)
+                    </label>
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="landmarks"
+                      />
+                      <span class="checkmark"></span>
+                      Include landmark elements (header, nav, main, footer)
+                    </label>
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="alt-text"
+                      />
+                      <span class="checkmark"></span>
+                      Provide alt text for all images
+                    </label>
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="labels"
+                      />
+                      <span class="checkmark"></span>
+                      Associate labels with form inputs
+                    </label>
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="skip-links"
+                      />
+                      <span class="checkmark"></span>
+                      Include skip navigation links
+                    </label>
+                    <label class="checklist-item">
+                      <input
+                        type="checkbox"
+                        class="accessibility-check"
+                        data-rule="focus"
+                      />
+                      <span class="checkmark"></span>
+                      Ensure keyboard navigation works
+                    </label>
+                  </div>
+
+                  <div id="accessibility-score" class="accessibility-score">
+                    <strong
+                      >Accessibility Score:
+                      <span id="score-value">0</span>/6</strong
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="seo" class="content-section">
+              <h2><i class="fas fa-search"></i> SEO Advantages</h2>
+
+              <div class="info-card">
+                <h3>Search Engine Optimization</h3>
+                <p>
+                  Search engines use semantic HTML to better understand your
+                  content structure and context, which can improve your search
+                  rankings and visibility.
+                </p>
+              </div>
+
+              <div class="seo-benefits">
+                <h3>How Semantic HTML Improves SEO</h3>
+
+                <div class="benefit-cards">
+                  <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-robot"></i></div>
+                    <h4>Better Crawling</h4>
+                    <p>
+                      Search engines can more easily understand and index your
+                      content structure.
+                    </p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                    <h4>Rich Snippets</h4>
+                    <p>
+                      Semantic markup enables rich snippets in search results,
+                      improving click-through rates.
+                    </p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Mobile-First</h4>
+                    <p>
+                      Semantic HTML works better with mobile-first indexing and
+                      responsive design.
+                    </p>
+                  </div>
+
+                  <div class="benefit-card">
+                    <div class="benefit-icon">
+                      <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h4>Social Sharing</h4>
+                    <p>
+                      Proper markup improves how your content appears when
+                      shared on social media.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="seo-analyzer">
+                  <h3>SEO Analyzer Tool</h3>
+                  <p>Paste your HTML code to analyze its semantic structure:</p>
+
+                  <div class="analyzer-input">
+                    <textarea
+                      id="seo-html-input"
+                      placeholder="Paste your HTML code here..."
+                      class="analyzer-textarea"
+                    ></textarea>
+                    <button class="btn-primary" onclick="analyzeSEO()">
+                      Analyze SEO
+                    </button>
+                  </div>
+
+                  <div id="seo-results" class="seo-results">
+                    <!-- SEO analysis results will appear here -->
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="practice" class="content-section">
+              <h2><i class="fas fa-gamepad"></i> Interactive Practice</h2>
+
+              <div class="practice-challenges">
+                <div class="challenge-card">
+                  <h3>Challenge 1: Blog Post Structure</h3>
+                  <p>
+                    Convert this non-semantic HTML into proper semantic
+                    structure:
+                  </p>
+
+                  <div class="challenge-before">
+                    <h4>Non-Semantic Version:</h4>
+                    <pre class="code-example"><code>&lt;div class="post"&gt;
+    &lt;div class="post-title"&gt;My First Blog Post&lt;/div&gt;
+    &lt;div class="post-date"&gt;September 9, 2025&lt;/div&gt;
+    &lt;div class="post-content"&gt;
+        This is my first blog post content...
+    &lt;/div&gt;
+    &lt;div class="post-author"&gt;Written by John Doe&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+
+                  <div class="challenge-editor">
+                    <h4>Your Semantic Version:</h4>
+                    <textarea
+                      id="blog-challenge"
+                      class="code-input"
+                      placeholder="Write semantic HTML here..."
+                    ></textarea>
+                    <button class="btn-primary" onclick="checkBlogStructure()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="blog-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 2: Complete Website Structure</h3>
+                  <p>
+                    Create a complete semantic HTML structure for a business
+                    website:
+                  </p>
+
+                  <div class="challenge-requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                      <li>Header with company name and navigation</li>
+                      <li>Main content area with services section</li>
+                      <li>Sidebar with contact information</li>
+                      <li>Footer with copyright and links</li>
+                    </ul>
+                  </div>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="website-challenge"
+                      class="code-input"
+                      placeholder="Build your semantic website structure..."
+                    ></textarea>
+                    <button
+                      class="btn-primary"
+                      onclick="checkWebsiteStructure()"
+                    >
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="website-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 3: Accessibility Audit</h3>
+                  <p>Fix the accessibility issues in this HTML code:</p>
+
+                  <div class="challenge-before">
+                    <h4>Problematic HTML:</h4>
+                    <pre class="code-example"><code>&lt;div&gt;
+    &lt;div&gt;Welcome to Our Site&lt;/div&gt;
+    &lt;img src="logo.jpg"&gt;
+    &lt;div&gt;
+        &lt;div&gt;Name:&lt;/div&gt;
+        &lt;input type="text"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;Main content here&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                  </div>
+
+                  <div class="challenge-editor">
+                    <h4>Fixed Accessible Version:</h4>
+                    <textarea
+                      id="accessibility-challenge"
+                      class="code-input"
+                      placeholder="Fix accessibility issues..."
+                    ></textarea>
+                    <button class="btn-primary" onclick="checkAccessibility()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="accessibility-result" class="challenge-result"></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resources" class="content-section">
+              <h2>
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+
+              <div class="resource-grid">
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>Semantic HTML5 Elements Explained</h4>
+                    <p class="resource-author">Web Dev Simplified</p>
+                    <p class="resource-description">
+                      Complete guide to HTML5 semantic elements and when to use
+                      them.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=kGW8Al_cga4"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML5 Semantic Elements</h4>
+                    <p class="resource-author">Traversy Media</p>
+                    <p class="resource-description">
+                      Learn about HTML5 semantic elements and how they improve
+                      accessibility and SEO.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=ZThq93Yuwd0"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>MDN HTML5 Semantics</h4>
+                    <p class="resource-author">Mozilla Developer Network</p>
+                    <p class="resource-description">
+                      Comprehensive documentation on HTML5 semantic elements.
+                    </p>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Read Documentation
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-universal-access"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>Web Accessibility Guidelines</h4>
+                    <p class="resource-author">WCAG 2.1</p>
+                    <p class="resource-description">
+                      Official web accessibility guidelines and best practices.
+                    </p>
+                    <a
+                      href="https://www.w3.org/WAI/WCAG21/quickref/"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      View Guidelines <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>WAVE Web Accessibility Evaluator</h4>
+                    <p class="resource-author">WebAIM</p>
+                    <p class="resource-description">
+                      Free tool to evaluate web accessibility of your pages.
+                    </p>
+                    <a
+                      href="https://wave.webaim.org/"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Try Tool <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>Google SEO Starter Guide</h4>
+                    <p class="resource-author">Google</p>
+                    <p class="resource-description">
+                      Official guide on how to optimize your website for search
+                      engines.
+                    </p>
+                    <a
+                      href="https://developers.google.com/search/docs/beginner/seo-starter-guide"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Read Guide <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+
+              <div class="quiz-container">
+                <div class="quiz-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" id="quiz-progress"></div>
+                  </div>
+                  <span class="progress-text"
+                    >Question <span id="current-q">1</span> of
+                    <span id="total-q">6</span></span
+                  >
+                </div>
+
+                <div id="quiz-content">
+                  <!-- Quiz questions will be loaded here -->
+                </div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="prev-btn"
+                    class="btn-secondary"
+                    onclick="prevQuestion()"
+                    disabled
+                  >
+                    Previous
+                  </button>
+                  <button
+                    id="next-btn"
+                    class="btn-primary"
+                    onclick="nextQuestion()"
+                  >
+                    Next
+                  </button>
+                  <button
+                    id="submit-btn"
+                    class="btn-success"
+                    onclick="submitQuiz()"
+                    style="display: none"
+                  >
+                    Submit Quiz
+                  </button>
+                </div>
+
+                <div id="quiz-results" class="quiz-results"></div>
+              </div>
+            </section>
+
+            <div class="navigation-buttons">
+              <a href="tables-forms.html" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> Previous: Tables & Forms
+              </a>
+              <a href="audio-video.html" class="btn-primary">
+                Next: Audio & Video <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Web Technology I Course. Master semantic HTML for
+          accessible, SEO-friendly websites.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic.js"></script>
+  </body>
+</html>

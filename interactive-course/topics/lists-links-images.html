@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lists, Links and Images - Interactive Learning</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit2.html">Unit 2</a>
+        <span class="separator">/</span>
+        <span class="current">Lists, Links and Images</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-list"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">2.2 Lists, Links and Images</h1>
+            <p class="topic-subtitle">HTML Content Elements • 90 minutes</p>
+            <p class="topic-description">
+              Learn to create organized lists, hyperlinks for navigation, and
+              embed images to make your web pages informative and visually
+              appealing.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a href="#lists" onclick="scrollToSection('lists')"
+                  >HTML Lists</a
+                >
+              </li>
+              <li>
+                <a href="#links" onclick="scrollToSection('links')"
+                  >Hyperlinks</a
+                >
+              </li>
+              <li>
+                <a href="#images" onclick="scrollToSection('images')">Images</a>
+              </li>
+              <li>
+                <a href="#practice" onclick="scrollToSection('practice')"
+                  >Interactive Practice</a
+                >
+              </li>
+              <li>
+                <a href="#resources" onclick="scrollToSection('resources')"
+                  >Video Resources</a
+                >
+              </li>
+              <li>
+                <a href="#quiz" onclick="scrollToSection('quiz')"
+                  >Knowledge Check</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content">
+            <section id="lists" class="content-section">
+              <h2><i class="fas fa-list-ul"></i> HTML Lists</h2>
+
+              <div class="info-card">
+                <h3>Types of Lists</h3>
+                <p>
+                  HTML provides three types of lists: unordered lists (bullet
+                  points), ordered lists (numbered), and description lists
+                  (term-definition pairs).
+                </p>
+              </div>
+
+              <div class="list-types">
+                <div class="list-example">
+                  <h4>Unordered List (&lt;ul&gt;)</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  </div>
+                  <div class="list-result">
+                    <ul>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="list-example">
+                  <h4>Ordered List (&lt;ol&gt;)</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;Plan your website&lt;/li&gt;
+    &lt;li&gt;Write HTML structure&lt;/li&gt;
+    &lt;li&gt;Style with CSS&lt;/li&gt;
+    &lt;li&gt;Add JavaScript interactivity&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                  </div>
+                  <div class="list-result">
+                    <ol>
+                      <li>Plan your website</li>
+                      <li>Write HTML structure</li>
+                      <li>Style with CSS</li>
+                      <li>Add JavaScript interactivity</li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="list-example">
+                  <h4>Description List (&lt;dl&gt;)</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                  </div>
+                  <div class="list-result">
+                    <dl>
+                      <dt><strong>HTML</strong></dt>
+                      <dd>HyperText Markup Language</dd>
+                      <dt><strong>CSS</strong></dt>
+                      <dd>Cascading Style Sheets</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
+              <div class="interactive-demo">
+                <h3>Nested Lists Builder</h3>
+                <p>Create nested lists by placing one list inside another:</p>
+
+                <div class="nested-list-builder">
+                  <div class="builder-controls">
+                    <button class="btn-primary" onclick="addListItem()">
+                      Add Item
+                    </button>
+                    <button class="btn-secondary" onclick="addNestedList()">
+                      Add Nested List
+                    </button>
+                    <button class="btn-secondary" onclick="clearList()">
+                      Clear All
+                    </button>
+                  </div>
+
+                  <div class="builder-workspace">
+                    <div class="code-panel">
+                      <h4>HTML Code</h4>
+                      <pre id="list-code">
+&lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+&lt;/ul&gt;</pre
+                      >
+                    </div>
+                    <div class="preview-panel">
+                      <h4>Preview</h4>
+                      <div id="list-preview">
+                        <ul>
+                          <li>Item 1</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="links" class="content-section">
+              <h2><i class="fas fa-link"></i> Hyperlinks</h2>
+
+              <div class="info-card">
+                <h3>The Power of Links</h3>
+                <p>
+                  Hyperlinks are what make the web "web-like." They connect
+                  pages, sections, and resources together, allowing users to
+                  navigate seamlessly.
+                </p>
+              </div>
+
+              <div class="link-types">
+                <div class="link-example">
+                  <h4>External Links</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;a href="https://www.google.com" target="_blank"&gt;
+    Visit Google
+&lt;/a&gt;</code></pre>
+                  </div>
+                  <p class="link-description">
+                    Links to external websites. Use
+                    <code>target="_blank"</code> to open in new tab.
+                  </p>
+                </div>
+
+                <div class="link-example">
+                  <h4>Internal Links</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+&lt;a href="../index.html"&gt;Home&lt;/a&gt;</code></pre>
+                  </div>
+                  <p class="link-description">
+                    Links to other pages within your website.
+                  </p>
+                </div>
+
+                <div class="link-example">
+                  <h4>Anchor Links</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;a href="#section1"&gt;Go to Section 1&lt;/a&gt;
+&lt;h2 id="section1"&gt;Section 1&lt;/h2&gt;</code></pre>
+                  </div>
+                  <p class="link-description">
+                    Links to specific sections within the same page.
+                  </p>
+                </div>
+
+                <div class="link-example">
+                  <h4>Email Links</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;a href="mailto:contact@example.com"&gt;
+    Send Email
+&lt;/a&gt;</code></pre>
+                  </div>
+                  <p class="link-description">
+                    Links that open the user's email client.
+                  </p>
+                </div>
+              </div>
+
+              <div class="link-playground">
+                <h3>Link Generator</h3>
+                <div class="generator-form">
+                  <div class="form-group">
+                    <label for="link-text">Link Text:</label>
+                    <input
+                      type="text"
+                      id="link-text"
+                      placeholder="Enter link text"
+                      value="Click me"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="link-url">URL:</label>
+                    <input
+                      type="text"
+                      id="link-url"
+                      placeholder="Enter URL"
+                      value="https://example.com"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="link-target">Target:</label>
+                    <select id="link-target">
+                      <option value="_self">Same window</option>
+                      <option value="_blank">New tab</option>
+                    </select>
+                  </div>
+                  <button class="btn-primary" onclick="generateLink()">
+                    Generate Link
+                  </button>
+                </div>
+
+                <div class="generated-output">
+                  <h4>Generated HTML:</h4>
+                  <pre id="generated-link">
+&lt;a href="https://example.com" target="_self"&gt;Click me&lt;/a&gt;</pre
+                  >
+
+                  <h4>Preview:</h4>
+                  <div id="link-preview">
+                    <a href="https://example.com" target="_self">Click me</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="images" class="content-section">
+              <h2><i class="fas fa-image"></i> Images</h2>
+
+              <div class="info-card">
+                <h3>Adding Visual Content</h3>
+                <p>
+                  Images make web pages more engaging and informative. The
+                  &lt;img&gt; element is self-closing and requires the src
+                  attribute.
+                </p>
+              </div>
+
+              <div class="image-basics">
+                <h3>Image Syntax</h3>
+                <div class="code-example">
+                  <pre><code class="language-html">&lt;img src="image.jpg" alt="Description of image" width="300" height="200"&gt;</code></pre>
+                </div>
+
+                <div class="attribute-grid">
+                  <div class="attribute-card">
+                    <h4>src</h4>
+                    <p>Specifies the path to the image file (required)</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>alt</h4>
+                    <p>Alternative text for accessibility and SEO (required)</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>width</h4>
+                    <p>Sets the width of the image in pixels</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>height</h4>
+                    <p>Sets the height of the image in pixels</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="image-examples">
+                <h3>Image Types and Sources</h3>
+
+                <div class="example-grid">
+                  <div class="example-item">
+                    <h4>Local Images</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;img src="images/logo.png" alt="Company Logo"&gt;</code></pre>
+                    </div>
+                    <p>Images stored in your website's folder</p>
+                  </div>
+
+                  <div class="example-item">
+                    <h4>External Images</h4>
+                    <div class="code-example">
+                      <pre><code class="language-html">&lt;img src="https://via.placeholder.com/300x200" alt="Placeholder"&gt;</code></pre>
+                    </div>
+                    <p>Images hosted on other servers</p>
+                  </div>
+                </div>
+
+                <div class="live-image-demo">
+                  <h4>Live Example:</h4>
+                  <img
+                    src="https://via.placeholder.com/400x200/4F46E5/FFFFFF?text=Sample+Image"
+                    alt="Sample placeholder image"
+                    class="demo-image"
+                  />
+                  <p class="image-caption">
+                    This is a placeholder image showing how images appear in web
+                    pages.
+                  </p>
+                </div>
+              </div>
+
+              <div class="image-gallery-builder">
+                <h3>Image Gallery Builder</h3>
+                <p>Create a simple image gallery:</p>
+
+                <div class="gallery-controls">
+                  <input
+                    type="text"
+                    id="gallery-image-url"
+                    placeholder="Enter image URL"
+                  />
+                  <input
+                    type="text"
+                    id="gallery-image-alt"
+                    placeholder="Enter alt text"
+                  />
+                  <button class="btn-primary" onclick="addToGallery()">
+                    Add Image
+                  </button>
+                  <button class="btn-secondary" onclick="clearGallery()">
+                    Clear Gallery
+                  </button>
+                </div>
+
+                <div class="gallery-output">
+                  <div class="gallery-code">
+                    <h4>HTML Code:</h4>
+                    <pre id="gallery-html">
+&lt;div class="image-gallery"&gt;
+    &lt;!-- Images will appear here --&gt;
+&lt;/div&gt;</pre
+                    >
+                  </div>
+
+                  <div class="gallery-preview">
+                    <h4>Gallery Preview:</h4>
+                    <div id="gallery-display" class="image-gallery"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="practice" class="content-section">
+              <h2><i class="fas fa-gamepad"></i> Interactive Practice</h2>
+
+              <div class="practice-challenges">
+                <div class="challenge-card">
+                  <h3>Challenge 1: Create a Recipe List</h3>
+                  <p>
+                    Create a nested list showing ingredients and cooking steps:
+                  </p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="recipe-challenge"
+                      class="code-input"
+                      placeholder="Write your HTML here..."
+                    >
+&lt;h2&gt;Chocolate Chip Cookies&lt;/h2&gt;
+&lt;!-- Add your nested lists here --&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkRecipe()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="recipe-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 2: Navigation Menu</h3>
+                  <p>
+                    Create a navigation menu with links to different sections:
+                  </p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="nav-challenge"
+                      class="code-input"
+                      placeholder="Write your HTML here..."
+                    >
+&lt;nav&gt;
+    &lt;!-- Add your navigation links here --&gt;
+&lt;/nav&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkNav()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="nav-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 3: Photo Album</h3>
+                  <p>Create a photo album with images and captions:</p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="album-challenge"
+                      class="code-input"
+                      placeholder="Write your HTML here..."
+                    >
+&lt;div class="photo-album"&gt;
+    &lt;!-- Add your images with captions here --&gt;
+&lt;/div&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkAlbum()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="album-result" class="challenge-result"></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resources" class="content-section">
+              <h2>
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+
+              <div class="resource-grid">
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Lists Tutorial</h4>
+                    <p class="resource-author">Web Dev Simplified</p>
+                    <p class="resource-description">
+                      Complete guide to HTML lists with practical examples and
+                      best practices.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=09oErCBjVns"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Links and Images</h4>
+                    <p class="resource-author">Programming with Mosh</p>
+                    <p class="resource-description">
+                      Learn how to create hyperlinks and embed images
+                      effectively.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=qz0aGYrrlhU"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>MDN Links Reference</h4>
+                    <p class="resource-author">Mozilla Developer Network</p>
+                    <p class="resource-description">
+                      Comprehensive documentation on HTML links and their
+                      attributes.
+                    </p>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Read Documentation
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-image"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>Unsplash - Free Images</h4>
+                    <p class="resource-author">Unsplash</p>
+                    <p class="resource-description">
+                      High-quality, free images for your web projects.
+                    </p>
+                    <a
+                      href="https://unsplash.com/"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Browse Images <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>Can I Use - Web Standards</h4>
+                    <p class="resource-author">Can I Use</p>
+                    <p class="resource-description">
+                      Check browser support for HTML elements and attributes.
+                    </p>
+                    <a
+                      href="https://caniuse.com/"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Check Support <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-play-circle"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Lists on CodePen</h4>
+                    <p class="resource-author">CodePen Community</p>
+                    <p class="resource-description">
+                      Interactive examples of HTML lists you can modify and
+                      learn from.
+                    </p>
+                    <a
+                      href="https://codepen.io/search/pens?q=html%20lists"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Explore Examples <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+
+              <div class="quiz-container">
+                <div class="quiz-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" id="quiz-progress"></div>
+                  </div>
+                  <span class="progress-text"
+                    >Question <span id="current-q">1</span> of
+                    <span id="total-q">5</span></span
+                  >
+                </div>
+
+                <div id="quiz-content">
+                  <!-- Quiz questions will be loaded here -->
+                </div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="prev-btn"
+                    class="btn-secondary"
+                    onclick="prevQuestion()"
+                    disabled
+                  >
+                    Previous
+                  </button>
+                  <button
+                    id="next-btn"
+                    class="btn-primary"
+                    onclick="nextQuestion()"
+                  >
+                    Next
+                  </button>
+                  <button
+                    id="submit-btn"
+                    class="btn-success"
+                    onclick="submitQuiz()"
+                    style="display: none"
+                  >
+                    Submit Quiz
+                  </button>
+                </div>
+
+                <div id="quiz-results" class="quiz-results"></div>
+              </div>
+            </section>
+
+            <div class="navigation-buttons">
+              <a href="html-introduction.html" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> Previous: HTML Introduction
+              </a>
+              <a href="tables-forms.html" class="btn-primary">
+                Next: Tables & Forms <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Web Technology I Course. Master HTML content creation
+          through interactive learning.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic.js"></script>
+  </body>
+</html>

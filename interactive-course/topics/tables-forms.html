@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables and Forms - Interactive Learning</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit2.html">Unit 2</a>
+        <span class="separator">/</span>
+        <span class="current">Tables and Forms</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-table"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">2.3 Tables and Forms</h1>
+            <p class="topic-subtitle">
+              Data Organization & User Input • 120 minutes
+            </p>
+            <p class="topic-description">
+              Master HTML tables for organizing data and create interactive
+              forms to collect user input with validation and various input
+              types.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a href="#tables" onclick="scrollToSection('tables')"
+                  >HTML Tables</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#advanced-tables"
+                  onclick="scrollToSection('advanced-tables')"
+                  >Advanced Table Features</a
+                >
+              </li>
+              <li>
+                <a href="#forms" onclick="scrollToSection('forms')"
+                  >HTML Forms</a
+                >
+              </li>
+              <li>
+                <a href="#input-types" onclick="scrollToSection('input-types')"
+                  >Input Types</a
+                >
+              </li>
+              <li>
+                <a href="#validation" onclick="scrollToSection('validation')"
+                  >Form Validation</a
+                >
+              </li>
+              <li>
+                <a href="#practice" onclick="scrollToSection('practice')"
+                  >Interactive Practice</a
+                >
+              </li>
+              <li>
+                <a href="#resources" onclick="scrollToSection('resources')"
+                  >Video Resources</a
+                >
+              </li>
+              <li>
+                <a href="#quiz" onclick="scrollToSection('quiz')"
+                  >Knowledge Check</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content">
+            <section id="tables" class="content-section">
+              <h2><i class="fas fa-th"></i> HTML Tables</h2>
+
+              <div class="info-card">
+                <h3>Tables for Data Organization</h3>
+                <p>
+                  HTML tables are used to display data in rows and columns,
+                  making information easy to read and compare. They're perfect
+                  for displaying structured data like schedules, statistics, or
+                  product comparisons.
+                </p>
+              </div>
+
+              <div class="table-basics">
+                <h3>Basic Table Structure</h3>
+                <div class="code-example">
+                  <div class="code-header">
+                    <span class="code-title">Simple Table Example</span>
+                    <button class="btn-copy" onclick="copyCode(this)">
+                      <i class="fas fa-copy"></i> Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-html">&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John Doe&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Jane Smith&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;Los Angeles&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+
+                <div class="table-preview">
+                  <h4>Preview:</h4>
+                  <table class="demo-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>25</td>
+                        <td>New York</td>
+                      </tr>
+                      <tr>
+                        <td>Jane Smith</td>
+                        <td>30</td>
+                        <td>Los Angeles</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="table-elements">
+                <h3>Table Elements Explained</h3>
+                <div class="element-grid">
+                  <div class="element-card">
+                    <h4>&lt;table&gt;</h4>
+                    <p>
+                      The main container element that wraps all table content.
+                    </p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;thead&gt;</h4>
+                    <p>
+                      Groups header content, typically contains column headings.
+                    </p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;tbody&gt;</h4>
+                    <p>Groups the main body content of the table.</p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;tfoot&gt;</h4>
+                    <p>
+                      Groups footer content, like totals or summary information.
+                    </p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;tr&gt;</h4>
+                    <p>Defines a table row that contains cells.</p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;th&gt;</h4>
+                    <p>Header cell that represents column or row headings.</p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;td&gt;</h4>
+                    <p>Data cell that contains the actual table data.</p>
+                  </div>
+                  <div class="element-card">
+                    <h4>&lt;caption&gt;</h4>
+                    <p>Provides a title or description for the table.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="advanced-tables" class="content-section">
+              <h2><i class="fas fa-th-large"></i> Advanced Table Features</h2>
+
+              <div class="advanced-features">
+                <div class="feature-demo">
+                  <h3>Spanning Rows and Columns</h3>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Name&lt;/th&gt;
+        &lt;th colspan="2"&gt;Contact&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+        &lt;th&gt;Phone&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;John Doe&lt;/td&gt;
+        &lt;td&gt;john@email.com&lt;/td&gt;
+        &lt;td&gt;123-456-7890&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                  </div>
+
+                  <div class="table-preview">
+                    <table class="demo-table">
+                      <tr>
+                        <th rowspan="2">Name</th>
+                        <th colspan="2">Contact</th>
+                      </tr>
+                      <tr>
+                        <th>Email</th>
+                        <th>Phone</th>
+                      </tr>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>john@email.com</td>
+                        <td>123-456-7890</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="table-builder">
+                  <h3>Interactive Table Builder</h3>
+                  <div class="builder-controls">
+                    <div class="control-group">
+                      <label
+                        >Rows:
+                        <input
+                          type="number"
+                          id="table-rows"
+                          value="3"
+                          min="1"
+                          max="10"
+                      /></label>
+                      <label
+                        >Columns:
+                        <input
+                          type="number"
+                          id="table-cols"
+                          value="3"
+                          min="1"
+                          max="8"
+                      /></label>
+                    </div>
+                    <div class="control-group">
+                      <label
+                        ><input type="checkbox" id="table-header" checked />
+                        Include Header</label
+                      >
+                      <label
+                        ><input type="checkbox" id="table-footer" /> Include
+                        Footer</label
+                      >
+                    </div>
+                    <button class="btn-primary" onclick="generateTable()">
+                      Generate Table
+                    </button>
+                  </div>
+
+                  <div class="table-output">
+                    <div class="output-section">
+                      <h4>Generated HTML:</h4>
+                      <pre id="table-html-output" class="code-output"></pre>
+                    </div>
+                    <div class="output-section">
+                      <h4>Table Preview:</h4>
+                      <div id="table-preview-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="forms" class="content-section">
+              <h2><i class="fas fa-wpforms"></i> HTML Forms</h2>
+
+              <div class="info-card">
+                <h3>Collecting User Input</h3>
+                <p>
+                  HTML forms are used to collect user input and send it to a
+                  server for processing. They're essential for user
+                  registration, contact forms, surveys, and any interaction that
+                  requires user data.
+                </p>
+              </div>
+
+              <div class="form-basics">
+                <h3>Basic Form Structure</h3>
+                <div class="code-example">
+                  <pre><code class="language-html">&lt;form action="/submit" method="post"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+
+                <div class="form-demo">
+                  <h4>Live Form Example:</h4>
+                  <form class="demo-form" onsubmit="return false;">
+                    <div class="form-group">
+                      <label for="demo-username">Username:</label>
+                      <input
+                        type="text"
+                        id="demo-username"
+                        name="username"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="demo-email">Email:</label>
+                      <input
+                        type="email"
+                        id="demo-email"
+                        name="email"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="demo-message">Message:</label>
+                      <textarea
+                        id="demo-message"
+                        name="message"
+                        rows="4"
+                      ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="form-attributes">
+                <h3>Important Form Attributes</h3>
+                <div class="attribute-grid">
+                  <div class="attribute-card">
+                    <h4>action</h4>
+                    <p>Specifies where to send the form data when submitted</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>method</h4>
+                    <p>Defines how to send the data (GET or POST)</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>enctype</h4>
+                    <p>Specifies how form data should be encoded</p>
+                  </div>
+                  <div class="attribute-card">
+                    <h4>target</h4>
+                    <p>Determines where to display the response</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="input-types" class="content-section">
+              <h2><i class="fas fa-keyboard"></i> Input Types</h2>
+
+              <div class="input-showcase">
+                <h3>HTML5 Input Types</h3>
+                <div class="input-grid">
+                  <div class="input-demo">
+                    <h4>Text Input</h4>
+                    <code>&lt;input type="text"&gt;</code>
+                    <input
+                      type="text"
+                      placeholder="Enter text"
+                      class="demo-input"
+                    />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Password</h4>
+                    <code>&lt;input type="password"&gt;</code>
+                    <input
+                      type="password"
+                      placeholder="Enter password"
+                      class="demo-input"
+                    />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Email</h4>
+                    <code>&lt;input type="email"&gt;</code>
+                    <input
+                      type="email"
+                      placeholder="Enter email"
+                      class="demo-input"
+                    />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Number</h4>
+                    <code>&lt;input type="number"&gt;</code>
+                    <input
+                      type="number"
+                      placeholder="Enter number"
+                      class="demo-input"
+                    />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Date</h4>
+                    <code>&lt;input type="date"&gt;</code>
+                    <input type="date" class="demo-input" />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Time</h4>
+                    <code>&lt;input type="time"&gt;</code>
+                    <input type="time" class="demo-input" />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Color</h4>
+                    <code>&lt;input type="color"&gt;</code>
+                    <input type="color" class="demo-input" />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Range</h4>
+                    <code>&lt;input type="range"&gt;</code>
+                    <input type="range" min="0" max="100" class="demo-input" />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Checkbox</h4>
+                    <code>&lt;input type="checkbox"&gt;</code>
+                    <label class="checkbox-label">
+                      <input type="checkbox" class="demo-input" /> Check me
+                    </label>
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Radio Button</h4>
+                    <code>&lt;input type="radio"&gt;</code>
+                    <div class="radio-group">
+                      <label
+                        ><input type="radio" name="demo-radio" value="1" />
+                        Option 1</label
+                      >
+                      <label
+                        ><input type="radio" name="demo-radio" value="2" />
+                        Option 2</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>File Upload</h4>
+                    <code>&lt;input type="file"&gt;</code>
+                    <input type="file" class="demo-input" />
+                  </div>
+
+                  <div class="input-demo">
+                    <h4>Select Dropdown</h4>
+                    <code>&lt;select&gt;</code>
+                    <select class="demo-input">
+                      <option>Choose option</option>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                      <option>Option 3</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-builder">
+                <h3>Form Builder Tool</h3>
+                <div class="builder-interface">
+                  <div class="element-palette">
+                    <h4>Available Elements:</h4>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('text')"
+                    >
+                      Text Input
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('email')"
+                    >
+                      Email
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('password')"
+                    >
+                      Password
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('textarea')"
+                    >
+                      Textarea
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('select')"
+                    >
+                      Select
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('checkbox')"
+                    >
+                      Checkbox
+                    </button>
+                    <button
+                      class="element-btn"
+                      onclick="addFormElement('radio')"
+                    >
+                      Radio
+                    </button>
+                    <button class="element-btn" onclick="clearForm()">
+                      Clear All
+                    </button>
+                  </div>
+
+                  <div class="form-workspace">
+                    <div class="form-code">
+                      <h4>Generated HTML:</h4>
+                      <pre id="form-html-output">
+&lt;form&gt;
+    &lt;!-- Form elements will appear here --&gt;
+&lt;/form&gt;</pre
+                      >
+                    </div>
+
+                    <div class="form-preview">
+                      <h4>Form Preview:</h4>
+                      <form id="generated-form" class="generated-form">
+                        <!-- Generated form elements will appear here -->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="validation" class="content-section">
+              <h2><i class="fas fa-check-circle"></i> Form Validation</h2>
+
+              <div class="info-card">
+                <h3>Client-Side Validation</h3>
+                <p>
+                  HTML5 provides built-in validation attributes that help ensure
+                  users enter valid data before submitting forms. This improves
+                  user experience and data quality.
+                </p>
+              </div>
+
+              <div class="validation-examples">
+                <h3>Validation Attributes</h3>
+
+                <div class="validation-demo">
+                  <h4>Required Fields</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;input type="text" name="username" required&gt;</code></pre>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="This field is required"
+                    required
+                    class="demo-input"
+                  />
+                </div>
+
+                <div class="validation-demo">
+                  <h4>Pattern Validation</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+       placeholder="123-456-7890"&gt;</code></pre>
+                  </div>
+                  <input
+                    type="text"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    placeholder="123-456-7890"
+                    class="demo-input"
+                  />
+                </div>
+
+                <div class="validation-demo">
+                  <h4>Min/Max Length</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;input type="password" minlength="8" maxlength="20"&gt;</code></pre>
+                  </div>
+                  <input
+                    type="password"
+                    minlength="8"
+                    maxlength="20"
+                    placeholder="Password (8-20 chars)"
+                    class="demo-input"
+                  />
+                </div>
+
+                <div class="validation-demo">
+                  <h4>Min/Max Values</h4>
+                  <div class="code-example">
+                    <pre><code class="language-html">&lt;input type="number" min="1" max="100"&gt;</code></pre>
+                  </div>
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    placeholder="Number between 1-100"
+                    class="demo-input"
+                  />
+                </div>
+              </div>
+
+              <div class="validation-playground">
+                <h3>Validation Playground</h3>
+                <p>
+                  Try submitting this form with invalid data to see validation
+                  in action:
+                </p>
+
+                <form
+                  class="validation-form"
+                  onsubmit="handleValidation(event)"
+                >
+                  <div class="form-group">
+                    <label for="val-name">Full Name (required):</label>
+                    <input type="text" id="val-name" name="name" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="val-email">Email (required):</label>
+                    <input type="email" id="val-email" name="email" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="val-age">Age (18-100):</label>
+                    <input
+                      type="number"
+                      id="val-age"
+                      name="age"
+                      min="18"
+                      max="100"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="val-phone">Phone (XXX-XXX-XXXX):</label>
+                    <input
+                      type="text"
+                      id="val-phone"
+                      name="phone"
+                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      placeholder="123-456-7890"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="val-website">Website URL:</label>
+                    <input
+                      type="url"
+                      id="val-website"
+                      name="website"
+                      placeholder="https://example.com"
+                    />
+                  </div>
+
+                  <button type="submit" class="btn-primary">
+                    Validate & Submit
+                  </button>
+                </form>
+
+                <div id="validation-result" class="validation-result"></div>
+              </div>
+            </section>
+
+            <section id="practice" class="content-section">
+              <h2><i class="fas fa-gamepad"></i> Interactive Practice</h2>
+
+              <div class="practice-challenges">
+                <div class="challenge-card">
+                  <h3>Challenge 1: Student Grades Table</h3>
+                  <p>
+                    Create a table showing student names, subjects, and grades
+                    with proper headers and styling:
+                  </p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="table-challenge"
+                      class="code-input"
+                      placeholder="Create your table HTML here..."
+                    >
+&lt;table&gt;
+    &lt;!-- Add your table structure here --&gt;
+&lt;/table&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkTable()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="table-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 2: Contact Form</h3>
+                  <p>
+                    Create a contact form with name, email, subject, and message
+                    fields:
+                  </p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="form-challenge"
+                      class="code-input"
+                      placeholder="Create your form HTML here..."
+                    >
+&lt;form&gt;
+    &lt;!-- Add your form fields here --&gt;
+&lt;/form&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkForm()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="form-result" class="challenge-result"></div>
+                </div>
+
+                <div class="challenge-card">
+                  <h3>Challenge 3: Registration Form with Validation</h3>
+                  <p>
+                    Create a user registration form with proper validation
+                    attributes:
+                  </p>
+
+                  <div class="challenge-editor">
+                    <textarea
+                      id="register-challenge"
+                      class="code-input"
+                      placeholder="Create your registration form here..."
+                    >
+&lt;form&gt;
+    &lt;!-- Add registration fields with validation --&gt;
+&lt;/form&gt;
+                    </textarea>
+                    <button class="btn-primary" onclick="checkRegistration()">
+                      Check Solution
+                    </button>
+                  </div>
+
+                  <div id="register-result" class="challenge-result"></div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resources" class="content-section">
+              <h2>
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+
+              <div class="resource-grid">
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Tables Tutorial</h4>
+                    <p class="resource-author">Web Dev Simplified</p>
+                    <p class="resource-description">
+                      Complete guide to creating and styling HTML tables with
+                      advanced features.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=dK8bDXQOCVE"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Forms Complete Tutorial</h4>
+                    <p class="resource-author">Traversy Media</p>
+                    <p class="resource-description">
+                      Comprehensive tutorial covering all HTML form elements and
+                      validation techniques.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=fNcJuPIZ2WE"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML5 Form Validation</h4>
+                    <p class="resource-author">Programming with Mosh</p>
+                    <p class="resource-description">
+                      Learn client-side form validation techniques using HTML5
+                      attributes.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=In0nB0ABaUk"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Watch Video <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>MDN HTML Tables Guide</h4>
+                    <p class="resource-author">Mozilla Developer Network</p>
+                    <p class="resource-description">
+                      Comprehensive documentation on HTML table elements and
+                      best practices.
+                    </p>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Read Documentation
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>MDN HTML Forms Guide</h4>
+                    <p class="resource-author">Mozilla Developer Network</p>
+                    <p class="resource-description">
+                      Complete guide to HTML forms, input types, and form
+                      handling.
+                    </p>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Learn/Forms"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Read Documentation
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="resource-thumbnail">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                  <div class="resource-content">
+                    <h4>HTML Form Generator</h4>
+                    <p class="resource-author">Form Builder Tools</p>
+                    <p class="resource-description">
+                      Online tools to help you generate HTML forms quickly and
+                      efficiently.
+                    </p>
+                    <a
+                      href="https://www.jotform.com/"
+                      target="_blank"
+                      class="resource-link"
+                    >
+                      Try Tool <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+
+              <div class="quiz-container">
+                <div class="quiz-progress">
+                  <div class="progress-bar">
+                    <div class="progress-fill" id="quiz-progress"></div>
+                  </div>
+                  <span class="progress-text"
+                    >Question <span id="current-q">1</span> of
+                    <span id="total-q">8</span></span
+                  >
+                </div>
+
+                <div id="quiz-content">
+                  <!-- Quiz questions will be loaded here -->
+                </div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="prev-btn"
+                    class="btn-secondary"
+                    onclick="prevQuestion()"
+                    disabled
+                  >
+                    Previous
+                  </button>
+                  <button
+                    id="next-btn"
+                    class="btn-primary"
+                    onclick="nextQuestion()"
+                  >
+                    Next
+                  </button>
+                  <button
+                    id="submit-btn"
+                    class="btn-success"
+                    onclick="submitQuiz()"
+                    style="display: none"
+                  >
+                    Submit Quiz
+                  </button>
+                </div>
+
+                <div id="quiz-results" class="quiz-results"></div>
+              </div>
+            </section>
+
+            <div class="navigation-buttons">
+              <a href="lists-links-images.html" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> Previous: Lists, Links &
+                Images
+              </a>
+              <a href="semantic-html.html" class="btn-primary">
+                Next: Semantic HTML <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Web Technology I Course. Master HTML tables and forms
+          through interactive learning.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic.js"></script>
+  </body>
+</html>
