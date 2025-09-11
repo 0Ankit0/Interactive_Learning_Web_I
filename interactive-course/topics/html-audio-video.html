@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Audio and Video Elements - Interactive Web Course</title>
+    <link rel="stylesheet" href="../scss/main.scss" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="../index.html">Interactive Web Course</a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../units/unit1.html">Unit 1</a></li>
+          <li><a href="../units/unit2.html" class="active">Unit 2</a></li>
+          <li><a href="../units/unit3.html">Unit 3</a></li>
+          <li><a href="../units/unit4.html">Unit 4</a></li>
+          <li><a href="../units/unit5.html">Unit 5</a></li>
+          <li><a href="../units/unit6.html">Unit 6</a></li>
+          <li><a href="../units/unit7.html">Unit 7</a></li>
+        </ul>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit2.html">Unit 2: HTML</a>
+        <span class="separator">/</span>
+        <span class="current">Audio and Video Elements</span>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              <i class="fas fa-play-circle"></i>
+              HTML Audio and Video Elements
+            </h1>
+            <p class="hero-description">
+              Master multimedia content integration in HTML with audio and video
+              elements, learning modern best practices for accessibility,
+              compatibility, and user experience.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Core Elements</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Attributes</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Formats</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Interactive</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="visual-element">
+              <i class="fas fa-film"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Learning Objectives -->
+        <section class="learning-objectives">
+          <div class="container">
+            <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
+            <div class="objectives-grid">
+              <div class="objective-card">
+                <div class="objective-icon">
+                  <i class="fas fa-volume-up"></i>
+                </div>
+                <h3>Audio Integration</h3>
+                <p>
+                  Implement HTML audio elements with proper controls, sources,
+                  and fallbacks for cross-browser compatibility.
+                </p>
+              </div>
+              <div class="objective-card">
+                <div class="objective-icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <h3>Video Embedding</h3>
+                <p>
+                  Create responsive video players with multiple formats, poster
+                  images, and accessibility features.
+                </p>
+              </div>
+              <div class="objective-card">
+                <div class="objective-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Optimization</h3>
+                <p>
+                  Optimize multimedia content for mobile devices with proper
+                  bandwidth and user experience considerations.
+                </p>
+              </div>
+              <div class="objective-card">
+                <div class="objective-icon">
+                  <i class="fas fa-universal-access"></i>
+                </div>
+                <h3>Accessibility</h3>
+                <p>
+                  Implement captions, transcripts, and other accessibility
+                  features for inclusive multimedia experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section class="content-section">
+          <h2><i class="fas fa-volume-up"></i> HTML Audio Element</h2>
+          <p class="section-intro">
+            The HTML <code>&lt;audio&gt;</code> element provides a standard way
+            to embed audio content in web pages with native browser controls and
+            JavaScript API access.
+          </p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Basic Syntax</h3>
+              <p>
+                Simple audio embedding with essential attributes for immediate
+                playback functionality.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3>Advanced Controls</h3>
+              <p>
+                Custom controls, preloading strategies, and programmatic audio
+                manipulation.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-file-audio"></i>
+              </div>
+              <h3>Format Support</h3>
+              <p>
+                Multiple audio formats with fallback sources for maximum
+                compatibility.
+              </p>
+            </div>
+          </div>
+
+          <!-- Audio Basic Example -->
+          <div class="code-example">
+            <div class="example-header">
+              <h4><i class="fas fa-code"></i> Basic Audio Element</h4>
+              <span class="example-type">HTML</span>
+            </div>
+            <pre><code class="language-html">&lt;!-- Simple audio with controls --&gt;
+&lt;audio controls&gt;
+    &lt;source src="audio/sample.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio/sample.ogg" type="audio/ogg"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 audio. 
+       &lt;a href="audio/sample.mp3"&gt;Download the audio&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/audio&gt;
+
+&lt;!-- Audio with additional attributes --&gt;
+&lt;audio controls preload="metadata" loop&gt;
+    &lt;source src="audio/background.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio/background.wav" type="audio/wav"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+          </div>
+
+          <!-- Interactive Audio Demo -->
+          <div class="interactive-demo">
+            <h4><i class="fas fa-play"></i> Interactive Audio Demo</h4>
+            <p>Try different audio configurations and see how they work:</p>
+
+            <div class="audio-demos">
+              <div class="demo-item">
+                <h5>Basic Audio Player</h5>
+                <audio controls>
+                  <source
+                    src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="demo-info">
+                  <strong>Features:</strong> Basic controls (play, pause,
+                  volume, seek)
+                </div>
+              </div>
+
+              <div class="demo-item">
+                <h5>Auto-looping Audio</h5>
+                <audio controls loop id="loopingAudio">
+                  <source
+                    src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="demo-info">
+                  <strong>Features:</strong> Automatic looping when playback
+                  ends
+                </div>
+              </div>
+
+              <div class="demo-item">
+                <h5>Custom Controls</h5>
+                <audio id="customAudio">
+                  <source
+                    src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"
+                    type="audio/mpeg"
+                  />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="custom-controls">
+                  <button class="btn btn-primary" id="playBtn">
+                    <i class="fas fa-play"></i> Play
+                  </button>
+                  <button class="btn btn-secondary" id="pauseBtn">
+                    <i class="fas fa-pause"></i> Pause
+                  </button>
+                  <button class="btn btn-warning" id="stopBtn">
+                    <i class="fas fa-stop"></i> Stop
+                  </button>
+                  <input
+                    type="range"
+                    id="volumeControl"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    value="0.5"
+                  />
+                  <span id="volumeDisplay">50%</span>
+                </div>
+                <div class="demo-info">
+                  <strong>Features:</strong> JavaScript-controlled custom
+                  interface
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Audio Attributes Table -->
+          <div class="info-table">
+            <h4><i class="fas fa-list"></i> Audio Element Attributes</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>controls</code></td>
+                  <td>Shows default audio controls</td>
+                  <td><code>&lt;audio controls&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>autoplay</code></td>
+                  <td>Starts playing automatically (use cautiously)</td>
+                  <td><code>&lt;audio autoplay&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>loop</code></td>
+                  <td>Repeats audio when finished</td>
+                  <td><code>&lt;audio loop&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>muted</code></td>
+                  <td>Starts with audio muted</td>
+                  <td><code>&lt;audio muted&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>preload</code></td>
+                  <td>How much to preload (none, metadata, auto)</td>
+                  <td><code>&lt;audio preload="metadata"&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>src</code></td>
+                  <td>Direct source URL</td>
+                  <td><code>&lt;audio src="audio.mp3"&gt;</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-video"></i> HTML Video Element</h2>
+          <p class="section-intro">
+            The HTML <code>&lt;video&gt;</code> element enables native video
+            playback in browsers with comprehensive controls, accessibility
+            features, and responsive capabilities.
+          </p>
+
+          <!-- Video Features -->
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <h3>Native Playback</h3>
+              <p>
+                Built-in browser video playback without plugins or external
+                dependencies.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </div>
+              <h3>Responsive Design</h3>
+              <p>
+                Automatic scaling and responsive behavior for different screen
+                sizes.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-closed-captioning"></i>
+              </div>
+              <h3>Accessibility</h3>
+              <p>
+                Built-in support for captions, subtitles, and screen reader
+                compatibility.
+              </p>
+            </div>
+          </div>
+
+          <!-- Video Example -->
+          <div class="code-example">
+            <div class="example-header">
+              <h4><i class="fas fa-code"></i> Basic Video Element</h4>
+              <span class="example-type">HTML</span>
+            </div>
+            <pre><code class="language-html">&lt;!-- Basic video with multiple sources --&gt;
+&lt;video controls width="600" height="400"&gt;
+    &lt;source src="video/sample.mp4" type="video/mp4"&gt;
+    &lt;source src="video/sample.webm" type="video/webm"&gt;
+    &lt;source src="video/sample.ogv" type="video/ogg"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 video. 
+       &lt;a href="video/sample.mp4"&gt;Download the video&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/video&gt;
+
+&lt;!-- Video with poster and tracks --&gt;
+&lt;video controls poster="images/video-poster.jpg" preload="metadata"&gt;
+    &lt;source src="video/lecture.mp4" type="video/mp4"&gt;
+    &lt;source src="video/lecture.webm" type="video/webm"&gt;
+    
+    &lt;!-- Subtitle tracks --&gt;
+    &lt;track kind="subtitles" src="subtitles/english.vtt" srclang="en" label="English"&gt;
+    &lt;track kind="subtitles" src="subtitles/spanish.vtt" srclang="es" label="Español"&gt;
+    
+    &lt;!-- Fallback content --&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 video.&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+          </div>
+
+          <!-- Interactive Video Demo -->
+          <div class="interactive-demo">
+            <h4><i class="fas fa-play"></i> Interactive Video Demo</h4>
+            <p>Experience different video configurations:</p>
+
+            <div class="video-demos">
+              <div class="demo-item">
+                <h5>Standard Video Player</h5>
+                <video
+                  controls
+                  width="400"
+                  poster="https://via.placeholder.com/400x225/4f46e5/ffffff?text=Video+Poster"
+                >
+                  <source
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video element.
+                </video>
+                <div class="demo-info">
+                  <strong>Features:</strong> Standard controls, poster image,
+                  responsive design
+                </div>
+              </div>
+
+              <div class="demo-item">
+                <h5>Custom Styled Player</h5>
+                <div class="custom-video-container">
+                  <video
+                    id="customVideo"
+                    poster="https://via.placeholder.com/400x225/10b981/ffffff?text=Custom+Player"
+                  >
+                    <source
+                      src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video element.
+                  </video>
+                  <div class="video-overlay">
+                    <button class="play-overlay-btn" id="overlayPlayBtn">
+                      <i class="fas fa-play"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="custom-video-controls">
+                  <button class="btn btn-primary" id="videoPlayBtn">
+                    <i class="fas fa-play"></i>
+                  </button>
+                  <button class="btn btn-secondary" id="videoPauseBtn">
+                    <i class="fas fa-pause"></i>
+                  </button>
+                  <button class="btn btn-warning" id="videoMuteBtn">
+                    <i class="fas fa-volume-up"></i>
+                  </button>
+                  <button class="btn btn-info" id="fullscreenBtn">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                  <div class="progress-container">
+                    <input
+                      type="range"
+                      id="progressBar"
+                      min="0"
+                      max="100"
+                      value="0"
+                    />
+                    <span id="timeDisplay">0:00 / 0:00</span>
+                  </div>
+                </div>
+                <div class="demo-info">
+                  <strong>Features:</strong> Custom controls, overlay play
+                  button, progress tracking
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Attributes Table -->
+          <div class="info-table">
+            <h4><i class="fas fa-list"></i> Video Element Attributes</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>controls</code></td>
+                  <td>Shows default video controls</td>
+                  <td><code>&lt;video controls&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>width/height</code></td>
+                  <td>Sets video dimensions</td>
+                  <td><code>&lt;video width="600" height="400"&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>poster</code></td>
+                  <td>Shows image before video loads</td>
+                  <td><code>&lt;video poster="thumb.jpg"&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>autoplay</code></td>
+                  <td>Starts playing automatically (restricted)</td>
+                  <td><code>&lt;video autoplay muted&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>loop</code></td>
+                  <td>Repeats video when finished</td>
+                  <td><code>&lt;video loop&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>muted</code></td>
+                  <td>Starts with audio muted</td>
+                  <td><code>&lt;video muted&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>preload</code></td>
+                  <td>Preloading strategy</td>
+                  <td><code>&lt;video preload="none"&gt;</code></td>
+                </tr>
+                <tr>
+                  <td><code>playsinline</code></td>
+                  <td>Plays inline on mobile devices</td>
+                  <td><code>&lt;video playsinline&gt;</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Format Support Section -->
+        <section class="content-section">
+          <h2>
+            <i class="fas fa-file-code"></i> Format Support and Best Practices
+          </h2>
+          <p class="section-intro">
+            Understanding format compatibility and optimization strategies for
+            maximum reach and performance.
+          </p>
+
+          <div class="format-comparison">
+            <div class="format-section">
+              <h3><i class="fas fa-file-audio"></i> Audio Formats</h3>
+              <div class="format-grid">
+                <div class="format-card mp3">
+                  <div class="format-header">
+                    <h4>MP3</h4>
+                    <span class="support-badge excellent">Excellent</span>
+                  </div>
+                  <div class="format-details">
+                    <p>
+                      <strong>Compatibility:</strong> Universal browser support
+                    </p>
+                    <p>
+                      <strong>Quality:</strong> Good compression, acceptable
+                      quality
+                    </p>
+                    <p>
+                      <strong>Use Case:</strong> Primary format for web audio
+                    </p>
+                  </div>
+                </div>
+                <div class="format-card ogg">
+                  <div class="format-header">
+                    <h4>OGG</h4>
+                    <span class="support-badge good">Good</span>
+                  </div>
+                  <div class="format-details">
+                    <p>
+                      <strong>Compatibility:</strong> Firefox, Chrome, Opera
+                    </p>
+                    <p><strong>Quality:</strong> Better compression than MP3</p>
+                    <p>
+                      <strong>Use Case:</strong> Fallback for open source
+                      browsers
+                    </p>
+                  </div>
+                </div>
+                <div class="format-card wav">
+                  <div class="format-header">
+                    <h4>WAV</h4>
+                    <span class="support-badge limited">Limited</span>
+                  </div>
+                  <div class="format-details">
+                    <p><strong>Compatibility:</strong> Most browsers</p>
+                    <p><strong>Quality:</strong> Uncompressed, large files</p>
+                    <p>
+                      <strong>Use Case:</strong> High-quality audio, short clips
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="format-section">
+              <h3><i class="fas fa-file-video"></i> Video Formats</h3>
+              <div class="format-grid">
+                <div class="format-card mp4">
+                  <div class="format-header">
+                    <h4>MP4 (H.264)</h4>
+                    <span class="support-badge excellent">Excellent</span>
+                  </div>
+                  <div class="format-details">
+                    <p>
+                      <strong>Compatibility:</strong> Universal browser support
+                    </p>
+                    <p>
+                      <strong>Quality:</strong> Excellent compression and
+                      quality
+                    </p>
+                    <p>
+                      <strong>Use Case:</strong> Primary format for web video
+                    </p>
+                  </div>
+                </div>
+                <div class="format-card webm">
+                  <div class="format-header">
+                    <h4>WebM</h4>
+                    <span class="support-badge good">Good</span>
+                  </div>
+                  <div class="format-details">
+                    <p>
+                      <strong>Compatibility:</strong> Chrome, Firefox, Opera
+                    </p>
+                    <p>
+                      <strong>Quality:</strong> Good compression, open standard
+                    </p>
+                    <p>
+                      <strong>Use Case:</strong> Fallback for open source
+                      browsers
+                    </p>
+                  </div>
+                </div>
+                <div class="format-card ogg-video">
+                  <div class="format-header">
+                    <h4>OGV</h4>
+                    <span class="support-badge limited">Limited</span>
+                  </div>
+                  <div class="format-details">
+                    <p>
+                      <strong>Compatibility:</strong> Firefox, older browsers
+                    </p>
+                    <p><strong>Quality:</strong> Decent compression</p>
+                    <p><strong>Use Case:</strong> Legacy browser support</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Best Practices -->
+          <div class="best-practices">
+            <h3><i class="fas fa-lightbulb"></i> Best Practices</h3>
+            <div class="practice-grid">
+              <div class="practice-card">
+                <div class="practice-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h4>Mobile Optimization</h4>
+                <ul>
+                  <li>Use <code>playsinline</code> attribute for iOS</li>
+                  <li>Provide multiple quality options</li>
+                  <li>Consider data usage implications</li>
+                  <li>Test autoplay policies on mobile</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <div class="practice-icon">
+                  <i class="fas fa-universal-access"></i>
+                </div>
+                <h4>Accessibility</h4>
+                <ul>
+                  <li>Always provide captions/subtitles</li>
+                  <li>Include transcript alternatives</li>
+                  <li>Use descriptive poster images</li>
+                  <li>Ensure keyboard navigation works</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <div class="practice-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h4>Performance</h4>
+                <ul>
+                  <li>Use <code>preload="metadata"</code> by default</li>
+                  <li>Optimize file sizes and compression</li>
+                  <li>Consider lazy loading for below-fold content</li>
+                  <li>Implement progressive enhancement</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <div class="practice-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>User Experience</h4>
+                <ul>
+                  <li>Respect user's autoplay preferences</li>
+                  <li>Provide clear play/pause controls</li>
+                  <li>Show loading states and buffering</li>
+                  <li>Handle errors gracefully</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Advanced Features Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-magic"></i> Advanced Multimedia Features</h2>
+
+          <!-- JavaScript API Example -->
+          <div class="code-example">
+            <div class="example-header">
+              <h4><i class="fas fa-code"></i> JavaScript Media API</h4>
+              <span class="example-type">JavaScript</span>
+            </div>
+            <pre><code class="language-javascript">// Get media element
+const video = document.getElementById('myVideo');
+
+// Event listeners
+video.addEventListener('loadstart', () => {
+    console.log('Started loading');
+});
+
+video.addEventListener('canplay', () => {
+    console.log('Can start playing');
+});
+
+video.addEventListener('timeupdate', () => {
+    const progress = (video.currentTime / video.duration) * 100;
+    updateProgressBar(progress);
+});
+
+// Control functions
+function playVideo() {
+    video.play().catch(error => {
+        console.error('Error playing video:', error);
+    });
+}
+
+function pauseVideo() {
+    video.pause();
+}
+
+function seekTo(seconds) {
+    video.currentTime = seconds;
+}
+
+function setVolume(level) {
+    video.volume = Math.max(0, Math.min(1, level));
+}
+
+// Advanced features
+function requestFullscreen() {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+    }
+}
+
+function captureFrame() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0);
+    return canvas.toDataURL();
+}</code></pre>
+          </div>
+
+          <!-- Responsive Video -->
+          <div class="code-example">
+            <div class="example-header">
+              <h4><i class="fas fa-mobile-alt"></i> Responsive Video CSS</h4>
+              <span class="example-type">CSS</span>
+            </div>
+            <pre><code class="language-css">/* Responsive video container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain' for letterboxing */
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .video-container {
+        padding-bottom: 75%; /* 4:3 for mobile */
+    }
+    
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Custom controls styling */
+.custom-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    background: #007bff;
+    transition: width 0.1s;
+}</code></pre>
+          </div>
+        </section>
+
+        <!-- Videos and Resources -->
+        <section class="video-resources">
+          <h2>
+            <i class="fas fa-play-circle"></i> Video Tutorials & Resources
+          </h2>
+
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="card-content">
+                <h4>HTML5 Audio & Video Complete Guide</h4>
+                <p>
+                  Comprehensive tutorial covering all aspects of HTML5
+                  multimedia elements, from basic implementation to advanced
+                  JavaScript controls.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=rnBqsH4jrVs"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  <i class="fas fa-play"></i> Watch Tutorial
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="card-content">
+                <h4>Responsive Video Techniques</h4>
+                <p>
+                  Learn how to make videos responsive, implement lazy loading,
+                  and optimize for different devices and screen sizes.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=9YffrCViTVk"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  <i class="fas fa-play"></i> Watch Tutorial
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="card-content">
+                <h4>Custom Video Players with JavaScript</h4>
+                <p>
+                  Build custom video players with JavaScript, including progress
+                  tracking, custom controls, and playlist functionality.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=ZeNyjnneq_w"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  <i class="fas fa-play"></i> Watch Tutorial
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="card-content">
+                <h4>Web Accessibility for Media</h4>
+                <p>
+                  Implement captions, transcripts, and other accessibility
+                  features for inclusive multimedia experiences on the web.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=iWO5N3n1DXU"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  <i class="fas fa-play"></i> Watch Tutorial
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="card-content">
+                <h4>MDN Web Docs - Video Element</h4>
+                <p>
+                  Complete reference documentation for the HTML video element
+                  with examples, browser compatibility, and best practices.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"
+                  class="btn btn-outline"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Read Documentation
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="card-content">
+                <h4>Can I Use - Media Elements</h4>
+                <p>
+                  Check browser compatibility for HTML5 audio and video elements
+                  across different browsers and versions.
+                </p>
+                <a
+                  href="https://caniuse.com/audio"
+                  class="btn btn-outline"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Check Compatibility
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="card-content">
+                <h4>CodePen - Media Examples</h4>
+                <p>
+                  Collection of interactive examples and code snippets
+                  demonstrating various audio and video implementations.
+                </p>
+                <a
+                  href="https://codepen.io/search/pens?q=html5%20video"
+                  class="btn btn-outline"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Examples
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="card-content">
+                <h4>W3Schools - HTML Media</h4>
+                <p>
+                  Interactive tutorials and exercises for learning HTML5 audio
+                  and video elements with hands-on examples.
+                </p>
+                <a
+                  href="https://www.w3schools.com/html/html5_video.asp"
+                  class="btn btn-outline"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> Start Learning
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Quiz -->
+        <section class="quiz-section">
+          <h2><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+          <div class="quiz-container">
+            <div class="quiz-question">
+              <h4>
+                Question 1: Which attribute is required to show default video
+                controls?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>autoplay</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>controls</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>preload</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>muted</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                Question 2: What is the purpose of the poster attribute in video
+                elements?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span>To set video dimensions</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span>To show an image before video loads</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span>To add captions to video</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span>To enable fullscreen mode</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                Question 3: Which preload value loads only basic video
+                information?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>none</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>metadata</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>auto</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>buffered</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <button class="btn btn-primary quiz-submit">
+              <i class="fas fa-check"></i> Check Answers
+            </button>
+
+            <div class="quiz-results" style="display: none">
+              <h4>Quiz Results:</h4>
+              <div class="results-summary">
+                <span class="score">Score: <span id="score">0</span>/3</span>
+                <span class="percentage"
+                  >Percentage: <span id="percentage">0</span>%</span
+                >
+              </div>
+              <div class="results-breakdown">
+                <div class="result-item">
+                  <strong>Question 1:</strong> The correct answer is
+                  <strong>controls</strong>. This attribute displays the default
+                  browser controls for the video.
+                </div>
+                <div class="result-item">
+                  <strong>Question 2:</strong> The correct answer is
+                  <strong>to show an image before video loads</strong>. The
+                  poster attribute specifies an image to display while the video
+                  is downloading or until the user hits play.
+                </div>
+                <div class="result-item">
+                  <strong>Question 3:</strong> The correct answer is
+                  <strong>metadata</strong>. This preload value loads only basic
+                  information like duration and dimensions.
+                </div>
+              </div>
+              <button class="btn btn-secondary quiz-retry">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practical Exercises -->
+        <section class="exercise-section">
+          <h2><i class="fas fa-laptop-code"></i> Practical Exercises</h2>
+
+          <div class="exercise-grid">
+            <div class="exercise-card">
+              <div class="exercise-header">
+                <h3>
+                  <i class="fas fa-tasks"></i> Exercise 1: Basic Media Player
+                </h3>
+                <span class="difficulty beginner">Beginner</span>
+              </div>
+              <div class="exercise-content">
+                <p>
+                  <strong>Objective:</strong> Create a basic audio and video
+                  player with standard controls.
+                </p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                  <li>Add an audio element with multiple source formats</li>
+                  <li>Include a video element with poster image</li>
+                  <li>Implement proper fallback content</li>
+                  <li>Test cross-browser compatibility</li>
+                </ul>
+                <button class="btn btn-outline exercise-toggle">
+                  <i class="fas fa-code"></i> Show Solution
+                </button>
+                <div class="exercise-solution" style="display: none">
+                  <pre><code class="language-html">&lt;!-- Audio Player --&gt;
+&lt;audio controls preload="metadata"&gt;
+    &lt;source src="audio/music.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio/music.ogg" type="audio/ogg"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 audio.&lt;/p&gt;
+&lt;/audio&gt;
+
+&lt;!-- Video Player --&gt;
+&lt;video controls width="640" height="360" poster="images/video-poster.jpg"&gt;
+    &lt;source src="video/sample.mp4" type="video/mp4"&gt;
+    &lt;source src="video/sample.webm" type="video/webm"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 video.&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-card">
+              <div class="exercise-header">
+                <h3>
+                  <i class="fas fa-cogs"></i> Exercise 2: Custom Video Controls
+                </h3>
+                <span class="difficulty intermediate">Intermediate</span>
+              </div>
+              <div class="exercise-content">
+                <p>
+                  <strong>Objective:</strong> Build custom video controls using
+                  JavaScript.
+                </p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                  <li>Hide default controls and create custom ones</li>
+                  <li>Implement play/pause, volume, and progress controls</li>
+                  <li>Add fullscreen functionality</li>
+                  <li>Display current time and duration</li>
+                </ul>
+                <button class="btn btn-outline exercise-toggle">
+                  <i class="fas fa-code"></i> Show Solution
+                </button>
+                <div class="exercise-solution" style="display: none">
+                  <p><strong>JavaScript Implementation:</strong></p>
+                  <pre><code class="language-javascript">const video = document.getElementById('customVideo');
+const playBtn = document.getElementById('playBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+
+playBtn.addEventListener('click', () => {
+    if (video.paused) {
+        video.play();
+        playBtn.innerHTML = '⏸️';
+    } else {
+        video.pause();
+        playBtn.innerHTML = '▶️';
+    }
+});
+
+video.addEventListener('timeupdate', () => {
+    const progress = (video.currentTime / video.duration) * 100;
+    progressBar.value = progress;
+    
+    const current = formatTime(video.currentTime);
+    const duration = formatTime(video.duration);
+    timeDisplay.textContent = `${current} / ${duration}`;
+});
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-card">
+              <div class="exercise-header">
+                <h3>
+                  <i class="fas fa-mobile-alt"></i> Exercise 3: Responsive Media
+                </h3>
+                <span class="difficulty advanced">Advanced</span>
+              </div>
+              <div class="exercise-content">
+                <p>
+                  <strong>Objective:</strong> Create responsive multimedia that
+                  works across all devices.
+                </p>
+                <p><strong>Requirements:</strong></p>
+                <ul>
+                  <li>Implement responsive video containers</li>
+                  <li>Add lazy loading for performance</li>
+                  <li>Handle different screen orientations</li>
+                  <li>Optimize for mobile data usage</li>
+                </ul>
+                <button class="btn btn-outline exercise-toggle">
+                  <i class="fas fa-code"></i> Show Solution
+                </button>
+                <div class="exercise-solution" style="display: none">
+                  <p><strong>CSS for Responsive Videos:</strong></p>
+                  <pre><code class="language-css">.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        padding-bottom: 75%; /* 4:3 for mobile */
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="next-steps">
+          <h3><i class="fas fa-forward"></i> What's Next?</h3>
+          <p>
+            You've mastered HTML audio and video elements! Continue your journey
+            with these advanced topics:
+          </p>
+          <div class="next-topics">
+            <a href="css-basics.html" class="btn btn-primary">
+              <i class="fas fa-paint-brush"></i> CSS Basics
+            </a>
+            <a href="../units/unit3.html" class="btn btn-outline">
+              <i class="fas fa-list"></i> Unit 3: CSS
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Interactive Web Course</h3>
+            <p>
+              Master web development with hands-on learning and real-world
+              projects.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../units/unit1.html">HTML Basics</a></li>
+              <li><a href="../units/unit2.html">CSS Fundamentals</a></li>
+              <li><a href="../units/unit3.html">JavaScript</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">Examples</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Interactive Web Course. Built with ❤️ for learning.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/html-audio-video-topic.js"></script>
+  </body>
+</html>

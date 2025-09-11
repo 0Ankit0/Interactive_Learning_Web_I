@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async/Await - Interactive Course</title>
+    <link rel="stylesheet" href="../scss/main.scss" />
+    <link rel="stylesheet" href="../scss/_async-await.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body class="async-await-topic">
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <i class="fas fa-code"></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="../units/unit5.html" class="nav-link">
+            <i class="fas fa-book"></i> Unit 5
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <span class="breadcrumb-item">
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item active">Async/Await</span>
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1><i class="fas fa-sync-alt"></i> Async/Await</h1>
+          <p class="hero-description">
+            Simplify asynchronous programming in JavaScript with async/await.
+            Learn to write clean, readable code for handling promises and
+            asynchronous operations.
+          </p>
+          <div class="hero-features">
+            <span class="feature-tag"
+              ><i class="fas fa-clock"></i> Asynchronous</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-code"></i> Readable Code</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-bolt"></i> Modern JS</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-tasks"></i> Promise Handling</span
+            >
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="async-showcase">
+            <div class="async-demo">
+              <div class="pattern-title">Live Async/Await Demo</div>
+              <div class="pattern-code" id="liveAsyncDemo"></div>
+              <div class="pattern-description">Fetch Data Example</div>
+            </div>
+            <div class="async-benefits">
+              <h3>Why Use Async/Await?</h3>
+              <div class="benefits-list">
+                <div class="benefit-item">Cleaner syntax for async code</div>
+                <div class="benefit-item">Easier error handling</div>
+                <div class="benefit-item">Avoids callback hell</div>
+                <div class="benefit-item">Works seamlessly with Promises</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i> What is Async/Await?</h2>
+          <div class="section-content">
+            <p class="lead">
+              Async/await is a modern JavaScript feature for writing
+              asynchronous code that looks and behaves like synchronous code. It
+              is built on top of Promises and makes it easier to work with
+              asynchronous operations such as API calls, timers, and file I/O.
+            </p>
+            <div class="async-intro-grid">
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-bolt"></i></div>
+                <h4>Async Functions</h4>
+                <p>Declare functions as async to use await inside them.</p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">async function fetchData() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  return data;
+}</code></pre>
+                </div>
+              </div>
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-sync-alt"></i></div>
+                <h4>Await Keyword</h4>
+                <p>
+                  Pause execution until a Promise resolves, making code easier
+                  to read.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const result = await someAsyncOperation();
+console.log(result);</code></pre>
+                </div>
+              </div>
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h4>Error Handling</h4>
+                <p>
+                  Use try/catch blocks for robust error handling in async code.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">try {
+  await doSomethingAsync();
+} catch (error) {
+  console.error(error);
+}</code></pre>
+                </div>
+              </div>
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-tasks"></i></div>
+                <h4>Promise Integration</h4>
+                <p>
+                  Async/await works seamlessly with existing Promise-based APIs.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">async function getUser() {
+  return await fetchUserFromAPI();
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Interactive Demo -->
+        <section class="content-section">
+          <h2><i class="fas fa-play"></i> Interactive Async/Await Demo</h2>
+          <div class="section-content">
+            <div class="async-demo-lab">
+              <label for="apiUrl">API URL:</label>
+              <input
+                type="text"
+                id="apiUrl"
+                value="https://jsonplaceholder.typicode.com/todos/1"
+              />
+              <button id="fetchBtn" class="btn btn-primary">Fetch Data</button>
+              <div id="apiResult" class="api-result"></div>
+            </div>
+          </div>
+        </section>
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+          <h2>
+            <i class="fas fa-question-circle"></i> Test Your Async/Await
+            Knowledge
+          </h2>
+          <div class="quiz-container">
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">1</span> What does the
+                <code>async</code> keyword do?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="a" />
+                    <span>Makes a function asynchronous</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="b" />
+                    <span>Declares a variable</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="c" />
+                    <span>Pauses code execution</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="d" />
+                    <span>Returns a callback</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">2</span> Which statement is true
+                about <code>await</code>?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="a" />
+                    <span>Can be used outside async functions</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="b" />
+                    <span>Waits for a Promise to resolve</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="c" />
+                    <span>Declares a new Promise</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="d" />
+                    <span>Throws an error</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">3</span> How do you handle errors
+                in async/await code?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="a" />
+                    <span>Using try/catch blocks</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="b" />
+                    <span>Using .catch() only</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="c" />
+                    <span>Ignoring errors</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="d" />
+                    <span>Using setTimeout</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">4</span> What does
+                <code>await fetch(url)</code> do?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="a" />
+                    <span>Fetches data synchronously</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="b" />
+                    <span>Waits for the fetch Promise to resolve</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="c" />
+                    <span>Throws an error immediately</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="d" />
+                    <span>Returns undefined</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="quiz-actions">
+              <button class="btn btn-primary quiz-submit">Submit Quiz</button>
+              <button
+                class="btn btn-secondary quiz-retry"
+                style="display: none"
+              >
+                Try Again
+              </button>
+            </div>
+            <div class="quiz-results" style="display: none">
+              <h3><i class="fas fa-trophy"></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Video Resources Section -->
+        <section class="resources-section">
+          <h2>
+            <i class="fas fa-play-circle"></i> Video Resources & Tutorials
+          </h2>
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/V_Kr9OSfDeU/maxresdefault.jpg"
+                  alt="Async Await Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>Async/Await Explained</h4>
+                <p>
+                  Comprehensive tutorial covering async/await basics, patterns,
+                  and JavaScript implementation.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=V_Kr9OSfDeU"
+                  target="_blank"
+                  class="video-link"
+                  ><i class="fab fa-youtube"></i> Watch on YouTube</a
+                >
+              </div>
+            </div>
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/PoRJizFvM7s/maxresdefault.jpg"
+                  alt="Async Await Deep Dive"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>Async/Await Deep Dive</h4>
+                <p>
+                  Advanced concepts, error handling, and performance
+                  optimization with async/await.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=PoRJizFvM7s"
+                  target="_blank"
+                  class="video-link"
+                  ><i class="fab fa-youtube"></i> Watch on YouTube</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Additional Resources Section -->
+        <section class="resources-section">
+          <h2>
+            <i class="fas fa-book-open"></i> Additional Learning Resources
+          </h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fab fa-js-square"></i></div>
+              <div class="resource-content">
+                <h4>MDN Async/Await Guide</h4>
+                <p>Comprehensive documentation for JavaScript async/await.</p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+                  target="_blank"
+                  class="resource-link"
+                  ><i class="fas fa-external-link-alt"></i> Read MDN Docs</a
+                >
+              </div>
+            </div>
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fas fa-code"></i></div>
+              <div class="resource-content">
+                <h4>Async/Await Cheat Sheet</h4>
+                <p>
+                  Quick reference guide for async/await patterns and syntax.
+                </p>
+                <a
+                  href="https://dev.to/lydiahallie/javascript-visualized-async-await-5gke"
+                  target="_blank"
+                  class="resource-link"
+                  ><i class="fas fa-external-link-alt"></i> View Cheat Sheet</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Next Steps Section -->
+        <section class="next-steps">
+          <h2><i class="fas fa-road"></i> Next Steps</h2>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Practice with Real APIs</h3>
+                <p>
+                  Apply async/await to fetch data from real-world APIs and
+                  handle responses.
+                </p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Learn Error Handling</h3>
+                <p>
+                  Explore robust error handling strategies for asynchronous
+                  code.
+                </p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Continue to Error Handling</h3>
+                <p>Advance to the next topic: Error Handling in JavaScript.</p>
+                <a href="error-handling.html" class="next-link"
+                  >Continue to Error Handling →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-graduation-cap"></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="es6-features.html">ES6+ Features</a></li>
+            <li><a href="regular-expressions.html">Regular Expressions</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+                target="_blank"
+                >MDN Async/Await</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://dev.to/lydiahallie/javascript-visualized-async-await-5gke"
+                target="_blank"
+                >Async/Await Cheat Sheet</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/async-await-topic.js"></script>
+  </body>
+</html>

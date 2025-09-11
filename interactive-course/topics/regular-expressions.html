@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Expressions - Interactive Course</title>
+
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="../scss/main.scss" />
+    <link rel="stylesheet" href="../scss/_regex-topic.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body class="regex-topic">
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <i class="fas fa-code"></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="../units/unit5.html" class="nav-link">
+            <i class="fas fa-book"></i> Unit 5
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <span class="breadcrumb-item">
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item active">Regular Expressions</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>
+            <i class="fas fa-search"></i>
+            Regular Expressions (RegEx)
+          </h1>
+          <p class="hero-description">
+            Master the art of pattern matching with Regular Expressions. Learn
+            to search, validate, and manipulate text using powerful regex
+            patterns in JavaScript.
+          </p>
+          <div class="hero-features">
+            <span class="feature-tag"
+              ><i class="fas fa-search"></i> Pattern Matching</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-check-circle"></i> Validation</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-edit"></i> Text Manipulation</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-filter"></i> Data Parsing</span
+            >
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="regex-showcase">
+            <div class="regex-demo">
+              <div class="pattern-display">
+                <div class="pattern-title">Live RegEx Pattern</div>
+                <div class="pattern-code" id="livePattern">
+                  /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}/g
+                </div>
+                <div class="pattern-description">Email Address Pattern</div>
+              </div>
+
+              <div class="test-text">
+                <div class="text-title">Test Text</div>
+                <div class="text-content">
+                  Contact us at <span class="match">info@example.com</span> or
+                  <span class="match">support@test.org</span> for more
+                  information. Invalid: notanemail.com
+                </div>
+              </div>
+
+              <div class="match-stats">
+                <div class="stat-item">
+                  <div class="stat-number" id="matchCount">2</div>
+                  <div class="stat-label">Matches Found</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="regex-benefits">
+              <h3>Why Use Regular Expressions?</h3>
+              <div class="benefits-list">
+                <div class="benefit-item">
+                  <i class="fas fa-bolt"></i>
+                  <span>Powerful pattern matching</span>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-magic"></i>
+                  <span>Complex text operations</span>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Input validation</span>
+                </div>
+                <div class="benefit-item">
+                  <i class="fas fa-database"></i>
+                  <span>Data extraction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+          <h2>
+            <i class="fas fa-info-circle"></i> What are Regular Expressions?
+          </h2>
+          <div class="section-content">
+            <p class="lead">
+              Regular expressions (regex or regexp) are patterns used to match
+              character combinations in strings. In JavaScript, they are objects
+              that can be used with various string methods to search, replace,
+              and validate text.
+            </p>
+
+            <div class="regex-intro-grid">
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <h4>Search & Match</h4>
+                <p>
+                  Find specific patterns within text, like email addresses,
+                  phone numbers, or URLs.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "Call me at 555-1234";
+const phonePattern = /\d{3}-\d{4}/;
+console.log(text.match(phonePattern)); // ["555-1234"]</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-edit"></i>
+                </div>
+                <h4>Replace & Substitute</h4>
+                <p>
+                  Replace patterns in text with other content, perfect for
+                  formatting and cleaning data.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "Hello World!";
+const newText = text.replace(/World/, "JavaScript");
+console.log(newText); // "Hello JavaScript!"</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Validate Input</h4>
+                <p>
+                  Check if user input matches expected formats, essential for
+                  form validation.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const email = "user@example.com";
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+console.log(emailPattern.test(email)); // true</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-cut"></i>
+                </div>
+                <h4>Split & Parse</h4>
+                <p>
+                  Break text into arrays based on complex patterns, useful for
+                  parsing CSV or logs.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const csv = "name,age,city";
+const fields = csv.split(/,/);
+console.log(fields); // ["name", "age", "city"]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Basic Syntax -->
+        <section class="content-section">
+          <h2><i class="fas fa-code"></i> Basic Regex Syntax</h2>
+          <div class="section-content">
+            <p>Regular expressions in JavaScript can be created in two ways:</p>
+
+            <div class="syntax-methods">
+              <div class="method-grid">
+                <div class="method-card">
+                  <h4>Literal Notation</h4>
+                  <div class="code-example">
+                    <pre><code class="language-javascript">// Using forward slashes
+const regex1 = /pattern/flags;
+const regex2 = /hello/i;  // Case-insensitive</code></pre>
+                  </div>
+                  <div class="method-pros">
+                    <strong>Best for:</strong> Static patterns known at compile
+                    time
+                  </div>
+                </div>
+
+                <div class="method-card">
+                  <h4>Constructor Function</h4>
+                  <div class="code-example">
+                    <pre><code class="language-javascript">// Using RegExp constructor
+const regex1 = new RegExp("pattern", "flags");
+const regex2 = new RegExp("hello", "i");</code></pre>
+                  </div>
+                  <div class="method-pros">
+                    <strong>Best for:</strong> Dynamic patterns built at runtime
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="characters-reference">
+              <h3>
+                <i class="fas fa-list"></i> Character Classes & Metacharacters
+              </h3>
+              <div class="reference-tabs">
+                <button class="tab-btn active" data-tab="basic">
+                  Basic Characters
+                </button>
+                <button class="tab-btn" data-tab="classes">
+                  Character Classes
+                </button>
+                <button class="tab-btn" data-tab="quantifiers">
+                  Quantifiers
+                </button>
+                <button class="tab-btn" data-tab="anchors">Anchors</button>
+              </div>
+
+              <div class="tab-content">
+                <!-- Basic Characters -->
+                <div class="tab-panel active" id="basic-panel">
+                  <div class="reference-grid">
+                    <div class="reference-item">
+                      <div class="pattern">.</div>
+                      <div class="description">
+                        Matches any character except newline
+                      </div>
+                      <div class="example">
+                        <code>a.c</code> matches "abc", "a1c", "a@c"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\</div>
+                      <div class="description">
+                        Escape character for special characters
+                      </div>
+                      <div class="example">
+                        <code>\.</code> matches literal "." character
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">|</div>
+                      <div class="description">Alternation (OR operator)</div>
+                      <div class="example">
+                        <code>cat|dog</code> matches "cat" or "dog"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">()</div>
+                      <div class="description">Grouping and capturing</div>
+                      <div class="example">
+                        <code>(abc)+</code> matches "abc", "abcabc"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">[]</div>
+                      <div class="description">
+                        Character set (any character inside)
+                      </div>
+                      <div class="example">
+                        <code>[abc]</code> matches "a", "b", or "c"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">[^]</div>
+                      <div class="description">Negated character set</div>
+                      <div class="example">
+                        <code>[^abc]</code> matches any char except a, b, c
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Character Classes -->
+                <div class="tab-panel" id="classes-panel">
+                  <div class="reference-grid">
+                    <div class="reference-item">
+                      <div class="pattern">\d</div>
+                      <div class="description">Any digit (0-9)</div>
+                      <div class="example">
+                        <code>\d{3}</code> matches "123", "456"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\D</div>
+                      <div class="description">Any non-digit</div>
+                      <div class="example">
+                        <code>\D+</code> matches "abc", "hello"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\w</div>
+                      <div class="description">
+                        Word character (a-z, A-Z, 0-9, _)
+                      </div>
+                      <div class="example">
+                        <code>\w+</code> matches "word", "test123"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\W</div>
+                      <div class="description">Non-word character</div>
+                      <div class="example">
+                        <code>\W+</code> matches "!@#", " "
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\s</div>
+                      <div class="description">
+                        Whitespace (space, tab, newline)
+                      </div>
+                      <div class="example">
+                        <code>\s+</code> matches spaces, tabs
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\S</div>
+                      <div class="description">Non-whitespace character</div>
+                      <div class="example">
+                        <code>\S+</code> matches "word", "123"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quantifiers -->
+                <div class="tab-panel" id="quantifiers-panel">
+                  <div class="reference-grid">
+                    <div class="reference-item">
+                      <div class="pattern">*</div>
+                      <div class="description">Zero or more occurrences</div>
+                      <div class="example">
+                        <code>ab*</code> matches "a", "ab", "abbb"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">+</div>
+                      <div class="description">One or more occurrences</div>
+                      <div class="example">
+                        <code>ab+</code> matches "ab", "abbb" (not "a")
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">?</div>
+                      <div class="description">
+                        Zero or one occurrence (optional)
+                      </div>
+                      <div class="example">
+                        <code>colou?r</code> matches "color", "colour"
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">{n}</div>
+                      <div class="description">Exactly n occurrences</div>
+                      <div class="example">
+                        <code>\d{3}</code> matches exactly 3 digits
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">{n,}</div>
+                      <div class="description">n or more occurrences</div>
+                      <div class="example">
+                        <code>\d{3,}</code> matches 3 or more digits
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">{n,m}</div>
+                      <div class="description">Between n and m occurrences</div>
+                      <div class="example">
+                        <code>\d{3,5}</code> matches 3 to 5 digits
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anchors -->
+                <div class="tab-panel" id="anchors-panel">
+                  <div class="reference-grid">
+                    <div class="reference-item">
+                      <div class="pattern">^</div>
+                      <div class="description">Start of string/line</div>
+                      <div class="example">
+                        <code>^Hello</code> matches "Hello" at start
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">$</div>
+                      <div class="description">End of string/line</div>
+                      <div class="example">
+                        <code>end$</code> matches "end" at end
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\b</div>
+                      <div class="description">Word boundary</div>
+                      <div class="example">
+                        <code>\bcat\b</code> matches "cat" as whole word
+                      </div>
+                    </div>
+
+                    <div class="reference-item">
+                      <div class="pattern">\B</div>
+                      <div class="description">Non-word boundary</div>
+                      <div class="example">
+                        <code>\Bcat\B</code> matches "cat" inside words
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="interactive-reference">
+              <h4><i class="fas fa-play"></i> Interactive Pattern Builder</h4>
+              <div class="pattern-builder">
+                <div class="builder-controls">
+                  <div class="control-row">
+                    <label for="patternInput">Enter your pattern:</label>
+                    <input
+                      type="text"
+                      id="patternInput"
+                      placeholder="Enter regex pattern (e.g., \d+)"
+                      value="\d+"
+                    />
+                    <div class="flags-section">
+                      <label>Flags:</label>
+                      <label
+                        ><input type="checkbox" id="flagG" checked /> g
+                        (global)</label
+                      >
+                      <label
+                        ><input type="checkbox" id="flagI" /> i
+                        (case-insensitive)</label
+                      >
+                      <label
+                        ><input type="checkbox" id="flagM" /> m
+                        (multiline)</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="control-row">
+                    <label for="testText">Test text:</label>
+                    <textarea
+                      id="testText"
+                      placeholder="Enter text to test against..."
+                    >
+The price is $25.99 and the discount is 15%.</textarea
+                    >
+                  </div>
+                </div>
+
+                <div class="pattern-results">
+                  <div class="result-display">
+                    <h5>Pattern: <code id="displayPattern">/\d+/g</code></h5>
+                    <div id="highlightedText" class="highlighted-output">
+                      The price is $<span class="regex-match">25</span>.<span
+                        class="regex-match"
+                        >99</span
+                      >
+                      and the discount is <span class="regex-match">15</span>%.
+                    </div>
+                    <div class="match-info">
+                      <span>Matches: <strong id="matchCount">3</strong></span>
+                      <span id="matchList">["25", "99", "15"]</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JavaScript Methods -->
+        <section class="content-section">
+          <h2><i class="fas fa-wrench"></i> JavaScript Regex Methods</h2>
+          <div class="section-content">
+            <p>
+              JavaScript provides several methods for working with regular
+              expressions:
+            </p>
+
+            <div class="methods-grid">
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>test()</h4>
+                  <span class="return-type">Returns: boolean</span>
+                </div>
+                <p class="method-description">
+                  Tests if a pattern matches in a string. Returns true or false.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const regex = /hello/i;
+console.log(regex.test("Hello World")); // true
+console.log(regex.test("Hi there"));    // false</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter text to test"
+                    data-method="test"
+                    data-pattern="/hello/i"
+                    value="Hello World"
+                  />
+                  <div class="demo-result">
+                    Result: <span class="result-value">true</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>match()</h4>
+                  <span class="return-type">Returns: Array | null</span>
+                </div>
+                <p class="method-description">
+                  Retrieves the matches when matching a string against a regex.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "The year 2023 was great!";
+const matches = text.match(/\d+/g);
+console.log(matches); // ["2023"]</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter text with numbers"
+                    data-method="match"
+                    data-pattern="/\d+/g"
+                    value="I have 5 cats and 3 dogs"
+                  />
+                  <div class="demo-result">
+                    Result: <span class="result-value">["5", "3"]</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>replace()</h4>
+                  <span class="return-type">Returns: string</span>
+                </div>
+                <p class="method-description">
+                  Returns a new string with matches replaced by a replacement
+                  string.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "Hello World";
+const newText = text.replace(/World/, "JavaScript");
+console.log(newText); // "Hello JavaScript"</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter text to replace"
+                    data-method="replace"
+                    data-pattern="/World/g"
+                    data-replacement="JavaScript"
+                    value="Hello World! World is great!"
+                  />
+                  <div class="demo-result">
+                    Result:
+                    <span class="result-value"
+                      >"Hello JavaScript! JavaScript is great!"</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>search()</h4>
+                  <span class="return-type">Returns: number</span>
+                </div>
+                <p class="method-description">
+                  Returns the index of the first match, or -1 if not found.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "Find the number 42 here";
+const index = text.search(/\d+/);
+console.log(index); // 16</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter text to search"
+                    data-method="search"
+                    data-pattern="/\d+/"
+                    value="The answer is 42"
+                  />
+                  <div class="demo-result">
+                    Result: <span class="result-value">14</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>split()</h4>
+                  <span class="return-type">Returns: Array</span>
+                </div>
+                <p class="method-description">
+                  Splits a string into an array using a regex as the delimiter.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const text = "apple,banana;orange:grape";
+const fruits = text.split(/[,;:]/);
+console.log(fruits); // ["apple", "banana", "orange", "grape"]</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter delimited text"
+                    data-method="split"
+                    data-pattern="/[,;:]/"
+                    value="apple,banana;orange:grape"
+                  />
+                  <div class="demo-result">
+                    Result:
+                    <span class="result-value"
+                      >["apple", "banana", "orange", "grape"]</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>exec()</h4>
+                  <span class="return-type">Returns: Array | null</span>
+                </div>
+                <p class="method-description">
+                  Executes a search for a match and returns detailed
+                  information.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const regex = /(\d{4})-(\d{2})-(\d{2})/;
+const result = regex.exec("Today is 2023-12-25");
+console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
+                </div>
+                <div class="method-demo">
+                  <input
+                    type="text"
+                    class="demo-input"
+                    placeholder="Enter date string"
+                    data-method="exec"
+                    data-pattern="/(\d{4})-(\d{2})-(\d{2})/"
+                    value="Today is 2023-12-25"
+                  />
+                  <div class="demo-result">
+                    Result:
+                    <span class="result-value"
+                      >["2023-12-25", "2023", "12", "25"]</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Common Patterns -->
+        <section class="content-section">
+          <h2><i class="fas fa-star"></i> Common Regex Patterns</h2>
+          <div class="section-content">
+            <p>
+              Here are some frequently used regex patterns for common validation
+              tasks:
+            </p>
+
+            <div class="patterns-showcase">
+              <div class="pattern-tabs">
+                <button class="tab-btn active" data-tab="validation">
+                  Validation
+                </button>
+                <button class="tab-btn" data-tab="extraction">
+                  Data Extraction
+                </button>
+                <button class="tab-btn" data-tab="formatting">
+                  Text Formatting
+                </button>
+              </div>
+
+              <div class="tab-content">
+                <!-- Validation Patterns -->
+                <div class="tab-panel active" id="validation-panel">
+                  <div class="pattern-collection">
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-envelope"></i> Email Address</h5>
+                        <button class="test-pattern-btn" data-pattern="email">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code>
+                      </div>
+                      <div class="pattern-explanation">
+                        Validates basic email format: no spaces, @ symbol,
+                        domain with dot
+                      </div>
+                      <div class="pattern-examples">
+                        <span class="valid">✓ user@example.com</span>
+                        <span class="valid">✓ test.email@domain.org</span>
+                        <span class="invalid">✗ invalid.email</span>
+                        <span class="invalid">✗ @domain.com</span>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-phone"></i> Phone Number (US)</h5>
+                        <button class="test-pattern-btn" data-pattern="phone">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code
+                          >/^(\+1[-.\s]?)?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})$/</code
+                        >
+                      </div>
+                      <div class="pattern-explanation">
+                        Matches US phone numbers in various formats
+                      </div>
+                      <div class="pattern-examples">
+                        <span class="valid">✓ (555) 123-4567</span>
+                        <span class="valid">✓ 555.123.4567</span>
+                        <span class="valid">✓ +1 555 123 4567</span>
+                        <span class="invalid">✗ 123-456</span>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-lock"></i> Strong Password</h5>
+                        <button
+                          class="test-pattern-btn"
+                          data-pattern="password"
+                        >
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code
+                          >/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/</code
+                        >
+                      </div>
+                      <div class="pattern-explanation">
+                        At least 8 chars: lowercase, uppercase, digit, special
+                        character
+                      </div>
+                      <div class="pattern-examples">
+                        <span class="valid">✓ MyPass123!</span>
+                        <span class="valid">✓ Secure$456</span>
+                        <span class="invalid">✗ password</span>
+                        <span class="invalid">✗ 123456</span>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-globe"></i> URL</h5>
+                        <button class="test-pattern-btn" data-pattern="url">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code
+                          >/^https?:\/\/(?:[-\w.])+(?:[:\d]+)?(?:\/(?:[\w/_.])*)?(?:\?(?:[\w&=%.])*)?(?:#(?:[\w.])*)?$/</code
+                        >
+                      </div>
+                      <div class="pattern-explanation">
+                        Matches HTTP and HTTPS URLs with optional ports, paths,
+                        queries
+                      </div>
+                      <div class="pattern-examples">
+                        <span class="valid">✓ https://example.com</span>
+                        <span class="valid">✓ http://site.com:8080/path</span>
+                        <span class="invalid">✗ ftp://example.com</span>
+                        <span class="invalid">✗ not-a-url</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Data Extraction Patterns -->
+                <div class="tab-panel" id="extraction-panel">
+                  <div class="pattern-collection">
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5>
+                          <i class="fas fa-calendar"></i> Date Extraction
+                          (YYYY-MM-DD)
+                        </h5>
+                        <button class="test-pattern-btn" data-pattern="date">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/(\d{4})-(\d{2})-(\d{2})/g</code>
+                      </div>
+                      <div class="pattern-explanation">
+                        Extracts dates in ISO format with captured groups for
+                        year, month, day
+                      </div>
+                      <div class="test-text">
+                        Test: "The events are on 2023-12-25 and 2024-01-15"
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-hashtag"></i> Hashtags</h5>
+                        <button class="test-pattern-btn" data-pattern="hashtag">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/#\w+/g</code>
+                      </div>
+                      <div class="pattern-explanation">
+                        Finds all hashtags in text (# followed by word
+                        characters)
+                      </div>
+                      <div class="test-text">
+                        Test: "Learning #JavaScript and #RegEx is fun! #coding"
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5>
+                          <i class="fas fa-dollar-sign"></i> Currency Amounts
+                        </h5>
+                        <button
+                          class="test-pattern-btn"
+                          data-pattern="currency"
+                        >
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?/g</code>
+                      </div>
+                      <div class="pattern-explanation">
+                        Matches dollar amounts with proper comma separation and
+                        optional cents
+                      </div>
+                      <div class="test-text">
+                        Test: "Prices: $29.99, $1,234.56, $10,000"
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-code"></i> HTML Tags</h5>
+                        <button class="test-pattern-btn" data-pattern="html">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code
+                          >/&lt;([a-z]+)(\s[^&gt;]*)?&gt;.*?&lt;\/\1&gt;/gi</code
+                        >
+                      </div>
+                      <div class="pattern-explanation">
+                        Matches opening and closing HTML tags with content
+                      </div>
+                      <div class="test-text">
+                        Test: "&lt;div class='test'&gt;Content&lt;/div&gt;
+                        &lt;p&gt;Paragraph&lt;/p&gt;"
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Text Formatting Patterns -->
+                <div class="tab-panel" id="formatting-panel">
+                  <div class="pattern-collection">
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5><i class="fas fa-text-height"></i> Title Case</h5>
+                        <button
+                          class="test-pattern-btn"
+                          data-pattern="titlecase"
+                        >
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/\b\w+/g</code> with replacement function
+                      </div>
+                      <div class="pattern-explanation">
+                        Converts text to title case (first letter of each word
+                        capitalized)
+                      </div>
+                      <div class="demo-formatter" data-type="titlecase">
+                        <input
+                          type="text"
+                          placeholder="enter text to format"
+                          value="hello world javascript"
+                        />
+                        <div class="format-result">Hello World Javascript</div>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5>
+                          <i class="fas fa-minus"></i> Remove Extra Spaces
+                        </h5>
+                        <button class="test-pattern-btn" data-pattern="spaces">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/\s+/g</code> replace with single space
+                      </div>
+                      <div class="pattern-explanation">
+                        Removes multiple consecutive spaces, tabs, newlines
+                      </div>
+                      <div class="demo-formatter" data-type="spaces">
+                        <input
+                          type="text"
+                          placeholder="text   with    extra     spaces"
+                          value="text   with    extra     spaces"
+                        />
+                        <div class="format-result">text with extra spaces</div>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5>
+                          <i class="fas fa-phone"></i> Format Phone Numbers
+                        </h5>
+                        <button
+                          class="test-pattern-btn"
+                          data-pattern="phoneformat"
+                        >
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/(\d{3})(\d{3})(\d{4})/</code> → ($1) $2-$3
+                      </div>
+                      <div class="pattern-explanation">
+                        Formats 10-digit numbers into (XXX) XXX-XXXX format
+                      </div>
+                      <div class="demo-formatter" data-type="phone">
+                        <input
+                          type="text"
+                          placeholder="1234567890"
+                          value="1234567890"
+                        />
+                        <div class="format-result">(123) 456-7890</div>
+                      </div>
+                    </div>
+
+                    <div class="pattern-item">
+                      <div class="pattern-header">
+                        <h5>
+                          <i class="fas fa-user-secret"></i> Mask Sensitive Data
+                        </h5>
+                        <button class="test-pattern-btn" data-pattern="mask">
+                          Test Pattern
+                        </button>
+                      </div>
+                      <div class="pattern-code">
+                        <code>/(\d{4})\d{4}(\d{4})/</code> → $1****$2
+                      </div>
+                      <div class="pattern-explanation">
+                        Masks middle digits of credit card numbers
+                      </div>
+                      <div class="demo-formatter" data-type="mask">
+                        <input
+                          type="text"
+                          placeholder="1234567890123456"
+                          value="1234567890123456"
+                        />
+                        <div class="format-result">1234****3456</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pattern-tester">
+              <h4><i class="fas fa-vial"></i> Pattern Testing Lab</h4>
+              <div class="tester-container">
+                <div class="tester-input">
+                  <label for="customPattern">Your Regex Pattern:</label>
+                  <input
+                    type="text"
+                    id="customPattern"
+                    placeholder="/your-pattern/flags"
+                    value="/\b\w+@\w+\.\w+/g"
+                  />
+
+                  <label for="testInput">Test Text:</label>
+                  <textarea
+                    id="testInput"
+                    placeholder="Enter text to test your pattern against..."
+                  >
+Contact us at support@example.com or sales@test.org for help.</textarea
+                  >
+                </div>
+
+                <div class="tester-output">
+                  <div class="tester-results">
+                    <h5>Results:</h5>
+                    <div id="testerMatches" class="matches-display">
+                      Matches: <strong>2</strong> - ["support@example.com",
+                      "sales@test.org"]
+                    </div>
+                    <div id="testerHighlight" class="highlight-display">
+                      Contact us at
+                      <span class="match">support@example.com</span> or
+                      <span class="match">sales@test.org</span> for help.
+                    </div>
+                  </div>
+
+                  <div class="tester-controls">
+                    <button id="testPatternBtn" class="btn btn-primary">
+                      Test Pattern
+                    </button>
+                    <button id="clearTesterBtn" class="btn btn-secondary">
+                      Clear
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+          <h2>
+            <i class="fas fa-question-circle"></i> Test Your Regex Knowledge
+          </h2>
+          <div class="quiz-container">
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">1</span>
+                What does the regex pattern <code>\d+</code> match?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>One or more digits</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>Exactly one digit</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>Zero or more digits</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>Any character followed by a plus sign</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">2</span>
+                Which method returns <code>true</code> or
+                <code>false</code> when testing a regex?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span>match()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span>test()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span>exec()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span>search()</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">3</span>
+                What does the <code>^</code> symbol represent in regex?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>Start of string</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>End of string</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>Negation inside character class</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>Both A and C depending on context</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">4</span>
+                Which pattern matches a valid email format?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="a" />
+                    <span>/.*@.*\..*/</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="b" />
+                    <span>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="c" />
+                    <span>/\w+@\w+/</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="d" />
+                    <span>/email/</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-actions">
+              <button class="btn btn-primary quiz-submit">Submit Quiz</button>
+              <button
+                class="btn btn-secondary quiz-retry"
+                style="display: none"
+              >
+                Try Again
+              </button>
+            </div>
+
+            <div class="quiz-results" style="display: none">
+              <h3><i class="fas fa-trophy"></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Resources Section -->
+        <section class="resources-section">
+          <h2>
+            <i class="fas fa-play-circle"></i> Video Resources & Tutorials
+          </h2>
+          <div class="video-grid">
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/sa-TUpSx1JA/maxresdefault.jpg"
+                  alt="RegEx Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>Regular Expressions Explained</h4>
+                <p>
+                  Comprehensive tutorial covering regex basics, patterns, and
+                  JavaScript implementation.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=sa-TUpSx1JA"
+                  target="_blank"
+                  class="video-link"
+                >
+                  <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/rhzKDrUiJVk/maxresdefault.jpg"
+                  alt="RegEx Validation"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>Form Validation with RegEx</h4>
+                <p>
+                  Learn how to validate user input using regular expressions in
+                  web forms.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=rhzKDrUiJVk"
+                  target="_blank"
+                  class="video-link"
+                >
+                  <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/909NfO1St0A/maxresdefault.jpg"
+                  alt="Advanced RegEx"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>Advanced RegEx Patterns</h4>
+                <p>
+                  Deep dive into complex regex patterns, lookaheads, and
+                  performance optimization.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=909NfO1St0A"
+                  target="_blank"
+                  class="video-link"
+                >
+                  <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="video-card">
+              <div class="video-thumbnail">
+                <i class="fas fa-play"></i>
+                <img
+                  src="https://img.youtube.com/vi/7DG3kCDx53c/maxresdefault.jpg"
+                  alt="RegEx Practice"
+                  loading="lazy"
+                />
+              </div>
+              <div class="video-info">
+                <h4>RegEx Practice Problems</h4>
+                <p>
+                  Solve real-world regex challenges and improve your
+                  pattern-matching skills.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=7DG3kCDx53c"
+                  target="_blank"
+                  class="video-link"
+                >
+                  <i class="fab fa-youtube"></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section class="resources-section">
+          <h2>
+            <i class="fas fa-book-open"></i> Additional Learning Resources
+          </h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="resource-content">
+                <h4>RegExr - Online Tool</h4>
+                <p>
+                  Interactive regex testing and learning tool with real-time
+                  pattern matching.
+                </p>
+                <a
+                  href="https://regexr.com/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Try RegExr
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <div class="resource-content">
+                <h4>RegexOne Tutorial</h4>
+                <p>
+                  Interactive lessons and exercises to learn regex step by step.
+                </p>
+                <a
+                  href="https://regexone.com/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Learn with RegexOne
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <div class="resource-content">
+                <h4>MDN RegExp Guide</h4>
+                <p>
+                  Comprehensive documentation for JavaScript regular
+                  expressions.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Read MDN Docs
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-puzzle-piece"></i>
+              </div>
+              <div class="resource-content">
+                <h4>Regex Crossword</h4>
+                <p>
+                  Fun crossword puzzles to practice and improve your regex
+                  skills.
+                </p>
+                <a
+                  href="https://regexcrossword.com/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Play Regex Crossword
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="resource-content">
+                <h4>Regex Cheat Sheet</h4>
+                <p>
+                  Quick reference guide for common regex patterns and syntax.
+                </p>
+                <a
+                  href="https://www.rexegg.com/regex-quickstart.html"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Cheat Sheet
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="resource-content">
+                <h4>Regex Pal</h4>
+                <p>
+                  Online regex tester with highlighting and explanation
+                  features.
+                </p>
+                <a
+                  href="https://www.regexpal.com/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Use Regex Pal
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="next-steps">
+          <h2><i class="fas fa-road"></i> Next Steps</h2>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Practice with Real Data</h3>
+                <p>
+                  Apply regex patterns to real-world scenarios like form
+                  validation and data parsing.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Learn Advanced Patterns</h3>
+                <p>
+                  Explore lookaheads, lookbehinds, and other advanced regex
+                  features for complex matching.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Async Programming</h3>
+                <p>
+                  Continue with asynchronous JavaScript concepts and modern
+                  programming patterns.
+                </p>
+                <a href="async-await.html" class="next-link"
+                  >Continue to Async/Await →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-graduation-cap"></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="es6-features.html">ES6+ Features</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://regexr.com/" target="_blank">RegExr</a></li>
+            <li>
+              <a href="https://regexone.com/" target="_blank">RegexOne</a>
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions"
+                target="_blank"
+                >MDN RegExp</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/regex-topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI/UX Design Principles - Interactive Web Development Course</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <link rel="stylesheet" href="../scss/main.scss" />
+  </head>
+  <body>
+    <div class="uiux-design-topic">
+      <header class="topic-header">
+        <div class="container">
+          <h1>
+            <i class="fas fa-paint-brush"></i>
+            UI/UX Design Principles
+          </h1>
+          <p class="topic-description">
+            Master the fundamental principles of user interface and user
+            experience design. Learn how to create intuitive, accessible, and
+            visually appealing web applications.
+          </p>
+        </div>
+      </header>
+
+      <main class="topic-content">
+        <div class="container">
+          <!-- Design Principles Overview -->
+          <section class="principles-overview">
+            <h2><i class="fas fa-lightbulb"></i> Core Design Principles</h2>
+            <p>
+              Understanding these fundamental principles is essential for
+              creating effective user interfaces:
+            </p>
+
+            <div class="principles-grid">
+              <div class="principle-card" data-principle="hierarchy">
+                <div class="principle-icon">
+                  <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Visual Hierarchy</h3>
+                <p>
+                  Guide users' attention through strategic use of size, color,
+                  and positioning to create clear information flow.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('hierarchy')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+
+              <div class="principle-card" data-principle="consistency">
+                <div class="principle-icon">
+                  <i class="fas fa-sync"></i>
+                </div>
+                <h3>Consistency</h3>
+                <p>
+                  Maintain uniform design patterns, interactions, and
+                  terminology throughout your application.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('consistency')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+
+              <div class="principle-card" data-principle="feedback">
+                <div class="principle-icon">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <h3>Feedback</h3>
+                <p>
+                  Provide clear, immediate responses to user actions to confirm
+                  interactions and system status.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('feedback')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+
+              <div class="principle-card" data-principle="simplicity">
+                <div class="principle-icon">
+                  <i class="fas fa-feather"></i>
+                </div>
+                <h3>Simplicity</h3>
+                <p>
+                  Embrace minimalism and remove unnecessary elements to focus on
+                  what matters most to users.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('simplicity')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+
+              <div class="principle-card" data-principle="affordance">
+                <div class="principle-icon">
+                  <i class="fas fa-hand-pointer"></i>
+                </div>
+                <h3>Affordance</h3>
+                <p>
+                  Design elements that clearly indicate their function and how
+                  they can be interacted with.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('affordance')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+
+              <div class="principle-card" data-principle="accessibility">
+                <div class="principle-icon">
+                  <i class="fas fa-universal-access"></i>
+                </div>
+                <h3>Accessibility</h3>
+                <p>
+                  Design inclusive experiences that work for users with diverse
+                  abilities and needs.
+                </p>
+                <button
+                  class="learn-more-btn"
+                  onclick="showPrincipleDetails('accessibility')"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive Principle Details -->
+          <section class="principle-details">
+            <div id="principle-details-container" class="details-container">
+              <!-- Details will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Interactive Design Builder -->
+          <section class="design-builder">
+            <h2><i class="fas fa-magic"></i> Interactive Design Builder</h2>
+            <p>
+              Experiment with different design principles and see their impact
+              in real-time:
+            </p>
+
+            <div class="builder-container">
+              <div class="builder-controls">
+                <div class="control-group">
+                  <label for="layout-type">Layout Type:</label>
+                  <select id="layout-type" onchange="updateDesign()">
+                    <option value="card">Card Layout</option>
+                    <option value="list">List Layout</option>
+                    <option value="grid">Grid Layout</option>
+                    <option value="hero">Hero Section</option>
+                  </select>
+                </div>
+
+                <div class="control-group">
+                  <label for="color-scheme">Color Scheme:</label>
+                  <select id="color-scheme" onchange="updateDesign()">
+                    <option value="default">Default</option>
+                    <option value="vibrant">Vibrant</option>
+                    <option value="minimal">Minimal</option>
+                    <option value="dark">Dark Mode</option>
+                  </select>
+                </div>
+
+                <div class="control-group">
+                  <label for="typography">Typography:</label>
+                  <select id="typography" onchange="updateDesign()">
+                    <option value="modern">Modern</option>
+                    <option value="classic">Classic</option>
+                    <option value="playful">Playful</option>
+                    <option value="technical">Technical</option>
+                  </select>
+                </div>
+
+                <div class="control-group">
+                  <label for="spacing">Spacing:</label>
+                  <input
+                    type="range"
+                    id="spacing"
+                    min="0.5"
+                    max="2"
+                    step="0.1"
+                    value="1"
+                    onchange="updateDesign()"
+                  />
+                  <span id="spacing-value">1x</span>
+                </div>
+
+                <div class="control-group">
+                  <label for="border-radius">Border Radius:</label>
+                  <input
+                    type="range"
+                    id="border-radius"
+                    min="0"
+                    max="20"
+                    step="1"
+                    value="8"
+                    onchange="updateDesign()"
+                  />
+                  <span id="radius-value">8px</span>
+                </div>
+
+                <div class="control-group">
+                  <label for="shadow-intensity">Shadow Intensity:</label>
+                  <input
+                    type="range"
+                    id="shadow-intensity"
+                    min="0"
+                    max="3"
+                    step="1"
+                    value="1"
+                    onchange="updateDesign()"
+                  />
+                  <span id="shadow-value">Medium</span>
+                </div>
+
+                <div class="control-actions">
+                  <button class="control-btn" onclick="resetDesign()">
+                    <i class="fas fa-undo"></i>
+                    Reset
+                  </button>
+                  <button class="control-btn" onclick="randomizeDesign()">
+                    <i class="fas fa-dice"></i>
+                    Randomize
+                  </button>
+                  <button class="control-btn" onclick="saveDesign()">
+                    <i class="fas fa-save"></i>
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <div class="builder-preview">
+                <div id="design-preview" class="preview-container">
+                  <div class="preview-content">
+                    <h3>Sample Application</h3>
+                    <p>
+                      This is a sample interface that changes based on your
+                      design choices.
+                    </p>
+
+                    <div class="sample-elements">
+                      <button class="sample-button primary">
+                        Primary Action
+                      </button>
+                      <button class="sample-button secondary">
+                        Secondary Action
+                      </button>
+                    </div>
+
+                    <div class="sample-cards">
+                      <div class="sample-card">
+                        <h4>Card Title</h4>
+                        <p>Card content with some descriptive text.</p>
+                        <span class="sample-tag">Featured</span>
+                      </div>
+                      <div class="sample-card">
+                        <h4>Another Card</h4>
+                        <p>More card content to demonstrate layout.</p>
+                        <span class="sample-tag">New</span>
+                      </div>
+                    </div>
+
+                    <div class="sample-form">
+                      <input
+                        type="text"
+                        placeholder="Enter your email"
+                        class="sample-input"
+                      />
+                      <button class="sample-button form-btn">Subscribe</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="design-analysis">
+                  <h4>Design Analysis</h4>
+                  <div id="analysis-feedback">
+                    <!-- Analysis will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- UI Patterns Library -->
+          <section class="patterns-library">
+            <h2><i class="fas fa-puzzle-piece"></i> Common UI Patterns</h2>
+            <p>
+              Explore and understand essential UI patterns used in modern web
+              applications:
+            </p>
+
+            <div class="patterns-tabs">
+              <button
+                class="pattern-tab active"
+                data-pattern="navigation"
+                onclick="showPattern('navigation')"
+              >
+                <i class="fas fa-bars"></i>
+                Navigation
+              </button>
+              <button
+                class="pattern-tab"
+                data-pattern="forms"
+                onclick="showPattern('forms')"
+              >
+                <i class="fas fa-wpforms"></i>
+                Forms
+              </button>
+              <button
+                class="pattern-tab"
+                data-pattern="cards"
+                onclick="showPattern('cards')"
+              >
+                <i class="fas fa-id-card"></i>
+                Cards
+              </button>
+              <button
+                class="pattern-tab"
+                data-pattern="modals"
+                onclick="showPattern('modals')"
+              >
+                <i class="fas fa-window-restore"></i>
+                Modals
+              </button>
+              <button
+                class="pattern-tab"
+                data-pattern="feedback"
+                onclick="showPattern('feedback')"
+              >
+                <i class="fas fa-bell"></i>
+                Feedback
+              </button>
+            </div>
+
+            <div class="pattern-content">
+              <div id="navigation-pattern" class="pattern-panel active">
+                <h3>Navigation Patterns</h3>
+                <div class="pattern-examples">
+                  <div class="pattern-example">
+                    <h4>Top Navigation Bar</h4>
+                    <div class="demo-nav top-nav">
+                      <div class="nav-logo">Logo</div>
+                      <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                      </ul>
+                      <div class="nav-actions">
+                        <button class="nav-btn">Login</button>
+                        <button class="nav-btn primary">Sign Up</button>
+                      </div>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Main navigation, always
+                        visible
+                      </p>
+                      <p><strong>Usage:</strong> 5-7 main sections maximum</p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Sidebar Navigation</h4>
+                    <div class="demo-sidebar">
+                      <div class="sidebar">
+                        <div class="sidebar-header">
+                          <h4>Dashboard</h4>
+                        </div>
+                        <ul class="sidebar-menu">
+                          <li class="active">
+                            <i class="fas fa-home"></i> Overview
+                          </li>
+                          <li><i class="fas fa-chart-bar"></i> Analytics</li>
+                          <li><i class="fas fa-users"></i> Users</li>
+                          <li><i class="fas fa-cog"></i> Settings</li>
+                        </ul>
+                      </div>
+                      <div class="sidebar-content">
+                        <p>Main content area</p>
+                      </div>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Complex applications,
+                        dashboards
+                      </p>
+                      <p>
+                        <strong>Usage:</strong> Persistent navigation with
+                        subcategories
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Breadcrumb Navigation</h4>
+                    <div class="demo-breadcrumb">
+                      <nav class="breadcrumb">
+                        <a href="#">Home</a>
+                        <span class="separator">/</span>
+                        <a href="#">Category</a>
+                        <span class="separator">/</span>
+                        <a href="#">Subcategory</a>
+                        <span class="separator">/</span>
+                        <span class="current">Current Page</span>
+                      </nav>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Deep hierarchical structures
+                      </p>
+                      <p>
+                        <strong>Usage:</strong> Show user's current location
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="forms-pattern" class="pattern-panel">
+                <h3>Form Patterns</h3>
+                <div class="pattern-examples">
+                  <div class="pattern-example">
+                    <h4>Single Column Form</h4>
+                    <form class="demo-form single-column">
+                      <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          placeholder="Enter your full name"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                          type="email"
+                          id="email"
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea
+                          id="message"
+                          placeholder="Enter your message"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="form-submit">
+                        Send Message
+                      </button>
+                    </form>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Simple forms, mobile-first
+                        design
+                      </p>
+                      <p>
+                        <strong>Benefits:</strong> Easy to scan, good for long
+                        forms
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Inline Validation</h4>
+                    <form class="demo-form validation-form">
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input
+                          type="text"
+                          id="username"
+                          placeholder="Choose a username"
+                          onblur="validateUsername(this)"
+                        />
+                        <div class="validation-message"></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                          type="password"
+                          id="password"
+                          placeholder="Enter password"
+                          onblur="validatePassword(this)"
+                        />
+                        <div class="validation-message"></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input
+                          type="password"
+                          id="confirm-password"
+                          placeholder="Confirm password"
+                          onblur="validateConfirmPassword(this)"
+                        />
+                        <div class="validation-message"></div>
+                      </div>
+                    </form>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Complex forms with validation
+                        requirements
+                      </p>
+                      <p>
+                        <strong>Benefits:</strong> Immediate feedback, reduces
+                        errors
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="cards-pattern" class="pattern-panel">
+                <h3>Card Patterns</h3>
+                <div class="pattern-examples">
+                  <div class="pattern-example">
+                    <h4>Product Cards</h4>
+                    <div class="demo-cards product-cards">
+                      <div class="product-card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                          <h4>Product Name</h4>
+                          <p class="price">$99.99</p>
+                          <button class="card-action">Add to Cart</button>
+                        </div>
+                      </div>
+                      <div class="product-card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                          <h4>Another Product</h4>
+                          <p class="price">$149.99</p>
+                          <button class="card-action">Add to Cart</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> E-commerce, portfolios,
+                        galleries
+                      </p>
+                      <p>
+                        <strong>Features:</strong> Image, title, price, action
+                        button
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Information Cards</h4>
+                    <div class="demo-cards info-cards">
+                      <div class="info-card">
+                        <div class="card-icon">
+                          <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Security</h4>
+                        <p>
+                          Enterprise-grade security to protect your data and
+                          privacy.
+                        </p>
+                      </div>
+                      <div class="info-card">
+                        <div class="card-icon">
+                          <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Performance</h4>
+                        <p>
+                          Lightning-fast performance optimized for speed and
+                          efficiency.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Features, services, benefits
+                      </p>
+                      <p><strong>Features:</strong> Icon, title, description</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="modals-pattern" class="pattern-panel">
+                <h3>Modal Patterns</h3>
+                <div class="pattern-examples">
+                  <div class="pattern-example">
+                    <h4>Confirmation Modal</h4>
+                    <button
+                      class="demo-trigger"
+                      onclick="showModal('confirmation')"
+                    >
+                      Show Confirmation Modal
+                    </button>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Destructive actions,
+                        important confirmations
+                      </p>
+                      <p>
+                        <strong>Features:</strong> Clear message,
+                        primary/secondary actions
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Form Modal</h4>
+                    <button class="demo-trigger" onclick="showModal('form')">
+                      Show Form Modal
+                    </button>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Quick data entry, login forms
+                      </p>
+                      <p>
+                        <strong>Features:</strong> Focused task, minimal
+                        distraction
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="feedback-pattern" class="pattern-panel">
+                <h3>Feedback Patterns</h3>
+                <div class="pattern-examples">
+                  <div class="pattern-example">
+                    <h4>Toast Notifications</h4>
+                    <div class="demo-toasts">
+                      <button
+                        class="demo-trigger success"
+                        onclick="showToast('success')"
+                      >
+                        Success Toast
+                      </button>
+                      <button
+                        class="demo-trigger error"
+                        onclick="showToast('error')"
+                      >
+                        Error Toast
+                      </button>
+                      <button
+                        class="demo-trigger warning"
+                        onclick="showToast('warning')"
+                      >
+                        Warning Toast
+                      </button>
+                      <button
+                        class="demo-trigger info"
+                        onclick="showToast('info')"
+                      >
+                        Info Toast
+                      </button>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Non-critical feedback,
+                        confirmations
+                      </p>
+                      <p>
+                        <strong>Features:</strong> Temporary, non-intrusive,
+                        auto-dismiss
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="pattern-example">
+                    <h4>Loading States</h4>
+                    <div class="demo-loading">
+                      <button
+                        class="demo-trigger loading"
+                        onclick="simulateLoading(this)"
+                      >
+                        <span class="btn-text">Load Data</span>
+                        <span class="loading-spinner" style="display: none">
+                          <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                      </button>
+                      <div class="progress-demo">
+                        <div class="progress-bar">
+                          <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <button onclick="startProgress()">
+                          Start Progress
+                        </button>
+                      </div>
+                    </div>
+                    <div class="pattern-info">
+                      <p>
+                        <strong>Best for:</strong> Async operations, data
+                        loading
+                      </p>
+                      <p>
+                        <strong>Features:</strong> Visual feedback, progress
+                        indication
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- UX Research Methods -->
+          <section class="ux-research">
+            <h2><i class="fas fa-search"></i> UX Research Methods</h2>
+            <p>
+              Learn about essential UX research methods to understand your users
+              better:
+            </p>
+
+            <div class="research-methods">
+              <div class="method-card">
+                <div class="method-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h3>User Interviews</h3>
+                <p>
+                  One-on-one conversations to understand user needs,
+                  motivations, and pain points.
+                </p>
+                <div class="method-details">
+                  <h4>When to use:</h4>
+                  <ul>
+                    <li>Early research phases</li>
+                    <li>Understanding user motivations</li>
+                    <li>Gathering qualitative insights</li>
+                  </ul>
+                  <h4>Best practices:</h4>
+                  <ul>
+                    <li>Prepare open-ended questions</li>
+                    <li>Listen more than you speak</li>
+                    <li>Record with permission</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-icon">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Surveys</h3>
+                <p>
+                  Collect quantitative data from a large number of users about
+                  their preferences and behaviors.
+                </p>
+                <div class="method-details">
+                  <h4>When to use:</h4>
+                  <ul>
+                    <li>Gathering quantitative data</li>
+                    <li>Validating assumptions</li>
+                    <li>Large sample sizes</li>
+                  </ul>
+                  <h4>Best practices:</h4>
+                  <ul>
+                    <li>Keep surveys short</li>
+                    <li>Use clear, unbiased questions</li>
+                    <li>Mix question types</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-icon">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <h3>Usability Testing</h3>
+                <p>
+                  Observe users interacting with your product to identify
+                  usability issues and areas for improvement.
+                </p>
+                <div class="method-details">
+                  <h4>When to use:</h4>
+                  <ul>
+                    <li>Testing prototypes</li>
+                    <li>Validating design decisions</li>
+                    <li>Finding usability issues</li>
+                  </ul>
+                  <h4>Best practices:</h4>
+                  <ul>
+                    <li>Define clear tasks</li>
+                    <li>Encourage thinking aloud</li>
+                    <li>Don't guide users</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-icon">
+                  <i class="fas fa-user-circle"></i>
+                </div>
+                <h3>Personas</h3>
+                <p>
+                  Create fictional characters based on real user data to
+                  represent different user types and their goals.
+                </p>
+                <div class="method-details">
+                  <h4>When to use:</h4>
+                  <ul>
+                    <li>Design decision making</li>
+                    <li>Team alignment</li>
+                    <li>Feature prioritization</li>
+                  </ul>
+                  <h4>Best practices:</h4>
+                  <ul>
+                    <li>Base on real data</li>
+                    <li>Keep them simple</li>
+                    <li>Update regularly</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive Quiz -->
+          <section class="quiz-section">
+            <h2><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+            <div id="uiux-quiz" class="quiz-container">
+              <!-- Quiz will be populated by JavaScript -->
+            </div>
+            <div class="quiz-controls">
+              <button class="quiz-btn" onclick="submitUIUXQuiz()">
+                <i class="fas fa-check"></i>
+                Submit Quiz
+              </button>
+              <button class="quiz-btn reset" onclick="resetUIUXQuiz()">
+                <i class="fas fa-redo"></i>
+                Reset
+              </button>
+            </div>
+            <div id="uiux-quiz-results" class="quiz-results"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3 id="modal-title">Modal Title</h3>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Modal content will be populated by JavaScript -->
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn secondary" onclick="closeModal()">
+            Cancel
+          </button>
+          <button class="modal-btn primary" onclick="closeModal()">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/uiux-design-topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEO Fundamentals - Interactive Course</title>
+    <link rel="stylesheet" href="../scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="topic-container seo-topic">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1><i class="fas fa-search"></i> SEO Fundamentals</h1>
+              <p class="hero-description">
+                Master Search Engine Optimization for better visibility and
+                ranking. Learn meta tags, structured data, performance
+                optimization, and SEO best practices.
+              </p>
+              <div class="hero-features">
+                <span class="feature-tag">
+                  <i class="fas fa-tags"></i> Meta Tags
+                </span>
+                <span class="feature-tag">
+                  <i class="fas fa-sitemap"></i> Structured Data
+                </span>
+                <span class="feature-tag">
+                  <i class="fas fa-tachometer-alt"></i> Performance
+                </span>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="seo-showcase">
+                <div class="search-result-demo">
+                  <h3>Search Result Preview</h3>
+                  <div class="serp-preview">
+                    <div class="result-item">
+                      <div class="result-url">https://example.com/page</div>
+                      <h4 class="result-title">
+                        Your Optimized Page Title - Brand
+                      </h4>
+                      <p class="result-description">
+                        A compelling meta description that encourages users to
+                        click and tells search engines what your page is
+                        about...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="container">
+          <!-- Meta Tags Optimizer -->
+          <section class="content-section">
+            <h2><i class="fas fa-code"></i> Meta Tags Optimizer</h2>
+            <div class="section-content">
+              <div class="meta-optimizer">
+                <div class="optimizer-form">
+                  <h4>Optimize Your Meta Tags</h4>
+                  <form id="meta-form">
+                    <div class="form-group">
+                      <label for="page-title">Page Title:</label>
+                      <input
+                        type="text"
+                        id="page-title"
+                        placeholder="Enter your page title"
+                        maxlength="60"
+                      />
+                      <div class="char-counter">
+                        <span id="title-count">0</span>/60 characters
+                        <span class="status" id="title-status"></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="meta-description">Meta Description:</label>
+                      <textarea
+                        id="meta-description"
+                        placeholder="Enter your meta description"
+                        maxlength="160"
+                        rows="3"
+                      ></textarea>
+                      <div class="char-counter">
+                        <span id="desc-count">0</span>/160 characters
+                        <span class="status" id="desc-status"></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="page-url">Page URL:</label>
+                      <input
+                        type="url"
+                        id="page-url"
+                        placeholder="https://example.com/page-url"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="keywords">Keywords (comma-separated):</label>
+                      <input
+                        type="text"
+                        id="keywords"
+                        placeholder="seo, optimization, meta tags"
+                      />
+                    </div>
+
+                    <button
+                      type="button"
+                      onclick="generatePreview()"
+                      class="preview-btn"
+                    >
+                      <i class="fas fa-eye"></i> Generate Preview
+                    </button>
+                  </form>
+                </div>
+
+                <div class="preview-area">
+                  <h4>Search Result Preview</h4>
+                  <div class="serp-preview" id="serp-preview">
+                    <div class="result-item">
+                      <div class="result-url" id="preview-url">
+                        https://example.com/page
+                      </div>
+                      <h4 class="result-title" id="preview-title">
+                        Your Page Title Here
+                      </h4>
+                      <p class="result-description" id="preview-description">
+                        Your meta description will appear here. Make it
+                        compelling to encourage clicks!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="seo-score">
+                    <h5>SEO Score</h5>
+                    <div class="score-display" id="seo-score">
+                      <span class="score">0</span>
+                      <span class="label">Poor</span>
+                    </div>
+                    <div class="score-factors" id="score-factors">
+                      <!-- Dynamic factors will be inserted here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEO Best Practices -->
+          <section class="content-section">
+            <h2><i class="fas fa-star"></i> SEO Best Practices</h2>
+            <div class="section-content">
+              <div class="practices-grid">
+                <div class="practice-card on-page">
+                  <div class="practice-header">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>On-Page SEO</h3>
+                  </div>
+                  <div class="practice-content">
+                    <ul class="practice-checklist">
+                      <li data-practice="title-optimization">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Optimize title tags (50-60 characters)</span>
+                      </li>
+                      <li data-practice="meta-description">
+                        <i class="fas fa-check-circle"></i>
+                        <span
+                          >Write compelling meta descriptions (150-160
+                          characters)</span
+                        >
+                      </li>
+                      <li data-practice="heading-structure">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Use proper heading hierarchy (H1-H6)</span>
+                      </li>
+                      <li data-practice="internal-links">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Include relevant internal links</span>
+                      </li>
+                      <li data-practice="image-optimization">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Optimize images with alt text</span>
+                      </li>
+                      <li data-practice="url-structure">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Use clean, descriptive URLs</span>
+                      </li>
+                    </ul>
+                    <button class="practice-test-btn" onclick="testOnPageSEO()">
+                      <i class="fas fa-search"></i> Test On-Page SEO
+                    </button>
+                  </div>
+                </div>
+
+                <div class="practice-card technical">
+                  <div class="practice-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Technical SEO</h3>
+                  </div>
+                  <div class="practice-content">
+                    <ul class="practice-checklist">
+                      <li data-practice="page-speed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Optimize page loading speed</span>
+                      </li>
+                      <li data-practice="mobile-friendly">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ensure mobile responsiveness</span>
+                      </li>
+                      <li data-practice="ssl-certificate">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Use HTTPS encryption</span>
+                      </li>
+                      <li data-practice="sitemap">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Create XML sitemap</span>
+                      </li>
+                      <li data-practice="robots-txt">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Configure robots.txt</span>
+                      </li>
+                      <li data-practice="structured-data">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Implement structured data</span>
+                      </li>
+                    </ul>
+                    <button
+                      class="practice-test-btn"
+                      onclick="testTechnicalSEO()"
+                    >
+                      <i class="fas fa-wrench"></i> Test Technical SEO
+                    </button>
+                  </div>
+                </div>
+
+                <div class="practice-card content">
+                  <div class="practice-header">
+                    <i class="fas fa-edit"></i>
+                    <h3>Content SEO</h3>
+                  </div>
+                  <div class="practice-content">
+                    <ul class="practice-checklist">
+                      <li data-practice="keyword-research">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Research relevant keywords</span>
+                      </li>
+                      <li data-practice="quality-content">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Create high-quality, original content</span>
+                      </li>
+                      <li data-practice="content-length">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Write comprehensive content (300+ words)</span>
+                      </li>
+                      <li data-practice="readability">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ensure good readability</span>
+                      </li>
+                      <li data-practice="content-freshness">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Update content regularly</span>
+                      </li>
+                      <li data-practice="semantic-keywords">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Use semantic keywords</span>
+                      </li>
+                    </ul>
+                    <button
+                      class="practice-test-btn"
+                      onclick="testContentSEO()"
+                    >
+                      <i class="fas fa-file-text"></i> Test Content SEO
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Structured Data Builder -->
+          <section class="content-section">
+            <h2><i class="fas fa-code-branch"></i> Structured Data Builder</h2>
+            <div class="section-content">
+              <div class="structured-data-builder">
+                <div class="builder-controls">
+                  <h4>Generate Structured Data</h4>
+                  <div class="schema-selector">
+                    <label>Schema Type:</label>
+                    <select id="schema-type" onchange="updateSchemaForm()">
+                      <option value="organization">Organization</option>
+                      <option value="person">Person</option>
+                      <option value="article">Article</option>
+                      <option value="product">Product</option>
+                      <option value="event">Event</option>
+                      <option value="recipe">Recipe</option>
+                    </select>
+                  </div>
+                  <div class="schema-form" id="schema-form">
+                    <!-- Dynamic form will be inserted here -->
+                  </div>
+                  <button
+                    class="generate-btn"
+                    onclick="generateStructuredData()"
+                  >
+                    <i class="fas fa-code"></i> Generate JSON-LD
+                  </button>
+                </div>
+
+                <div class="schema-output">
+                  <h4>Generated JSON-LD</h4>
+                  <div class="code-output" id="json-output">
+                    <pre><code id="json-code">Select a schema type and fill the form to generate structured data</code></pre>
+                  </div>
+                  <div class="output-actions">
+                    <button onclick="copyToClipboard()" class="copy-btn">
+                      <i class="fas fa-copy"></i> Copy Code
+                    </button>
+                    <button onclick="validateSchema()" class="validate-btn">
+                      <i class="fas fa-check"></i> Validate Schema
+                    </button>
+                  </div>
+                  <div class="validation-result" id="validation-result"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SEO Analysis Tool -->
+          <section class="content-section">
+            <h2><i class="fas fa-analytics"></i> SEO Analysis Tool</h2>
+            <div class="section-content">
+              <div class="analysis-tool">
+                <div class="analysis-input">
+                  <h4>Analyze Content</h4>
+                  <div class="form-group">
+                    <label for="analysis-url">URL to Analyze:</label>
+                    <input
+                      type="url"
+                      id="analysis-url"
+                      placeholder="https://example.com/page"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="target-keyword">Target Keyword:</label>
+                    <input
+                      type="text"
+                      id="target-keyword"
+                      placeholder="seo optimization"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="content-analysis">Content to Analyze:</label>
+                    <textarea
+                      id="content-analysis"
+                      placeholder="Paste your content here for analysis..."
+                      rows="8"
+                    ></textarea>
+                  </div>
+                  <button onclick="analyzeContent()" class="analyze-btn">
+                    <i class="fas fa-search"></i> Analyze SEO
+                  </button>
+                </div>
+
+                <div class="analysis-results" id="analysis-results">
+                  <h4>SEO Analysis Results</h4>
+                  <div class="overall-score">
+                    <div class="score-circle" id="overall-score">
+                      <span class="score-value">0</span>
+                      <span class="score-label">SEO Score</span>
+                    </div>
+                  </div>
+                  <div class="analysis-categories" id="analysis-categories">
+                    <!-- Analysis results will be inserted here -->
+                  </div>
+                  <div class="recommendations" id="recommendations">
+                    <!-- Recommendations will be inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Quiz Section -->
+          <section class="quiz-section">
+            <div class="container">
+              <h2>
+                <i class="fas fa-question-circle"></i> Test Your Knowledge
+              </h2>
+              <div class="quiz-container" id="seo-quiz"></div>
+              <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="submitSEOQuiz()">
+                  Submit Answers
+                </button>
+                <button class="btn btn-secondary" onclick="resetSEOQuiz()">
+                  Reset Quiz
+                </button>
+              </div>
+              <div
+                class="quiz-results"
+                id="seo-quiz-results"
+                style="display: none"
+              ></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/seo-topic.js"></script>
+  </body>
+</html>

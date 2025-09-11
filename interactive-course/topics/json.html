@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Interactive Course</title>
+    <link rel="stylesheet" href="../scss/main.scss" />
+    <link rel="stylesheet" href="../scss/_json-topic.scss" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body class="json-topic">
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <i class="fas fa-code"></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">
+            <i class="fas fa-home"></i> Home
+          </a>
+          <a href="../units/unit5.html" class="nav-link">
+            <i class="fas fa-book"></i> Unit 5
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <div class="container">
+        <span class="breadcrumb-item">
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class="breadcrumb-separator"
+          ><i class="fas fa-chevron-right"></i
+        ></span>
+        <span class="breadcrumb-item active">JSON</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>
+            <i class="fas fa-file-code"></i> JSON (JavaScript Object Notation)
+          </h1>
+          <p class="hero-description">
+            Master JSON, the lightweight data interchange format. Learn to
+            parse, stringify, and work with JSON data for seamless communication
+            between web applications and APIs.
+          </p>
+          <div class="hero-features">
+            <span class="feature-tag"
+              ><i class="fas fa-exchange-alt"></i> Data Exchange</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-feather-alt"></i> Lightweight</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-eye"></i> Human Readable</span
+            >
+            <span class="feature-tag"
+              ><i class="fas fa-globe"></i> Universal Format</span
+            >
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="json-showcase">
+            <div class="json-demo">
+              <div class="pattern-title">JSON Example</div>
+              <div class="pattern-code" id="liveJsonDemo">
+                <div class="code-line">{</div>
+                <div class="code-line">"name": "John Doe",</div>
+                <div class="code-line">"age": 30,</div>
+                <div class="code-line">"skills": ["JavaScript", "JSON"]</div>
+                <div class="code-line">}</div>
+              </div>
+              <div class="pattern-description">User Profile Data</div>
+            </div>
+            <div class="json-benefits">
+              <h3>Why Use JSON?</h3>
+              <div class="benefits-list">
+                <div class="benefit-item">Language independent</div>
+                <div class="benefit-item">Easy to read and write</div>
+                <div class="benefit-item">Compact data format</div>
+                <div class="benefit-item">Native JavaScript support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Introduction -->
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i> What is JSON?</h2>
+          <div class="section-content">
+            <p class="lead">
+              JSON (JavaScript Object Notation) is a lightweight, text-based
+              data interchange format. Despite its name, JSON is
+              language-independent and is widely used for data storage and
+              communication between servers and web applications.
+            </p>
+
+            <div class="json-intro-grid">
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-database"></i></div>
+                <h4>Data Storage</h4>
+                <p>
+                  Store structured data in a human-readable format that's easy
+                  to parse and generate.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-json">{
+  "users": [
+    {"id": 1, "name": "Alice"},
+    {"id": 2, "name": "Bob"}
+  ]
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h4>API Communication</h4>
+                <p>
+                  Exchange data between client and server applications using
+                  RESTful APIs.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">fetch('/api/users')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-cog"></i></div>
+                <h4>Configuration Files</h4>
+                <p>
+                  Store application settings and configuration data in JSON
+                  format.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-json">{
+  "app": {
+    "name": "MyApp",
+    "version": "1.0.0",
+    "debug": true
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-code"></i></div>
+                <h4>JavaScript Integration</h4>
+                <p>
+                  Native support in JavaScript with JSON.parse() and
+                  JSON.stringify() methods.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const obj = JSON.parse(jsonString);
+const json = JSON.stringify(object);</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JSON Syntax -->
+        <section class="content-section">
+          <h2><i class="fas fa-code"></i> JSON Syntax and Structure</h2>
+          <div class="section-content">
+            <div class="syntax-explanation">
+              <p>
+                JSON is built on two structures: a collection of name/value
+                pairs and an ordered list of values (arrays).
+              </p>
+
+              <div class="syntax-rules">
+                <h4>JSON Syntax Rules</h4>
+                <ul class="rules-list">
+                  <li>Data is in name/value pairs separated by commas</li>
+                  <li>Data is separated by commas</li>
+                  <li>Curly braces hold objects</li>
+                  <li>Square brackets hold arrays</li>
+                  <li>Strings must be in double quotes</li>
+                  <li>Numbers can be integers or floats</li>
+                  <li>Boolean values are true or false</li>
+                  <li>null represents empty value</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="data-types-demo">
+              <h4><i class="fas fa-list"></i> JSON Data Types</h4>
+              <div class="data-types-grid">
+                <div class="data-type-card">
+                  <h5>String</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "name": "John Doe",
+  "message": "Hello, World!"
+}</code></pre>
+                  </div>
+                  <p>Text data enclosed in double quotes</p>
+                </div>
+
+                <div class="data-type-card">
+                  <h5>Number</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "age": 30,
+  "price": 99.99,
+  "count": -5
+}</code></pre>
+                  </div>
+                  <p>Integer or floating-point numbers</p>
+                </div>
+
+                <div class="data-type-card">
+                  <h5>Boolean</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "isActive": true,
+  "isVisible": false
+}</code></pre>
+                  </div>
+                  <p>True or false values</p>
+                </div>
+
+                <div class="data-type-card">
+                  <h5>Array</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "colors": ["red", "green", "blue"],
+  "numbers": [1, 2, 3, 4, 5]
+}</code></pre>
+                  </div>
+                  <p>Ordered list of values</p>
+                </div>
+
+                <div class="data-type-card">
+                  <h5>Object</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "person": {
+    "name": "Alice",
+    "age": 25
+  }
+}</code></pre>
+                  </div>
+                  <p>Collection of key/value pairs</p>
+                </div>
+
+                <div class="data-type-card">
+                  <h5>null</h5>
+                  <div class="code-example">
+                    <pre><code class="language-json">{
+  "middleName": null,
+  "optional": null
+}</code></pre>
+                  </div>
+                  <p>Represents empty or null value</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="json-validator">
+              <h4><i class="fas fa-check-circle"></i> JSON Validator</h4>
+              <div class="validator-container">
+                <div class="validator-input">
+                  <label for="jsonInput">Enter JSON to validate:</label>
+                  <textarea
+                    id="jsonInput"
+                    placeholder="Enter your JSON here..."
+                  >
+{
+  "name": "John Doe",
+  "age": 30,
+  "skills": ["JavaScript", "JSON", "HTML"],
+  "isStudent": false,
+  "address": {
+    "city": "New York",
+    "zipCode": "10001"
+  }
+}</textarea
+                  >
+                </div>
+
+                <div class="validator-controls">
+                  <button id="validateJson" class="btn btn-primary">
+                    Validate JSON
+                  </button>
+                  <button id="formatJson" class="btn btn-secondary">
+                    Format JSON
+                  </button>
+                  <button id="minifyJson" class="btn btn-secondary">
+                    Minify JSON
+                  </button>
+                </div>
+
+                <div class="validator-result">
+                  <div id="validationResult" class="result-display"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JavaScript Methods -->
+        <section class="content-section">
+          <h2><i class="fas fa-wrench"></i> Working with JSON in JavaScript</h2>
+          <div class="section-content">
+            <p>
+              JavaScript provides built-in methods to work with JSON data
+              effectively.
+            </p>
+
+            <div class="methods-grid">
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>JSON.parse()</h4>
+                  <span class="return-type"
+                    >Converts JSON string to JavaScript object</span
+                  >
+                </div>
+                <p class="method-description">
+                  Parses a JSON string and constructs the JavaScript value or
+                  object described by the string.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const jsonString = '{"name":"John","age":30}';
+const obj = JSON.parse(jsonString);
+console.log(obj.name); // "John"
+console.log(obj.age);  // 30</code></pre>
+                </div>
+                <div class="method-demo">
+                  <label>JSON String:</label>
+                  <input
+                    type="text"
+                    class="demo-input"
+                    id="parseInput"
+                    value='{"name":"Alice","age":25}'
+                  />
+                  <button class="demo-btn" onclick="demonstrateParse()">
+                    Parse
+                  </button>
+                  <div class="demo-result" id="parseResult"></div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>JSON.stringify()</h4>
+                  <span class="return-type"
+                    >Converts JavaScript object to JSON string</span
+                  >
+                </div>
+                <p class="method-description">
+                  Converts a JavaScript object or value to a JSON string,
+                  optionally replacing values if a replacer function is
+                  specified.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">const obj = {name: "John", age: 30};
+const jsonString = JSON.stringify(obj);
+console.log(jsonString); // '{"name":"John","age":30}'
+
+// With formatting
+const formatted = JSON.stringify(obj, null, 2);</code></pre>
+                </div>
+                <div class="method-demo">
+                  <label>JavaScript Object:</label>
+                  <input
+                    type="text"
+                    class="demo-input"
+                    id="stringifyInput"
+                    value='{name:"Bob",age:35}'
+                  />
+                  <button class="demo-btn" onclick="demonstrateStringify()">
+                    Stringify
+                  </button>
+                  <div class="demo-result" id="stringifyResult"></div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>Error Handling</h4>
+                  <span class="return-type"
+                    >Handle parsing errors gracefully</span
+                  >
+                </div>
+                <p class="method-description">
+                  Always use try-catch blocks when parsing JSON to handle
+                  malformed JSON strings.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">try {
+  const obj = JSON.parse(jsonString);
+  console.log('Parsed successfully:', obj);
+} catch (error) {
+  console.error('Invalid JSON:', error.message);
+}</code></pre>
+                </div>
+                <div class="method-demo">
+                  <label>Test JSON (try invalid JSON):</label>
+                  <input
+                    type="text"
+                    class="demo-input"
+                    id="errorInput"
+                    value='{"name":"Test"'
+                  />
+                  <button class="demo-btn" onclick="demonstrateError()">
+                    Test Parsing
+                  </button>
+                  <div class="demo-result" id="errorResult"></div>
+                </div>
+              </div>
+
+              <div class="method-card">
+                <div class="method-header">
+                  <h4>Advanced Options</h4>
+                  <span class="return-type"
+                    >Replacer and reviver functions</span
+                  >
+                </div>
+                <p class="method-description">
+                  Use replacer and reviver functions to customize the parsing
+                  and stringification process.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">// Replacer function
+const json = JSON.stringify(obj, ['name', 'age']); // Only include specific properties
+
+// Reviver function
+const obj = JSON.parse(jsonString, (key, value) => {
+  if (key === 'date') return new Date(value);
+  return value;
+});</code></pre>
+                </div>
+                <div class="method-demo">
+                  <button class="demo-btn" onclick="demonstrateAdvanced()">
+                    Show Advanced Example
+                  </button>
+                  <div class="demo-result" id="advancedResult"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Common Use Cases -->
+        <section class="content-section">
+          <h2><i class="fas fa-star"></i> Common JSON Use Cases</h2>
+          <div class="section-content">
+            <div class="use-cases-grid">
+              <div class="use-case-card">
+                <div class="use-case-icon"><i class="fas fa-server"></i></div>
+                <h4>API Responses</h4>
+                <p>
+                  Most REST APIs return data in JSON format for easy consumption
+                  by web applications.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">fetch('/api/users')
+  .then(response => response.json())
+  .then(users => {
+    users.forEach(user => {
+      console.log(`${user.name}: ${user.email}`);
+    });
+  });</code></pre>
+                </div>
+              </div>
+
+              <div class="use-case-card">
+                <div class="use-case-icon"><i class="fas fa-save"></i></div>
+                <h4>Local Storage</h4>
+                <p>
+                  Store complex objects in browser's localStorage by converting
+                  them to JSON strings.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">// Save to localStorage
+const userData = {name: "John", preferences: {theme: "dark"}};
+localStorage.setItem('user', JSON.stringify(userData));
+
+// Retrieve from localStorage
+const stored = JSON.parse(localStorage.getItem('user'));
+console.log(stored.preferences.theme); // "dark"</code></pre>
+                </div>
+              </div>
+
+              <div class="use-case-card">
+                <div class="use-case-icon"><i class="fas fa-cogs"></i></div>
+                <h4>Configuration Files</h4>
+                <p>
+                  Store application settings and configuration data in JSON
+                  format.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-json">{
+  "app": {
+    "name": "My Web App",
+    "version": "2.1.0",
+    "environment": "production",
+    "features": {
+      "auth": true,
+      "analytics": true
+    }
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="use-case-card">
+                <div class="use-case-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h4>Data Transmission</h4>
+                <p>
+                  Send data between different systems and programming languages.
+                </p>
+                <div class="code-example">
+                  <pre><code class="language-javascript">// Sending data to server
+const orderData = {
+  items: [{product: "Laptop", qty: 1}],
+  customer: {id: 123, name: "Alice"}
+};
+
+fetch('/api/orders', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(orderData)
+});</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="interactive-demo">
+              <h4><i class="fas fa-play"></i> Interactive JSON Demo</h4>
+              <div class="demo-container">
+                <div class="demo-tabs">
+                  <button class="tab-btn active" data-tab="localStorage">
+                    LocalStorage Demo
+                  </button>
+                  <button class="tab-btn" data-tab="fetch">
+                    API Fetch Demo
+                  </button>
+                  <button class="tab-btn" data-tab="form">
+                    Form Data Demo
+                  </button>
+                </div>
+
+                <div class="tab-content">
+                  <!-- LocalStorage Demo -->
+                  <div class="tab-panel active" id="localStorage-panel">
+                    <div class="demo-section">
+                      <h5>Save and Retrieve JSON from LocalStorage</h5>
+                      <div class="form-group">
+                        <label for="userName">Name:</label>
+                        <input type="text" id="userName" value="John Doe" />
+
+                        <label for="userAge">Age:</label>
+                        <input type="number" id="userAge" value="30" />
+
+                        <label for="userSkills"
+                          >Skills (comma-separated):</label
+                        >
+                        <input
+                          type="text"
+                          id="userSkills"
+                          value="JavaScript, HTML, CSS"
+                        />
+                      </div>
+
+                      <div class="demo-actions">
+                        <button id="saveToStorage" class="btn btn-primary">
+                          Save to LocalStorage
+                        </button>
+                        <button id="loadFromStorage" class="btn btn-secondary">
+                          Load from LocalStorage
+                        </button>
+                        <button id="clearStorage" class="btn btn-danger">
+                          Clear Storage
+                        </button>
+                      </div>
+
+                      <div id="storageResult" class="demo-result"></div>
+                    </div>
+                  </div>
+
+                  <!-- Fetch Demo -->
+                  <div class="tab-panel" id="fetch-panel">
+                    <div class="demo-section">
+                      <h5>Fetch JSON from API</h5>
+                      <div class="form-group">
+                        <label for="apiUrl">API URL:</label>
+                        <input
+                          type="text"
+                          id="apiUrl"
+                          value="https://jsonplaceholder.typicode.com/users/1"
+                        />
+                        <button id="fetchData" class="btn btn-primary">
+                          Fetch Data
+                        </button>
+                      </div>
+
+                      <div id="fetchResult" class="demo-result"></div>
+                    </div>
+                  </div>
+
+                  <!-- Form Data Demo -->
+                  <div class="tab-panel" id="form-panel">
+                    <div class="demo-section">
+                      <h5>Convert Form Data to JSON</h5>
+                      <form id="jsonForm">
+                        <div class="form-group">
+                          <label for="productName">Product Name:</label>
+                          <input type="text" id="productName" value="Laptop" />
+
+                          <label for="productPrice">Price:</label>
+                          <input
+                            type="number"
+                            id="productPrice"
+                            step="0.01"
+                            value="999.99"
+                          />
+
+                          <label for="productCategory">Category:</label>
+                          <select id="productCategory">
+                            <option value="electronics">Electronics</option>
+                            <option value="books">Books</option>
+                            <option value="clothing">Clothing</option>
+                          </select>
+
+                          <label>
+                            <input type="checkbox" id="inStock" checked /> In
+                            Stock
+                          </label>
+                        </div>
+
+                        <button
+                          type="button"
+                          id="convertForm"
+                          class="btn btn-primary"
+                        >
+                          Convert to JSON
+                        </button>
+                      </form>
+
+                      <div id="formResult" class="demo-result"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+          <h2>
+            <i class="fas fa-question-circle"></i> Test Your JSON Knowledge
+          </h2>
+          <div class="quiz-container">
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">1</span> Which method converts a
+                JSON string to a JavaScript object?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="a" />
+                    <span>JSON.stringify()</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="b" />
+                    <span>JSON.parse()</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="c" />
+                    <span>JSON.convert()</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="d" />
+                    <span>JSON.decode()</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">2</span> Which of the following is
+                valid JSON?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="a" />
+                    <span>{"name": 'John', "age": 30}</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="b" />
+                    <span>{"name": "John", "age": 30}</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="c" />
+                    <span>{name: "John", age: 30}</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="d" />
+                    <span>{"name": "John"; "age": 30}</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">3</span> What happens when
+                JSON.parse() encounters invalid JSON?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="a" />
+                    <span>Returns null</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="b" />
+                    <span>Returns an empty object</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="c" />
+                    <span>Throws a SyntaxError</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="d" />
+                    <span>Returns undefined</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-question">
+              <h4>
+                <span class="question-number">4</span> Which data types are NOT
+                supported in JSON?
+              </h4>
+              <ul class="quiz-options">
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="a" />
+                    <span>String and Number</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="b" />
+                    <span>Boolean and Array</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="c" />
+                    <span>Function and undefined</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="d" />
+                    <span>Object and null</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="quiz-actions">
+              <button class="btn btn-primary quiz-submit">Submit Quiz</button>
+              <button
+                class="btn btn-secondary quiz-retry"
+                style="display: none"
+              >
+                Try Again
+              </button>
+            </div>
+
+            <div class="quiz-results" style="display: none">
+              <h3><i class="fas fa-trophy"></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+          <h2>
+            <i class="fas fa-book-open"></i> Additional Learning Resources
+          </h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fab fa-js-square"></i></div>
+              <div class="resource-content">
+                <h4>MDN JSON Guide</h4>
+                <p>
+                  Comprehensive documentation for JSON in JavaScript and web
+                  development.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Read MDN Docs
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fas fa-tools"></i></div>
+              <div class="resource-content">
+                <h4>JSONLint Validator</h4>
+                <p>
+                  Online JSON validator and formatter to check and format your
+                  JSON data.
+                </p>
+                <a
+                  href="https://jsonlint.com/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Use JSONLint
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+              <div class="resource-content">
+                <h4>JSON Specification</h4>
+                <p>Official JSON specification and standards documentation.</p>
+                <a
+                  href="https://www.json.org/json-en.html"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Specification
+                </a>
+              </div>
+            </div>
+
+            <div class="resource-card">
+              <div class="resource-icon"><i class="fas fa-play"></i></div>
+              <div class="resource-content">
+                <h4>JSON Tutorial</h4>
+                <p>Interactive JSON tutorial with examples and exercises.</p>
+                <a
+                  href="https://www.w3schools.com/json/"
+                  target="_blank"
+                  class="resource-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> Start Tutorial
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="next-steps">
+          <h2><i class="fas fa-road"></i> Next Steps</h2>
+          <div class="steps-container">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Practice with APIs</h3>
+                <p>
+                  Use JSON with real-world APIs to fetch and send data in web
+                  applications.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Learn AJAX</h3>
+                <p>
+                  Explore AJAX techniques for asynchronous data exchange using
+                  JSON.
+                </p>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Continue to AJAX</h3>
+                <p>
+                  Advance to the next topic: AJAX for dynamic web applications.
+                </p>
+                <a href="ajax.html" class="next-link">Continue to AJAX →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-graduation-cap"></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="es6-features.html">ES6+ Features</a></li>
+            <li><a href="regular-expressions.html">Regular Expressions</a></li>
+            <li><a href="async-await.html">Async/Await</a></li>
+            <li><a href="error-handling.html">Error Handling</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                target="_blank"
+                >MDN JSON</a
+              >
+            </li>
+            <li>
+              <a href="https://jsonlint.com/" target="_blank">JSONLint</a>
+            </li>
+            <li>
+              <a href="https://www.json.org/json-en.html" target="_blank"
+                >JSON.org</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/json-topic.js"></script>
+  </body>
+</html>
