@@ -37,9 +37,9 @@ function initializeUnitPage() {
 }
 
 // Navigation to topic pages
-function navigateToTopic(topicNumber, topicSlug) {
+function navigateToTopic(topicSlug) {
     // Save progress
-    saveTopicProgress(topicNumber, 'started');
+    saveTopicProgress(topicSlug, 'started');
 
     // Navigate to topic page
     window.location.href = `../topics/${topicSlug}.html`;

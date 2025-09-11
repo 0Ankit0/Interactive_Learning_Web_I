@@ -3,7 +3,6 @@
 // Global variables
 let currentQuizQuestion = 0;
 let quizScore = 0;
-let timelineAnimation = null;
 let liveUpdatesInterval = null;
 
 // Quiz questions data
@@ -434,90 +433,7 @@ function toggleLiveUpdates() {
     }
 }
 
-// Interactive Timeline
-function playTimeline() {
-    const progressBar = document.getElementById('timeline-progress');
-    const events = document.querySelectorAll('.timeline-event');
-    const details = document.getElementById('timeline-details');
-    const playBtn = document.getElementById('play-btn');
 
-    if (!progressBar || !events.length) return;
-
-    playBtn.innerHTML = '<i class="fas fa-pause"></i> Playing...';
-    playBtn.disabled = true;
-
-    let currentEvent = 0;
-    const totalEvents = events.length;
-    const duration = 5000; // 5 seconds total
-    const eventDuration = duration / totalEvents;
-
-    timelineAnimation = setInterval(() => {
-        const progress = ((currentEvent + 1) / totalEvents) * 100;
-        progressBar.style.width = progress + '%';
-
-        if (currentEvent < totalEvents) {
-            const event = events[currentEvent];
-            const year = event.dataset.year;
-            const title = event.dataset.title;
-            const description = event.dataset.description;
-
-            details.innerHTML = `
-                <h4>${year}: ${title}</h4>
-                <p>${description}</p>
-            `;
-
-            // Highlight current event
-            events.forEach(e => e.classList.remove('active'));
-            event.classList.add('active');
-
-            currentEvent++;
-        } else {
-            clearInterval(timelineAnimation);
-            playBtn.innerHTML = '<i class="fas fa-play"></i> Play Timeline';
-            playBtn.disabled = false;
-
-            setTimeout(() => {
-                details.innerHTML = `
-                    <h4>Web Evolution Timeline</h4>
-                    <p>The web has evolved from a simple information sharing system to the complex ecosystem we know today.</p>
-                `;
-                events.forEach(e => e.classList.remove('active'));
-            }, 2000);
-        }
-    }, eventDuration);
-}
-
-function resetTimeline() {
-    if (timelineAnimation) {
-        clearInterval(timelineAnimation);
-    }
-
-    const progressBar = document.getElementById('timeline-progress');
-    const events = document.querySelectorAll('.timeline-event');
-    const details = document.getElementById('timeline-details');
-    const playBtn = document.getElementById('play-btn');
-
-    if (progressBar) progressBar.style.width = '0%';
-    if (playBtn) {
-        playBtn.innerHTML = '<i class="fas fa-play"></i> Play Timeline';
-        playBtn.disabled = false;
-    }
-
-    events.forEach(e => e.classList.remove('active'));
-
-    if (details) {
-        details.innerHTML = `
-            <h4>Web Evolution Timeline</h4>
-            <p>Click play to see how the web evolved from a simple information sharing system to the complex ecosystem we know today.</p>
-        `;
-    }
-}
-
-function updateSpeed() {
-    // Speed control functionality can be implemented here
-    const speed = document.getElementById('speed-control')?.value || 3;
-    console.log('Timeline speed updated to:', speed);
-}
 
 // Quiz Functionality
 function initializeQuiz() {
@@ -724,7 +640,6 @@ function updateUnitProgress() {
 document.addEventListener('keydown', function (e) {
     // ESC to close any open modals or reset states
     if (e.key === 'Escape') {
-        resetTimeline();
         stopLiveUpdates();
     }
 
