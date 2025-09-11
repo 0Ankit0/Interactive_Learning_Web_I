@@ -1,0 +1,766 @@
+// HTML Audio and Video Topic Styles
+// Reusing existing classes from the theme and only adding necessary customizations
+
+.html-audio-video-topic {
+    
+    // Demo sections (reusing existing demo styles)
+    .audio-demos,
+    .video-demos {
+        display: grid;
+        gap: 2rem;
+        margin: 2rem 0;
+        
+        @media (max-width: 768px) {
+            gap: 1.5rem;
+        }
+    }
+    
+    .demo-item {
+        background: $white;
+        border: 2px solid $border-color;
+        border-radius: $border-radius;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            border-color: $primary-color;
+            box-shadow: $shadow-lg;
+        }
+        
+        h5 {
+            color: $text-color;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        audio, video {
+            width: 100%;
+            margin: 1rem 0;
+            border-radius: $border-radius;
+        }
+        
+        .demo-info {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba($primary-color, 0.05);
+            border-left: 3px solid $primary-color;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: $text-muted;
+            
+            strong {
+                color: $primary-color;
+            }
+        }
+    }
+    
+    // Custom controls (reusing existing form styles)
+    .custom-controls,
+    .custom-video-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba($primary-color, 0.02);
+        border-radius: $border-radius;
+        flex-wrap: wrap;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                transform: none !important;
+            }
+            
+            &.active {
+                transform: scale(0.95);
+            }
+        }
+        
+        input[type="range"] {
+            flex: 1;
+            margin: 0 0.5rem;
+            
+            @media (max-width: 768px) {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+        
+        #volumeDisplay,
+        #timeDisplay {
+            font-size: 0.85rem;
+            color: $text-muted;
+            font-weight: 500;
+            min-width: 60px;
+        }
+    }
+    
+    // Video container (reusing existing responsive patterns)
+    .custom-video-container {
+        position: relative;
+        display: inline-block;
+        border-radius: $border-radius;
+        overflow: hidden;
+        
+        video {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            
+            &:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+        }
+        
+        .play-overlay-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba($white, 0.9);
+            border: none;
+            font-size: 24px;
+            color: $primary-color;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                background: $white;
+                transform: scale(1.1);
+                box-shadow: $shadow-lg;
+            }
+        }
+    }
+    
+    .progress-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex: 1;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+        }
+        
+        input[type="range"] {
+            flex: 1;
+        }
+        
+        #timeDisplay {
+            min-width: 100px;
+            text-align: center;
+        }
+    }
+    
+    // Format comparison (reusing existing grid and card styles)
+    .format-comparison {
+        margin: 2rem 0;
+    }
+    
+    .format-section {
+        margin-bottom: 3rem;
+        
+        h3 {
+            color: $text-color;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            i {
+                color: $primary-color;
+            }
+        }
+    }
+    
+    .format-grid {
+        @extend .grid-3;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .format-card {
+        @extend .card;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            border-color: $primary-color;
+            transform: translateY(-2px);
+            box-shadow: $shadow-lg;
+        }
+        
+        .format-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            
+            h4 {
+                color: $text-color;
+                margin: 0;
+                font-size: 1.1rem;
+            }
+        }
+        
+        .support-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            
+            &.excellent {
+                background: rgba($success-color, 0.1);
+                color: darken($success-color, 20%);
+            }
+            
+            &.good {
+                background: rgba($primary-color, 0.1);
+                color: darken($primary-color, 20%);
+            }
+            
+            &.limited {
+                background: rgba($warning-color, 0.1);
+                color: darken($warning-color, 20%);
+            }
+        }
+        
+        .format-details {
+            p {
+                margin: 0.5rem 0;
+                color: $text-muted;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                
+                strong {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+    
+    // Best practices section (reusing existing card patterns)
+    .best-practices {
+        margin: 2rem 0;
+        
+        h3 {
+            color: $text-color;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            i {
+                color: $warning-color;
+            }
+        }
+    }
+    
+    .practice-grid {
+        @extend .grid-2;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .practice-card {
+        @extend .card;
+        
+        .practice-icon {
+            width: 48px;
+            height: 48px;
+            background: $gradient-primary;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: $text-color;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 0.5rem;
+                color: $text-muted;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                
+                &::before {
+                    content: '✓';
+                    position: absolute;
+                    left: 0;
+                    color: $success-color;
+                    font-weight: bold;
+                }
+                
+                code {
+                    background: rgba($primary-color, 0.1);
+                    color: $primary-color;
+                    padding: 0.15rem 0.3rem;
+                    border-radius: 0.25rem;
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+    
+    // Information tables (reusing existing table styles)
+    .info-table {
+        margin: 2rem 0;
+        
+        h4 {
+            color: $text-color;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            i {
+                color: $primary-color;
+            }
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: $white;
+            border-radius: $border-radius;
+            overflow: hidden;
+            box-shadow: $shadow-sm;
+            
+            th, td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 1px solid $border-color;
+            }
+            
+            th {
+                background: $primary-color;
+                color: $white;
+                font-weight: 600;
+            }
+            
+            td {
+                color: $text-color;
+                
+                code {
+                    background: rgba($primary-color, 0.1);
+                    color: $primary-color;
+                    padding: 0.2rem 0.4rem;
+                    border-radius: 0.25rem;
+                    font-size: 0.9rem;
+                }
+            }
+            
+            tr:last-child td {
+                border-bottom: none;
+            }
+            
+            @media (max-width: 768px) {
+                font-size: 0.9rem;
+                
+                th, td {
+                    padding: 0.75rem 0.5rem;
+                }
+            }
+        }
+    }
+    
+    // Exercise section (reusing existing styles)
+    .exercise-section {
+        margin: 3rem 0;
+    }
+    
+    .exercise-grid {
+        @extend .grid-1;
+        gap: 2rem;
+        
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    .exercise-card {
+        @extend .card;
+        
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            
+            h3 {
+                color: $text-color;
+                margin: 0;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                
+                i {
+                    color: $primary-color;
+                }
+            }
+        }
+        
+        .difficulty {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            
+            &.beginner {
+                background: rgba($success-color, 0.1);
+                color: darken($success-color, 20%);
+            }
+            
+            &.intermediate {
+                background: rgba($warning-color, 0.1);
+                color: darken($warning-color, 20%);
+            }
+            
+            &.advanced {
+                background: rgba($error-color, 0.1);
+                color: darken($error-color, 20%);
+            }
+        }
+        
+        .exercise-content {
+            p {
+                color: $text-muted;
+                line-height: 1.5;
+                margin-bottom: 0.75rem;
+                
+                strong {
+                    color: $text-color;
+                }
+            }
+            
+            ul {
+                color: $text-muted;
+                margin-bottom: 1.5rem;
+                
+                li {
+                    margin-bottom: 0.5rem;
+                    line-height: 1.4;
+                }
+            }
+        }
+        
+        .exercise-toggle {
+            width: 100%;
+            margin-bottom: 1rem;
+            
+            &.active {
+                background: $secondary-color;
+                
+                &:hover {
+                    background: darken($secondary-color, 10%);
+                }
+            }
+        }
+        
+        .exercise-solution {
+            background: $code-bg;
+            border-radius: $border-radius;
+            padding: 1rem;
+            margin-top: 1rem;
+            
+            pre {
+                margin: 0;
+                background: none;
+                padding: 0;
+            }
+            
+            p {
+                margin-bottom: 0.75rem;
+                font-weight: 600;
+                color: $text-color;
+            }
+        }
+    }
+    
+    // Interactive demo styles (reusing existing patterns)
+    .interactive-demo {
+        @extend .card;
+        background: linear-gradient(135deg, rgba($primary-color, 0.02) 0%, rgba($secondary-color, 0.02) 100%);
+        margin: 2rem 0;
+        
+        h4 {
+            color: $text-color;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            
+            i {
+                color: $primary-color;
+            }
+        }
+        
+        > p {
+            color: $text-muted;
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    // Video and resource grids (reusing existing patterns)
+    .video-grid,
+    .resource-grid {
+        @extend .grid-2;
+        margin: 2rem 0;
+        
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .video-card,
+    .resource-card {
+        @extend .card;
+        overflow: hidden;
+        
+        .video-thumbnail,
+        .resource-icon {
+            width: 100%;
+            height: 200px;
+            background: $gradient-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white;
+            font-size: 3rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            
+            h4 {
+                margin-bottom: 0.75rem;
+                color: $text-color;
+                font-size: 1.1rem;
+            }
+            
+            p {
+                color: $text-muted;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+    
+    // Quiz section (reusing existing quiz styles)
+    .quiz-section {
+        margin: 3rem 0;
+    }
+    
+    .quiz-container {
+        @extend .card;
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            
+            &.correct {
+                border-left: 4px solid $success-color;
+                background: rgba($success-color, 0.05);
+                padding-left: 1rem;
+            }
+            
+            &.incorrect {
+                border-left: 4px solid $error-color;
+                background: rgba($error-color, 0.05);
+                padding-left: 1rem;
+            }
+            
+            h4 {
+                color: $text-color;
+                margin-bottom: 1rem;
+            }
+            
+            .quiz-options {
+                list-style: none;
+                padding: 0;
+                
+                li {
+                    margin-bottom: 0.75rem;
+                    
+                    &.correct label {
+                        border-color: $success-color;
+                        background: rgba($success-color, 0.1);
+                        color: darken($success-color, 20%);
+                    }
+                    
+                    &.incorrect label {
+                        border-color: $error-color;
+                        background: rgba($error-color, 0.1);
+                        color: darken($error-color, 20%);
+                    }
+                    
+                    label {
+                        display: flex;
+                        align-items: center;
+                        padding: 0.75rem;
+                        border: 2px solid $border-color;
+                        border-radius: $border-radius;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        
+                        &:hover {
+                            border-color: $primary-color;
+                            background: rgba($primary-color, 0.05);
+                        }
+                        
+                        input {
+                            margin-right: 0.75rem;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .quiz-submit,
+        .quiz-retry {
+            margin-top: 1rem;
+        }
+        
+        .quiz-results {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba($primary-color, 0.05);
+            border-radius: $border-radius;
+            
+            h4 {
+                color: $text-color;
+                margin-bottom: 1rem;
+            }
+            
+            .results-summary {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 1rem;
+                
+                .score,
+                .percentage {
+                    font-weight: 600;
+                    color: $primary-color;
+                }
+            }
+            
+            .results-breakdown {
+                margin: 1rem 0;
+                
+                .result-item {
+                    padding: 0.75rem;
+                    margin-bottom: 0.75rem;
+                    background: rgba($white, 0.5);
+                    border-radius: $border-radius;
+                    border-left: 3px solid $primary-color;
+                    font-size: 0.9rem;
+                    line-height: 1.4;
+                    
+                    strong {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Next steps (reusing existing navigation styles)
+    .next-steps {
+        @extend .card;
+        background: $gradient-primary;
+        color: $white;
+        text-align: center;
+        margin: 3rem 0;
+        
+        h3 {
+            color: $white;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            color: rgba($white, 0.9);
+            margin-bottom: 1.5rem;
+        }
+        
+        .next-topics {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+            
+            .btn {
+                &:not(.btn-outline) {
+                    background: $white;
+                    color: $primary-color;
+                    
+                    &:hover {
+                        background: rgba($white, 0.9);
+                        transform: translateY(-2px);
+                    }
+                }
+                
+                &.btn-outline {
+                    border-color: rgba($white, 0.3);
+                    color: rgba($white, 0.9);
+                    
+                    &:hover {
+                        background: rgba($white, 0.1);
+                        border-color: $white;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

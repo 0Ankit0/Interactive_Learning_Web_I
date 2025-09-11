@@ -1,0 +1,928 @@
+// Regular Expressions Topic Styles
+// Extends the main theme with regex-specific components
+
+.regex-topic {
+    
+    // Hero Section Enhancements
+    .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        .hero-visual {
+            .regex-showcase {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                padding: 2rem;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                
+                .regex-demo {
+                    background: rgba(255, 255, 255, 0.95);
+                    border-radius: 15px;
+                    padding: 1.5rem;
+                    margin-bottom: 2rem;
+                    color: $text-dark;
+                    
+                    .pattern-display {
+                        text-align: center;
+                        margin-bottom: 1rem;
+                        
+                        .pattern-title {
+                            font-size: 0.9rem;
+                            color: $text-muted;
+                            margin-bottom: 0.5rem;
+                            font-weight: 500;
+                        }
+                        
+                        .pattern-code {
+                            font-family: $font-mono;
+                            font-size: 1.1rem;
+                            font-weight: 600;
+                            color: $primary;
+                            background: rgba($primary, 0.1);
+                            padding: 0.5rem 1rem;
+                            border-radius: 8px;
+                            margin-bottom: 0.5rem;
+                            word-break: break-all;
+                        }
+                        
+                        .pattern-description {
+                            font-size: 0.85rem;
+                            color: $text-muted;
+                            font-style: italic;
+                        }
+                    }
+                    
+                    .test-text {
+                        margin-bottom: 1rem;
+                        
+                        .text-title {
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                            margin-bottom: 0.5rem;
+                            color: $text-dark;
+                        }
+                        
+                        .text-content {
+                            font-size: 0.95rem;
+                            line-height: 1.6;
+                            
+                            .match {
+                                background: linear-gradient(120deg, #a8e6cf 0%, #88d8a3 100%);
+                                padding: 2px 4px;
+                                border-radius: 4px;
+                                font-weight: 600;
+                                color: #2d5a41;
+                            }
+                        }
+                    }
+                    
+                    .match-stats {
+                        display: flex;
+                        justify-content: center;
+                        
+                        .stat-item {
+                            text-align: center;
+                            
+                            .stat-number {
+                                font-size: 2rem;
+                                font-weight: 700;
+                                color: $accent;
+                                line-height: 1;
+                            }
+                            
+                            .stat-label {
+                                font-size: 0.8rem;
+                                color: $text-muted;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+                
+                .regex-benefits {
+                    h3 {
+                        color: white;
+                        margin-bottom: 1rem;
+                        font-size: 1.2rem;
+                    }
+                    
+                    .benefits-list {
+                        .benefit-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.75rem;
+                            margin-bottom: 0.75rem;
+                            color: rgba(255, 255, 255, 0.9);
+                            
+                            i {
+                                color: $accent;
+                                font-size: 1.1rem;
+                                width: 20px;
+                                flex-shrink: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Regex Introduction Cards
+    .regex-intro-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        
+        .intro-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid $border-light;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: $shadow-lg;
+                border-color: $primary;
+            }
+            
+            .intro-icon {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, $primary, $accent);
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+                
+                i {
+                    font-size: 1.8rem;
+                    color: white;
+                }
+            }
+            
+            h4 {
+                font-size: 1.3rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: $text-dark;
+            }
+            
+            p {
+                color: $text-muted;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    // Syntax Methods
+    .syntax-methods {
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            
+            .method-card {
+                background: $bg-light;
+                border-radius: 12px;
+                padding: 1.5rem;
+                border-left: 4px solid $primary;
+                
+                h4 {
+                    color: $primary;
+                    margin-bottom: 1rem;
+                    font-weight: 700;
+                }
+                
+                .method-pros {
+                    margin-top: 1rem;
+                    font-size: 0.9rem;
+                    color: $text-muted;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    // Character Reference
+    .characters-reference {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: $shadow-sm;
+        
+        .reference-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid $border-light;
+            
+            .tab-btn {
+                background: none;
+                border: none;
+                padding: 1rem 1.5rem;
+                font-weight: 600;
+                color: $text-muted;
+                border-radius: 8px 8px 0 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                
+                &.active {
+                    color: $primary;
+                    background: rgba($primary, 0.1);
+                    border-bottom: 3px solid $primary;
+                }
+                
+                &:hover:not(.active) {
+                    background: $bg-light;
+                    color: $text-dark;
+                }
+            }
+        }
+        
+        .tab-panel {
+            display: none;
+            
+            &.active {
+                display: block;
+            }
+        }
+        
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            
+            .reference-item {
+                background: $bg-light;
+                border-radius: 10px;
+                padding: 1.5rem;
+                border-left: 4px solid $accent;
+                
+                .pattern {
+                    font-family: $font-mono;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $primary;
+                    background: rgba($primary, 0.1);
+                    padding: 0.5rem;
+                    border-radius: 6px;
+                    margin-bottom: 0.75rem;
+                    text-align: center;
+                }
+                
+                .description {
+                    font-weight: 600;
+                    color: $text-dark;
+                    margin-bottom: 0.5rem;
+                }
+                
+                .example {
+                    font-family: $font-mono;
+                    font-size: 0.9rem;
+                    color: $text-muted;
+                    background: rgba(0, 0, 0, 0.05);
+                    padding: 0.5rem;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    // Interactive Pattern Builder
+    .interactive-reference {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        color: white;
+        
+        h4 {
+            margin-bottom: 1.5rem;
+            
+            i {
+                color: $accent;
+            }
+        }
+        
+        .pattern-builder {
+            .builder-controls {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                backdrop-filter: blur(10px);
+                
+                .control-row {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    margin-bottom: 1rem;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    
+                    label {
+                        font-weight: 600;
+                        margin-bottom: 0.5rem;
+                    }
+                    
+                    input, textarea {
+                        background: rgba(255, 255, 255, 0.9);
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        border-radius: 8px;
+                        padding: 0.75rem 1rem;
+                        color: $text-dark;
+                        font-family: $font-mono;
+                        
+                        &:focus {
+                            outline: none;
+                            border-color: $accent;
+                            box-shadow: 0 0 0 3px rgba($accent, 0.2);
+                        }
+                    }
+                    
+                    textarea {
+                        min-height: 80px;
+                        resize: vertical;
+                        font-family: $font-base;
+                    }
+                    
+                    .flags-section {
+                        display: flex;
+                        gap: 1rem;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        
+                        label {
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            margin-bottom: 0;
+                            font-weight: 500;
+                            
+                            input[type="checkbox"] {
+                                width: auto;
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .pattern-results {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 10px;
+                padding: 1.5rem;
+                color: $text-dark;
+                
+                .result-display {
+                    h5 {
+                        margin-bottom: 1rem;
+                        
+                        code {
+                            background: rgba($primary, 0.1);
+                            color: $primary;
+                            padding: 0.25rem 0.5rem;
+                            border-radius: 4px;
+                            font-weight: 600;
+                        }
+                    }
+                    
+                    .highlighted-output {
+                        background: $bg-light;
+                        border-radius: 8px;
+                        padding: 1rem;
+                        margin-bottom: 1rem;
+                        line-height: 1.6;
+                        
+                        .regex-match {
+                            background: linear-gradient(120deg, #a8e6cf 0%, #88d8a3 100%);
+                            padding: 2px 6px;
+                            border-radius: 4px;
+                            font-weight: 600;
+                            color: #2d5a41;
+                        }
+                    }
+                    
+                    .match-info {
+                        display: flex;
+                        gap: 2rem;
+                        font-size: 0.9rem;
+                        
+                        span {
+                            color: $text-muted;
+                            
+                            strong {
+                                color: $primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // JavaScript Methods Grid
+    .methods-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+        
+        .method-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid $border-light;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: $shadow-md;
+                border-color: $primary;
+            }
+            
+            .method-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+                
+                h4 {
+                    font-family: $font-mono;
+                    font-size: 1.4rem;
+                    color: $primary;
+                    margin: 0;
+                }
+                
+                .return-type {
+                    background: rgba($accent, 0.1);
+                    color: $accent;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                }
+            }
+            
+            .method-description {
+                color: $text-muted;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+            
+            .method-demo {
+                background: $bg-light;
+                border-radius: 8px;
+                padding: 1rem;
+                margin-top: 1rem;
+                
+                .demo-input {
+                    width: 100%;
+                    background: white;
+                    border: 1px solid $border-light;
+                    border-radius: 6px;
+                    padding: 0.75rem;
+                    font-family: $font-mono;
+                    margin-bottom: 0.75rem;
+                    
+                    &:focus {
+                        outline: none;
+                        border-color: $primary;
+                        box-shadow: 0 0 0 3px rgba($primary, 0.1);
+                    }
+                }
+                
+                .demo-result {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    
+                    .result-value {
+                        font-family: $font-mono;
+                        background: rgba($primary, 0.1);
+                        color: $primary;
+                        padding: 0.25rem 0.5rem;
+                        border-radius: 4px;
+                        
+                        &.success {
+                            background: rgba(#27ae60, 0.1);
+                            color: #27ae60;
+                        }
+                        
+                        &.error {
+                            background: rgba(#e74c3c, 0.1);
+                            color: #e74c3c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Common Patterns Showcase
+    .patterns-showcase {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: $shadow-sm;
+        
+        .pattern-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid $border-light;
+            
+            .tab-btn {
+                background: none;
+                border: none;
+                padding: 1rem 2rem;
+                font-weight: 600;
+                color: $text-muted;
+                border-radius: 8px 8px 0 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                
+                &.active {
+                    color: $primary;
+                    background: rgba($primary, 0.1);
+                    border-bottom: 3px solid $primary;
+                }
+                
+                &:hover:not(.active) {
+                    background: $bg-light;
+                    color: $text-dark;
+                }
+            }
+        }
+        
+        .pattern-collection {
+            .pattern-item {
+                background: $bg-light;
+                border-radius: 12px;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                border-left: 5px solid $primary;
+                
+                .pattern-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1.5rem;
+                    
+                    h5 {
+                        font-size: 1.2rem;
+                        color: $text-dark;
+                        margin: 0;
+                        
+                        i {
+                            color: $primary;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                    
+                    .test-pattern-btn {
+                        background: $primary;
+                        color: white;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        border-radius: 6px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        
+                        &:hover {
+                            background: darken($primary, 10%);
+                            transform: translateY(-1px);
+                        }
+                    }
+                }
+                
+                .pattern-code {
+                    background: rgba($text-dark, 0.05);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                    
+                    code {
+                        font-family: $font-mono;
+                        font-size: 1rem;
+                        color: $primary;
+                        font-weight: 600;
+                        word-break: break-all;
+                    }
+                }
+                
+                .pattern-explanation {
+                    color: $text-muted;
+                    margin-bottom: 1.5rem;
+                    line-height: 1.6;
+                    font-style: italic;
+                }
+                
+                .pattern-examples {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
+                    
+                    span {
+                        padding: 0.5rem 1rem;
+                        border-radius: 20px;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        
+                        &.valid {
+                            background: rgba(#27ae60, 0.1);
+                            color: #27ae60;
+                            border: 1px solid rgba(#27ae60, 0.3);
+                        }
+                        
+                        &.invalid {
+                            background: rgba(#e74c3c, 0.1);
+                            color: #e74c3c;
+                            border: 1px solid rgba(#e74c3c, 0.3);
+                        }
+                    }
+                }
+                
+                .test-text {
+                    background: rgba($primary, 0.05);
+                    border-left: 4px solid $primary;
+                    padding: 1rem;
+                    border-radius: 0 8px 8px 0;
+                    font-family: $font-mono;
+                    font-size: 0.9rem;
+                    color: $text-muted;
+                }
+                
+                .demo-formatter {
+                    input {
+                        width: 100%;
+                        background: white;
+                        border: 1px solid $border-light;
+                        border-radius: 6px;
+                        padding: 0.75rem;
+                        font-family: $font-mono;
+                        margin-bottom: 0.75rem;
+                        
+                        &:focus {
+                            outline: none;
+                            border-color: $primary;
+                            box-shadow: 0 0 0 3px rgba($primary, 0.1);
+                        }
+                    }
+                    
+                    .format-result {
+                        background: rgba($accent, 0.1);
+                        border: 1px solid rgba($accent, 0.3);
+                        border-radius: 6px;
+                        padding: 0.75rem;
+                        font-family: $font-mono;
+                        color: $accent;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    // Pattern Tester
+    .pattern-tester {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        color: white;
+        
+        h4 {
+            margin-bottom: 2rem;
+            
+            i {
+                color: $accent;
+            }
+        }
+        
+        .tester-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+            }
+            
+            .tester-input {
+                label {
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                }
+                
+                input, textarea {
+                    width: 100%;
+                    background: rgba(255, 255, 255, 0.9);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 8px;
+                    padding: 0.75rem;
+                    color: $text-dark;
+                    font-family: $font-mono;
+                    margin-bottom: 1rem;
+                    
+                    &:focus {
+                        outline: none;
+                        border-color: $accent;
+                        box-shadow: 0 0 0 3px rgba($accent, 0.2);
+                    }
+                }
+                
+                textarea {
+                    min-height: 100px;
+                    resize: vertical;
+                    font-family: $font-base;
+                }
+            }
+            
+            .tester-output {
+                .tester-results {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    margin-bottom: 1rem;
+                    backdrop-filter: blur(10px);
+                    
+                    h5 {
+                        margin-bottom: 1rem;
+                        color: white;
+                    }
+                    
+                    .matches-display {
+                        font-family: $font-mono;
+                        font-size: 0.9rem;
+                        margin-bottom: 1rem;
+                        padding: 0.75rem;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 6px;
+                    }
+                    
+                    .highlight-display {
+                        background: rgba(255, 255, 255, 0.9);
+                        color: $text-dark;
+                        border-radius: 8px;
+                        padding: 1rem;
+                        line-height: 1.6;
+                        
+                        .match {
+                            background: linear-gradient(120deg, #a8e6cf 0%, #88d8a3 100%);
+                            padding: 2px 6px;
+                            border-radius: 4px;
+                            font-weight: 600;
+                            color: #2d5a41;
+                        }
+                    }
+                }
+                
+                .tester-controls {
+                    display: flex;
+                    gap: 1rem;
+                    
+                    .btn {
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 8px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        border: none;
+                        
+                        &.btn-primary {
+                            background: $accent;
+                            color: white;
+                            
+                            &:hover {
+                                background: darken($accent, 10%);
+                                transform: translateY(-1px);
+                            }
+                        }
+                        
+                        &.btn-secondary {
+                            background: rgba(255, 255, 255, 0.2);
+                            color: white;
+                            border: 1px solid rgba(255, 255, 255, 0.3);
+                            
+                            &:hover {
+                                background: rgba(255, 255, 255, 0.3);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Quiz Section Enhancements
+    .quiz-section {
+        .quiz-question {
+            .quiz-options {
+                li {
+                    transition: all 0.3s ease;
+                    
+                    &.correct {
+                        background: linear-gradient(120deg, rgba(#27ae60, 0.1), rgba(#2ecc71, 0.1));
+                        border-color: #27ae60;
+                        
+                        label {
+                            color: #27ae60;
+                            font-weight: 600;
+                        }
+                    }
+                    
+                    &.incorrect {
+                        background: linear-gradient(120deg, rgba(#e74c3c, 0.1), rgba(#c0392b, 0.1));
+                        border-color: #e74c3c;
+                        
+                        label {
+                            color: #e74c3c;
+                            font-weight: 600;
+                        }
+                    }
+                    
+                    &.selected:not(.correct) {
+                        background: linear-gradient(120deg, rgba(#f39c12, 0.1), rgba(#e67e22, 0.1));
+                        border-color: #f39c12;
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 1024px) {
+        .regex-intro-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .methods-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .pattern-tester .tester-container {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .hero-visual .regex-showcase {
+            padding: 1rem;
+        }
+        
+        .characters-reference .reference-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .pattern-item .pattern-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .pattern-examples {
+            flex-direction: column;
+            
+            span {
+                display: block;
+                text-align: center;
+            }
+        }
+        
+        .reference-tabs .tab-btn {
+            flex: 1;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero-visual .regex-showcase .regex-demo {
+            padding: 1rem;
+        }
+        
+        .interactive-reference .pattern-builder .builder-controls .control-row .flags-section {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .methods-grid .method-card {
+            padding: 1.5rem;
+        }
+        
+        .pattern-tester .tester-output .tester-controls {
+            flex-direction: column;
+        }
+    }
+}

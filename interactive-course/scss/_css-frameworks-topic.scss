@@ -1,0 +1,789 @@
+// CSS Frameworks Topic Styles
+@import 'variables';
+@import 'mixins';
+
+.css-frameworks-topic {
+    
+    // Hero Section Specific Styles
+    .hero {
+        background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+        
+        .hero-visual {
+            .frameworks-showcase {
+                display: flex;
+                gap: 2rem;
+                justify-content: center;
+                align-items: center;
+                perspective: 1000px;
+                
+                .framework-card {
+                    @include card-style;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: white;
+                    text-align: center;
+                    padding: 2rem;
+                    width: 200px;
+                    transition: all 0.3s ease;
+                    
+                    &:hover {
+                        transform: translateY(-10px) scale(1.05);
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+                    }
+                    
+                    .framework-logo {
+                        width: 80px;
+                        height: 80px;
+                        margin: 0 auto 1rem;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        
+                        i {
+                            font-size: 2rem;
+                        }
+                    }
+                    
+                    h3 {
+                        margin-bottom: 1rem;
+                        font-size: 1.5rem;
+                    }
+                    
+                    .framework-stats {
+                        .stat {
+                            margin-bottom: 0.5rem;
+                            
+                            .stat-number {
+                                display: block;
+                                font-size: 1.2rem;
+                                font-weight: bold;
+                            }
+                            
+                            .stat-label {
+                                font-size: 0.8rem;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                    
+                    &.bootstrap-card {
+                        .framework-logo {
+                            background: linear-gradient(135deg, #7952b3, #563d7c);
+                            
+                            i {
+                                color: white;
+                            }
+                        }
+                    }
+                    
+                    &.foundation-card {
+                        .framework-logo {
+                            background: linear-gradient(135deg, #008cba, #0078a0);
+                            
+                            i {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Framework Benefits Section
+    .framework-benefits {
+        margin-top: 3rem;
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            
+            .benefit-card {
+                @include card-style;
+                text-align: center;
+                padding: 2rem;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                }
+                
+                .benefit-icon {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 1rem;
+                    background: linear-gradient(135deg, #6f42c1, #e83e8c);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    i {
+                        font-size: 1.5rem;
+                        color: white;
+                    }
+                }
+                
+                h4 {
+                    color: $primary-color;
+                    margin-bottom: 1rem;
+                }
+                
+                p {
+                    color: $text-muted;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    
+    // Framework Overview
+    .framework-overview {
+        margin: 2rem 0;
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            
+            .overview-item {
+                @include card-style;
+                padding: 1.5rem;
+                text-align: center;
+                
+                h4 {
+                    color: $primary-color;
+                    margin-bottom: 0.5rem;
+                    font-size: 1rem;
+                    
+                    i {
+                        margin-right: 0.5rem;
+                        font-size: 0.9rem;
+                    }
+                }
+                
+                p {
+                    margin: 0;
+                    font-weight: 500;
+                    color: $text-color;
+                }
+            }
+        }
+    }
+    
+    // Installation Tabs
+    .bootstrap-installation,
+    .foundation-installation {
+        margin: 2rem 0;
+        
+        .installation-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            
+            .tab-btn {
+                @include button-style;
+                background: white;
+                color: $text-color;
+                border: 2px solid #ddd;
+                padding: 0.75rem 1.5rem;
+                
+                &.active {
+                    background: $primary-color;
+                    color: white;
+                    border-color: $primary-color;
+                }
+                
+                &:hover {
+                    border-color: $primary-color;
+                }
+            }
+        }
+        
+        .tab-content {
+            .tab-panel {
+                display: none;
+                
+                &.active {
+                    display: block;
+                }
+            }
+        }
+        
+        .download-links {
+            margin: 1rem 0;
+            
+            .download-btn {
+                @include button-style;
+                background: linear-gradient(135deg, #6f42c1, #e83e8c);
+                color: white;
+                padding: 1rem 2rem;
+                text-decoration: none;
+                font-weight: 500;
+                
+                i {
+                    margin-right: 0.5rem;
+                }
+                
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                }
+            }
+        }
+    }
+    
+    // Bootstrap Grid Demo
+    .bootstrap-grid-demo {
+        margin-top: 2rem;
+        
+        .grid-demo-container {
+            @include card-style;
+            padding: 2rem;
+            margin-top: 2rem;
+            
+            .demo-section {
+                margin-bottom: 2rem;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                
+                h5 {
+                    color: $primary-color;
+                    margin-bottom: 1rem;
+                    padding-bottom: 0.5rem;
+                    border-bottom: 2px solid #eee;
+                }
+                
+                .grid-content {
+                    background: linear-gradient(135deg, #007bff, #0056b3);
+                    color: white;
+                    padding: 1rem;
+                    text-align: center;
+                    border-radius: 4px;
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    // Bootstrap Components Showcase
+    .bootstrap-components {
+        margin-top: 3rem;
+        
+        .components-showcase {
+            .component-demo {
+                @include card-style;
+                margin-bottom: 3rem;
+                overflow: hidden;
+                
+                h4 {
+                    background: $primary-color;
+                    color: white;
+                    padding: 1rem 2rem;
+                    margin: 0;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    
+                    i {
+                        margin-right: 0.5rem;
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    &:hover {
+                        background: darken($primary-color, 10%);
+                    }
+                }
+                
+                .demo-container {
+                    padding: 2rem;
+                    background: #f8f9fa;
+                    border-bottom: 1px solid #dee2e6;
+                }
+                
+                .btn-showcase {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    align-items: center;
+                }
+                
+                .code-example {
+                    background: #2d3748;
+                    
+                    pre {
+                        margin: 0;
+                        padding: 1.5rem 2rem;
+                        background: transparent;
+                        
+                        code {
+                            color: #a0aec0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Framework Comparison Table
+    .comparison-table {
+        margin: 2rem 0;
+        
+        .table-container {
+            overflow-x: auto;
+            @include card-style;
+            
+            .comparison-grid {
+                width: 100%;
+                border-collapse: collapse;
+                min-width: 600px;
+                
+                th {
+                    background: $primary-color;
+                    color: white;
+                    padding: 1rem;
+                    text-align: left;
+                    font-weight: 500;
+                    
+                    i {
+                        margin-right: 0.5rem;
+                    }
+                }
+                
+                td {
+                    padding: 1rem;
+                    border-bottom: 1px solid #dee2e6;
+                    vertical-align: top;
+                    
+                    strong {
+                        color: $primary-color;
+                    }
+                }
+                
+                .advantage {
+                    background-color: #d4edda;
+                    color: #155724;
+                    font-weight: 500;
+                    position: relative;
+                    transition: all 0.3s ease;
+                    
+                    &::before {
+                        content: '✓';
+                        position: absolute;
+                        right: 0.5rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #28a745;
+                        font-weight: bold;
+                    }
+                }
+                
+                tbody tr:hover {
+                    background-color: #f8f9fa;
+                }
+            }
+        }
+    }
+    
+    // Framework Selection Guide
+    .selection-guide {
+        .guide-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            
+            .guide-card {
+                @include card-style;
+                padding: 2rem;
+                
+                h3 {
+                    margin-bottom: 1.5rem;
+                    text-align: center;
+                    
+                    i {
+                        margin-right: 0.5rem;
+                    }
+                }
+                
+                .criteria-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    
+                    li {
+                        padding: 0.75rem 0;
+                        border-bottom: 1px solid #eee;
+                        
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                        
+                        i {
+                            color: #28a745;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+                
+                &.bootstrap-choice {
+                    border-left: 4px solid #7952b3;
+                    
+                    h3 {
+                        color: #7952b3;
+                    }
+                }
+                
+                &.foundation-choice {
+                    border-left: 4px solid #008cba;
+                    
+                    h3 {
+                        color: #008cba;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Alternative Frameworks
+    .alternative-frameworks {
+        margin-top: 3rem;
+        
+        .alternatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            
+            .alternative-card {
+                @include card-style;
+                padding: 2rem;
+                text-align: center;
+                transition: all 0.3s ease;
+                
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                }
+                
+                .alt-icon {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto 1rem;
+                    background: linear-gradient(135deg, #17a2b8, #138496);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    i {
+                        font-size: 1.5rem;
+                        color: white;
+                    }
+                }
+                
+                h4 {
+                    color: $primary-color;
+                    margin-bottom: 1rem;
+                }
+                
+                p {
+                    color: $text-muted;
+                    margin-bottom: 1rem;
+                    font-size: 0.9rem;
+                }
+                
+                .alt-features {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    justify-content: center;
+                    
+                    .feature-tag {
+                        background: #e9ecef;
+                        color: #495057;
+                        padding: 0.25rem 0.75rem;
+                        border-radius: 1rem;
+                        font-size: 0.75rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Best Practices Section
+    .best-practices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+        
+        .practice-card {
+            @include card-style;
+            padding: 2rem;
+            
+            .practice-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 1rem;
+                background: linear-gradient(135deg, #6f42c1, #e83e8c);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                i {
+                    font-size: 1.2rem;
+                    color: white;
+                }
+            }
+            
+            h4 {
+                color: $primary-color;
+                margin-bottom: 1rem;
+            }
+            
+            p {
+                color: $text-muted;
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .practice-tips {
+                list-style: none;
+                padding-left: 0;
+                
+                li {
+                    padding: 0.25rem 0;
+                    color: $text-muted;
+                    font-size: 0.9rem;
+                    
+                    &::before {
+                        content: '•';
+                        color: $primary-color;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Interactive Playground
+    .playground-container {
+        @include card-style;
+        padding: 0;
+        overflow: hidden;
+        margin-top: 2rem;
+        
+        .playground-controls {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: end;
+            
+            .control-group {
+                flex: 1;
+                min-width: 150px;
+                
+                label {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 500;
+                    color: $text-color;
+                }
+                
+                select {
+                    width: 100%;
+                    padding: 0.5rem;
+                    border: 1px solid #ced4da;
+                    border-radius: 0.375rem;
+                    font-family: inherit;
+                }
+            }
+        }
+        
+        .playground-result {
+            .result-tabs {
+                display: flex;
+                background: #e9ecef;
+                
+                .tab-btn {
+                    background: transparent;
+                    border: none;
+                    padding: 1rem 2rem;
+                    cursor: pointer;
+                    font-weight: 500;
+                    color: $text-muted;
+                    transition: all 0.3s ease;
+                    
+                    &.active {
+                        background: white;
+                        color: $primary-color;
+                        border-bottom: 2px solid $primary-color;
+                    }
+                    
+                    &:hover {
+                        background: #f8f9fa;
+                    }
+                }
+            }
+            
+            .tab-content {
+                .tab-panel {
+                    display: none;
+                    
+                    &.active {
+                        display: block;
+                    }
+                }
+                
+                .preview-container {
+                    padding: 2rem;
+                    min-height: 200px;
+                    background: white;
+                }
+                
+                pre {
+                    margin: 0;
+                    padding: 2rem;
+                    background: #2d3748;
+                    color: #a0aec0;
+                    font-size: 0.85rem;
+                    max-height: 400px;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+    
+    // Copy button for code examples
+    .copy-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        i {
+            font-size: 0.875rem;
+        }
+    }
+    
+    // Animation classes
+    .animate-in {
+        animation: slideInUp 0.6s ease-out;
+    }
+    
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    // Responsive adjustments
+    @media (max-width: 768px) {
+        .hero {
+            .hero-visual {
+                .frameworks-showcase {
+                    flex-direction: column;
+                    gap: 1rem;
+                    
+                    .framework-card {
+                        width: 100%;
+                        max-width: 250px;
+                    }
+                }
+            }
+        }
+        
+        .overview-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .installation-tabs {
+            .tab-btn {
+                flex: 1;
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+        
+        .comparison-grid {
+            font-size: 0.85rem;
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+        
+        .playground-controls {
+            flex-direction: column;
+            
+            .control-group {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+        .result-tabs {
+            .tab-btn {
+                flex: 1;
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .benefits-grid,
+        .alternatives-grid,
+        .best-practices-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .guide-cards {
+            grid-template-columns: 1fr;
+        }
+        
+        .overview-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .btn-showcase {
+            flex-direction: column;
+            align-items: stretch;
+            
+            .btn {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}

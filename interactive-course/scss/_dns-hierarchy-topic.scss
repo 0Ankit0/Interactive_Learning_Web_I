@@ -1,0 +1,444 @@
+// DNS Hierarchy Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// DNS Comparison Section
+.dns-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  margin: $spacing-xl 0;
+}
+
+.comparison-side {
+  @include card-base;
+  padding: $spacing-xl;
+  text-align: center;
+  
+  h3 {
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+    font-size: 1.5rem;
+  }
+  
+  .scenario {
+    i {
+      font-size: 3rem;
+      margin-bottom: $spacing-lg;
+      
+      &.fa-user {
+        color: $color-error;
+      }
+      
+      &.fa-smile {
+        color: $color-success;
+      }
+    }
+    
+    p {
+      color: $text-secondary;
+      margin-bottom: $spacing-lg;
+    }
+  }
+}
+
+.ip-examples,
+.domain-examples {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  code {
+    background: $bg-secondary;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-sm;
+    font-family: $font-mono;
+    font-size: 0.9rem;
+  }
+}
+
+.ip-examples code {
+  border-left: 3px solid $color-error;
+}
+
+.domain-examples code {
+  border-left: 3px solid $color-success;
+}
+
+// DNS Tree Structure
+.dns-tree {
+  margin: $spacing-xl 0;
+  padding: $spacing-xl;
+  background: linear-gradient(135deg, rgba($accent-primary, 0.05) 0%, rgba($accent-secondary, 0.05) 100%);
+  border-radius: $border-radius-lg;
+}
+
+.dns-level {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-lg;
+  margin: $spacing-lg 0;
+  flex-wrap: wrap;
+  
+  &:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, $accent-primary 50%, transparent 100%);
+    margin: $spacing-md 0;
+  }
+}
+
+.dns-node {
+  @include card-base;
+  padding: $spacing-md $spacing-lg;
+  min-width: 120px;
+  text-align: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+  
+  &:hover {
+    @include card-hover;
+    transform: translateY(-5px);
+  }
+  
+  &.highlighted {
+    background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+    color: white;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 30px rgba($accent-primary, 0.3);
+  }
+  
+  i {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-sm;
+    color: $accent-primary;
+  }
+  
+  &.highlighted i {
+    color: white;
+  }
+  
+  span {
+    font-weight: 600;
+    font-family: $font-mono;
+  }
+}
+
+// Level Explanations
+.hierarchy-explanation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+}
+
+.level-explanation {
+  @include card-base;
+  padding: $spacing-lg;
+  
+  h4 {
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    i {
+      color: $accent-primary;
+    }
+  }
+  
+  p {
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+}
+
+// DNS Resolution Flow
+.dns-resolution-flow {
+  display: grid;
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.resolution-step {
+  @include card-base;
+  padding: $spacing-lg;
+  transition: all $transition-base;
+  
+  &:hover {
+    @include card-hover;
+  }
+  
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    
+    .step-number {
+      width: 35px;
+      height: 35px;
+      background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    h4 {
+      color: $text-primary;
+    }
+  }
+  
+  .step-content {
+    text-align: center;
+    
+    i {
+      font-size: 2rem;
+      color: $accent-primary;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      color: $text-secondary;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .step-detail {
+      font-size: 0.85rem;
+      color: $accent-primary;
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+}
+
+// DNS Records Grid
+.dns-records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+  margin: $spacing-xl 0;
+}
+
+.record-card {
+  @include card-base;
+  padding: $spacing-lg;
+  cursor: pointer;
+  transition: all $transition-base;
+  
+  &:hover {
+    @include card-hover;
+    transform: translateY(-5px);
+  }
+  
+  .record-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    
+    .record-type {
+      background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+      color: white;
+      padding: $spacing-xs $spacing-md;
+      border-radius: $border-radius-md;
+      font-family: $font-mono;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    h4 {
+      color: $text-primary;
+    }
+  }
+  
+  p {
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+    line-height: 1.6;
+  }
+  
+  .record-example {
+    background: $bg-secondary;
+    padding: $spacing-md;
+    border-radius: $border-radius-sm;
+    border-left: 3px solid $accent-primary;
+    
+    code {
+      font-family: $font-mono;
+      font-size: 0.85rem;
+      color: $text-primary;
+    }
+  }
+}
+
+// DNS Simulator
+.dns-simulator {
+  @include card-base;
+  padding: $spacing-xl;
+  margin: $spacing-xl 0;
+}
+
+.query-input {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  input {
+    flex: 1;
+    padding: $spacing-md $spacing-lg;
+    border: 2px solid $border-light;
+    border-radius: $border-radius-md;
+    font-size: 1rem;
+    
+    &:focus {
+      outline: none;
+      border-color: $accent-primary;
+      box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
+    }
+  }
+}
+
+.lookup-visualization {
+  margin: $spacing-xl 0;
+}
+
+.lookup-steps {
+  display: grid;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.lookup-step {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border: 2px solid $border-light;
+  border-radius: $border-radius-md;
+  background: white;
+  transition: all $transition-base;
+  opacity: 0.6;
+  
+  &.active {
+    opacity: 1;
+    transform: scale(1.02);
+    background: linear-gradient(135deg, rgba($accent-primary, 0.1) 0%, rgba($accent-secondary, 0.1) 100%);
+    border-color: $accent-primary;
+    
+    .step-icon {
+      background: $accent-primary;
+      color: white;
+    }
+  }
+  
+  &.complete {
+    opacity: 1;
+    background: linear-gradient(135deg, rgba($color-success, 0.1) 0%, rgba($color-success, 0.2) 100%);
+    border-color: $color-success;
+    
+    .step-icon {
+      background: $color-success;
+      color: white;
+      
+      i {
+        color: white;
+      }
+    }
+  }
+  
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $bg-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: $spacing-lg;
+    transition: all $transition-base;
+    
+    i {
+      font-size: 1.2rem;
+      color: $accent-primary;
+    }
+  }
+  
+  .step-info {
+    h4 {
+      margin: 0 0 $spacing-xs 0;
+      font-size: 1.1rem;
+      color: $text-primary;
+    }
+    
+    .step-status {
+      font-size: 0.9rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+.lookup-result {
+  @include card-base;
+  padding: $spacing-xl;
+  background: linear-gradient(135deg, rgba($color-success, 0.05) 0%, rgba($color-success, 0.1) 100%);
+  border: 2px solid $color-success;
+  
+  h4 {
+    color: $color-success;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+.result-details {
+  background: white;
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid rgba($border-light, 0.5);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .label {
+    font-weight: 600;
+    color: $text-primary;
+  }
+  
+  .value {
+    font-family: $font-mono;
+    color: $accent-primary;
+    font-weight: 500;
+  }
+}

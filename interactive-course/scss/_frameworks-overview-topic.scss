@@ -1,0 +1,686 @@
+// Frameworks Overview Topic Styling
+
+.frameworks-topic {
+  @include topic-base();
+  
+  // Framework Cards
+  .framework-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .framework-card {
+    background: $card-background;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: $card-shadow;
+    transition: all 0.3s ease;
+    border-left: 4px solid $primary-color;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .framework-logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 2rem;
+      
+      &.react { background: #61dafb; color: #282c34; }
+      &.angular { background: #dd0031; color: white; }
+      &.vue { background: #4fc08d; color: white; }
+    }
+    
+    h3 {
+      text-align: center;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+    
+    .framework-info {
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid $border-color;
+        
+        .label {
+          font-weight: 600;
+          color: $text-primary;
+        }
+        
+        .value {
+          color: $text-secondary;
+        }
+      }
+    }
+    
+    .framework-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      
+      .tag {
+        background: $accent-color;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  // Interactive Demo Section
+  .demo-section {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $primary-color;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .demo-item {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: $card-shadow;
+      
+      h4 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+      
+      .counter {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 1rem 0;
+        color: $accent-color;
+        transition: all 0.3s ease;
+      }
+      
+      .demo-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+        
+        .demo-btn {
+          padding: 0.8rem 1.5rem;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          
+          &.increment {
+            background: $success-color;
+            color: white;
+            
+            &:hover {
+              background: darken($success-color, 10%);
+              transform: translateY(-2px);
+            }
+          }
+          
+          &.decrement {
+            background: $danger-color;
+            color: white;
+            
+            &:hover {
+              background: darken($danger-color, 10%);
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+      
+      &.react {
+        border-left: 4px solid #61dafb;
+      }
+      
+      &.angular {
+        border-left: 4px solid #dd0031;
+      }
+      
+      &.vue {
+        border-left: 4px solid #4fc08d;
+      }
+    }
+  }
+  
+  // Comparison Section
+  .comparison-section {
+    margin: 3rem 0;
+    
+    .comparison-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid $border-color;
+      
+      .tab-btn {
+        padding: 1rem 2rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-weight: 600;
+        color: $text-secondary;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+        
+        &:hover {
+          color: $primary-color;
+        }
+        
+        &.active {
+          color: $primary-color;
+          border-bottom-color: $primary-color;
+        }
+      }
+    }
+    
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.5s ease;
+      
+      &.active {
+        display: block;
+      }
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .comparison-item {
+      background: $card-background;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      
+      h4 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+      
+      .rating-bar {
+        background: $border-color;
+        height: 8px;
+        border-radius: 4px;
+        margin: 1rem 0;
+        overflow: hidden;
+        
+        .rating-fill {
+          height: 100%;
+          border-radius: 4px;
+          transition: width 1s ease;
+          
+          &.excellent { background: $success-color; }
+          &.good { background: $warning-color; }
+          &.fair { background: $info-color; }
+          &.poor { background: $danger-color; }
+        }
+      }
+      
+      .rating-text {
+        font-size: 0.9rem;
+        color: $text-secondary;
+      }
+    }
+  }
+  
+  // Popularity Chart
+  .popularity-chart {
+    background: $card-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    
+    h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $primary-color;
+    }
+    
+    .chart-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .chart-item {
+      margin-bottom: 1.5rem;
+      
+      .chart-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        
+        .framework-name {
+          font-weight: 600;
+          color: $text-primary;
+        }
+        
+        .percentage {
+          color: $text-secondary;
+          font-size: 0.9rem;
+        }
+      }
+      
+      .chart-bar-container {
+        background: $border-color;
+        height: 12px;
+        border-radius: 6px;
+        overflow: hidden;
+        
+        .chart-bar {
+          height: 100%;
+          border-radius: 6px;
+          transition: width 1.5s ease;
+          width: 0;
+          
+          &.react { background: linear-gradient(45deg, #61dafb, #4fa8c5); }
+          &.angular { background: linear-gradient(45deg, #dd0031, #b8002a); }
+          &.vue { background: linear-gradient(45deg, #4fc08d, #42a375); }
+        }
+      }
+    }
+  }
+  
+  // Filter Section
+  .filter-section {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    
+    .filter-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      
+      .filter-btn {
+        padding: 0.8rem 1.5rem;
+        border: 2px solid $primary-color;
+        background: transparent;
+        color: $primary-color;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $primary-color;
+          color: white;
+        }
+        
+        &.active {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+    
+    .recommendations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .recommendation-item {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: $card-shadow;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-3px);
+      }
+      
+      .project-type {
+        background: $accent-color;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+      
+      h4 {
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+      }
+      
+      .framework-name {
+        font-weight: bold;
+        color: $accent-color;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+      }
+      
+      .reason {
+        color: $text-secondary;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  // Learning Resources
+  .resources-section {
+    background: $card-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .resource-category {
+      .category-title {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid $primary-color;
+        padding-bottom: 0.5rem;
+      }
+      
+      .resource-list {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          margin-bottom: 0.8rem;
+          
+          a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 6px;
+            text-decoration: none;
+            color: $text-primary;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            
+            &:hover {
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+              transform: translateX(5px);
+            }
+            
+            i {
+              margin-right: 0.8rem;
+              color: $accent-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Quiz Styles
+  .quiz-section {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    
+    .quiz-question {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: $card-shadow;
+      transition: all 0.5s ease;
+      
+      &.correct {
+        border-left: 4px solid $success-color;
+        background: lighten($success-color, 45%);
+      }
+      
+      &.incorrect {
+        border-left: 4px solid $danger-color;
+        background: lighten($danger-color, 45%);
+      }
+      
+      .question-number {
+        background: $primary-color;
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+      
+      .quiz-options {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+        
+        li {
+          margin-bottom: 0.8rem;
+          
+          label {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: lighten($primary-color, 45%);
+            }
+            
+            input[type="radio"] {
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+    
+    .quiz-controls {
+      text-align: center;
+      margin-top: 2rem;
+      
+      .quiz-btn {
+        @include button-style($primary-color);
+        margin: 0 0.5rem;
+        
+        &.reset {
+          @include button-style($secondary-color);
+        }
+      }
+    }
+    
+    .quiz-results {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      box-shadow: $card-shadow;
+      display: none;
+      
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        
+        i {
+          margin-right: 0.5rem;
+          color: $accent-color;
+        }
+      }
+      
+      span {
+        color: $accent-color;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .framework-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .demo-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .recommendations-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .comparison-tabs {
+      flex-direction: column;
+      
+      .tab-btn {
+        padding: 0.8rem;
+      }
+    }
+    
+    .filter-controls {
+      .filter-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+    
+    .demo-buttons {
+      flex-direction: column;
+      
+      .demo-btn {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .framework-card {
+      padding: 1.5rem;
+    }
+    
+    .demo-section,
+    .comparison-section,
+    .filter-section,
+    .resources-section,
+    .quiz-section {
+      padding: 1.5rem;
+    }
+    
+    .counter {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+// Notification styles
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  color: white;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  
+  &.info {
+    background: $info-color;
+  }
+  
+  &.success {
+    background: $success-color;
+  }
+  
+  &.warning {
+    background: $warning-color;
+  }
+  
+  &.error {
+    background: $danger-color;
+  }
+  
+  i {
+    margin-right: 0.5rem;
+  }
+}

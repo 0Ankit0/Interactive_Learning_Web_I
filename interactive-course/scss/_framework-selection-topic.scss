@@ -1,0 +1,1173 @@
+// Framework Selection Topic Styling
+
+.framework-selection-topic {
+  @include topic-base();
+  
+  // Decision Factors Section
+  .decision-factors {
+    margin: 3rem 0;
+    
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .factor-card {
+      background: $card-background;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: $card-shadow;
+      transition: all 0.3s ease;
+      border-top: 4px solid $primary-color;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .factor-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+        color: white;
+        
+        &.project { background: linear-gradient(45deg, #FF6B6B, #FF8E8E); }
+        &.team { background: linear-gradient(45deg, #4ECDC4, #6ED4CC); }
+        &.timeline { background: linear-gradient(45deg, #45B7D1, #6BC5D8); }
+        &.ecosystem { background: linear-gradient(45deg, #96CEB4, #AAD5BB); }
+      }
+      
+      h3 {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+      
+      .factor-details {
+        .detail-item {
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid $border-color;
+          
+          &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+          }
+          
+          strong {
+            display: block;
+            color: $text-primary;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+          }
+          
+          span {
+            color: $text-secondary;
+            font-size: 0.9rem;
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+  }
+  
+  // Framework Selector Section
+  .framework-selector {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 3rem;
+    margin: 3rem 0;
+    
+    h2 {
+      text-align: center;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+    
+    > p {
+      text-align: center;
+      color: $text-secondary;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+    
+    .selector-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .question-group {
+      margin-bottom: 3rem;
+      
+      .question-label {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+        
+        i {
+          margin-right: 1rem;
+          font-size: 1.4rem;
+        }
+      }
+      
+      .option-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      .option-card {
+        background: white;
+        border: 2px solid $border-color;
+        border-radius: 8px;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        
+        &:hover {
+          border-color: $primary-color;
+          transform: translateY(-3px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+          
+          &:checked + .option-content {
+            background: lighten($primary-color, 45%);
+            border-color: $primary-color;
+            
+            h4 {
+              color: $primary-color;
+            }
+          }
+        }
+        
+        .option-content {
+          text-align: center;
+          border: 2px solid transparent;
+          border-radius: 6px;
+          padding: 1rem;
+          transition: all 0.3s ease;
+          
+          i {
+            font-size: 2rem;
+            color: $accent-color;
+            margin-bottom: 1rem;
+          }
+          
+          h4 {
+            color: $text-primary;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+          }
+          
+          p {
+            color: $text-secondary;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+          }
+        }
+      }
+    }
+    
+    .selector-actions {
+      text-align: center;
+      margin-top: 3rem;
+      
+      .selector-btn {
+        @include button-style($primary-color);
+        margin: 0 1rem;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+        
+        &.reset {
+          @include button-style($secondary-color);
+        }
+        
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    
+    .recommendation-result {
+      display: none;
+      margin-top: 3rem;
+      
+      .recommendation-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: $card-shadow;
+        border-left: 4px solid $success-color;
+        
+        .recommendation-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 2rem;
+          
+          .framework-icon {
+            font-size: 3rem;
+            margin-right: 1.5rem;
+          }
+          
+          .recommendation-text {
+            h3 {
+              color: $primary-color;
+              margin-bottom: 0.5rem;
+              font-size: 1.6rem;
+            }
+            
+            .confidence {
+              color: $success-color;
+              font-weight: 600;
+              font-size: 1.1rem;
+            }
+          }
+        }
+        
+        .framework-description {
+          font-size: 1.1rem;
+          color: $text-secondary;
+          margin-bottom: 2rem;
+          line-height: 1.6;
+        }
+        
+        .pros-cons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          
+          .pros,
+          .cons {
+            h4 {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1rem;
+              
+              i {
+                margin-right: 0.5rem;
+              }
+            }
+            
+            ul {
+              list-style: none;
+              padding: 0;
+              
+              li {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid $border-color;
+                
+                &:last-child {
+                  border-bottom: none;
+                }
+              }
+            }
+          }
+          
+          .pros {
+            h4 {
+              color: $success-color;
+            }
+          }
+          
+          .cons {
+            h4 {
+              color: $warning-color;
+            }
+          }
+        }
+        
+        .score-breakdown {
+          margin-bottom: 2rem;
+          
+          h4 {
+            color: $primary-color;
+            margin-bottom: 1rem;
+          }
+          
+          .score-bars {
+            .score-item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 0.8rem;
+              
+              .framework-name {
+                width: 80px;
+                font-weight: 600;
+                color: $text-primary;
+              }
+              
+              .score-bar-container {
+                flex: 1;
+                background: $border-color;
+                height: 8px;
+                border-radius: 4px;
+                margin: 0 1rem;
+                overflow: hidden;
+                
+                .score-bar {
+                  height: 100%;
+                  background: $primary-color;
+                  border-radius: 4px;
+                  transition: width 1s ease;
+                }
+              }
+              
+              .score-value {
+                font-weight: 600;
+                color: $text-secondary;
+              }
+            }
+          }
+        }
+        
+        .alternatives {
+          margin-bottom: 2rem;
+          
+          h4 {
+            color: $primary-color;
+            margin-bottom: 1rem;
+          }
+          
+          .alternative-frameworks {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            
+            .alternative-item {
+              display: flex;
+              align-items: center;
+              background: $section-background;
+              padding: 0.8rem 1.2rem;
+              border-radius: 20px;
+              font-size: 0.9rem;
+              
+              i {
+                margin-right: 0.5rem;
+                font-size: 1.2rem;
+              }
+              
+              small {
+                margin-left: 0.5rem;
+                color: $text-secondary;
+              }
+            }
+          }
+        }
+        
+        .next-steps {
+          h4 {
+            color: $primary-color;
+            margin-bottom: 1rem;
+          }
+          
+          ol {
+            color: $text-secondary;
+            line-height: 1.6;
+            
+            li {
+              margin-bottom: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Decision Matrix Section
+  .decision-matrix {
+    margin: 3rem 0;
+    
+    .matrix-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      
+      .matrix-btn {
+        padding: 0.8rem 1.5rem;
+        border: 2px solid $primary-color;
+        background: transparent;
+        color: $primary-color;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover,
+        &.active {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+    
+    .comparison-matrix {
+      background: $card-background;
+      border-radius: 12px;
+      padding: 2rem;
+      overflow-x: auto;
+      
+      .matrix-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+        
+        thead th {
+          background: $primary-color;
+          color: white;
+          padding: 1.5rem 1rem;
+          text-align: center;
+          font-weight: 600;
+          
+          &:first-child {
+            text-align: left;
+            border-top-left-radius: 8px;
+          }
+          
+          &:last-child {
+            border-top-right-radius: 8px;
+          }
+          
+          .framework-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            i {
+              margin-right: 0.5rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
+        
+        tbody {
+          tr {
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: lighten($primary-color, 48%);
+            }
+          }
+          
+          td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid $border-color;
+            
+            &.criteria-cell {
+              font-weight: 600;
+              color: $text-primary;
+              background: lighten($primary-color, 45%);
+            }
+            
+            &.score-cell {
+              text-align: center;
+              
+              .score-bar {
+                background: $border-color;
+                height: 8px;
+                border-radius: 4px;
+                margin: 0.5rem 0;
+                overflow: hidden;
+                
+                .score-fill {
+                  height: 100%;
+                  border-radius: 4px;
+                  transition: width 1.5s ease;
+                  width: 0;
+                  
+                  &.excellent { background: $success-color; }
+                  &.good { background: $info-color; }
+                  &.moderate { background: $warning-color; }
+                  &.steep { background: $danger-color; }
+                  &.easy { background: $success-color; }
+                }
+              }
+              
+              .score-text {
+                font-size: 0.9rem;
+                color: $text-secondary;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Scenarios Section
+  .scenarios-section {
+    margin: 3rem 0;
+    
+    .scenarios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .scenario-card {
+      background: $card-background;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: $card-shadow;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .scenario-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        
+        i {
+          font-size: 2rem;
+          color: $accent-color;
+          margin-right: 1rem;
+        }
+        
+        h3 {
+          color: $primary-color;
+          margin: 0;
+        }
+      }
+      
+      .scenario-details {
+        .requirements {
+          margin-bottom: 1.5rem;
+          
+          h4 {
+            color: $text-primary;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+          }
+          
+          ul {
+            list-style: none;
+            padding: 0;
+            
+            li {
+              padding: 0.4rem 0;
+              color: $text-secondary;
+              position: relative;
+              padding-left: 1.5rem;
+              
+              &:before {
+                content: "•";
+                color: $accent-color;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+        
+        .recommendation {
+          background: lighten($success-color, 45%);
+          border-left: 4px solid $success-color;
+          padding: 1rem;
+          border-radius: 4px;
+          
+          h4 {
+            color: $success-color;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+          }
+          
+          p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: $text-secondary;
+            
+            strong {
+              color: $text-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Checklist Section
+  .checklist-section {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 3rem;
+    margin: 3rem 0;
+    
+    .checklist-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .checklist-category {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: $card-shadow;
+      
+      h3 {
+        display: flex;
+        align-items: center;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid $border-color;
+        
+        i {
+          margin-right: 1rem;
+          font-size: 1.3rem;
+        }
+      }
+      
+      .checklist-items {
+        .checklist-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 1.5rem;
+          cursor: pointer;
+          padding: 1rem;
+          border-radius: 6px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: lighten($primary-color, 48%);
+          }
+          
+          input[type="checkbox"] {
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+            transform: scale(1.2);
+            accent-color: $primary-color;
+          }
+          
+          .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid $primary-color;
+            border-radius: 4px;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+            position: relative;
+            transition: all 0.3s ease;
+            
+            &:after {
+              content: "✓";
+              position: absolute;
+              top: -2px;
+              left: 2px;
+              color: white;
+              font-weight: bold;
+              opacity: 0;
+              transition: all 0.3s ease;
+            }
+          }
+          
+          input:checked + .checkmark {
+            background: $primary-color;
+            
+            &:after {
+              opacity: 1;
+            }
+          }
+          
+          .item-content {
+            flex: 1;
+            
+            strong {
+              display: block;
+              color: $text-primary;
+              margin-bottom: 0.3rem;
+            }
+            
+            p {
+              margin: 0;
+              color: $text-secondary;
+              font-size: 0.9rem;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+    
+    .checklist-summary {
+      text-align: center;
+      margin-top: 2rem;
+      
+      .summary-btn {
+        @include button-style($accent-color);
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+        
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+      
+      .checklist-results {
+        display: none;
+        margin-top: 2rem;
+        
+        .summary-card {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: $card-shadow;
+          max-width: 600px;
+          margin: 0 auto;
+          
+          .readiness-indicator {
+            text-align: center;
+            margin-bottom: 2rem;
+            
+            i {
+              font-size: 3rem;
+              margin-bottom: 1rem;
+            }
+            
+            h3 {
+              margin-bottom: 0.5rem;
+            }
+            
+            p {
+              font-size: 1.1rem;
+              margin: 0;
+            }
+          }
+          
+          .category-breakdown {
+            margin-bottom: 2rem;
+            
+            h4 {
+              color: $primary-color;
+              margin-bottom: 1rem;
+              text-align: left;
+            }
+            
+            .category-score {
+              display: flex;
+              align-items: center;
+              margin-bottom: 1rem;
+              
+              .category-name {
+                flex: 1;
+                font-weight: 600;
+                color: $text-primary;
+              }
+              
+              .category-bar {
+                width: 100px;
+                background: $border-color;
+                height: 8px;
+                border-radius: 4px;
+                margin: 0 1rem;
+                overflow: hidden;
+                
+                .category-fill {
+                  height: 100%;
+                  background: $accent-color;
+                  border-radius: 4px;
+                  transition: width 1s ease;
+                }
+              }
+              
+              .category-percentage {
+                color: $text-secondary;
+                font-weight: 600;
+              }
+            }
+          }
+          
+          .recommendations {
+            h4 {
+              color: $primary-color;
+              margin-bottom: 1rem;
+              text-align: left;
+            }
+            
+            p {
+              text-align: left;
+              line-height: 1.6;
+              color: $text-secondary;
+              
+              i {
+                margin-right: 0.5rem;
+                color: $accent-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Best Practices Section
+  .best-practices {
+    margin: 3rem 0;
+    
+    .practices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .practice-card {
+      background: $card-background;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: $card-shadow;
+      transition: all 0.3s ease;
+      position: relative;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .practice-number {
+        position: absolute;
+        top: -15px;
+        left: 2rem;
+        width: 40px;
+        height: 40px;
+        background: $accent-color;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+      
+      > p {
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      
+      .practice-tips {
+        background: lighten($primary-color, 48%);
+        border-radius: 6px;
+        padding: 1.5rem;
+        
+        h4 {
+          color: $primary-color;
+          margin-bottom: 1rem;
+          font-size: 1rem;
+        }
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            color: $text-secondary;
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            
+            &:before {
+              content: "▸";
+              color: $accent-color;
+              position: absolute;
+              left: 0;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Quiz Styles
+  .quiz-section {
+    background: $section-background;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+    
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .quiz-question {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: $card-shadow;
+      transition: all 0.5s ease;
+      
+      &.correct {
+        border-left: 4px solid $success-color;
+        background: lighten($success-color, 45%);
+      }
+      
+      &.incorrect {
+        border-left: 4px solid $danger-color;
+        background: lighten($danger-color, 45%);
+      }
+      
+      .question-number {
+        background: $primary-color;
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+      
+      .quiz-options {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+        
+        li {
+          margin-bottom: 0.8rem;
+          
+          label {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: lighten($primary-color, 45%);
+            }
+            
+            input[type="radio"] {
+              margin-right: 1rem;
+              transform: scale(1.2);
+              accent-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+    
+    .quiz-controls {
+      text-align: center;
+      margin-top: 2rem;
+      
+      .quiz-btn {
+        @include button-style($primary-color);
+        margin: 0 0.5rem;
+        
+        &.reset {
+          @include button-style($secondary-color);
+        }
+      }
+    }
+    
+    .quiz-results {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      box-shadow: $card-shadow;
+      display: none;
+      
+      h3 {
+        color: $primary-color;
+        margin-bottom: 1rem;
+        
+        i {
+          margin-right: 0.5rem;
+          color: $accent-color;
+        }
+      }
+      
+      span {
+        color: $accent-color;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .factors-grid,
+    .scenarios-grid,
+    .practices-grid,
+    .checklist-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .framework-selector {
+      padding: 2rem;
+      
+      .question-group {
+        .option-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .question-label {
+          font-size: 1.1rem;
+        }
+      }
+      
+      .selector-actions {
+        .selector-btn {
+          display: block;
+          width: 100%;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+    
+    .decision-matrix {
+      .matrix-controls {
+        .matrix-btn {
+          flex: 1;
+          min-width: 120px;
+        }
+      }
+      
+      .comparison-matrix {
+        padding: 1rem;
+      }
+    }
+    
+    .recommendation-result {
+      .recommendation-card {
+        .pros-cons {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        
+        .recommendation-header {
+          flex-direction: column;
+          text-align: center;
+          
+          .framework-icon {
+            margin-right: 0;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+    
+    .checklist-section {
+      padding: 2rem;
+    }
+    
+    .best-practices {
+      .practice-card {
+        padding: 2rem;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .factor-card,
+    .scenario-card,
+    .practice-card {
+      padding: 1.5rem;
+    }
+    
+    .framework-selector,
+    .checklist-section,
+    .quiz-section {
+      padding: 1.5rem;
+    }
+    
+    .matrix-table {
+      font-size: 0.9rem;
+      
+      th,
+      td {
+        padding: 0.8rem 0.5rem;
+      }
+    }
+  }
+}
+
+// Notification styles (if not already defined)
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  color: white;
+  z-index: 1000;
+  animation: slideInRight 0.3s ease;
+  
+  &.info {
+    background: $info-color;
+  }
+  
+  &.success {
+    background: $success-color;
+  }
+  
+  &.warning {
+    background: $warning-color;
+  }
+  
+  &.error {
+    background: $danger-color;
+  }
+  
+  i {
+    margin-right: 0.5rem;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
