@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 6: JS Frameworks and Libraries</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">Unit 6: JS Frameworks and Libraries</span>
+      </div>
+    </nav>
+
+    <header class="unit-header">
+      <div class="container">
+        <div class="unit-header-content">
+          <div class="unit-icon-large">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="unit-header-text">
+            <h1 class="unit-title">Unit 6: JS Frameworks and Libraries</h1>
+            <p class="unit-subtitle">5 hours • 3 Topics</p>
+            <p class="unit-description">
+              Get familiar with jQuery and explore popular frameworks like
+              React, Angular, and Vue.js for modern web development.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="unit-progress"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="topics-grid">
+          <div class="topic-card" data-topic="6.1">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+              <h3 class="topic-title">6.1 jQuery</h3>
+              <span class="topic-duration">2.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Learn jQuery fundamentals, DOM manipulation, events, and
+                animations for easier JavaScript development.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-dollar-sign"></i> jQuery Selector</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-magic"></i> Animation Studio</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-edit"></i> DOM Manipulator</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('jquery')">
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="6.2">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <h3 class="topic-title">6.2 Popular Frameworks Overview</h3>
+              <span class="topic-duration">2 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Explore React, Angular, and Vue.js frameworks, their strengths,
+                use cases, and basic concepts.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fab fa-react"></i> React Basics</span
+                >
+                <span class="subtopic"
+                  ><i class="fab fa-angular"></i> Angular Overview</span
+                >
+                <span class="subtopic"
+                  ><i class="fab fa-vuejs"></i> Vue.js Introduction</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('frameworks-overview')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="6.3">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3 class="topic-title">6.3 Choosing the Right Framework</h3>
+              <span class="topic-duration">0.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Learn how to evaluate and choose the right JavaScript framework
+                or library for your projects.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-chart-bar"></i> Comparison Tool</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-question-circle"></i> Decision Tree</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-lightbulb"></i> Project Matcher</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('framework-selection')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="unit-summary">
+          <div class="summary-content">
+            <h2>What You'll Learn</h2>
+            <div class="learning-outcomes">
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>jQuery fundamentals and DOM manipulation</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>React.js component-based architecture</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Angular framework structure and concepts</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Vue.js reactive programming model</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Framework comparison and selection criteria</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Best practices for modern web development</span>
+              </div>
+            </div>
+            
+            <div class="exam-questions">
+              <h3>Important Questions on Exam Basis</h3>
+              <div class="questions-list">
+                <div class="question-item">
+                  <span class="question-type">Theory</span>
+                  <p>Compare and contrast jQuery with vanilla JavaScript for DOM manipulation and event handling.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Practical</span>
+                  <p>Create a React component with state management and props passing between parent and child components.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Comparison</span>
+                  <p>Analyze the advantages and disadvantages of React, Angular, and Vue.js for different project types.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Theory</span>
+                  <p>Explain the concept of Virtual DOM in React and its performance benefits.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Application</span>
+                  <p>Develop a single-page application using a JavaScript framework with routing and data management.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Decision Making</span>
+                  <p>Justify the selection of a specific JavaScript framework based on project requirements and team expertise.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="summary-stats">
+            <div class="stat">
+              <div class="stat-number">3</div>
+              <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">12+</div>
+              <div class="stat-label">Examples</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Exercises</div>
+            </div>
+          </div> -->
+        </section>
+      </div>
+    </main>
+
+    <!-- <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Web Technology I Course. Explore modern JavaScript
+          frameworks and libraries.
+        </p>
+      </div>
+    </footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/unit.js"></script>
+  </body>
+</html>

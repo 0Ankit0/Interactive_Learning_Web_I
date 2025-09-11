@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 2: HTML</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">Unit 2: HTML</span>
+      </div>
+    </nav>
+
+    <header class="unit-header">
+      <div class="container">
+        <div class="unit-header-content">
+          <div class="unit-icon-large">
+            <i class="fab fa-html5"></i>
+          </div>
+          <div class="unit-header-text">
+            <h1 class="unit-title">Unit 2: HTML</h1>
+            <p class="unit-subtitle">8 hours • 6 Topics</p>
+            <p class="unit-description">
+              Master HTML structure, tags, attributes, forms, tables, and
+              semantic HTML for modern web development.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="unit-progress"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="topics-grid">
+          <div class="topic-card" data-topic="2.1">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-file-code"></i>
+              </div>
+              <h3 class="topic-title">2.1 Introduction to HTML</h3>
+              <span class="topic-duration">1.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Learn HTML history, evolution, basic structure, elements and
+                attributes, and text formatting tags.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-code"></i> Interactive Examples</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-gamepad"></i> HTML Builder Game</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-edit"></i> Live Editor</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('html-introduction')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="2.2">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-list"></i>
+              </div>
+              <h3 class="topic-title">2.2 Lists, Links and Images</h3>
+              <span class="topic-duration">1.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Create unordered, ordered, and description lists, hyperlinks,
+                and add images to your web pages.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-puzzle-piece"></i> Link Builder</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-image"></i> Image Gallery Creator</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-tasks"></i> List Designer</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('lists-links-images')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="2.3">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-table"></i>
+              </div>
+              <h3 class="topic-title">2.3 Tables and Forms</h3>
+              <span class="topic-duration">2 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Build complex tables and interactive forms with various input
+                types, validation, and methods.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-th"></i> Table Builder</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-wpforms"></i> Form Creator</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-check-circle"></i> Validation Demo</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('tables-forms')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="2.4">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-sitemap"></i>
+              </div>
+              <h3 class="topic-title">2.4 Semantic HTML</h3>
+              <span class="topic-duration">1.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Understand semantic elements like header, footer, nav, article,
+                section for better web organization.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-layer-group"></i> Layout Builder</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-accessible-icon"></i> Accessibility
+                  Checker</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-search"></i> SEO Analyzer</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('semantic-html')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="2.5">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-video"></i>
+              </div>
+              <h3 class="topic-title">2.5 Audio and Video Elements</h3>
+              <span class="topic-duration">1 hour</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Learn to embed and control audio and video content in your web
+                pages with modern HTML5 elements.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-play-circle"></i> Media Player</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-volume-up"></i> Audio Controls</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-cog"></i> Custom Controls</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('audio-video')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="2.6">
+            <div class="topic-header">
+              <div class="topic-icon">
+                <i class="fas fa-cube"></i>
+              </div>
+              <h3 class="topic-title">2.6 Advanced Elements</h3>
+              <span class="topic-duration">0.5 hours</span>
+            </div>
+            <div class="topic-content">
+              <p>
+                Explore div, span, aside, iframe, canvas and other advanced HTML
+                elements for complex layouts.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-paint-brush"></i> Canvas Drawing</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-window-restore"></i> iframe Embed</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-magic"></i> Interactive Demo</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('advanced-elements')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="unit-summary">
+          <div class="summary-content">
+            <h2>What You'll Learn</h2>
+            <div class="learning-outcomes">
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>HTML document structure and basic syntax</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Creating lists, links, and embedding images</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Building complex tables and interactive forms</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Using semantic HTML for better accessibility</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Embedding multimedia content</span>
+              </div>
+              <div class="outcome">
+                <i class="fas fa-check-circle"></i>
+                <span>Advanced HTML elements and layouts</span>
+              </div>
+            </div>
+            
+            <div class="exam-questions">
+              <h3>Important Questions on Exam Basis</h3>
+              <div class="questions-list">
+                <div class="question-item">
+                  <span class="question-type">Theory</span>
+                  <p>Explain the basic structure of an HTML document and the purpose of each section (DOCTYPE, head, body).</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Practical</span>
+                  <p>Create a complete HTML form with various input types, validation, and proper semantic structure.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Theory</span>
+                  <p>Differentiate between block-level and inline elements with examples and their default behaviors.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Practical</span>
+                  <p>Design a complex table structure with headers, merged cells, and proper accessibility features.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Theory</span>
+                  <p>Explain semantic HTML elements and their importance for accessibility and SEO.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Application</span>
+                  <p>Create an HTML page that demonstrates proper use of lists, links, images, and multimedia elements.</p>
+                </div>
+                <div class="question-item">
+                  <span class="question-type">Comparison</span>
+                  <p>Compare different HTML5 input types and their specific use cases with validation attributes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="summary-stats">
+            <div class="stat">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Examples</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">8</div>
+              <div class="stat-label">Exercises</div>
+            </div>
+          </div> -->
+        </section>
+      </div>
+    </main>
+
+    <!-- <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Web Technology I Course. Master HTML fundamentals through
+          interactive learning.
+        </p>
+      </div>
+    </footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/unit.js"></script>
+  </body>
+</html>
