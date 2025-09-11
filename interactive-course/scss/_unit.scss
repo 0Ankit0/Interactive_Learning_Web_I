@@ -389,21 +389,21 @@
       }
     }
     
-    .topic-footer {
-      .btn-primary {
-        width: 100%;
-        justify-content: center;
-        gap: $spacing-md;
+    // .topic-footer {
+    //   .btn-primary {
+    //     width: 100%;
+    //     justify-content: center;
+    //     gap: $spacing-md;
         
-        i {
-          transition: transform $transition-fast;
-        }
+    //     i {
+    //       transition: transform $transition-fast;
+    //     }
         
-        &:hover i {
-          transform: translateX(3px);
-        }
-      }
-    }
+    //     &:hover i {
+    //       transform: translateX(3px);
+    //     }
+    //   }
+    // }
   }
   
   .completion-badge {
@@ -499,6 +499,105 @@
   .topics-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: $spacing-2xl;
+  }
+}
+
+// Exam questions styling
+.exam-questions {
+  margin-top: $spacing-2xl;
+  padding: $spacing-xl;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: $border-radius-lg;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: $primary-color;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    &::before {
+      content: '📝';
+      font-size: 1.2em;
+    }
+  }
+
+  .questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .question-item {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    border-left: 4px solid $primary-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .question-type {
+      display: inline-block;
+      background: $primary-color;
+      color: white;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-sm;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: $spacing-sm;
+
+      &:has-text("Theory") {
+        background: #007bff;
+      }
+      
+      &:has-text("Practical") {
+        background: #28a745;
+      }
+      
+      &:has-text("Application") {
+        background: #17a2b8;
+      }
+      
+      &:has-text("Comparison") {
+        background: #ffc107;
+        color: #212529;
+      }
+      
+      &:has-text("Debugging") {
+        background: #dc3545;
+      }
+      
+      &:has-text("Decision Making") {
+        background: #6f42c1;
+      }
+      
+      &:has-text("Evaluation") {
+        background: #fd7e14;
+      }
+      
+      &:has-text("Analysis") {
+        background: #e83e8c;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: $font-size-base;
+      line-height: 1.6;
+      color: #495057;
+      font-weight: $font-weight-normal;
+    }
   }
 }
 

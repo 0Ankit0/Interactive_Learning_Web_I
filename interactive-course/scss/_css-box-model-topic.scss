@@ -1,0 +1,497 @@
+// CSS Box Model Topic Styles
+// This file contains styles specific to the CSS Box Model topic page
+
+// Box Model Visualizer
+.box-model-visualizer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .visualizer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .visualizer-controls {
+    .control-group {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #e0e7ff;
+        font-size: 1rem;
+      }
+
+      .input-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+
+        label {
+          min-width: 100px;
+          font-weight: 600;
+          color: #e0e7ff;
+          font-size: 0.9rem;
+        }
+
+        input[type="range"] {
+          flex: 1;
+        }
+
+        .value-display {
+          min-width: 60px;
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.85rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .dimensions-summary {
+      background: rgba(16, 185, 129, 0.2);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid rgba(16, 185, 129, 0.4);
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        color: #a7f3d0;
+      }
+
+      .dimension-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+
+        .label {
+          color: #d1fae5;
+        }
+
+        .value {
+          color: #a7f3d0;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .box-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    
+    #demo-box {
+      transition: all 0.3s ease;
+    }
+
+    .box-margin {
+      background-color: rgba(255, 193, 7, 0.3);
+      border: 2px dashed rgba(255, 193, 7, 0.8);
+      position: relative;
+
+      &::before {
+        content: 'Margin';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        color: #fbbf24;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+
+    .box-border {
+      background-color: rgba(239, 68, 68, 0.8);
+      border: solid rgba(220, 38, 38, 1);
+      position: relative;
+
+      &::before {
+        content: 'Border';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+
+    .box-padding {
+      background-color: rgba(34, 197, 94, 0.4);
+      position: relative;
+
+      &::before {
+        content: 'Padding';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        color: #065f46;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+
+    .box-content {
+      background-color: rgba(59, 130, 246, 0.8);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      position: relative;
+
+      &::before {
+        content: 'Content';
+        position: absolute;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Box Model Calculator
+.box-calculator {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  .calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h3 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #718096;
+    }
+  }
+
+  .calculator-problem {
+    background: #f8faff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 2rem;
+
+    .problem-text {
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .problem-values {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  .calculator-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .input-group {
+      .input-row {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        label {
+          min-width: 120px;
+          font-weight: 600;
+          color: #4a5568;
+        }
+
+        input[type="number"] {
+          flex: 1;
+          padding: 0.75rem;
+          border: 2px solid #e2e8f0;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+          }
+        }
+
+        button {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+          }
+        }
+      }
+    }
+  }
+
+  .calculator-feedback {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .success {
+      background: #e6fffa;
+      color: #234e52;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid #38b2ac;
+      text-align: center;
+      width: 100%;
+
+      &::before {
+        content: "✓ ";
+        color: #38a169;
+        font-weight: bold;
+      }
+    }
+
+    .error {
+      background: #fed7d7;
+      color: #742a2a;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid #e53e3e;
+      text-align: center;
+      width: 100%;
+
+      &::before {
+        content: "✗ ";
+        color: #e53e3e;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Tab System
+.tab-system {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+
+  .tab-nav {
+    display: flex;
+    background: #f7fafc;
+    border-bottom: 2px solid #e2e8f0;
+
+    .tab-btn {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      background: none;
+      border: none;
+      font-weight: 600;
+      color: #718096;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        background: #edf2f7;
+        color: #4a5568;
+      }
+
+      &.active {
+        background: white;
+        color: #667eea;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: #667eea;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    .tab-panel {
+      display: none;
+      padding: 2rem;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+// Live CSS Editor
+.css-editor {
+  .editor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .editor-side {
+      h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #4a5568;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 300px;
+        padding: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        resize: vertical;
+
+        &:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+
+    .preview-side {
+      h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #4a5568;
+      }
+
+      .preview-container {
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 2rem;
+        background: #f8faff;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .card-preview {
+          background: white;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          max-width: 300px;
+          text-align: center;
+
+          h5 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #2d3748;
+          }
+
+          p {
+            color: #718096;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+          }
+
+          .card-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .box-model-visualizer {
+    padding: 1rem;
+
+    .visualizer-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .box-calculator {
+    padding: 1rem;
+
+    .calculator-inputs {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .css-editor .editor-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tab-nav {
+    flex-direction: column;
+
+    .tab-btn {
+      text-align: left;
+    }
+  }
+}

@@ -1,0 +1,410 @@
+// JavaScript Introduction Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Interactive color box
+.color-demo-box {
+  width: 100px;
+  height: 100px;
+  background: $text-primary;
+  border-radius: $border-radius-md;
+  margin: $spacing-lg auto;
+  transition: all $transition-smooth;
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Name input demo
+.name-input-demo {
+  input[type="text"] {
+    padding: $spacing-sm;
+    margin: $spacing-sm;
+    border: 2px solid $border-light;
+    border-radius: $border-radius-sm;
+    font-size: $font-base;
+    
+    &:focus {
+      outline: none;
+      border-color: $accent-primary;
+    }
+  }
+}
+
+// Greeting output area
+.greeting-output {
+  margin-top: $spacing-lg;
+  padding: $spacing-lg;
+  background: $bg-light;
+  border-radius: $border-radius-sm;
+  min-height: 50px;
+  border: 1px solid $border-light;
+}
+
+// Live clock display
+.live-clock {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: $spacing-lg;
+  background: #1f2937;
+  color: #00ff00;
+  border-radius: $border-radius-sm;
+  font-family: $font-mono;
+  margin: $spacing-lg 0;
+}
+
+// Console simulator styles
+.console-simulator {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  margin: $spacing-xl 0;
+  font-family: $font-mono;
+  
+  .console-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+    
+    .console-prompt {
+      color: #00ff00;
+      margin-right: $spacing-sm;
+    }
+  }
+  
+  .console-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: $font-mono;
+    font-size: $font-sm;
+    width: 100%;
+    outline: none;
+  }
+  
+  .console-output {
+    margin-top: $spacing-lg;
+    
+    .output-command {
+      color: #00ff00;
+    }
+    
+    .output-result {
+      color: #87ceeb;
+    }
+    
+    .output-error {
+      color: #ff6b6b;
+    }
+  }
+}
+
+// Example command buttons
+.example-commands {
+  display: flex;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+  margin: $spacing-lg 0;
+}
+
+// Console container styles
+.interactive-console {
+  background: #0f172a;
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  margin: $spacing-xl 0;
+}
+
+// Console styling helpers
+.console-flex {
+  display: flex;
+  align-items: center;
+}
+
+.console-margin {
+  margin: $spacing-lg 0;
+}
+
+// Resources Grid
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resource-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.resource-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  
+  i {
+    font-size: 1.5rem;
+    color: #f7df1e;
+  }
+  
+  h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+  }
+}
+
+.resource-features {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f7df1e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  background: #2d3748;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  
+  &:hover {
+    background: #1a202c;
+    color: #f7df1e;
+  }
+}
+
+// Additional styles from inline CSS
+.hero-section {
+  background: linear-gradient(135deg, #f7df1e 0%, #ffeb3b 50%, #f7df1e 100%);
+  color: #2d3748;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.js-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-2xl;
+  margin: $spacing-2xl 0;
+}
+
+.demo-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid $border-color;
+}
+
+.demo-header {
+  background: #2d3748;
+  color: white;
+  padding: $spacing-base;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.demo-content {
+  padding: $spacing-2xl;
+}
+
+.demo-interactive {
+  background: #f8fafc;
+  border-top: 1px solid $border-color;
+  padding: 1.5rem;
+}
+
+.js-playground {
+  background: $code-background;
+  color: $code-color;
+  font-family: 'JetBrains Mono', monospace;
+  padding: $spacing-base;
+  border-radius: $border-radius-md;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: $spacing-base 0;
+}
+
+.interactive-console {
+  background: #000;
+  color: #00ff00;
+  font-family: 'JetBrains Mono', monospace;
+  padding: $spacing-base;
+  border-radius: $border-radius-md;
+  margin: $spacing-base 0;
+  min-height: 120px;
+  overflow-y: auto;
+}
+
+.console-input {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: 'JetBrains Mono', monospace;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.video-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $spacing-2xl;
+  margin: $spacing-2xl 0;
+}
+
+.video-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all $transition-base;
+  border: 1px solid $border-color;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    .play-overlay {
+      background: rgba(247, 223, 30, 0.9);
+      color: #2d3748;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+}
+
+.video-thumbnail {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all $transition-base;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.video-info {
+  padding: 1.5rem;
+}
+
+.video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ff0000;
+  color: white;
+  padding: 0.5rem $spacing-base;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background $transition-base;
+
+  &:hover {
+    background: #cc0000;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.js-timeline {
+  position: relative;
+  margin: $spacing-2xl 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: $spacing-2xl;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #f7df1e;
+}
+
+.timeline-year {
+  background: #f7df1e;
+  color: #2d3748;
+  padding: 0.5rem $spacing-base;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-right: $spacing-base;
+  flex-shrink: 0;
+}
+
+// Responsive Grid Layout Adjustments
+@media (max-width: 768px) {
+  .js-demo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-resources-grid {
+    grid-template-columns: 1fr;
+  }
+}

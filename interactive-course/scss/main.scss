@@ -21,10 +21,16 @@
 
 // 6. Topic-specific styles
 @use 'client-server-topic' as *;
-
-// Additional topic partials can be imported here as they are created
-// @use 'evolution-web-topic' as *;
-// @use 'urls-web-topic' as *;
-// @use 'html-topic' as *;
-// @use 'css-topic' as *;
-// @use 'javascript-topic' as *;
+@use 'html-introduction-topic' as *;
+@use 'css-basics-topic' as *;
+@use 'js-introduction-topic' as *;
+@use 'js-embedding-topic' as *;
+@use 'js-variables-topic' as *;
+@use 'js-operators-topic' as *;
+@use 'js-functions-scope-topic' as *;
+@use 'js-dom-topic' as *;
+@use 'css-box-model-topic' as *;
+@use 'flexbox-grid-topic' as *;
+@use 'lists-links-images-topic' as *;
+@use 'tables-forms-topic' as *;
+@use 'semantic-html-topic' as *;

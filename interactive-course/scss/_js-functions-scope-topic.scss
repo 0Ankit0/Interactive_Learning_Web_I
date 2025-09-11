@@ -1,0 +1,530 @@
+// JavaScript Functions & Scope Topic Styles
+// This file contains styles specific to the JavaScript Functions & Scope topic page
+
+// Function builder widget
+.function-builder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .builder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .builder-inputs {
+    .input-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #e0e7ff;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        resize: vertical;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #a7f3d0;
+          box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
+        }
+      }
+
+      textarea {
+        min-height: 80px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .builder-output {
+    .function-preview {
+      background: #1e1e1e;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      
+      pre {
+        margin: 0;
+        color: #d4d4d4;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+    }
+
+    .execute-button {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+      }
+    }
+
+    .execution-result {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .success {
+        background: #065f46;
+        color: #a7f3d0;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 2px solid #10b981;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+      }
+
+      .error {
+        background: #7f1d1d;
+        color: #fca5a5;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 2px solid #ef4444;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Return demonstration
+.return-demo {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h3 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #718096;
+    }
+  }
+
+  .demo-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .input-group {
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #4a5568;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+  }
+
+  .operation-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    button {
+      padding: 0.75rem 1rem;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      background: white;
+      color: #667eea;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .demo-result {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+
+    .success {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #38a169;
+    }
+  }
+}
+
+// Code challenges
+.code-challenges {
+  .challenge-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    .challenge-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+
+      .challenge-icon {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      h4 {
+        margin: 0;
+        color: #2d3748;
+        font-size: 1.3rem;
+      }
+    }
+
+    .challenge-description {
+      background: #f8faff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+      margin-bottom: 1.5rem;
+
+      p {
+        margin: 0;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+    }
+
+    .code-editor {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #4a5568;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 120px;
+        padding: 1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        resize: vertical;
+
+        &:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+      }
+    }
+
+    .test-button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      }
+    }
+
+    .challenge-result {
+      min-height: 100px;
+      
+      .success {
+        background: #e6fffa;
+        color: #234e52;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 2px solid #38b2ac;
+        margin: 0.5rem 0;
+
+        &::before {
+          content: "✓ ";
+          color: #38a169;
+          font-weight: bold;
+        }
+      }
+
+      .error {
+        background: #fed7d7;
+        color: #742a2a;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 2px solid #e53e3e;
+        margin: 0.5rem 0;
+
+        &::before {
+          content: "✗ ";
+          color: #e53e3e;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// Scope quiz
+.scope-quiz {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h3 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #718096;
+    }
+  }
+
+  .quiz-question {
+    background: #f8faff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 2rem;
+
+    .question-code {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  .quiz-options {
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #f7fafc;
+        border-color: #667eea;
+      }
+
+      input[type="radio"] {
+        margin-top: 0.25rem;
+      }
+
+      label {
+        cursor: pointer;
+        flex: 1;
+        color: #4a5568;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .quiz-submit {
+    text-align: center;
+    margin: 2rem 0;
+
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      }
+    }
+  }
+
+  .quiz-result {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .success {
+      background: #e6fffa;
+      color: #234e52;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid #38b2ac;
+      text-align: center;
+      width: 100%;
+
+      &::before {
+        content: "✓ ";
+        color: #38a169;
+        font-weight: bold;
+      }
+    }
+
+    .error {
+      background: #fed7d7;
+      color: #742a2a;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 2px solid #e53e3e;
+      text-align: center;
+      width: 100%;
+
+      &::before {
+        content: "✗ ";
+        color: #e53e3e;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .function-builder {
+    padding: 1rem;
+
+    .builder-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .return-demo {
+    padding: 1rem;
+
+    .demo-controls {
+      grid-template-columns: 1fr;
+    }
+
+    .operation-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .code-challenges .challenge-card {
+    padding: 1rem;
+  }
+
+  .scope-quiz {
+    padding: 1rem;
+  }
+}

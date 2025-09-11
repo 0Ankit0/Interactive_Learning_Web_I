@@ -1,0 +1,252 @@
+// Semantic HTML Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Progress bar styling (consistent with other topics)
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
+  border-radius: inherit;
+  transition: width $transition-smooth;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(white, 0.3);
+    border-radius: 1px;
+  }
+}
+
+// Semantic structure demonstration
+.semantic-demo {
+  .semantic-layout {
+    border: 2px solid $border-medium;
+    border-radius: $border-radius-md;
+    margin: $spacing-xl 0;
+    overflow: hidden;
+    background: white;
+    
+    header {
+      background: linear-gradient(135deg, $accent-primary, $accent-secondary);
+      color: white;
+      padding: $spacing-xl;
+      text-align: center;
+      
+      h1 {
+        margin: 0;
+        font-size: 1.8rem;
+      }
+    }
+    
+    nav {
+      background: $bg-secondary;
+      padding: $spacing-lg;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: $spacing-lg;
+        justify-content: center;
+        
+        @include breakpoint($breakpoint-sm) {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        li {
+          a {
+            color: $text-primary;
+            text-decoration: none;
+            padding: $spacing-sm $spacing-md;
+            border-radius: $border-radius-sm;
+            transition: all $transition-base;
+            
+            &:hover {
+              background: $accent-primary;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    
+    main {
+      padding: $spacing-2xl;
+      min-height: 300px;
+      
+      article {
+        margin-bottom: $spacing-2xl;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        header {
+          background: none;
+          color: $text-primary;
+          padding: 0;
+          text-align: left;
+          margin-bottom: $spacing-lg;
+          
+          h2 {
+            margin: 0;
+            color: $accent-primary;
+          }
+          
+          .article-meta {
+            color: $text-secondary;
+            font-size: $font-sm;
+            margin-top: $spacing-sm;
+          }
+        }
+      }
+      
+      section {
+        margin-bottom: $spacing-xl;
+        
+        h3 {
+          color: $text-primary;
+          border-bottom: 2px solid $accent-primary;
+          padding-bottom: $spacing-sm;
+        }
+      }
+      
+      aside {
+        background: $bg-light;
+        padding: $spacing-xl;
+        border-radius: $border-radius-md;
+        border-left: 4px solid $accent-primary;
+        margin: $spacing-xl 0;
+        
+        h4 {
+          margin-top: 0;
+          color: $accent-primary;
+        }
+      }
+    }
+    
+    footer {
+      background: $bg-secondary;
+      color: $text-secondary;
+      padding: $spacing-xl;
+      text-align: center;
+      border-top: 1px solid $border-light;
+    }
+  }
+}
+
+// Code comparison sections
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  margin: $spacing-2xl 0;
+  
+  @include breakpoint($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-section {
+    background: $bg-light;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    
+    .section-header {
+      padding: $spacing-lg;
+      font-weight: 600;
+      text-align: center;
+      
+      &.non-semantic {
+        background: #fef2f2;
+        color: #dc2626;
+      }
+      
+      &.semantic {
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+    }
+    
+    .code-example {
+      padding: $spacing-xl;
+      background: white;
+      font-family: $font-mono;
+      font-size: $font-sm;
+      line-height: 1.6;
+    }
+  }
+}
+
+// Accessibility features demonstration
+.accessibility-demo {
+  .a11y-example {
+    background: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-md;
+    margin: $spacing-xl 0;
+    border: 1px solid $border-light;
+    
+    .skip-link {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      
+      &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        background: $accent-primary;
+        color: white;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius-sm;
+        margin-bottom: $spacing-lg;
+      }
+    }
+    
+    .landmark-demo {
+      border: 1px dashed $border-medium;
+      padding: $spacing-lg;
+      margin: $spacing-md 0;
+      
+      &[role="banner"] {
+        border-color: #3b82f6;
+        background: rgba(59, 130, 246, 0.05);
+      }
+      
+      &[role="navigation"] {
+        border-color: #10b981;
+        background: rgba(16, 185, 129, 0.05);
+      }
+      
+      &[role="main"] {
+        border-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.05);
+      }
+      
+      &[role="contentinfo"] {
+        border-color: #8b5cf6;
+        background: rgba(139, 92, 246, 0.05);
+      }
+    }
+  }
+}
+
+// Submit button styling (consistent with other topics)
+.quiz-submit {
+  display: none;
+  
+  &.show {
+    display: inline-block;
+  }
+}

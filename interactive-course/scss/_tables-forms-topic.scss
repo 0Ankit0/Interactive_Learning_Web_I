@@ -1,0 +1,225 @@
+// Tables Forms Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Progress bar styling (consistent with other topics)
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
+  border-radius: inherit;
+  transition: width $transition-smooth;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(white, 0.3);
+    border-radius: 1px;
+  }
+}
+
+// Table styling demonstrations
+.table-demo {
+  .demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: $spacing-xl 0;
+    background: white;
+    box-shadow: $shadow-sm;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    
+    thead {
+      background: $accent-primary;
+      color: white;
+      
+      th {
+        padding: $spacing-lg;
+        text-align: left;
+        font-weight: 600;
+        font-size: $font-sm;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+    
+    tbody {
+      tr {
+        border-bottom: 1px solid $border-light;
+        transition: background-color $transition-base;
+        
+        &:hover {
+          background: rgba($accent-primary, 0.05);
+        }
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      
+      td {
+        padding: $spacing-lg;
+        color: $text-primary;
+        
+        &.number {
+          text-align: right;
+          font-family: $font-mono;
+        }
+        
+        &.status {
+          font-weight: 600;
+          
+          &.active {
+            color: $color-success;
+          }
+          
+          &.inactive {
+            color: $color-error;
+          }
+        }
+      }
+    }
+    
+    &.striped {
+      tbody tr:nth-child(even) {
+        background: rgba($bg-secondary, 0.3);
+      }
+    }
+    
+    &.bordered {
+      border: 2px solid $border-medium;
+      
+      th, td {
+        border: 1px solid $border-light;
+      }
+    }
+  }
+}
+
+// Form styling demonstrations
+.form-demo {
+  .demo-form {
+    background: $bg-light;
+    padding: $spacing-2xl;
+    border-radius: $border-radius-lg;
+    border: 1px solid $border-light;
+    margin: $spacing-xl 0;
+    
+    .form-group {
+      margin-bottom: $spacing-xl;
+      
+      label {
+        display: block;
+        margin-bottom: $spacing-sm;
+        font-weight: 600;
+        color: $text-primary;
+      }
+      
+      input, textarea, select {
+        width: 100%;
+        padding: $spacing-md;
+        border: 2px solid $border-medium;
+        border-radius: $border-radius-sm;
+        font-size: $font-base;
+        transition: all $transition-base;
+        
+        &:focus {
+          outline: none;
+          border-color: $accent-primary;
+          box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
+        }
+        
+        &:invalid {
+          border-color: $color-error;
+        }
+        
+        &:valid {
+          border-color: $color-success;
+        }
+      }
+      
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      
+      .form-help {
+        font-size: $font-sm;
+        color: $text-secondary;
+        margin-top: $spacing-xs;
+      }
+      
+      .form-error {
+        font-size: $font-sm;
+        color: $color-error;
+        margin-top: $spacing-xs;
+      }
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-lg;
+      
+      @include breakpoint($breakpoint-sm) {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .checkbox-group, .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      
+      .checkbox-item, .radio-item {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        
+        input[type="checkbox"], input[type="radio"] {
+          width: auto;
+          margin: 0;
+        }
+        
+        label {
+          margin: 0;
+          font-weight: normal;
+          cursor: pointer;
+        }
+      }
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: $spacing-md;
+      justify-content: flex-end;
+      margin-top: $spacing-2xl;
+      
+      @include breakpoint($breakpoint-sm) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+// Responsive table wrapper
+.table-responsive {
+  overflow-x: auto;
+  margin: $spacing-xl 0;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+}
+
+// Submit button styling (consistent with other topics)
+.quiz-submit {
+  display: none;
+  
+  &.show {
+    display: inline-block;
+  }
+}

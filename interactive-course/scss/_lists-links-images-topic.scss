@@ -1,0 +1,173 @@
+// Lists Links Images Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Progress bar styling (consistent with other topics)
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
+  border-radius: inherit;
+  transition: width $transition-smooth;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(white, 0.3);
+    border-radius: 1px;
+  }
+}
+
+// Image gallery styles
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+  margin: $spacing-2xl 0;
+  
+  .gallery-item {
+    background: $bg-primary;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: all $transition-base;
+    
+    &:hover {
+      @include card-hover;
+    }
+    
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .gallery-caption {
+      padding: $spacing-lg;
+      
+      h4 {
+        margin: 0 0 $spacing-sm 0;
+        color: $text-primary;
+      }
+      
+      p {
+        margin: 0;
+        color: $text-secondary;
+        font-size: $font-sm;
+      }
+    }
+  }
+}
+
+// Link styling demonstrations
+.link-demo {
+  .demo-links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin: $spacing-xl 0;
+    
+    a {
+      padding: $spacing-md $spacing-lg;
+      border-radius: $border-radius-sm;
+      text-decoration: none;
+      transition: all $transition-base;
+      border: 1px solid $border-light;
+      
+      &.primary-link {
+        background: $accent-primary;
+        color: white;
+        
+        &:hover {
+          background: color.scale($accent-primary, $lightness: -10%);
+        }
+      }
+      
+      &.secondary-link {
+        background: $bg-secondary;
+        color: $text-primary;
+        
+        &:hover {
+          background: color.scale($bg-secondary, $lightness: -5%);
+        }
+      }
+      
+      &.text-link {
+        color: $accent-primary;
+        border: none;
+        background: none;
+        padding: $spacing-xs 0;
+        
+        &:hover {
+          color: color.scale($accent-primary, $lightness: -15%);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// List styling demonstrations
+.list-demo {
+  .demo-lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-2xl;
+    margin: $spacing-xl 0;
+    
+    .list-container {
+      background: $bg-light;
+      padding: $spacing-xl;
+      border-radius: $border-radius-md;
+      border: 1px solid $border-light;
+      
+      h4 {
+        margin-top: 0;
+        color: $text-primary;
+      }
+      
+      ul, ol {
+        margin-bottom: 0;
+        
+        li {
+          margin-bottom: $spacing-sm;
+          line-height: 1.6;
+        }
+      }
+      
+      &.styled-list {
+        ul {
+          list-style: none;
+          padding-left: 0;
+          
+          li {
+            position: relative;
+            padding-left: $spacing-xl;
+            
+            &::before {
+              content: '→';
+              position: absolute;
+              left: 0;
+              color: $accent-primary;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Submit button styling (consistent with other topics)
+.quiz-submit {
+  display: none;
+  
+  &.show {
+    display: inline-block;
+  }
+}

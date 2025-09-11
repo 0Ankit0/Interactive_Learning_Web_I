@@ -1,0 +1,227 @@
+// HTML Introduction Topic Specific Styles
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Progress bar specific styles
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
+  border-radius: inherit;
+  transition: width $transition-smooth;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(white, 0.3);
+    border-radius: 1px;
+  }
+}
+
+// Code formatting buttons
+.formatting-buttons {
+  display: flex;
+  gap: $spacing-sm;
+  margin: $spacing-lg 0;
+  flex-wrap: wrap;
+}
+
+// Quiz specific styles for HTML Introduction
+.quiz-container {
+  .quiz-option {
+    cursor: pointer;
+    transition: all $transition-base;
+    
+    &:hover {
+      background: color.scale($bg-secondary, $lightness: 5%);
+      transform: translateX($spacing-xs);
+    }
+    
+    &.correct {
+      background: color.scale($color-success, $lightness: 40%);
+      color: $color-success;
+      border-color: $color-success;
+    }
+    
+    &.incorrect {
+      background: color.scale($color-error, $lightness: 40%);
+      color: $color-error;
+      border-color: $color-error;
+    }
+  }
+}
+
+// HTML Tag builder game styles
+.html-builder {
+  .tag-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: $spacing-md;
+    margin: $spacing-xl 0;
+  }
+  
+  .tag-option {
+    @include button-base;
+    padding: $spacing-md;
+    background: $bg-secondary;
+    border: 2px solid $border-light;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+    
+    &:hover {
+      @include card-hover;
+      border-color: $accent-primary;
+    }
+    
+    &.selected {
+      background: $accent-primary;
+      color: white;
+      border-color: $accent-primary;
+    }
+  }
+}
+
+// Reset button styles
+.reset-button {
+  margin-top: $spacing-lg;
+}
+
+// HTML Structure Visualizer
+.html-structure-visualizer {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+// Interactive HTML Editor
+.editor-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.code-editor {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  .editor-header {
+    background: #2d2d2d;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 300px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+  }
+}
+
+.preview-frame {
+  width: 100%;
+  height: 340px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+}
+
+// Text Formatting Demo - Additional styles beyond common ones
+#format-display {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  
+  p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Matching Game Styles
+.matching-game {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tags-column, .answers-column {
+  h4 {
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+}
+
+.draggable-tag {
+  background: #667eea;
+  color: white;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: grab;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.drop-zone {
+  background: #f7fafc;
+  border: 2px dashed #cbd5e0;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #2d3748;
+  
+  &:empty::before {
+    content: "Drop tag here";
+    color: #a0aec0;
+    font-style: italic;
+  }
+}
