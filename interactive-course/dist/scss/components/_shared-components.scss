@@ -1,0 +1,695 @@
+// Shared Components for Interactive Course
+// This file contains reusable component classes used across multiple topics
+
+// ========================================
+// CARD COMPONENTS
+// ========================================
+
+.card-interactive {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-feature {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-demo {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+// ========================================
+// HERO SECTIONS
+// ========================================
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  text-align: center;
+  
+  h1, h2 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+// ========================================
+// TIMELINE COMPONENTS
+// ========================================
+
+.timeline-section {
+  position: relative;
+  padding: 2rem 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #667eea, #764ba2);
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  position: relative;
+  
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: right;
+    
+    .timeline-content {
+      margin-right: 2rem;
+    }
+  }
+  
+  &:nth-child(even) {
+    .timeline-content {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.timeline-content {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 45%;
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+// ========================================
+// FORM COMPONENTS
+// ========================================
+
+.form-demo {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  &:invalid {
+    border-color: #dc3545;
+  }
+  
+  &:valid {
+    border-color: #28a745;
+  }
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  min-height: 100px;
+  resize: vertical;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// ========================================
+// TABLE COMPONENTS
+// ========================================
+
+.table-demo {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  background: #667eea;
+  color: white;
+}
+
+.table-header th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-row {
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background: rgba(102, 126, 234, 0.05);
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.table-cell {
+  padding: 1rem;
+  color: #2d3748;
+  
+  &.number {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  &.status {
+    font-weight: 600;
+    
+    &.active {
+      color: #28a745;
+    }
+    
+    &.inactive {
+      color: #dc3545;
+    }
+  }
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background: rgba(248, 249, 250, 0.5);
+}
+
+.table-bordered {
+  border: 2px solid #ced4da;
+  
+  th, td {
+    border: 1px solid #dee2e6;
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+// ========================================
+// PROGRESS BAR COMPONENTS
+// ========================================
+
+.progress-container {
+  background: #e2e8f0;
+  border-radius: 10px;
+  height: 20px;
+  margin: 1rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: inherit;
+  transition: width 0.5s ease;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+  }
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+// ========================================
+// QUIZ COMPONENTS
+// ========================================
+
+.quiz-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-question {
+  margin-bottom: 2rem;
+  
+  h4 {
+    margin-bottom: 1rem;
+    color: #2d3748;
+  }
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    background: #f8f9fa;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #e9ecef;
+      border-color: #667eea;
+    }
+    
+    &.selected {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+    }
+    
+    &.correct {
+      background: rgba(40, 167, 69, 0.1);
+      border-color: #28a745;
+      
+      label {
+        color: #28a745;
+        font-weight: 600;
+      }
+    }
+    
+    &.incorrect {
+      background: rgba(220, 53, 69, 0.1);
+      border-color: #dc3545;
+      
+      label {
+        color: #dc3545;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.quiz-submit {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+  
+  &.show {
+    display: inline-block;
+  }
+  
+  &:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+  }
+}
+
+// ========================================
+// CODE DEMO COMPONENTS
+// ========================================
+
+.code-demo {
+  background: #2d3748;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow-x: auto;
+}
+
+.code-demo pre {
+  margin: 0;
+  color: #a0aec0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.code-demo code {
+  color: #a0aec0;
+  font-family: inherit;
+}
+
+.code-output {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.code-editor {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  
+  textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: vertical;
+    min-height: 200px;
+    font-family: inherit;
+    font-size: 0.875rem;
+  }
+}
+
+// ========================================
+// LAYOUT GRID COMPONENTS
+// ========================================
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ========================================
+// INTERACTIVE DEMO COMPONENTS
+// ========================================
+
+.demo-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+}
+
+.demo-controls {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.demo-result {
+  background: rgba(255, 255, 255, 0.95);
+  color: #2d3748;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+// ========================================
+// UTILITY COMPONENTS
+// ========================================
+
+.hover-lift {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ========================================
+// RESPONSIVE UTILITIES
+// ========================================
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .timeline-section::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    flex-direction: row !important;
+    text-align: left !important;
+    
+    .timeline-content {
+      margin-left: 4rem !important;
+      margin-right: 0 !important;
+      max-width: calc(100% - 5rem);
+    }
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .card-interactive,
+  .card-feature {
+    padding: 1rem;
+  }
+  
+  .form-demo {
+    padding: 1.5rem;
+  }
+  
+  .quiz-section {
+    padding: 1.5rem;
+  }
+  
+  .demo-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .table-demo {
+    font-size: 0.875rem;
+  }
+  
+  .table-header th,
+  .table-cell {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .timeline-content {
+    padding: 1rem;
+  }
+}

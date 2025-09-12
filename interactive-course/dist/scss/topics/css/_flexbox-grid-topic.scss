@@ -1,139 +1,62 @@
 // Flexbox and Grid Topic Specific Styles
 @use 'sass:color';
+@use 'sass:map';
 @use 'variables' as *;
 @use 'mixins' as *;
 
-// Flexbox demonstration styles
+// ========================================
+// UNIQUE STYLES FOR FLEXBOX GRID TOPIC
+// ========================================
+
+// Flexbox demonstration styles using mixins
 .flexbox-demo {
   .flex-container {
-    display: flex;
-    padding: $spacing-lg;
-    background: $bg-light;
-    border: 2px solid $border-medium;
-    border-radius: $border-radius-md;
-    margin: $spacing-lg 0;
-    min-height: 120px;
+    @include flex-demo-container;
   }
-  
+
   .flex-item {
-    padding: $spacing-lg;
-    margin: $spacing-xs;
-    border-radius: $border-radius-sm;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-    min-height: 60px;
+    @include demo-item;
     
-    &:nth-child(1) { background: #ff6b6b; }
-    &:nth-child(2) { background: #4ecdc4; }
-    &:nth-child(3) { background: #45b7d1; }
-    &:nth-child(4) { background: #96ceb4; }
-    &:nth-child(5) { background: #ffeaa7; }
+    // Generate colors using SASS map
+    @each $index, $color in $demo-item-colors {
+      &:nth-child(#{$index}) { 
+        background: $color; 
+      }
+    }
   }
 }
 
-// Grid demonstration styles
+// Grid demonstration styles using mixins
 .grid-demo {
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-md;
-    padding: $spacing-lg;
-    background: $bg-light;
-    border: 2px solid $border-medium;
-    border-radius: $border-radius-md;
-    margin: $spacing-lg 0;
+    @include grid-demo-container;
   }
-  
-  .grid-item {
-    padding: $spacing-lg;
-    border-radius: $border-radius-sm;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80px;
-    
-    &:nth-child(1) { background: #ff6b6b; }
-    &:nth-child(2) { background: #4ecdc4; }
-    &:nth-child(3) { background: #45b7d1; }
-    &:nth-child(4) { background: #96ceb4; }
-    &:nth-child(5) { background: #ffeaa7; }
-    &:nth-child(6) { background: #dda0dd; }
-    &:nth-child(7) { background: #98d8c8; }
-    &:nth-child(8) { background: #f7dc6f; }
-    &:nth-child(9) { background: #bb8fce; }
-  }
-}
 
-// Interactive controls
-.layout-controls {
-  margin: $spacing-xl 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-lg;
-  
-  .control-group {
-    background: $bg-primary;
-    padding: $spacing-lg;
-    border-radius: $border-radius-md;
-    border: 1px solid $border-light;
+  .grid-item {
+    @include grid-demo-item;
     
-    label {
-      display: block;
-      margin-bottom: $spacing-sm;
-      font-weight: 600;
-      color: $text-primary;
-    }
-    
-    select {
-      width: 100%;
-      padding: $spacing-sm;
-      border: 1px solid $border-medium;
-      border-radius: $border-radius-xs;
-      background: white;
-      
-      &:focus {
-        outline: none;
-        border-color: $accent-primary;
+    // Generate colors using SASS map
+    @each $index, $color in $demo-item-colors {
+      &:nth-child(#{$index}) { 
+        background: $color; 
       }
     }
   }
 }
 
-// Responsive design showcase
+// Interactive controls using mixins
+.layout-controls {
+  margin: $spacing-5xl 0;
+  @include grid-auto-fit(250px, $spacing-lg);
+
+  .control-group {
+    @include control-group;
+  }
+}
+
+// Responsive design showcase using mixins
 .responsive-showcase {
   .device-preview {
-    border: 2px solid $border-medium;
-    border-radius: $border-radius-lg;
-    overflow: hidden;
-    margin: $spacing-xl 0;
-    
-    .device-header {
-      background: $bg-secondary;
-      padding: $spacing-sm $spacing-lg;
-      font-size: $font-sm;
-      color: $text-secondary;
-      display: flex;
-      align-items: center;
-      gap: $spacing-sm;
-      
-      &::before {
-        content: '●';
-        color: $color-success;
-      }
-    }
-    
-    .device-content {
-      padding: $spacing-lg;
-      background: white;
-      min-height: 200px;
-    }
+    @include device-preview;
   }
 }

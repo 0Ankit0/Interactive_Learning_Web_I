@@ -1,85 +1,40 @@
 // Tables Forms Topic Specific Styles
-@use 'sass:color';
-@use 'variables' as *;
-@use 'mixins' as *;
+@import 'variables';
+@import 'mixins';
 
 // Progress bar styling (consistent with other topics)
 .progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
-  border-radius: inherit;
-  transition: width $transition-smooth;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(white, 0.3);
-    border-radius: 1px;
-  }
+  @include progress-fill-style();
 }
 
 // Table styling demonstrations
 .table-demo {
   .demo-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: $spacing-xl 0;
-    background: white;
-    box-shadow: $shadow-sm;
-    border-radius: $border-radius-md;
-    overflow: hidden;
-    
+    @extend .table;
+    margin: map-get($spacing-map, 'xl') 0;
+
     thead {
-      background: $accent-primary;
-      color: white;
-      
-      th {
-        padding: $spacing-lg;
-        text-align: left;
-        font-weight: 600;
-        font-size: $font-sm;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
+      @include table-header();
     }
     
     tbody {
-      tr {
-        border-bottom: 1px solid $border-light;
-        transition: background-color $transition-base;
-        
-        &:hover {
-          background: rgba($accent-primary, 0.05);
-        }
-        
-        &:last-child {
-          border-bottom: none;
-        }
-      }
+      @include table-body();
       
       td {
-        padding: $spacing-lg;
-        color: $text-primary;
-        
         &.number {
           text-align: right;
-          font-family: $font-mono;
+          font-family: map-get($font-map, 'monospace');
         }
         
         &.status {
-          font-weight: 600;
+          font-weight: 700;
           
           &.active {
-            color: $color-success;
+            color: map-get($demo-colors, 'success');
           }
           
           &.inactive {
-            color: $color-error;
+            color: map-get($demo-colors, 'danger');
           }
         }
       }
@@ -87,15 +42,15 @@
     
     &.striped {
       tbody tr:nth-child(even) {
-        background: rgba($bg-secondary, 0.3);
+        background: map-get($color-palette, 'gray-50');
       }
     }
     
     &.bordered {
-      border: 2px solid $border-medium;
+      border: 2px solid map-get($color-palette, 'gray-300');
       
       th, td {
-        border: 1px solid $border-light;
+        border: 1px solid map-get($color-palette, 'gray-300');
       }
     }
   }
@@ -104,43 +59,18 @@
 // Form styling demonstrations
 .form-demo {
   .demo-form {
-    background: $bg-light;
-    padding: $spacing-2xl;
-    border-radius: $border-radius-lg;
-    border: 1px solid $border-light;
-    margin: $spacing-xl 0;
+    @extend .form;
+    margin: map-get($spacing-map, 'xl') 0;
     
     .form-group {
-      margin-bottom: $spacing-xl;
+      @include form-group();
       
       label {
-        display: block;
-        margin-bottom: $spacing-sm;
-        font-weight: 600;
-        color: $text-primary;
+        @include form-label();
       }
       
       input, textarea, select {
-        width: 100%;
-        padding: $spacing-md;
-        border: 2px solid $border-medium;
-        border-radius: $border-radius-sm;
-        font-size: $font-base;
-        transition: all $transition-base;
-        
-        &:focus {
-          outline: none;
-          border-color: $accent-primary;
-          box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
-        }
-        
-        &:invalid {
-          border-color: $color-error;
-        }
-        
-        &:valid {
-          border-color: $color-success;
-        }
+        @include form-input();
       }
       
       textarea {
@@ -149,37 +79,27 @@
       }
       
       .form-help {
-        font-size: $font-sm;
-        color: $text-secondary;
-        margin-top: $spacing-xs;
+        @include form-help-text();
       }
       
       .form-error {
-        font-size: $font-sm;
-        color: $color-error;
-        margin-top: $spacing-xs;
+        @include form-error-text();
       }
     }
     
     .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: $spacing-lg;
-      
-      @include breakpoint($breakpoint-sm) {
-        grid-template-columns: 1fr;
-      }
+      @include grid-auto-fit(300px);
+      gap: map-get($spacing-map, 'lg');
     }
     
     .checkbox-group, .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-md;
+      @include flex-column();
+      gap: map-get($spacing-map, 'lg');
       
       .checkbox-item, .radio-item {
-        display: flex;
-        align-items: center;
-        gap: $spacing-sm;
+        @include flex-center();
+        justify-content: flex-start;
+        gap: map-get($spacing-map, 'sm');
         
         input[type="checkbox"], input[type="radio"] {
           width: auto;
@@ -188,20 +108,20 @@
         
         label {
           margin: 0;
-          font-weight: normal;
+          font-weight: 400;
           cursor: pointer;
         }
       }
     }
     
     .form-actions {
-      display: flex;
-      gap: $spacing-md;
+      @include flex-between();
+      gap: map-get($spacing-map, 'lg');
       justify-content: flex-end;
-      margin-top: $spacing-2xl;
+      margin-top: map-get($spacing-map, 'xl');
       
-      @include breakpoint($breakpoint-sm) {
-        flex-direction: column;
+      @include respond-to('md') {
+        @include flex-column();
       }
     }
   }
@@ -210,9 +130,9 @@
 // Responsive table wrapper
 .table-responsive {
   overflow-x: auto;
-  margin: $spacing-xl 0;
+  margin: map-get($spacing-map, 'xl') 0;
   border-radius: $border-radius-md;
-  box-shadow: $shadow-sm;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 // Submit button styling (consistent with other topics)

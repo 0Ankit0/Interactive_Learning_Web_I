@@ -2,77 +2,64 @@
 
 .framework-selection-topic {
   @include topic-base();
-  
+
   // Decision Factors Section
   .decision-factors {
-    margin: 3rem 0;
-    
+    @extend .m-y-xl;
+
     .factors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
+      @extend .m-t-lg;
     }
-    
+
     .factor-card {
-      background: $card-background;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: $card-shadow;
-      transition: all 0.3s ease;
-      border-top: 4px solid $primary-color;
-      
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      }
-      
+      @include card-style;
+      @extend .border-top-primary;
+      @extend .hover-lift;
+
       .factor-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
+        @extend .icon-container;
+        @extend .rounded-circle;
+        @extend .m-b-lg;
+        @extend .text-white;
         font-size: 1.8rem;
-        color: white;
-        
+
         &.project { background: linear-gradient(45deg, #FF6B6B, #FF8E8E); }
         &.team { background: linear-gradient(45deg, #4ECDC4, #6ED4CC); }
         &.timeline { background: linear-gradient(45deg, #45B7D1, #6BC5D8); }
         &.ecosystem { background: linear-gradient(45deg, #96CEB4, #AAD5BB); }
       }
-      
+
       h3 {
-        text-align: center;
-        color: $primary-color;
-        margin-bottom: 1.5rem;
-        font-size: 1.3rem;
+        @extend .text-center;
+        @extend .text-primary;
+        @extend .m-b-lg;
+        @extend .text-lg;
       }
-      
+
       .factor-details {
         .detail-item {
-          margin-bottom: 1rem;
-          padding-bottom: 1rem;
-          border-bottom: 1px solid $border-color;
-          
+          @extend .m-b-md;
+          @extend .p-b-md;
+          @extend .border-bottom;
+
           &:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+            @extend .border-bottom-none;
+            @extend .m-b-none;
           }
-          
+
           strong {
-            display: block;
-            color: $text-primary;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
+            @extend .d-block;
+            @extend .text-primary;
+            @extend .m-b-sm;
+            @extend .font-weight-bold;
           }
-          
+
           span {
-            color: $text-secondary;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            @extend .text-secondary;
+            @extend .text-sm;
+            @extend .line-height-relaxed;
           }
         }
       }
@@ -81,311 +68,298 @@
   
   // Framework Selector Section
   .framework-selector {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 3rem;
-    margin: 3rem 0;
-    
+    @include section-style;
+    @extend .m-y-xl;
+
     h2 {
-      text-align: center;
-      color: $primary-color;
-      margin-bottom: 1rem;
+      @extend .text-center;
+      @extend .text-primary;
+      @extend .m-b-md;
     }
-    
+
     > p {
-      text-align: center;
-      color: $text-secondary;
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
+      @extend .text-center;
+      @extend .text-secondary;
+      @extend .m-b-xl;
+      @extend .text-lg;
     }
-    
+
     .selector-container {
       max-width: 800px;
-      margin: 0 auto;
+      @extend .m-x-auto;
     }
-    
+
     .question-group {
-      margin-bottom: 3rem;
-      
+      @extend .m-b-xl;
+
       .question-label {
-        display: flex;
-        align-items: center;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: $primary-color;
-        margin-bottom: 1.5rem;
-        
+        @extend .d-flex;
+        @extend .align-center;
+        @extend .text-lg;
+        @extend .font-weight-bold;
+        @extend .text-primary;
+        @extend .m-b-lg;
+
         i {
-          margin-right: 1rem;
-          font-size: 1.4rem;
+          @extend .m-r-md;
+          @extend .text-lg;
         }
       }
-      
+
       .option-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1.5rem;
+        @extend .grid-auto-fit;
+        @extend .gap-lg;
       }
-      
+
       .option-card {
-        background: white;
-        border: 2px solid $border-color;
-        border-radius: 8px;
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        
+        @include card-style;
+        @extend .cursor-pointer;
+        @extend .position-relative;
+        @extend .hover-lift-sm;
+
         &:hover {
-          border-color: $primary-color;
-          transform: translateY(-3px);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          @extend .border-primary;
         }
-        
+
         input[type="radio"] {
-          position: absolute;
-          opacity: 0;
+          @extend .position-absolute;
+          @extend .opacity-0;
           width: 0;
           height: 0;
-          
+
           &:checked + .option-content {
-            background: lighten($primary-color, 45%);
-            border-color: $primary-color;
-            
+            @extend .bg-primary-light;
+            @extend .border-primary;
+
             h4 {
-              color: $primary-color;
+              @extend .text-primary;
             }
           }
         }
-        
+
         .option-content {
-          text-align: center;
-          border: 2px solid transparent;
-          border-radius: 6px;
-          padding: 1rem;
-          transition: all 0.3s ease;
-          
+          @extend .text-center;
+          @extend .border-transparent;
+          @extend .rounded-sm;
+          @extend .p-lg;
+          @extend .transition-all;
+
           i {
+            @extend .text-accent;
+            @extend .m-b-md;
             font-size: 2rem;
-            color: $accent-color;
-            margin-bottom: 1rem;
           }
-          
+
           h4 {
-            color: $text-primary;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            @extend .text-primary;
+            @extend .m-b-sm;
+            @extend .text-lg;
           }
-          
+
           p {
-            color: $text-secondary;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            margin: 0;
+            @extend .text-secondary;
+            @extend .text-sm;
+            @extend .line-height-relaxed;
+            @extend .m-none;
           }
         }
       }
     }
-    
+
     .selector-actions {
-      text-align: center;
-      margin-top: 3rem;
-      
+      @extend .text-center;
+      @extend .m-t-xl;
+
       .selector-btn {
         @include button-style($primary-color);
-        margin: 0 1rem;
-        font-size: 1.1rem;
-        padding: 1rem 2rem;
-        
+        @extend .m-x-sm;
+        @extend .text-lg;
+        @extend .p-lg;
+
         &.reset {
           @include button-style($secondary-color);
         }
-        
+
         i {
-          margin-right: 0.5rem;
+          @extend .m-r-sm;
         }
       }
     }
     
     .recommendation-result {
-      display: none;
-      margin-top: 3rem;
-      
+      @extend .d-none;
+      @extend .m-t-xl;
+
       .recommendation-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2.5rem;
-        box-shadow: $card-shadow;
-        border-left: 4px solid $success-color;
-        
+        @include card-style;
+        @extend .border-left-success;
+
         .recommendation-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 2rem;
-          
+          @extend .d-flex;
+          @extend .align-center;
+          @extend .m-b-lg;
+
           .framework-icon {
-            font-size: 3rem;
-            margin-right: 1.5rem;
+            @extend .text-3xl;
+            @extend .m-r-lg;
           }
-          
+
           .recommendation-text {
             h3 {
-              color: $primary-color;
-              margin-bottom: 0.5rem;
-              font-size: 1.6rem;
+              @extend .text-primary;
+              @extend .m-b-sm;
+              @extend .text-xl;
             }
-            
+
             .confidence {
-              color: $success-color;
-              font-weight: 600;
-              font-size: 1.1rem;
+              @extend .text-success;
+              @extend .font-weight-bold;
+              @extend .text-lg;
             }
           }
         }
-        
+
         .framework-description {
-          font-size: 1.1rem;
-          color: $text-secondary;
-          margin-bottom: 2rem;
-          line-height: 1.6;
+          @extend .text-lg;
+          @extend .text-secondary;
+          @extend .m-b-lg;
+          @extend .line-height-relaxed;
         }
-        
+
         .pros-cons {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-          margin-bottom: 2rem;
-          
+          @extend .grid-2;
+          @extend .gap-lg;
+          @extend .m-b-lg;
+
           .pros,
           .cons {
             h4 {
-              display: flex;
-              align-items: center;
-              margin-bottom: 1rem;
-              
+              @extend .d-flex;
+              @extend .align-center;
+              @extend .m-b-md;
+
               i {
-                margin-right: 0.5rem;
+                @extend .m-r-sm;
               }
             }
-            
+
             ul {
-              list-style: none;
-              padding: 0;
-              
+              @extend .list-unstyled;
+
               li {
-                padding: 0.5rem 0;
-                border-bottom: 1px solid $border-color;
-                
+                @extend .p-y-sm;
+                @extend .border-bottom;
+
                 &:last-child {
-                  border-bottom: none;
+                  @extend .border-bottom-none;
                 }
               }
             }
           }
-          
+
           .pros {
             h4 {
-              color: $success-color;
+              @extend .text-success;
             }
           }
-          
+
           .cons {
             h4 {
-              color: $warning-color;
+              @extend .text-warning;
             }
           }
         }
-        
+
         .score-breakdown {
-          margin-bottom: 2rem;
-          
+          @extend .m-b-lg;
+
           h4 {
-            color: $primary-color;
-            margin-bottom: 1rem;
+            @extend .text-primary;
+            @extend .m-b-md;
           }
-          
+
           .score-bars {
             .score-item {
-              display: flex;
-              align-items: center;
-              margin-bottom: 0.8rem;
-              
+              @extend .d-flex;
+              @extend .align-center;
+              @extend .m-b-sm;
+
               .framework-name {
                 width: 80px;
-                font-weight: 600;
-                color: $text-primary;
+                @extend .font-weight-bold;
+                @extend .text-primary;
               }
-              
+
               .score-bar-container {
-                flex: 1;
-                background: $border-color;
+                @extend .flex-1;
+                @extend .bg-light;
                 height: 8px;
-                border-radius: 4px;
-                margin: 0 1rem;
+                @extend .rounded-sm;
+                @extend .m-x-md;
                 overflow: hidden;
-                
+
                 .score-bar {
                   height: 100%;
-                  background: $primary-color;
-                  border-radius: 4px;
+                  @extend .bg-primary;
+                  @extend .rounded-sm;
                   transition: width 1s ease;
                 }
               }
-              
+
               .score-value {
-                font-weight: 600;
-                color: $text-secondary;
+                @extend .font-weight-bold;
+                @extend .text-secondary;
               }
             }
           }
         }
-        
+
         .alternatives {
-          margin-bottom: 2rem;
-          
+          @extend .m-b-lg;
+
           h4 {
-            color: $primary-color;
-            margin-bottom: 1rem;
+            @extend .text-primary;
+            @extend .m-b-md;
           }
-          
+
           .alternative-frameworks {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            
+            @extend .d-flex;
+            @extend .gap-md;
+            @extend .flex-wrap;
+
             .alternative-item {
-              display: flex;
-              align-items: center;
-              background: $section-background;
-              padding: 0.8rem 1.2rem;
-              border-radius: 20px;
-              font-size: 0.9rem;
-              
+              @extend .d-flex;
+              @extend .align-center;
+              @extend .bg-section;
+              @extend .p-md;
+              @extend .rounded-xl;
+              @extend .text-sm;
+
               i {
-                margin-right: 0.5rem;
-                font-size: 1.2rem;
+                @extend .m-r-sm;
+                @extend .text-lg;
               }
-              
+
               small {
-                margin-left: 0.5rem;
-                color: $text-secondary;
+                @extend .m-l-sm;
+                @extend .text-secondary;
               }
             }
           }
         }
-        
+
         .next-steps {
           h4 {
-            color: $primary-color;
-            margin-bottom: 1rem;
+            @extend .text-primary;
+            @extend .m-b-md;
           }
-          
+
           ol {
-            color: $text-secondary;
-            line-height: 1.6;
-            
+            @extend .text-secondary;
+            @extend .line-height-relaxed;
+
             li {
-              margin-bottom: 0.5rem;
+              @extend .m-b-sm;
             }
           }
         }
@@ -395,119 +369,111 @@
   
   // Decision Matrix Section
   .decision-matrix {
-    margin: 3rem 0;
-    
+    @extend .m-y-xl;
+
     .matrix-controls {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      
+      @extend .d-flex;
+      @extend .justify-center;
+      @extend .gap-md;
+      @extend .m-b-lg;
+      @extend .flex-wrap;
+
       .matrix-btn {
-        padding: 0.8rem 1.5rem;
-        border: 2px solid $primary-color;
-        background: transparent;
-        color: $primary-color;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        
-        &:hover,
+        @include button-outline($primary-color);
+        @extend .hover-bg-primary;
+        @extend .hover-text-white;
+
         &.active {
-          background: $primary-color;
-          color: white;
+          @extend .bg-primary;
+          @extend .text-white;
         }
       }
     }
-    
+
     .comparison-matrix {
-      background: $card-background;
-      border-radius: 12px;
-      padding: 2rem;
-      overflow-x: auto;
-      
+      @include card-style;
+      @extend .overflow-x-auto;
+
       .matrix-table {
         width: 100%;
-        border-collapse: collapse;
+        @extend .border-collapse;
         min-width: 600px;
-        
+
         thead th {
-          background: $primary-color;
-          color: white;
-          padding: 1.5rem 1rem;
-          text-align: center;
-          font-weight: 600;
-          
+          @extend .bg-primary;
+          @extend .text-white;
+          @extend .p-lg;
+          @extend .text-center;
+          @extend .font-weight-bold;
+
           &:first-child {
-            text-align: left;
-            border-top-left-radius: 8px;
+            @extend .text-left;
+            @extend .rounded-tl;
           }
-          
+
           &:last-child {
-            border-top-right-radius: 8px;
+            @extend .rounded-tr;
           }
-          
+
           .framework-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
+            @extend .d-flex;
+            @extend .align-center;
+            @extend .justify-center;
+
             i {
-              margin-right: 0.5rem;
-              font-size: 1.2rem;
+              @extend .m-r-sm;
+              @extend .text-lg;
             }
           }
         }
-        
+
         tbody {
           tr {
-            transition: all 0.3s ease;
-            
+            @extend .transition-all;
+
             &:hover {
-              background: lighten($primary-color, 48%);
+              @extend .bg-primary-light;
             }
           }
-          
+
           td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid $border-color;
-            
+            @extend .p-lg;
+            @extend .border-bottom;
+
             &.criteria-cell {
-              font-weight: 600;
-              color: $text-primary;
-              background: lighten($primary-color, 45%);
+              @extend .font-weight-bold;
+              @extend .text-primary;
+              @extend .bg-primary-light;
             }
-            
+
             &.score-cell {
-              text-align: center;
-              
+              @extend .text-center;
+
               .score-bar {
-                background: $border-color;
+                @extend .bg-light;
                 height: 8px;
-                border-radius: 4px;
-                margin: 0.5rem 0;
+                @extend .rounded-sm;
+                @extend .m-y-sm;
                 overflow: hidden;
-                
+
                 .score-fill {
                   height: 100%;
-                  border-radius: 4px;
+                  @extend .rounded-sm;
                   transition: width 1.5s ease;
                   width: 0;
-                  
-                  &.excellent { background: $success-color; }
-                  &.good { background: $info-color; }
-                  &.moderate { background: $warning-color; }
-                  &.steep { background: $danger-color; }
-                  &.easy { background: $success-color; }
+
+                  &.excellent { @extend .bg-success; }
+                  &.good { @extend .bg-info; }
+                  &.moderate { @extend .bg-warning; }
+                  &.steep { @extend .bg-danger; }
+                  &.easy { @extend .bg-success; }
                 }
               }
-              
+
               .score-text {
-                font-size: 0.9rem;
-                color: $text-secondary;
-                font-weight: 500;
+                @extend .text-secondary;
+                @extend .text-sm;
+                @extend .font-weight-medium;
               }
             }
           }
@@ -518,95 +484,85 @@
   
   // Scenarios Section
   .scenarios-section {
-    margin: 3rem 0;
-    
+    @extend .m-y-xl;
+
     .scenarios-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
+      @extend .m-t-lg;
     }
-    
+
     .scenario-card {
-      background: $card-background;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: $card-shadow;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      }
-      
+      @include card-style;
+      @extend .hover-lift;
+
       .scenario-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        
+        @extend .d-flex;
+        @extend .align-center;
+        @extend .m-b-lg;
+
         i {
+          @extend .text-accent;
+          @extend .m-r-md;
           font-size: 2rem;
-          color: $accent-color;
-          margin-right: 1rem;
         }
-        
+
         h3 {
-          color: $primary-color;
-          margin: 0;
+          @extend .text-primary;
+          @extend .m-none;
         }
       }
-      
+
       .scenario-details {
         .requirements {
-          margin-bottom: 1.5rem;
-          
+          @extend .m-b-lg;
+
           h4 {
-            color: $text-primary;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
+            @extend .text-primary;
+            @extend .m-b-md;
+            @extend .text-sm;
           }
-          
+
           ul {
-            list-style: none;
-            padding: 0;
-            
+            @extend .list-unstyled;
+
             li {
-              padding: 0.4rem 0;
-              color: $text-secondary;
-              position: relative;
-              padding-left: 1.5rem;
-              
+              @extend .p-y-sm;
+              @extend .text-secondary;
+              @extend .position-relative;
+              @extend .p-l-lg;
+
               &:before {
                 content: "•";
-                color: $accent-color;
-                position: absolute;
+                @extend .text-accent;
+                @extend .position-absolute;
                 left: 0;
-                font-weight: bold;
+                @extend .font-weight-bold;
               }
             }
           }
         }
-        
+
         .recommendation {
-          background: lighten($success-color, 45%);
-          border-left: 4px solid $success-color;
-          padding: 1rem;
-          border-radius: 4px;
-          
+          @extend .bg-success-light;
+          @extend .border-left-success;
+          @extend .p-lg;
+          @extend .rounded-sm;
+
           h4 {
-            color: $success-color;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
+            @extend .text-success;
+            @extend .m-b-md;
+            @extend .text-sm;
           }
-          
+
           p {
-            margin: 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: $text-secondary;
-            
+            @extend .m-none;
+            @extend .text-sm;
+            @extend .line-height-relaxed;
+            @extend .text-secondary;
+
             strong {
-              color: $text-primary;
+              @extend .text-primary;
             }
           }
         }
@@ -616,212 +572,199 @@
   
   // Checklist Section
   .checklist-section {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 3rem;
-    margin: 3rem 0;
-    
+    @include section-style;
+    @extend .m-y-xl;
+
     .checklist-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
+      @extend .m-t-lg;
     }
-    
+
     .checklist-category {
-      background: white;
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: $card-shadow;
-      
+      @include card-style;
+
       h3 {
-        display: flex;
-        align-items: center;
-        color: $primary-color;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid $border-color;
-        
+        @extend .d-flex;
+        @extend .align-center;
+        @extend .text-primary;
+        @extend .m-b-lg;
+        @extend .p-b-md;
+        @extend .border-bottom;
+
         i {
-          margin-right: 1rem;
-          font-size: 1.3rem;
+          @extend .m-r-md;
+          @extend .text-lg;
         }
       }
-      
+
       .checklist-items {
         .checklist-item {
-          display: flex;
-          align-items: flex-start;
-          margin-bottom: 1.5rem;
-          cursor: pointer;
-          padding: 1rem;
-          border-radius: 6px;
-          transition: all 0.3s ease;
-          
-          &:hover {
-            background: lighten($primary-color, 48%);
-          }
-          
+          @extend .d-flex;
+          @extend .align-start;
+          @extend .m-b-lg;
+          @extend .cursor-pointer;
+          @extend .p-lg;
+          @extend .rounded-sm;
+          @extend .hover-bg-primary-light;
+
           input[type="checkbox"] {
-            margin-right: 1rem;
-            margin-top: 0.3rem;
+            @extend .m-r-md;
+            @extend .m-t-sm;
             transform: scale(1.2);
             accent-color: $primary-color;
           }
-          
+
           .checkmark {
             width: 20px;
             height: 20px;
-            border: 2px solid $primary-color;
-            border-radius: 4px;
-            margin-right: 1rem;
-            margin-top: 0.3rem;
-            position: relative;
-            transition: all 0.3s ease;
-            
+            @extend .border-primary;
+            @extend .rounded-sm;
+            @extend .m-r-md;
+            @extend .m-t-sm;
+            @extend .position-relative;
+            @extend .transition-all;
+
             &:after {
               content: "✓";
-              position: absolute;
+              @extend .position-absolute;
               top: -2px;
               left: 2px;
-              color: white;
-              font-weight: bold;
-              opacity: 0;
-              transition: all 0.3s ease;
+              @extend .text-white;
+              @extend .font-weight-bold;
+              @extend .opacity-0;
+              @extend .transition-all;
             }
           }
-          
+
           input:checked + .checkmark {
-            background: $primary-color;
-            
+            @extend .bg-primary;
+
             &:after {
-              opacity: 1;
+              @extend .opacity-1;
             }
           }
-          
+
           .item-content {
-            flex: 1;
-            
+            @extend .flex-1;
+
             strong {
-              display: block;
-              color: $text-primary;
-              margin-bottom: 0.3rem;
+              @extend .d-block;
+              @extend .text-primary;
+              @extend .m-b-sm;
             }
-            
+
             p {
-              margin: 0;
-              color: $text-secondary;
-              font-size: 0.9rem;
-              line-height: 1.4;
+              @extend .m-none;
+              @extend .text-secondary;
+              @extend .text-sm;
+              @extend .line-height-relaxed;
             }
           }
         }
       }
     }
-    
+
     .checklist-summary {
-      text-align: center;
-      margin-top: 2rem;
-      
+      @extend .text-center;
+      @extend .m-t-lg;
+
       .summary-btn {
         @include button-style($accent-color);
-        font-size: 1.1rem;
-        padding: 1rem 2rem;
-        
+        @extend .text-lg;
+        @extend .p-lg;
+
         i {
-          margin-right: 0.5rem;
+          @extend .m-r-sm;
         }
       }
-      
+
       .checklist-results {
-        display: none;
-        margin-top: 2rem;
-        
+        @extend .d-none;
+        @extend .m-t-lg;
+
         .summary-card {
-          background: white;
-          border-radius: 12px;
-          padding: 2rem;
-          box-shadow: $card-shadow;
+          @include card-style;
           max-width: 600px;
-          margin: 0 auto;
-          
+          @extend .m-x-auto;
+
           .readiness-indicator {
-            text-align: center;
-            margin-bottom: 2rem;
-            
+            @extend .text-center;
+            @extend .m-b-lg;
+
             i {
-              font-size: 3rem;
-              margin-bottom: 1rem;
+              @extend .text-3xl;
+              @extend .m-b-md;
             }
-            
+
             h3 {
-              margin-bottom: 0.5rem;
+              @extend .m-b-sm;
             }
-            
+
             p {
-              font-size: 1.1rem;
-              margin: 0;
+              @extend .text-lg;
+              @extend .m-none;
             }
           }
-          
+
           .category-breakdown {
-            margin-bottom: 2rem;
-            
+            @extend .m-b-lg;
+
             h4 {
-              color: $primary-color;
-              margin-bottom: 1rem;
-              text-align: left;
+              @extend .text-primary;
+              @extend .m-b-md;
+              @extend .text-left;
             }
-            
+
             .category-score {
-              display: flex;
-              align-items: center;
-              margin-bottom: 1rem;
-              
+              @extend .d-flex;
+              @extend .align-center;
+              @extend .m-b-md;
+
               .category-name {
-                flex: 1;
-                font-weight: 600;
-                color: $text-primary;
+                @extend .flex-1;
+                @extend .font-weight-bold;
+                @extend .text-primary;
               }
-              
+
               .category-bar {
                 width: 100px;
-                background: $border-color;
+                @extend .bg-light;
                 height: 8px;
-                border-radius: 4px;
-                margin: 0 1rem;
+                @extend .rounded-sm;
+                @extend .m-x-md;
                 overflow: hidden;
-                
+
                 .category-fill {
                   height: 100%;
-                  background: $accent-color;
-                  border-radius: 4px;
+                  @extend .bg-accent;
+                  @extend .rounded-sm;
                   transition: width 1s ease;
                 }
               }
-              
+
               .category-percentage {
-                color: $text-secondary;
-                font-weight: 600;
+                @extend .text-secondary;
+                @extend .font-weight-bold;
               }
             }
           }
-          
+
           .recommendations {
             h4 {
-              color: $primary-color;
-              margin-bottom: 1rem;
-              text-align: left;
+              @extend .text-primary;
+              @extend .m-b-md;
+              @extend .text-left;
             }
-            
+
             p {
-              text-align: left;
-              line-height: 1.6;
-              color: $text-secondary;
-              
+              @extend .text-left;
+              @extend .line-height-relaxed;
+              @extend .text-secondary;
+
               i {
-                margin-right: 0.5rem;
-                color: $accent-color;
+                @extend .m-r-sm;
+                @extend .text-accent;
               }
             }
           }
@@ -832,84 +775,74 @@
   
   // Best Practices Section
   .best-practices {
-    margin: 3rem 0;
-    
+    @extend .m-y-xl;
+
     .practices-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
+      @extend .m-t-lg;
     }
-    
+
     .practice-card {
-      background: $card-background;
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: $card-shadow;
-      transition: all 0.3s ease;
-      position: relative;
-      
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      }
-      
+      @include card-style;
+      @extend .hover-lift;
+      @extend .position-relative;
+
       .practice-number {
-        position: absolute;
+        @extend .position-absolute;
         top: -15px;
         left: 2rem;
         width: 40px;
         height: 40px;
-        background: $accent-color;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
+        @extend .bg-accent;
+        @extend .text-white;
+        @extend .rounded-circle;
+        @extend .d-flex;
+        @extend .align-center;
+        @extend .justify-center;
+        @extend .font-weight-bold;
+        @extend .text-lg;
       }
-      
+
       h3 {
-        color: $primary-color;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        @extend .text-primary;
+        @extend .m-b-md;
+        @extend .m-t-lg;
       }
-      
+
       > p {
-        color: $text-secondary;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
+        @extend .text-secondary;
+        @extend .line-height-relaxed;
+        @extend .m-b-lg;
       }
-      
+
       .practice-tips {
-        background: lighten($primary-color, 48%);
-        border-radius: 6px;
-        padding: 1.5rem;
-        
+        @extend .bg-primary-light;
+        @extend .rounded-sm;
+        @extend .p-lg;
+
         h4 {
-          color: $primary-color;
-          margin-bottom: 1rem;
-          font-size: 1rem;
+          @extend .text-primary;
+          @extend .m-b-md;
+          @extend .text-sm;
         }
-        
+
         ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          
+          @extend .list-unstyled;
+          @extend .m-none;
+
           li {
-            color: $text-secondary;
-            padding: 0.3rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            
+            @extend .text-secondary;
+            @extend .p-y-sm;
+            @extend .position-relative;
+            @extend .p-l-lg;
+
             &:before {
               content: "▸";
-              color: $accent-color;
-              position: absolute;
+              @extend .text-accent;
+              @extend .position-absolute;
               left: 0;
-              font-weight: bold;
+              @extend .font-weight-bold;
             }
           }
         }
@@ -919,69 +852,59 @@
   
   // Quiz Styles
   .quiz-section {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 3rem 0;
-    
+    @include section-style;
+    @extend .m-y-xl;
+
     .quiz-container {
       max-width: 800px;
-      margin: 0 auto;
+      @extend .m-x-auto;
     }
-    
+
     .quiz-question {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: $card-shadow;
-      transition: all 0.5s ease;
-      
+      @include card-style;
+      @extend .m-b-lg;
+      @extend .transition-all;
+
       &.correct {
-        border-left: 4px solid $success-color;
-        background: lighten($success-color, 45%);
+        @extend .border-left-success;
+        @extend .bg-success-light;
       }
-      
+
       &.incorrect {
-        border-left: 4px solid $danger-color;
-        background: lighten($danger-color, 45%);
+        @extend .border-left-danger;
+        @extend .bg-danger-light;
       }
-      
+
       .question-number {
-        background: $primary-color;
-        color: white;
-        border-radius: 50%;
+        @extend .bg-primary;
+        @extend .text-white;
+        @extend .rounded-circle;
+        @extend .d-inline-flex;
+        @extend .align-center;
+        @extend .justify-center;
+        @extend .m-r-md;
+        @extend .font-weight-bold;
         width: 30px;
         height: 30px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        font-weight: bold;
       }
-      
+
       .quiz-options {
-        list-style: none;
-        padding: 0;
-        margin-top: 1rem;
-        
+        @extend .list-unstyled;
+        @extend .m-t-md;
+
         li {
-          margin-bottom: 0.8rem;
-          
+          @extend .m-b-md;
+
           label {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            
-            &:hover {
-              background: lighten($primary-color, 45%);
-            }
-            
+            @extend .d-flex;
+            @extend .align-center;
+            @extend .p-md;
+            @extend .rounded-sm;
+            @extend .cursor-pointer;
+            @extend .hover-bg-primary-light;
+
             input[type="radio"] {
-              margin-right: 1rem;
+              @extend .m-r-md;
               transform: scale(1.2);
               accent-color: $primary-color;
             }
@@ -989,44 +912,41 @@
         }
       }
     }
-    
+
     .quiz-controls {
-      text-align: center;
-      margin-top: 2rem;
-      
+      @extend .text-center;
+      @extend .m-t-lg;
+
       .quiz-btn {
         @include button-style($primary-color);
-        margin: 0 0.5rem;
-        
+        @extend .m-x-sm;
+
         &.reset {
           @include button-style($secondary-color);
         }
       }
     }
-    
+
     .quiz-results {
-      background: white;
-      border-radius: 8px;
-      padding: 2rem;
-      margin-top: 2rem;
-      text-align: center;
-      box-shadow: $card-shadow;
-      display: none;
-      
+      @include card-style;
+      @extend .m-t-lg;
+      @extend .text-center;
+      @extend .d-none;
+
       h3 {
-        color: $primary-color;
-        margin-bottom: 1rem;
-        
+        @extend .text-primary;
+        @extend .m-b-md;
+
         i {
-          margin-right: 0.5rem;
-          color: $accent-color;
+          @extend .m-r-sm;
+          @extend .text-accent;
         }
       }
-      
+
       span {
-        color: $accent-color;
-        font-weight: bold;
-        font-size: 1.2rem;
+        @extend .text-accent;
+        @extend .font-weight-bold;
+        @extend .text-lg;
       }
     }
   }
@@ -1037,93 +957,93 @@
     .scenarios-grid,
     .practices-grid,
     .checklist-container {
-      grid-template-columns: 1fr;
+      @extend .grid-single;
     }
-    
+
     .framework-selector {
-      padding: 2rem;
-      
+      @extend .p-lg;
+
       .question-group {
         .option-grid {
-          grid-template-columns: 1fr;
+          @extend .grid-single;
         }
-        
+
         .question-label {
-          font-size: 1.1rem;
+          @extend .text-lg;
         }
       }
-      
+
       .selector-actions {
         .selector-btn {
-          display: block;
-          width: 100%;
-          margin: 0.5rem 0;
+          @extend .d-block;
+          @extend .w-100;
+          @extend .m-b-sm;
         }
       }
     }
-    
+
     .decision-matrix {
       .matrix-controls {
         .matrix-btn {
-          flex: 1;
+          @extend .flex-1;
           min-width: 120px;
         }
       }
-      
+
       .comparison-matrix {
-        padding: 1rem;
+        @extend .p-md;
       }
     }
-    
+
     .recommendation-result {
       .recommendation-card {
         .pros-cons {
-          grid-template-columns: 1fr;
-          gap: 1rem;
+          @extend .grid-single;
+          @extend .gap-md;
         }
-        
+
         .recommendation-header {
-          flex-direction: column;
-          text-align: center;
-          
+          @extend .flex-column;
+          @extend .text-center;
+
           .framework-icon {
-            margin-right: 0;
-            margin-bottom: 1rem;
+            @extend .m-r-none;
+            @extend .m-b-md;
           }
         }
       }
     }
-    
+
     .checklist-section {
-      padding: 2rem;
+      @extend .p-lg;
     }
-    
+
     .best-practices {
       .practice-card {
-        padding: 2rem;
+        @extend .p-lg;
       }
     }
   }
-  
+
   @media (max-width: 480px) {
     .factor-card,
     .scenario-card,
     .practice-card {
-      padding: 1.5rem;
+      @extend .p-lg;
     }
-    
+
     .framework-selector,
     .checklist-section,
     .quiz-section {
-      padding: 1.5rem;
+      @extend .p-lg;
     }
-    
+
     .matrix-table {
-      font-size: 0.9rem;
-      
+      @extend .text-sm;
+
       th,
       td {
-        padding: 0.8rem 0.5rem;
+        @extend .p-sm;
       }
     }
   }
@@ -1131,33 +1051,33 @@
 
 // Notification styles (if not already defined)
 .notification {
-  position: fixed;
+  @extend .position-fixed;
   top: 20px;
   right: 20px;
-  padding: 1rem 1.5rem;
-  border-radius: 6px;
-  color: white;
-  z-index: 1000;
+  @extend .p-md;
+  @extend .rounded-sm;
+  @extend .text-white;
+  @extend .z-index-high;
   animation: slideInRight 0.3s ease;
-  
+
   &.info {
-    background: $info-color;
+    @extend .bg-info;
   }
-  
+
   &.success {
-    background: $success-color;
+    @extend .bg-success;
   }
-  
+
   &.warning {
-    background: $warning-color;
+    @extend .bg-warning;
   }
-  
+
   &.error {
-    background: $danger-color;
+    @extend .bg-danger;
   }
-  
+
   i {
-    margin-right: 0.5rem;
+    @extend .m-r-sm;
   }
 }
 

@@ -5,182 +5,162 @@
 
 // Progress bar styling (consistent with other topics)
 .progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
-  border-radius: inherit;
-  transition: width $transition-smooth;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(white, 0.3);
-    border-radius: 1px;
-  }
+  @include progress-fill-style();
 }
 
 // Semantic structure demonstration
 .semantic-demo {
   .semantic-layout {
-    border: 2px solid $border-medium;
-    border-radius: $border-radius-md;
-    margin: $spacing-xl 0;
+    border: 2px solid map-get($color-palette, 'gray-300');
+    border-radius: $border-radius-base;
+    margin: map-get($spacing-map, 'xl') 0;
     overflow: hidden;
     background: white;
-    
+
     header {
-      background: linear-gradient(135deg, $accent-primary, $accent-secondary);
+      background: map-get($demo-gradients, 'primary-blue');
       color: white;
-      padding: $spacing-xl;
+      padding: map-get($spacing-map, 'xl');
       text-align: center;
-      
+
       h1 {
         margin: 0;
-        font-size: 1.8rem;
+        font-size: map-get($font-size-map, 'xl');
       }
     }
-    
+
     nav {
-      background: $bg-secondary;
-      padding: $spacing-lg;
-      
+      background: map-get($color-palette, 'gray-100');
+      padding: map-get($spacing-map, 'lg');
+
       ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: $spacing-lg;
-        justify-content: center;
-        
-        @include breakpoint($breakpoint-sm) {
-          flex-direction: column;
+        @include reset-list();
+        @include flex-center();
+        gap: map-get($spacing-map, 'lg');
+
+        @include respond-to('sm') {
+          @include flex-column();
           text-align: center;
         }
-        
+
         li {
           a {
-            color: $text-primary;
+            color: map-get($demo-colors, 'primary');
             text-decoration: none;
-            padding: $spacing-sm $spacing-md;
-            border-radius: $border-radius-sm;
-            transition: all $transition-base;
-            
+            padding: map-get($spacing-map, 'sm');
+            border-radius: map-get($spacing-map, 'xs');
+            transition: all $transition-duration ease;
+
             &:hover {
-              background: $accent-primary;
+              background: map-get($demo-colors, 'primary');
               color: white;
             }
           }
         }
       }
     }
-    
+
     main {
-      padding: $spacing-2xl;
+      padding: map-get($spacing-map, 'xl');
       min-height: 300px;
-      
+
       article {
-        margin-bottom: $spacing-2xl;
-        
+        margin-bottom: map-get($spacing-map, 'xl');
+
         &:last-child {
           margin-bottom: 0;
         }
-        
+
         header {
-          background: none;
-          color: $text-primary;
+          background: transparent;
+          color: map-get($demo-colors, 'primary');
           padding: 0;
           text-align: left;
-          margin-bottom: $spacing-lg;
-          
+          margin-bottom: map-get($spacing-map, 'lg');
+
           h2 {
             margin: 0;
-            color: $accent-primary;
+            color: map-get($demo-colors, 'primary');
           }
-          
+
           .article-meta {
-            color: $text-secondary;
-            font-size: $font-sm;
-            margin-top: $spacing-sm;
+            color: map-get($color-palette, 'gray-600');
+            font-size: map-get($font-size-map, 'sm');
+            margin-top: map-get($spacing-map, 'sm');
           }
         }
       }
-      
+
       section {
-        margin-bottom: $spacing-xl;
-        
+        margin-bottom: map-get($spacing-map, 'xl');
+
         h3 {
-          color: $text-primary;
-          border-bottom: 2px solid $accent-primary;
-          padding-bottom: $spacing-sm;
+          color: map-get($demo-colors, 'primary');
+          border-bottom: 2px solid map-get($demo-colors, 'primary');
+          padding-bottom: map-get($spacing-map, 'sm');
         }
       }
-      
+
       aside {
-        background: $bg-light;
-        padding: $spacing-xl;
+        background: map-get($color-palette, 'gray-50');
+        padding: map-get($spacing-map, 'xl');
         border-radius: $border-radius-md;
-        border-left: 4px solid $accent-primary;
-        margin: $spacing-xl 0;
-        
+        border-left: 4px solid map-get($demo-colors, 'primary');
+        margin: map-get($spacing-map, 'xl') 0;
+
         h4 {
           margin-top: 0;
-          color: $accent-primary;
+          color: map-get($demo-colors, 'primary');
         }
       }
     }
-    
+
     footer {
-      background: $bg-secondary;
-      color: $text-secondary;
-      padding: $spacing-xl;
+      background: map-get($color-palette, 'gray-100');
+      color: map-get($color-palette, 'gray-600');
+      padding: map-get($spacing-map, 'xl');
       text-align: center;
-      border-top: 1px solid $border-light;
+      border-top: 1px solid map-get($color-palette, 'gray-200');
     }
   }
 }
 
 // Code comparison sections
 .code-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-xl;
-  margin: $spacing-2xl 0;
-  
-  @include breakpoint($breakpoint-md) {
+  @include two-column-layout();
+  gap: map-get($spacing-map, 'xl');
+  margin: map-get($spacing-map, 'xl') 0;
+
+  @include respond-to('md') {
     grid-template-columns: 1fr;
   }
-  
+
   .comparison-section {
-    background: $bg-light;
-    border-radius: $border-radius-md;
+    @extend .card;
     overflow: hidden;
-    
+
     .section-header {
-      padding: $spacing-lg;
-      font-weight: 600;
+      padding: map-get($spacing-map, 'lg');
+      font-weight: 700;
       text-align: center;
-      
+
       &.non-semantic {
-        background: #fef2f2;
-        color: #dc2626;
+        background: rgba(map-get($demo-colors, 'danger'), 0.1);
+        color: map-get($demo-colors, 'danger');
       }
-      
+
       &.semantic {
-        background: #f0fdf4;
-        color: #16a34a;
+        background: rgba(map-get($demo-colors, 'success'), 0.1);
+        color: map-get($demo-colors, 'success');
       }
     }
-    
+
     .code-example {
-      padding: $spacing-xl;
+      padding: map-get($spacing-map, 'xl');
       background: white;
-      font-family: $font-mono;
-      font-size: $font-sm;
-      line-height: 1.6;
+      font-family: map-get($font-map, 'monospace');
+      font-size: map-get($font-size-map, 'sm');
+      line-height: map-get($line-height-map, 'relaxed');
     }
   }
 }
@@ -188,12 +168,9 @@
 // Accessibility features demonstration
 .accessibility-demo {
   .a11y-example {
-    background: $bg-light;
-    padding: $spacing-xl;
-    border-radius: $border-radius-md;
-    margin: $spacing-xl 0;
-    border: 1px solid $border-light;
-    
+    @extend .card;
+    margin: map-get($spacing-map, 'xl') 0;
+
     .skip-link {
       position: absolute;
       left: -10000px;
@@ -201,42 +178,42 @@
       width: 1px;
       height: 1px;
       overflow: hidden;
-      
+
       &:focus {
         position: static;
         width: auto;
         height: auto;
-        background: $accent-primary;
+        background: map-get($demo-colors, 'primary');
         color: white;
-        padding: $spacing-sm $spacing-lg;
-        border-radius: $border-radius-sm;
-        margin-bottom: $spacing-lg;
+        padding: map-get($spacing-map, 'sm');
+        border-radius: map-get($spacing-map, 'xs');
+        margin-bottom: map-get($spacing-map, 'lg');
       }
     }
-    
+
     .landmark-demo {
-      border: 1px dashed $border-medium;
-      padding: $spacing-lg;
-      margin: $spacing-md 0;
-      
+      border: 2px dashed map-get($color-palette, 'gray-300');
+      padding: map-get($spacing-map, 'lg');
+      margin: map-get($spacing-map, 'md') 0;
+
       &[role="banner"] {
-        border-color: #3b82f6;
-        background: rgba(59, 130, 246, 0.05);
+        border-color: map-get($demo-colors, 'info');
+        background: rgba(map-get($demo-colors, 'info'), 0.05);
       }
-      
+
       &[role="navigation"] {
-        border-color: #10b981;
-        background: rgba(16, 185, 129, 0.05);
+        border-color: map-get($demo-colors, 'success');
+        background: rgba(map-get($demo-colors, 'success'), 0.05);
       }
-      
+
       &[role="main"] {
-        border-color: #f59e0b;
-        background: rgba(245, 158, 11, 0.05);
+        border-color: map-get($demo-colors, 'warning');
+        background: rgba(map-get($demo-colors, 'warning'), 0.05);
       }
-      
+
       &[role="contentinfo"] {
-        border-color: #8b5cf6;
-        background: rgba(139, 92, 246, 0.05);
+        border-color: map-get($demo-colors, 'primary');
+        background: rgba(map-get($demo-colors, 'primary'), 0.05);
       }
     }
   }
@@ -245,7 +222,7 @@
 // Submit button styling (consistent with other topics)
 .quiz-submit {
   display: none;
-  
+
   &.show {
     display: inline-block;
   }

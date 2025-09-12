@@ -1,0 +1,221 @@
+// ========================================
+// SHARED BACKGROUND GRADIENT COMPONENTS
+// ========================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ===== COMMON GRADIENT BACKGROUNDS =====
+
+// Primary gradient used across multiple topics
+.bg-gradient-primary {
+  background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(45deg, $primary-color, $accent-color);
+}
+
+// ===== TOPIC-SPECIFIC GRADIENTS =====
+
+// Standard topic header gradient
+.bg-gradient-topic {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+// Success gradient for positive states
+.bg-gradient-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+// Warning gradient for caution states
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+// Error gradient for error states
+.bg-gradient-error {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+// Info gradient for informational states
+.bg-gradient-info {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+// ===== FRAMEWORK GRADIENTS =====
+
+// React framework gradient
+.bg-gradient-react {
+  background: linear-gradient(45deg, #61dafb, #4fa8c5);
+}
+
+// Angular framework gradient
+.bg-gradient-angular {
+  background: linear-gradient(45deg, #dd0031, #b8002a);
+}
+
+// Vue framework gradient
+.bg-gradient-vue {
+  background: linear-gradient(45deg, #4fc08d, #42a375);
+}
+
+// Bootstrap framework gradient
+.bg-gradient-bootstrap {
+  background: linear-gradient(135deg, #7952b3, #563d7c);
+}
+
+// Foundation framework gradient
+.bg-gradient-foundation {
+  background: linear-gradient(135deg, #008cba, #0078a0);
+}
+
+// ===== BROWSER GRADIENTS =====
+
+// Chrome browser gradient
+.bg-gradient-chrome {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 25%, #fbbc05 50%, #ea4335 75%);
+}
+
+// Safari browser gradient
+.bg-gradient-safari {
+  background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+}
+
+// Edge browser gradient
+.bg-gradient-edge {
+  background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+}
+
+// Firefox browser gradient
+.bg-gradient-firefox {
+  background: linear-gradient(135deg, #ff9500 0%, #ff5722 100%);
+}
+
+// ===== JAVASCRIPT TYPE GRADIENTS =====
+
+// Number type gradient
+.bg-gradient-number {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+// String type gradient
+.bg-gradient-string {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+// Boolean type gradient
+.bg-gradient-boolean {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+// Undefined type gradient
+.bg-gradient-undefined {
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+// Null type gradient
+.bg-gradient-null {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+}
+
+// Object type gradient
+.bg-gradient-object {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+// ===== OPERATOR GRADIENTS =====
+
+// Arithmetic operators gradient
+.bg-gradient-arithmetic {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+// Assignment operators gradient
+.bg-gradient-assignment {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+// Comparison operators gradient
+.bg-gradient-comparison {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+// Logical operators gradient
+.bg-gradient-logical {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+// Unary operators gradient
+.bg-gradient-unary {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+// Ternary operators gradient
+.bg-gradient-ternary {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+// ===== SPECIAL GRADIENTS =====
+
+// Code highlight gradient
+.bg-gradient-code {
+  background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
+}
+
+// Match highlight gradient
+.bg-gradient-match {
+  background: linear-gradient(120deg, #a8e6cf 0%, #88d8a3 100%);
+}
+
+// Quiz correct gradient
+.bg-gradient-correct {
+  background: linear-gradient(120deg, rgba(#27ae60, 0.1), rgba(#2ecc71, 0.1));
+}
+
+// Quiz incorrect gradient
+.bg-gradient-incorrect {
+  background: linear-gradient(120deg, rgba(#e74c3c, 0.1), rgba(#c0392b, 0.1));
+}
+
+// Quiz selected gradient
+.bg-gradient-selected {
+  background: linear-gradient(120deg, rgba(#f39c12, 0.1), rgba(#e67e22, 0.1));
+}
+
+// ===== UTILITY GRADIENTS =====
+
+// Pink gradient
+.bg-gradient-pink {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+// Blue gradient
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+// Orange gradient
+.bg-gradient-orange {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+// Purple gradient
+.bg-gradient-purple {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+// Yellow gradient
+.bg-gradient-yellow {
+  background: linear-gradient(135deg, #fff3cd, #fff);
+}
+
+// Light gradient
+.bg-gradient-light {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+// Dark gradient
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}

@@ -5,42 +5,20 @@
 
 // Progress bar styling (consistent with other topics)
 .progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, $accent-primary 0%, $accent-secondary 100%);
-  border-radius: inherit;
-  transition: width $transition-smooth;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(white, 0.3);
-    border-radius: 1px;
-  }
+  @include progress-fill-style();
 }
 
 // Image gallery styles
 .image-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: $spacing-lg;
-  margin: $spacing-2xl 0;
-  
+  @include grid-auto-fit(250px);
+  gap: map-get($spacing-map, 'lg');
+  margin: map-get($spacing-map, 'xl') 0;
+
   .gallery-item {
-    background: $bg-primary;
-    border-radius: $border-radius-md;
+    @extend .card;
     overflow: hidden;
-    box-shadow: $shadow-md;
-    transition: all $transition-base;
-    
-    &:hover {
-      @include card-hover;
-    }
-    
+    @include interactive-hover();
+
     img {
       width: 100%;
       height: 200px;
@@ -48,7 +26,99 @@
     }
     
     .gallery-caption {
-      padding: $spacing-lg;
+      padding: map-get($spacing-map, 'lg');
+      
+      h4 {
+        margin: 0 0 map-get($spacing-map, 'sm') 0;
+        color: map-get($demo-colors, 'primary');
+      }
+      
+      p {
+        margin: 0;
+        @include text-muted();
+        font-size: map-get($font-size-map, 'sm');
+      }
+    }
+  }
+}
+
+// List demonstrations
+.list-demo {
+  @include grid-auto-fit(300px);
+  gap: map-get($spacing-map, 'xl');
+  margin: map-get($spacing-map, 'xl') 0;
+
+  .demo-section {
+    @extend .card;
+    padding: map-get($spacing-map, 'lg');
+
+    h3 {
+      color: map-get($demo-colors, 'primary');
+      margin-bottom: map-get($spacing-map, 'lg');
+    }
+
+    ul, ol {
+      padding-left: map-get($spacing-map, 'lg');
+      line-height: map-get($line-height-map, 'relaxed');
+
+      li {
+        margin-bottom: map-get($spacing-map, 'sm');
+      }
+    }
+
+    .custom-list {
+      @include reset-list();
+
+      li {
+        @include flex-center();
+        justify-content: flex-start;
+        gap: map-get($spacing-map, 'sm');
+        margin-bottom: map-get($spacing-map, 'sm');
+
+        &::before {
+          content: "✓";
+          color: map-get($demo-colors, 'success');
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// Link styling demonstrations
+.link-demo {
+  .demo-links {
+    @extend .card;
+    padding: map-get($spacing-map, 'lg');
+    margin: map-get($spacing-map, 'xl') 0;
+
+    a {
+      @include interactive-link();
+      margin-right: map-get($spacing-map, 'lg');
+      margin-bottom: map-get($spacing-map, 'sm');
+      display: inline-block;
+
+      &.button-link {
+        @include btn-primary();
+        text-decoration: none;
+      }
+
+      &.external-link::after {
+        content: " ↗";
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+// Submit button styling (consistent with other topics)
+.quiz-submit {
+  display: none;
+  
+  &.show {
+    display: inline-block;
+  }
+}
       
       h4 {
         margin: 0 0 $spacing-sm 0;

@@ -1,169 +1,166 @@
 // DNS Hierarchy Topic Specific Styles
-@use 'sass:color';
-@use 'variables' as *;
-@use 'mixins' as *;
 
 // DNS Comparison Section
 .dns-comparison {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-xl;
-  margin: $spacing-xl 0;
+  @extend .grid-auto-fit;
+  @extend .gap-xl;
+  @extend .my-4;
 }
 
 .comparison-side {
-  @include card-base;
-  padding: $spacing-xl;
-  text-align: center;
-  
+  @extend .card-base;
+  @extend .p-xl;
+  @extend .text-center;
+
   h3 {
-    color: $text-primary;
-    margin-bottom: $spacing-lg;
+    @extend .text-primary;
+    @extend .mb-3;
     font-size: 1.5rem;
   }
-  
+
   .scenario {
     i {
       font-size: 3rem;
-      margin-bottom: $spacing-lg;
-      
+      @extend .mb-3;
+
       &.fa-user {
-        color: $color-error;
+        @extend .text-danger;
       }
-      
+
       &.fa-smile {
-        color: $color-success;
+        @extend .text-success;
       }
     }
-    
+
     p {
-      color: $text-secondary;
-      margin-bottom: $spacing-lg;
+      @extend .text-secondary;
+      @extend .mb-3;
     }
   }
 }
 
 .ip-examples,
 .domain-examples {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-  
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .gap-sm;
+
   code {
-    background: $bg-secondary;
-    padding: $spacing-sm $spacing-md;
-    border-radius: $border-radius-sm;
-    font-family: $font-mono;
+    @extend .bg-secondary;
+    @extend .p-sm;
+    @extend .px-md;
+    @extend .rounded-sm;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
   }
 }
 
 .ip-examples code {
-  border-left: 3px solid $color-error;
+  border-left: 3px solid #ef4444;
 }
 
 .domain-examples code {
-  border-left: 3px solid $color-success;
+  border-left: 3px solid #10b981;
 }
 
 // DNS Tree Structure
 .dns-tree {
-  margin: $spacing-xl 0;
-  padding: $spacing-xl;
-  background: linear-gradient(135deg, rgba($accent-primary, 0.05) 0%, rgba($accent-secondary, 0.05) 100%);
-  border-radius: $border-radius-lg;
+  @extend .my-4;
+  @extend .p-xl;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+  @extend .rounded-lg;
 }
 
 .dns-level {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: $spacing-lg;
-  margin: $spacing-lg 0;
-  flex-wrap: wrap;
-  
+  @extend .d-flex;
+  @extend .justify-center;
+  @extend .align-center;
+  @extend .gap-lg;
+  @extend .my-3;
+  @extend .flex-wrap;
+
   &:not(:last-child)::after {
     content: '';
-    display: block;
-    width: 100%;
+    @extend .d-block;
+    @extend .w-100;
     height: 2px;
-    background: linear-gradient(90deg, transparent 0%, $accent-primary 50%, transparent 100%);
-    margin: $spacing-md 0;
+    background: linear-gradient(90deg, transparent 0%, #667eea 50%, transparent 100%);
+    @extend .my-md;
   }
 }
 
 .dns-node {
-  @include card-base;
-  padding: $spacing-md $spacing-lg;
+  @extend .card-interactive;
+  @extend .p-md;
+  @extend .px-lg;
   min-width: 120px;
-  text-align: center;
-  cursor: pointer;
-  transition: all $transition-base;
-  position: relative;
-  
+  @extend .text-center;
+  @extend .cursor-pointer;
+  @extend .transition-all;
+  @extend .position-relative;
+
   &:hover {
-    @include card-hover;
+    @extend .hover-lift;
     transform: translateY(-5px);
   }
-  
+
   &.highlighted {
-    background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
-    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+    @extend .text-white;
     transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 10px 30px rgba($accent-primary, 0.3);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
   }
-  
+
   i {
     font-size: 1.5rem;
-    margin-bottom: $spacing-sm;
-    color: $accent-primary;
+    @extend .mb-2;
+    @extend .text-primary;
   }
-  
+
   &.highlighted i {
-    color: white;
+    @extend .text-white;
   }
-  
+
   span {
-    font-weight: 600;
-    font-family: $font-mono;
+    @extend .font-weight-bold;
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
 // Level Explanations
 .hierarchy-explanation {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: $spacing-lg;
-  margin: $spacing-xl 0;
+  @extend .grid-auto-fit-sm;
+  @extend .gap-lg;
+  @extend .my-4;
 }
 
 .level-explanation {
-  @include card-base;
-  padding: $spacing-lg;
+  @extend .card-base;
+  @extend .p-lg;
   
   h4 {
-    color: $text-primary;
-    margin-bottom: $spacing-md;
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
+    @extend .text-primary;
+    @extend .mb-3;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .gap-sm;
     
     i {
-      color: $accent-primary;
+      @extend .text-primary;
     }
   }
   
   p {
-    color: $text-secondary;
-    line-height: 1.6;
+    @extend .text-secondary;
+    @extend .line-height-relaxed;
   }
 }
 
 // DNS Resolution Flow
 .dns-resolution-flow {
-  display: grid;
-  gap: $spacing-lg;
-  margin: $spacing-xl 0;
+  @extend .grid-auto-fit;
+  @extend .gap-lg;
+  @extend .my-4;
   
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -175,56 +172,56 @@
 }
 
 .resolution-step {
-  @include card-base;
-  padding: $spacing-lg;
-  transition: all $transition-base;
+  @extend .card-interactive;
+  @extend .p-lg;
+  @extend .transition-all;
   
   &:hover {
-    @include card-hover;
+    @extend .hover-lift;
   }
   
   .step-header {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-md;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .gap-md;
+    @extend .mb-3;
     
     .step-number {
       width: 35px;
       height: 35px;
-      background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
+      background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+      @extend .text-white;
+      @extend .rounded-circle;
+      @extend .d-flex;
+      @extend .align-center;
+      @extend .justify-center;
+      @extend .font-weight-bold;
       font-size: 0.9rem;
     }
     
     h4 {
-      color: $text-primary;
+      @extend .text-primary;
     }
   }
   
   .step-content {
-    text-align: center;
+    @extend .text-center;
     
     i {
       font-size: 2rem;
-      color: $accent-primary;
-      margin-bottom: $spacing-md;
+      @extend .text-primary;
+      @extend .mb-3;
     }
     
     p {
-      color: $text-secondary;
-      margin-bottom: $spacing-sm;
+      @extend .text-secondary;
+      @extend .mb-2;
     }
     
     .step-detail {
       font-size: 0.85rem;
-      color: $accent-primary;
-      font-weight: 500;
+      @extend .text-primary;
+      @extend .font-weight-bold;
       font-style: italic;
     }
   }
@@ -232,76 +229,76 @@
 
 // DNS Records Grid
 .dns-records-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-lg;
-  margin: $spacing-xl 0;
+  @extend .grid-auto-fit;
+  @extend .gap-lg;
+  @extend .my-4;
 }
 
 .record-card {
-  @include card-base;
-  padding: $spacing-lg;
-  cursor: pointer;
-  transition: all $transition-base;
+  @extend .card-interactive;
+  @extend .p-lg;
+  @extend .cursor-pointer;
+  @extend .transition-all;
   
   &:hover {
-    @include card-hover;
+    @extend .hover-lift;
     transform: translateY(-5px);
   }
   
   .record-header {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-md;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .gap-md;
+    @extend .mb-3;
     
     .record-type {
-      background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
-      color: white;
-      padding: $spacing-xs $spacing-md;
-      border-radius: $border-radius-md;
-      font-family: $font-mono;
-      font-weight: 600;
+      background: linear-gradient(135deg, #667eea 0%, #9333ea 100%);
+      @extend .text-white;
+      @extend .p-xs;
+      @extend .px-md;
+      @extend .rounded;
+      font-family: 'JetBrains Mono', monospace;
+      @extend .font-weight-bold;
       font-size: 0.9rem;
     }
     
     h4 {
-      color: $text-primary;
+      @extend .text-primary;
     }
   }
   
   p {
-    color: $text-secondary;
-    margin-bottom: $spacing-md;
-    line-height: 1.6;
+    @extend .text-secondary;
+    @extend .mb-3;
+    @extend .line-height-relaxed;
   }
   
   .record-example {
-    background: $bg-secondary;
-    padding: $spacing-md;
-    border-radius: $border-radius-sm;
-    border-left: 3px solid $accent-primary;
+    @extend .bg-secondary;
+    @extend .p-md;
+    @extend .rounded-sm;
+    border-left: 3px solid #667eea;
     
     code {
-      font-family: $font-mono;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
-      color: $text-primary;
+      @extend .text-primary;
     }
   }
 }
 
 // DNS Simulator
 .dns-simulator {
-  @include card-base;
-  padding: $spacing-xl;
-  margin: $spacing-xl 0;
+  @extend .card-base;
+  @extend .p-xl;
+  @extend .my-4;
 }
 
 .query-input {
-  display: flex;
-  gap: $spacing-md;
-  margin-bottom: $spacing-xl;
-  align-items: center;
+  @extend .d-flex;
+  @extend .align-center;
+  @extend .gap-md;
+  @extend .mb-4;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -309,63 +306,64 @@
   }
   
   input {
-    flex: 1;
-    padding: $spacing-md $spacing-lg;
-    border: 2px solid $border-light;
-    border-radius: $border-radius-md;
+    @extend .flex-1;
+    @extend .p-md;
+    @extend .px-lg;
+    @extend .border;
+    @extend .rounded;
     font-size: 1rem;
     
     &:focus {
-      outline: none;
-      border-color: $accent-primary;
-      box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
+      @extend .outline-none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
   }
 }
 
 .lookup-visualization {
-  margin: $spacing-xl 0;
+  @extend .my-4;
 }
 
 .lookup-steps {
-  display: grid;
-  gap: $spacing-md;
-  margin-bottom: $spacing-xl;
+  @extend .grid-auto-fit;
+  @extend .gap-sm;
+  @extend .mb-4;
 }
 
 .lookup-step {
-  display: flex;
-  align-items: center;
-  padding: $spacing-lg;
-  border: 2px solid $border-light;
-  border-radius: $border-radius-md;
-  background: white;
-  transition: all $transition-base;
+  @extend .d-flex;
+  @extend .align-center;
+  @extend .p-lg;
+  @extend .border;
+  @extend .rounded;
+  @extend .bg-white;
+  @extend .transition-all;
   opacity: 0.6;
   
   &.active {
     opacity: 1;
     transform: scale(1.02);
-    background: linear-gradient(135deg, rgba($accent-primary, 0.1) 0%, rgba($accent-secondary, 0.1) 100%);
-    border-color: $accent-primary;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+    border-color: #667eea;
     
     .step-icon {
-      background: $accent-primary;
-      color: white;
+      @extend .bg-primary;
+      @extend .text-white;
     }
   }
   
   &.complete {
     opacity: 1;
-    background: linear-gradient(135deg, rgba($color-success, 0.1) 0%, rgba($color-success, 0.2) 100%);
-    border-color: $color-success;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+    border-color: #10b981;
     
     .step-icon {
-      background: $color-success;
-      color: white;
+      @extend .bg-success;
+      @extend .text-white;
       
       i {
-        color: white;
+        @extend .text-white;
       }
     }
   }
@@ -373,72 +371,73 @@
   .step-icon {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    background: $bg-secondary;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: $spacing-lg;
-    transition: all $transition-base;
+    @extend .rounded-circle;
+    @extend .bg-secondary;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .justify-center;
+    @extend .mr-3;
+    @extend .transition-all;
     
     i {
       font-size: 1.2rem;
-      color: $accent-primary;
+      @extend .text-primary;
     }
   }
   
   .step-info {
     h4 {
-      margin: 0 0 $spacing-xs 0;
+      @extend .m-0;
+      @extend .mb-2;
       font-size: 1.1rem;
-      color: $text-primary;
+      @extend .text-primary;
     }
     
     .step-status {
       font-size: 0.9rem;
-      color: $text-secondary;
+      @extend .text-secondary;
     }
   }
 }
 
 .lookup-result {
-  @include card-base;
-  padding: $spacing-xl;
-  background: linear-gradient(135deg, rgba($color-success, 0.05) 0%, rgba($color-success, 0.1) 100%);
-  border: 2px solid $color-success;
+  @extend .card-base;
+  @extend .p-xl;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border: 2px solid #10b981;
   
   h4 {
-    color: $color-success;
-    margin-bottom: $spacing-lg;
-    text-align: center;
+    @extend .text-success;
+    @extend .mb-3;
+    @extend .text-center;
     font-size: 1.3rem;
   }
 }
 
 .result-details {
-  background: white;
-  padding: $spacing-lg;
-  border-radius: $border-radius-md;
+  @extend .bg-white;
+  @extend .p-lg;
+  @extend .rounded;
 }
 
 .result-row {
-  display: flex;
-  justify-content: space-between;
-  padding: $spacing-sm 0;
-  border-bottom: 1px solid rgba($border-light, 0.5);
+  @extend .d-flex;
+  @extend .justify-between;
+  @extend .py-sm;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
   
   &:last-child {
     border-bottom: none;
   }
   
   .label {
-    font-weight: 600;
-    color: $text-primary;
+    @extend .font-weight-bold;
+    @extend .text-primary;
   }
   
   .value {
-    font-family: $font-mono;
-    color: $accent-primary;
-    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    @extend .text-primary;
+    @extend .font-weight-bold;
   }
 }

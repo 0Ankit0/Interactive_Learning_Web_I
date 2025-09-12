@@ -7,12 +7,12 @@
 .architecture-diagram {
   background: linear-gradient(135deg, $bg-secondary 0%, $bg-light 100%);
   border: 2px solid $border-medium;
-  border-radius: $border-radius-xl;
-  padding: $spacing-4xl;
-  margin: $spacing-3xl 0;
+  @extend .rounded-xl;
+  @extend .p-5;
+  @extend .spacing-3xl-vertical;
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     @include full-overlay;
@@ -20,31 +20,31 @@
     opacity: 0.3;
     pointer-events: none;
   }
-  
+
   .diagram-row {
     @include flex-center;
     justify-content: space-around;
-    margin: $spacing-xl 0;
+    @extend .spacing-xl-vertical;
     position: relative;
     z-index: 1;
-    
+
     @include breakpoint($breakpoint-md) {
       flex-direction: column;
       gap: $spacing-xl;
     }
   }
-  
+
   .diagram-item {
     @include flex-column;
-    align-items: center;
-    padding: $spacing-xl;
+    @extend .align-center;
+    @extend .p-xl;
     background: $bg-primary;
-    border-radius: $border-radius-lg;
+    @extend .rounded-lg;
     box-shadow: $shadow-lg;
     transition: all $transition-base;
     min-width: 150px;
     position: relative;
-    
+
     &:hover {
       @include card-hover;
       background: color.scale($bg-secondary, $lightness: 2%);

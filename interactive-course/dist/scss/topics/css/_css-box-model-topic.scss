@@ -1,91 +1,92 @@
 // CSS Box Model Topic Styles
-// This file contains styles specific to the CSS Box Model topic page
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ========================================
+// UNIQUE STYLES FOR CSS BOX MODEL TOPIC
+// ========================================
 
 // Box Model Visualizer
 .box-model-visualizer {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  margin: 2rem 0;
+  @extend .text-white;
+  @extend .p-xl;
+  @extend .rounded-lg;
+  @extend .spacing-lg-vertical;
   box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
 
   h3 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 1.5rem;
+    @extend .m-t-none;
+    @extend .m-b-lg;
+    @extend .text-center;
+    @extend .text-lg;
   }
 
   .visualizer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
+    @extend .two-column-layout;
+    @extend .align-start;
   }
 
   .visualizer-controls {
     .control-group {
       background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      @extend .p-lg;
+      @extend .rounded;
+      @extend .m-b-md;
 
       h4 {
-        margin-top: 0;
-        margin-bottom: 1rem;
+        @extend .m-t-none;
+        @extend .m-b-md;
         color: #e0e7ff;
-        font-size: 1rem;
+        @extend .text-base;
       }
 
       .input-row {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 0.75rem;
+        @extend .input-group-inline;
+        @extend .m-b-sm;
 
         label {
           min-width: 100px;
-          font-weight: 600;
+          @extend .font-weight-bold;
           color: #e0e7ff;
-          font-size: 0.9rem;
+          @extend .text-sm;
         }
 
         input[type="range"] {
-          flex: 1;
+          @extend .flex-1;
         }
 
         .value-display {
           min-width: 60px;
           background: rgba(255, 255, 255, 0.2);
-          color: white;
-          padding: 0.25rem 0.5rem;
-          border-radius: 4px;
+          @extend .text-white;
+          @extend .p-xs;
+          @extend .rounded-xs;
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.85rem;
-          text-align: center;
+          @extend .text-xs;
+          @extend .text-center;
         }
       }
     }
 
     .dimensions-summary {
       background: rgba(16, 185, 129, 0.2);
-      padding: 1rem;
-      border-radius: 8px;
+      @extend .p-base;
+      @extend .rounded;
       border: 2px solid rgba(16, 185, 129, 0.4);
 
       h4 {
-        margin-top: 0;
-        margin-bottom: 0.75rem;
+        @extend .m-t-none;
+        @extend .m-b-sm;
         color: #a7f3d0;
       }
 
       .dimension-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
+        @extend .input-group-inline;
+        @extend .m-b-sm;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.9rem;
+        @extend .text-sm;
 
         .label {
           color: #d1fae5;
@@ -93,85 +94,84 @@
 
         .value {
           color: #a7f3d0;
-          font-weight: 600;
+          @extend .font-weight-bold;
         }
       }
     }
   }
 
   .box-demo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend .d-flex;
+    @extend .justify-center;
+    @extend .align-center;
     min-height: 300px;
-    
+
     #demo-box {
-      transition: all 0.3s ease;
+      @extend .transition-all;
     }
 
     .box-margin {
       background-color: rgba(255, 193, 7, 0.3);
       border: 2px dashed rgba(255, 193, 7, 0.8);
-      position: relative;
+      @extend .position-relative;
 
       &::before {
         content: 'Margin';
-        position: absolute;
+        @extend .position-absolute;
         top: -25px;
         left: 0;
         color: #fbbf24;
-        font-size: 0.8rem;
-        font-weight: 600;
+        @extend .text-xs;
+        @extend .font-weight-bold;
       }
     }
 
     .box-border {
       background-color: rgba(239, 68, 68, 0.8);
       border: solid rgba(220, 38, 38, 1);
-      position: relative;
+      @extend .position-relative;
 
       &::before {
         content: 'Border';
-        position: absolute;
+        @extend .position-absolute;
         top: 2px;
         left: 2px;
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 600;
+        @extend .text-white;
+        @extend .text-xs;
+        @extend .font-weight-bold;
       }
     }
 
     .box-padding {
       background-color: rgba(34, 197, 94, 0.4);
-      position: relative;
+      @extend .position-relative;
 
       &::before {
         content: 'Padding';
-        position: absolute;
+        @extend .position-absolute;
         top: 2px;
         left: 2px;
         color: #065f46;
-        font-size: 0.8rem;
-        font-weight: 600;
+        @extend .text-xs;
+        @extend .font-weight-bold;
       }
     }
 
     .box-content {
       background-color: rgba(59, 130, 246, 0.8);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      position: relative;
+      @extend .text-white;
+      @extend .d-flex;
+      @extend .align-center;
+      @extend .justify-center;
+      @extend .font-weight-bold;
+      @extend .text-sm;
+      @extend .position-relative;
 
       &::before {
         content: 'Content';
-        position: absolute;
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 600;
+        @extend .text-white;
+        @extend .text-xs;
+        @extend .font-weight-bold;
       }
     }
   }
@@ -179,20 +179,20 @@
 
 // Box Model Calculator
 .box-calculator {
-  background: white;
+  @extend .bg-white;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
+  @extend .rounded-lg;
+  @extend .p-xl;
+  @extend .spacing-lg-vertical;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
   .calculator-header {
-    text-align: center;
-    margin-bottom: 2rem;
+    @extend .text-center;
+    @extend .m-b-xl;
 
     h3 {
       color: #2d3748;
-      margin-bottom: 0.5rem;
+      @extend .m-b-sm;
     }
 
     p {
@@ -202,74 +202,71 @@
 
   .calculator-problem {
     background: #f8faff;
-    padding: 1.5rem;
-    border-radius: 8px;
+    @extend .p-lg;
+    @extend .rounded;
     border-left: 4px solid #667eea;
-    margin-bottom: 2rem;
+    @extend .m-b-xl;
 
     .problem-text {
       color: #4a5568;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      @extend .line-height-relaxed;
+      @extend .m-b-base;
     }
 
     .problem-values {
       background: #1e1e1e;
       color: #d4d4d4;
       font-family: 'JetBrains Mono', monospace;
-      padding: 1rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      line-height: 1.5;
+      @extend .p-base;
+      @extend .rounded;
+      @extend .text-sm;
+      @extend .line-height-relaxed;
     }
   }
 
   .calculator-inputs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    @extend .grid-auto-fit;
+    @extend .gap-lg;
+    @extend .m-b-xl;
 
     .input-group {
       .input-row {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        margin-bottom: 1rem;
+        @extend .input-group-inline;
+        @extend .m-b-base;
 
         label {
           min-width: 120px;
-          font-weight: 600;
+          @extend .font-weight-bold;
           color: #4a5568;
         }
 
         input[type="number"] {
-          flex: 1;
-          padding: 0.75rem;
+          @extend .flex-1;
+          @extend .p-sm;
           border: 2px solid #e2e8f0;
-          border-radius: 8px;
-          font-size: 1rem;
-          transition: border-color 0.3s ease;
+          @extend .rounded;
+          @extend .text-base;
+          @extend .transition-border;
 
           &:focus {
-            outline: none;
+            @extend .outline-none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
           }
         }
 
         button {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
-          border: none;
-          padding: 0.75rem 1.5rem;
-          border-radius: 8px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
+          @extend .bg-gradient-primary;
+          @extend .text-white;
+          @extend .border-none;
+          @extend .p-sm;
+          @extend .rounded;
+          @extend .font-weight-bold;
+          @extend .cursor-pointer;
+          @extend .transition-all;
 
           &:hover {
-            transform: translateY(-2px);
+            @extend .hover-lift;
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
           }
         }
@@ -279,39 +276,31 @@
 
   .calculator-feedback {
     min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend .d-flex;
+    @extend .align-center;
+    @extend .justify-center;
 
     .success {
-      background: #e6fffa;
-      color: #234e52;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 2px solid #38b2ac;
-      text-align: center;
-      width: 100%;
+      @extend .alert-success;
+      @extend .text-center;
+      @extend .w-100;
 
       &::before {
         content: "✓ ";
         color: #38a169;
-        font-weight: bold;
+        @extend .font-weight-bold;
       }
     }
 
     .error {
-      background: #fed7d7;
-      color: #742a2a;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 2px solid #e53e3e;
-      text-align: center;
-      width: 100%;
+      @extend .alert-error;
+      @extend .text-center;
+      @extend .w-100;
 
       &::before {
         content: "✗ ";
         color: #e53e3e;
-        font-weight: bold;
+        @extend .font-weight-bold;
       }
     }
   }
@@ -319,27 +308,27 @@
 
 // Tab System
 .tab-system {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
+  @extend .bg-white;
+  @extend .rounded-lg;
+  @extend .overflow-hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin: 2rem 0;
+  @extend .spacing-lg-vertical;
 
   .tab-nav {
-    display: flex;
+    @extend .d-flex;
     background: #f7fafc;
     border-bottom: 2px solid #e2e8f0;
 
     .tab-btn {
-      flex: 1;
-      padding: 1rem 1.5rem;
-      background: none;
-      border: none;
-      font-weight: 600;
+      @extend .flex-1;
+      @extend .p-lg;
+      @extend .bg-none;
+      @extend .border-none;
+      @extend .font-weight-bold;
       color: #718096;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
+      @extend .cursor-pointer;
+      @extend .transition-all;
+      @extend .position-relative;
 
       &:hover {
         background: #edf2f7;
@@ -347,12 +336,12 @@
       }
 
       &.active {
-        background: white;
+        @extend .bg-white;
         color: #667eea;
 
         &::after {
           content: '';
-          position: absolute;
+          @extend .position-absolute;
           bottom: -2px;
           left: 0;
           right: 0;
@@ -365,11 +354,11 @@
 
   .tab-content {
     .tab-panel {
-      display: none;
-      padding: 2rem;
+      @extend .d-none;
+      @extend .p-xl;
 
       &.active {
-        display: block;
+        @extend .d-block;
       }
     }
   }
@@ -378,33 +367,32 @@
 // Live CSS Editor
 .css-editor {
   .editor-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    @extend .grid-two-column;
+    @extend .gap-lg;
+    @extend .m-t-lg;
 
     .editor-side {
       h4 {
-        margin-top: 0;
-        margin-bottom: 1rem;
+        @extend .m-t-none;
+        @extend .m-b-base;
         color: #4a5568;
       }
 
       textarea {
-        width: 100%;
+        @extend .w-100;
         min-height: 300px;
-        padding: 1rem;
+        @extend .p-base;
         border: 2px solid #e2e8f0;
-        border-radius: 8px;
+        @extend .rounded;
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.9rem;
-        line-height: 1.5;
+        @extend .text-sm;
+        @extend .line-height-relaxed;
         background: #1e1e1e;
         color: #d4d4d4;
-        resize: vertical;
+        @extend .resize-vertical;
 
         &:focus {
-          outline: none;
+          @extend .outline-none;
           border-color: #667eea;
           box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
@@ -413,49 +401,49 @@
 
     .preview-side {
       h4 {
-        margin-top: 0;
-        margin-bottom: 1rem;
+        @extend .m-t-none;
+        @extend .m-b-base;
         color: #4a5568;
       }
 
       .preview-container {
         border: 2px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 2rem;
+        @extend .rounded;
+        @extend .p-xl;
         background: #f8faff;
         min-height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
+        @extend .d-flex;
+        @extend .align-center;
+        @extend .justify-center;
+
         .card-preview {
-          background: white;
-          padding: 2rem;
-          border-radius: 8px;
+          @extend .bg-white;
+          @extend .p-xl;
+          @extend .rounded;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
           max-width: 300px;
-          text-align: center;
+          @extend .text-center;
 
           h5 {
-            margin-top: 0;
-            margin-bottom: 1rem;
+            @extend .m-t-none;
+            @extend .m-b-base;
             color: #2d3748;
           }
 
           p {
             color: #718096;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
+            @extend .line-height-relaxed;
+            @extend .m-b-lg;
           }
 
           .card-button {
             background: #667eea;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
+            @extend .text-white;
+            @extend .border-none;
+            @extend .p-sm;
+            @extend .rounded;
+            @extend .font-weight-bold;
+            @extend .cursor-pointer;
           }
         }
       }
@@ -466,32 +454,32 @@
 // Responsive design
 @media (max-width: 768px) {
   .box-model-visualizer {
-    padding: 1rem;
+    @extend .p-base;
 
     .visualizer-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      @extend .grid-single;
+      @extend .gap-base;
     }
   }
 
   .box-calculator {
-    padding: 1rem;
+    @extend .p-base;
 
     .calculator-inputs {
-      grid-template-columns: 1fr;
+      @extend .grid-single;
     }
   }
 
   .css-editor .editor-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    @extend .grid-single;
+    @extend .gap-base;
   }
 
   .tab-nav {
-    flex-direction: column;
+    @extend .flex-column;
 
     .tab-btn {
-      text-align: left;
+      @extend .text-left;
     }
   }
 }

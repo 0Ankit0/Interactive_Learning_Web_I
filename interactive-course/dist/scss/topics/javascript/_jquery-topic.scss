@@ -6,46 +6,46 @@
     .hero-visual {
         .jquery-showcase {
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(40, 167, 69, 0.1));
-            padding: 2rem;
-            border-radius: 12px;
+            @extend .p-xl;
+            @extend .rounded-lg;
             border: 1px solid rgba(0, 123, 255, 0.2);
-            
+
             .code-comparison {
                 display: grid;
                 grid-template-columns: 1fr auto 1fr;
                 gap: 1.5rem;
                 align-items: center;
-                margin-bottom: 2rem;
-                
+                @extend .mb-4;
+
                 @media (max-width: 768px) {
                     grid-template-columns: 1fr;
                     gap: 1rem;
                 }
-                
+
                 .comparison-card {
                     background: white;
-                    border-radius: 8px;
-                    padding: 1.5rem;
+                    @extend .rounded;
+                    @extend .p-lg;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                     border: 2px solid transparent;
                     transition: all 0.3s ease;
-                    
+
                     &:hover {
                         transform: translateY(-2px);
                         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
                     }
-                    
+
                     &.vanilla-js {
                         border-color: #f7df1e;
-                        
+
                         h3 {
                             color: #f7df1e;
                         }
                     }
-                    
+
                     &.jquery-js {
                         border-color: #0868ac;
-                        
+
                         h3 {
                             color: #0868ac;
                         }

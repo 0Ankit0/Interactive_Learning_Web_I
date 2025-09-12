@@ -8,45 +8,45 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-        margin: 2rem 0;
-        
+        @extend .spacing-lg-vertical;
+
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
     }
-    
+
     .demo-form {
         background: $white;
         border: 2px solid $border-color;
-        border-radius: $border-radius;
-        padding: 1.5rem;
-        
+        @extend .rounded;
+        @extend .p-lg;
+
         h4 {
             color: $primary-color;
-            margin-bottom: 1rem;
+            @extend .mb-3;
             font-size: 1.1rem;
             font-weight: 600;
         }
-        
+
         .form-group {
-            margin-bottom: 1.25rem;
-            
+            @extend .mb-4;
+
             label {
                 display: block;
-                margin-bottom: 0.5rem;
+                @extend .mb-2;
                 font-weight: 600;
                 color: $text-color;
             }
-            
+
             input {
-                width: 100%;
-                padding: 0.75rem;
+                @extend .w-100;
+                @extend .p-3;
                 border: 2px solid $border-color;
-                border-radius: $border-radius;
+                @extend .rounded;
                 font-size: 1rem;
                 transition: all 0.2s ease;
-                
+
                 &:focus {
                     outline: none;
                     border-color: $primary-color;

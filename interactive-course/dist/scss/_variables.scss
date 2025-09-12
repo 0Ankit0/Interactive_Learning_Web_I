@@ -15,6 +15,50 @@ $error-color: #dc3545;  // Same as danger-color for consistency
 $color-error: #dc3545;  // Alias for error-color for consistency
 $info-color: #17a2b8;
 
+// CSS Basics specific colors
+$css-primary: #667eea;
+$css-purple: #8b5cf6;
+$css-purple-hover: #7c3aed;
+$css-red: #ff6b6b;
+$css-blue: rgb(107, 185, 240);
+$css-yellow: #f59e0b;
+$css-gradient-warm: linear-gradient(45deg, #f59e0b, #ef4444);
+
+// Color swatches for CSS Basics
+$swatch-colors: (
+  hex: #ff6b6b,
+  rgb: rgb(107, 185, 240),
+  rgba: rgba(255, 193, 7, 0.7),
+  hsl: hsl(291, 64%, 42%)
+);
+
+// Selector box colors
+$selector-colors: (
+  blue: #667eea,
+  green: #28a745,
+  red: #dc3545,
+  yellow: #f59e0b
+);
+
+// Demo item colors (for flexbox/grid items)
+$demo-item-colors: (
+  1: #ff6b6b,
+  2: #4ecdc4,
+  3: #45b7d1,
+  4: #96ceb4,
+  5: #ffeaa7,
+  6: #dda0dd,
+  7: #98d8c8,
+  8: #f7dc6f,
+  9: #bb8fce
+);
+
+// Layout demo variables
+$demo-container-bg: #f8f9fa;
+$demo-container-border: #ced4da;
+$demo-item-min-size: 60px;
+$demo-grid-min-height: 80px;
+
 // Text colors
 $text-primary: #2c3e50;
 $text-secondary: #6c757d;
@@ -148,3 +192,61 @@ $animation-duration-fast: 0.2s;
 $animation-duration-base: 0.3s;
 $animation-duration-slow: 0.6s;
 $animation-duration-slower: 1s;
+
+// Form and interactive element variables
+$input-border-radius: $border-radius-sm;
+$input-border-color: $border-medium;
+$input-focus-color: $accent-primary;
+$input-padding: $spacing-md;
+
+// Card and container variables
+$card-border-radius: $border-radius-lg;
+$card-padding: $spacing-3xl;
+$card-shadow: $shadow-lg;
+$card-border: 1px solid $border-light;
+
+// Hero section variables
+$hero-padding: $spacing-4xl $spacing-3xl;
+$hero-gradient: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+
+// Quiz and interactive variables
+$quiz-correct-color: $success-color;
+$quiz-incorrect-color: $danger-color;
+$quiz-selected-color: $warning-color;
+
+// Timeline variables
+$timeline-line-color: $border-medium;
+$timeline-dot-size: 20px;
+$timeline-dot-color: $accent-primary;
+
+// Progress bar variables
+$progress-height: 8px;
+$progress-bg: $bg-light;
+$progress-fill: $gradient-primary;
+
+// Code block variables
+$code-bg: #2d3748;
+$code-text: #a0aec0;
+$code-border-radius: $border-radius-md;
+$code-padding: $spacing-lg;
+
+// Table variables
+$table-header-bg: $accent-primary;
+$table-header-text: white;
+$table-border-color: $border-light;
+$table-hover-bg: rgba($accent-primary, 0.05);
+
+// Button size variants
+$btn-sm-padding: $spacing-sm $spacing-lg;
+$btn-md-padding: $spacing-md $spacing-2xl;
+$btn-lg-padding: $spacing-lg $spacing-3xl;
+
+// Common component sizes
+$avatar-size-sm: 32px;
+$avatar-size-md: 48px;
+$avatar-size-lg: 64px;
+
+// Interactive states with alpha
+$hover-overlay: rgba(0, 0, 0, 0.1);
+$active-overlay: rgba(0, 0, 0, 0.2);
+$disabled-opacity: 0.6;

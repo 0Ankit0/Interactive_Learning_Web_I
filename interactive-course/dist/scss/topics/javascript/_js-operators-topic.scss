@@ -6,46 +6,48 @@
 // Calculator widget styles
 .calculator-widget {
   max-width: 320px;
-  margin: $spacing-2xl auto;
+  @extend .spacing-2xl-vertical;
+  margin-left: auto;
+  margin-right: auto;
   background: $bg-primary;
-  border-radius: $border-radius-lg;
+  @extend .rounded-lg;
   box-shadow: $shadow-xl;
-  padding: $spacing-xl;
-  
+  @extend .p-xl;
+
   .calc-display {
     background: #1a1a1a;
     color: #00ff00;
-    padding: $spacing-xl;
-    border-radius: $border-radius-md;
-    margin-bottom: $spacing-lg;
+    @extend .p-xl;
+    @extend .rounded;
+    @extend .mb-3;
     font-family: $font-mono;
-    font-size: 1.5rem;
+    @extend .text-lg;
     text-align: right;
     min-height: 60px;
-    display: flex;
+    @extend .d-flex;
     align-items: center;
     justify-content: flex-end;
   }
-  
+
   .calc-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: $spacing-sm;
   }
-  
+
   .calc-btn {
-    padding: $spacing-lg;
+    @extend .p-lg;
     border: none;
-    border-radius: $border-radius-sm;
+    @extend .rounded-sm;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all $transition-base;
-    
+
     &.calc-number {
       background: $bg-secondary;
       color: $text-primary;
-      
+
       &:hover {
         background: color.scale($bg-secondary, $lightness: -5%);
       }

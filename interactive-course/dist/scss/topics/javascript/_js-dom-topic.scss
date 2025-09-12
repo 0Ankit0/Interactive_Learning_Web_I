@@ -4,24 +4,23 @@
 // DOM Demo Container
 .dom-demo {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  margin: 2rem 0;
+  @extend .text-white;
+  @extend .p-xl;
+  @extend .rounded-lg;
+  @extend .my-xl;
   box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
 
   h3 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 1.5rem;
+    @extend .mt-0;
+    @extend .mb-lg;
+    @extend .text-center;
+    @extend .text-lg;
   }
 
   .demo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    @extend .grid-auto-fit;
     gap: 2rem;
-    align-items: start;
+    @extend .align-start;
   }
 }
 
@@ -29,27 +28,27 @@
 .selector-demo {
   .selector-controls {
     background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    @extend .p-lg;
+    @extend .rounded;
+    @extend .mb-lg;
 
     .input-group {
-      margin-bottom: 1rem;
+      @extend .mb-lg;
 
       label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
+        @extend .d-block;
+        @extend .mb-2;
+        @extend .font-weight-bold;
         color: #e0e7ff;
       }
 
       input[type="text"] {
-        width: 100%;
-        padding: 0.75rem;
+        @extend .w-100;
+        @extend .p-md;
         border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
+        @extend .rounded;
         background: rgba(255, 255, 255, 0.1);
-        color: white;
+        @extend .text-white;
         font-family: 'JetBrains Mono', monospace;
 
         &::placeholder {
@@ -57,7 +56,7 @@
         }
 
         &:focus {
-          outline: none;
+          @extend .outline-none;
           border-color: #a7f3d0;
           box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
         }
@@ -66,15 +65,16 @@
 
     .try-button {
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
+      @extend .text-white;
+      @extend .border-none;
+      @extend .p-md;
+      @extend .px-xl;
+      @extend .rounded;
+      @extend .font-weight-bold;
+      @extend .cursor-pointer;
+      @extend .transition-all;
+      @extend .mr-2;
+      @extend .mb-2;
 
       &:hover {
         transform: translateY(-2px);
@@ -83,23 +83,24 @@
     }
 
     .selector-examples {
-      margin-top: 1rem;
+      @extend .mt-lg;
 
       .example-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        @extend .d-flex;
+        @extend .flex-wrap;
+        @extend .gap-sm;
 
         button {
           background: rgba(255, 255, 255, 0.2);
-          color: white;
-          border: none;
-          padding: 0.5rem 0.75rem;
-          border-radius: 6px;
+          @extend .text-white;
+          @extend .border-none;
+          @extend .p-sm;
+          @extend .px-md;
+          @extend .rounded;
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.85rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
+          @extend .text-sm;
+          @extend .cursor-pointer;
+          @extend .transition-all;
 
           &:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -110,67 +111,67 @@
   }
 
   .demo-content {
-    background: white;
-    color: #2d3748;
-    padding: 1.5rem;
-    border-radius: 8px;
+    @extend .bg-white;
+    @extend .text-dark;
+    @extend .p-lg;
+    @extend .rounded;
     border: 2px solid rgba(255, 255, 255, 0.2);
 
     h4 {
-      color: #667eea;
-      margin-top: 0;
+      @extend .text-primary;
+      @extend .mt-0;
     }
 
     p {
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      @extend .line-height-relaxed;
+      @extend .mb-3;
     }
 
     .highlight-box {
-      background: #f7fafc;
-      padding: 1rem;
-      border-radius: 6px;
+      @extend .bg-light;
+      @extend .p-lg;
+      @extend .rounded;
       border-left: 4px solid #667eea;
-      margin: 1rem 0;
+      @extend .my-3;
     }
 
     ul {
-      padding-left: 1.5rem;
+      @extend .pl-lg;
 
       li {
-        margin-bottom: 0.5rem;
+        @extend .mb-2;
       }
     }
   }
 
   .selector-result {
-    margin-top: 1rem;
+    @extend .mt-lg;
     min-height: 100px;
 
     .success {
-      background: #065f46;
-      color: #a7f3d0;
-      padding: 1rem;
-      border-radius: 8px;
+      @extend .bg-success-dark;
+      @extend .text-success-light;
+      @extend .p-lg;
+      @extend .rounded;
       border: 2px solid #10b981;
 
       ul {
-        margin-top: 0.5rem;
-        padding-left: 1.5rem;
+        @extend .mt-2;
+        @extend .pl-lg;
 
         li {
-          margin-bottom: 0.25rem;
+          @extend .mb-1;
           font-family: 'JetBrains Mono', monospace;
-          font-size: 0.9rem;
+          @extend .text-sm;
         }
       }
     }
 
     .error {
-      background: #7f1d1d;
-      color: #fca5a5;
-      padding: 1rem;
-      border-radius: 8px;
+      @extend .bg-danger-dark;
+      @extend .text-danger-light;
+      @extend .p-lg;
+      @extend .rounded;
       border: 2px solid #ef4444;
     }
   }
@@ -178,24 +179,24 @@
 
 // Content Editor Demo
 .content-editor {
-  background: white;
+  @extend .bg-white;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  @extend .rounded-lg;
+  @extend .p-xl;
+  @extend .my-xl;
+  @extend .shadow;
 
   .editor-header {
-    text-align: center;
-    margin-bottom: 2rem;
+    @extend .text-center;
+    @extend .mb-xl;
 
     h3 {
-      color: #2d3748;
-      margin-bottom: 0.5rem;
+      @extend .text-dark;
+      @extend .mb-2;
     }
 
     p {
-      color: #718096;
+      @extend .text-secondary;
     }
   }
 

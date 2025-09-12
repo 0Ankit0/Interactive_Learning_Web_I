@@ -1,103 +1,94 @@
 // ES6+ Features Topic Styles
 // Reuses existing theme classes and adds topic-specific styles
+@import 'variables';
+@import 'mixins';
 
 .es6-features-topic {
     // Hero section specific styles
     .hero-visual {
         .es6-showcase {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 123, 255, 0.1));
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            
+            background: linear-gradient(135deg, rgba($warning-color, 0.1), rgba($primary-color, 0.1));
+            padding: $card-padding;
+            border-radius: $border-radius-lg;
+            border: 1px solid rgba($warning-color, 0.3);
+
             .evolution-timeline {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
-                margin-bottom: 2rem;
-                
+                @include grid-responsive;
+                gap: $spacing-lg;
+                margin-bottom: $spacing-xl;
+
                 .timeline-item {
-                    background: rgba(255, 255, 255, 0.9);
-                    padding: 1rem;
-                    border-radius: 8px;
+                    @include card-base;
+                    @include interactive-hover;
+                    background: rgba(white, 0.9);
                     text-align: center;
                     border: 2px solid transparent;
-                    transition: all 0.3s ease;
-                    
-                    &:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                    }
-                    
+
                     &.highlighted {
-                        border-color: #ffc107;
-                        background: linear-gradient(135deg, #fff3cd, #fff);
-                        
+                        border-color: $warning-color;
+                        background: linear-gradient(135deg, lighten-color($warning-color, 35%), white);
+
                         .version {
-                            color: #856404;
-                            font-weight: bold;
+                            color: darken-color($warning-color, 30%);
+                            font-weight: $font-weight-bold;
                         }
                     }
-                    
+
                     .year {
-                        font-size: 1.2rem;
-                        font-weight: bold;
-                        color: #007bff;
+                        font-size: $font-size-xl;
+                        font-weight: $font-weight-bold;
+                        color: $primary-color;
                     }
-                    
+
                     .version {
-                        font-size: 0.9rem;
-                        color: #6c757d;
-                        margin: 0.25rem 0;
+                        font-size: $font-size-sm;
+                        color: $text-secondary;
+                        margin: $spacing-xs 0;
                     }
                     
                     .description {
-                        font-size: 0.8rem;
-                        color: #495057;
+                        font-size: $font-size-xs;
+                        color: $text-primary;
                     }
                 }
             }
             
             .feature-highlight {
-                background: rgba(255, 255, 255, 0.9);
-                padding: 1.5rem;
-                border-radius: 8px;
+                @include card-base;
+                background: rgba(white, 0.9);
                 
                 h3 {
-                    margin-bottom: 1rem;
-                    color: #495057;
+                    margin-bottom: $spacing-lg;
+                    color: $text-primary;
                 }
                 
                 .feature-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                    gap: 0.75rem;
+                    @include grid-responsive;
+                    gap: $spacing-md;
                     
                     .feature-item {
-                        background: #f8f9fa;
-                        padding: 0.75rem;
-                        border-radius: 6px;
+                        @include card-base;
+                        @include interactive-hover;
+                        background: $bg-light;
                         text-align: center;
-                        border: 1px solid #dee2e6;
-                        transition: all 0.3s ease;
-                        
-                        &:hover {
-                            background: #e9ecef;
-                            transform: scale(1.05);
-                        }
                         
                         i {
                             display: block;
-                            font-size: 1.2rem;
-                            color: #007bff;
-                            margin-bottom: 0.5rem;
+                            font-size: $font-size-xl;
+                            color: $primary-color;
+                            margin-bottom: $spacing-sm;
                         }
                         
                         span {
-                            font-size: 0.8rem;
-                            color: #495057;
-                            font-weight: 500;
+                            font-size: $font-size-xs;
+                            color: $text-primary;
+                            font-weight: $font-weight-medium;
                         }
+                    }
+                }
+            }
+        }
+    }
                     }
                 }
             }
@@ -106,107 +97,95 @@
     
     // Comparison grids
     .comparison-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-        
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
+        @include grid-responsive;
+        gap: $spacing-3xl;
+        margin: $spacing-3xl 0;
         
         .comparison-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e9ecef;
+            @include card-base;
             
             h3 {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 1rem;
+                gap: $spacing-sm;
+                margin-bottom: $spacing-lg;
                 
                 i {
-                    font-size: 1.2rem;
+                    font-size: $font-size-xl;
                     
                     &.fa-times-circle {
-                        color: #dc3545;
+                        color: $danger-color;
                     }
                     
                     &.fa-check-circle {
-                        color: #28a745;
+                        color: $success-color;
                     }
                 }
             }
             
             .issues-list, .benefits-list {
-                background: #f8f9fa;
-                padding: 1rem;
-                border-radius: 6px;
-                margin-top: 1rem;
+                background: $bg-light;
+                padding: $spacing-lg;
+                border-radius: $border-radius-sm;
+                margin-top: $spacing-lg;
                 
                 h4 {
-                    margin-bottom: 0.5rem;
-                    font-size: 1rem;
+                    margin-bottom: $spacing-sm;
+                    font-size: $font-size-base;
                 }
                 
                 ul {
                     margin: 0;
-                    padding-left: 1.2rem;
+                    padding-left: $spacing-xl;
                     
                     li {
-                        margin-bottom: 0.25rem;
-                        color: #495057;
+                        margin-bottom: $spacing-xs;
+                        color: $text-primary;
                     }
                 }
             }
             
             .issues-list {
-                border-left: 4px solid #dc3545;
+                border-left: 4px solid $danger-color;
             }
             
             .benefits-list {
-                border-left: 4px solid #28a745;
+                border-left: 4px solid $success-color;
             }
         }
     }
     
     // Interactive demo
     .interactive-demo {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        margin: 2rem 0;
+        @include hero-section;
+        background: linear-gradient(135deg, $accent-purple 0%, darken-color($accent-purple, 15%) 100%);
+        margin: $spacing-3xl 0;
         
         h4 {
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: $spacing-2xl;
         }
         
         .demo-container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(white, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border-radius: $border-radius-md;
+            padding: $spacing-2xl;
         }
         
         .demo-code {
-            margin-bottom: 1rem;
+            margin-bottom: $spacing-lg;
             
             textarea {
+                @include form-input;
                 width: 100%;
                 height: 150px;
                 background: rgba(45, 55, 72, 0.9);
                 color: #e2e8f0;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 6px;
-                padding: 1rem;
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 0.9rem;
-                line-height: 1.4;
+                border: 1px solid rgba(white, 0.2);
+                font-family: $font-family-monospace;
+                font-size: $font-size-sm;
+                line-height: $line-height-relaxed;
                 resize: vertical;
                 
                 &::placeholder {
@@ -214,44 +193,40 @@
                 }
                 
                 &:focus {
-                    outline: none;
-                    border-color: rgba(255, 193, 7, 0.5);
+                    border-color: rgba($warning-color, 0.5);
                 }
             }
         }
         
         .demo-controls {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: $spacing-lg;
+            margin-bottom: $spacing-lg;
             flex-wrap: wrap;
         }
         
         .demo-output {
             h5 {
                 color: white;
-                margin-bottom: 0.5rem;
+                margin-bottom: $spacing-sm;
             }
             
             pre {
-                background: rgba(0, 0, 0, 0.3);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 6px;
-                padding: 1rem;
+                @include code-block;
+                background: rgba(black, 0.3);
+                border: 1px solid rgba(white, 0.2);
                 margin: 0;
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 0.9rem;
                 max-height: 150px;
                 overflow-y: auto;
                 
                 &.success {
-                    border-color: #28a745;
-                    background: rgba(40, 167, 69, 0.2);
+                    border-color: $success-color;
+                    background: rgba($success-color, 0.2);
                 }
                 
                 &.error {
-                    border-color: #dc3545;
-                    background: rgba(220, 53, 69, 0.2);
+                    border-color: $danger-color;
+                    background: rgba($danger-color, 0.2);
                 }
             }
         }

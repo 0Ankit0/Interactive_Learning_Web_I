@@ -2,306 +2,250 @@
 
 .frameworks-topic {
   @include topic-base();
-  
+
   // Framework Cards
   .framework-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+    @extend .grid-auto-fit;
+    @extend .gap-lg;
+    @extend .m-y-lg;
   }
-  
+
   .framework-card {
-    background: $card-background;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: $card-shadow;
-    transition: all 0.3s ease;
-    border-left: 4px solid $primary-color;
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
+    @extend .card-feature;
+    @extend .border-left-primary;
+
     .framework-logo {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
+      @extend .icon-container;
+      @extend .rounded-circle;
+      @extend .m-b-md;
       font-size: 2rem;
-      
-      &.react { background: #61dafb; color: #282c34; }
-      &.angular { background: #dd0031; color: white; }
-      &.vue { background: #4fc08d; color: white; }
+
+      &.react { @extend .bg-react; @extend .text-dark; }
+      &.angular { @extend .bg-angular; @extend .text-white; }
+      &.vue { @extend .bg-vue; @extend .text-white; }
     }
-    
+
     h3 {
-      text-align: center;
-      color: $primary-color;
-      margin-bottom: 1rem;
+      @extend .text-center;
+      @extend .text-primary;
+      @extend .m-b-md;
     }
-    
+
     .framework-info {
       .info-item {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid $border-color;
-        
+        @extend .d-flex;
+        @extend .justify-between;
+        @extend .m-b-sm;
+        @extend .p-b-sm;
+        @extend .border-bottom;
+
         .label {
-          font-weight: 600;
-          color: $text-primary;
+          @extend .font-weight-bold;
+          @extend .text-primary;
         }
-        
+
         .value {
-          color: $text-secondary;
+          @extend .text-secondary;
         }
       }
     }
-    
+
     .framework-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      
+      @extend .d-flex;
+      @extend .flex-wrap;
+      @extend .gap-sm;
+      @extend .m-t-md;
+
       .tag {
-        background: $accent-color;
-        color: white;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 500;
+        @extend .badge-accent;
       }
     }
   }
   
   // Interactive Demo Section
   .demo-section {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 3rem 0;
-    
+    @include section-style;
+    @extend .m-y-xl;
+
     h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: $primary-color;
+      @extend .text-center;
+      @extend .m-b-lg;
+      @extend .text-primary;
     }
-    
+
     .demo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
     }
-    
+
     .demo-item {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: $card-shadow;
-      
+      @include card-style;
+      @extend .text-center;
+      @extend .hover-lift;
+
       h4 {
-        color: $primary-color;
-        margin-bottom: 1rem;
+        @extend .text-primary;
+        @extend .m-b-md;
       }
-      
+
       .counter {
+        @extend .text-accent;
+        @extend .font-weight-bold;
+        @extend .m-y-md;
         font-size: 3rem;
-        font-weight: bold;
-        margin: 1rem 0;
-        color: $accent-color;
         transition: all 0.3s ease;
       }
-      
+
       .demo-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin-top: 1rem;
-        
+        @extend .d-flex;
+        @extend .gap-md;
+        @extend .justify-center;
+        @extend .m-t-md;
+
         .demo-btn {
-          padding: 0.8rem 1.5rem;
-          border: none;
-          border-radius: 25px;
-          cursor: pointer;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          
+          @include button-style;
+          @extend .hover-lift-sm;
+
           &.increment {
-            background: $success-color;
-            color: white;
-            
-            &:hover {
-              background: darken($success-color, 10%);
-              transform: translateY(-2px);
-            }
+            @include button-style($success-color);
           }
-          
+
           &.decrement {
-            background: $danger-color;
-            color: white;
-            
-            &:hover {
-              background: darken($danger-color, 10%);
-              transform: translateY(-2px);
-            }
+            @include button-style($danger-color);
           }
         }
       }
-      
+
       &.react {
-        border-left: 4px solid #61dafb;
+        @extend .border-left-react;
       }
-      
+
       &.angular {
-        border-left: 4px solid #dd0031;
+        @extend .border-left-angular;
       }
-      
+
       &.vue {
-        border-left: 4px solid #4fc08d;
+        @extend .border-left-vue;
       }
     }
   }
   
   // Comparison Section
   .comparison-section {
-    margin: 3rem 0;
-    
+    @extend .m-y-xl;
+
     .comparison-tabs {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid $border-color;
-      
+      @extend .d-flex;
+      @extend .justify-center;
+      @extend .m-b-lg;
+      @extend .border-bottom;
+
       .tab-btn {
-        padding: 1rem 2rem;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        font-weight: 600;
-        color: $text-secondary;
-        transition: all 0.3s ease;
-        border-bottom: 3px solid transparent;
-        
-        &:hover {
-          color: $primary-color;
-        }
-        
+        @include tab-style;
+        @extend .hover-text-primary;
+
         &.active {
-          color: $primary-color;
-          border-bottom-color: $primary-color;
+          @extend .tab-active;
         }
       }
     }
-    
+
     .tab-panel {
-      display: none;
+      @extend .d-none;
       animation: fadeIn 0.5s ease;
-      
+
       &.active {
-        display: block;
+        @extend .d-block;
       }
     }
-    
+
     .comparison-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
     }
-    
+
     .comparison-item {
-      background: $card-background;
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      
+      @include card-style;
+      @extend .text-center;
+
       h4 {
-        color: $primary-color;
-        margin-bottom: 1rem;
+        @extend .text-primary;
+        @extend .m-b-md;
       }
-      
+
       .rating-bar {
-        background: $border-color;
+        @extend .bg-light;
+        @extend .m-y-md;
         height: 8px;
-        border-radius: 4px;
-        margin: 1rem 0;
+        @extend .rounded-sm;
         overflow: hidden;
-        
+
         .rating-fill {
           height: 100%;
-          border-radius: 4px;
+          @extend .rounded-sm;
           transition: width 1s ease;
-          
-          &.excellent { background: $success-color; }
-          &.good { background: $warning-color; }
-          &.fair { background: $info-color; }
-          &.poor { background: $danger-color; }
+
+          &.excellent { @extend .bg-success; }
+          &.good { @extend .bg-warning; }
+          &.fair { @extend .bg-info; }
+          &.poor { @extend .bg-danger; }
         }
       }
-      
+
       .rating-text {
-        font-size: 0.9rem;
-        color: $text-secondary;
+        @extend .text-secondary;
+        @extend .text-sm;
       }
     }
   }
   
   // Popularity Chart
   .popularity-chart {
-    background: $card-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    
+    @include card-style;
+    @extend .m-y-lg;
+
     h3 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: $primary-color;
+      @extend .text-center;
+      @extend .m-b-lg;
+      @extend .text-primary;
     }
-    
+
     .chart-container {
       max-width: 600px;
-      margin: 0 auto;
+      @extend .m-x-auto;
     }
-    
+
     .chart-item {
-      margin-bottom: 1.5rem;
-      
+      @extend .m-b-lg;
+
       .chart-label {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5rem;
-        
+        @extend .d-flex;
+        @extend .justify-between;
+        @extend .m-b-sm;
+
         .framework-name {
-          font-weight: 600;
-          color: $text-primary;
+          @extend .font-weight-bold;
+          @extend .text-primary;
         }
-        
+
         .percentage {
-          color: $text-secondary;
-          font-size: 0.9rem;
+          @extend .text-secondary;
+          @extend .text-sm;
         }
       }
-      
+
       .chart-bar-container {
-        background: $border-color;
+        @extend .bg-light;
         height: 12px;
-        border-radius: 6px;
+        @extend .rounded-sm;
         overflow: hidden;
-        
+
         .chart-bar {
           height: 100%;
-          border-radius: 6px;
+          @extend .rounded-sm;
           transition: width 1.5s ease;
           width: 0;
-          
+
           &.react { background: linear-gradient(45deg, #61dafb, #4fa8c5); }
           &.angular { background: linear-gradient(45deg, #dd0031, #b8002a); }
           &.vue { background: linear-gradient(45deg, #4fc08d, #42a375); }
@@ -312,135 +256,101 @@
   
   // Filter Section
   .filter-section {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    
+    @include section-style;
+    @extend .m-y-lg;
+
     .filter-controls {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      
+      @extend .d-flex;
+      @extend .justify-center;
+      @extend .gap-md;
+      @extend .m-b-lg;
+      @extend .flex-wrap;
+
       .filter-btn {
-        padding: 0.8rem 1.5rem;
-        border: 2px solid $primary-color;
-        background: transparent;
-        color: $primary-color;
-        border-radius: 25px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        
-        &:hover {
-          background: $primary-color;
-          color: white;
-        }
-        
+        @include button-outline($primary-color);
+        @extend .hover-bg-primary;
+        @extend .hover-text-white;
+
         &.active {
-          background: $primary-color;
-          color: white;
+          @extend .bg-primary;
+          @extend .text-white;
         }
       }
     }
-    
+
     .recommendations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
     }
-    
+
     .recommendation-item {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: $card-shadow;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        transform: translateY(-3px);
-      }
-      
+      @include card-style;
+      @extend .hover-lift-sm;
+
       .project-type {
-        background: $accent-color;
-        color: white;
-        padding: 0.3rem 0.8rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        display: inline-block;
-        margin-bottom: 1rem;
+        @extend .badge-accent;
+        @extend .m-b-md;
       }
-      
+
       h4 {
-        color: $primary-color;
-        margin-bottom: 0.5rem;
+        @extend .text-primary;
+        @extend .m-b-sm;
       }
-      
+
       .framework-name {
-        font-weight: bold;
-        color: $accent-color;
-        font-size: 1.1rem;
-        margin: 0.5rem 0;
+        @extend .font-weight-bold;
+        @extend .text-accent;
+        @extend .text-lg;
+        @extend .m-y-sm;
       }
-      
+
       .reason {
-        color: $text-secondary;
-        font-size: 0.9rem;
-        line-height: 1.5;
+        @extend .text-secondary;
+        @extend .text-sm;
+        @extend .line-height-relaxed;
       }
     }
   }
   
   // Learning Resources
   .resources-section {
-    background: $card-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    
+    @include card-style;
+    @extend .m-y-lg;
+
     .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      @extend .grid-auto-fit;
+      @extend .gap-lg;
     }
-    
+
     .resource-category {
       .category-title {
-        color: $primary-color;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid $primary-color;
-        padding-bottom: 0.5rem;
+        @extend .text-primary;
+        @extend .m-b-md;
+        @extend .border-bottom-primary;
+        @extend .p-b-sm;
       }
-      
+
       .resource-list {
-        list-style: none;
-        padding: 0;
-        
+        @extend .list-unstyled;
+
         li {
-          margin-bottom: 0.8rem;
-          
+          @extend .m-b-md;
+
           a {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem;
-            background: white;
-            border-radius: 6px;
-            text-decoration: none;
-            color: $text-primary;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            
-            &:hover {
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-              transform: translateX(5px);
-            }
-            
+            @extend .d-flex;
+            @extend .align-center;
+            @extend .p-md;
+            @extend .bg-white;
+            @extend .rounded-sm;
+            @extend .text-decoration-none;
+            @extend .text-primary;
+            @extend .shadow-sm;
+            @extend .hover-shadow;
+            @extend .hover-transform-right;
+
             i {
-              margin-right: 0.8rem;
-              color: $accent-color;
+              @extend .m-r-md;
+              @extend .text-accent;
             }
           }
         }
@@ -450,170 +360,142 @@
   
   // Quiz Styles
   .quiz-section {
-    background: $section-background;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 3rem 0;
-    
+    @include section-style;
+    @extend .m-y-xl;
+
     .quiz-question {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: $card-shadow;
-      transition: all 0.5s ease;
-      
+      @include card-style;
+      @extend .m-b-lg;
+      @extend .transition-all;
+
       &.correct {
-        border-left: 4px solid $success-color;
-        background: lighten($success-color, 45%);
+        @extend .border-left-success;
+        @extend .bg-success-light;
       }
-      
+
       &.incorrect {
-        border-left: 4px solid $danger-color;
-        background: lighten($danger-color, 45%);
+        @extend .border-left-danger;
+        @extend .bg-danger-light;
       }
-      
+
       .question-number {
-        background: $primary-color;
-        color: white;
-        border-radius: 50%;
+        @extend .bg-primary;
+        @extend .text-white;
+        @extend .rounded-circle;
+        @extend .d-inline-flex;
+        @extend .align-center;
+        @extend .justify-center;
+        @extend .m-r-md;
+        @extend .font-weight-bold;
         width: 30px;
         height: 30px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        font-weight: bold;
       }
-      
+
       .quiz-options {
-        list-style: none;
-        padding: 0;
-        margin-top: 1rem;
-        
+        @extend .list-unstyled;
+        @extend .m-t-md;
+
         li {
-          margin-bottom: 0.8rem;
-          
+          @extend .m-b-md;
+
           label {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            
-            &:hover {
-              background: lighten($primary-color, 45%);
-            }
-            
+            @extend .d-flex;
+            @extend .align-center;
+            @extend .p-md;
+            @extend .rounded-sm;
+            @extend .cursor-pointer;
+            @extend .hover-bg-primary-light;
+
             input[type="radio"] {
-              margin-right: 1rem;
+              @extend .m-r-md;
             }
           }
         }
       }
     }
-    
+
     .quiz-controls {
-      text-align: center;
-      margin-top: 2rem;
-      
+      @extend .text-center;
+      @extend .m-t-lg;
+
       .quiz-btn {
         @include button-style($primary-color);
-        margin: 0 0.5rem;
-        
+        @extend .m-x-sm;
+
         &.reset {
           @include button-style($secondary-color);
         }
       }
     }
-    
+
     .quiz-results {
-      background: white;
-      border-radius: 8px;
-      padding: 2rem;
-      margin-top: 2rem;
-      text-align: center;
-      box-shadow: $card-shadow;
-      display: none;
-      
+      @include card-style;
+      @extend .m-t-lg;
+      @extend .text-center;
+      @extend .d-none;
+
       h3 {
-        color: $primary-color;
-        margin-bottom: 1rem;
-        
+        @extend .text-primary;
+        @extend .m-b-md;
+
         i {
-          margin-right: 0.5rem;
-          color: $accent-color;
+          @extend .m-r-sm;
+          @extend .text-accent;
         }
       }
-      
+
       span {
-        color: $accent-color;
-        font-weight: bold;
-        font-size: 1.2rem;
+        @extend .text-accent;
+        @extend .font-weight-bold;
+        @extend .text-lg;
       }
     }
   }
   
   // Responsive Design
   @media (max-width: 768px) {
-    .framework-cards {
-      grid-template-columns: 1fr;
-    }
-    
-    .demo-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .comparison-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .recommendations-grid {
-      grid-template-columns: 1fr;
-    }
-    
+    .framework-cards,
+    .demo-grid,
+    .comparison-grid,
+    .recommendations-grid,
     .resources-grid {
-      grid-template-columns: 1fr;
+      @extend .grid-single;
     }
-    
+
     .comparison-tabs {
-      flex-direction: column;
-      
+      @extend .flex-column;
+
       .tab-btn {
-        padding: 0.8rem;
+        @extend .p-md;
       }
     }
-    
+
     .filter-controls {
       .filter-btn {
-        flex: 1;
+        @extend .flex-1;
         min-width: 120px;
       }
     }
-    
+
     .demo-buttons {
-      flex-direction: column;
-      
+      @extend .flex-column;
+
       .demo-btn {
-        margin-bottom: 0.5rem;
+        @extend .m-b-sm;
       }
     }
   }
-  
+
   @media (max-width: 480px) {
-    .framework-card {
-      padding: 1.5rem;
-    }
-    
+    .framework-card,
     .demo-section,
     .comparison-section,
     .filter-section,
     .resources-section,
     .quiz-section {
-      padding: 1.5rem;
+      @extend .p-lg;
     }
-    
+
     .counter {
       font-size: 2rem !important;
     }
@@ -655,32 +537,32 @@
 
 // Notification styles
 .notification {
-  position: fixed;
+  @extend .position-fixed;
   top: 20px;
   right: 20px;
-  padding: 1rem 1.5rem;
-  border-radius: 6px;
-  color: white;
-  z-index: 1000;
+  @extend .p-md;
+  @extend .rounded-sm;
+  @extend .text-white;
+  @extend .z-index-high;
   animation: slideIn 0.3s ease;
-  
+
   &.info {
-    background: $info-color;
+    @extend .bg-info;
   }
-  
+
   &.success {
-    background: $success-color;
+    @extend .bg-success;
   }
-  
+
   &.warning {
-    background: $warning-color;
+    @extend .bg-warning;
   }
-  
+
   &.error {
-    background: $danger-color;
+    @extend .bg-danger;
   }
-  
+
   i {
-    margin-right: 0.5rem;
+    @extend .m-r-sm;
   }
 }

@@ -1,4 +1,5 @@
 // Responsive Design Topic Styles
+@use 'sass:map';
 @import 'variables';
 @import 'mixins';
 
@@ -6,73 +7,73 @@
     
     // Hero Section Specific Styles
     .hero {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        
+        @extend .hero-section;
+        background: map-get($demo-gradients, 'primary-purple');
+
         .hero-visual {
             .device-mockups {
-                display: flex;
-                gap: 2rem;
-                justify-content: center;
+                @include flex-center();
+                gap: map-get($spacing-map, 'lg');
                 align-items: flex-end;
                 perspective: 1000px;
-                
+
                 .device {
                     text-align: center;
-                    transition: all 0.3s ease;
-                    
+                    @include interactive-hover();
+
                     &:hover {
                         transform: scale(1.05) rotateY(5deg);
                     }
-                    
+
                     .device-frame {
                         position: relative;
-                        background: #333;
+                        background: map-get($color-palette, 'gray-800');
                         border-radius: 20px;
-                        padding: 1rem;
+                        padding: map-get($spacing-map, 'md');
                         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                        
+
                         .device-screen {
-                            background: #fff;
+                            background: white;
                             border-radius: 10px;
                             overflow: hidden;
-                            
+
                             .mock-content {
-                                padding: 0.5rem;
+                                padding: map-get($spacing-map, 'xs');
                                 font-size: 8px;
-                                
+
                                 .mock-header {
                                     height: 20px;
-                                    background: #3498db;
-                                    margin-bottom: 5px;
+                                    background: map-get($demo-colors, 'info');
+                                    margin-bottom: map-get($spacing-map, 'xs');
                                     border-radius: 2px;
                                 }
                                 
                                 .mock-nav {
                                     height: 15px;
-                                    background: #2ecc71;
+                                    background: map-get($demo-colors, 'success');
                                     margin-bottom: 5px;
                                     border-radius: 2px;
                                 }
                                 
                                 .mock-body {
-                                    display: flex;
+                                    @include flex-between();
                                     gap: 5px;
                                     
                                     .mock-sidebar {
-                                        background: #f39c12;
+                                        background: map-get($demo-colors, 'warning');
                                         border-radius: 2px;
                                         height: 40px;
                                     }
                                     
                                     .mock-main {
                                         flex: 1;
-                                        background: #e74c3c;
+                                        background: map-get($demo-colors, 'danger');
                                         border-radius: 2px;
                                         height: 40px;
                                     }
                                     
                                     .mock-aside {
-                                        background: #9b59b6;
+                                        background: map-get($demo-colors, 'primary');
                                         border-radius: 2px;
                                         height: 40px;
                                     }
@@ -80,7 +81,7 @@
                                 
                                 &.mobile-layout {
                                     .mock-body {
-                                        flex-direction: column;
+                                        @include flex-column();
                                         
                                         .mock-sidebar {
                                             width: 100%;
@@ -116,48 +117,38 @@
                         }
                     }
                     
-                    &.mobile {
-                        .device-frame {
-                            width: 60px;
-                            height: 100px;
-                            border-radius: 15px;
-                            padding: 0.5rem;
-                        }
-                    }
-                    
-                    &.tablet {
-                        .device-frame {
-                            width: 80px;
-                            height: 100px;
-                            border-radius: 12px;
-                            padding: 0.5rem;
-                        }
-                    }
-                    
-                    &.desktop {
-                        .device-frame {
-                            width: 120px;
-                            height: 80px;
-                            border-radius: 8px;
-                            padding: 0.5rem;
-                            
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                bottom: -10px;
-                                left: 50%;
-                                transform: translateX(-50%);
-                                width: 60px;
-                                height: 4px;
-                                background: #333;
-                                border-radius: 2px;
+                    @each $device, $props in (
+                        'mobile': (width: 60px, height: 100px, radius: 15px),
+                        'tablet': (width: 80px, height: 100px, radius: 12px),
+                        'desktop': (width: 120px, height: 80px, radius: 8px)
+                    ) {
+                        &.#{$device} {
+                            .device-frame {
+                                width: map-get($props, 'width');
+                                height: map-get($props, 'height');
+                                border-radius: map-get($props, 'radius');
+                                padding: map-get($spacing-map, 'xs');
+                                
+                                @if $device == 'desktop' {
+                                    &::after {
+                                        content: '';
+                                        position: absolute;
+                                        bottom: -10px;
+                                        left: 50%;
+                                        transform: translateX(-50%);
+                                        width: 60px;
+                                        height: 4px;
+                                        background: map-get($color-palette, 'gray-800');
+                                        border-radius: 2px;
+                                    }
+                                }
                             }
                         }
                     }
                     
                     .device-label {
                         display: block;
-                        margin-top: 1rem;
+                        margin-top: map-get($spacing-map, 'sm');
                         color: rgba(255,255,255,0.8);
                         font-size: 0.8rem;
                     }
@@ -168,34 +159,25 @@
     
     // Key Principles Section
     .key-principles {
-        margin-top: 3rem;
+        margin-top: map-get($spacing-map, 'xl');
         
         .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            @include grid-auto-fit(250px);
+            gap: map-get($spacing-map, 'md');
+            margin-top: map-get($spacing-map, 'lg');
             
             .principle-card {
-                @include card-style;
+                @extend .card;
+                @include interactive-hover();
                 text-align: center;
-                padding: 2rem;
-                transition: all 0.3s ease;
-                
-                &:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-                }
+                padding: map-get($spacing-map, 'lg');
                 
                 .principle-icon {
+                    @include icon-badge();
                     width: 60px;
                     height: 60px;
-                    margin: 0 auto 1rem;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    margin: 0 auto map-get($spacing-map, 'sm');
+                    background: map-get($demo-gradients, 'primary-purple');
                     
                     i {
                         font-size: 1.5rem;
@@ -204,8 +186,8 @@
                 }
                 
                 h4 {
-                    color: $primary-color;
-                    margin-bottom: 1rem;
+                    color: map-get($demo-colors, 'primary');
+                    margin-bottom: map-get($spacing-map, 'sm');
                 }
             }
         }
@@ -213,26 +195,25 @@
     
     // Stats Showcase
     .stats-showcase {
-        margin-top: 3rem;
+        margin-top: map-get($spacing-map, 'xl');
         
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            @include grid-auto-fit(200px);
+            gap: map-get($spacing-map, 'md');
+            margin-top: map-get($spacing-map, 'lg');
             
             .stat-card {
-                @include card-style;
+                @extend .card;
                 text-align: center;
-                padding: 2rem;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: map-get($spacing-map, 'lg');
+                background: map-get($demo-gradients, 'primary-purple');
                 color: white;
                 
                 .stat-number {
                     font-size: 2.5rem;
-                    font-weight: bold;
+                    font-weight: 700;
                     display: block;
-                    margin-bottom: 0.5rem;
+                    margin-bottom: map-get($spacing-map, 'xs');
                 }
                 
                 .stat-label {
@@ -245,32 +226,27 @@
     
     // Viewport Explanation
     .viewport-explanation {
-        margin-top: 2rem;
+        margin-top: map-get($spacing-map, 'lg');
         
         .properties-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            @include grid-auto-fit(250px);
+            gap: map-get($spacing-map, 'sm');
+            margin-top: map-get($spacing-map, 'sm');
             
             .property-item {
-                @include card-style;
-                padding: 1.5rem;
+                @extend .card;
+                padding: map-get($spacing-map, 'md');
                 
                 code {
+                    @include code-inline();
                     display: block;
-                    background: $code-bg;
-                    color: $code-color;
-                    padding: 0.5rem;
-                    border-radius: 4px;
-                    font-weight: bold;
-                    margin-bottom: 0.5rem;
+                    margin-bottom: map-get($spacing-map, 'xs');
                 }
                 
                 p {
                     margin: 0;
+                    @include text-muted();
                     font-size: 0.9rem;
-                    color: $text-muted;
                 }
             }
         }
@@ -278,17 +254,14 @@
     
     // Breakpoints Guide
     .breakpoints-guide {
-        margin-top: 2rem;
+        margin-top: map-get($spacing-map, 'lg');
         
         .breakpoints-table {
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-            gap: 1rem;
-            margin-top: 1rem;
-            background: white;
-            border-radius: 8px;
+            @include three-column-layout(1fr, 1fr, 2fr);
+            gap: map-get($spacing-map, 'sm');
+            margin-top: map-get($spacing-map, 'sm');
+            @extend .card;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             
             .breakpoint-row {
                 display: contents;
@@ -297,9 +270,9 @@
                     .device,
                     .width,
                     .media-query {
-                        background: $primary-color;
+                        background: map-get($demo-colors, 'primary');
                         color: white;
-                        padding: 1rem;
+                        padding: map-get($spacing-map, 'sm');
                         font-weight: 600;
                     }
                 }
@@ -307,19 +280,16 @@
                 .device,
                 .width,
                 .media-query {
-                    padding: 1rem;
-                    border-bottom: 1px solid #eee;
+                    padding: map-get($spacing-map, 'sm');
+                    border-bottom: 1px solid map-get($color-palette, 'gray-200');
                     
                     i {
-                        margin-right: 0.5rem;
-                        color: $primary-color;
+                        margin-right: map-get($spacing-map, 'xs');
+                        color: map-get($demo-colors, 'primary');
                     }
                     
                     code {
-                        background: $code-bg;
-                        color: $code-color;
-                        padding: 0.25rem 0.5rem;
-                        border-radius: 4px;
+                        @include code-inline();
                         font-size: 0.85rem;
                     }
                 }
@@ -329,61 +299,49 @@
     
     // Media Query Demo
     .media-query-demo {
-        margin-top: 3rem;
+        margin-top: map-get($spacing-map, 'xl');
         
         .demo-container {
-            @include card-style;
-            padding: 2rem;
+            @extend .card;
+            padding: map-get($spacing-map, 'lg');
             
             .demo-controls {
-                margin-bottom: 2rem;
+                @include control-group();
+                margin-bottom: map-get($spacing-map, 'lg');
                 
                 label {
-                    display: block;
-                    margin-bottom: 0.5rem;
-                    font-weight: 500;
+                    @include control-label();
                     
                     #widthDisplay {
-                        color: $primary-color;
-                        font-weight: bold;
+                        color: map-get($demo-colors, 'primary');
+                        font-weight: 700;
                     }
                 }
                 
                 #screenWidth {
+                    @include range-input();
                     width: 100%;
-                    margin-bottom: 1rem;
+                    margin-bottom: map-get($spacing-map, 'sm');
                 }
                 
                 .preset-buttons {
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-wrap: wrap;
+                    @include flex-wrap();
+                    gap: map-get($spacing-map, 'xs');
                     
                     .preset-btn {
-                        @include button-style;
-                        background: white;
-                        color: $primary-color;
-                        border: 2px solid $primary-color;
-                        padding: 0.5rem 1rem;
+                        @include btn-outline();
+                        padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'sm');
                         font-size: 0.85rem;
-                        
-                        &:hover {
-                            background: $primary-color;
-                            color: white;
-                        }
                     }
                 }
             }
             
             .responsive-demo {
-                border: 2px solid #ddd;
-                border-radius: 8px;
-                padding: 1rem;
-                background: #f8f9fa;
+                @include demo-container();
                 overflow-x: auto;
                 
                 .demo-viewport {
-                    transition: width 0.3s ease;
+                    transition: width $transition-duration ease;
                     margin: 0 auto;
                     background: white;
                     border-radius: 4px;
@@ -394,50 +352,46 @@
                         min-height: 200px;
                         
                         .demo-header {
-                            background: #3498db;
+                            background: map-get($demo-colors, 'info');
                             color: white;
-                            padding: 1rem;
+                            padding: map-get($spacing-map, 'sm');
                             text-align: center;
-                            font-weight: bold;
+                            font-weight: 700;
                         }
                         
                         .demo-nav {
-                            background: #2ecc71;
+                            background: map-get($demo-colors, 'success');
                             color: white;
-                            padding: 0.5rem 1rem;
+                            padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'sm');
                             font-size: 0.9rem;
                         }
                         
                         .demo-main {
-                            display: flex;
+                            @include flex-between();
                             min-height: 150px;
                             
                             .demo-content {
                                 flex: 1;
-                                background: #e74c3c;
+                                background: map-get($demo-colors, 'danger');
                                 color: white;
-                                padding: 1rem;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
+                                padding: map-get($spacing-map, 'sm');
+                                @include flex-center();
                             }
                             
                             .demo-sidebar {
                                 width: 200px;
-                                background: #f39c12;
+                                background: map-get($demo-colors, 'warning');
                                 color: white;
-                                padding: 1rem;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
+                                padding: map-get($spacing-map, 'sm');
+                                @include flex-center();
                                 font-size: 0.9rem;
                             }
                         }
                         
                         .demo-footer {
-                            background: #34495e;
+                            background: map-get($color-palette, 'gray-700');
                             color: white;
-                            padding: 1rem;
+                            padding: map-get($spacing-map, 'sm');
                             text-align: center;
                             font-size: 0.8rem;
                         }
@@ -449,7 +403,7 @@
                             }
                             
                             .demo-main {
-                                flex-direction: column;
+                                @include flex-column();
                                 
                                 .demo-sidebar {
                                     width: 100%;
@@ -471,30 +425,22 @@
             
             .current-breakpoint {
                 text-align: center;
-                margin-top: 1rem;
-                padding: 0.5rem;
+                margin-top: map-get($spacing-map, 'sm');
+                padding: map-get($spacing-map, 'xs');
                 border-radius: 20px;
-                font-weight: bold;
-                transition: all 0.3s ease;
+                font-weight: 700;
+                transition: all $transition-duration ease;
                 
-                &.mobile {
-                    background: #ff6b6b;
-                    color: white;
-                }
-                
-                &.tablet {
-                    background: #4ecdc4;
-                    color: white;
-                }
-                
-                &.laptop {
-                    background: #45b7d1;
-                    color: white;
-                }
-                
-                &.desktop {
-                    background: #96ceb4;
-                    color: white;
+                @each $device, $color in (
+                    'mobile': '#ff6b6b',
+                    'tablet': '#4ecdc4',
+                    'laptop': '#45b7d1',
+                    'desktop': '#96ceb4'
+                ) {
+                    &.#{$device} {
+                        background: $color;
+                        color: white;
+                    }
                 }
             }
         }
@@ -502,29 +448,21 @@
     
     // Layout Techniques Section
     .layout-techniques {
-        margin-top: 2rem;
+        margin-top: map-get($spacing-map, 'lg');
         
         .technique-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            @include tab-container();
+            margin-bottom: map-get($spacing-map, 'lg');
             
             .tab-btn {
-                @include button-style;
-                background: white;
-                color: $text-color;
-                border: 2px solid #ddd;
-                padding: 0.75rem 1.5rem;
+                @include tab-button();
                 
                 &.active {
-                    background: $primary-color;
-                    color: white;
-                    border-color: $primary-color;
+                    @include tab-button-active();
                 }
                 
-                &:hover {
-                    border-color: $primary-color;
+                &:hover:not(.active) {
+                    @include tab-button-hover();
                 }
             }
         }
@@ -545,103 +483,86 @@
     .demo-grid,
     .demo-fluid,
     .demo-units {
-        margin-top: 2rem;
+        margin-top: map-get($spacing-map, 'lg');
         
         .demo-controls {
-            @include card-style;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            background: #f8f9fa;
+            @include control-panel();
+            margin-bottom: map-get($spacing-map, 'sm');
             
             .control-group {
-                margin-bottom: 1rem;
-                
-                &:last-child {
-                    margin-bottom: 0;
-                }
+                @include control-group();
                 
                 label {
-                    display: block;
-                    margin-bottom: 0.5rem;
-                    font-weight: 500;
+                    @include control-label();
                 }
                 
                 select {
-                    width: 100%;
-                    padding: 0.5rem;
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    font-family: 'JetBrains Mono', monospace;
+                    @include form-select();
+                    font-family: map-get($font-map, 'monospace');
                 }
             }
         }
         
         .flexbox-demo-container,
         .grid-demo-container {
-            @include card-style;
-            padding: 2rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            @extend .card;
+            padding: map-get($spacing-map, 'lg');
+            @include flex-wrap();
+            gap: map-get($spacing-map, 'sm');
             min-height: 150px;
             
             .flex-item,
             .grid-item {
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                @include demo-item();
+                background: map-get($demo-gradients, 'primary-purple');
                 color: white;
-                padding: 1rem;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
+                padding: map-get($spacing-map, 'sm');
+                border-radius: $border-radius-base;
+                @include flex-center();
+                font-weight: 700;
                 min-width: 100px;
                 min-height: 60px;
             }
         }
         
         .grid-demo-container {
-            display: grid;
+            @include grid-auto-fit(1fr, map-get($spacing-map, 'sm'));
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
         }
         
         .fluid-demo-container {
-            @include card-style;
-            padding: 2rem;
-            display: flex;
-            gap: 1rem;
+            @extend .card;
+            padding: map-get($spacing-map, 'lg');
+            @include flex-between();
+            gap: map-get($spacing-map, 'sm');
             
             .fluid-column {
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                @include demo-item();
+                background: map-get($demo-gradients, 'primary-purple');
                 color: white;
-                padding: 1rem;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
+                padding: map-get($spacing-map, 'sm');
+                border-radius: $border-radius-base;
+                @include flex-center();
+                font-weight: 700;
                 height: 60px;
-                transition: all 0.3s ease;
+                transition: all $transition-duration ease;
             }
         }
         
         .units-demo-container {
-            @include card-style;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            @extend .card;
+            padding: map-get($spacing-map, 'lg');
+            @include grid-auto-fit(150px);
+            gap: map-get($spacing-map, 'sm');
             
             .unit-example {
-                background: linear-gradient(135deg, #667eea, #764ba2);
+                @include demo-item();
+                background: map-get($demo-gradients, 'primary-purple');
                 color: white;
-                padding: 1rem;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
+                padding: map-get($spacing-map, 'sm');
+                border-radius: $border-radius-base;
+                @include flex-center();
+                font-weight: 700;
                 height: 60px;
                 
                 &.vw {
@@ -653,7 +574,7 @@
                 }
                 
                 &.rem {
-                    padding: 2rem;
+                    padding: map-get($spacing-map, 'lg');
                 }
                 
                 &.em {
@@ -665,26 +586,22 @@
     
     // Image Examples
     .image-examples {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        @include grid-auto-fit(300px);
+        gap: map-get($spacing-map, 'lg');
+        margin-top: map-get($spacing-map, 'lg');
         
         .example-card {
-            @include card-style;
-            padding: 1.5rem;
+            @extend .card;
+            padding: map-get($spacing-map, 'md');
             
             h5 {
                 margin-top: 0;
-                color: $primary-color;
+                color: map-get($demo-colors, 'primary');
             }
             
             .demo-container {
-                border: 2px solid #ddd;
-                border-radius: 8px;
-                padding: 1rem;
-                background: #f8f9fa;
-                margin-bottom: 1rem;
+                @include demo-container();
+                margin-bottom: map-get($spacing-map, 'sm');
                 overflow: hidden;
             }
             
@@ -703,17 +620,9 @@
             }
             
             .video-container {
-                position: relative;
-                width: 100%;
-                height: 0;
-                padding-bottom: 56.25%;
+                @include responsive-embed(56.25%);
                 
                 iframe {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
                     border-radius: 4px;
                 }
             }
@@ -722,81 +631,78 @@
     
     // Strategy Comparison
     .strategy-comparison {
-        margin-top: 2rem;
+        margin-top: map-get($spacing-map, 'lg');
         
         .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            @include grid-auto-fit(300px);
+            gap: map-get($spacing-map, 'lg');
+            margin-top: map-get($spacing-map, 'lg');
             
             .approach-card {
-                @include card-style;
-                padding: 2rem;
+                @extend .card;
+                padding: map-get($spacing-map, 'lg');
                 
                 h4 {
                     text-align: center;
-                    margin-bottom: 2rem;
+                    margin-bottom: map-get($spacing-map, 'lg');
                     
                     i {
-                        margin-right: 0.5rem;
+                        margin-right: map-get($spacing-map, 'xs');
                     }
                 }
                 
                 .approach-flow {
                     text-align: center;
-                    margin-bottom: 2rem;
+                    margin-bottom: map-get($spacing-map, 'lg');
                     
                     .flow-step {
-                        background: #f8f9fa;
-                        padding: 0.75rem;
-                        border-radius: 8px;
-                        margin-bottom: 0.5rem;
+                        background: map-get($color-palette, 'gray-50');
+                        padding: map-get($spacing-map, 'xs');
+                        border-radius: $border-radius-base;
+                        margin-bottom: map-get($spacing-map, 'xs');
                         font-weight: 500;
                     }
                     
                     .flow-arrow {
                         font-size: 1.5rem;
-                        color: $primary-color;
-                        margin: 0.5rem 0;
+                        color: map-get($demo-colors, 'primary');
+                        margin: map-get($spacing-map, 'xs') 0;
                     }
                 }
                 
                 .approach-pros-cons {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
+                    @include reset-list();
                     
                     li {
-                        padding: 0.5rem 0;
+                        padding: map-get($spacing-map, 'xs') 0;
                         
                         i {
-                            margin-right: 0.5rem;
+                            margin-right: map-get($spacing-map, 'xs');
                         }
                         
                         &.pro i {
-                            color: #27ae60;
+                            color: map-get($demo-colors, 'success');
                         }
                         
                         &.con i {
-                            color: #e74c3c;
+                            color: map-get($demo-colors, 'danger');
                         }
                     }
                 }
                 
                 &.mobile-first {
-                    border-left: 4px solid #27ae60;
+                    border-left: 4px solid map-get($demo-colors, 'success');
                     
                     h4 {
-                        color: #27ae60;
+                        color: map-get($demo-colors, 'success');
                     }
                 }
                 
                 &.desktop-first {
-                    border-left: 4px solid #e74c3c;
+                    border-left: 4px solid map-get($demo-colors, 'danger');
                     
                     h4 {
-                        color: #e74c3c;
+                        color: map-get($demo-colors, 'danger');
                     }
                 }
             }
@@ -806,26 +712,22 @@
     // Performance Tips
     .performance-tips {
         .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            @include grid-auto-fit(250px);
+            gap: map-get($spacing-map, 'md');
+            margin-top: map-get($spacing-map, 'lg');
             
             .tip-card {
-                @include card-style;
-                padding: 2rem;
+                @extend .card;
+                @include interactive-hover();
+                padding: map-get($spacing-map, 'lg');
                 text-align: center;
-                transition: all 0.3s ease;
                 
                 .tip-icon {
+                    @include icon-badge();
                     width: 60px;
                     height: 60px;
-                    margin: 0 auto 1rem;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    margin: 0 auto map-get($spacing-map, 'sm');
+                    background: map-get($demo-gradients, 'primary-purple');
                     
                     i {
                         font-size: 1.5rem;
@@ -834,16 +736,16 @@
                 }
                 
                 h4 {
-                    color: $primary-color;
-                    margin-bottom: 1rem;
+                    color: map-get($demo-colors, 'primary');
+                    margin-bottom: map-get($spacing-map, 'sm');
                 }
                 
                 ul {
                     text-align: left;
-                    padding-left: 1rem;
+                    padding-left: map-get($spacing-map, 'sm');
                     
                     li {
-                        margin-bottom: 0.5rem;
+                        margin-bottom: map-get($spacing-map, 'xs');
                         font-size: 0.9rem;
                     }
                 }
@@ -853,46 +755,43 @@
     
     // Tools Grid
     .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        @include grid-auto-fit(250px);
+        gap: map-get($spacing-map, 'lg');
+        margin-top: map-get($spacing-map, 'lg');
         
         .tool-category {
-            @include card-style;
-            padding: 2rem;
+            @extend .card;
+            padding: map-get($spacing-map, 'lg');
             
             h4 {
-                color: $primary-color;
-                margin-bottom: 1rem;
+                color: map-get($demo-colors, 'primary');
+                margin-bottom: map-get($spacing-map, 'sm');
                 
                 i {
-                    margin-right: 0.5rem;
+                    margin-right: map-get($spacing-map, 'xs');
                 }
             }
             
             .tools-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
+                @include reset-list();
                 
                 li {
-                    padding: 0.75rem 0;
-                    border-bottom: 1px solid #eee;
+                    padding: map-get($spacing-map, 'xs') 0;
+                    border-bottom: 1px solid map-get($color-palette, 'gray-200');
                     
                     &:last-child {
                         border-bottom: none;
                     }
                     
                     strong {
-                        color: $primary-color;
+                        color: map-get($demo-colors, 'primary');
                         display: block;
                         margin-bottom: 0.25rem;
                     }
                     
                     &:last-of-type {
                         font-size: 0.9rem;
-                        color: $text-muted;
+                        @include text-muted();
                     }
                 }
             }
@@ -901,34 +800,31 @@
     
     // Testing Checklist
     .testing-checklist {
-        margin-top: 3rem;
+        margin-top: map-get($spacing-map, 'xl');
         
         .checklist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            @include grid-auto-fit(250px);
+            gap: map-get($spacing-map, 'lg');
+            margin-top: map-get($spacing-map, 'lg');
             
             .checklist-column {
-                @include card-style;
-                padding: 2rem;
+                @extend .card;
+                padding: map-get($spacing-map, 'lg');
                 
                 h5 {
-                    color: $primary-color;
-                    margin-bottom: 1rem;
+                    color: map-get($demo-colors, 'primary');
+                    margin-bottom: map-get($spacing-map, 'sm');
                 }
                 
                 .checklist {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
+                    @include reset-list();
                     
                     li {
-                        padding: 0.5rem 0;
-                        transition: all 0.3s ease;
+                        padding: map-get($spacing-map, 'xs') 0;
+                        transition: all $transition-duration ease;
                         
                         input[type="checkbox"] {
-                            margin-right: 0.5rem;
+                            margin-right: map-get($spacing-map, 'xs');
                         }
                     }
                 }
@@ -939,12 +835,12 @@
     // Scroll Indicator
     .scroll-indicator {
         text-align: center;
-        padding: 0.5rem;
-        background: #f8f9fa;
-        border: 1px solid #ddd;
+        padding: map-get($spacing-map, 'xs');
+        background: map-get($color-palette, 'gray-50');
+        border: 1px solid map-get($color-palette, 'gray-300');
         border-radius: 4px 4px 0 0;
         font-size: 0.8rem;
-        color: $text-muted;
+        @include text-muted();
         display: none;
         
         i {
@@ -969,12 +865,12 @@
     }
     
     // Responsive adjustments
-    @media (max-width: 768px) {
+    @include respond-to('md') {
         .hero {
             .hero-visual {
                 .device-mockups {
-                    flex-direction: column;
-                    gap: 1rem;
+                    @include flex-column();
+                    gap: map-get($spacing-map, 'sm');
                     
                     .device {
                         &.tablet,
@@ -993,7 +889,7 @@
                 .device,
                 .width,
                 .media-query {
-                    padding: 0.75rem 0.5rem;
+                    padding: map-get($spacing-map, 'xs');
                 }
             }
         }
@@ -1008,7 +904,7 @@
         }
         
         .fluid-demo-container {
-            flex-direction: column;
+            @include flex-column();
             
             .fluid-column {
                 width: 100% !important;
@@ -1016,7 +912,7 @@
         }
     }
     
-    @media (max-width: 480px) {
+    @include respond-to('sm') {
         .principles-grid,
         .stats-grid,
         .tips-grid,
@@ -1027,7 +923,7 @@
         .technique-tabs {
             .tab-btn {
                 flex: 1;
-                padding: 0.5rem;
+                padding: map-get($spacing-map, 'xs');
                 font-size: 0.85rem;
             }
         }

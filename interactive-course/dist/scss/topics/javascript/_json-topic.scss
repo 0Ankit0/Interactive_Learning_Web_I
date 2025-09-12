@@ -14,18 +14,18 @@
     color: #fff;
 
     .hero-content {
-      display: flex;
+      @extend .d-flex;
       flex-wrap: wrap;
-      align-items: center;
+      @extend .align-center;
       justify-content: space-between;
-      padding: 2em 0;
+      @extend .py-4;
 
       .hero-text {
         max-width: 600px;
 
         h1 {
           font-size: 2.5rem;
-          margin-bottom: 0.5em;
+          @extend .mb-2;
 
           i {
             color: #ffeb3b;
@@ -35,11 +35,11 @@
         .hero-description {
           font-size: 1.2rem;
           opacity: 0.9;
-          margin-bottom: 1.5em;
+          @extend .mb-4;
         }
 
         .hero-features {
-          display: flex;
+          @extend .d-flex;
           flex-wrap: wrap;
           gap: 0.5em;
 
@@ -47,7 +47,8 @@
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 0.4em 1em;
+            @extend .py-1;
+            @extend .px-3;
             font-size: 0.95em;
             border: 1px solid rgba(255, 255, 255, 0.3);
 

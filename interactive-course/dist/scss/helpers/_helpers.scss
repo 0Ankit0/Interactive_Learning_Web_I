@@ -116,3 +116,190 @@
     grid-template-columns: 1fr;
   }
 }
+
+// Common component helpers
+.card-hoverable {
+  @extend .card-base;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.button-interactive {
+  @include button-base;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Additional helper classes
+.hover-lift {
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.hover-scale {
+  transition: all $transition-smooth;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Interactive demo container
+.demo-container {
+  background: $bg-light;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  margin: $spacing-lg 0;
+  border: 1px solid $border-light;
+}
+
+// Code block styling
+.code-block {
+  background: $bg-secondary;
+  border-radius: $border-radius-sm;
+  padding: $spacing-md;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  border: 1px solid $border-light;
+  overflow-x: auto;
+}
+
+// Form input styling
+.form-input {
+  padding: $spacing-sm $spacing-md;
+  border: 2px solid $border-light;
+  border-radius: $border-radius-sm;
+  font-size: $font-base;
+  transition: border-color $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $accent-primary;
+    box-shadow: 0 0 0 3px rgba($accent-primary, 0.1);
+  }
+}
+
+// Status indicator
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &.success {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+  }
+
+  &.error {
+    background: rgba($color-error, 0.1);
+    color: $color-error;
+  }
+
+  &.warning {
+    background: rgba($color-warning, 0.1);
+    color: $color-warning;
+  }
+
+  &.info {
+    background: rgba($color-info, 0.1);
+    color: $color-info;
+  }
+}
+
+// Alert classes
+.alert-success {
+  background: rgba($color-success, 0.1);
+  border-left: 4px solid $color-success;
+  color: $color-success;
+}
+
+.alert-error {
+  background: rgba($color-error, 0.1);
+  border-left: 4px solid $color-error;
+  color: $color-error;
+}
+
+// Badge classes
+.badge-accent {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  background: $accent-primary;
+  color: white;
+  border-radius: $border-radius-sm;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+// Border utility classes
+.border-left-primary {
+  border-left: 4px solid $primary-color;
+}
+
+// Card base class
+.card-base {
+  background: $bg-white;
+  border-radius: $border-radius-md;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid $border-light;
+  transition: all $transition-base;
+}
+
+// Button primary class
+.btn-primary {
+  background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+  color: white;
+  border: none;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($accent-primary, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Button secondary class
+.btn-secondary {
+  background: $bg-secondary;
+  color: $text-primary;
+  border: 2px solid $border-light;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $bg-light;
+    border-color: $accent-primary;
+  }
+}
