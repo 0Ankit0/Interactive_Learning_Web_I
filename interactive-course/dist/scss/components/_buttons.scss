@@ -1,0 +1,90 @@
+// ========================================
+// BUTTON COMPONENTS
+// ========================================
+
+@use "sass:color";
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Basic button styles - extend for specific button types
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: all $transition-fast;
+  border: 2px solid transparent;
+  text-decoration: none;
+  font-size: $font-size-base;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  i {
+    font-size: $font-size-sm;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btn-primary {
+  @extend .btn-base;
+  background: $primary-color;
+  color: white;
+  border-color: $primary-color;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+    border-color: $primary-hover;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+  }
+}
+
+.btn-success {
+  @extend .btn-base;
+  background: $success-color;
+  color: white;
+  border-color: $success-color;
+
+  &:hover:not(:disabled) {
+    background: color.adjust($success-color, $lightness: -10%);
+    border-color: color.adjust($success-color, $lightness: -10%);
+    box-shadow: 0 4px 12px rgba($success-color, 0.3);
+  }
+}
+
+.btn-info {
+  @extend .btn-base;
+  background: $info-color;
+  color: white;
+  border-color: $info-color;
+
+  &:hover:not(:disabled) {
+    background: color.adjust($info-color, $lightness: -10%);
+    border-color: color.adjust($info-color, $lightness: -10%);
+    box-shadow: 0 4px 12px rgba($info-color, 0.3);
+  }
+}
+
+// ========================================
+// RESPONSIVE DESIGN FOR BUTTONS
+// ========================================
+
+@include breakpoint($breakpoint-sm) {
+  .btn-base {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-sm;
+  }
+}

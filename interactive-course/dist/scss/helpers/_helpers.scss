@@ -1,0 +1,118 @@
+// ========================================
+// HELPER CLASSES
+// ========================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Screen reader only content
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Clearfix helper
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+// Focus visible helper
+.focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Loading spinner helper
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $border-light;
+  border-radius: 50%;
+  border-top-color: $primary-color;
+  animation: spin 1s ease-in-out infinite;
+}
+
+// Truncate text helper
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Visually hidden helper (for icons, etc.)
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+// Container helper
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint($breakpoint-sm) {
+    max-width: 540px;
+  }
+
+  @include breakpoint($breakpoint-md) {
+    max-width: 720px;
+  }
+
+  @include breakpoint($breakpoint-lg) {
+    max-width: 960px;
+  }
+
+  @include breakpoint($breakpoint-xl) {
+    max-width: 1140px;
+  }
+}
+
+// Grid helpers
+.grid {
+  display: grid;
+  gap: $spacing-md;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+// Responsive grid breakpoints
+@include breakpoint($breakpoint-md) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include breakpoint($breakpoint-sm) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

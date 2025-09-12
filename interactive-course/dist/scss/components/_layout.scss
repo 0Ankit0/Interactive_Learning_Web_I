@@ -1,0 +1,124 @@
+// ========================================
+// LAYOUT COMPONENTS
+// ========================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Basic content sections - extend in topic files for specific styling
+.content-section-base {
+  margin-bottom: $spacing-4xl;
+  padding: $spacing-3xl;
+  background: white;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all $transition-base;
+
+  h2 {
+    color: $primary-color;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xl;
+    position: relative;
+
+    i {
+      margin-right: $spacing-sm;
+      color: $primary-color;
+    }
+  }
+
+  h3 {
+    color: $text-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-lg;
+
+    i {
+      margin-right: $spacing-sm;
+      color: $success-color;
+    }
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Basic interactive elements - extend in topic files for specific styling
+.interactive-element-base {
+  margin: $spacing-3xl 0;
+  padding: $spacing-2xl;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all $transition-base;
+
+  h3 {
+    color: $primary-color;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: $spacing-sm;
+      color: $success-color;
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVE DESIGN FOR LAYOUT COMPONENTS
+// ========================================
+
+@include breakpoint($breakpoint-md) {
+  .content-section-base {
+    padding: $spacing-xl;
+    margin-bottom: $spacing-3xl;
+
+    h2 {
+      font-size: $font-size-xl;
+    }
+
+    h3 {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .interactive-element-base {
+    padding: $spacing-xl;
+
+    h3 {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+@include breakpoint($breakpoint-sm) {
+  .content-section-base {
+    padding: $spacing-lg;
+    margin-bottom: $spacing-2xl;
+
+    h2 {
+      font-size: $font-size-lg;
+    }
+
+    h3 {
+      font-size: $font-size-base;
+    }
+  }
+
+  .interactive-element-base {
+    padding: $spacing-lg;
+    margin: $spacing-2xl 0;
+
+    h3 {
+      font-size: $font-size-base;
+    }
+  }
+}

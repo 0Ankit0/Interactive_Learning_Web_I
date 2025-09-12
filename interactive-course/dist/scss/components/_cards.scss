@@ -1,0 +1,37 @@
+// ========================================
+// CARD COMPONENTS
+// ========================================
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Basic card styles
+.card-base {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: $spacing-2xl;
+  transition: all $transition-base;
+  border: 1px solid $border-light;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ========================================
+// RESPONSIVE DESIGN FOR CARDS
+// ========================================
+
+@include breakpoint($breakpoint-md) {
+  .card-base {
+    padding: $spacing-xl;
+  }
+}
+
+@include breakpoint($breakpoint-sm) {
+  .card-base {
+    padding: $spacing-lg;
+  }
+}
