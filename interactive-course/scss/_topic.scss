@@ -297,7 +297,13 @@
   transform: translateY(20px);
   
   &.animate-in {
-    @include slide-in-up;
+    animation: slideInUp $animation-duration-base ease forwards;
+  }
+  
+  // Make first section visible by default
+  &:first-of-type {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   h2 {

@@ -757,11 +757,14 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all content sections for animations
+// Observe all content sections for animations (skip first section)
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        observer.observe(section);
+    sections.forEach((section, index) => {
+        // Skip the first section to prevent flickering
+        if (index > 0) {
+            observer.observe(section);
+        }
     });
 });
 
