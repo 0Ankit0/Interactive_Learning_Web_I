@@ -604,7 +604,9 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .btn:focus {
   outline: none;
@@ -628,7 +630,11 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
 }
 .btn-primary:focus {
   outline: none;
@@ -638,10 +644,6 @@ pre code {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.btn-primary {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
 }
 .btn-primary:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
@@ -664,7 +666,12 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
 }
 .btn-secondary:focus {
   outline: none;
@@ -674,11 +681,6 @@ pre code {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.btn-secondary {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
 }
 .btn-secondary:hover:not(:disabled) {
   background: #e9ecef;
@@ -698,7 +700,12 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
 }
 .btn-outline:focus {
   outline: none;
@@ -708,11 +715,6 @@ pre code {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.btn-outline {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
 }
 .btn-outline:hover:not(:disabled) {
   background: #4CAF50;
@@ -732,7 +734,16 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  width: 100%;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  padding: 1rem 1.25rem;
 }
 .btn-topic:focus {
   outline: none;
@@ -743,10 +754,6 @@ pre code {
   cursor: not-allowed;
   pointer-events: none;
 }
-.btn-topic {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .btn-topic:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -754,13 +761,6 @@ pre code {
 }
 .btn-topic:active:not(:disabled) {
   transform: translateY(0);
-}
-.btn-topic {
-  width: 100%;
-  justify-content: center;
-  gap: 0.75rem;
-  font-size: 0.875rem;
-  padding: 1rem 1.25rem;
 }
 .btn-topic i {
   transition: transform 0.15s ease;
@@ -782,6 +782,9 @@ input:focus, select:focus, textarea:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
+input::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder {
+  color: #6c757d;
+}
 input::placeholder, select::placeholder, textarea::placeholder {
   color: #6c757d;
 }
@@ -802,6 +805,11 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #6c757d;
+}
+
+::-moz-selection {
+  background: rgba(76, 175, 80, 0.2);
+  color: #2c3e50;
 }
 
 ::selection {
@@ -1158,7 +1166,8 @@ input::placeholder, select::placeholder, textarea::placeholder {
   padding: 1.5rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border: 1px solid #e9ecef;
   transition: all 0.3s ease;
 }
@@ -1631,7 +1640,8 @@ input::placeholder, select::placeholder, textarea::placeholder {
 .topic-card .topic-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .topic-card .topic-image .topic-icon {
   position: absolute;
@@ -1837,7 +1847,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  font-size: 1.125rem;
+  padding: 1.25rem 2.5rem;
+  gap: 0.75rem;
 }
 .unit-completion .next-unit-btn:focus {
   outline: none;
@@ -1848,10 +1865,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.unit-completion .next-unit-btn {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .unit-completion .next-unit-btn:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -1859,11 +1872,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .unit-completion .next-unit-btn:active:not(:disabled) {
   transform: translateY(0);
-}
-.unit-completion .next-unit-btn {
-  font-size: 1.125rem;
-  padding: 1.25rem 2.5rem;
-  gap: 0.75rem;
 }
 .unit-completion .next-unit-btn i {
   transition: transform 0.15s ease;
@@ -1915,58 +1923,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
     font-size: 1.5rem;
   }
 }
-.concept-map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 1.25rem;
-}
-@media (max-width: 768px) {
-  .concept-map {
-    gap: 1rem;
-  }
-}
-
-.concept-node {
-  background: #2196F3;
-  color: white;
-  padding: 1rem 1.25rem;
-  border-radius: 50%;
-  font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-}
-.concept-node:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-.concept-node::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: 1.25rem;
-  height: 2px;
-  background: #2196F3;
-  transform: translateY(-50%);
-}
-@media (max-width: 768px) {
-  .concept-node::after {
-    display: none;
-  }
-}
-.concept-node.main {
-  background: #28a745;
-  font-size: 1.125rem;
-}
-.concept-node.main::after {
-  background: #28a745;
-}
-
 .topic-page {
   min-height: 100vh;
   background: #f8f9fa;
@@ -2118,7 +2074,15 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  gap: 0.5rem;
 }
 .progress-container .progress-content .progress-info .back-button:focus {
   outline: none;
@@ -2129,20 +2093,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.progress-container .progress-content .progress-info .back-button {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
-}
 .progress-container .progress-content .progress-info .back-button:hover:not(:disabled) {
   background: #e9ecef;
   border-color: #4CAF50;
   transform: translateY(-2px);
-}
-.progress-container .progress-content .progress-info .back-button {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  gap: 0.5rem;
 }
 .progress-container .progress-content .progress-info .back-button i {
   transition: transform 0.15s ease;
@@ -2221,6 +2175,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   transition: all 0.3s ease;
+  height: -moz-fit-content;
   height: fit-content;
   position: sticky;
   top: 120px;
@@ -2422,6 +2377,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   background: #f8f9fa;
   padding: 0.25rem;
   border-radius: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 .code-playground .playground-tabs .tab-button {
   flex: 1;
@@ -2443,9 +2399,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 .code-playground .playground-tabs .tab-button:hover:not(.active) {
   background: rgba(76, 175, 80, 0.1);
   color: #4CAF50;
-}
-.code-playground .playground-tabs {
-  margin-bottom: 1.25rem;
 }
 .code-playground .playground-content {
   background: #2c3e50;
@@ -2491,7 +2444,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  gap: 0.5rem;
 }
 .code-playground .playground-content .playground-controls .run-button:focus {
   outline: none;
@@ -2502,10 +2462,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.code-playground .playground-content .playground-controls .run-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .code-playground .playground-content .playground-controls .run-button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -2513,11 +2469,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .code-playground .playground-content .playground-controls .run-button:active:not(:disabled) {
   transform: translateY(0);
-}
-.code-playground .playground-content .playground-controls .run-button {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  gap: 0.5rem;
 }
 .code-playground .playground-content .playground-controls .reset-button {
   display: inline-flex;
@@ -2531,7 +2482,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }
 .code-playground .playground-content .playground-controls .reset-button:focus {
   outline: none;
@@ -2542,19 +2500,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.code-playground .playground-content .playground-controls .reset-button {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
-}
 .code-playground .playground-content .playground-controls .reset-button:hover:not(:disabled) {
   background: #e9ecef;
   border-color: #4CAF50;
   transform: translateY(-2px);
-}
-.code-playground .playground-content .playground-controls .reset-button {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
 }
 .code-playground .playground-content .output-area {
   background: white;
@@ -2585,6 +2534,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   border-radius: 0.25rem;
   overflow: hidden;
   position: relative;
+  width: 200px;
 }
 .quiz-container .quiz-progress .progress-bar .progress-fill {
   height: 100%;
@@ -2603,9 +2553,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   bottom: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   animation: shimmer 2s infinite;
-}
-.quiz-container .quiz-progress .progress-bar {
-  width: 200px;
 }
 .quiz-container .quiz-question {
   background: white;
@@ -2681,7 +2628,12 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  gap: 0.5rem;
 }
 .quiz-container .quiz-controls #quiz-next:focus {
   outline: none;
@@ -2692,10 +2644,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-container .quiz-controls #quiz-next {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .quiz-container .quiz-controls #quiz-next:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -2703,9 +2651,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .quiz-container .quiz-controls #quiz-next:active:not(:disabled) {
   transform: translateY(0);
-}
-.quiz-container .quiz-controls #quiz-next {
-  gap: 0.5rem;
 }
 .quiz-container .quiz-controls #quiz-next i {
   transition: transform 0.15s ease;
@@ -2798,7 +2743,12 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
 }
 .understanding-check .check-options .check-btn:focus {
   outline: none;
@@ -2808,11 +2758,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.understanding-check .check-options .check-btn {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
 }
 .understanding-check .check-options .check-btn:hover:not(:disabled) {
   background: #4CAF50;
@@ -2871,7 +2816,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  gap: 0.75rem;
+  padding: 1.25rem 2rem;
+  font-size: 1rem;
 }
 .topic-navigation .nav-button:focus {
   outline: none;
@@ -2882,10 +2834,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.topic-navigation .nav-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .topic-navigation .nav-button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -2893,11 +2841,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .topic-navigation .nav-button:active:not(:disabled) {
   transform: translateY(0);
-}
-.topic-navigation .nav-button {
-  gap: 0.75rem;
-  padding: 1.25rem 2rem;
-  font-size: 1rem;
 }
 .topic-navigation .nav-button.prev i {
   transition: transform 0.15s ease;
@@ -2928,7 +2871,15 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  background: #28a745;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  gap: 0.75rem;
 }
 .topic-navigation .complete-lesson:focus {
   outline: none;
@@ -2939,10 +2890,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.topic-navigation .complete-lesson {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .topic-navigation .complete-lesson:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -2950,12 +2897,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .topic-navigation .complete-lesson:active:not(:disabled) {
   transform: translateY(0);
-}
-.topic-navigation .complete-lesson {
-  background: #28a745;
-  padding: 1.25rem 2.5rem;
-  font-size: 1.125rem;
-  gap: 0.75rem;
 }
 .topic-navigation .complete-lesson:hover {
   background: rgb(36, 150.3, 62.1);
@@ -3012,7 +2953,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
 }
 .run-btn:focus, .check-btn:focus, .simulate-btn:focus {
   outline: none;
@@ -3023,10 +2971,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.run-btn, .check-btn, .simulate-btn {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .run-btn:hover:not(:disabled), .check-btn:hover:not(:disabled), .simulate-btn:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -3034,11 +2978,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .run-btn:active:not(:disabled), .check-btn:active:not(:disabled), .simulate-btn:active:not(:disabled) {
   transform: translateY(0);
-}
-.run-btn, .check-btn, .simulate-btn {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  border-radius: 0.25rem;
 }
 .run-btn:hover, .check-btn:hover, .simulate-btn:hover {
   transform: translateY(-1px);
@@ -3075,7 +3014,17 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: none;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 .tab-btn:focus {
   outline: none;
@@ -3086,22 +3035,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.tab-btn {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .tab-btn:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.tab-btn {
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem 0.5rem 0 0;
-  border-bottom: none;
-  font-size: 0.875rem;
-  font-weight: 500;
 }
 .tab-btn.active {
   display: inline-flex;
@@ -3115,7 +3052,12 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border-bottom: none;
 }
 .tab-btn.active:focus {
   outline: none;
@@ -3126,10 +3068,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.tab-btn.active {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .tab-btn.active:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -3137,9 +3075,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .tab-btn.active:active:not(:disabled) {
   transform: translateY(0);
-}
-.tab-btn.active {
-  border-bottom: none;
 }
 .tab-btn:hover:not(.active) {
   background: rgba(76, 175, 80, 0.1);
@@ -3224,7 +3159,16 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 .quiz-option button:not([class]):focus {
   outline: none;
@@ -3235,21 +3179,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-option button:not([class]) {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .quiz-option button:not([class]):hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.quiz-option button:not([class]) {
-  width: 100%;
-  text-align: left;
-  padding: 1rem;
-  border-radius: 0.5rem;
 }
 .quiz-option button:not([class]):hover {
   background: rgba(76, 175, 80, 0.1);
@@ -3268,7 +3201,13 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  background: #28a745;
+  border-color: #28a745;
 }
 .quiz-option button:not([class]).correct:focus {
   outline: none;
@@ -3279,10 +3218,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-option button:not([class]).correct {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .quiz-option button:not([class]).correct:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -3290,10 +3225,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .quiz-option button:not([class]).correct:active:not(:disabled) {
   transform: translateY(0);
-}
-.quiz-option button:not([class]).correct {
-  background: #28a745;
-  border-color: #28a745;
 }
 .quiz-option button:not([class]).correct:hover {
   background: rgb(36, 150.3, 62.1);
@@ -3415,7 +3346,16 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
 }
 .demo-controls button:not([class]):focus {
   outline: none;
@@ -3426,21 +3366,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.demo-controls button:not([class]) {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
-}
 .demo-controls button:not([class]):hover:not(:disabled) {
   background: #e9ecef;
   border-color: #4CAF50;
   transform: translateY(-2px);
-}
-.demo-controls button:not([class]) {
-  padding: 1rem 1.25rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  margin: 0.5rem;
 }
 .demo-controls button:not([class]):hover {
   transform: translateY(-1px);
@@ -3598,18 +3527,19 @@ input::placeholder, select::placeholder, textarea::placeholder {
   font-size: 0.875rem;
   transition: border-color 0.3s ease;
   background: #ffffff;
+  flex: 1;
+  max-width: 200px;
 }
 .url-builder .input-group select:focus, .url-builder .input-group input:focus {
   outline: none;
   border-color: #4CAF50;
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
-.url-builder .input-group select::placeholder, .url-builder .input-group input::placeholder {
+.url-builder .input-group select::-moz-placeholder, .url-builder .input-group input::-moz-placeholder {
   color: #6c757d;
 }
-.url-builder .input-group select, .url-builder .input-group input {
-  flex: 1;
-  max-width: 200px;
+.url-builder .input-group select::placeholder, .url-builder .input-group input::placeholder {
+  color: #6c757d;
 }
 .url-builder .url-result {
   background: #e9ecef;
@@ -3660,7 +3590,16 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 .quiz-game .game-options button:focus {
   outline: none;
@@ -3671,21 +3610,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-game .game-options button {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .quiz-game .game-options button:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.quiz-game .game-options button {
-  padding: 1rem;
-  font-size: 0.875rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
 }
 .quiz-game .game-options button:hover {
   background: rgba(76, 175, 80, 0.1);
@@ -3872,7 +3800,17 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 1.25rem;
+  text-align: center;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 .quiz-container .quiz-question .quiz-options .quiz-option:focus {
   outline: none;
@@ -3883,22 +3821,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-container .quiz-question .quiz-options .quiz-option {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .quiz-container .quiz-question .quiz-options .quiz-option:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.quiz-container .quiz-question .quiz-options .quiz-option {
-  padding: 1.25rem;
-  text-align: center;
-  border-radius: 0.625rem;
-  font-size: 1rem;
-  transition: all 0.3s ease;
 }
 .quiz-container .quiz-question .quiz-options .quiz-option:hover {
   background: rgba(76, 175, 80, 0.1);
@@ -3949,7 +3875,18 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: #e9ecef;
 }
 .demo-container .demo-tabs .tab-btn:focus {
   outline: none;
@@ -3960,23 +3897,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.demo-container .demo-tabs .tab-btn {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .demo-container .demo-tabs .tab-btn:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.demo-container .demo-tabs .tab-btn {
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem 0.5rem 0 0;
-  border-bottom: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  background: #e9ecef;
 }
 .demo-container .demo-tabs .tab-btn.active {
   background: white;
@@ -4064,7 +3988,15 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
 }
 .demo-container .demo-content .mock-browser .browser-content .social-feed .update .actions button:focus {
   outline: none;
@@ -4075,20 +4007,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.demo-container .demo-content .mock-browser .browser-content .social-feed .update .actions button {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .demo-container .demo-content .mock-browser .browser-content .social-feed .update .actions button:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.demo-container .demo-content .mock-browser .browser-content .social-feed .update .actions button {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  border-radius: 0.25rem;
 }
 .demo-container .demo-content .mock-browser .browser-content .social-feed .update .actions button:hover {
   background: rgba(76, 175, 80, 0.1);
@@ -4519,6 +4441,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
+.search-box input::-moz-placeholder {
+  color: #495057;
+  font-style: italic;
+}
 .search-box input::placeholder {
   color: #495057;
   font-style: italic;
@@ -4541,7 +4467,18 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  background: #17a2b8;
+  border-color: #17a2b8;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.9375rem;
+  font-size: 1.125rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 .search-box button:focus {
   outline: none;
@@ -4552,10 +4489,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.search-box button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .search-box button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -4563,15 +4496,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .search-box button:active:not(:disabled) {
   transform: translateY(0);
-}
-.search-box button {
-  background: #17a2b8;
-  border-color: #17a2b8;
-  padding: 1.25rem 1.5rem;
-  border-radius: 0.9375rem;
-  font-size: 1.125rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
 }
 .search-box button:hover {
   background: rgb(20.7, 145.8, 165.6);
@@ -4726,7 +4650,15 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  margin-top: 1.25rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.625rem;
 }
 .quiz-next:focus {
   outline: none;
@@ -4737,10 +4669,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.quiz-next {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .quiz-next:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -4748,12 +4676,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .quiz-next:active:not(:disabled) {
   transform: translateY(0);
-}
-.quiz-next {
-  margin-top: 1.25rem;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 0.625rem;
 }
 .quiz-next:hover {
   transform: translateY(-1px);
@@ -4831,7 +4753,13 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: transparent;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  padding: 1rem 1.5rem;
 }
 .results-actions button:focus {
   outline: none;
@@ -4842,18 +4770,10 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.results-actions button {
-  background: transparent;
-  color: #4CAF50;
-  border: 2px solid #4CAF50;
-}
 .results-actions button:hover:not(:disabled) {
   background: #4CAF50;
   color: white;
   transform: translateY(-2px);
-}
-.results-actions button {
-  padding: 1rem 1.5rem;
 }
 .results-actions button:first-child {
   display: inline-flex;
@@ -4867,7 +4787,12 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
 }
 .results-actions button:first-child:focus {
   outline: none;
@@ -4877,11 +4802,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.results-actions button:first-child {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
 }
 .results-actions button:first-child:hover:not(:disabled) {
   background: #e9ecef;
@@ -4900,7 +4820,11 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
 }
 .results-actions button:last-child:focus {
   outline: none;
@@ -4910,10 +4834,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.results-actions button:last-child {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
 }
 .results-actions button:last-child:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
@@ -4965,7 +4885,16 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.625rem;
+  transition: all 0.3s ease;
 }
 .timeline-controls button:focus {
   outline: none;
@@ -4976,10 +4905,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: not-allowed;
   pointer-events: none;
 }
-.timeline-controls button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  color: white;
-}
 .timeline-controls button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: translateY(-2px);
@@ -4987,13 +4912,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
 }
 .timeline-controls button:active:not(:disabled) {
   transform: translateY(0);
-}
-.timeline-controls button {
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 0.625rem;
-  transition: all 0.3s ease;
 }
 .timeline-controls button#play-btn {
   background: #28a745;
@@ -5026,7 +4944,12 @@ input::placeholder, select::placeholder, textarea::placeholder {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2px solid #e9ecef;
 }
 .timeline-controls button:not(#play-btn):focus {
   outline: none;
@@ -5036,11 +4959,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
-}
-.timeline-controls button:not(#play-btn) {
-  background: #f8f9fa;
-  color: #2c3e50;
-  border: 2px solid #e9ecef;
 }
 .timeline-controls button:not(#play-btn):hover:not(:disabled) {
   background: #e9ecef;
@@ -5078,11 +4996,14 @@ input::placeholder, select::placeholder, textarea::placeholder {
   border-radius: 50%;
   background: #e9ecef;
   outline: none;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   cursor: pointer;
 }
 .timeline-controls .timeline-speed input[type=range]::-webkit-slider-thumb {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -5090,6 +5011,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: pointer;
   border: 2px solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .timeline-controls .timeline-speed input[type=range]::-webkit-slider-thumb:hover {
@@ -5104,6 +5026,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   cursor: pointer;
   border: 2px solid white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .timeline-controls .timeline-speed input[type=range]::-webkit-slider-track {
@@ -6158,101 +6081,4 @@ input::placeholder, select::placeholder, textarea::placeholder {
   color: #2c3e50;
   font-style: normal;
   font-weight: 500;
-}
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.resource-card {
-  background: #ffffff;
-  border-radius: 0.625rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-.resource-card:hover {
-  transform: scale(1.02);
-}
-.resource-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.resource-card h4 {
-  margin: 1rem;
-  color: #2c3e50;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-.resource-card p {
-  margin: 0 1rem 1rem;
-  color: #6c757d;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-.resource-card a {
-  display: block;
-  margin: 0 1rem 1rem;
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s ease;
-}
-.resource-card a:hover {
-  color: #45a049;
-  text-decoration: underline;
-}
-
-.video-section {
-  margin-bottom: 2rem;
-}
-.video-section h4 {
-  color: #2c3e50;
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.video-section iframe {
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
-  border: none;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-.video-section p {
-  margin-top: 0.75rem;
-  color: #6c757d;
-  font-size: 0.875rem;
-}
-
-.links-section h4 {
-  color: #2c3e50;
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.links-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.links-section li {
-  margin-bottom: 0.75rem;
-}
-.links-section a {
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s ease;
-}
-.links-section a:hover {
-  color: #45a049;
-  text-decoration: underline;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

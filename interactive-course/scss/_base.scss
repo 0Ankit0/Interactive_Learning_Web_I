@@ -1,0 +1,300 @@
+// Base styles and resets for the Web Technology I Interactive Course
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// CSS Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-secondary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-lg;
+  color: $text-primary;
+}
+
+h1 { font-size: $font-size-4xl; }
+h2 { font-size: $font-size-3xl; }
+h3 { font-size: $font-size-2xl; }
+h4 { font-size: $font-size-xl; }
+h5 { font-size: $font-size-lg; }
+h6 { font-size: $font-size-base; }
+
+p {
+  margin-bottom: $spacing-lg;
+  color: $text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-hover;
+    text-decoration: underline;
+  }
+}
+
+ul, ol {
+  margin-bottom: $spacing-lg;
+  padding-left: $spacing-2xl;
+}
+
+li {
+  margin-bottom: $spacing-sm;
+  color: $text-secondary;
+}
+
+blockquote {
+  margin: $spacing-2xl 0;
+  padding: $spacing-xl;
+  border-left: 4px solid $primary-color;
+  background: $bg-secondary;
+  border-radius: $border-radius-md;
+  font-style: italic;
+  
+  p {
+    margin-bottom: 0;
+  }
+}
+
+code {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  background: $bg-light;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  color: $primary-color;
+}
+
+pre {
+  @include code-block;
+  margin: $spacing-2xl 0;
+  
+  code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// Layout
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  
+  @include respond-to(lg) {
+    padding: 0 $spacing-3xl;
+  }
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: $text-primary !important; }
+.text-secondary { color: $text-secondary !important; }
+.text-muted { color: $text-muted !important; }
+.text-success { color: $success-color !important; }
+.text-warning { color: $warning-color !important; }
+.text-danger { color: $danger-color !important; }
+
+.bg-primary { background-color: $bg-primary !important; }
+.bg-secondary { background-color: $bg-secondary !important; }
+.bg-success { background-color: $bg-success !important; }
+.bg-warning { background-color: $bg-warning !important; }
+.bg-danger { background-color: $bg-danger !important; }
+
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+.flex-center { @include flex-center; }
+.flex-between { @include flex-between; }
+.flex-column { @include flex-column; }
+.flex-wrap { @include flex-wrap; }
+
+.m-0 { margin: 0 !important; }
+.m-1 { margin: $spacing-sm !important; }
+.m-2 { margin: $spacing-lg !important; }
+.m-3 { margin: $spacing-2xl !important; }
+.m-4 { margin: $spacing-3xl !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: $spacing-sm !important; }
+.p-2 { padding: $spacing-lg !important; }
+.p-3 { padding: $spacing-2xl !important; }
+.p-4 { padding: $spacing-3xl !important; }
+
+// Common button classes
+.btn {
+  @include button-base;
+}
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-secondary {
+  @include button-secondary;
+}
+
+.btn-outline {
+  @include button-outline;
+}
+
+.btn-topic {
+  @include button-primary;
+  width: 100%;
+  justify-content: center;
+  gap: $spacing-md;
+  font-size: $font-size-sm;
+  padding: $spacing-lg $spacing-xl;
+  
+  i {
+    transition: transform $transition-fast;
+  }
+  
+  &:hover i {
+    transform: translateX(3px);
+  }
+}
+
+// Form elements
+input, select, textarea {
+  @include input-base;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-light;
+  border-radius: $border-radius-sm;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-dark;
+  border-radius: $border-radius-sm;
+  
+  &:hover {
+    background: $text-secondary;
+  }
+}
+
+// Selection styling
+::selection {
+  background: rgba($primary-color, 0.2);
+  color: $text-primary;
+}
+
+::-moz-selection {
+  background: rgba($primary-color, 0.2);
+  color: $text-primary;
+}
+
+// Focus styles
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Loading spinner
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid $bg-light;
+  border-top: 3px solid $primary-color;
+  border-radius: $border-radius-full;
+  animation: spin 1s linear infinite;
+}
+
+// Accessibility
+.sr-only {
+  @include visually-hidden;
+}
+
+// Print styles
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a, a:visited {
+    text-decoration: underline;
+  }
+  
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr, img {
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

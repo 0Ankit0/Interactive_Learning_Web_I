@@ -1,0 +1,27 @@
+// Main SCSS file for the Web Technology I Interactive Course
+// This file imports all the partial SCSS files using modern @use syntax
+// Updated with comprehensive topic page styling and fixed error-color variable
+
+// 1. Variables and configuration
+@use 'variables' as *;
+
+// 2. Mixins and functions
+@use 'mixins' as *;
+
+// 3. Animations and keyframes
+@use 'animations' as *;
+
+// 4. Base styles and resets
+@use 'base' as *;
+
+// 5. Layout components
+@use 'layout' as *;
+@use 'unit' as *;
+@use 'topic' as *;
+
+// Additional topic partials can be imported here as they are created
+// @use 'evolution-web-topic' as *;
+// @use 'urls-web-topic' as *;
+// @use 'html-topic' as *;
+// @use 'css-topic' as *;
+// @use 'javascript-topic' as *;

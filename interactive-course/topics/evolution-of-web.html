@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evolution of the Web - Interactive Learning</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link
@@ -15,35 +15,35 @@
     />
   </head>
   <body>
-    <nav class="">
-      <div class="">
-        <a href="../index.html"><i class=""></i> Home</a>
-        <span class="">/</span>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
         <a href="../units/unit1.html">Unit 1</a>
-        <span class="">/</span>
-        <span class="">Evolution of the Web</span>
+        <span class="separator">/</span>
+        <span class="current">Evolution of the Web</span>
       </div>
     </nav>
 
-    <header class="">
-      <div class="">
-        <div class="">
-          <div class="">
-            <i class=""></i>
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-history"></i>
           </div>
-          <div class="">
-            <h1 class="">1.1 Evolution of the Web</h1>
-            <p class="">From ARPANET to Web 4.0 • 45 minutes</p>
-            <p class="">
+          <div class="topic-header-text">
+            <h1 class="topic-title">1.1 Evolution of the Web</h1>
+            <p class="topic-subtitle">From ARPANET to Web 4.0 • 45 minutes</p>
+            <p class="topic-description">
               Explore the fascinating journey of the World Wide Web from its
               humble beginnings to the modern interactive platforms we use
               today.
             </p>
           </div>
         </div>
-        <div class="">
+        <div class="progress-bar">
           <div
-            class=""
+            class="progress-fill"
             id="topic-progress"
             style="width: 0%"
           ></div>
@@ -51,10 +51,10 @@
       </div>
     </header>
 
-    <main class="">
-      <div class="">
-        <div class="">
-          <aside class="">
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
             <h3>Table of Contents</h3>
             <ul>
               <li>
@@ -106,29 +106,39 @@
             </ul>
           </aside>
 
-          <div class="">
-            <section id="history" class="">
-              <h2><i class=""></i> History of the Web</h2>
+          <div class="content-main">
+            <section id="history" class="content-section">
+              <h2><i class="fas fa-clock"></i> History of the Web</h2>
 
-              <div class="">
+              <div class="image-container">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/First_Web_Server.jpg/640px-First_Web_Server.jpg"
                   alt="First Web Server - NeXT Computer at CERN"
                   loading="lazy"
                   onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkZpcnN0IFdlYiBTZXJ2ZXI8L3RleHQ+PC9zdmc+'"
                 />
-                <div class="">
+                <div class="image-caption">
                   The NeXT computer used by Tim Berners-Lee at CERN - the
                   world's first web server
                 </div>
               </div>
 
-              <div class="">
-                <h3><i class=""></i> Key Insight</h3>
+              <div class="info-box">
+                <h3><i class="fas fa-lightbulb"></i> Key Insight</h3>
                 <p>
                   The World Wide Web was invented in 1989 by Tim Berners-Lee at
                   CERN, initially as a solution to share information between
                   researchers worldwide.
+                </p>
+              </div>
+
+              <div class="info-box">
+                <h3><i class="fas fa-question-circle"></i> Why It Matters</h3>
+                <p>
+                  The web started as a way for scientists to share ideas easily.
+                  Today, it connects billions of people worldwide, like how a
+                  phone lets you call friends—except it's for information and
+                  fun!
                 </p>
               </div>
 
@@ -141,87 +151,63 @@
                 the world forever.
               </p>
 
-              <div class="">
-                <h3>Web Evolution Timeline <span>4 Key Events</span></h3>
-                <div class="">
-                  <div class="">
-                    <div class="">1980</div>
-                    <div class="">
-                      <h4><i class=""></i> ENQUIRE Created</h4>
+              <div class="timeline-section">
+                <h3>Key Milestones in Web History</h3>
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-year">1980</div>
+                    <div class="timeline-content">
+                      <h4>ENQUIRE</h4>
                       <p>
-                        <strong>Innovation:</strong> Tim Berners-Lee creates
-                        ENQUIRE, a hypertext system that serves as a precursor
-                        to the Web.<br />
-                        <strong>Impact:</strong> First step towards
-                        interconnected information systems<br />
-                        <strong>Location:</strong> CERN, Switzerland
+                        Tim Berners-Lee creates ENQUIRE, a hypertext system that
+                        serves as a precursor to the Web.
                       </p>
-                      <p class="">- Tim Berners-Lee</p>
                     </div>
                   </div>
-                  <div class="">
-                    <div class="">1989</div>
-                    <div class="">
-                      <h4>
-                        <i class=""></i> Web Proposal Submitted
-                      </h4>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1989</div>
+                    <div class="timeline-content">
+                      <h4>Web Proposal</h4>
                       <p>
-                        <strong>Document:</strong> "Information Management: A
-                        Proposal" submitted at CERN<br />
-                        <strong>Vision:</strong> A "web" of hypertext documents
-                        accessible worldwide<br />
-                        <strong>Status:</strong> Initially marked as "vague but
-                        exciting"
+                        Berners-Lee submits "Information Management: A Proposal"
+                        at CERN, proposing a "web" of hypertext documents.
                       </p>
-                      <p class="">- Tim Berners-Lee</p>
                     </div>
                   </div>
-                  <div class="">
-                    <div class="">1990</div>
-                    <div class="">
-                      <h4><i class=""></i> WWW Components Built</h4>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1990</div>
+                    <div class="timeline-content">
+                      <h4>WWW Components</h4>
                       <p>
-                        <strong>Technologies:</strong> HTTP, HTML, URLs
-                        developed<br />
-                        <strong>Browser:</strong> First web browser
-                        (WorldWideWeb) created<br />
-                        <strong>Server:</strong> First web server software
-                        implemented<br />
-                        <strong>Duration:</strong> October - December 1990
+                        Development of HTTP, HTML, URLs, and the first web
+                        browser (WorldWideWeb) begins.
                       </p>
-                      <p class="">- Tim Berners-Lee & Team</p>
                     </div>
                   </div>
-                  <div class="">
-                    <div class="">1991</div>
-                    <div class="">
-                      <h4>
-                        <i class=""></i> First Website Goes Live
-                      </h4>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1991</div>
+                    <div class="timeline-content">
+                      <h4>First Website</h4>
                       <p>
-                        <strong>URL:</strong> <code>info.cern.ch</code><br />
-                        <strong>Purpose:</strong> Explaining the World Wide Web
-                        project<br />
-                        <strong>Content:</strong> Project information, how to
-                        create websites, how to browse<br />
-                        <strong>Date:</strong> August 6, 1991
+                        The first website goes online at
+                        <code>info.cern.ch</code>, explaining the World Wide Web
+                        project.
                       </p>
-                      <p class="">- CERN Web Team</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="">
+              <div class="interactive-element">
                 <h3>
-                  <i class=""></i> Interactive Demo: First Web
+                  <i class="fas fa-play"></i> Interactive Demo: First Web
                   Browser
                 </h3>
-                <div class="">
-                  <div class="">
-                    <div class="">WorldWideWeb Browser (1990)</div>
+                <div class="browser-simulator">
+                  <div class="browser-header">
+                    <div class="browser-title">WorldWideWeb Browser (1990)</div>
                   </div>
-                  <div class="">
+                  <div class="browser-content">
                     <h4>The project</h4>
                     <p>
                       The WorldWideWeb (W3) is a wide-area
@@ -265,7 +251,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="">
+                <div class="demo-controls">
                   <button onclick="simulateBrowsing()">
                     Simulate Link Navigation
                   </button>
@@ -276,22 +262,22 @@
               </div>
             </section>
 
-            <section id="www" class="">
-              <h2><i class=""></i> World Wide Web</h2>
+            <section id="www" class="content-section">
+              <h2><i class="fas fa-globe"></i> World Wide Web</h2>
 
-              <div class="">
+              <div class="concept-diagram">
                 <h3>WWW Architecture</h3>
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+                <div class="architecture-visual">
+                  <div class="arch-component client">
+                    <i class="fas fa-desktop"></i>
                     <span>Web Browser<br />(Client)</span>
                   </div>
-                  <div class="">
-                    <i class=""></i>
+                  <div class="arch-arrow">
+                    <i class="fas fa-exchange-alt"></i>
                     <span>HTTP Request/Response</span>
                   </div>
-                  <div class="">
-                    <i class=""></i>
+                  <div class="arch-component server">
+                    <i class="fas fa-server"></i>
                     <span>Web Server</span>
                   </div>
                 </div>
@@ -302,25 +288,25 @@
                 developed by Tim Berners-Lee:
               </p>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <i class="fas fa-code"></i>
                   <h4>HTML</h4>
                   <p>
                     HyperText Markup Language - the publishing language for web
                     documents
                   </p>
                 </div>
-                <div class="">
-                  <i class=""></i>
+                <div class="feature-card">
+                  <i class="fas fa-link"></i>
                   <h4>HTTP</h4>
                   <p>
                     HyperText Transfer Protocol - the communication protocol for
                     the web
                   </p>
                 </div>
-                <div class="">
-                  <i class=""></i>
+                <div class="feature-card">
+                  <i class="fas fa-map-marker-alt"></i>
                   <h4>URLs</h4>
                   <p>
                     Uniform Resource Locators - the addressing system for web
@@ -329,18 +315,19 @@
                 </div>
               </div>
 
-              <div class="">
+              <div class="code-example">
                 <h4>
-                  <i class=""></i> Try It: Simple HTML Document
+                  <i class="fas fa-terminal"></i> Try It: Simple HTML Document
                 </h4>
-                <div class="">
-                  <div class="">
-                    <span>HTML</span>
-                    <button onclick="runHTMLExample()" class="">
-                      Run Code
-                    </button>
-                  </div>
-                  <textarea id="html-code" spellcheck="false">
+                <div class="code-editor-container">
+                  <div class="code-editor">
+                    <div class="editor-header">
+                      <span>HTML</span>
+                      <button onclick="runHTMLExample()" class="run-btn">
+                        Run Code
+                      </button>
+                    </div>
+                    <textarea id="html-code" spellcheck="false">
 <!DOCTYPE html>
 <html>
 <head>
@@ -354,8 +341,8 @@
 </html></textarea
                     >
                   </div>
-                  <div class="">
-                    <div class="">Preview</div>
+                  <div class="output-preview">
+                    <div class="preview-header">Preview</div>
                     <iframe
                       id="html-output"
                       sandbox="allow-same-origin"
@@ -365,11 +352,11 @@
               </div>
             </section>
 
-            <section id="url" class="">
-              <h2><i class=""></i> URLs and Addressing</h2>
+            <section id="url" class="content-section">
+              <h2><i class="fas fa-link"></i> URLs and Addressing</h2>
 
-              <div class="">
-                <h3><i class=""></i> Did You Know?</h3>
+              <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> Did You Know?</h3>
                 <p>
                   The first URL ever created was
                   <code>http://info.cern.ch/hypertext/WWW/TheProject.html</code
@@ -383,32 +370,54 @@
                 fundamental to web development.
               </p>
 
-              <div class="">
+              <div class="url-breakdown">
                 <h4>Anatomy of a URL</h4>
-                <div class="">
-                  <div class="">
-                    <span class="">https://</span
-                    ><span class="">www.example.com</span
-                    ><span class="">:443</span
-                    ><span class="">/path/to/page</span
-                    ><span class="">?id=123&amp;name=test</span
-                    ><span class="">#section</span>
+                <div class="url-parts">
+                  <div class="url-example">
+                    <span class="url-part protocol">https://</span
+                    ><span class="url-part domain">www.example.com</span
+                    ><span class="url-part port">:443</span
+                    ><span class="url-part path">/path/to/page</span
+                    ><span class="url-part query">?id=123&amp;name=test</span
+                    ><span class="url-part fragment">#section</span>
                   </div>
-                  <div class="">
-                    <div class="">Protocol</div>
-                    <div class="">Domain</div>
-                    <div class="">Port</div>
-                    <div class="">Path</div>
-                    <div class="">Query</div>
-                    <div class="">Fragment</div>
+                  <div class="url-labels">
+                    <div class="label protocol">Protocol</div>
+                    <div class="label domain">Domain</div>
+                    <div class="label port">Port</div>
+                    <div class="label path">Path</div>
+                    <div class="label query">Query</div>
+                    <div class="label fragment">Fragment</div>
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <h4><i class=""></i> URL Builder Tool</h4>
-                <div class="">
-                  <div class="">
+              <div class="step-guide">
+                <h4>Step-by-Step: How URLs Work</h4>
+                <ol>
+                  <li>
+                    <strong>Protocol</strong>: Like choosing "call" or "text" on
+                    your phone (e.g., https:// means secure).
+                  </li>
+                  <li>
+                    <strong>Domain</strong>: The website's name, like a house
+                    address (e.g., google.com).
+                  </li>
+                  <li>
+                    <strong>Path</strong>: The specific page, like a room in the
+                    house (e.g., /search).
+                  </li>
+                  <li>
+                    <strong>Query</strong>: Extra details, like asking for a
+                    specific item (e.g., ?q=web).
+                  </li>
+                </ol>
+              </div>
+
+              <div class="interactive-element">
+                <h4><i class="fas fa-tools"></i> URL Builder Tool</h4>
+                <div class="url-builder">
+                  <div class="input-group">
                     <label>Protocol:</label>
                     <select id="protocol" onchange="buildURL()">
                       <option value="https://">https://</option>
@@ -416,7 +425,7 @@
                       <option value="ftp://">ftp://</option>
                     </select>
                   </div>
-                  <div class="">
+                  <div class="input-group">
                     <label>Domain:</label>
                     <input
                       type="text"
@@ -426,7 +435,7 @@
                       placeholder="example.com"
                     />
                   </div>
-                  <div class="">
+                  <div class="input-group">
                     <label>Path:</label>
                     <input
                       type="text"
@@ -436,7 +445,7 @@
                       placeholder="/path/to/page"
                     />
                   </div>
-                  <div class="">
+                  <div class="input-group">
                     <label>Query:</label>
                     <input
                       type="text"
@@ -446,7 +455,7 @@
                       placeholder="?key=value"
                     />
                   </div>
-                  <div class="">
+                  <div class="url-result">
                     <strong>Your URL:</strong>
                     <code id="built-url">https://example.com/page?id=123</code>
                   </div>
@@ -454,16 +463,16 @@
               </div>
             </section>
 
-            <section id="versions" class="">
-              <h2><i class=""></i> Versions of the Web</h2>
+            <section id="versions" class="content-section">
+              <h2><i class="fas fa-layer-group"></i> Versions of the Web</h2>
 
-              <div class="">
-                <div class="">
-                  <div class="">
+              <div class="web-versions">
+                <div class="version-card web1">
+                  <div class="version-header">
                     <h3>Web 1.0 (1989-2004)</h3>
-                    <span class="">Read-Only Web</span>
+                    <span class="version-tag">Read-Only Web</span>
                   </div>
-                  <div class="">
+                  <div class="version-content">
                     <p><strong>Characteristics:</strong></p>
                     <ul>
                       <li>Static HTML pages</li>
@@ -471,19 +480,19 @@
                       <li>Limited interactivity</li>
                       <li>Dial-up connections</li>
                     </ul>
-                    <div class="">
+                    <div class="version-example">
                       <strong>Example:</strong> Early news websites, company
                       brochures
                     </div>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="version-card web2">
+                  <div class="version-header">
                     <h3>Web 2.0 (2004-2016)</h3>
-                    <span class="">Read-Write Web</span>
+                    <span class="version-tag">Read-Write Web</span>
                   </div>
-                  <div class="">
+                  <div class="version-content">
                     <p><strong>Characteristics:</strong></p>
                     <ul>
                       <li>User-generated content</li>
@@ -491,19 +500,19 @@
                       <li>AJAX and dynamic content</li>
                       <li>Collaboration and sharing</li>
                     </ul>
-                    <div class="">
+                    <div class="version-example">
                       <strong>Example:</strong> Facebook, YouTube, Wikipedia,
                       blogs
                     </div>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="version-card web3">
+                  <div class="version-header">
                     <h3>Web 3.0 (2016-present)</h3>
-                    <span class="">Semantic Web</span>
+                    <span class="version-tag">Semantic Web</span>
                   </div>
-                  <div class="">
+                  <div class="version-content">
                     <p><strong>Characteristics:</strong></p>
                     <ul>
                       <li>AI and machine learning</li>
@@ -511,19 +520,19 @@
                       <li>IoT integration</li>
                       <li>Blockchain technology</li>
                     </ul>
-                    <div class="">
+                    <div class="version-example">
                       <strong>Example:</strong> Voice assistants, smart
                       recommendations
                     </div>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="version-card web4">
+                  <div class="version-header">
                     <h3>Web 4.0 (Future)</h3>
-                    <span class="">Ubiquitous Web</span>
+                    <span class="version-tag">Ubiquitous Web</span>
                   </div>
-                  <div class="">
+                  <div class="version-content">
                     <p><strong>Characteristics:</strong></p>
                     <ul>
                       <li>Artificial intelligence</li>
@@ -531,7 +540,7 @@
                       <li>Virtual/Augmented reality</li>
                       <li>Brain-computer interfaces</li>
                     </ul>
-                    <div class="">
+                    <div class="version-example">
                       <strong>Example:</strong> Metaverse, AI assistants, smart
                       cities
                     </div>
@@ -539,15 +548,27 @@
                 </div>
               </div>
 
-              <div class="">
-                <h4><i class=""></i> Web Evolution Quiz Game</h4>
-                <div class="" id="web-evolution-game">
-                  <div class="">
+              <div class="info-box">
+                <h3>
+                  <i class="fas fa-question-circle"></i> Think of It Like This
+                </h3>
+                <p>
+                  Web 1.0 is like a library book—you read it but can't write
+                  notes. Web 2.0 is like a shared notebook where everyone adds
+                  ideas. Web 3.0 is like a smart assistant that knows what you
+                  like and suggests things.
+                </p>
+              </div>
+
+              <div class="interactive-element">
+                <h4><i class="fas fa-gamepad"></i> Web Evolution Quiz Game</h4>
+                <div class="quiz-game" id="web-evolution-game">
+                  <div class="game-question">
                     <p>
                       Which web version introduced social media and
                       user-generated content?
                     </p>
-                    <div class="">
+                    <div class="game-options">
                       <button onclick="selectAnswer(this, false)">
                         Web 1.0
                       </button>
@@ -561,14 +582,14 @@
                         Web 4.0
                       </button>
                     </div>
-                    <div class="" id="game-feedback"></div>
+                    <div class="game-feedback" id="game-feedback"></div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <section id="search-engines" class="">
-              <h2><i class=""></i> Search Engines</h2>
+            <section id="search-engines" class="content-section">
+              <h2><i class="fas fa-search"></i> Search Engines</h2>
 
               <p>
                 Search engines revolutionized how we find information on the
@@ -576,11 +597,11 @@
                 sophisticated AI-powered systems.
               </p>
 
-              <div class="">
-                <div class="">
+              <div class="search-evolution">
+                <div class="search-era">
                   <h4>Early Era (1990s)</h4>
-                  <div class="">
-                    <div class="">
+                  <div class="search-engines">
+                    <div class="search-engine">
                       <img
                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNmZmY1MDAiLz48dGV4dCB4PSIzMiIgeT0iMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlk8L3RleHQ+PC9zdmc+"
                         alt="Yahoo!"
@@ -588,7 +609,7 @@
                       />
                       <span>Yahoo! (1994)</span>
                     </div>
-                    <div class="">
+                    <div class="search-engine">
                       <img
                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0Mjg1ZjQiLz48dGV4dCB4PSIzMiIgeT0iMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFsdGE8L3RleHQ+PC9zdmc+"
                         alt="AltaVista"
@@ -598,10 +619,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="">
+                <div class="search-era">
                   <h4>Modern Era (1998+)</h4>
-                  <div class="">
-                    <div class="">
+                  <div class="search-engines">
+                    <div class="search-engine dominant">
                       <img
                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiM0Mjg1ZjQiLz48dGV4dCB4PSIzMiIgeT0iMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkc8L3RleHQ+PC9zdmc+"
                         alt="Google"
@@ -609,7 +630,7 @@
                       />
                       <span>Google (1998)</span>
                     </div>
-                    <div class="">
+                    <div class="search-engine">
                       <img
                         src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiMwMDc4ZDciLz48dGV4dCB4PSIzMiIgeT0iMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkI8L3RleHQ+PC9zdmc+"
                         alt="Bing"
@@ -621,10 +642,10 @@
                 </div>
               </div>
 
-              <div class="">
-                <h4><i class=""></i> Search Engine Simulator</h4>
-                <div class="">
-                  <div class="">
+              <div class="search-simulator">
+                <h4><i class="fas fa-magic"></i> Search Engine Simulator</h4>
+                <div class="search-interface">
+                  <div class="search-box">
                     <input
                       type="text"
                       id="search-input"
@@ -632,11 +653,11 @@
                       value="hypertext"
                     />
                     <button onclick="simulateSearch()">
-                      <i class=""></i>
+                      <i class="fas fa-search"></i>
                     </button>
                   </div>
-                  <div class="" id="search-results">
-                    <div class="">
+                  <div class="search-results" id="search-results">
+                    <div class="result-item">
                       <h4><a href="#">Tim Berners-Lee's WWW Proposal</a></h4>
                       <p>
                         The original proposal for the World Wide Web, submitted
@@ -644,7 +665,7 @@
                       </p>
                       <cite>info.cern.ch/hypertext/WWW/Proposal.html</cite>
                     </div>
-                    <div class="">
+                    <div class="result-item">
                       <h4><a href="#">What is Hypertext?</a></h4>
                       <p>
                         An introduction to hypertext systems and their role in
@@ -657,71 +678,71 @@
               </div>
             </section>
 
-            <section id="websites-vs-apps" class="">
+            <section id="websites-vs-apps" class="content-section">
               <h2>
-                <i class=""></i> Websites vs Web
+                <i class="fas fa-balance-scale"></i> Websites vs Web
                 Applications
               </h2>
 
-              <div class="">
-                <div class="">
-                  <div class="">Websites</div>
-                  <!-- <div class="">VS</div> -->
-                  <div class="">Web Applications</div>
+              <div class="comparison-table">
+                <div class="comparison-header">
+                  <div class="comparison-title">Websites</div>
+                  <!-- <div class="comparison-vs">VS</div> -->
+                  <div class="comparison-title">Web Applications</div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="comparison-row">
+                  <div class="comparison-cell">
                     <h4>Purpose</h4>
                     <p>Informational content display</p>
                   </div>
-                  <div class="">
+                  <div class="comparison-cell">
                     <h4>Purpose</h4>
                     <p>Interactive functionality and tasks</p>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="comparison-row">
+                  <div class="comparison-cell">
                     <h4>Interaction</h4>
                     <p>Limited user interaction</p>
                   </div>
-                  <div class="">
+                  <div class="comparison-cell">
                     <h4>Interaction</h4>
                     <p>Highly interactive</p>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="comparison-row">
+                  <div class="comparison-cell">
                     <h4>Examples</h4>
                     <p>News sites, blogs, portfolios</p>
                   </div>
-                  <div class="">
+                  <div class="comparison-cell">
                     <h4>Examples</h4>
                     <p>Gmail, Google Docs, Netflix</p>
                   </div>
                 </div>
               </div>
 
-              <div class="">
+              <div class="interactive-element">
                 <h4>
-                  <i class=""></i> Interactive Demo: Website
+                  <i class="fas fa-mouse-pointer"></i> Interactive Demo: Website
                   vs Web App
                 </h4>
-                <div class="">
-                  <button class="" onclick="showDemo('website')">
+                <div class="demo-tabs">
+                  <button class="tab-btn active" onclick="showDemo('website')">
                     Traditional Website
                   </button>
-                  <button class="" onclick="showDemo('webapp')">
+                  <button class="tab-btn" onclick="showDemo('webapp')">
                     Modern Web App
                   </button>
                 </div>
-                <div class="">
-                  <div id="website-demo" class="">
-                    <div class="">
-                      <div class="">Traditional News Website</div>
-                      <div class="">
+                <div class="demo-container">
+                  <div id="website-demo" class="demo-content active">
+                    <div class="mock-browser">
+                      <div class="browser-bar">Traditional News Website</div>
+                      <div class="website-content">
                         <h3>Daily News</h3>
                         <p>
                           Static content that refreshes only when you reload the
@@ -735,12 +756,12 @@
                       </div>
                     </div>
                   </div>
-                  <div id="webapp-demo" class="">
-                    <div class="">
-                      <div class="">Modern Social Media App</div>
-                      <div class="">
+                  <div id="webapp-demo" class="demo-content">
+                    <div class="mock-browser">
+                      <div class="browser-bar">Modern Social Media App</div>
+                      <div class="webapp-content">
                         <h3>Social Feed</h3>
-                        <div class="" id="live-updates">
+                        <div class="live-updates" id="live-updates">
                           <p>Real-time updates appear here...</p>
                         </div>
                         <button onclick="addUpdate()">Post Update</button>
@@ -754,55 +775,170 @@
               </div>
             </section>
 
-            <section id="quiz" class="">
-              <h2><i class=""></i> Knowledge Check</h2>
+            <section id="interactive-timeline" class="content-section">
+              <h2><i class="fas fa-clock"></i> Interactive Web Timeline</h2>
 
-              <div class="" id="knowledge-quiz">
-                <div class="">
-                  <div class="">
+              <div class="interactive-timeline">
+                <div class="timeline-controls">
+                  <button onclick="playTimeline()" id="play-btn">
+                    <i class="fas fa-play"></i> Play Timeline
+                  </button>
+                  <button onclick="resetTimeline()">
+                    <i class="fas fa-refresh"></i> Reset
+                  </button>
+                  <div class="timeline-speed">
+                    <label>Speed:</label>
+                    <input
+                      type="range"
+                      id="speed-control"
+                      min="1"
+                      max="5"
+                      value="3"
+                      onchange="updateSpeed()"
+                    />
+                  </div>
+                </div>
+
+                <div class="timeline-track">
+                  <div class="timeline-progress" id="timeline-progress"></div>
+                  <div class="timeline-events">
                     <div
-                      class=""
+                      class="timeline-event"
+                      data-year="1969"
+                      data-title="ARPANET"
+                      data-description="The precursor to the internet is created"
+                    >
+                      <div class="event-marker">1969</div>
+                      <div class="event-popup">
+                        <h4>ARPANET Created</h4>
+                        <p>
+                          The first network that would eventually become the
+                          internet
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="timeline-event"
+                      data-year="1989"
+                      data-title="WWW Proposed"
+                      data-description="Tim Berners-Lee proposes the World Wide Web"
+                    >
+                      <div class="event-marker">1989</div>
+                      <div class="event-popup">
+                        <h4>WWW Proposed</h4>
+                        <p>
+                          Tim Berners-Lee submits his proposal for the World
+                          Wide Web
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="timeline-event"
+                      data-year="1993"
+                      data-title="Mosaic Browser"
+                      data-description="The first popular graphical web browser"
+                    >
+                      <div class="event-marker">1993</div>
+                      <div class="event-popup">
+                        <h4>Mosaic Browser</h4>
+                        <p>
+                          The first web browser with inline images and
+                          user-friendly interface
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="timeline-event"
+                      data-year="2004"
+                      data-title="Web 2.0"
+                      data-description="Social media and user-generated content emerge"
+                    >
+                      <div class="event-marker">2004</div>
+                      <div class="event-popup">
+                        <h4>Web 2.0 Era</h4>
+                        <p>
+                          Facebook launches, ushering in the era of social media
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="timeline-event"
+                      data-year="2020"
+                      data-title="Web 3.0"
+                      data-description="AI and decentralized web technologies"
+                    >
+                      <div class="event-marker">2020</div>
+                      <div class="event-popup">
+                        <h4>Web 3.0 Era</h4>
+                        <p>
+                          AI, blockchain, and decentralized technologies reshape
+                          the web
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="timeline-details" id="timeline-details">
+                  <h4>Web Evolution Timeline</h4>
+                  <p>
+                    Click play to see how the web evolved from a simple
+                    information sharing system to the complex ecosystem we know
+                    today.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="progress-bar">
+                    <div
+                      class="progress-fill"
                       id="quiz-progress"
                       style="width: 0%"
                     ></div>
                   </div>
-                  <span class=""
+                  <span class="progress-text"
                     >Question <span id="current-question">1</span> of
                     <span id="total-questions">5</span></span
                   >
                 </div>
 
-                <div class="" id="quiz-question">
+                <div class="quiz-question" id="quiz-question">
                   <h3>Who invented the World Wide Web?</h3>
-                  <div class="">
+                  <div class="quiz-options">
                     <button
-                      class=""
+                      class="quiz-option"
                       onclick="selectQuizAnswer(this, false)"
                     >
                       Bill Gates
                     </button>
                     <button
-                      class=""
+                      class="quiz-option"
                       onclick="selectQuizAnswer(this, true)"
                     >
                       Tim Berners-Lee
                     </button>
                     <button
-                      class=""
+                      class="quiz-option"
                       onclick="selectQuizAnswer(this, false)"
                     >
                       Steve Jobs
                     </button>
                     <button
-                      class=""
+                      class="quiz-option"
                       onclick="selectQuizAnswer(this, false)"
                     >
                       Mark Zuckerberg
                     </button>
                   </div>
-                  <div class="" id="quiz-feedback"></div>
+                  <div class="quiz-feedback" id="quiz-feedback"></div>
                   <button
-                    class=""
+                    class="quiz-next"
                     id="quiz-next"
                     onclick="nextQuestion()"
                     style="display: none"
@@ -812,22 +948,115 @@
                 </div>
 
                 <div
-                  class=""
+                  class="quiz-results"
                   id="quiz-results"
                   style="display: none"
                 >
                   <h3>Quiz Complete!</h3>
-                  <div class="">
-                    <div class="">
+                  <div class="score-display">
+                    <div class="score-circle">
                       <span id="final-score">4/5</span>
                     </div>
                     <p>Great job! You've mastered the evolution of the web.</p>
                   </div>
-                  <div class="">
+                  <div class="results-actions">
                     <button onclick="retakeQuiz()">Retake Quiz</button>
                     <button onclick="completeLesson()">Complete Lesson</button>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            <section id="further-reading" class="content-section">
+              <h2><i class="fas fa-book"></i> Further Reading & Resources</h2>
+
+              <div class="resource-grid">
+                <div class="resource-card">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tim_Berners-Lee_April_2009.jpg/320px-Tim_Berners-Lee_April_2009.jpg"
+                    alt="Tim Berners-Lee"
+                    loading="lazy"
+                  />
+                  <h4>Tim Berners-Lee Biography</h4>
+                  <p>Learn more about the inventor of the web.</p>
+                  <a
+                    href="https://en.wikipedia.org/wiki/Tim_Berners-Lee"
+                    target="_blank"
+                    >Read Article</a
+                  >
+                </div>
+                <div class="resource-card">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/World_Wide_Web_logo.svg/320px-World_Wide_Web_logo.svg.png"
+                    alt="World Wide Web Logo"
+                    loading="lazy"
+                  />
+                  <h4>History of the Internet</h4>
+                  <p>A detailed timeline from ARPANET to today.</p>
+                  <a href="https://www.w3.org/History.html" target="_blank"
+                    >Explore Timeline</a
+                  >
+                </div>
+                <div class="resource-card">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Google_logo_%282010-2015%29.svg/320px-Google_logo_%282010-2015%29.svg.png"
+                    alt="Google Search Engine"
+                    loading="lazy"
+                  />
+                  <h4>How Search Engines Work</h4>
+                  <p>Simple guide to web indexing and ranking.</p>
+                  <a
+                    href="https://www.google.com/search/howsearchworks/"
+                    target="_blank"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+
+              <div class="video-section">
+                <h4>Related Video</h4>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/3LopI4YeC4I"
+                  title="The History of the Internet"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                ></iframe>
+                <p>
+                  Watch this short video on the evolution of the web (source:
+                  TED-Ed).
+                </p>
+              </div>
+
+              <div class="links-section">
+                <h4>Additional Links</h4>
+                <ul>
+                  <li>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML"
+                      target="_blank"
+                      >MDN Web Docs: HTML Basics</a
+                    >
+                    - Free tutorials for beginners.
+                  </li>
+                  <li>
+                    <a href="https://www.w3schools.com/html/" target="_blank"
+                      >W3Schools HTML Tutorial</a
+                    >
+                    - Interactive coding examples.
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.khanacademy.org/computing/computer-programming/html-css"
+                      target="_blank"
+                      >Khan Academy: Web Development</a
+                    >
+                    - Video lessons on web tech.
+                  </li>
+                </ul>
               </div>
             </section>
           </div>
@@ -835,8 +1064,7 @@
       </div>
     </main>
 
-    <script src="../dist/js/main.js"></script>
-    <script src="../dist/js/data-loader.js"></script>
-    <script src="../dist/js/topic.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/topic.js"></script>
   </body>
 </html>
