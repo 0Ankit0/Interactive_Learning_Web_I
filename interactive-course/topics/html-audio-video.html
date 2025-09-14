@@ -15,31 +15,6 @@
     />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-brand">
-          <a href="../index.html">Interactive Web Course</a>
-        </div>
-        <ul class="nav-menu">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../units/unit1.html">Unit 1</a></li>
-          <li><a href="../units/unit2.html" class="active">Unit 2</a></li>
-          <li><a href="../units/unit3.html">Unit 3</a></li>
-          <li><a href="../units/unit4.html">Unit 4</a></li>
-          <li><a href="../units/unit5.html">Unit 5</a></li>
-          <li><a href="../units/unit6.html">Unit 6</a></li>
-          <li><a href="../units/unit7.html">Unit 7</a></li>
-        </ul>
-        <div class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Breadcrumb -->
     <nav class="breadcrumb">
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
@@ -50,54 +25,38 @@
       </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
+    <header class="topic-header">
       <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              <i class="fas fa-play-circle"></i>
-              HTML Audio and Video Elements
-            </h1>
-            <p class="hero-description">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">HTML Audio and Video Elements</h1>
+            <p class="topic-subtitle">Multimedia Content Integration</p>
+            <p class="topic-description">
               Master multimedia content integration in HTML with audio and video
               elements, learning modern best practices for accessibility,
               compatibility, and user experience.
             </p>
-            <div class="hero-stats">
-              <div class="stat">
-                <span class="stat-number">2</span>
-                <span class="stat-label">Core Elements</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">10+</span>
-                <span class="stat-label">Attributes</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Formats</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Interactive</span>
-              </div>
-            </div>
           </div>
-          <div class="hero-visual">
-            <div class="visual-element">
-              <i class="fas fa-film"></i>
-            </div>
+        </div>
+        <div class="topic-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="topic-progress"></div>
           </div>
-        </section>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+    </header>
 
         <!-- Learning Objectives -->
         <section class="learning-objectives">
           <div class="container">
             <h2><i class="fas fa-bullseye"></i> Learning Objectives</h2>
-            <div class="objectives-grid">
-              <div class="objective-card">
-                <div class="objective-icon">
+            <div class="grid-auto-fit">
+              <div class="card-feature">
+                <div class="card-feature-icon">
                   <i class="fas fa-volume-up"></i>
                 </div>
                 <h3>Audio Integration</h3>
@@ -106,8 +65,8 @@
                   and fallbacks for cross-browser compatibility.
                 </p>
               </div>
-              <div class="objective-card">
-                <div class="objective-icon">
+              <div class="card-feature">
+                <div class="card-feature-icon">
                   <i class="fas fa-video"></i>
                 </div>
                 <h3>Video Embedding</h3>
@@ -116,8 +75,8 @@
                   images, and accessibility features.
                 </p>
               </div>
-              <div class="objective-card">
-                <div class="objective-icon">
+              <div class="card-feature">
+                <div class="card-feature-icon">
                   <i class="fas fa-mobile-alt"></i>
                 </div>
                 <h3>Mobile Optimization</h3>
@@ -126,8 +85,8 @@
                   bandwidth and user experience considerations.
                 </p>
               </div>
-              <div class="objective-card">
-                <div class="objective-icon">
+              <div class="card-feature">
+                <div class="card-feature-icon">
                   <i class="fas fa-universal-access"></i>
                 </div>
                 <h3>Accessibility</h3>
@@ -149,9 +108,9 @@
             JavaScript API access.
           </p>
 
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="feature-icon">
+          <div class="grid-auto-fit">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fas fa-code"></i>
               </div>
               <h3>Basic Syntax</h3>
@@ -160,8 +119,8 @@
                 playback functionality.
               </p>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fas fa-cogs"></i>
               </div>
               <h3>Advanced Controls</h3>
@@ -170,8 +129,8 @@
                 manipulation.
               </p>
             </div>
-            <div class="feature-card">
-              <div class="feature-icon">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fas fa-file-audio"></i>
               </div>
               <h3>Format Support</h3>
@@ -183,10 +142,10 @@
           </div>
 
           <!-- Audio Basic Example -->
-          <div class="code-example">
-            <div class="example-header">
+          <div class="code-playground">
+            <div class="code-playground-header">
               <h4><i class="fas fa-code"></i> Basic Audio Element</h4>
-              <span class="example-type">HTML</span>
+              <span class="code-playground-type">HTML</span>
             </div>
             <pre><code class="language-html">&lt;!-- Simple audio with controls --&gt;
 &lt;audio controls&gt;
@@ -209,8 +168,8 @@
             <h4><i class="fas fa-play"></i> Interactive Audio Demo</h4>
             <p>Try different audio configurations and see how they work:</p>
 
-            <div class="audio-demos">
-              <div class="demo-item">
+            <div class="demo-container">
+              <div class="card-feature">
                 <h5>Basic Audio Player</h5>
                 <audio controls>
                   <source
@@ -219,13 +178,13 @@
                   />
                   Your browser does not support the audio element.
                 </audio>
-                <div class="demo-info">
+                <div class="card-feature-info">
                   <strong>Features:</strong> Basic controls (play, pause,
                   volume, seek)
                 </div>
               </div>
 
-              <div class="demo-item">
+              <div class="card-feature">
                 <h5>Auto-looping Audio</h5>
                 <audio controls loop id="loopingAudio">
                   <source
@@ -234,13 +193,13 @@
                   />
                   Your browser does not support the audio element.
                 </audio>
-                <div class="demo-info">
+                <div class="card-feature-info">
                   <strong>Features:</strong> Automatic looping when playback
                   ends
                 </div>
               </div>
 
-              <div class="demo-item">
+              <div class="card-feature">
                 <h5>Custom Controls</h5>
                 <audio id="customAudio">
                   <source
@@ -249,14 +208,14 @@
                   />
                   Your browser does not support the audio element.
                 </audio>
-                <div class="custom-controls">
-                  <button class="btn btn-primary" id="playBtn">
+                <div class="demo-controls">
+                  <button class="btn-primary" id="playBtn">
                     <i class="fas fa-play"></i> Play
                   </button>
-                  <button class="btn btn-secondary" id="pauseBtn">
+                  <button class="btn-secondary" id="pauseBtn">
                     <i class="fas fa-pause"></i> Pause
                   </button>
-                  <button class="btn btn-warning" id="stopBtn">
+                  <button class="btn-warning" id="stopBtn">
                     <i class="fas fa-stop"></i> Stop
                   </button>
                   <input
@@ -269,7 +228,7 @@
                   />
                   <span id="volumeDisplay">50%</span>
                 </div>
-                <div class="demo-info">
+                <div class="card-feature-info">
                   <strong>Features:</strong> JavaScript-controlled custom
                   interface
                 </div>
@@ -278,10 +237,10 @@
           </div>
 
           <!-- Audio Attributes Table -->
-          <div class="info-table">
+          <div class="info-box-base info">
             <h4><i class="fas fa-list"></i> Audio Element Attributes</h4>
-            <table>
-              <thead>
+            <table class="table-demo">
+              <thead class="table-header">
                 <tr>
                   <th>Attribute</th>
                   <th>Description</th>
@@ -289,35 +248,35 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><code>controls</code></td>
-                  <td>Shows default audio controls</td>
-                  <td><code>&lt;audio controls&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>controls</code></td>
+                  <td class="table-cell">Shows default audio controls</td>
+                  <td class="table-cell"><code>&lt;audio controls&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>autoplay</code></td>
-                  <td>Starts playing automatically (use cautiously)</td>
-                  <td><code>&lt;audio autoplay&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>autoplay</code></td>
+                  <td class="table-cell">Starts playing automatically (use cautiously)</td>
+                  <td class="table-cell"><code>&lt;audio autoplay&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>loop</code></td>
-                  <td>Repeats audio when finished</td>
-                  <td><code>&lt;audio loop&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>loop</code></td>
+                  <td class="table-cell">Repeats audio when finished</td>
+                  <td class="table-cell"><code>&lt;audio loop&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>muted</code></td>
-                  <td>Starts with audio muted</td>
-                  <td><code>&lt;audio muted&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>muted</code></td>
+                  <td class="table-cell">Starts with audio muted</td>
+                  <td class="table-cell"><code>&lt;audio muted&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>preload</code></td>
-                  <td>How much to preload (none, metadata, auto)</td>
-                  <td><code>&lt;audio preload="metadata"&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>preload</code></td>
+                  <td class="table-cell">How much to preload (none, metadata, auto)</td>
+                  <td class="table-cell"><code>&lt;audio preload="metadata"&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>src</code></td>
-                  <td>Direct source URL</td>
-                  <td><code>&lt;audio src="audio.mp3"&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>src</code></td>
+                  <td class="table-cell">Direct source URL</td>
+                  <td class="table-cell"><code>&lt;audio src="audio.mp3"&gt;</code></td>
                 </tr>
               </tbody>
             </table>
@@ -401,7 +360,7 @@
             <h4><i class="fas fa-play"></i> Interactive Video Demo</h4>
             <p>Experience different video configurations:</p>
 
-            <div class="video-demos">
+            <div class="demo-container">
               <div class="demo-item">
                 <h5>Standard Video Player</h5>
                 <video
@@ -415,7 +374,7 @@
                   />
                   Your browser does not support the video element.
                 </video>
-                <div class="demo-info">
+                <div class="card-feature-info">
                   <strong>Features:</strong> Standard controls, poster image,
                   responsive design
                 </div>
@@ -423,7 +382,7 @@
 
               <div class="demo-item">
                 <h5>Custom Styled Player</h5>
-                <div class="custom-video-container">
+                <div class="media-container">
                   <video
                     id="customVideo"
                     poster="https://via.placeholder.com/400x225/10b981/ffffff?text=Custom+Player"
@@ -440,17 +399,17 @@
                     </button>
                   </div>
                 </div>
-                <div class="custom-video-controls">
-                  <button class="btn btn-primary" id="videoPlayBtn">
+                <div class="demo-controls">
+                  <button class="btn-primary" id="videoPlayBtn">
                     <i class="fas fa-play"></i>
                   </button>
-                  <button class="btn btn-secondary" id="videoPauseBtn">
+                  <button class="btn-secondary" id="videoPauseBtn">
                     <i class="fas fa-pause"></i>
                   </button>
-                  <button class="btn btn-warning" id="videoMuteBtn">
+                  <button class="btn-warning" id="videoMuteBtn">
                     <i class="fas fa-volume-up"></i>
                   </button>
-                  <button class="btn btn-info" id="fullscreenBtn">
+                  <button class="btn-info" id="fullscreenBtn">
                     <i class="fas fa-expand"></i>
                   </button>
                   <div class="progress-container">
@@ -464,7 +423,7 @@
                     <span id="timeDisplay">0:00 / 0:00</span>
                   </div>
                 </div>
-                <div class="demo-info">
+                <div class="card-feature-info">
                   <strong>Features:</strong> Custom controls, overlay play
                   button, progress tracking
                 </div>
@@ -473,10 +432,10 @@
           </div>
 
           <!-- Video Attributes Table -->
-          <div class="info-table">
+          <div class="info-box-base info">
             <h4><i class="fas fa-list"></i> Video Element Attributes</h4>
-            <table>
-              <thead>
+            <table class="table-demo">
+              <thead class="table-header">
                 <tr>
                   <th>Attribute</th>
                   <th>Description</th>
@@ -484,45 +443,45 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><code>controls</code></td>
-                  <td>Shows default video controls</td>
-                  <td><code>&lt;video controls&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>controls</code></td>
+                  <td class="table-cell">Shows default video controls</td>
+                  <td class="table-cell"><code>&lt;video controls&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>width/height</code></td>
-                  <td>Sets video dimensions</td>
-                  <td><code>&lt;video width="600" height="400"&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>width/height</code></td>
+                  <td class="table-cell">Sets video dimensions</td>
+                  <td class="table-cell"><code>&lt;video width="600" height="400"&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>poster</code></td>
-                  <td>Shows image before video loads</td>
-                  <td><code>&lt;video poster="thumb.jpg"&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>poster</code></td>
+                  <td class="table-cell">Shows image before video loads</td>
+                  <td class="table-cell"><code>&lt;video poster="thumb.jpg"&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>autoplay</code></td>
-                  <td>Starts playing automatically (restricted)</td>
-                  <td><code>&lt;video autoplay muted&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>autoplay</code></td>
+                  <td class="table-cell">Starts playing automatically (restricted)</td>
+                  <td class="table-cell"><code>&lt;video autoplay muted&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>loop</code></td>
-                  <td>Repeats video when finished</td>
-                  <td><code>&lt;video loop&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>loop</code></td>
+                  <td class="table-cell">Repeats video when finished</td>
+                  <td class="table-cell"><code>&lt;video loop&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>muted</code></td>
-                  <td>Starts with audio muted</td>
-                  <td><code>&lt;video muted&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>muted</code></td>
+                  <td class="table-cell">Starts with audio muted</td>
+                  <td class="table-cell"><code>&lt;video muted&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>preload</code></td>
-                  <td>Preloading strategy</td>
-                  <td><code>&lt;video preload="none"&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>preload</code></td>
+                  <td class="table-cell">Preloading strategy</td>
+                  <td class="table-cell"><code>&lt;video preload="none"&gt;</code></td>
                 </tr>
-                <tr>
-                  <td><code>playsinline</code></td>
-                  <td>Plays inline on mobile devices</td>
-                  <td><code>&lt;video playsinline&gt;</code></td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>playsinline</code></td>
+                  <td class="table-cell">Plays inline on mobile devices</td>
+                  <td class="table-cell"><code>&lt;video playsinline&gt;</code></td>
                 </tr>
               </tbody>
             </table>
@@ -838,9 +797,9 @@ function captureFrame() {
             <i class="fas fa-play-circle"></i> Video Tutorials & Resources
           </h2>
 
-          <div class="video-grid">
-            <div class="video-card">
-              <div class="video-thumbnail">
+          <div class="grid-auto-fit">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fab fa-youtube"></i>
               </div>
               <div class="card-content">
@@ -852,7 +811,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://www.youtube.com/watch?v=rnBqsH4jrVs"
-                  class="btn btn-primary"
+                  class="btn-primary"
                   target="_blank"
                 >
                   <i class="fas fa-play"></i> Watch Tutorial
@@ -860,8 +819,8 @@ function captureFrame() {
               </div>
             </div>
 
-            <div class="video-card">
-              <div class="video-thumbnail">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fab fa-youtube"></i>
               </div>
               <div class="card-content">
@@ -872,7 +831,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://www.youtube.com/watch?v=9YffrCViTVk"
-                  class="btn btn-primary"
+                  class="btn-primary"
                   target="_blank"
                 >
                   <i class="fas fa-play"></i> Watch Tutorial
@@ -880,8 +839,8 @@ function captureFrame() {
               </div>
             </div>
 
-            <div class="video-card">
-              <div class="video-thumbnail">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fab fa-youtube"></i>
               </div>
               <div class="card-content">
@@ -892,7 +851,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://www.youtube.com/watch?v=ZeNyjnneq_w"
-                  class="btn btn-primary"
+                  class="btn-primary"
                   target="_blank"
                 >
                   <i class="fas fa-play"></i> Watch Tutorial
@@ -900,8 +859,8 @@ function captureFrame() {
               </div>
             </div>
 
-            <div class="video-card">
-              <div class="video-thumbnail">
+            <div class="card-feature">
+              <div class="card-feature-icon">
                 <i class="fab fa-youtube"></i>
               </div>
               <div class="card-content">
@@ -912,7 +871,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://www.youtube.com/watch?v=iWO5N3n1DXU"
-                  class="btn btn-primary"
+                  class="btn-primary"
                   target="_blank"
                 >
                   <i class="fas fa-play"></i> Watch Tutorial
@@ -934,7 +893,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video"
-                  class="btn btn-outline"
+                  class="btn-outline"
                   target="_blank"
                 >
                   <i class="fas fa-external-link-alt"></i> Read Documentation
@@ -954,7 +913,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://caniuse.com/audio"
-                  class="btn btn-outline"
+                  class="btn-outline"
                   target="_blank"
                 >
                   <i class="fas fa-external-link-alt"></i> Check Compatibility
@@ -974,7 +933,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://codepen.io/search/pens?q=html5%20video"
-                  class="btn btn-outline"
+                  class="btn-outline"
                   target="_blank"
                 >
                   <i class="fas fa-external-link-alt"></i> View Examples
@@ -994,7 +953,7 @@ function captureFrame() {
                 </p>
                 <a
                   href="https://www.w3schools.com/html/html5_video.asp"
-                  class="btn btn-outline"
+                  class="btn-outline"
                   target="_blank"
                 >
                   <i class="fas fa-external-link-alt"></i> Start Learning
@@ -1107,7 +1066,7 @@ function captureFrame() {
               </ul>
             </div>
 
-            <button class="btn btn-primary quiz-submit">
+            <button class="btn-primary quiz-submit">
               <i class="fas fa-check"></i> Check Answers
             </button>
 
@@ -1137,7 +1096,7 @@ function captureFrame() {
                   information like duration and dimensions.
                 </div>
               </div>
-              <button class="btn btn-secondary quiz-retry">
+              <button class="btn-secondary quiz-retry">
                 <i class="fas fa-redo"></i> Try Again
               </button>
             </div>
@@ -1168,7 +1127,7 @@ function captureFrame() {
                   <li>Implement proper fallback content</li>
                   <li>Test cross-browser compatibility</li>
                 </ul>
-                <button class="btn btn-outline exercise-toggle">
+                <button class="btn-outline exercise-toggle">
                   <i class="fas fa-code"></i> Show Solution
                 </button>
                 <div class="exercise-solution" style="display: none">
@@ -1208,7 +1167,7 @@ function captureFrame() {
                   <li>Add fullscreen functionality</li>
                   <li>Display current time and duration</li>
                 </ul>
-                <button class="btn btn-outline exercise-toggle">
+                <button class="btn-outline exercise-toggle">
                   <i class="fas fa-code"></i> Show Solution
                 </button>
                 <div class="exercise-solution" style="display: none">
@@ -1265,7 +1224,7 @@ function formatTime(seconds) {
                   <li>Handle different screen orientations</li>
                   <li>Optimize for mobile data usage</li>
                 </ul>
-                <button class="btn btn-outline exercise-toggle">
+                <button class="btn-outline exercise-toggle">
                   <i class="fas fa-code"></i> Show Solution
                 </button>
                 <div class="exercise-solution" style="display: none">
@@ -1355,6 +1314,5 @@ function formatTime(seconds) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../dist/js/main.js"></script>
-    <script src="../dist/js/html-audio-video-topic.js"></script>
   </body>
 </html>

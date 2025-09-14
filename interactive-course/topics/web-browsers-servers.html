@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Browsers and Web Servers - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
@@ -49,29 +48,26 @@
             as an interface between users and the web.
           </p>
 
-          <div class="browser-architecture">
-            <h3>Browser Architecture</h3>
-            <div class="architecture-diagram">
-              <div class="browser-component" data-component="ui">
-                <i class="fas fa-desktop"></i>
-                <h4>User Interface</h4>
-                <p>Address bar, bookmarks, navigation buttons</p>
-              </div>
-              <div class="browser-component" data-component="engine">
-                <i class="fas fa-cogs"></i>
-                <h4>Rendering Engine</h4>
-                <p>Parses HTML/CSS, creates DOM, renders content</p>
-              </div>
-              <div class="browser-component" data-component="js">
-                <i class="fab fa-js-square"></i>
-                <h4>JavaScript Engine</h4>
-                <p>Executes JavaScript code</p>
-              </div>
-              <div class="browser-component" data-component="network">
-                <i class="fas fa-network-wired"></i>
-                <h4>Networking</h4>
-                <p>Handles HTTP requests and responses</p>
-              </div>
+          <div class="grid-two-columns">
+            <div class="card-feature" data-component="ui">
+              <i class="fas fa-desktop"></i>
+              <h4>User Interface</h4>
+              <p>Address bar, bookmarks, navigation buttons</p>
+            </div>
+            <div class="card-feature" data-component="engine">
+              <i class="fas fa-cogs"></i>
+              <h4>Rendering Engine</h4>
+              <p>Parses HTML/CSS, creates DOM, renders content</p>
+            </div>
+            <div class="card-feature" data-component="js">
+              <i class="fab fa-js-square"></i>
+              <h4>JavaScript Engine</h4>
+              <p>Executes JavaScript code</p>
+            </div>
+            <div class="card-feature" data-component="network">
+              <i class="fas fa-network-wired"></i>
+              <h4>Networking</h4>
+              <p>Handles HTTP requests and responses</p>
             </div>
           </div>
         </section>
@@ -79,8 +75,8 @@
         <!-- Popular Browsers Section -->
         <section class="content-section">
           <h2><i class="fas fa-th-large"></i> Popular Web Browsers</h2>
-          <div class="browsers-grid">
-            <div class="browser-card">
+          <div class="grid-two-columns">
+            <div class="card-feature">
               <div class="browser-icon chrome">
                 <i class="fab fa-chrome"></i>
               </div>
@@ -95,7 +91,7 @@
               </p>
             </div>
 
-            <div class="browser-card">
+            <div class="card-feature">
               <div class="browser-icon safari">
                 <i class="fab fa-safari"></i>
               </div>
@@ -107,7 +103,7 @@
               <p>Apple's browser, optimized for macOS and iOS devices.</p>
             </div>
 
-            <div class="browser-card">
+            <div class="card-feature">
               <div class="browser-icon edge">
                 <i class="fab fa-edge"></i>
               </div>
@@ -119,7 +115,7 @@
               <p>Microsoft's modern browser, successor to Internet Explorer.</p>
             </div>
 
-            <div class="browser-card">
+            <div class="card-feature">
               <div class="browser-icon firefox">
                 <i class="fab fa-firefox-browser"></i>
               </div>
@@ -429,9 +425,8 @@
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
     <script src="../dist/js/topic.js"></script>
-    <script src="../dist/js/web-browsers-servers-topic.js"></script>
   </body>
 </html>

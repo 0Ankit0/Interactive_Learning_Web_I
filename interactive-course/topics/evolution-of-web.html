@@ -123,7 +123,7 @@
                 </div>
               </div>
 
-              <div class="info-box">
+              <div class="info-box-base info">
                 <h3><i class="fas fa-lightbulb"></i> Key Insight</h3>
                 <p>
                   The World Wide Web was invented in 1989 by Tim Berners-Lee at
@@ -217,11 +217,11 @@
                   <i class="fas fa-play"></i> Interactive Demo: First Web
                   Browser
                 </h3>
-                <div class="browser-simulator">
-                  <div class="browser-header">
+                <div class="browser-simulator-base">
+                  <div class="browser-header-base">
                     <div class="browser-title">WorldWideWeb Browser (1990)</div>
                   </div>
-                  <div class="browser-content">
+                  <div class="browser-content-base">
                     <h4>The project</h4>
                     <p>
                       The WorldWideWeb (W3) is a wide-area
@@ -302,8 +302,8 @@
                 developed by Tim Berners-Lee:
               </p>
 
-              <div class="feature-grid">
-                <div class="feature-card">
+              <div class="grid-three-columns">
+                <div class="card-feature">
                   <i class="fas fa-code"></i>
                   <h4>HTML</h4>
                   <p>
@@ -311,7 +311,7 @@
                     documents
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="card-feature">
                   <i class="fas fa-link"></i>
                   <h4>HTTP</h4>
                   <p>
@@ -319,7 +319,7 @@
                     the web
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="card-feature">
                   <i class="fas fa-map-marker-alt"></i>
                   <h4>URLs</h4>
                   <p>
@@ -333,15 +333,14 @@
                 <h4>
                   <i class="fas fa-terminal"></i> Try It: Simple HTML Document
                 </h4>
-                <div class="code-editor-container">
-                  <div class="code-editor">
-                    <div class="editor-header">
-                      <span>HTML</span>
-                      <button onclick="runHTMLExample()" class="run-btn">
-                        Run Code
-                      </button>
-                    </div>
-                    <textarea id="html-code" spellcheck="false">
+                <div class="code-editor">
+                  <div class="editor-header">
+                    <span>HTML</span>
+                    <button onclick="runHTMLExample()" class="run-btn">
+                      Run Code
+                    </button>
+                  </div>
+                  <textarea id="html-code" spellcheck="false">
 <!DOCTYPE html>
 <html>
 <head>
@@ -837,6 +836,7 @@
     </main>
 
     <script src="../dist/js/main.js"></script>
+    <script src="../dist/js/data-loader.js"></script>
     <script src="../dist/js/topic.js"></script>
   </body>
 </html>

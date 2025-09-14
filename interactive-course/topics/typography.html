@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typography - Interactive Course</title>
-    <link rel="stylesheet" href="../scss/main.css" />
+    <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,455 +17,396 @@
     />
   </head>
   <body>
-    <div class="topic-container typography-topic">
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-text">
-              <h1><i class="fas fa-font"></i> Typography in Web Design</h1>
-              <p class="hero-description">
-                Master the art of typography for web design. Learn about font
-                selection, hierarchy, readability, and creating beautiful text
-                layouts.
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <span class="separator">/</span>
+        <span class="current">Typography</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-font"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Typography in Web Design</h1>
+            <p class="topic-subtitle">Font Selection & Text Layout</p>
+            <p class="topic-description">
+              Master the art of typography for web design. Learn about font
+              selection, hierarchy, readability, and creating beautiful text
+              layouts.
+            </p>
+          </div>
+        </div>
+        <div class="topic-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="topic-progress"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="topic-content">
+      <div class="container">
+        <section class="content-section">
+          <h2 class="section-title">Font Categories</h2>
+          <div class="grid-auto-fit">
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-font"></i>
+              </div>
+              <h3>Serif Fonts</h3>
+              <p>
+                Serif fonts have small decorative strokes called serifs. They're
+                traditional and readable in print.
               </p>
-              <div class="hero-features">
-                <span class="feature-tag">
-                  <i class="fas fa-text-height"></i> Font Selection
-                </span>
-                <span class="feature-tag">
-                  <i class="fas fa-layer-group"></i> Hierarchy
-                </span>
-                <span class="feature-tag">
-                  <i class="fas fa-eye"></i> Readability
-                </span>
+              <div class="card-content">
+                <strong>Best for:</strong> Body text, formal documents,
+                traditional designs<br />
+                <strong>Examples:</strong> Times New Roman, Georgia, Playfair
+                Display
               </div>
             </div>
-            <div class="hero-visual">
-              <div class="typography-showcase">
-                <div class="font-samples">
-                  <div class="sample serif">Serif fonts have character</div>
-                  <div class="sample sans-serif">
-                    Sans-serif fonts are clean
-                  </div>
-                  <div class="sample monospace">
-                    Monospace fonts are precise
-                  </div>
-                  <div class="sample script">Script fonts add elegance</div>
+
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-minus"></i>
+              </div>
+              <h3>Sans-Serif Fonts</h3>
+              <p>
+                Sans-serif fonts lack decorative strokes. They're clean, modern,
+                and highly readable on screens.
+              </p>
+              <div class="card-content">
+                <strong>Best for:</strong> Headers, UI elements, modern
+                designs<br />
+                <strong>Examples:</strong> Arial, Helvetica, Inter, Roboto
+              </div>
+            </div>
+
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Monospace Fonts</h3>
+              <p>
+                Monospace fonts have equal character widths. Every letter takes
+                up the same horizontal space.
+              </p>
+              <div class="card-content">
+                <strong>Best for:</strong> Code, data tables, technical
+                content<br />
+                <strong>Examples:</strong> Courier, Monaco, JetBrains Mono
+              </div>
+            </div>
+
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h3>Display Fonts</h3>
+              <p>
+                Display fonts are designed for large sizes and headlines. They
+                often have unique characteristics.
+              </p>
+              <div class="card-content">
+                <strong>Best for:</strong> Headlines, logos, decorative text<br />
+                <strong>Examples:</strong> Impact, Bebas Neue, Oswald
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">Typography Principles</h2>
+          <div class="grid-auto-fit">
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-text-height"></i>
+              </div>
+              <h3>Font Size & Hierarchy</h3>
+              <div class="demo-result">
+                <h1 class="demo-h1">Main Heading (H1)</h1>
+                <h2 class="demo-h2">Section Heading (H2)</h2>
+                <h3 class="demo-h3">Subsection Heading (H3)</h3>
+                <p class="demo-p">
+                  Body text should be comfortable to read and not too small. The
+                  recommended minimum size for web body text is 16px.
+                </p>
+                <small class="demo-small"
+                  >Small text for captions or footnotes</small
+                >
+              </div>
+              <div class="interactive-demo">
+                <label>
+                  Base Font Size: <span id="base-size-value">16px</span>
+                  <input
+                    type="range"
+                    id="base-size-slider"
+                    min="14"
+                    max="20"
+                    value="16"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-arrows-alt-v"></i>
+              </div>
+              <h3>Line Height & Spacing</h3>
+              <div class="demo-result" id="spacing-demo">
+                <p>
+                  Line height affects readability significantly. Too tight and
+                  text becomes hard to read. Too loose and it loses cohesion.
+                  The ideal line height for body text is typically between 1.4
+                  and 1.6 times the font size.
+                </p>
+                <p>
+                  Proper spacing between paragraphs, headings, and other
+                  elements creates visual breathing room and improves the
+                  overall reading experience.
+                </p>
+              </div>
+              <div class="interactive-demo">
+                <label>
+                  Line Height: <span id="line-height-value">1.5</span>
+                  <input
+                    type="range"
+                    id="line-height-slider"
+                    min="1.2"
+                    max="2.0"
+                    step="0.1"
+                    value="1.5"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="card-feature">
+              <div class="card-icon">
+                <i class="fas fa-bold"></i>
+              </div>
+              <h3>Font Weight & Style</h3>
+              <div class="demo-result">
+                <p class="weight-300">
+                  Light weight (300) - Elegant and minimal
+                </p>
+                <p class="weight-400">
+                  Regular weight (400) - Standard body text
+                </p>
+                <p class="weight-500">
+                  Medium weight (500) - Slightly emphasized
+                </p>
+                <p class="weight-600">Semi-bold weight (600) - Subheadings</p>
+                <p class="weight-700">Bold weight (700) - Strong emphasis</p>
+                <p class="style-normal">Normal style - Standard appearance</p>
+                <p class="style-italic">Italic style - Emphasis and quotes</p>
+                <p class="style-underline">
+                  Underlined text - Links and emphasis
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">Font Pairing Explorer</h2>
+          <div class="interactive-demo">
+            <div class="demo-controls">
+              <div class="control-group">
+                <label>Heading Font:</label>
+                <select id="heading-font">
+                  <option value="Playfair Display">
+                    Playfair Display (Serif)
+                  </option>
+                  <option value="Inter">Inter (Sans-serif)</option>
+                  <option value="Roboto">Roboto (Sans-serif)</option>
+                  <option value="Oswald">Oswald (Display)</option>
+                  <option value="Merriweather">Merriweather (Serif)</option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label>Body Font:</label>
+                <select id="body-font">
+                  <option value="Inter">Inter (Sans-serif)</option>
+                  <option value="Roboto">Roboto (Sans-serif)</option>
+                  <option value="Georgia">Georgia (Serif)</option>
+                  <option value="Open Sans">Open Sans (Sans-serif)</option>
+                  <option value="Lora">Lora (Serif)</option>
+                </select>
+              </div>
+              <button class="btn-primary" onclick="randomizeFonts()">
+                <i class="fas fa-random"></i> Randomize
+              </button>
+            </div>
+            <div class="demo-result" id="pairing-preview">
+              <h1 class="preview-heading">The Art of Typography</h1>
+              <h2 class="preview-subheading">Beautiful and Readable Design</h2>
+              <p class="preview-body">
+                Typography is the art and technique of arranging type to make
+                written language legible, readable, and appealing when
+                displayed. The arrangement of type involves selecting typefaces,
+                point sizes, line lengths, line-spacing, and letter-spacing, and
+                adjusting the space between pairs of letters.
+              </p>
+              <p class="preview-body">
+                Good typography enhances the reading experience and reinforces
+                the meaning of the text. It's not just about making text look
+                pretty—it's about making communication more effective.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">Readability Testing</h2>
+          <div class="interactive-demo">
+            <div class="demo-controls">
+              <div class="control-group">
+                <label>Font Size: <span id="test-size-value">16px</span></label>
+                <input
+                  type="range"
+                  id="test-size"
+                  min="12"
+                  max="24"
+                  value="16"
+                />
+              </div>
+              <div class="control-group">
+                <label
+                  >Line Height: <span id="test-height-value">1.5</span></label
+                >
+                <input
+                  type="range"
+                  id="test-height"
+                  min="1.2"
+                  max="2.0"
+                  step="0.1"
+                  value="1.5"
+                />
+              </div>
+              <div class="control-group">
+                <label
+                  >Character Width:
+                  <span id="test-width-value">65ch</span></label
+                >
+                <input
+                  type="range"
+                  id="test-width"
+                  min="45"
+                  max="85"
+                  value="65"
+                />
+              </div>
+              <div class="control-group">
+                <label>Contrast:</label>
+                <select id="test-contrast">
+                  <option value="high">High Contrast</option>
+                  <option value="medium">Medium Contrast</option>
+                  <option value="low">Low Contrast</option>
+                </select>
+              </div>
+            </div>
+            <div class="demo-result" id="test-content">
+              <h3>Readability Test Sample</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum.
+              </p>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo.
+              </p>
+            </div>
+            <div class="info-box-base info">
+              <h4>Readability Score</h4>
+              <div class="score-display" id="readability-score">
+                <span class="score">85</span>
+                <span class="label">Very Good</span>
+              </div>
+              <div class="score-factors">
+                <div class="factor">
+                  <span class="factor-name">Font Size:</span>
+                  <span class="factor-score" id="size-score">Good</span>
+                </div>
+                <div class="factor">
+                  <span class="factor-name">Line Height:</span>
+                  <span class="factor-score" id="height-score">Good</span>
+                </div>
+                <div class="factor">
+                  <span class="factor-name">Line Length:</span>
+                  <span class="factor-score" id="width-score">Good</span>
+                </div>
+                <div class="factor">
+                  <span class="factor-name">Contrast:</span>
+                  <span class="factor-score" id="contrast-score">Good</span>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+
+        <section class="quiz-section">
+          <h2 class="section-title">Test Your Knowledge</h2>
+          <div class="quiz-container" id="typography-quiz"></div>
+          <div class="quiz-controls">
+            <button class="btn-primary" onclick="submitTypographyQuiz()">
+              Submit Answers
+            </button>
+            <button class="btn-secondary" onclick="resetTypographyQuiz()">
+              Reset Quiz
+            </button>
+          </div>
+          <div
+            class="quiz-results"
+            id="typography-quiz-results"
+            style="display: none"
+          ></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="topic-footer">
+      <div class="footer-navigation">
+        <a href="typography-color.html" class="nav-link prev">
+          <i class="fas fa-arrow-left"></i>
+          <span>Previous: Typography & Color Theory</span>
+        </a>
+        <a href="ui-ux-design.html" class="nav-link next">
+          <span>Next: UI/UX Design Principles</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="footer-content">
+        <p>
+          &copy; 2024 Interactive Web Development Course. All rights reserved.
+        </p>
+        <div class="footer-links">
+          <a href="../index.html">Course Home</a>
+          <a href="#top">Back to Top</a>
         </div>
-      </section>
-
-      <!-- Main Content -->
-      <main class="main-content">
-        <div class="container">
-          <!-- Font Categories -->
-          <section class="content-section">
-            <h2><i class="fas fa-sitemap"></i> Font Categories</h2>
-            <div class="section-content">
-              <div class="font-categories">
-                <div class="category-card serif-category">
-                  <div class="category-header">
-                    <h3>Serif Fonts</h3>
-                    <div
-                      class="category-sample"
-                      style="font-family: 'Playfair Display', serif"
-                    >
-                      Typography
-                    </div>
-                  </div>
-                  <div class="category-description">
-                    <p>
-                      Serif fonts have small decorative strokes called serifs.
-                      They're traditional and readable in print.
-                    </p>
-                    <div class="use-cases">
-                      <strong>Best for:</strong> Body text, formal documents,
-                      traditional designs
-                    </div>
-                    <div class="examples">
-                      <strong>Examples:</strong> Times New Roman, Georgia,
-                      Playfair Display
-                    </div>
-                  </div>
-                </div>
-
-                <div class="category-card sans-serif-category">
-                  <div class="category-header">
-                    <h3>Sans-Serif Fonts</h3>
-                    <div
-                      class="category-sample"
-                      style="font-family: 'Inter', sans-serif"
-                    >
-                      Typography
-                    </div>
-                  </div>
-                  <div class="category-description">
-                    <p>
-                      Sans-serif fonts lack decorative strokes. They're clean,
-                      modern, and highly readable on screens.
-                    </p>
-                    <div class="use-cases">
-                      <strong>Best for:</strong> Headers, UI elements, modern
-                      designs
-                    </div>
-                    <div class="examples">
-                      <strong>Examples:</strong> Arial, Helvetica, Inter, Roboto
-                    </div>
-                  </div>
-                </div>
-
-                <div class="category-card monospace-category">
-                  <div class="category-header">
-                    <h3>Monospace Fonts</h3>
-                    <div
-                      class="category-sample"
-                      style="font-family: 'JetBrains Mono', monospace"
-                    >
-                      Typography
-                    </div>
-                  </div>
-                  <div class="category-description">
-                    <p>
-                      Monospace fonts have equal character widths. Every letter
-                      takes up the same horizontal space.
-                    </p>
-                    <div class="use-cases">
-                      <strong>Best for:</strong> Code, data tables, technical
-                      content
-                    </div>
-                    <div class="examples">
-                      <strong>Examples:</strong> Courier, Monaco, JetBrains Mono
-                    </div>
-                  </div>
-                </div>
-
-                <div class="category-card display-category">
-                  <div class="category-header">
-                    <h3>Display Fonts</h3>
-                    <div
-                      class="category-sample"
-                      style="
-                        font-family: 'Playfair Display', serif;
-                        font-weight: 700;
-                      "
-                    >
-                      Typography
-                    </div>
-                  </div>
-                  <div class="category-description">
-                    <p>
-                      Display fonts are designed for large sizes and headlines.
-                      They often have unique characteristics.
-                    </p>
-                    <div class="use-cases">
-                      <strong>Best for:</strong> Headlines, logos, decorative
-                      text
-                    </div>
-                    <div class="examples">
-                      <strong>Examples:</strong> Impact, Bebas Neue, Oswald
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Typography Principles -->
-          <section class="content-section">
-            <h2><i class="fas fa-ruler"></i> Typography Principles</h2>
-            <div class="section-content">
-              <div class="principles-demo">
-                <div class="principle-card">
-                  <h3>Font Size & Hierarchy</h3>
-                  <div class="hierarchy-demo">
-                    <h1 class="demo-h1">Main Heading (H1)</h1>
-                    <h2 class="demo-h2">Section Heading (H2)</h2>
-                    <h3 class="demo-h3">Subsection Heading (H3)</h3>
-                    <p class="demo-p">
-                      Body text should be comfortable to read and not too small.
-                      The recommended minimum size for web body text is 16px.
-                    </p>
-                    <small class="demo-small"
-                      >Small text for captions or footnotes</small
-                    >
-                  </div>
-                  <div class="controls">
-                    <label>
-                      Base Font Size: <span id="base-size-value">16px</span>
-                      <input
-                        type="range"
-                        id="base-size-slider"
-                        min="14"
-                        max="20"
-                        value="16"
-                      />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="principle-card">
-                  <h3>Line Height & Spacing</h3>
-                  <div class="spacing-demo" id="spacing-demo">
-                    <p>
-                      Line height affects readability significantly. Too tight
-                      and text becomes hard to read. Too loose and it loses
-                      cohesion. The ideal line height for body text is typically
-                      between 1.4 and 1.6 times the font size.
-                    </p>
-                    <p>
-                      Proper spacing between paragraphs, headings, and other
-                      elements creates visual breathing room and improves the
-                      overall reading experience.
-                    </p>
-                  </div>
-                  <div class="controls">
-                    <label>
-                      Line Height: <span id="line-height-value">1.5</span>
-                      <input
-                        type="range"
-                        id="line-height-slider"
-                        min="1.2"
-                        max="2.0"
-                        step="0.1"
-                        value="1.5"
-                      />
-                    </label>
-                  </div>
-                </div>
-
-                <div class="principle-card">
-                  <h3>Font Weight & Style</h3>
-                  <div class="weight-demo">
-                    <p class="weight-300">
-                      Light weight (300) - Elegant and minimal
-                    </p>
-                    <p class="weight-400">
-                      Regular weight (400) - Standard body text
-                    </p>
-                    <p class="weight-500">
-                      Medium weight (500) - Slightly emphasized
-                    </p>
-                    <p class="weight-600">
-                      Semi-bold weight (600) - Subheadings
-                    </p>
-                    <p class="weight-700">
-                      Bold weight (700) - Strong emphasis
-                    </p>
-                  </div>
-                  <div class="style-demo">
-                    <p class="style-normal">
-                      Normal style - Standard appearance
-                    </p>
-                    <p class="style-italic">
-                      Italic style - Emphasis and quotes
-                    </p>
-                    <p class="style-underline">
-                      Underlined text - Links and emphasis
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Font Pairing Tool -->
-          <section class="content-section">
-            <h2><i class="fas fa-palette"></i> Font Pairing Explorer</h2>
-            <div class="section-content">
-              <div class="font-pairing-tool">
-                <div class="pairing-controls">
-                  <div class="font-selector">
-                    <label>Heading Font:</label>
-                    <select id="heading-font">
-                      <option value="Playfair Display">
-                        Playfair Display (Serif)
-                      </option>
-                      <option value="Inter">Inter (Sans-serif)</option>
-                      <option value="Roboto">Roboto (Sans-serif)</option>
-                      <option value="Oswald">Oswald (Display)</option>
-                      <option value="Merriweather">Merriweather (Serif)</option>
-                    </select>
-                  </div>
-                  <div class="font-selector">
-                    <label>Body Font:</label>
-                    <select id="body-font">
-                      <option value="Inter">Inter (Sans-serif)</option>
-                      <option value="Roboto">Roboto (Sans-serif)</option>
-                      <option value="Georgia">Georgia (Serif)</option>
-                      <option value="Open Sans">Open Sans (Sans-serif)</option>
-                      <option value="Lora">Lora (Serif)</option>
-                    </select>
-                  </div>
-                  <button class="randomize-btn" onclick="randomizeFonts()">
-                    <i class="fas fa-random"></i> Randomize
-                  </button>
-                </div>
-                <div class="pairing-preview" id="pairing-preview">
-                  <h1 class="preview-heading">The Art of Typography</h1>
-                  <h2 class="preview-subheading">
-                    Beautiful and Readable Design
-                  </h2>
-                  <p class="preview-body">
-                    Typography is the art and technique of arranging type to
-                    make written language legible, readable, and appealing when
-                    displayed. The arrangement of type involves selecting
-                    typefaces, point sizes, line lengths, line-spacing, and
-                    letter-spacing, and adjusting the space between pairs of
-                    letters.
-                  </p>
-                  <p class="preview-body">
-                    Good typography enhances the reading experience and
-                    reinforces the meaning of the text. It's not just about
-                    making text look pretty—it's about making communication more
-                    effective.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Readability Test -->
-          <section class="content-section">
-            <h2><i class="fas fa-eye"></i> Readability Testing</h2>
-            <div class="section-content">
-              <div class="readability-tester">
-                <div class="test-controls">
-                  <h4>Adjust Settings</h4>
-                  <div class="control-group">
-                    <label
-                      >Font Size: <span id="test-size-value">16px</span></label
-                    >
-                    <input
-                      type="range"
-                      id="test-size"
-                      min="12"
-                      max="24"
-                      value="16"
-                    />
-                  </div>
-                  <div class="control-group">
-                    <label
-                      >Line Height:
-                      <span id="test-height-value">1.5</span></label
-                    >
-                    <input
-                      type="range"
-                      id="test-height"
-                      min="1.2"
-                      max="2.0"
-                      step="0.1"
-                      value="1.5"
-                    />
-                  </div>
-                  <div class="control-group">
-                    <label
-                      >Character Width:
-                      <span id="test-width-value">65ch</span></label
-                    >
-                    <input
-                      type="range"
-                      id="test-width"
-                      min="45"
-                      max="85"
-                      value="65"
-                    />
-                  </div>
-                  <div class="control-group">
-                    <label>Contrast:</label>
-                    <select id="test-contrast">
-                      <option value="high">High Contrast</option>
-                      <option value="medium">Medium Contrast</option>
-                      <option value="low">Low Contrast</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="test-content" id="test-content">
-                  <h3>Readability Test Sample</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam, eaque ipsa quae ab illo inventore veritatis et
-                    quasi architecto beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-                <div class="readability-score">
-                  <h4>Readability Score</h4>
-                  <div class="score-display" id="readability-score">
-                    <span class="score">85</span>
-                    <span class="label">Very Good</span>
-                  </div>
-                  <div class="score-factors">
-                    <div class="factor">
-                      <span class="factor-name">Font Size:</span>
-                      <span class="factor-score" id="size-score">Good</span>
-                    </div>
-                    <div class="factor">
-                      <span class="factor-name">Line Height:</span>
-                      <span class="factor-score" id="height-score">Good</span>
-                    </div>
-                    <div class="factor">
-                      <span class="factor-name">Line Length:</span>
-                      <span class="factor-score" id="width-score">Good</span>
-                    </div>
-                    <div class="factor">
-                      <span class="factor-name">Contrast:</span>
-                      <span class="factor-score" id="contrast-score">Good</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Quiz Section -->
-          <section class="quiz-section">
-            <div class="container">
-              <h2>
-                <i class="fas fa-question-circle"></i> Test Your Knowledge
-              </h2>
-              <div class="quiz-container" id="typography-quiz"></div>
-              <div class="quiz-actions">
-                <button
-                  class="btn btn-primary"
-                  onclick="submitTypographyQuiz()"
-                >
-                  Submit Answers
-                </button>
-                <button
-                  class="btn btn-secondary"
-                  onclick="resetTypographyQuiz()"
-                >
-                  Reset Quiz
-                </button>
-              </div>
-              <div
-                class="quiz-results"
-                id="typography-quiz-results"
-                style="display: none"
-              ></div>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
+      </div>
+    </footer>
 
     <!-- Scripts -->
-    <script src="../dist/js/typography-topic.js"></script>
   </body>
 </html>

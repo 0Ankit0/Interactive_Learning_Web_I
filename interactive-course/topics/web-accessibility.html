@@ -4,20 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Accessibility - Interactive Course</title>
-    <link rel="stylesheet" href="../scss/main.css" />
+    <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
   </head>
   <body>
-    <div class="topic-container accessibility-topic">
+    <div class="topic-container">
       <!-- Hero Section -->
       <section class="hero">
         <div class="container">
@@ -47,7 +41,7 @@
               <div class="accessibility-showcase">
                 <div class="wcag-principles">
                   <h3>WCAG Principles</h3>
-                  <div class="principles-grid">
+                  <div class="grid-auto-fit">
                     <div class="principle" data-principle="perceivable">
                       <i class="fas fa-eye"></i>
                       <span>Perceivable</span>
@@ -80,7 +74,7 @@
             <h2><i class="fas fa-clipboard-list"></i> WCAG 2.1 Guidelines</h2>
             <div class="section-content">
               <div class="wcag-guidelines">
-                <div class="guideline-card perceivable">
+                <div class="card-feature perceivable">
                   <div class="guideline-header">
                     <i class="fas fa-eye"></i>
                     <h3>Perceivable</h3>
@@ -118,7 +112,7 @@
                   </div>
                 </div>
 
-                <div class="guideline-card operable">
+                <div class="card-feature operable">
                   <div class="guideline-header">
                     <i class="fas fa-hand-pointer"></i>
                     <h3>Operable</h3>
@@ -161,7 +155,7 @@
                   </div>
                 </div>
 
-                <div class="guideline-card understandable">
+                <div class="card-feature understandable">
                   <div class="guideline-header">
                     <i class="fas fa-brain"></i>
                     <h3>Understandable</h3>
@@ -203,7 +197,7 @@
                   </div>
                 </div>
 
-                <div class="guideline-card robust">
+                <div class="card-feature robust">
                   <div class="guideline-header">
                     <i class="fas fa-cogs"></i>
                     <h3>Robust</h3>
@@ -312,7 +306,7 @@
             <h2><i class="fas fa-code"></i> ARIA Attributes in Action</h2>
             <div class="section-content">
               <div class="aria-demos">
-                <div class="demo-card">
+                <div class="card-demo">
                   <h4>Interactive Widget</h4>
                   <div class="widget-demo">
                     <div class="custom-dropdown" id="dropdown-demo">
@@ -351,7 +345,7 @@
                   </div>
                 </div>
 
-                <div class="demo-card">
+                <div class="card-demo">
                   <h4>Progress Indicator</h4>
                   <div class="progress-demo">
                     <label for="progress-demo">File Upload Progress:</label>
@@ -382,7 +376,7 @@
                   </div>
                 </div>
 
-                <div class="demo-card">
+                <div class="card-demo">
                   <h4>Live Region</h4>
                   <div class="live-region-demo">
                     <button onclick="announceMessage()" class="announce-btn">
@@ -442,6 +436,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../dist/js/accessibility-topic.js"></script>
+    <script src="../dist/js/topic.js"></script>
   </body>
 </html>

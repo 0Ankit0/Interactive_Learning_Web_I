@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flexbox and Grid Layouts - Interactive Learning</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
@@ -52,8 +51,8 @@
             <h2><i class="fas fa-info-circle"></i> Modern Layout Systems</h2>
           </div>
           <div class="section-content">
-            <div class="layout-comparison">
-              <div class="layout-method">
+            <div class="grid-two-columns">
+              <div class="card-feature">
                 <h3><i class="fas fa-grip-horizontal"></i> CSS Flexbox</h3>
                 <ul>
                   <li>One-dimensional layout (row or column)</li>
@@ -67,7 +66,7 @@
                 </div>
               </div>
               
-              <div class="layout-method">
+              <div class="card-feature">
                 <h3><i class="fas fa-th-large"></i> CSS Grid</h3>
                 <ul>
                   <li>Two-dimensional layout (rows and columns)</li>
@@ -146,7 +145,7 @@
                 <div class="flex-item" style="background: #ffeaa7;">5</div>
               </div>
               
-              <div class="generated-css">
+              <div class="code-example">
                 <h4>Generated CSS:</h4>
                 <pre><code id="flex-css-output" class="language-css">.container {
   display: flex;
@@ -744,9 +743,10 @@
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
     <script src="../dist/js/topic.js"></script>
-    <script src="../dist/js/flexbox-grid-topic.js"></script>
   </body>
 </html>
+
+

@@ -6,15 +6,12 @@
     <title>HTML Layout Elements - Interactive Course</title>
     
     <!-- External CSS and Fonts -->
-    <link rel="stylesheet" href="../scss/main.scss">
-    <link rel="stylesheet" href="../scss/_html-layout-elements-topic.scss">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
 </head>
-<body class="html-layout-elements-topic">
+<body>
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-content">
@@ -49,45 +46,55 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
+    <section class="hero-section">
+        <div class="container">
             <div class="hero-text">
                 <h1>
                     <i class="fas fa-layer-group"></i>
                     HTML Layout Elements
                 </h1>
-                <p class="hero-description">
+                <p>
                     Master HTML layout and structural elements including div, span, aside, iframe, and canvas. 
                     Learn how to organize and structure content effectively for modern web development.
                 </p>
-                <div class="hero-features">
-                    <span class="feature-tag"><i class="fas fa-boxes"></i> Container Elements</span>
-                    <span class="feature-tag"><i class="fas fa-paint-brush"></i> Inline Elements</span>
-                    <span class="feature-tag"><i class="fas fa-external-link-alt"></i> Embedded Content</span>
-                    <span class="feature-tag"><i class="fas fa-palette"></i> Graphics Canvas</span>
+                <div class="hero-stats">
+                    <span><i class="fas fa-boxes"></i> Container Elements</span>
+                    <span><i class="fas fa-paint-brush"></i> Inline Elements</span>
+                    <span><i class="fas fa-external-link-alt"></i> Embedded Content</span>
+                    <span><i class="fas fa-palette"></i> Graphics Canvas</span>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="element-showcase">
-                    <div class="showcase-item div-demo">
-                        <i class="fas fa-square"></i>
-                        <span>div</span>
+                <div class="grid-auto-fit">
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-square"></i>
+                        </div>
+                        <h5>div</h5>
                     </div>
-                    <div class="showcase-item span-demo">
-                        <i class="fas fa-minus"></i>
-                        <span>span</span>
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                        <h5>span</h5>
                     </div>
-                    <div class="showcase-item aside-demo">
-                        <i class="fas fa-sidebar"></i>
-                        <span>aside</span>
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-sidebar"></i>
+                        </div>
+                        <h5>aside</h5>
                     </div>
-                    <div class="showcase-item iframe-demo">
-                        <i class="fas fa-window-maximize"></i>
-                        <span>iframe</span>
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-window-maximize"></i>
+                        </div>
+                        <h5>iframe</h5>
                     </div>
-                    <div class="showcase-item canvas-demo">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>canvas</span>
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h5>canvas</h5>
                     </div>
                 </div>
             </div>
@@ -95,81 +102,78 @@
     </section>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main>
         <div class="container">
             
             <!-- Introduction -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-info-circle"></i> Understanding HTML Layout Elements</h2>
-                <div class="section-content">
-                    <p class="lead">
-                        HTML provides several elements for structuring and organizing content on web pages. 
-                        These layout elements serve different purposes and have unique characteristics that make them 
-                        suitable for various use cases in web development.
-                    </p>
+                <p>
+                    HTML provides several elements for structuring and organizing content on web pages. 
+                    These layout elements serve different purposes and have unique characteristics that make them 
+                    suitable for various use cases in web development.
+                </p>
+                
+                <div class="grid-auto-fit">
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-square"></i>
+                        </div>
+                        <h3>div Element</h3>
+                        <p>Block-level container for grouping and styling content sections.</p>
+                    </div>
                     
-                    <div class="element-overview-grid">
-                        <div class="overview-card">
-                            <div class="card-header">
-                                <i class="fas fa-square"></i>
-                                <h3>div Element</h3>
-                            </div>
-                            <p>Block-level container for grouping and styling content sections.</p>
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-minus"></i>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-header">
-                                <i class="fas fa-minus"></i>
-                                <h3>span Element</h3>
-                            </div>
-                            <p>Inline container for styling small portions of text or content.</p>
+                        <h3>span Element</h3>
+                        <p>Inline container for styling small portions of text or content.</p>
+                    </div>
+                    
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-sidebar"></i>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-header">
-                                <i class="fas fa-sidebar"></i>
-                                <h3>aside Element</h3>
-                            </div>
-                            <p>Semantic element for sidebar content or tangentially related information.</p>
+                        <h3>aside Element</h3>
+                        <p>Semantic element for sidebar content or tangentially related information.</p>
+                    </div>
+                    
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-window-maximize"></i>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-header">
-                                <i class="fas fa-window-maximize"></i>
-                                <h3>iframe Element</h3>
-                            </div>
-                            <p>Embeds external content or documents within the current page.</p>
+                        <h3>iframe Element</h3>
+                        <p>Embeds external content or documents within the current page.</p>
+                    </div>
+                    
+                    <div class="card-feature">
+                        <div class="card-feature-icon">
+                            <i class="fas fa-paint-brush"></i>
                         </div>
-                        
-                        <div class="overview-card">
-                            <div class="card-header">
-                                <i class="fas fa-paint-brush"></i>
-                                <h3>canvas Element</h3>
-                            </div>
-                            <p>Provides a drawing surface for graphics, animations, and interactive content.</p>
-                        </div>
+                        <h3>canvas Element</h3>
+                        <p>Provides a drawing surface for graphics, animations, and interactive content.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Div Element Section -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-square"></i> The div Element</h2>
-                <div class="section-content">
-                    <p>
-                        The <code>&lt;div&gt;</code> element is a generic block-level container that's used to 
-                        group other elements for styling and layout purposes. It's the most commonly used 
-                        element for creating layouts and organizing content.
-                    </p>
-                    
-                    <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Block-level element (takes full width)</li>
-                        <li><i class="fas fa-check"></i> No semantic meaning (purely for styling/grouping)</li>
-                        <li><i class="fas fa-check"></i> Can contain any other HTML elements</li>
-                        <li><i class="fas fa-check"></i> Supports all global attributes (class, id, style, etc.)</li>
-                        <li><i class="fas fa-check"></i> Essential for CSS layouts (Flexbox, Grid, etc.)</li>
-                    </ul>
+                <p>
+                    The <code>&lt;div&gt;</code> element is a generic block-level container that's used to 
+                    group other elements for styling and layout purposes. It's the most commonly used 
+                    element for creating layouts and organizing content.
+                </p>
+                
+                <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Block-level element (takes full width)</li>
+                    <li><i class="fas fa-check"></i> No semantic meaning (purely for styling/grouping)</li>
+                    <li><i class="fas fa-check"></i> Can contain any other HTML elements</li>
+                    <li><i class="fas fa-check"></i> Supports all global attributes (class, id, style, etc.)</li>
+                    <li><i class="fas fa-check"></i> Essential for CSS layouts (Flexbox, Grid, etc.)</li>
+                </ul>
                     
                     <div class="code-example">
                         <h4><i class="fas fa-code"></i> Basic div Usage</h4>
@@ -211,7 +215,7 @@
                             <button class="btn btn-warning" id="nestDiv">Nest div</button>
                             <button class="btn btn-danger" id="clearDivs">Clear All</button>
                         </div>
-                        <div class="demo-output" id="divOutput">
+                        <div class="info-box-base" id="divOutput">
                             <div class="sample-div">Sample div element</div>
                         </div>
                     </div>
@@ -219,23 +223,22 @@
             </section>
 
             <!-- Span Element Section -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-minus"></i> The span Element</h2>
-                <div class="section-content">
-                    <p>
-                        The <code>&lt;span&gt;</code> element is a generic inline container used to 
-                        group inline elements or apply styles to specific portions of text without 
-                        affecting the document flow.
-                    </p>
-                    
-                    <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Inline element (doesn't break line flow)</li>
-                        <li><i class="fas fa-check"></i> No semantic meaning (purely for styling)</li>
-                        <li><i class="fas fa-check"></i> Perfect for styling parts of text</li>
-                        <li><i class="fas fa-check"></i> Can contain other inline elements</li>
-                        <li><i class="fas fa-check"></i> Minimal visual impact without CSS</li>
-                    </ul>
+                <p>
+                    The <code>&lt;span&gt;</code> element is a generic inline container used to 
+                    group inline elements or apply styles to specific portions of text without 
+                    affecting the document flow.
+                </p>
+                
+                <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Inline element (doesn't break line flow)</li>
+                    <li><i class="fas fa-check"></i> No semantic meaning (purely for styling)</li>
+                    <li><i class="fas fa-check"></i> Perfect for styling parts of text</li>
+                    <li><i class="fas fa-check"></i> Can contain other inline elements</li>
+                    <li><i class="fas fa-check"></i> Minimal visual impact without CSS</li>
+                </ul>
                     
                     <div class="code-example">
                         <h4><i class="fas fa-code"></i> span Usage Examples</h4>
@@ -269,7 +272,7 @@
                             <button class="btn btn-secondary" id="colorSpan">Color Word</button>
                             <button class="btn btn-warning" id="emphasisSpan">Add Emphasis</button>
                         </div>
-                        <div class="demo-output" id="spanOutput">
+                        <div class="info-box-base" id="spanOutput">
                             <p>This is sample text for span demonstration.</p>
                         </div>
                     </div>
@@ -277,23 +280,22 @@
             </section>
 
             <!-- Aside Element Section -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-sidebar"></i> The aside Element</h2>
-                <div class="section-content">
-                    <p>
-                        The <code>&lt;aside&gt;</code> element represents content that is tangentially 
-                        related to the main content. It's often used for sidebars, pull quotes, 
-                        advertisements, or supplementary information.
-                    </p>
-                    
-                    <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Semantic HTML5 element</li>
-                        <li><i class="fas fa-check"></i> Represents tangentially related content</li>
-                        <li><i class="fas fa-check"></i> Improves accessibility and SEO</li>
-                        <li><i class="fas fa-check"></i> Can be used inside or outside main content</li>
-                        <li><i class="fas fa-check"></i> Common for sidebars and supplementary info</li>
-                    </ul>
+                <p>
+                    The <code>&lt;aside&gt;</code> element represents content that is tangentially 
+                    related to the main content. It's often used for sidebars, pull quotes, 
+                    advertisements, or supplementary information.
+                </p>
+                
+                <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Semantic HTML5 element</li>
+                    <li><i class="fas fa-check"></i> Represents tangentially related content</li>
+                    <li><i class="fas fa-check"></i> Improves accessibility and SEO</li>
+                    <li><i class="fas fa-check"></i> Can be used inside or outside main content</li>
+                    <li><i class="fas fa-check"></i> Common for sidebars and supplementary info</li>
+                </ul>
                     
                     <div class="code-example">
                         <h4><i class="fas fa-code"></i> aside Usage Examples</h4>
@@ -332,44 +334,43 @@
 &lt;/aside&gt;</code></pre>
                     </div>
                     
-                    <div class="layout-demo">
+                    <div class="interactive-demo">
                         <h4><i class="fas fa-layout"></i> aside Layout Example</h4>
-                        <div class="demo-layout">
-                            <main class="main-demo">
+                        <div class="grid-two-columns">
+                            <div class="info-box-base">
                                 <h3>Main Content</h3>
                                 <p>This is the primary content of the page. It contains the main information that users are looking for.</p>
-                            </main>
-                            <aside class="aside-demo">
+                            </div>
+                            <div class="info-box-base">
                                 <h4>Related Info</h4>
                                 <ul>
                                     <li>Related Link 1</li>
                                     <li>Related Link 2</li>
                                     <li>Advertisement</li>
                                 </ul>
-                            </aside>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Iframe Element Section -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-window-maximize"></i> The iframe Element</h2>
-                <div class="section-content">
-                    <p>
-                        The <code>&lt;iframe&gt;</code> element embeds external content or documents 
-                        within the current HTML page. It's commonly used for maps, videos, 
-                        social media widgets, and third-party content.
-                    </p>
-                    
-                    <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Embeds external documents</li>
-                        <li><i class="fas fa-check"></i> Creates isolated browsing context</li>
-                        <li><i class="fas fa-check"></i> Supports responsive sizing</li>
-                        <li><i class="fas fa-check"></i> Security considerations required</li>
-                        <li><i class="fas fa-check"></i> Common for third-party integrations</li>
-                    </ul>
+                <p>
+                    The <code>&lt;iframe&gt;</code> element embeds external content or documents 
+                    within the current HTML page. It's commonly used for maps, videos, 
+                    social media widgets, and third-party content.
+                </p>
+                
+                <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Embeds external documents</li>
+                    <li><i class="fas fa-check"></i> Creates isolated browsing context</li>
+                    <li><i class="fas fa-check"></i> Supports responsive sizing</li>
+                    <li><i class="fas fa-check"></i> Security considerations required</li>
+                    <li><i class="fas fa-check"></i> Common for third-party integrations</li>
+                </ul>
                     
                     <div class="code-example">
                         <h4><i class="fas fa-code"></i> iframe Usage Examples</h4>
@@ -407,30 +408,30 @@
 &lt;/div&gt;</code></pre>
                     </div>
                     
-                    <div class="iframe-demo">
+                    <div class="interactive-demo">
                         <h4><i class="fas fa-play"></i> iframe Examples</h4>
-                        <div class="iframe-tabs">
-                            <button class="tab-btn active" data-tab="example1">Simple Page</button>
-                            <button class="tab-btn" data-tab="example2">Interactive Content</button>
-                            <button class="tab-btn" data-tab="example3">External Site</button>
+                        <div class="demo-tabs">
+                            <button class="btn btn-secondary active" data-tab="example1">Simple Page</button>
+                            <button class="btn btn-secondary" data-tab="example2">Interactive Content</button>
+                            <button class="btn btn-secondary" data-tab="example3">External Site</button>
                         </div>
-                        <div class="iframe-content">
-                            <div class="iframe-panel active" id="example1">
+                        <div class="demo-container">
+                            <div class="info-box-base active" id="example1">
                                 <iframe src="data:text/html,<html><body style='font-family: Arial; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;'><h2>Hello from iframe!</h2><p>This is content inside an iframe element.</p></body></html>"
                                         width="100%" 
                                         height="200"
                                         title="Simple iframe example">
                                 </iframe>
                             </div>
-                            <div class="iframe-panel" id="example2">
+                            <div class="info-box-base" id="example2">
                                 <iframe src="data:text/html,<html><head><style>body{font-family: Arial; padding: 20px; background: #f0f0f0;} button{padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;} button:hover{background: #0056b3;}</style></head><body><h3>Interactive Content</h3><p>Current count: <span id='count'>0</span></p><button onclick='document.getElementById(\"count\").textContent = parseInt(document.getElementById(\"count\").textContent) + 1'>Click Me!</button></body></html>"
                                         width="100%" 
                                         height="200"
                                         title="Interactive iframe example">
                                 </iframe>
                             </div>
-                            <div class="iframe-panel" id="example3">
-                                <div class="external-notice">
+                            <div class="info-box-base" id="example3">
+                                <div class="info-box-base warning">
                                     <i class="fas fa-info-circle"></i>
                                     <p>External websites may restrict embedding due to security policies (X-Frame-Options).</p>
                                 </div>
@@ -438,9 +439,9 @@
                         </div>
                     </div>
                     
-                    <div class="security-notice">
+                    <div class="info-box-base warning">
                         <h4><i class="fas fa-shield-alt"></i> Security Considerations</h4>
-                        <ul class="security-list">
+                        <ul>
                             <li><i class="fas fa-exclamation-triangle"></i> Always validate iframe sources</li>
                             <li><i class="fas fa-exclamation-triangle"></i> Use <code>sandbox</code> attribute for restrictions</li>
                             <li><i class="fas fa-exclamation-triangle"></i> Be aware of clickjacking attacks</li>
@@ -451,23 +452,22 @@
             </section>
 
             <!-- Canvas Element Section -->
-            <section class="content-section">
+            <section>
                 <h2><i class="fas fa-paint-brush"></i> The canvas Element</h2>
-                <div class="section-content">
-                    <p>
-                        The <code>&lt;canvas&gt;</code> element provides a drawing surface for creating 
-                        graphics, animations, and interactive visual content using JavaScript. 
-                        It's essential for games, data visualizations, and custom graphics.
-                    </p>
-                    
-                    <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Programmable drawing surface</li>
-                        <li><i class="fas fa-check"></i> 2D and WebGL (3D) contexts available</li>
-                        <li><i class="fas fa-check"></i> Pixel-based graphics manipulation</li>
-                        <li><i class="fas fa-check"></i> Great for animations and games</li>
-                        <li><i class="fas fa-check"></i> Supports mouse/touch interactions</li>
-                    </ul>
+                <p>
+                    The <code>&lt;canvas&gt;</code> element provides a drawing surface for creating 
+                    graphics, animations, and interactive visual content using JavaScript. 
+                    It's essential for games, data visualizations, and custom graphics.
+                </p>
+                
+                <h3><i class="fas fa-cog"></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Programmable drawing surface</li>
+                    <li><i class="fas fa-check"></i> 2D and WebGL (3D) contexts available</li>
+                    <li><i class="fas fa-check"></i> Pixel-based graphics manipulation</li>
+                    <li><i class="fas fa-check"></i> Great for animations and games</li>
+                    <li><i class="fas fa-check"></i> Supports mouse/touch interactions</li>
+                </ul>
                     
                     <div class="code-example">
                         <h4><i class="fas fa-code"></i> canvas Usage Examples</h4>
@@ -501,18 +501,18 @@ ctx.fillText('Hello Canvas!', 50, 200);
 &lt;/script&gt;</code></pre>
                     </div>
                     
-                    <div class="canvas-demos">
+                    <div class="interactive-demo">
                         <h4><i class="fas fa-play"></i> Interactive Canvas Demos</h4>
                         
-                        <div class="demo-tabs">
-                            <button class="demo-tab active" data-demo="drawing">Drawing</button>
-                            <button class="demo-tab" data-demo="animation">Animation</button>
-                            <button class="demo-tab" data-demo="interactive">Interactive</button>
+                        <div class="tabs">
+                            <button class="tab-button active" data-demo="drawing">Drawing</button>
+                            <button class="tab-button" data-demo="animation">Animation</button>
+                            <button class="tab-button" data-demo="interactive">Interactive</button>
                         </div>
                         
-                        <div class="canvas-container">
+                        <div class="demo-container">
                             <!-- Drawing Demo -->
-                            <div class="canvas-demo active" id="drawing-demo">
+                            <div class="demo-content active" id="drawing-demo">
                                 <div class="demo-controls">
                                     <label>
                                         <i class="fas fa-palette"></i> Color:
@@ -530,7 +530,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </div>
                             
                             <!-- Animation Demo -->
-                            <div class="canvas-demo" id="animation-demo">
+                            <div class="demo-content" id="animation-demo">
                                 <div class="demo-controls">
                                     <button class="btn btn-primary" id="startAnimation">Start</button>
                                     <button class="btn btn-secondary" id="stopAnimation">Stop</button>
@@ -543,7 +543,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </div>
                             
                             <!-- Interactive Demo -->
-                            <div class="canvas-demo" id="interactive-demo">
+                            <div class="demo-content" id="interactive-demo">
                                 <div class="demo-controls">
                                     <button class="btn btn-primary" id="addShape">Add Shape</button>
                                     <button class="btn btn-warning" id="resetShapes">Reset</button>
@@ -561,13 +561,13 @@ ctx.fillText('Hello Canvas!', 50, 200);
             <section class="content-section">
                 <h2><i class="fas fa-star"></i> Best Practices & Guidelines</h2>
                 <div class="section-content">
-                    <div class="practices-grid">
-                        <div class="practice-card">
+                    <div class="grid-auto-fit">
+                        <div class="card-feature">
                             <div class="card-header">
                                 <i class="fas fa-square"></i>
                                 <h3>div Usage</h3>
                             </div>
-                            <ul class="practice-list">
+                            <ul class="feature-list">
                                 <li><i class="fas fa-check"></i> Use semantic elements when available (header, nav, main, section)</li>
                                 <li><i class="fas fa-check"></i> Keep div nesting to a reasonable depth</li>
                                 <li><i class="fas fa-check"></i> Use meaningful class and id names</li>
@@ -575,12 +575,12 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </ul>
                         </div>
                         
-                        <div class="practice-card">
+                        <div class="card-feature">
                             <div class="card-header">
                                 <i class="fas fa-minus"></i>
                                 <h3>span Usage</h3>
                             </div>
-                            <ul class="practice-list">
+                            <ul class="feature-list">
                                 <li><i class="fas fa-check"></i> Use for styling inline content only</li>
                                 <li><i class="fas fa-check"></i> Consider semantic alternatives (strong, em, mark)</li>
                                 <li><i class="fas fa-check"></i> Don't use span for block-level styling</li>
@@ -588,12 +588,12 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </ul>
                         </div>
                         
-                        <div class="practice-card">
+                        <div class="card-feature">
                             <div class="card-header">
                                 <i class="fas fa-sidebar"></i>
                                 <h3>aside Usage</h3>
                             </div>
-                            <ul class="practice-list">
+                            <ul class="feature-list">
                                 <li><i class="fas fa-check"></i> Use for truly tangential content</li>
                                 <li><i class="fas fa-check"></i> Perfect for sidebars and supplementary info</li>
                                 <li><i class="fas fa-check"></i> Improves document structure and accessibility</li>
@@ -601,12 +601,12 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </ul>
                         </div>
                         
-                        <div class="practice-card">
+                        <div class="card-feature">
                             <div class="card-header">
                                 <i class="fas fa-window-maximize"></i>
                                 <h3>iframe Security</h3>
                             </div>
-                            <ul class="practice-list">
+                            <ul class="feature-list">
                                 <li><i class="fas fa-exclamation-triangle"></i> Always validate and trust iframe sources</li>
                                 <li><i class="fas fa-exclamation-triangle"></i> Use sandbox attribute for restrictions</li>
                                 <li><i class="fas fa-exclamation-triangle"></i> Implement proper CSP headers</li>
@@ -614,12 +614,12 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </ul>
                         </div>
                         
-                        <div class="practice-card">
+                        <div class="card-feature">
                             <div class="card-header">
                                 <i class="fas fa-paint-brush"></i>
                                 <h3>canvas Performance</h3>
                             </div>
-                            <ul class="practice-list">
+                            <ul class="feature-list">
                                 <li><i class="fas fa-check"></i> Use requestAnimationFrame for animations</li>
                                 <li><i class="fas fa-check"></i> Batch drawing operations when possible</li>
                                 <li><i class="fas fa-check"></i> Clear only necessary areas</li>
@@ -781,8 +781,8 @@ ctx.fillText('Hello Canvas!', 50, 200);
             <!-- Video Resources Section -->
             <section class="resources-section">
                 <h2><i class="fas fa-play-circle"></i> Video Resources & Tutorials</h2>
-                <div class="video-grid">
-                    <div class="video-card">
+                <div class="grid-auto-fit">
+                    <div class="card-feature">
                         <div class="video-thumbnail">
                             <i class="fas fa-play"></i>
                             <img src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg" alt="HTML Basics" loading="lazy">
@@ -796,7 +796,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="video-card">
+                    <div class="card-feature">
                         <div class="video-thumbnail">
                             <i class="fas fa-play"></i>
                             <img src="https://img.youtube.com/vi/kGW8Al_cga4/maxresdefault.jpg" alt="Canvas Tutorial" loading="lazy">
@@ -810,7 +810,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="video-card">
+                    <div class="card-feature">
                         <div class="video-thumbnail">
                             <i class="fas fa-play"></i>
                             <img src="https://img.youtube.com/vi/ZJSCl6XEdP8/maxresdefault.jpg" alt="HTML5 Semantic Elements" loading="lazy">
@@ -824,7 +824,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="video-card">
+                    <div class="card-feature">
                         <div class="video-thumbnail">
                             <i class="fas fa-play"></i>
                             <img src="https://img.youtube.com/vi/A3JJkqnJyTM/maxresdefault.jpg" alt="iframe Security" loading="lazy">
@@ -843,8 +843,8 @@ ctx.fillText('Hello Canvas!', 50, 200);
             <!-- Additional Resources Section -->
             <section class="resources-section">
                 <h2><i class="fas fa-book-open"></i> Additional Learning Resources</h2>
-                <div class="resource-grid">
-                    <div class="resource-card">
+                <div class="grid-auto-fit">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fab fa-html5"></i>
                         </div>
@@ -857,7 +857,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fas fa-paint-brush"></i>
                         </div>
@@ -870,7 +870,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
@@ -883,7 +883,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -896,7 +896,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fas fa-gamepad"></i>
                         </div>
@@ -909,7 +909,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                         </div>
                     </div>
 
-                    <div class="resource-card">
+                    <div class="card-feature">
                         <div class="resource-icon">
                             <i class="fas fa-universal-access"></i>
                         </div>
@@ -987,8 +987,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../dist/js/html-layout-elements-topic.js"></script>
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
 </body>
 </html>

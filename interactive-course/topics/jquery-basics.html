@@ -6,8 +6,7 @@
     <title>jQuery Basics and Integration - Interactive Course</title>
 
     <!-- External CSS and Fonts -->
-    <link rel="stylesheet" href="../scss/main.scss" />
-    <link rel="stylesheet" href="../scss/_jquery-topic.scss" />
+    <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,7 +25,7 @@
     <!-- jQuery CDN for demos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
-  <body class="jquery-topic">
+  <body>
     <!-- Navigation -->
     <nav class="main-nav">
       <div class="nav-content">
@@ -93,7 +92,7 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="jquery-showcase">
+          <div class="interactive-demo">
             <div class="code-comparison">
               <div class="comparison-card vanilla-js">
                 <h3><i class="fab fa-js"></i> Vanilla JavaScript</h3>
@@ -127,7 +126,7 @@
               </div>
             </div>
 
-            <div class="jquery-stats">
+            <div class="info-box-base info">
               <div class="stat-item">
                 <div class="stat-number">85%</div>
                 <div class="stat-label">Less Code</div>
@@ -160,10 +159,10 @@
               with an easy-to-use API that works across different browsers.
             </p>
 
-            <div class="jquery-benefits">
+            <div>
               <h3><i class="fas fa-star"></i> Why Use jQuery?</h3>
-              <div class="benefits-grid">
-                <div class="benefit-card">
+              <div class="grid-auto-fit">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-code"></i>
                   </div>
@@ -174,7 +173,7 @@
                   </p>
                 </div>
 
-                <div class="benefit-card">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-browsers"></i>
                   </div>
@@ -185,7 +184,7 @@
                   </p>
                 </div>
 
-                <div class="benefit-card">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-search"></i>
                   </div>
@@ -196,7 +195,7 @@
                   </p>
                 </div>
 
-                <div class="benefit-card">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-magic"></i>
                   </div>
@@ -207,7 +206,7 @@
                   </p>
                 </div>
 
-                <div class="benefit-card">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-network-wired"></i>
                   </div>
@@ -218,7 +217,7 @@
                   </p>
                 </div>
 
-                <div class="benefit-card">
+                <div class="card-feature">
                   <div class="benefit-icon">
                     <i class="fas fa-puzzle-piece"></i>
                   </div>
@@ -243,18 +242,19 @@
             </p>
 
             <div class="installation-methods">
-              <div class="method-tabs">
-                <button class="tab-btn active" data-tab="cdn">CDN</button>
-                <button class="tab-btn" data-tab="download">Download</button>
-                <button class="tab-btn" data-tab="npm">npm/yarn</button>
-              </div>
+              <div class="tabs-container">
+                <div class="tabs-header">
+                  <button class="tab-button active" data-tab="cdn">CDN</button>
+                  <button class="tab-button" data-tab="download">Download</button>
+                  <button class="tab-button" data-tab="npm">npm/yarn</button>
+                </div>
 
-              <div class="tab-content">
+              <div class="tabs-content">
                 <div class="tab-panel active" id="cdn-panel">
                   <h4>
                     <i class="fas fa-cloud"></i> CDN Installation (Recommended)
                   </h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-html">&lt;!-- jQuery 3.7.1 (Latest) --&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
 
@@ -262,7 +262,7 @@
 &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt;</code></pre>
                   </div>
-                  <div class="method-benefits">
+                  <div class="info-box-base info">
                     <h5>Benefits:</h5>
                     <ul>
                       <li>No need to download files</li>
@@ -277,31 +277,31 @@
                   <h4>
                     <i class="fas fa-download"></i> Download and Host Locally
                   </h4>
-                  <div class="download-options">
-                    <div class="download-item">
+                  <div class="grid-two-columns">
+                    <div class="card-feature">
                       <h5>Production Version (Minified)</h5>
                       <p>Compressed version for production use</p>
                       <a
                         href="https://code.jquery.com/jquery-3.7.1.min.js"
-                        class="download-btn"
+                        class="btn-primary"
                         download
                       >
                         <i class="fas fa-download"></i> jquery-3.7.1.min.js
                       </a>
                     </div>
-                    <div class="download-item">
+                    <div class="card-feature">
                       <h5>Development Version</h5>
                       <p>Uncompressed version for development and debugging</p>
                       <a
                         href="https://code.jquery.com/jquery-3.7.1.js"
-                        class="download-btn"
+                        class="btn-primary"
                         download
                       >
                         <i class="fas fa-download"></i> jquery-3.7.1.js
                       </a>
                     </div>
                   </div>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-html">&lt;!-- Include downloaded jQuery --&gt;
 &lt;script src="dist/js/jquery-3.7.1.min.js"&gt;&lt;/script&gt;</code></pre>
                   </div>
@@ -311,7 +311,7 @@
                   <h4>
                     <i class="fab fa-npm"></i> Package Manager Installation
                   </h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-bash"># Using npm
 npm install jquery
 
@@ -321,7 +321,7 @@ yarn add jquery
 # Using bower (legacy)
 bower install jquery</code></pre>
                   </div>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-javascript">// ES6 Module Import
 import $ from 'jquery';
 
@@ -348,7 +348,7 @@ window.jQuery = window.$ = require('jquery');</code></pre>
               elements, and execute functions.
             </p>
 
-            <div class="code-example">
+            <div class="code-block">
               <h4><i class="fas fa-code"></i> Basic jQuery Syntax</h4>
               <pre><code class="language-javascript">// Basic syntax: $(selector).action()
 
@@ -374,7 +374,7 @@ $('div.container p:first-child')</code></pre>
               ensure the DOM is fully loaded before executing your scripts.
             </p>
 
-            <div class="code-example">
+            <div class="code-block">
               <h4><i class="fas fa-code"></i> Document Ready Examples</h4>
               <pre><code class="language-javascript">// Full syntax
 $(document).ready(function() {
@@ -402,10 +402,10 @@ $(() => {
                     placeholder="Enter jQuery selector (e.g., .demo-item)"
                     value=".demo-item"
                   />
-                  <button id="testSelector" class="btn btn-primary">
+                  <button id="testSelector" class="btn-primary">
                     Test Selector
                   </button>
-                  <button id="resetDemo" class="btn btn-secondary">
+                  <button id="resetDemo" class="btn-secondary">
                     Reset
                   </button>
                 </div>
@@ -439,24 +439,25 @@ $(() => {
             </p>
 
             <div class="manipulation-examples">
-              <div class="example-tabs">
-                <button class="tab-btn active" data-tab="content">
-                  Content
-                </button>
-                <button class="tab-btn" data-tab="attributes">
-                  Attributes
-                </button>
-                <button class="tab-btn" data-tab="css">CSS & Classes</button>
-                <button class="tab-btn" data-tab="elements">
-                  Add/Remove Elements
-                </button>
-              </div>
+              <div class="tabs-container">
+                <div class="tabs-header">
+                  <button class="tab-button active" data-tab="content">
+                    Content
+                  </button>
+                  <button class="tab-button" data-tab="attributes">
+                    Attributes
+                  </button>
+                  <button class="tab-button" data-tab="css">CSS & Classes</button>
+                  <button class="tab-button" data-tab="elements">
+                    Add/Remove Elements
+                  </button>
+                </div>
 
               <div class="tab-content">
                 <!-- Content Tab -->
                 <div class="tab-panel active" id="content-panel">
                   <h4><i class="fas fa-file-alt"></i> Working with Content</h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-javascript">// Get and set text content
 $('#myElement').text();                    // Get text
 $('#myElement').text('New text');          // Set text
@@ -486,25 +487,25 @@ $('#myElement').prepend('&lt;p&gt;Added at beginning&lt;/p&gt;');</code></pre>
                       <div class="demo-buttons">
                         <button
                           onclick="$('#contentDemo').text($('#newContent').val())"
-                          class="btn btn-primary"
+                          class="btn-primary"
                         >
                           Set Text
                         </button>
                         <button
                           onclick="$('#contentDemo').html('<strong>' + $('#newContent').val() + '</strong>')"
-                          class="btn btn-secondary"
+                          class="btn-secondary"
                         >
                           Set HTML
                         </button>
                         <button
                           onclick="$('#contentDemo').append('<br><em>Appended: ' + $('#newContent').val() + '</em>')"
-                          class="btn btn-success"
+                          class="btn-success"
                         >
                           Append
                         </button>
                         <button
                           onclick="$('#contentDemo').text('Original Content')"
-                          class="btn btn-warning"
+                          class="btn-warning"
                         >
                           Reset
                         </button>
@@ -516,7 +517,7 @@ $('#myElement').prepend('&lt;p&gt;Added at beginning&lt;/p&gt;');</code></pre>
                 <!-- Attributes Tab -->
                 <div class="tab-panel" id="attributes-panel">
                   <h4><i class="fas fa-tags"></i> Working with Attributes</h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-javascript">// Get and set attributes
 $('#myImage').attr('src');                     // Get src attribute
 $('#myImage').attr('src', 'new-image.jpg');    // Set src attribute
@@ -560,19 +561,19 @@ $('#myCheckbox').prop('checked');              // Get checked state</code></pre>
                       <div class="demo-buttons">
                         <button
                           onclick="$('#attrDemo').attr('src', $('#newSrc').val() || 'https://picsum.photos/100/100?random=' + Math.floor(Math.random()*100))"
-                          class="btn btn-primary"
+                          class="btn-primary"
                         >
                           Change Image
                         </button>
                         <button
                           onclick="$('#attrDemo').attr('title', $('#newTitle').val())"
-                          class="btn btn-secondary"
+                          class="btn-secondary"
                         >
                           Change Title
                         </button>
                         <button
                           onclick="alert('Title: ' + $('#attrDemo').attr('title'))"
-                          class="btn btn-info"
+                          class="btn-info"
                         >
                           Get Title
                         </button>
@@ -584,7 +585,7 @@ $('#myCheckbox').prop('checked');              // Get checked state</code></pre>
                 <!-- CSS & Classes Tab -->
                 <div class="tab-panel" id="css-panel">
                   <h4><i class="fas fa-paint-brush"></i> CSS and Classes</h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-javascript">// Working with CSS
 $('#myElement').css('color', 'red');           // Set single property
 $('#myElement').css({                          // Set multiple properties
@@ -615,37 +616,37 @@ $('#myElement').toggle();                      // Toggle visibility</code></pre>
                       <div class="demo-buttons">
                         <button
                           onclick="$('#cssDemo').css('color', 'red')"
-                          class="btn btn-primary"
+                          class="btn-primary"
                         >
                           Red Text
                         </button>
                         <button
                           onclick="$('#cssDemo').css('background', 'yellow')"
-                          class="btn btn-warning"
+                          class="btn-warning"
                         >
                           Yellow BG
                         </button>
                         <button
                           onclick="$('#cssDemo').addClass('bordered')"
-                          class="btn btn-success"
+                          class="btn-success"
                         >
                           Add Border
                         </button>
                         <button
                           onclick="$('#cssDemo').toggleClass('large-text')"
-                          class="btn btn-info"
+                          class="btn-info"
                         >
                           Toggle Size
                         </button>
                         <button
                           onclick="$('#cssDemo').toggle()"
-                          class="btn btn-secondary"
+                          class="btn-secondary"
                         >
                           Toggle Visibility
                         </button>
                         <button
                           onclick="$('#cssDemo').attr('style', '').removeClass().addClass('demo-element')"
-                          class="btn btn-danger"
+                          class="btn-danger"
                         >
                           Reset
                         </button>
@@ -659,7 +660,7 @@ $('#myElement').toggle();                      // Toggle visibility</code></pre>
                   <h4>
                     <i class="fas fa-plus-circle"></i> Add and Remove Elements
                   </h4>
-                  <div class="code-example">
+                  <div class="code-block">
                     <pre><code class="language-javascript">// Creating new elements
 $('&lt;p&gt;New paragraph&lt;/p&gt;');                   // Create element
 $('&lt;div/&gt;', {                                // Create with attributes
@@ -694,25 +695,25 @@ $('#element').detach();                        // Remove but keep data/events</c
                       <div class="demo-buttons">
                         <button
                           onclick="$('#elementsDemo').append('<p>' + ($('#newElementText').val() || 'Appended paragraph') + '</p>')"
-                          class="btn btn-primary"
+                          class="btn-primary"
                         >
                           Append
                         </button>
                         <button
                           onclick="$('#elementsDemo').prepend('<p>' + ($('#newElementText').val() || 'Prepended paragraph') + '</p>')"
-                          class="btn btn-secondary"
+                          class="btn-secondary"
                         >
                           Prepend
                         </button>
                         <button
                           onclick="$('#elementsDemo p:last').remove()"
-                          class="btn btn-warning"
+                          class="btn-warning"
                         >
                           Remove Last
                         </button>
                         <button
                           onclick="$('#elementsDemo').empty().append('<p>Original paragraph</p>')"
-                          class="btn btn-danger"
+                          class="btn-danger"
                         >
                           Reset
                         </button>
@@ -734,7 +735,7 @@ $('#element').detach();                        // Remove but keep data/events</c
               for binding event handlers to elements.
             </p>
 
-            <div class="code-example">
+            <div class="code-block">
               <h4><i class="fas fa-code"></i> Common Event Methods</h4>
               <pre><code class="language-javascript">// Click events
 $('#myButton').click(function() {
@@ -794,10 +795,10 @@ $(document).keydown(function(event) {
                 </div>
 
                 <div class="event-controls">
-                  <button id="clearLog" class="btn btn-warning">
+                  <button id="clearLog" class="btn-warning">
                     Clear Log
                   </button>
-                  <button id="addDynamicBtn" class="btn btn-info">
+                  <button id="addDynamicBtn" class="btn-info">
                     Add Dynamic Button
                   </button>
                 </div>
@@ -815,7 +816,7 @@ $(document).keydown(function(event) {
               create smooth transitions and visual effects.
             </p>
 
-            <div class="code-example">
+            <div class="code-block">
               <h4><i class="fas fa-code"></i> Animation Methods</h4>
               <pre><code class="language-javascript">// Basic animations
 $('#myElement').fadeIn(1000);          // Fade in over 1 second
@@ -858,19 +859,19 @@ $('#myElement').fadeOut(1000, function() {
                   <div class="control-row">
                     <button
                       onclick="$('#animBox').fadeIn()"
-                      class="btn btn-primary"
+                      class="btn-primary"
                     >
                       Fade In
                     </button>
                     <button
                       onclick="$('#animBox').fadeOut()"
-                      class="btn btn-primary"
+                      class="btn-primary"
                     >
                       Fade Out
                     </button>
                     <button
                       onclick="$('#animBox').fadeToggle()"
-                      class="btn btn-primary"
+                      class="btn-primary"
                     >
                       Fade Toggle
                     </button>
@@ -878,19 +879,19 @@ $('#myElement').fadeOut(1000, function() {
                   <div class="control-row">
                     <button
                       onclick="$('#animBox').slideUp()"
-                      class="btn btn-success"
+                      class="btn-success"
                     >
                       Slide Up
                     </button>
                     <button
                       onclick="$('#animBox').slideDown()"
-                      class="btn btn-success"
+                      class="btn-success"
                     >
                       Slide Down
                     </button>
                     <button
                       onclick="$('#animBox').slideToggle()"
-                      class="btn btn-success"
+                      class="btn-success"
                     >
                       Slide Toggle
                     </button>
@@ -898,30 +899,30 @@ $('#myElement').fadeOut(1000, function() {
                   <div class="control-row">
                     <button
                       onclick="$('#animBox').animate({left: '200px'}, 1000)"
-                      class="btn btn-info"
+                      class="btn-info"
                     >
                       Move Right
                     </button>
                     <button
                       onclick="$('#animBox').animate({left: '0px'}, 1000)"
-                      class="btn btn-info"
+                      class="btn-info"
                     >
                       Move Left
                     </button>
                     <button
                       onclick="$('#animBox').animate({width: 'toggle', height: 'toggle'}, 1000)"
-                      class="btn btn-info"
+                      class="btn-info"
                     >
                       Size Toggle
                     </button>
                   </div>
                   <div class="control-row">
-                    <button onclick="animateSequence()" class="btn btn-warning">
+                    <button onclick="animateSequence()" class="btn-warning">
                       Sequence
                     </button>
                     <button
                       onclick="$('#animBox').stop().css({left: '0px', width: '150px', height: '150px'}).show()"
-                      class="btn btn-danger"
+                      class="btn-danger"
                     >
                       Reset
                     </button>
@@ -941,7 +942,7 @@ $('#myElement').fadeOut(1000, function() {
               making asynchronous HTTP requests and handling responses.
             </p>
 
-            <div class="code-example">
+            <div class="code-block">
               <h4><i class="fas fa-code"></i> AJAX Methods</h4>
               <pre><code class="language-javascript">// GET request
 $.get('api/data', function(data) {
@@ -990,16 +991,16 @@ $.getJSON('api/data.json', function(data) {
               <h4><i class="fas fa-play"></i> AJAX Demo</h4>
               <div class="demo-container">
                 <div class="ajax-controls">
-                  <button id="loadUsers" class="btn btn-primary">
+                  <button id="loadUsers" class="btn-primary">
                     Load Users
                   </button>
-                  <button id="loadPosts" class="btn btn-secondary">
+                  <button id="loadPosts" class="btn-secondary">
                     Load Posts
                   </button>
-                  <button id="loadQuote" class="btn btn-success">
+                  <button id="loadQuote" class="btn-success">
                     Random Quote
                   </button>
-                  <button id="clearAjaxData" class="btn btn-warning">
+                  <button id="clearAjaxData" class="btn-warning">
                     Clear
                   </button>
                 </div>
@@ -1034,7 +1035,7 @@ $.getJSON('api/data.json', function(data) {
                   <li>Minimize DOM queries in loops</li>
                   <li>Use event delegation for dynamic content</li>
                 </ul>
-                <div class="code-example">
+                <div class="code-block">
                   <pre><code class="language-javascript">// Bad
 for (var i = 0; i < 100; i++) {
     $('#list').append('&lt;li&gt;Item ' + i + '&lt;/li&gt;');
@@ -1060,7 +1061,7 @@ $('#list').append(items);</code></pre>
                   <li>Use consistent coding style</li>
                   <li>Comment complex code sections</li>
                 </ul>
-                <div class="code-example">
+                <div class="code-block">
                   <pre><code class="language-javascript">// Good code organization
 var App = {
     init: function() {
@@ -1095,7 +1096,7 @@ $(document).ready(function() {
                   <li>Use try-catch for complex operations</li>
                   <li>Provide user feedback for errors</li>
                 </ul>
-                <div class="code-example">
+                <div class="code-block">
                   <pre><code class="language-javascript">// Check if element exists
 if ($('#myElement').length) {
     $('#myElement').addClass('active');
@@ -1277,9 +1278,9 @@ $.ajax({
             </div>
 
             <div class="quiz-actions">
-              <button class="btn btn-primary quiz-submit">Submit Quiz</button>
+              <button class="btn-primary quiz-submit">Submit Quiz</button>
               <button
-                class="btn btn-secondary quiz-retry"
+                class="btn-secondary quiz-retry"
                 style="display: none"
               >
                 Try Again
@@ -1604,8 +1605,9 @@ $.ajax({
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../dist/js/jquery-topic.js"></script>
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
   </body>
 </html>
+
