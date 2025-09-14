@@ -1,0 +1,49 @@
+{
+    "demoContent": {
+        "htmlExamples": {
+            "basicStructure": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Document Title</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n    <p>This is a paragraph.</p>\n</body>\n</html>",
+            "semanticElements": "<header>\n    <nav>\n        <ul>\n            <li><a href=\"#\">Home</a></li>\n            <li><a href=\"#\">About</a></li>\n        </ul>\n    </nav>\n</header>\n<main>\n    <article>\n        <h1>Article Title</h1>\n        <p>Article content...</p>\n    </article>\n</main>\n<footer>\n    <p>&copy; 2024 Company</p>\n</footer>"
+        },
+        "cssExamples": {
+            "basicStyling": "body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n    background-color: #f5f5f5;\n}\n\nh1 {\n    color: #333;\n    text-align: center;\n}\n\np {\n    line-height: 1.6;\n    color: #666;\n}",
+            "flexboxLayout": ".container {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 20px;\n}\n\n.item {\n    flex: 1;\n    margin: 0 10px;\n    padding: 20px;\n    background: #fff;\n    border-radius: 8px;\n}"
+        },
+        "jsExamples": {
+            "domManipulation": "document.addEventListener('DOMContentLoaded', function() {\n    const button = document.getElementById('myButton');\n    const output = document.getElementById('output');\n    \n    button.addEventListener('click', function() {\n        output.textContent = 'Button was clicked!';\n        output.style.color = 'green';\n    });\n});",
+            "eventHandling": "const buttons = document.querySelectorAll('.btn');\n\nbuttons.forEach(button => {\n    button.addEventListener('click', function(e) {\n        e.preventDefault();\n        console.log('Button clicked:', this.textContent);\n        \n        // Remove active class from all buttons\n        buttons.forEach(btn => btn.classList.remove('active'));\n        \n        // Add active class to clicked button\n        this.classList.add('active');\n    });\n});"
+        }
+    },
+    "messages": {
+        "success": {
+            "formSubmitted": "Form submitted successfully!",
+            "dataSaved": "Your progress has been saved.",
+            "quizCompleted": "Quiz completed! Great job!",
+            "codeExecuted": "Code executed successfully."
+        },
+        "error": {
+            "formValidation": "Please fill in all required fields.",
+            "networkError": "Network error. Please check your connection.",
+            "invalidInput": "Invalid input. Please try again.",
+            "fileNotFound": "The requested file was not found."
+        },
+        "info": {
+            "loading": "Loading...",
+            "processing": "Processing your request...",
+            "saving": "Saving your progress..."
+        }
+    },
+    "placeholders": {
+        "search": "Search topics...",
+        "email": "Enter your email address",
+        "name": "Enter your name",
+        "message": "Enter your message",
+        "code": "// Enter your code here..."
+    },
+    "tooltips": {
+        "colorPicker": "Click to select a color",
+        "codeEditor": "Write or paste your code here",
+        "runButton": "Execute the code",
+        "resetButton": "Reset to default state",
+        "saveButton": "Save your progress"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "interactive-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "sass dist/scss/main.scss dist/css/main.css",
+    "watch:css": "sass --watch dist/scss/main.scss dist/css/main.css",
+    "build:css:prod": "sass dist/scss/main.scss dist/css/main.css --style=compressed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.92.1"
+  }
+}
