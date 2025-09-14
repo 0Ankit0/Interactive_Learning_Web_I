@@ -58,6 +58,13 @@
             <h3>Table of Contents</h3>
             <ul>
               <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
+                >
+              </li>
+              <li>
                 <a href="#history" onclick="scrollToSection('history')"
                   >History of the Web</a
                 >
@@ -107,6 +114,48 @@
           </aside>
 
           <div class="content-main">
+            <section id="introduction" class="content-section">
+              <h2>
+                <i class="fas fa-compass"></i> What is the World Wide Web?
+              </h2>
+
+              <div class="definition-box">
+                <h3><i class="fas fa-book"></i> Definition</h3>
+                <p>
+                  The World Wide Web (WWW) is a system of interconnected
+                  documents and resources linked by hyperlinks and URLs,
+                  accessible via the Internet. It consists of web pages,
+                  websites, and web applications that can be viewed using web
+                  browsers.
+                </p>
+              </div>
+
+              <div class="key-terms">
+                <h3><i class="fas fa-key"></i> Key Terms</h3>
+                <ul>
+                  <li>
+                    <strong>World Wide Web (WWW):</strong> A collection of
+                    interconnected documents and resources
+                  </li>
+                  <li>
+                    <strong>Hyperlink:</strong> A reference to another document
+                    or resource
+                  </li>
+                  <li>
+                    <strong>URL (Uniform Resource Locator):</strong> The address
+                    of a web page or resource
+                  </li>
+                  <li>
+                    <strong>Web Browser:</strong> Software used to access and
+                    view web pages
+                  </li>
+                  <li>
+                    <strong>Website:</strong> A collection of related web pages
+                  </li>
+                </ul>
+              </div>
+            </section>
+
             <section id="history" class="content-section">
               <h2><i class="fas fa-clock"></i> History of the Web</h2>
 
@@ -157,42 +206,67 @@
                   <div class="timeline-item">
                     <div class="timeline-year">1980</div>
                     <div class="timeline-content">
-                      <h4>ENQUIRE</h4>
-                      <p>
-                        Tim Berners-Lee creates ENQUIRE, a hypertext system that
-                        serves as a precursor to the Web.
-                      </p>
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>ENQUIRE</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Tim Berners-Lee creates ENQUIRE, a hypertext system
+                            that serves as a precursor to the Web.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="timeline-item">
                     <div class="timeline-year">1989</div>
                     <div class="timeline-content">
-                      <h4>Web Proposal</h4>
-                      <p>
-                        Berners-Lee submits "Information Management: A Proposal"
-                        at CERN, proposing a "web" of hypertext documents.
-                      </p>
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Web Proposal</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Berners-Lee submits "Information Management: A
+                            Proposal" at CERN, proposing a "web" of hypertext
+                            documents.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="timeline-item">
                     <div class="timeline-year">1990</div>
                     <div class="timeline-content">
-                      <h4>WWW Components</h4>
-                      <p>
-                        Development of HTTP, HTML, URLs, and the first web
-                        browser (WorldWideWeb) begins.
-                      </p>
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>WWW Components</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Development of HTTP, HTML, URLs, and the first web
+                            browser (WorldWideWeb) begins.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="timeline-item">
                     <div class="timeline-year">1991</div>
                     <div class="timeline-content">
-                      <h4>First Website</h4>
-                      <p>
-                        The first website goes online at
-                        <code>info.cern.ch</code>, explaining the World Wide Web
-                        project.
-                      </p>
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>First Website</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            The first website goes online at
+                            <code>info.cern.ch</code>, explaining the World Wide
+                            Web project.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -252,7 +326,7 @@
                   </div>
                 </div>
                 <div class="demo-controls">
-                  <button onclick="simulateBrowsing()">
+                  <button class="btn btn-primary" onclick="simulateBrowsing()">
                     Simulate Link Navigation
                   </button>
                   <span id="demo-status"
@@ -799,82 +873,77 @@
                   </div>
                 </div>
 
-                <div class="timeline-track">
-                  <div class="timeline-progress" id="timeline-progress"></div>
+                <div class="timeline-container">
+                  <div class="timeline-line"></div>
                   <div class="timeline-events">
-                    <div
-                      class="timeline-event"
-                      data-year="1969"
-                      data-title="ARPANET"
-                      data-description="The precursor to the internet is created"
-                    >
-                      <div class="event-marker">1969</div>
-                      <div class="event-popup">
-                        <h4>ARPANET Created</h4>
-                        <p>
-                          The first network that would eventually become the
-                          internet
-                        </p>
+                    <div class="timeline-event left">
+                      <div class="timeline-content">
+                        <div class="event-year">1969</div>
+                        <div class="event-card">
+                          <h4>ARPANET Created</h4>
+                          <p>
+                            The first network that would eventually become the
+                            internet
+                          </p>
+                        </div>
                       </div>
+                      <div class="timeline-dot"></div>
                     </div>
-                    <div
-                      class="timeline-event"
-                      data-year="1989"
-                      data-title="WWW Proposed"
-                      data-description="Tim Berners-Lee proposes the World Wide Web"
-                    >
-                      <div class="event-marker">1989</div>
-                      <div class="event-popup">
-                        <h4>WWW Proposed</h4>
-                        <p>
-                          Tim Berners-Lee submits his proposal for the World
-                          Wide Web
-                        </p>
+
+                    <div class="timeline-event right">
+                      <div class="timeline-content">
+                        <div class="event-year">1989</div>
+                        <div class="event-card">
+                          <h4>WWW Proposed</h4>
+                          <p>
+                            Tim Berners-Lee submits his proposal for the World
+                            Wide Web
+                          </p>
+                        </div>
                       </div>
+                      <div class="timeline-dot"></div>
                     </div>
-                    <div
-                      class="timeline-event"
-                      data-year="1993"
-                      data-title="Mosaic Browser"
-                      data-description="The first popular graphical web browser"
-                    >
-                      <div class="event-marker">1993</div>
-                      <div class="event-popup">
-                        <h4>Mosaic Browser</h4>
-                        <p>
-                          The first web browser with inline images and
-                          user-friendly interface
-                        </p>
+
+                    <div class="timeline-event left">
+                      <div class="timeline-content">
+                        <div class="event-year">1993</div>
+                        <div class="event-card">
+                          <h4>Mosaic Browser</h4>
+                          <p>
+                            The first web browser with inline images and
+                            user-friendly interface
+                          </p>
+                        </div>
                       </div>
+                      <div class="timeline-dot"></div>
                     </div>
-                    <div
-                      class="timeline-event"
-                      data-year="2004"
-                      data-title="Web 2.0"
-                      data-description="Social media and user-generated content emerge"
-                    >
-                      <div class="event-marker">2004</div>
-                      <div class="event-popup">
-                        <h4>Web 2.0 Era</h4>
-                        <p>
-                          Facebook launches, ushering in the era of social media
-                        </p>
+
+                    <div class="timeline-event right">
+                      <div class="timeline-content">
+                        <div class="event-year">2004</div>
+                        <div class="event-card">
+                          <h4>Web 2.0 Era</h4>
+                          <p>
+                            Facebook launches, ushering in the era of social
+                            media
+                          </p>
+                        </div>
                       </div>
+                      <div class="timeline-dot"></div>
                     </div>
-                    <div
-                      class="timeline-event"
-                      data-year="2020"
-                      data-title="Web 3.0"
-                      data-description="AI and decentralized web technologies"
-                    >
-                      <div class="event-marker">2020</div>
-                      <div class="event-popup">
-                        <h4>Web 3.0 Era</h4>
-                        <p>
-                          AI, blockchain, and decentralized technologies reshape
-                          the web
-                        </p>
+
+                    <div class="timeline-event left">
+                      <div class="timeline-content">
+                        <div class="event-year">2020</div>
+                        <div class="event-card">
+                          <h4>Web 3.0 Era</h4>
+                          <p>
+                            AI, blockchain, and decentralized technologies
+                            reshape the web
+                          </p>
+                        </div>
                       </div>
+                      <div class="timeline-dot"></div>
                     </div>
                   </div>
                 </div>
@@ -973,7 +1042,7 @@
               <div class="resource-grid">
                 <div class="resource-card">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Tim_Berners-Lee_April_2009.jpg/320px-Tim_Berners-Lee_April_2009.jpg"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
                     alt="Tim Berners-Lee"
                     loading="lazy"
                   />
@@ -987,7 +1056,7 @@
                 </div>
                 <div class="resource-card">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/World_Wide_Web_logo.svg/320px-World_Wide_Web_logo.svg.png"
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
                     alt="World Wide Web Logo"
                     loading="lazy"
                   />
@@ -999,7 +1068,7 @@
                 </div>
                 <div class="resource-card">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Google_logo_%282010-2015%29.svg/320px-Google_logo_%282010-2015%29.svg.png"
+                    src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
                     alt="Google Search Engine"
                     loading="lazy"
                   />

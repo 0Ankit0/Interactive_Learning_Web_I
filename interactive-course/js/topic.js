@@ -659,7 +659,8 @@ function saveTopicProgress(scrollPercent) {
         scrollPercent: Math.min(scrollPercent, 100),
         quizScore: quizScore,
         completed: scrollPercent >= 90,
-        lastVisited: new Date().toISOString()
+        lastVisited: new Date().toISOString(),
+        sectionsRead: getSectionsRead()
     };
 
     localStorage.setItem(`topic-progress-${topicId}`, JSON.stringify(progress));
@@ -681,7 +682,37 @@ function loadTopicProgress() {
         if (progress.quizScore) {
             quizScore = progress.quizScore;
         }
+
+        // Mark sections as read if previously completed
+        if (progress.sectionsRead) {
+            markSectionsAsRead(progress.sectionsRead);
+        }
     }
+}
+
+function getSectionsRead() {
+    const sections = document.querySelectorAll('.content-section');
+    const sectionsRead = [];
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        // Consider a section read if it's been viewed (top is above viewport)
+        if (rect.top < window.innerHeight) {
+            sectionsRead.push(section.id);
+        }
+    });
+
+    return sectionsRead;
+}
+
+function markSectionsAsRead(sectionsRead) {
+    sectionsRead.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            // Add a subtle visual indicator for completed sections
+            section.classList.add('section-read');
+        }
+    });
 }
 
 function saveTopicCompletion() {
@@ -761,7 +792,7 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('.content-section');
     sections.forEach((section, index) => {
-        // Skip the first section to prevent flickering
+        // Skip the first section (introduction) to prevent flickering, observe others
         if (index > 0) {
             observer.observe(section);
         }
