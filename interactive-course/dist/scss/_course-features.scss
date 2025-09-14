@@ -1,0 +1,753 @@
+// Course-Specific Features for Web Technology I Interactive Course
+// Modern SASS with advanced interactive learning features
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ========================================
+// INTERACTIVE COURSE LAYOUTS
+// ========================================
+
+// Three-tier course structure
+.course-dashboard {
+  @include container-fluid;
+  @include grid-auto-fit(minmax(300px, 1fr), $spacing-lg);
+  
+  .unit-card {
+    @include card-base;
+    @include card-hover;
+    @include transition(all map.get($animation-duration, base) $ease-out-cubic);
+    
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($secondary, 0.1));
+    border-left: 4px solid $primary;
+    
+    &:hover {
+      border-left-color: $accent-primary;
+      box-shadow: $box-shadow-lg;
+    }
+  }
+}
+
+.unit-overview {
+  @include make-container();
+  
+  .topic-grid {
+    @include grid-auto-fit(280px, $spacing-md);
+    margin-top: $spacing-lg;
+  }
+  
+  .topic-card {
+    @include card-base;
+    background: white;
+    border: 1px solid $gray-200;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all map.get($animation-duration, base) ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .topic-meta {
+      @include flex(row, space-between, center);
+      @include font-size("sm");
+      color: $gray-600;
+      margin-top: $spacing-sm;
+    }
+    
+    .difficulty-badge {
+      @include badge;
+      
+      &.beginner { background-color: theme-color("success"); }
+      &.intermediate { background-color: theme-color("warning"); }
+      &.advanced { background-color: theme-color("danger"); }
+    }
+    
+    .duration {
+      @include flex(row, flex-start, center);
+      gap: $spacing-xs;
+      
+      &::before {
+        content: "🕒";
+        @include font-size("sm");
+      }
+    }
+  }
+}
+
+.topic-page {
+  @include make-container();
+  max-width: breakpoint("lg");
+  
+  .topic-header {
+    text-align: center;
+    @include padding-y($spacer * 3);
+    background: linear-gradient(135deg, rgba(theme-color("primary"), 0.05), rgba(theme-color("secondary"), 0.05));
+    border-radius: map.get($border-radius-scale, lg);
+    margin-bottom: $spacing-xl;
+    
+    .topic-title {
+      @include heading-1;
+      @include gradient-text(theme-color("primary"), theme-color("secondary"));
+      margin-bottom: $spacing-md;
+    }
+    
+    .topic-description {
+      @include font-size("lg");
+      color: $gray-600;
+      max-width: 60ch;
+      margin: 0 auto;
+    }
+  }
+  
+  .topic-navigation {
+    position: sticky;
+    top: $spacing-md;
+    background: rgba($white, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: map.get($border-radius-scale, lg);
+    @include padding($spacer);
+    box-shadow: $box-shadow-sm;
+    margin-bottom: $spacing-lg;
+    
+    .nav-links {
+      @include flex(row, space-around, center);
+      @include reset-list();
+      
+      .nav-link {
+        @include button("sm", "outline");
+        @include transition(all map.get($animation-duration, fast) ease);
+        text-decoration: none;
+        
+        &.active {
+          background-color: $primary;
+          color: $white;
+        }
+        
+        &:hover:not(.active) {
+          background-color: rgba($primary, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// ========================================
+// INTERACTIVE LEARNING COMPONENTS
+// ========================================
+
+// Enhanced demo containers
+.interactive-demo {
+  @include card-base;
+  background: linear-gradient(135deg, rgba(theme-color("primary"), 0.02), rgba(theme-color("secondary"), 0.02));
+  border: 2px solid rgba(theme-color("primary"), 0.1);
+  @include margin-bottom($spacer * 2);
+  position: relative;
+  
+  &::before {
+    content: "Interactive Demo";
+    @include badge;
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background-color: theme-color("info");
+    z-index: 10;
+  }
+  
+  .demo-header {
+    @include flex(row, space-between, center);
+    @include padding-bottom($spacer);
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: $spacing-md;
+    
+    .demo-title {
+      @include font-weight("bold");
+      @include font-size("lg");
+      color: theme-color("primary");
+    }
+    
+    .demo-controls {
+      @include flex(row, flex-end, center);
+      gap: $spacing-sm;
+      
+      .demo-reset {
+        @include button("sm", "outline");
+        @include button-color(theme-color("warning"));
+      }
+      
+      .demo-fullscreen {
+        @include button("sm", "outline");
+        @include button-color(theme-color("info"));
+      }
+    }
+  }
+  
+  .demo-content {
+    @include grid-two-columns($spacing-md);
+    min-height: 300px;
+    
+    .demo-code {
+      background-color: $gray-50;
+      border-radius: $border-radius-default;
+      @include padding($spacer);
+      
+      .code-editor {
+        width: 100%;
+        min-height: 250px;
+        border: none;
+        background: transparent;
+        font-family: font-family("monospace");
+        @include font-size("sm");
+        resize: vertical;
+        
+        &:focus {
+          outline: 2px solid rgba(theme-color("primary"), 0.5);
+        }
+      }
+    }
+    
+    .demo-preview {
+      background-color: $white;
+      border: 1px solid $gray-200;
+      border-radius: $border-radius-default;
+      @include padding($spacer);
+      overflow: auto;
+      
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+  
+  .demo-explanation {
+    @include margin-top($spacer);
+    @include padding-top($spacer);
+    border-top: 1px solid $gray-200;
+    @include font-size("sm");
+    color: $gray-600;
+  }
+}
+
+// Code playground with live editing
+.code-playground {
+  @extend .interactive-demo;
+  
+  .playground-tabs {
+    @include flex(row, flex-start, center);
+    margin-bottom: $spacing-md;
+    border-bottom: 1px solid $gray-200;
+    
+    .tab {
+      @include button("sm", "ghost");
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+      @include transition(all map.get($animation-duration, fast) ease);
+      
+      &.active {
+        border-bottom-color: theme-color("primary");
+        color: theme-color("primary");
+      }
+    }
+  }
+  
+  .playground-content {
+    .editor-container {
+      position: relative;
+      
+      .editor-toolbar {
+        @include flex(row, space-between, center);
+        @include padding($spacer * 0.5);
+        background-color: $gray-100;
+        border-radius: $border-radius-default $border-radius-default 0 0;
+        @include font-size("xs");
+        
+        .file-name {
+          @include font-weight("medium");
+          color: $gray-700;
+        }
+        
+        .editor-actions {
+          @include flex(row, flex-end, center);
+          gap: $spacing-xs;
+          
+          button {
+            @include button("xs", "ghost");
+            @include padding($spacer * 0.25, $spacer * 0.5);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================================
+// QUIZ AND ASSESSMENT COMPONENTS
+// ========================================
+
+.quiz-container {
+  @include card-base;
+  background: linear-gradient(135deg, rgba(theme-color("info"), 0.05), rgba(theme-color("primary"), 0.05));
+  border-left: 4px solid theme-color("info");
+  
+  .quiz-header {
+    @include flex(row, space-between, center);
+    @include margin-bottom($spacer);
+    
+    .quiz-title {
+      @include font-size("lg");
+      @include font-weight("bold");
+      color: theme-color("info");
+    }
+    
+    .quiz-progress {
+      @include progress-bar;
+      width: 200px;
+      height: 8px;
+      
+      .progress-fill {
+        background: linear-gradient(90deg, #{theme-color("info")}, #{theme-color("primary")});
+        @include transition(width map.get($animation-duration, base) $ease-out-cubic);
+      }
+    }
+  }
+  
+  .quiz-question {
+    @include margin-bottom($spacer * 1.5);
+    
+    .question-text {
+      @include font-size("md");
+      @include font-weight("medium");
+      margin-bottom: $spacing-md;
+      line-height: line-height("relaxed");
+    }
+    
+    .question-options {
+      @include reset-list();
+      
+      .option {
+        @include flex(row, flex-start, center);
+        @include padding($spacer * 0.75);
+        @include margin-bottom($spacer * 0.5);
+        background-color: $white;
+        border: 2px solid $gray-200;
+        border-radius: $border-radius-default;
+        cursor: pointer;
+        @include transition(all map.get($animation-duration, fast) ease);
+        
+        &:hover {
+          border-color: rgba(theme-color("primary"), 0.5);
+          background-color: rgba(theme-color("primary"), 0.05);
+        }
+        
+        &.selected {
+          border-color: theme-color("primary");
+          background-color: rgba(theme-color("primary"), 0.1);
+        }
+        
+        &.correct {
+          border-color: theme-color("success");
+          background-color: rgba(theme-color("success"), 0.1);
+          @include animation(pulse map.get($animation-duration, base) ease-in-out);
+        }
+        
+        &.incorrect {
+          border-color: theme-color("danger");
+          background-color: rgba(theme-color("danger"), 0.1);
+          @include animation(shake map.get($animation-duration, fast) ease-in-out);
+        }
+        
+        .option-marker {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid currentColor;
+          margin-right: $spacing-sm;
+          @include flex(row, center, center);
+          @include font-size("xs");
+          @include font-weight("bold");
+          
+          &::after {
+            content: attr(data-marker);
+          }
+        }
+        
+        .option-text {
+          flex: 1;
+          @include font-size("sm");
+        }
+      }
+    }
+  }
+  
+  .quiz-feedback {
+    @include padding($spacer);
+    border-radius: $border-radius-default;
+    margin-top: $spacing-md;
+    @include font-size("sm");
+    
+    &.correct {
+      background-color: rgba(theme-color("success"), 0.1);
+      border: 1px solid rgba(theme-color("success"), 0.3);
+      color: color.adjust(theme-color("success"), $lightness: -20%);
+    }
+    
+    &.incorrect {
+      background-color: rgba(theme-color("danger"), 0.1);
+      border: 1px solid rgba(theme-color("danger"), 0.3);
+      color: color.adjust(theme-color("danger"), $lightness: -20%);
+    }
+  }
+  
+  .quiz-actions {
+    @include flex(row, space-between, center);
+    @include margin-top($spacer * 1.5);
+    
+    .quiz-submit {
+      @include button("md", "primary");
+      @include button-animation;
+    }
+    
+    .quiz-next {
+      @include button("md", "outline");
+      @include button-color(theme-color("primary"));
+    }
+  }
+}
+
+// ========================================
+// PROGRESS TRACKING
+// ========================================
+
+.progress-tracker {
+  @include sticky;
+  top: 0;
+  background: rgba($white, 0.95);
+  backdrop-filter: blur(10px);
+  @include padding($spacer);
+  border-bottom: 1px solid $gray-200;
+  z-index: 100;
+  
+  .progress-content {
+    @include container;
+    @include flex(row, space-between, center);
+    
+    .course-progress {
+      @include flex(row, flex-start, center);
+      gap: $spacing-md;
+      
+      .progress-label {
+        @include font-size("sm");
+        @include font-weight("medium");
+        color: $gray-600;
+      }
+      
+      .progress-bar {
+        width: 200px;
+        height: 6px;
+        background-color: $gray-200;
+        border-radius: $border-radius-pill;
+        overflow: hidden;
+        
+        .progress-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #{theme-color("primary")}, #{theme-color("secondary")});
+          border-radius: inherit;
+          @include transition(width map.get($animation-duration, slow) $ease-out-cubic);
+        }
+      }
+      
+      .progress-text {
+        @include font-size("xs");
+        @include font-weight("bold");
+        color: theme-color("primary");
+      }
+    }
+    
+    .reading-time {
+      @include flex(row, flex-end, center);
+      gap: $spacing-sm;
+      @include font-size("sm");
+      color: $gray-500;
+      
+      &::before {
+        content: "📖";
+      }
+    }
+  }
+}
+
+// ========================================
+// CODE SYNTAX HIGHLIGHTING
+// ========================================
+
+.code-block {
+  position: relative;
+  background-color: $gray-900;
+  color: $gray-100;
+  border-radius: map.get($border-radius-scale, lg);
+  overflow: hidden;
+  @include margin($spacer 0);
+  
+  .code-header {
+    @include flex(row, space-between, center);
+    @include padding($spacer * 0.5, $spacer);
+    background-color: $gray-800;
+    border-bottom: 1px solid $gray-700;
+    
+    .code-language {
+      @include font-size("xs");
+      @include font-weight("medium");
+      color: $gray-400;
+      text-transform: uppercase;
+      letter-spacing: letter-spacing("wide");
+    }
+    
+    .code-actions {
+      @include flex(row, flex-end, center);
+      gap: $spacing-xs;
+      
+      .copy-button {
+        @include button("xs", "ghost");
+        color: $gray-400;
+        @include padding($spacer * 0.25, $spacer * 0.5);
+        
+        &:hover {
+          color: $white;
+          background-color: $gray-700;
+        }
+        
+        &.copied {
+          color: theme-color("success");
+        }
+      }
+    }
+  }
+  
+  .code-content {
+    @include padding($spacer);
+    overflow-x: auto;
+    
+    pre, code {
+      font-family: font-family("monospace");
+      @include font-size("sm");
+      line-height: line-height("relaxed");
+    }
+    
+    // Syntax highlighting
+    .keyword { color: theme-color-level("primary", 3); }
+    .string { color: theme-color-level("success", 3); }
+    .number { color: theme-color-level("warning", 3); }
+    .comment { color: $gray-500; font-style: italic; }
+    .function { color: theme-color-level("info", 3); }
+    .variable { color: theme-color-level("secondary", 3); }
+    .operator { color: $gray-300; }
+    .tag { color: theme-color-level("danger", 3); }
+    .attribute { color: theme-color-level("warning", 3); }
+    .value { color: theme-color-level("success", 3); }
+  }
+  
+  .line-numbers {
+    @include flex(column, flex-start, flex-end);
+    @include padding($spacer, $spacer * 0.5);
+    background-color: $gray-850;
+    border-right: 1px solid $gray-700;
+    color: $gray-500;
+    @include font-size("xs");
+    font-family: font-family("monospace");
+    line-height: line-height("relaxed");
+    user-select: none;
+  }
+}
+
+// ========================================
+// KNOWLEDGE CHECKS
+// ========================================
+
+.knowledge-check {
+  @include card-base;
+  background: linear-gradient(135deg, rgba(theme-color("warning"), 0.05), rgba(theme-color("info"), 0.05));
+  border-left: 4px solid theme-color("warning");
+  @include margin($spacer * 2, 0);
+  
+  .check-header {
+    @include flex(row, flex-start, center);
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: theme-color("warning");
+      border-radius: 50%;
+      @include flex(row, center, center);
+      color: $white;
+      @include font-size("sm");
+      
+      &::before {
+        content: "?";
+        @include font-weight("bold");
+      }
+    }
+    
+    .check-title {
+      @include font-size("md");
+      @include font-weight("bold");
+      color: theme-color-level("warning", -2);
+    }
+  }
+  
+  .check-content {
+    @include font-size("sm");
+    line-height: line-height("relaxed");
+    color: $gray-700;
+  }
+  
+  .check-reveal {
+    @include margin-top($spacer);
+    
+    .reveal-trigger {
+      @include button("sm", "outline");
+      @include button-color(theme-color("warning"));
+      
+      &.revealed {
+        display: none;
+      }
+    }
+    
+    .reveal-content {
+      display: none;
+      @include margin-top($spacer);
+      @include padding($spacer);
+      background-color: rgba(theme-color("warning"), 0.05);
+      border: 1px solid rgba(theme-color("warning"), 0.2);
+      border-radius: map.get($border-radius-scale, default);
+      @include font-size("sm");
+      
+      &.revealed {
+        display: block;
+        @include animation(fadeInUp map.get($animation-duration, base) $ease-out-cubic);
+      }
+    }
+  }
+}
+
+// ========================================
+// ACCESSIBILITY FEATURES
+// ========================================
+
+// Skip links
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: theme-color("primary");
+  color: $white;
+  @include padding($spacer * 0.5, $spacer);
+  text-decoration: none;
+  border-radius: map.get($border-radius-scale, default);
+  z-index: 1000;
+  @include transition(top map.get($animation-duration, fast) ease);
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .interactive-demo,
+  .quiz-container,
+  .knowledge-check {
+    border-width: 3px;
+  }
+  
+  .code-block {
+    border: 2px solid currentColor;
+  }
+  
+  .demo-content,
+  .quiz-question .option {
+    border-width: 2px;
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .topic-page .topic-navigation {
+    background: rgba($gray-900, 0.95);
+    color: $white;
+  }
+  
+  .progress-tracker {
+    background: rgba($gray-900, 0.95);
+    border-bottom-color: $gray-700;
+  }
+  
+  .interactive-demo,
+  .quiz-container,
+  .knowledge-check {
+    background: $gray-800;
+    color: $white;
+  }
+}
+
+// ========================================
+// RESPONSIVE OPTIMIZATIONS
+// ========================================
+
+@include media-breakpoint-down("md") {
+  .topic-page .topic-navigation .nav-links {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+  }
+  
+  .interactive-demo .demo-content {
+    grid-template-columns: 1fr;
+    
+    .demo-code,
+    .demo-preview {
+      min-height: 200px;
+    }
+  }
+  
+  .quiz-container .quiz-actions {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+  }
+  
+  .progress-tracker .progress-content {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-sm;
+  }
+}
+
+@include media-breakpoint-down("sm") {
+  .course-dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .unit-overview .topic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .code-playground .playground-tabs {
+    @include flex(column, flex-start, stretch);
+    
+    .tab {
+      border-radius: map.get($border-radius-scale, default);
+      border: 1px solid $gray-200;
+      margin-bottom: $spacing-xs;
+      
+      &.active {
+        border-color: theme-color("primary");
+      }
+    }
+  }
+}

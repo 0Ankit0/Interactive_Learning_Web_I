@@ -1,0 +1,17 @@
+/* Error: $color: #4CAF50 is not a color.
+ *    ,
+ * 23 |     background: linear-gradient(135deg, rgba(#{theme-color("primary")}, 0.1), rgba(#{theme-color("secondary")}, 0.1));
+ *    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   dist\scss\_course-features.scss 23:41  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: $color: #4CAF50 is not a color.\a    \2577 \a 23 \2502      background: linear-gradient(135deg, rgba(#{theme-color("primary")}, 0.1), rgba(#{theme-color("secondary")}, 0.1));\d\a    \2502                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   dist\\scss\\_course-features.scss 23:41  root stylesheet';
+}

@@ -1,11 +1,744 @@
-// Mixins for the Web Technology I Interactive Course
+// Comprehensive SASS Mixins and Functions for Web Technology I Course
+// Modern SASS features with full Bootstrap compatibility
+
 @use 'sass:color';
 @use 'sass:map';
-@use 'variables' as *;
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'variables/index' as *;
 
-// SASS Functions for color manipulation
-@function lighten-color($color, $amount: 10%) {
-  @return color.adjust($color, $lightness: $amount);
+// ========================================
+// UTILITY FUNCTIONS & MIXINS
+// ========================================
+
+// Breakpoint mixin for responsive design
+@mixin breakpoint($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}
+
+// Math helper functions
+@function strip-unit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($pixels, $context: 16) {
+  @return math.div($pixels, $context) * 1rem;
+}
+
+@function em($pixels, $context: 16) {
+  @return math.div($pixels, $context) * 1em;
+}
+
+@function px($value) {
+  @if math.unit($value) == "px" {
+    @return $value;
+  }
+  @return $value * 16px;
+}
+
+// String helper functions
+@function str-replace($string, $search, $replace: "") {
+  $index: string.index($string, $search);
+  
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+// Color helper functions
+@function tint($color, $percentage) {
+  @return color.mix($white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return color.mix($black, $color, $percentage);
+}
+
+@function contrast-color($color, $light: $white, $dark: $black, $threshold: 60%) {
+  @if color.lightness($color) > $threshold {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+
+@function theme-color($key: "primary") {
+  @return map.get($theme-colors, $key);
+}
+
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, $black, $white);
+  $level: math.abs($level);
+  
+  @return color.mix($color-base, $color, $level * 8%);
+}
+
+// Breakpoint functions
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map.keys($breakpoints)) {
+  $n: list.index($breakpoint-names, $name);
+  @if not $n {
+    @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
+  }
+  @return if($n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map.get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map.get($breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// ========================================
+// RESPONSIVE MIXINS
+// ========================================
+
+// Media query mixins
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $next: breakpoint-next($name, $breakpoints);
+  $max: breakpoint-max($next, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($next, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// ========================================
+// LAYOUT MIXINS
+// ========================================
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin padding-y($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin padding($value...) {
+  padding: $value;
+}
+
+@mixin padding-bottom($value) {
+  padding-bottom: $value;
+}
+
+@mixin padding-top($value) {
+  padding-top: $value;
+}
+
+@mixin margin-bottom($value) {
+  margin-bottom: $value;
+}
+
+@mixin margin-top($value) {
+  margin-top: $value;
+}
+
+@mixin margin($value...) {
+  margin: $value;
+}
+
+@mixin heading-1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacer;
+  color: $text-primary;
+}
+
+// Grid utilities
+@mixin make-container($gutter: $grid-gutter-width) {
+  width: 100%;
+  padding-right: math.div($gutter, 2);
+  padding-left: math.div($gutter, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin container-fluid($gutter: $grid-gutter-width) {
+  width: 100%;
+  padding-right: math.div($gutter, 2);
+  padding-left: math.div($gutter, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin container($max-width: 1200px, $gutter: $grid-gutter-width) {
+  width: 100%;
+  max-width: $max-width;
+  padding-right: math.div($gutter, 2);
+  padding-left: math.div($gutter, 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: math.div(-$gutter, 2);
+  margin-left: math.div(-$gutter, 2);
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width) {
+  position: relative;
+  width: 100%;
+  padding-right: math.div($gutter, 2);
+  padding-left: math.div($gutter, 2);
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 auto;
+  width: math.percentage(math.div($size, $columns));
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: math.div($size, $columns);
+  margin-left: if($num == 0, 0, math.percentage($num));
+}
+
+// ========================================
+// COMPONENT MIXINS
+// ========================================
+
+// Button variants
+@mixin button-variant(
+  $background,
+  $border,
+  $color: contrast-color($background),
+  $hover-background: color.adjust($background, $lightness: -15%),
+  $hover-border: color.adjust($border, $lightness: -20%),
+  $hover-color: contrast-color($hover-background),
+  $active-background: color.adjust($background, $lightness: -20%),
+  $active-border: color.adjust($border, $lightness: -25%),
+  $active-color: contrast-color($active-background),
+  $disabled-background: $background,
+  $disabled-border: $border,
+  $disabled-color: contrast-color($disabled-background)
+) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  box-shadow: $btn-box-shadow;
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active {
+    color: $active-color;
+    background-color: $active-background;
+    border-color: $active-border;
+    box-shadow: $btn-active-box-shadow;
+
+    &:focus {
+      box-shadow: $btn-focus-box-shadow;
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $disabled-color;
+    background-color: $disabled-background;
+    border-color: $disabled-border;
+    opacity: $btn-disabled-opacity;
+  }
+}
+
+@mixin button-outline-variant(
+  $color,
+  $color-hover: contrast-color($color),
+  $active-background: $color,
+  $active-border: $color,
+  $active-color: contrast-color($active-background)
+) {
+  color: $color;
+  border-color: $color;
+
+  &:hover {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    box-shadow: 0 0 0 $btn-focus-width rgba($color, 0.5);
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active {
+    color: $active-color;
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      box-shadow: 0 0 0 $btn-focus-width rgba($color, 0.5);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background-color: transparent;
+    opacity: $btn-disabled-opacity;
+  }
+}
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+// Form control variants
+@mixin form-control-focus($ignore-warning: false) {
+  &:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: $input-focus-box-shadow;
+  }
+}
+
+@mixin form-validation-state-selector($state) {
+  @if ($state == "valid" or $state == "invalid") {
+    .was-validated #{if(&, "&", "")}:#{$state},
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
+    }
+  } @else {
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
+    }
+  }
+}
+
+@mixin form-validation-state(
+  $state,
+  $color,
+  $icon,
+  $tooltip-color: contrast-color($color),
+  $tooltip-bg-color: rgba($color, 0.9),
+  $focus-box-shadow: 0 0 0 $input-focus-width rgba($color, 0.25),
+  $border-color: $color
+) {
+  .#{$state}-feedback {
+    display: none;
+    width: 100%;
+    margin-top: math.div($spacing-base, 4);
+    font-size: $font-size-sm;
+    color: $color;
+  }
+
+  .#{$state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%;
+    padding: ($spacing-base * 0.5) $spacing-base;
+    margin-top: 0.1rem;
+    font-size: $font-size-sm;
+    line-height: $line-height-base;
+    color: $tooltip-color;
+    background-color: $tooltip-bg-color;
+    border-radius: $border-radius;
+  }
+
+  @include form-validation-state-selector($state) {
+    ~ .#{$state}-feedback,
+    ~ .#{$state}-tooltip {
+      display: block;
+    }
+  }
+
+  .form-control {
+    @include form-validation-state-selector($state) {
+      border-color: $border-color;
+
+      &:focus {
+        border-color: $border-color;
+        box-shadow: $focus-box-shadow;
+      }
+    }
+  }
+}
+
+// ========================================
+// VISUAL MIXINS
+// ========================================
+
+// Gradients
+@mixin gradient-bg($color: null) {
+  background-color: $color;
+  @if $color {
+    background-image: linear-gradient(180deg, color.mix($white, $color, 15%), $color);
+  }
+}
+
+@mixin gradient-x($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+}
+
+@mixin gradient-y($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+}
+
+@mixin gradient-directional($start-color: $gray-700, $end-color: $gray-800, $deg: 45deg) {
+  background-image: linear-gradient($deg, $start-color, $end-color);
+}
+
+@mixin gradient-radial($inner-color: $gray-700, $outer-color: $gray-800) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+}
+
+@mixin gradient-text($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Box shadows
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+@mixin transition($transition...) {
+  @if list.length($transition) == 0 {
+    $transition: map.get($animation-duration, base) ease;
+  }
+
+  @if list.length($transition) > 1 {
+    @each $value in $transition {
+      @if $value == null or $value == none {
+        @warn "The keyword 'none' or 'null' must be used as a single argument.";
+      }
+    }
+  }
+
+  @if list.nth($transition, 1) != null {
+    transition: $transition;
+  }
+
+  @if meta.global-variable-exists(prefers-reduced-motion) and $prefers-reduced-motion == reduce {
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+}
+
+// Animations
+@mixin animation($animation...) {
+  animation: $animation;
+}
+
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// ========================================
+// TYPOGRAPHY MIXINS
+// ========================================
+
+@mixin font-size($fs, $lh: $line-height-base) {
+  font-size: $fs;
+  line-height: $lh;
+}
+
+@mixin font-weight($weight) {
+  font-weight: map.get($font-weights, $weight);
+}
+
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-emphasis-variant($parent, $color, $ignore-warning: false) {
+  #{$parent} {
+    color: $color !important;
+  }
+
+  a#{$parent}:hover,
+  a#{$parent}:focus {
+    color: color.adjust($color, $lightness: -20%) !important;
+  }
+}
+
+// ========================================
+// UTILITY MIXINS
+// ========================================
+
+// Clearfix
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// Visually hidden
+@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin visually-hidden-focusable() {
+  &:not(:focus):not(:focus-within) {
+    @include visually-hidden();
+  }
+}
+
+// Reset list
+@mixin list-unstyled() {
+  padding-left: 0;
+  list-style: none;
+}
+
+// Image replacement
+@mixin img-fluid() {
+  max-width: 100%;
+  height: auto;
+}
+
+// Border radius
+@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+  @if $fallback-border-radius != false {
+    border-radius: $fallback-border-radius;
+  }
+
+  border-radius: $radius;
+}
+
+@mixin border-top-radius($radius: $border-radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-end-radius($radius: $border-radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius: $border-radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-start-radius($radius: $border-radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+// ========================================
+// COURSE-SPECIFIC MIXINS
+// ========================================
+
+// Interactive demo styling
+@mixin demo-container($bg: $gray-100, $border: $border-color, $radius: $border-radius) {
+  background-color: $bg;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: $spacing-base;
+  margin: $spacing-base 0;
+}
+
+@mixin demo-item($color: theme-color("primary"), $size: 60px) {
+  background-color: $color;
+  color: contrast-color($color);
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: map.get($border-radius-scale, sm);
+  font-weight: $font-weight-bold;
+  margin: ($spacing-base * 0.25);
+}
+
+// Code block styling
+@mixin code-block($bg: $code-bg, $color: $code-color, $radius: $code-border-radius) {
+  background-color: $bg;
+  color: $color;
+  border-radius: $radius;
+  padding: $code-padding;
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  overflow-x: auto;
+}
+
+// Interactive states
+@mixin hover-effect($scale: $hover-scale, $transition: transform 0.2s ease) {
+  transition: $transition;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+@mixin active-effect($scale: $active-scale) {
+  &:active {
+    transform: scale($scale);
+  }
+}
+
+// Quiz styling
+@mixin quiz-state($color, $bg-color: null, $border-color: null) {
+  $bg: if($bg-color, $bg-color, rgba($color, 0.1));
+  $border: if($border-color, $border-color, $color);
+  
+  background-color: $bg;
+  border-color: $border;
+  color: $color;
+}
+
+// Progress indicators
+@mixin progress-bar($color: theme-color("primary"), $bg: $progress-bg, $height: $progress-height) {
+  background-color: $bg;
+  height: $height;
+  border-radius: $progress-border-radius;
+  overflow: hidden;
+  
+  .progress-fill {
+    background-color: $color;
+    height: 100%;
+    transition: width 0.3s ease;
+  }
 }
 
 @function darken-color($color, $amount: 10%) {
@@ -26,7 +759,7 @@
 }
 
 // Function to generate focus ring with any color
-@function focus-ring($color: $primary-color, $alpha: 0.1) {
+@function focus-ring($color: theme-color("primary"), $alpha: 0.1) {
   @return 0 0 0 3px alpha-color($color, $alpha);
 }
 
@@ -83,30 +816,41 @@
 }
 
 // Grid mixins
-@mixin grid-auto-fit($min-width: 250px, $gap: $spacing-lg) {
+@mixin grid-auto-fit($min-width: 250px, $gap: \$spacing-base) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
   gap: $gap;
 }
 
-@mixin grid-auto-fill($min-width: 250px, $gap: $spacing-lg) {
+@mixin grid-auto-fill($min-width: 250px, $gap: \$spacing-base) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
   gap: $gap;
 }
 
+@mixin grid-two-columns($gap: 2rem) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap;
+  align-items: start;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Card mixins
 @mixin card-base {
   background: $bg-primary;
-  border-radius: $border-radius-xl;
-  box-shadow: $shadow-lg;
+  border-radius: map.get($border-radius-scale, xl);
+  box-shadow: $box-shadow-lg;
   padding: $spacing-3xl;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 }
 
 @mixin card-hover {
   transform: translateY(-5px);
-  box-shadow: $shadow-xl;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 // Button mixins
@@ -116,12 +860,12 @@
   justify-content: center;
   padding: $spacing-md $spacing-2xl;
   border: none;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   font-weight: $font-weight-semibold;
   font-size: $font-size-sm;
   text-decoration: none;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
   user-select: none;
   
   &:focus {
@@ -144,7 +888,7 @@
   &:hover:not(:disabled) {
     background: linear-gradient(135deg, $primary-hover, $primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    box-shadow: 0 4px 15px rgba(theme-color("primary"), 0.3);
   }
   
   &:active:not(:disabled) {
@@ -156,11 +900,11 @@
   @include button-base;
   background: $bg-secondary;
   color: $text-primary;
-  border: 2px solid $border-light;
+  border: 2px solid $gray-200;
   
   &:hover:not(:disabled) {
-    background: $bg-light;
-    border-color: $primary-color;
+    background: $gray-200;
+    border-color: theme-color("primary");
     transform: translateY(-2px);
   }
 }
@@ -168,25 +912,88 @@
 @mixin button-outline {
   @include button-base;
   background: transparent;
-  color: $primary-color;
-  border: 2px solid $primary-color;
+  color: theme-color("primary");
+  border: 2px solid theme-color("primary");
   
   &:hover:not(:disabled) {
-    background: $primary-color;
+    background: theme-color("primary");
     color: white;
     transform: translateY(-2px);
   }
+}
+
+@mixin button($size: "md", $variant: "primary") {
+  @include button-base;
+  
+  @if $size == "sm" {
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    font-size: $btn-font-size-sm;
+    border-radius: $btn-border-radius-sm;
+  } @else if $size == "lg" {
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+  } @else {
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $btn-font-size;
+    border-radius: $btn-border-radius;
+  }
+  
+  @if $variant == "outline" {
+    @include button-outline;
+  } @else if $variant == "secondary" {
+    @include button-secondary;
+  } @else if $variant == "ghost" {
+    background: transparent;
+    border: none;
+    color: theme-color("primary");
+    
+    &:hover:not(:disabled) {
+      background: rgba(theme-color("primary"), 0.1);
+    }
+  } @else {
+    @include button-primary;
+  }
+}
+
+@mixin button-color($color) {
+  background: $color;
+  border-color: $color;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: color.adjust($color, $lightness: -10%);
+    border-color: color.adjust($color, $lightness: -10%);
+  }
+}
+
+@mixin button-animation {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@mixin sticky {
+  position: sticky;
 }
 
 // CSS Demo specific mixins
 @mixin demo-swatch($size: 60px) {
   width: $size;
   height: $size;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   margin: $spacing-sm;
-  border: 1px solid $border-light;
+  border: 1px solid $gray-200;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: scale(1.05);
@@ -198,10 +1005,10 @@
   width: 100%;
   padding: $spacing-md;
   border: 2px solid $border-medium;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   font-family: $font-family-monospace;
   font-size: $font-size-sm;
-  margin-bottom: $spacing-lg;
+  margin-bottom: \$spacing-base;
 
   &:focus {
     outline: none;
@@ -214,8 +1021,8 @@
   width: $size;
   height: $size;
   border-radius: $border-radius-xs;
-  border: 1px solid $border-light;
-  transition: all $transition-base;
+  border: 1px solid $gray-200;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: scale(1.05);
@@ -226,10 +1033,10 @@
   background: $bg-color;
   color: white;
   border: none;
-  padding: $spacing-lg $spacing-2xl;
-  border-radius: $border-radius-sm;
+  padding: \$spacing-base $spacing-2xl;
+  border-radius: map.get($border-radius-scale, sm);
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     background: $hover-color;
@@ -242,10 +1049,10 @@
   background: $css-primary;
   color: white;
   padding: $spacing-5xl;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   text-align: center;
   margin: $spacing-3xl 0;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 }
 
 @mixin demo-container {
@@ -258,10 +1065,10 @@
 // Video card mixins
 @mixin video-card {
   background: white;
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   overflow: hidden;
-  border: 1px solid $border-light;
-  transition: all $transition-base;
+  border: 1px solid $gray-200;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     .play-overlay {
@@ -284,7 +1091,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform $transition-base;
+    transition: transform map.get($animation-duration, base) ease;
   }
 }
 
@@ -302,15 +1109,15 @@
   align-items: center;
   justify-content: center;
   font-size: $font-size-xl;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 }
 
 // Layout demo mixins
 @mixin demo-container {
   padding: $spacing-2xl;
-  background: $demo-container-bg;
-  border: 2px solid $demo-container-border;
-  border-radius: $border-radius-md;
+  background: $gray-100;
+  border: 2px solid $border-color;
+  border-radius: map.get($border-radius-scale, md);
   margin: $spacing-3xl 0;
 }
 
@@ -320,17 +1127,17 @@
   min-height: $min-height;
 }
 
-@mixin grid-demo-container($columns: 3, $gap: $spacing-lg) {
+@mixin grid-demo-container($columns: 3, $gap: \$spacing-base) {
   @include demo-container;
   display: grid;
   grid-template-columns: repeat($columns, 1fr);
   gap: $gap;
 }
 
-@mixin demo-item($min-width: $demo-item-min-size, $min-height: $demo-item-min-size) {
-  padding: $spacing-lg;
+@mixin demo-item($min-width: 60px, $min-height: 60px) {
+  padding: \$spacing-base;
   margin: $spacing-xs;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   color: white;
   font-weight: $font-weight-semibold;
   text-align: center;
@@ -351,8 +1158,8 @@
 @mixin control-group {
   background: white;
   padding: $spacing-2xl;
-  border-radius: $border-radius-md;
-  border: 1px solid $border-light;
+  border-radius: map.get($border-radius-scale, md);
+  border: 1px solid $gray-200;
 
   label {
     display: block;
@@ -379,7 +1186,7 @@
 // Device preview mixin
 @mixin device-preview {
   border: 2px solid $border-medium;
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   overflow: hidden;
   margin: $spacing-xl 0;
 
@@ -394,7 +1201,7 @@
 
     &::before {
       content: '●';
-      color: $success-color;
+      color: $success;
     }
   }
 
@@ -412,7 +1219,7 @@
   border: 2px solid $input-border-color;
   border-radius: $input-border-radius;
   font-size: $font-size-base;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:focus {
     outline: none;
@@ -421,11 +1228,11 @@
   }
 
   &:invalid {
-    border-color: $danger-color;
+    border-color: $danger;
   }
 
   &:valid {
-    border-color: $success-color;
+    border-color: $success;
   }
 }
 
@@ -448,7 +1255,7 @@
 
 @mixin form-error-text {
   font-size: $font-size-sm;
-  color: $danger-color;
+  color: $danger;
   margin-top: $spacing-xs;
 }
 
@@ -458,7 +1265,7 @@
   border-collapse: collapse;
   background: white;
   box-shadow: $shadow-sm;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   overflow: hidden;
 }
 
@@ -467,7 +1274,7 @@
   color: $table-header-text;
 
   th {
-    padding: $spacing-lg;
+    padding: \$spacing-base;
     text-align: left;
     font-weight: $font-weight-semibold;
     font-size: $font-size-sm;
@@ -479,7 +1286,7 @@
 @mixin table-body {
   tr {
     border-bottom: 1px solid $table-border-color;
-    transition: background-color $transition-base;
+    transition: background-color map.get($animation-duration, base) ease;
 
     &:hover {
       background: $table-hover-bg;
@@ -491,7 +1298,7 @@
   }
 
   td {
-    padding: $spacing-lg;
+    padding: \$spacing-base;
     color: $text-primary;
   }
 }
@@ -543,7 +1350,7 @@
   height: 100%;
   background: $progress-fill;
   border-radius: inherit;
-  transition: width $transition-smooth;
+  transition: width map.get($transitions, base);
   position: relative;
 
   &::after {
@@ -567,12 +1374,12 @@
   font-family: $font-family-monospace;
   font-size: $font-size-sm;
   overflow-x: auto;
-  margin: $spacing-lg 0;
+  margin: \$spacing-base 0;
 }
 
 @mixin inline-code {
-  background: $bg-light;
-  color: $danger-color;
+  background: $gray-200;
+  color: $danger;
   padding: $spacing-xs $spacing-sm;
   border-radius: $border-radius-xs;
   font-family: $font-family-monospace;
@@ -585,14 +1392,14 @@
   color: white;
   padding: $hero-padding;
   text-align: center;
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   margin: $spacing-3xl 0;
 }
 
 @mixin hero-title {
   font-size: $font-size-4xl;
   font-weight: $font-weight-bold;
-  margin-bottom: $spacing-lg;
+  margin-bottom: \$spacing-base;
   line-height: $line-height-tight;
 }
 
@@ -613,12 +1420,12 @@
 }
 
 @mixin quiz-option {
-  padding: $spacing-lg;
-  border: 2px solid $border-light;
-  border-radius: $border-radius-md;
+  padding: \$spacing-base;
+  border: 2px solid $gray-200;
+  border-radius: map.get($border-radius-scale, md);
   margin-bottom: $spacing-md;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     border-color: $accent-primary;
@@ -645,7 +1452,7 @@
 
 // Interactive element mixins
 @mixin interactive-hover {
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
   cursor: pointer;
 
   &:hover {
@@ -685,11 +1492,11 @@
 }
 
 // Animation mixins
-@mixin fade-in($duration: $animation-duration-base) {
+@mixin fade-in($duration: map.get($animation-duration, base)) {
   animation: fadeIn $duration ease-in-out;
 }
 
-@mixin slide-up($duration: $animation-duration-base) {
+@mixin slide-up($duration: map.get($animation-duration, base)) {
   animation: slideUp $duration ease-out;
 }
 
@@ -711,16 +1518,16 @@
 
 // Input mixins
 @mixin input-base {
-  padding: $spacing-lg;
-  border: 2px solid $border-light;
-  border-radius: $border-radius-md;
+  padding: \$spacing-base;
+  border: 2px solid $gray-200;
+  border-radius: map.get($border-radius-scale, md);
   font-size: $font-size-sm;
-  transition: border-color $transition-base;
+  transition: border-color map.get($animation-duration, base) ease;
   background: $bg-primary;
   
   &:focus {
     outline: none;
-    border-color: $primary-color;
+    border-color: theme-color("primary");
     box-shadow: $focus-ring;
   }
   
@@ -730,18 +1537,18 @@
 }
 
 // Animation mixins
-@mixin fade-in($duration: $animation-duration-base) {
+@mixin fade-in($duration: map.get($animation-duration, base)) {
   opacity: 0;
   animation: fadeIn $duration ease forwards;
 }
 
-@mixin slide-in-up($duration: $animation-duration-base, $distance: 20px) {
+@mixin slide-in-up($duration: map.get($animation-duration, base), $distance: 20px) {
   opacity: 0;
   transform: translateY($distance);
   animation: slideInUp $duration ease forwards;
 }
 
-@mixin slide-in-left($duration: $animation-duration-base, $distance: 20px) {
+@mixin slide-in-left($duration: map.get($animation-duration, base), $distance: 20px) {
   opacity: 0;
   transform: translateX(-$distance);
   animation: slideInLeft $duration ease forwards;
@@ -807,19 +1614,19 @@
 }
 
 // Progress bar mixin
-@mixin progress-bar($height: 8px, $bg-color: $bg-light, $fill-color: $primary-color) {
+@mixin progress-bar($height: 8px, $bg-color: $gray-200, $fill-color: theme-color("primary")) {
   height: $height;
   background: $bg-color;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   overflow: hidden;
   position: relative;
   
   .progress-fill {
     height: 100%;
     background: $fill-color;
-    border-radius: $border-radius-sm;
+    border-radius: map.get($border-radius-scale, sm);
     width: 0%;
-    transition: width $transition-base;
+    transition: width map.get($animation-duration, base) ease;
     position: relative;
     
     &::after {
@@ -836,18 +1643,18 @@
   background: $bg-dark;
   color: $text-light;
   padding: $spacing-xl;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   font-family: $font-family-monospace;
   font-size: $font-size-sm;
   line-height: $line-height-normal;
   white-space: pre-wrap;
   overflow-x: auto;
-  border-left: 4px solid $primary-color;
+  border-left: 4px solid theme-color("primary");
 }
 
 // Interactive element mixins
 @mixin interactive-hover {
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
   cursor: pointer;
   
   &:hover {
@@ -863,7 +1670,7 @@
 @mixin drag-element {
   cursor: grab;
   user-select: none;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
   
   &:hover {
     transform: translateY(-3px);
@@ -894,29 +1701,29 @@
   gap: $spacing-xs;
   background: $bg-secondary;
   padding: $spacing-xs;
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   
   .tab-button {
     flex: 1;
     padding: $spacing-md $spacing-xl;
     border: none;
     background: transparent;
-    border-radius: $border-radius-md;
+    border-radius: map.get($border-radius-scale, md);
     cursor: pointer;
-    transition: all $transition-base;
+    transition: all map.get($animation-duration, base) ease;
     font-weight: $font-weight-semibold;
     color: $text-secondary;
     
     &.active {
-      background: $primary-color;
+      background: theme-color("primary");
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+      box-shadow: 0 4px 15px rgba(theme-color("primary"), 0.3);
     }
     
     &:hover:not(.active) {
-      background: rgba($primary-color, 0.1);
-      color: $primary-color;
+      background: rgba(theme-color("primary"), 0.1);
+      color: theme-color("primary");
     }
   }
 }
@@ -954,43 +1761,43 @@
 @mixin three-column-layout($left: 300px, $center: 1fr, $right: 250px) {
   display: grid;
   grid-template-columns: $left $center $right;
-  gap: map-get($spacing-map, 'lg');
+  gap: map.get($spacing-map, 'lg');
 }
 
 @mixin sidebar-panel() {
-  background: map-get($color-palette, 'gray-50');
-  padding: map-get($spacing-map, 'lg');
-  border-right: 1px solid map-get($color-palette, 'gray-200');
+  background: map.get($color-palette, 'gray-50');
+  padding: map.get($spacing-map, 'lg');
+  border-right: 1px solid map.get($color-palette, 'gray-200');
 }
 
 @mixin sidebar-title() {
-  color: map-get($color-palette, 'gray-800');
-  margin-bottom: map-get($spacing-map, 'md');
+  color: map.get($color-palette, 'gray-800');
+  margin-bottom: map.get($spacing-map, 'md');
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 @mixin control-label() {
   display: block;
-  color: map-get($color-palette, 'gray-600');
+  color: map.get($color-palette, 'gray-600');
   font-weight: 600;
-  margin-bottom: map-get($spacing-map, 'xs');
+  margin-bottom: map.get($spacing-map, 'xs');
   font-size: 0.9rem;
 }
 
 @mixin range-input() {
   width: 100%;
   height: 6px;
-  background: map-get($color-palette, 'gray-200');
+  background: map.get($color-palette, 'gray-200');
   border-radius: 3px;
   outline: none;
-  margin-bottom: map-get($spacing-map, 'xs');
+  margin-bottom: map.get($spacing-map, 'xs');
 
   &::-webkit-slider-thumb {
     appearance: none;
     width: 18px;
     height: 18px;
-    background: map-get($demo-colors, 'primary');
+    background: map.get($demo-colors, 'primary');
     border-radius: 50%;
     cursor: pointer;
   }
@@ -998,8 +1805,8 @@
 
 @mixin score-display() {
   text-align: center;
-  margin-bottom: map-get($spacing-map, 'lg');
-  padding: map-get($spacing-map, 'md');
+  margin-bottom: map.get($spacing-map, 'lg');
+  padding: map.get($spacing-map, 'md');
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1009,8 +1816,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: map-get($spacing-map, 'xs');
-  margin-bottom: map-get($spacing-map, 'xs');
+  padding: map.get($spacing-map, 'xs');
+  margin-bottom: map.get($spacing-map, 'xs');
   background: white;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -1026,27 +1833,40 @@
   // These can be applied via classes instead
 }
 
+@mixin badge() {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+}
+
 @mixin control-panel() {
-  background: map-get($color-palette, 'gray-50');
-  padding: map-get($spacing-map, 'lg');
-  border-bottom: 1px solid map-get($color-palette, 'gray-200');
+  background: map.get($color-palette, 'gray-50');
+  padding: map.get($spacing-map, 'lg');
+  border-bottom: 1px solid map.get($color-palette, 'gray-200');
   display: flex;
-  gap: map-get($spacing-map, 'lg');
+  gap: map.get($spacing-map, 'lg');
   align-items: end;
   flex-wrap: wrap;
 }
 
 @mixin form-label() {
   display: block;
-  color: map-get($color-palette, 'gray-600');
+  color: map.get($color-palette, 'gray-600');
   font-weight: 600;
-  margin-bottom: map-get($spacing-map, 'xs');
+  margin-bottom: map.get($spacing-map, 'xs');
 }
 
 @mixin form-select() {
   width: 100%;
-  padding: map-get($spacing-map, 'xs');
-  border: 2px solid map-get($color-palette, 'gray-200');
+  padding: map.get($spacing-map, 'xs');
+  border: 2px solid map.get($color-palette, 'gray-200');
   border-radius: $border-radius-base;
   font-size: 1rem;
   background: white;
@@ -1054,15 +1874,15 @@
 
   &:focus {
     outline: none;
-    border-color: map-get($demo-colors, 'primary');
+    border-color: map.get($demo-colors, 'primary');
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
   }
 }
 
 @mixin btn-primary() {
-  background: map-get($demo-colors, 'primary');
+  background: map.get($demo-colors, 'primary');
   color: white;
-  padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'lg');
+  padding: map.get($spacing-map, 'xs') map.get($spacing-map, 'lg');
   border: none;
   border-radius: $border-radius-base;
   font-weight: 600;
@@ -1070,7 +1890,7 @@
   transition: all $transition-duration ease;
 
   &:hover {
-    background: darken(map-get($demo-colors, 'primary'), 5%);
+    background: color.adjust(map.get($demo-colors, 'primary'), $lightness: -5%);
   }
 }
 
@@ -1084,27 +1904,27 @@
 
 @mixin btn-outline() {
   background: white;
-  color: map-get($demo-colors, 'primary');
-  border: 2px solid map-get($demo-colors, 'primary');
-  padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'sm');
+  color: map.get($demo-colors, 'primary');
+  border: 2px solid map.get($demo-colors, 'primary');
+  padding: map.get($spacing-map, 'xs') map.get($spacing-map, 'sm');
   border-radius: $border-radius-base;
   font-weight: 600;
   cursor: pointer;
   transition: all $transition-duration ease;
 
   &:hover {
-    background: map-get($demo-colors, 'primary');
+    background: map.get($demo-colors, 'primary');
     color: white;
   }
 }
 
 @mixin code-inline() {
-  background: map-get($color-palette, 'gray-100');
-  color: map-get($color-palette, 'gray-700');
+  background: map.get($color-palette, 'gray-100');
+  color: map.get($color-palette, 'gray-700');
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-weight: 700;
-  font-family: map-get($font-map, 'monospace');
+  font-family: map.get($font-map, 'monospace');
 }
 
 @mixin reset-list() {
@@ -1133,9 +1953,9 @@
 
 @mixin tab-button() {
   background: white;
-  color: map-get($color-palette, 'gray-600');
-  border: 2px solid map-get($color-palette, 'gray-300');
-  padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'md');
+  color: map.get($color-palette, 'gray-600');
+  border: 2px solid map.get($color-palette, 'gray-300');
+  padding: map.get($spacing-map, 'xs') map.get($spacing-map, 'md');
   border-radius: $border-radius-base;
   cursor: pointer;
   transition: all $transition-duration ease;
@@ -1143,62 +1963,62 @@
 }
 
 @mixin tab-button-active() {
-  background: map-get($demo-colors, 'primary');
+  background: map.get($demo-colors, 'primary');
   color: white;
-  border-color: map-get($demo-colors, 'primary');
+  border-color: map.get($demo-colors, 'primary');
 }
 
 @mixin tab-button-hover() {
-  border-color: map-get($demo-colors, 'primary');
-  background: rgba(map-get($demo-colors, 'primary'), 0.1);
-  color: map-get($demo-colors, 'primary');
+  border-color: map.get($demo-colors, 'primary');
+  background: rgba(map.get($demo-colors, 'primary'), 0.1);
+  color: map.get($demo-colors, 'primary');
 }
 
 // Additional mixins for HTML topics
 @mixin btn-secondary() {
-  background: map-get($color-palette, 'gray-100');
-  color: map-get($color-palette, 'gray-700');
-  border: 2px solid map-get($color-palette, 'gray-300');
-  padding: map-get($spacing-map, 'xs') map-get($spacing-map, 'lg');
+  background: map.get($color-palette, 'gray-100');
+  color: map.get($color-palette, 'gray-700');
+  border: 2px solid map.get($color-palette, 'gray-300');
+  padding: map.get($spacing-map, 'xs') map.get($spacing-map, 'lg');
   border-radius: $border-radius-base;
   font-weight: 600;
   cursor: pointer;
   transition: all $transition-duration ease;
 
   &:hover {
-    background: map-get($color-palette, 'gray-200');
-    border-color: map-get($demo-colors, 'primary');
+    background: map.get($color-palette, 'gray-200');
+    border-color: map.get($demo-colors, 'primary');
   }
 }
 
 @mixin two-column-layout() {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: map-get($spacing-map, 'lg');
+  gap: map.get($spacing-map, 'lg');
 }
 
 @mixin glass-card($bg-color: rgba(255,255,255,0.1)) {
   background: $bg-color;
   backdrop-filter: blur(15px);
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   border: 1px solid rgba(255,255,255,0.2);
 }
 
 // Form and Table mixins
 @mixin progress-fill-style() {
   height: 100%;
-  background: map-get($demo-gradients, 'primary-blue');
+  background: map.get($demo-gradients, 'primary-blue');
   border-radius: inherit;
   transition: width $transition-duration ease;
   position: relative;
 }
 
 @mixin table-header() {
-  background: map-get($demo-colors, 'primary');
+  background: map.get($demo-colors, 'primary');
   color: white;
   
   th {
-    padding: map-get($spacing-map, 'sm');
+    padding: map.get($spacing-map, 'sm');
     font-weight: 700;
     text-align: left;
   }
@@ -1207,18 +2027,18 @@
 @mixin table-body() {
   tr {
     &:hover {
-      background: rgba(map-get($demo-colors, 'primary'), 0.05);
+      background: rgba(map.get($demo-colors, 'primary'), 0.05);
     }
   }
   
   td {
-    padding: map-get($spacing-map, 'sm');
-    border-bottom: 1px solid map-get($color-palette, 'gray-200');
+    padding: map.get($spacing-map, 'sm');
+    border-bottom: 1px solid map.get($color-palette, 'gray-200');
   }
 }
 
 @mixin form-group() {
-  margin-bottom: map-get($spacing-map, 'lg');
+  margin-bottom: map.get($spacing-map, 'lg');
   
   &:last-child {
     margin-bottom: 0;
@@ -1232,13 +2052,13 @@
 
 @mixin form-help-text() {
   font-size: 0.875rem;
-  color: map-get($color-palette, 'gray-600');
-  margin-top: map-get($spacing-map, 'xs');
+  color: map.get($color-palette, 'gray-600');
+  margin-top: map.get($spacing-map, 'xs');
 }
 
 @mixin form-error-text() {
   font-size: 0.875rem;
-  color: map-get($demo-colors, 'danger');
-  margin-top: map-get($spacing-map, 'xs');
+  color: map.get($demo-colors, 'danger');
+  margin-top: map.get($spacing-map, 'xs');
   font-weight: 500;
 }

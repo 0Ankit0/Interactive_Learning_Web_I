@@ -1,0 +1,675 @@
+// ========================================
+// VARIABLE MAPPINGS FOR WEB TECHNOLOGY I COURSE
+// ========================================
+// This file contains all SCSS maps and mappings to reduce code duplication
+// and provide a centralized location for design tokens
+
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables-base' as *;
+
+// ========================================
+// EXISTING MAPS FROM VARIABLES FILE
+// ========================================
+
+// Theme colors map 
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+) !default;
+
+// Spacing scale map - using declared spacer variable
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3
+) !default;
+
+// Grid breakpoints map 
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+// Container max widths map 
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+
+// Border widths map 
+$border-widths: (
+  1: $border-width,
+  2: $border-width * 2,
+  3: $border-width * 3,
+  4: $border-width * 4,
+  5: $border-width * 5
+) !default;
+
+// Animation duration map 
+$animation-duration: (
+  fast: $animation-duration-base * 0.5,
+  base: $animation-duration-base,
+  slow: $animation-duration-base * 1.667,
+  slower: $animation-duration-base * 3.333
+) !default;
+
+// Interactive demo colors map 
+$demo-colors: (
+  1: #ff6b6b,
+  2: #4ecdc4,
+  3: #45b7d1,
+  4: #96ceb4,
+  5: #ffeaa7,
+  6: #dda0dd,
+  7: #98d8c8,
+  8: #f7dc6f,
+  9: #bb8fce
+) !default;
+
+// Swatch colors map 
+$swatch-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  info: $info,
+  light: $light,
+  dark: $dark
+) !default;
+
+// Selector colors map 
+$selector-colors: (
+  element: #e74c3c,
+  class: #3498db,
+  id: #f39c12,
+  attribute: #9b59b6,
+  pseudo: #1abc9c
+) !default;
+
+// Position values map 
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%
+) !default;
+
+// Display font sizes map 
+$display-font-sizes: (
+  1: $font-size-base * 5,
+  2: $font-size-base * 4.5,
+  3: $font-size-base * 4,
+  4: $font-size-base * 3.5,
+  5: $font-size-base * 3,
+  6: $font-size-base * 2.5
+) !default;
+
+// Aspect ratios map 
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
+) !default;
+
+// Utilities border colors map 
+$utilities-border-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "white": $white
+) !default;
+
+// Utilities text colors map 
+$utilities-text-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "white": $white,
+  "body": $dark,
+  "muted": $gray-600,
+  "black-50": rgba($black, 0.5),
+  "white-50": rgba($white, 0.5),
+  "reset": inherit
+) !default;
+
+// Utilities background colors map 
+$utilities-bg-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "body": $white,
+  "white": $white,
+  "transparent": transparent
+) !default;
+
+// ========================================
+// ADDITIONAL USEFUL MAPPINGS
+// ========================================
+
+// Complete color palette 
+$color-palette: (
+  white: $white,
+  gray-50: $gray-50,
+  gray-100: $gray-100,
+  gray-200: $gray-200,
+  gray-300: $gray-300,
+  gray-400: $gray-400,
+  gray-500: $gray-500,
+  gray-600: $gray-600,
+  gray-700: $gray-700,
+  gray-800: $gray-800,
+  gray-850: $gray-850,
+  gray-900: $gray-900,
+  black: $black,
+  blue: $blue,
+  indigo: $indigo,
+  purple: $purple,
+  pink: $pink,
+  red: $red,
+  orange: $orange,
+  yellow: $yellow,
+  green: $green,
+  teal: $teal,
+  cyan: $cyan
+) !default;
+
+// Font weight scale
+$font-weights: (
+  lighter: lighter,
+  light: 300,
+  normal: $font-weight-base,
+  medium: $headings-font-weight,
+  semibold: 600,
+  bold: 700,
+  bolder: bolder
+) !default;
+
+// Font size scale - using base values
+$font-sizes: (
+  root: null,
+  base: $font-size-base,
+  xs: $font-size-base * 0.75,
+  sm: $font-size-base * 0.875,
+  md: $font-size-base,
+  lg: $font-size-base * 1.25,
+  xl: $font-size-base * 1.5,
+  2xl: $font-size-base * 1.75,
+  3xl: $font-size-base * 2
+) !default;
+
+// Line height scale
+$line-heights: (
+  base: $line-height-base,
+  sm: $line-height-base * 0.833,
+  lg: $line-height-base * 1.333
+) !default;
+
+// Border radius scale - using direct values
+$border-radius-scale: (
+  default: $border-radius-base,
+  sm: $border-radius-base * 0.667,
+  md: $border-radius-base * 1.333,
+  lg: $border-radius-base * 2,
+  xl: $border-radius-base * 2.667,
+  2xl: $border-radius-base * 4,
+  pill: 50rem
+) !default;
+
+// Box shadow scale 
+$box-shadows: (
+  default: $box-shadow-base,
+  sm: 0 0.125rem 0.25rem rgba($black, 0.075),
+  lg: 0 1rem 3rem rgba($black, 0.175),
+  inset: inset 0 1px 2px rgba($black, 0.075)
+) !default;
+
+// Z-index scale
+$z-indexes: (
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  offcanvas-backdrop: 1040,
+  offcanvas: 1045,
+  modal-backdrop: 1050,
+  modal: 1055,
+  popover: 1070,
+  tooltip: 1080
+) !default;
+
+// Transition types
+$transitions: (
+  base: all ($animation-duration-base * 0.667) $animation-timing-function,
+  fade: opacity 0.15s linear,
+  collapse: height 0.35s ease,
+  color: color 0.15s $animation-timing-function,
+  background: background-color 0.15s $animation-timing-function,
+  border: border-color 0.15s $animation-timing-function,
+  box-shadow: box-shadow 0.15s $animation-timing-function,
+  transform: transform $animation-duration-base ease-out
+) !default;
+
+// Component sizes for buttons, inputs, etc. - using direct values
+$component-sizes: (
+  sm: (
+    padding-y: $component-padding-y-base * 0.667,
+    padding-x: $component-padding-x-base * 0.667,
+    font-size: $component-font-size-base * 0.875,
+    line-height: $component-line-height-base * 0.833,
+    border-radius: $component-border-radius-base * 0.667
+  ),
+  default: (
+    padding-y: $component-padding-y-base,
+    padding-x: $component-padding-x-base,
+    font-size: $component-font-size-base,
+    line-height: $component-line-height-base,
+    border-radius: $component-border-radius-base
+  ),
+  lg: (
+    padding-y: $component-padding-y-base * 1.333,
+    padding-x: $component-padding-x-base * 1.333,
+    font-size: $component-font-size-base * 1.25,
+    line-height: $component-line-height-base * 1.333,
+    border-radius: $component-border-radius-base * 2
+  )
+) !default;
+
+// Modal sizes
+$modal-sizes: (
+  sm: 300px,
+  md: 500px,
+  lg: 800px,
+  xl: 1140px
+) !default;
+
+// State variations for colors (lightness adjustments)
+$state-variations: (
+  hover: -10%,
+  dark: -20%,
+  active: -15%,
+  focus: 0.25,      // opacity for focus rings
+  disabled: 0.6,    // opacity for disabled states
+  light: 0.1        // opacity for light backgrounds
+) !default;
+
+// Interactive states
+$interactive-states: (
+  hover-scale: 1.02,
+  active-scale: 0.98,
+  disabled-opacity: 0.6,
+  focus-ring-width: 0.2rem,
+  hover-transform: translateY(-2px),
+  active-transform: translateY(0)
+) !default;
+
+// Table variations
+$table-variations: (
+  striped-bg-factor: 0.05,
+  active-bg-factor: 0.1,
+  hover-bg-factor: 0.075,
+  border-factor: 0.1
+) !default;
+
+// Code and syntax highlighting  where possible
+$code-colors: (
+  bg: $gray-800,
+  text: $gray-300,
+  keyword: $blue,
+  string: $green,
+  number: $orange,
+  comment: $gray-600,
+  function: $purple
+) !default;
+
+// Progress and loading states 
+$progress-states: (
+  height: $spacer * 0.5,
+  bg: $gray-200,
+  border-radius: $border-radius-base,
+  spinner-size: $spacer * 2,
+  spinner-border-width: $border-width * 0.25
+) !default;
+
+// Course-specific learning states 
+$learning-states: (
+  correct: $success,
+  incorrect: $danger,
+  selected: $warning,
+  pending: $gray-400,
+  completed: $primary
+) !default;
+
+// Animation easing functions
+$easing-functions: (
+  ease-in-out: $animation-timing-function,
+  ease-in: ease-in,
+  ease-out: ease-out,
+  ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19),
+  ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1)
+) !default;
+
+// Grid system values
+$grid-system: (
+  columns: 12,
+  gutter-width: 1.5rem,
+  row-columns: 6
+) !default;
+
+// Typography scales
+$typography-scale: (
+  small-font-size: 0.875em,
+  lead-font-weight: 300,
+  display-font-weight: 300,
+  line-height-tight: 1.25,
+  line-height-relaxed: 1.75,
+  paragraph-margin-bottom: 1rem
+) !default;
+
+// Opacity scales
+$opacity-scale: (
+  btn-active: 0.85,
+  badge-hover: 0.8,
+  modal-backdrop: 0.5,
+  tooltip-hover: 1
+) !default;
+
+// Transform values
+$transform-values: (
+  btn-hover: translateY(-1px),
+  btn-active: translateY(0),
+  pill-hover: scale(1.05),
+  pill-active: scale(0.95)
+) !default;
+
+// Box shadow values
+$box-shadow-values: (
+  btn-hover: 0 4px 8px rgba($black, 0.15),
+  btn-focus: 0 0 0 0.2rem rgba($primary, 0.25),
+  btn-active: inset 0 3px 5px rgba($black, 0.125),
+  input-hover: 0 2px 4px rgba($black, 0.1),
+  input-valid-focus: 0 0 0 0.2rem rgba($success, 0.25),
+  input-invalid-focus: 0 0 0 0.2rem rgba($danger, 0.25),
+  modal-xs: 0 0.25rem 0.5rem rgba($black, 0.5),
+  modal-sm-up: 0 0.5rem 1rem rgba($black, 0.5)
+) !default;
+
+// Timing values
+$timing-values: (
+  tooltip-show-delay: 0.5s,
+  tooltip-hide-delay: 0.1s
+) !default;
+
+// Border and spacing values
+$border-spacing-values: (
+  demo-border: 2px solid $gray-200,
+  table-cell-padding-sm: 0.25rem,
+  modal-dialog-margin: 0.5rem,
+  modal-dialog-margin-sm-up: 1.75rem
+) !default;
+
+// Loading and spinner values
+$loading-values: (
+  spinner-size: 2rem,
+  spinner-border-width: 0.25rem,
+  opacity: 0.7,
+  backdrop: rgba($white, 0.8)
+) !default;
+
+// Animation duration values
+$animation-durations: (
+  error-shake: 0.6s,
+  success-bounce: 0.3s
+) !default;
+
+// Scale values
+$scale-values: (
+  success-bounce: 1.1,
+  error-shake-distance: 10px
+) !default;
+
+// Scroll values
+$scroll-values: (
+  smooth: smooth,
+  padding-top: 1rem,
+  scrollbar-width: 8px
+) !default;
+
+// ========================================
+// HELPER FUNCTIONS FOR MAPS
+// ========================================
+
+// Get color from palette
+@function get-color($key) {
+  @return map.get($color-palette, $key);
+}
+
+// Get theme color
+@function get-theme-color($key) {
+  @return map.get($theme-colors, $key);
+}
+
+// Get spacing value
+@function get-spacing($key) {
+  @return map.get($spacers, $key);
+}
+
+// Get breakpoint value
+@function get-breakpoint($key) {
+  @return map.get($grid-breakpoints, $key);
+}
+
+// Get component size property
+@function get-component-size($size, $property) {
+  @return map.get(map.get($component-sizes, $size), $property);
+}
+
+// Get font weight
+@function get-font-weight($key) {
+  @return map.get($font-weights, $key);
+}
+
+// Get border radius
+@function get-border-radius($key) {
+  @return map.get($border-radius-scale, $key);
+}
+
+// Get box shadow
+@function get-box-shadow($key) {
+  @return map.get($box-shadows, $key);
+}
+
+// Get z-index value
+@function get-z-index($key) {
+  @return map.get($z-indexes, $key);
+}
+
+// Get transition
+@function get-transition($key) {
+  @return map.get($transitions, $key);
+}
+
+// Get demo color
+@function get-demo-color($key) {
+  @return map.get($demo-colors, $key);
+}
+
+// Get selector color
+@function get-selector-color($key) {
+  @return map.get($selector-colors, $key);
+}
+
+// Get learning state color
+@function get-learning-state($key) {
+  @return map.get($learning-states, $key);
+}
+
+// Get state variation value
+@function get-state-variation($key) {
+  @return map.get($state-variations, $key);
+}
+
+// Get grid system value
+@function get-grid-system($key) {
+  @return map.get($grid-system, $key);
+}
+
+// Get typography scale value
+@function get-typography-scale($key) {
+  @return map.get($typography-scale, $key);
+}
+
+// Get opacity scale value
+@function get-opacity-scale($key) {
+  @return map.get($opacity-scale, $key);
+}
+
+// Get transform value
+@function get-transform-value($key) {
+  @return map.get($transform-values, $key);
+}
+
+// Get box shadow value
+@function get-box-shadow-value($key) {
+  @return map.get($box-shadow-values, $key);
+}
+
+// Get timing value
+@function get-timing-value($key) {
+  @return map.get($timing-values, $key);
+}
+
+// Get border/spacing value
+@function get-border-spacing-value($key) {
+  @return map.get($border-spacing-values, $key);
+}
+
+// Get loading value
+@function get-loading-value($key) {
+  @return map.get($loading-values, $key);
+}
+
+// Get animation duration value
+@function get-animation-duration($key) {
+  @return map.get($animation-durations, $key);
+}
+
+// Get scale value
+@function get-scale-value($key) {
+  @return map.get($scale-values, $key);
+}
+
+// Get scroll value
+@function get-scroll-value($key) {
+  @return map.get($scroll-values, $key);
+}
+
+// ========================================
+// UTILITY MIXINS FOR COMMON PATTERNS
+// ========================================
+
+// Generate color variations for any base color
+@mixin color-variations($base-color, $prefix: '') {
+  #{$prefix}: $base-color;
+  #{$prefix}-hover: color.adjust($base-color, $lightness: map.get($state-variations, hover));
+  #{$prefix}-dark: color.adjust($base-color, $lightness: map.get($state-variations, dark));
+  #{$prefix}-active: color.adjust($base-color, $lightness: map.get($state-variations, active));
+  #{$prefix}-focus: rgba($base-color, map.get($state-variations, focus));
+  #{$prefix}-disabled: rgba($base-color, map.get($state-variations, disabled));
+  #{$prefix}-light: rgba($base-color, map.get($state-variations, light));
+}
+
+// Generate component sizing from size map
+@mixin component-sizing($size-key) {
+  $size-map: map.get($component-sizes, $size-key);
+  padding: map.get($size-map, padding-y) map.get($size-map, padding-x);
+  font-size: map.get($size-map, font-size);
+  line-height: map.get($size-map, line-height);
+  border-radius: map.get($size-map, border-radius);
+}
+
+// Generate responsive properties across breakpoints
+@mixin responsive-property($property, $values-map) {
+  @each $breakpoint, $value in $values-map {
+    @if $breakpoint == xs {
+      #{$property}: $value;
+    } @else {
+      @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+// Generate utility classes for a map
+@mixin generate-utilities($map, $property, $prefix: '') {
+  @each $key, $value in $map {
+    @if $prefix != '' {
+      .#{$prefix}-#{$key} {
+        #{$property}: $value;
+      }
+    } @else {
+      .#{$key} {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+// Generate hover states for interactive elements
+@mixin interactive-states($base-color) {
+  transition: map.get($transitions, base);
+  
+  &:hover {
+    background-color: color.adjust($base-color, $lightness: map.get($state-variations, hover));
+    transform: map.get($interactive-states, hover-transform);
+  }
+  
+  &:active {
+    background-color: color.adjust($base-color, $lightness: map.get($state-variations, active));
+    transform: map.get($interactive-states, active-transform);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 map.get($interactive-states, focus-ring-width) rgba($base-color, map.get($state-variations, focus));
+  }
+  
+  &:disabled {
+    opacity: map.get($interactive-states, disabled-opacity);
+    cursor: not-allowed;
+  }
+}

@@ -2,8 +2,13 @@
 // HELPER CLASSES
 // ========================================
 
+@use 'sass:map';
 @use '../variables' as *;
 @use '../mixins' as *;
+
+// Screen reader only content
+
+// Screen reader only content
 
 // Screen reader only content
 .sr-only {
@@ -27,7 +32,7 @@
 
 // Focus visible helper
 .focus-visible {
-  outline: 2px solid $primary-color;
+  outline: 2px solid theme-color("primary");
   outline-offset: 2px;
 }
 
@@ -36,9 +41,9 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid $border-light;
+  border: 2px solid $gray-200;
   border-radius: 50%;
-  border-top-color: $primary-color;
+  border-top-color: theme-color("primary");
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -121,7 +126,7 @@
 .card-hoverable {
   @extend .card-base;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: translateY(-5px);
@@ -132,7 +137,7 @@
 .button-interactive {
   @include button-base;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -146,7 +151,7 @@
 
 // Additional helper classes
 .hover-lift {
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: translateY(-5px);
@@ -155,7 +160,7 @@
 }
 
 .hover-scale {
-  transition: all $transition-smooth;
+  transition: map.get($transitions, base);
 
   &:hover {
     transform: scale(1.05);
@@ -164,31 +169,31 @@
 
 // Interactive demo container
 .demo-container {
-  background: $bg-light;
-  border-radius: $border-radius-md;
-  padding: $spacing-lg;
-  margin: $spacing-lg 0;
-  border: 1px solid $border-light;
+  background: $gray-200;
+  border-radius: map.get($border-radius-scale, md);
+  padding: $spacing-base;
+  margin: $spacing-base 0;
+  border: 1px solid $gray-200;
 }
 
 // Code block styling
 .code-block {
   background: $bg-secondary;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   padding: $spacing-md;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
-  border: 1px solid $border-light;
+  border: 1px solid $gray-200;
   overflow-x: auto;
 }
 
 // Form input styling
 .form-input {
   padding: $spacing-sm $spacing-md;
-  border: 2px solid $border-light;
-  border-radius: $border-radius-sm;
-  font-size: $font-base;
-  transition: border-color $transition-base;
+  border: 2px solid $gray-200;
+  border-radius: map.get($border-radius-scale, sm);
+  font-size: $font-size-base;
+  transition: border-color map.get($animation-duration, base) ease;
 
   &:focus {
     outline: none;
@@ -203,42 +208,42 @@
   align-items: center;
   gap: $spacing-sm;
   padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   font-size: 0.875rem;
   font-weight: 500;
 
   &.success {
-    background: rgba($color-success, 0.1);
-    color: $color-success;
+    background: rgba($success, 0.1);
+    color: $success;
   }
 
   &.error {
-    background: rgba($color-error, 0.1);
-    color: $color-error;
+    background: rgba($danger, 0.1);
+    color: $danger;
   }
 
   &.warning {
-    background: rgba($color-warning, 0.1);
-    color: $color-warning;
+    background: rgba($warning, 0.1);
+    color: $warning;
   }
 
   &.info {
-    background: rgba($color-info, 0.1);
-    color: $color-info;
+    background: rgba($info, 0.1);
+    color: $info;
   }
 }
 
 // Alert classes
 .alert-success {
-  background: rgba($color-success, 0.1);
-  border-left: 4px solid $color-success;
-  color: $color-success;
+  background: rgba($success, 0.1);
+  border-left: 4px solid $success;
+  color: $success;
 }
 
 .alert-error {
-  background: rgba($color-error, 0.1);
-  border-left: 4px solid $color-error;
-  color: $color-error;
+  background: rgba($danger, 0.1);
+  border-left: 4px solid $danger;
+  color: $danger;
 }
 
 // Badge classes
@@ -247,23 +252,23 @@
   padding: $spacing-xs $spacing-sm;
   background: $accent-primary;
   color: white;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   font-size: 0.75rem;
   font-weight: 500;
 }
 
 // Border utility classes
 .border-left-primary {
-  border-left: 4px solid $primary-color;
+  border-left: 4px solid theme-color("primary");
 }
 
 // Card base class
 .card-base {
-  background: $bg-white;
-  border-radius: $border-radius-md;
+  background: $white;
+  border-radius: map.get($border-radius-scale, md);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid $border-light;
-  transition: all $transition-base;
+  border: 1px solid $gray-200;
+  transition: all map.get($animation-duration, base) ease;
 }
 
 // Button primary class
@@ -271,11 +276,11 @@
   background: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
   color: white;
   border: none;
-  padding: $spacing-sm $spacing-lg;
-  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-base;
+  border-radius: map.get($border-radius-scale, md);
   font-weight: 600;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -291,15 +296,15 @@
 .btn-secondary {
   background: $bg-secondary;
   color: $text-primary;
-  border: 2px solid $border-light;
-  padding: $spacing-sm $spacing-lg;
-  border-radius: $border-radius-md;
+  border: 2px solid $gray-200;
+  padding: $spacing-sm $spacing-base;
+  border-radius: map.get($border-radius-scale, md);
   font-weight: 600;
   cursor: pointer;
-  transition: all $transition-base;
+  transition: all map.get($animation-duration, base) ease;
 
   &:hover {
-    background: $bg-light;
+    background: $gray-200;
     border-color: $accent-primary;
   }
 }

@@ -2,13 +2,14 @@
 // CARD COMPONENTS
 // ========================================
 
-@use '../variables' as *;
+@use '../variables/index' as *;
 @use '../mixins' as *;
+@use 'sass:map';
 
 // Basic card styles
 .card-base {
   background: white;
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: $spacing-2xl;
   transition: all $transition-base;

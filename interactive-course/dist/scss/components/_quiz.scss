@@ -2,15 +2,17 @@
 // QUIZ COMPONENTS
 // ========================================
 
-@use '../variables' as *;
+@use '../variables/index' as *;
 @use '../mixins' as *;
+@use 'sass:map';
+
 
 // Basic quiz container
 .quiz-container-base {
   margin: $spacing-3xl 0;
   padding: $spacing-2xl;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-radius: $border-radius-lg;
+  border-radius: map.get($border-radius-scale, lg);
   border: 1px solid $border-light;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -23,33 +25,33 @@
   margin-bottom: $spacing-sm;
   background: white;
   border: 2px solid $border-light;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   color: $text-secondary;
   cursor: pointer;
   transition: all $transition-fast;
   text-align: left;
 
   &:hover {
-    border-color: $primary-color;
-    background: rgba($primary-color, 0.05);
+    border-color: $primary;
+    background: rgba($primary, 0.05);
   }
 
   &.selected {
-    border-color: $primary-color;
-    background: rgba($primary-color, 0.1);
-    color: $primary-color;
+    border-color: $primary;
+    background: rgba($primary, 0.1);
+    color: $primary;
   }
 
   &.correct {
-    border-color: $success-color;
-    background: rgba($success-color, 0.1);
-    color: $success-color;
+    border-color: $success;
+    background: rgba($success, 0.1);
+    color: $success;
   }
 
   &.incorrect {
-    border-color: $danger-color;
-    background: rgba($danger-color, 0.1);
-    color: $danger-color;
+    border-color: $danger;
+    background: rgba($danger, 0.1);
+    color: $danger;
   }
 }
 

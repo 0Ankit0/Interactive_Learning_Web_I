@@ -1,52 +1,54 @@
-// Topic Page Interactive Functionality
+// Topic Page Interactive Functionality - Consolidated Version
+// This file contains all shared interactive functionality for the course
 
 // Global variables
 let currentQuizQuestion = 0;
 let quizScore = 0;
 let liveUpdatesInterval = null;
-
-// Quiz questions data
-const quizQuestions = [
-    {
-        question: "Who invented the World Wide Web?",
-        options: ["Bill Gates", "Tim Berners-Lee", "Steve Jobs", "Mark Zuckerberg"],
-        correct: 1,
-        explanation: "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN."
-    },
-    {
-        question: "What year was the first website created?",
-        options: ["1989", "1990", "1991", "1992"],
-        correct: 2,
-        explanation: "The first website went online in 1991 at info.cern.ch, explaining the World Wide Web project."
-    },
-    {
-        question: "Which web version is known as the 'Read-Write Web'?",
-        options: ["Web 1.0", "Web 2.0", "Web 3.0", "Web 4.0"],
-        correct: 1,
-        explanation: "Web 2.0 introduced user-generated content and interactive platforms like social media."
-    },
-    {
-        question: "What does HTTP stand for?",
-        options: ["Hypertext Transfer Protocol", "High Tech Transfer Process", "Home Text Transfer Protocol", "Hyperlink Text Transfer Process"],
-        correct: 0,
-        explanation: "HTTP stands for Hypertext Transfer Protocol, the foundation of data communication on the web."
-    },
-    {
-        question: "What was the first graphical web browser?",
-        options: ["Internet Explorer", "Netscape", "Mosaic", "Chrome"],
-        correct: 2,
-        explanation: "Mosaic, released in 1993, was the first web browser to display images inline with text."
-    }
-];
+let quizQuestions = []; // Will be loaded from JSON
+let config = {}; // Will be loaded from JSON
+let contentData = {}; // Will be loaded from JSON
 
 // Initialize page functionality
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    // Load data first
+    await loadApplicationData();
+
+    // Then initialize features
     initializeScrollProgress();
     initializeTableOfContents();
     initializeInteractiveElements();
     initializeQuiz();
+    initializeGlobalFeatures();
     loadTopicProgress();
 });
+
+// Global Features Initialization
+function initializeGlobalFeatures() {
+    // Initialize tabs (jQuery and vanilla JS)
+    initializeTabs();
+
+    // Initialize selector demos
+    initializeSelectorDemo();
+
+    // Initialize color functionality
+    initializeColorFeatures();
+
+    // Initialize form features
+    initializeFormFeatures();
+
+    // Initialize animation features
+    initializeAnimationFeatures();
+
+    // Initialize AJAX features
+    initializeAjaxFeatures();
+
+    // Initialize DOM manipulation features
+    initializeDOMFeatures();
+
+    // Initialize event handling features
+    initializeEventFeatures();
+}
 
 // Scroll progress functionality
 function initializeScrollProgress() {
@@ -636,6 +638,420 @@ function updateUnitProgress() {
     localStorage.setItem(`unit-progress-${unitId}`, JSON.stringify(unitProgress));
 }
 
+// Tab Functionality (from jquery-topic.js)
+function initializeTabs() {
+    // jQuery tabs
+    $('.tab-button').on('click', function () {
+        const tabId = $(this).data('tab');
+        $('.tab-button').removeClass('active');
+        $('.tab-content').removeClass('active');
+        $(this).addClass('active');
+        $('#' + tabId).addClass('active');
+    });
+
+    // Vanilla JS tabs
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
+
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+}
+
+// Selector Demo Functionality (from js-dom-topic.js)
+function initializeSelectorDemo() {
+    const selectorInput = document.getElementById('selector-input');
+    const selectorResult = document.getElementById('selector-result');
+    const selectorCount = document.getElementById('selector-count');
+
+    if (selectorInput && selectorResult) {
+        selectorInput.addEventListener('input', function () {
+            const selector = this.value;
+            try {
+                const elements = document.querySelectorAll(selector);
+                selectorCount.textContent = elements.length;
+
+                // Highlight selected elements
+                document.querySelectorAll('.selector-highlight').forEach(el => {
+                    el.classList.remove('selector-highlight');
+                });
+
+                elements.forEach(element => {
+                    element.classList.add('selector-highlight');
+                });
+
+                selectorResult.textContent = `Found ${elements.length} element(s)`;
+            } catch (error) {
+                selectorResult.textContent = 'Invalid selector';
+                selectorCount.textContent = '0';
+            }
+        });
+    }
+}
+
+// Color Features (from css-basics-topic.js)
+function initializeColorFeatures() {
+    const colorPicker = document.getElementById('color-picker');
+    const colorDisplay = document.getElementById('color-display');
+    const colorValue = document.getElementById('color-value');
+
+    if (colorPicker && colorDisplay && colorValue) {
+        colorPicker.addEventListener('input', function () {
+            const color = this.value;
+            colorDisplay.style.backgroundColor = color;
+            colorValue.textContent = color;
+
+            // Update RGB values
+            const rgb = hexToRgb(color);
+            if (rgb) {
+                document.getElementById('rgb-value').textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+            }
+        });
+    }
+
+    // Initialize color converter
+    const hexInput = document.getElementById('hex-input');
+    const rgbInput = document.getElementById('rgb-input');
+    const hslInput = document.getElementById('hsl-input');
+
+    if (hexInput) {
+        hexInput.addEventListener('input', function () {
+            const hex = this.value;
+            const rgb = hexToRgb(hex);
+            if (rgb) {
+                rgbInput.value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+                const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                hslInput.value = `hsl(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%)`;
+            }
+        });
+    }
+}
+
+// Form Features (from tables-forms-topic.js)
+function initializeFormFeatures() {
+    // Form validation
+    const forms = document.querySelectorAll('.demo-form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            validateForm(this);
+        });
+    });
+
+    // Dynamic form elements
+    const addFieldBtn = document.getElementById('add-field-btn');
+    if (addFieldBtn) {
+        addFieldBtn.addEventListener('click', function () {
+            addFormField();
+        });
+    }
+}
+
+// Animation Features (from css-basics-topic.js)
+function initializeAnimationFeatures() {
+    const animateBtn = document.getElementById('animate-btn');
+    const animatedElement = document.getElementById('animated-element');
+
+    if (animateBtn && animatedElement) {
+        animateBtn.addEventListener('click', function () {
+            animatedElement.classList.add('animate');
+            setTimeout(() => {
+                animatedElement.classList.remove('animate');
+            }, 1000);
+        });
+    }
+}
+
+// AJAX Features (from ajax-topic.js)
+function initializeAjaxFeatures() {
+    const ajaxBtn = document.getElementById('ajax-btn');
+    const ajaxResult = document.getElementById('ajax-result');
+
+    if (ajaxBtn && ajaxResult) {
+        ajaxBtn.addEventListener('click', function () {
+            // Simulate AJAX request
+            ajaxResult.textContent = 'Loading...';
+            setTimeout(() => {
+                ajaxResult.textContent = 'AJAX request completed successfully!';
+            }, 1000);
+        });
+    }
+}
+
+// DOM Manipulation Features (from js-dom-topic.js)
+function initializeDOMFeatures() {
+    const createElementBtn = document.getElementById('create-element-btn');
+    const elementContainer = document.getElementById('element-container');
+
+    if (createElementBtn && elementContainer) {
+        createElementBtn.addEventListener('click', function () {
+            const newElement = document.createElement('div');
+            newElement.className = 'dynamic-element';
+            newElement.textContent = 'New Element Created!';
+            elementContainer.appendChild(newElement);
+        });
+    }
+}
+
+// Event Handling Features (from js-dom-topic.js)
+function initializeEventFeatures() {
+    const eventBtn = document.getElementById('event-btn');
+    const eventLog = document.getElementById('event-log');
+
+    if (eventBtn && eventLog) {
+        eventBtn.addEventListener('click', function () {
+            logEvent('Button clicked');
+        });
+
+        eventBtn.addEventListener('mouseover', function () {
+            logEvent('Mouse over button');
+        });
+    }
+}
+
+// Data Loading Functions
+// Show loading state
+function showLoadingState() {
+    const quizContainer = document.querySelector('.quiz-container');
+    if (quizContainer) {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'loading-state';
+        loadingDiv.innerHTML = '<p>Loading quiz questions...</p>';
+        quizContainer.appendChild(loadingDiv);
+    }
+}
+
+// Hide loading state
+function hideLoadingState() {
+    const loadingState = document.querySelector('.loading-state');
+    if (loadingState) {
+        loadingState.remove();
+    }
+}
+
+async function loadApplicationData() {
+    try {
+        showLoadingState();
+
+        // Load configuration
+        config = await dataLoader.loadConfig();
+
+        // Load content data
+        contentData = await dataLoader.loadContent();
+
+        // Load quiz questions based on current page
+        const topicId = getCurrentTopicId();
+        quizQuestions = await dataLoader.loadQuizQuestions(topicId);
+
+        console.log(`Loaded ${quizQuestions.length} quiz questions for topic: ${topicId}`);
+
+        hideLoadingState();
+    } catch (error) {
+        console.error('Error loading application data:', error);
+        hideLoadingState();
+
+        // Show user-friendly error message
+        showDataLoadError();
+
+        // Load fallback data
+        loadFallbackData();
+    }
+}
+
+// Show error message to user
+function showDataLoadError() {
+    const quizContainer = document.querySelector('.quiz-container');
+    if (quizContainer) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'data-load-error';
+        errorDiv.innerHTML = `
+            <p>⚠️ Unable to load quiz data. Using default questions.</p>
+            <p>Please check your internet connection and refresh the page.</p>
+        `;
+        quizContainer.appendChild(errorDiv);
+
+        // Auto-hide error after 5 seconds
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 5000);
+    }
+}
+
+function getCurrentTopicId() {
+    // Extract topic ID from URL or page content
+    const path = window.location.pathname;
+    const filename = path.split('/').pop().replace('.html', '');
+
+    // Map filename to topic ID
+    const topicMap = {
+        'evolution-of-web': 'evolution-of-web',
+        'html-introduction': 'html-introduction',
+        'css-basics': 'css-basics',
+        'js-introduction': 'js-introduction',
+        'jquery-basics': 'jquery-basics',
+        'ajax': 'ajax',
+        'json': 'json',
+        'tables-forms': 'tables-forms',
+        'typography': 'typography',
+        'typography-color': 'typography-color',
+        'responsive-design': 'responsive-design',
+        'flexbox-grid': 'flexbox-grid',
+        'css-frameworks': 'css-frameworks',
+        'framework-overview': 'framework-overview',
+        'framework-selection': 'framework-selection',
+        'frameworks-overview': 'frameworks-overview',
+        'html-layout-elements': 'html-layout-elements',
+        'html-audio-video': 'html-audio-video',
+        'semantic-html': 'semantic-html',
+        'lists-links-images': 'lists-links-images',
+        'client-server-architecture': 'client-server-architecture',
+        'client-server-scripting': 'client-server-scripting',
+        'basic-protocols': 'basic-protocols',
+        'dns-hierarchy': 'dns-hierarchy',
+        'web-browsers-servers': 'web-browsers-servers',
+        'css-box-model': 'css-box-model',
+        'css-preprocessors': 'css-preprocessors',
+        'js-dom': 'js-dom',
+        'js-embedding': 'js-embedding',
+        'js-functions-scope': 'js-functions-scope',
+        'js-operators': 'js-operators',
+        'js-variables': 'js-variables',
+        'regular-expressions': 'regular-expressions',
+        'error-handling': 'error-handling',
+        'es6-features': 'es6-features',
+        'async-await': 'async-await',
+        'seo-fundamentals': 'seo-fundamentals',
+        'ui-ux-design': 'ui-ux-design',
+        'uiux-design': 'uiux-design',
+        'web-accessibility': 'web-accessibility'
+    };
+
+    return topicMap[filename] || 'default';
+}
+
+function loadFallbackData() {
+    // Fallback data in case JSON loading fails
+    quizQuestions = [
+        {
+            question: "Who invented the World Wide Web?",
+            options: ["Bill Gates", "Tim Berners-Lee", "Steve Jobs", "Mark Zuckerberg"],
+            correct: 1,
+            explanation: "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN."
+        }
+    ];
+
+    config = {
+        intersectionObserver: {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        },
+        animations: {
+            duration: { normal: 300 }
+        }
+    };
+
+    contentData = {
+        messages: {
+            error: {
+                networkError: "Network error. Please check your connection."
+            }
+        }
+    };
+}
+
+// Utility Functions
+function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+function rgbToHsl(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if (max === min) {
+        h = s = 0;
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    return { h: h * 360, s: s * 100, l: l * 100 };
+}
+
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.classList.add('error');
+            isValid = false;
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    if (isValid) {
+        alert('Form submitted successfully!');
+    } else {
+        alert('Please fill in all required fields.');
+    }
+
+    return isValid;
+}
+
+function addFormField() {
+    const container = document.getElementById('dynamic-fields');
+    if (container) {
+        const fieldCount = container.children.length + 1;
+        const newField = document.createElement('div');
+        newField.className = 'form-field';
+        newField.innerHTML = `
+            <label for="field-${fieldCount}">Field ${fieldCount}:</label>
+            <input type="text" id="field-${fieldCount}" name="field-${fieldCount}">
+            <button type="button" class="remove-field-btn" onclick="removeFormField(this)">Remove</button>
+        `;
+        container.appendChild(newField);
+    }
+}
+
+function removeFormField(button) {
+    button.parentElement.remove();
+}
+
+function logEvent(message) {
+    const eventLog = document.getElementById('event-log');
+    if (eventLog) {
+        const timestamp = new Date().toLocaleTimeString();
+        eventLog.innerHTML += `<div>${timestamp}: ${message}</div>`;
+        eventLog.scrollTop = eventLog.scrollHeight;
+    }
+}
+
 // Keyboard Navigation
 document.addEventListener('keydown', function (e) {
     // ESC to close any open modals or reset states
@@ -659,7 +1075,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 // Intersection Observer for animations
-const observerOptions = {
+const observerOptions = config.intersectionObserver || {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
@@ -679,32 +1095,3 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(section);
     });
 });
-
-// Utility Functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Smooth scrolling polyfill for older browsers
-if (!CSS.supports('scroll-behavior', 'smooth')) {
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}

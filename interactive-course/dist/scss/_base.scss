@@ -1,6 +1,7 @@
 // Base styles and resets for the Web Technology I Interactive Course
-@use 'variables' as *;
+@use 'variables/index' as *;
 @use 'mixins' as *;
+@use 'sass:map';
 
 // CSS Reset and base styles
 * {
@@ -28,7 +29,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-semibold;
   line-height: $line-height-tight;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacer;
   color: $text-primary;
 }
 
@@ -40,13 +41,13 @@ h5 { font-size: $font-size-lg; }
 h6 { font-size: $font-size-base; }
 
 p {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacer;
   color: $text-secondary;
   line-height: $line-height-relaxed;
 }
 
 a {
-  color: $primary-color;
+  color: theme-color("primary");
   text-decoration: none;
   transition: color $transition-fast;
   
@@ -57,7 +58,7 @@ a {
 }
 
 ul, ol {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacer;
   padding-left: $spacing-2xl;
 }
 
@@ -69,9 +70,9 @@ li {
 blockquote {
   margin: $spacing-2xl 0;
   padding: $spacing-xl;
-  border-left: 4px solid $primary-color;
+  border-left: 4px solid theme-color("primary");
   background: $bg-secondary;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   font-style: italic;
   
   p {
@@ -82,10 +83,10 @@ blockquote {
 code {
   font-family: $font-family-monospace;
   font-size: $font-size-sm;
-  background: $bg-light;
+  background: $gray-200;
   padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-sm;
-  color: $primary-color;
+  border-radius: map.get($border-radius-scale, sm);
+  color: theme-color("primary");
 }
 
 pre {
@@ -103,7 +104,7 @@ pre {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-lg;
+  padding: 0 $spacer;
   
   @include respond-to(lg) {
     padding: 0 $spacing-3xl;
@@ -118,9 +119,9 @@ pre {
 .text-primary { color: $text-primary !important; }
 .text-secondary { color: $text-secondary !important; }
 .text-muted { color: $text-muted !important; }
-.text-success { color: $success-color !important; }
-.text-warning { color: $warning-color !important; }
-.text-danger { color: $danger-color !important; }
+.text-success { color: $success !important; }
+.text-warning { color: $warning !important; }
+.text-danger { color: $danger !important; }
 
 .bg-primary { background-color: $bg-primary !important; }
 .bg-secondary { background-color: $bg-secondary !important; }
@@ -142,13 +143,13 @@ pre {
 
 .m-0 { margin: 0 !important; }
 .m-1 { margin: $spacing-sm !important; }
-.m-2 { margin: $spacing-lg !important; }
+.m-2 { margin: $spacer !important; }
 .m-3 { margin: $spacing-2xl !important; }
 .m-4 { margin: $spacing-3xl !important; }
 
 .p-0 { padding: 0 !important; }
 .p-1 { padding: $spacing-sm !important; }
-.p-2 { padding: $spacing-lg !important; }
+.p-2 { padding: $spacer !important; }
 .p-3 { padding: $spacing-2xl !important; }
 .p-4 { padding: $spacing-3xl !important; }
 
@@ -175,7 +176,7 @@ pre {
   justify-content: center;
   gap: $spacing-md;
   font-size: $font-size-sm;
-  padding: $spacing-lg $spacing-xl;
+  padding: $spacer $spacing-xl;
   
   i {
     transition: transform $transition-fast;
@@ -198,13 +199,13 @@ input, select, textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: $bg-light;
-  border-radius: $border-radius-sm;
+  background: $gray-200;
+  border-radius: map.get($border-radius-scale, sm);
 }
 
 ::-webkit-scrollbar-thumb {
   background: $border-dark;
-  border-radius: $border-radius-sm;
+  border-radius: map.get($border-radius-scale, sm);
   
   &:hover {
     background: $text-secondary;
@@ -213,12 +214,12 @@ input, select, textarea {
 
 // Selection styling
 ::selection {
-  background: rgba($primary-color, 0.2);
+  background: rgba(theme-color("primary"), 0.2);
   color: $text-primary;
 }
 
 ::-moz-selection {
-  background: rgba($primary-color, 0.2);
+  background: rgba(theme-color("primary"), 0.2);
   color: $text-primary;
 }
 
@@ -228,7 +229,7 @@ input, select, textarea {
 }
 
 :focus-visible {
-  outline: 2px solid $primary-color;
+  outline: 2px solid theme-color("primary");
   outline-offset: 2px;
 }
 
@@ -236,9 +237,9 @@ input, select, textarea {
 .spinner {
   width: 24px;
   height: 24px;
-  border: 3px solid $bg-light;
-  border-top: 3px solid $primary-color;
-  border-radius: $border-radius-full;
+  border: 3px solid $gray-200;
+  border-top: 3px solid theme-color("primary");
+  border-radius: $border-radius-pill;
   animation: spin 1s linear infinite;
 }
 

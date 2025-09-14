@@ -1,0 +1,833 @@
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables-base' as base;
+@use 'variable-mappings' as maps;
+
+// Animation duration values - extracted from mappings
+$error-shake-duration: map.get(maps.$animation-durations, error-shake) !default;
+$success-bounce-duration: map.get(maps.$animation-durations, success-bounce) !default;
+
+// Scale values - extracted from mappings
+$success-bounce-scale: map.get(maps.$scale-values, success-bounce) !default;
+$error-shake-distance: map.get(maps.$scale-values, error-shake-distance) !default;
+
+// Scroll values - extracted from mappings
+$scroll-smooth: map.get(maps.$scroll-values, smooth) !default;
+$scroll-padding-top: map.get(maps.$scroll-values, padding-top) !default;
+$scrollbar-width: map.get(maps.$scroll-values, scrollbar-width) !default;
+
+// ========================================
+// MAPPED VALUES EXTRACTION (DECLARED FIRST FOR DEPENDENCY MANAGEMENT)
+// ========================================
+
+// State variation values - extracted from mappings
+$state-hover: map.get(maps.$state-variations, hover) !default;
+$state-dark: map.get(maps.$state-variations, dark) !default;
+$state-active: map.get(maps.$state-variations, active) !default;
+$state-focus: map.get(maps.$state-variations, focus) !default;
+$state-disabled: map.get(maps.$state-variations, disabled) !default;
+$state-light: map.get(maps.$state-variations, light) !default;
+
+// Spacer values - extracted from mappings
+$spacer-1: map.get(maps.$spacers, 1) !default;
+$spacer-2: map.get(maps.$spacers, 2) !default;
+$spacer-3: map.get(maps.$spacers, 3) !default;
+$spacer-4: map.get(maps.$spacers, 4) !default;
+$spacer-5: map.get(maps.$spacers, 5) !default;
+
+// Font size values - extracted from mappings
+$font-size-xs: map.get(maps.$font-sizes, xs) !default;
+$font-size-sm: map.get(maps.$font-sizes, sm) !default;
+$font-size-md: map.get(maps.$font-sizes, md) !default;
+$font-size-lg: map.get(maps.$font-sizes, lg) !default;
+$font-size-xl: map.get(maps.$font-sizes, xl) !default;
+$font-size-2xl: map.get(maps.$font-sizes, 2xl) !default;
+$font-size-3xl: map.get(maps.$font-sizes, 3xl) !default;
+
+// Grid system values - extracted from mappings
+$grid-columns: map.get(maps.$grid-system, columns) !default;
+$grid-gutter-width: map.get(maps.$grid-system, gutter-width) !default;
+$grid-row-columns: map.get(maps.$grid-system, row-columns) !default;
+
+// Border radius - consistent with mappings values
+$border-radius-default: map.get(maps.$border-radius-scale, default) !default;
+$border-radius-sm: map.get(maps.$border-radius-scale, sm) !default;
+$border-radius-md: map.get(maps.$border-radius-scale, md) !default;
+$border-radius-lg: map.get(maps.$border-radius-scale, lg) !default;
+$border-radius-xl: map.get(maps.$border-radius-scale, xl) !default;
+$border-radius-2xl: map.get(maps.$border-radius-scale, 2xl) !default;
+$border-radius-pill: map.get(maps.$border-radius-scale, pill) !default;
+
+// Box shadows - consistent with mappings values
+$box-shadow-default: map.get(maps.$box-shadows, default) !default;
+$box-shadow-sm: map.get(maps.$box-shadows, sm) !default;
+$box-shadow-lg: map.get(maps.$box-shadows, lg) !default;
+$box-shadow-inset: map.get(maps.$box-shadows, inset) !default;
+
+// Interactive state values - extracted from mappings
+$hover-scale: map.get(maps.$interactive-states, hover-scale) !default;
+$active-scale: map.get(maps.$interactive-states, active-scale) !default;
+$hover-transform: map.get(maps.$interactive-states, hover-transform) !default;
+$active-transform: map.get(maps.$interactive-states, active-transform) !default;
+$focus-ring-width: map.get(maps.$interactive-states, focus-ring-width) !default;
+$disabled-opacity: map.get(maps.$interactive-states, disabled-opacity) !default;
+
+// Button opacity and box shadow values - extracted from mappings
+$btn-active-opacity: map.get(maps.$opacity-scale, btn-active) !default;
+$btn-hover-box-shadow: map.get(maps.$box-shadow-values, btn-hover) !default;
+$btn-focus-box-shadow: map.get(maps.$box-shadow-values, btn-focus) !default;
+$btn-active-box-shadow: map.get(maps.$box-shadow-values, btn-active) !default;
+
+// Font weight values - extracted from mappings
+$font-weight-lighter: map.get(maps.$font-weights, lighter) !default;
+$font-weight-light: map.get(maps.$font-weights, light) !default;
+$font-weight-normal: map.get(maps.$font-weights, normal) !default;
+$font-weight-medium: map.get(maps.$font-weights, medium) !default;
+$font-weight-semibold: map.get(maps.$font-weights, semibold) !default;
+$font-weight-bold: map.get(maps.$font-weights, bold) !default;
+$font-weight-bolder: map.get(maps.$font-weights, bolder) !default;
+
+// Component size values - extracted from mappings
+$component-padding-y: map.get(maps.$component-sizes, default, padding-y) !default;
+$component-padding-x: map.get(maps.$component-sizes, default, padding-x) !default;
+$component-padding-y-sm: map.get(maps.$component-sizes, sm, padding-y) !default;
+$component-padding-x-sm: map.get(maps.$component-sizes, sm, padding-x) !default;
+$component-padding-y-lg: map.get(maps.$component-sizes, lg, padding-y) !default;
+$component-padding-x-lg: map.get(maps.$component-sizes, lg, padding-x) !default;
+
+// Transition values - extracted from mappings
+$transition-color: map.get(maps.$transitions, color) !default;
+$transition-box-shadow: map.get(maps.$transitions, box-shadow) !default;
+$transition-base: map.get(maps.$transitions, base) !default;
+$transition-fade: map.get(maps.$transitions, fade) !default;
+$transition-collapse: map.get(maps.$transitions, collapse) !default;
+
+// Z-index values - extracted from mappings
+$zindex-dropdown: map.get(maps.$z-indexes, dropdown) !default;
+$zindex-sticky: map.get(maps.$z-indexes, sticky) !default;
+$zindex-fixed: map.get(maps.$z-indexes, fixed) !default;
+$zindex-offcanvas-backdrop: map.get(maps.$z-indexes, offcanvas-backdrop) !default;
+$zindex-offcanvas: map.get(maps.$z-indexes, offcanvas) !default;
+$zindex-modal-backdrop: map.get(maps.$z-indexes, modal-backdrop) !default;
+$zindex-modal: map.get(maps.$z-indexes, modal) !default;
+$zindex-popover: map.get(maps.$z-indexes, popover) !default;
+$zindex-tooltip: map.get(maps.$z-indexes, tooltip) !default;
+
+// Animation duration variables
+$animation-duration-fast: map.get(maps.$animation-duration, fast) !default;
+// $animation-duration-base: map.get(maps.$animation-duration, base) !default;
+$animation-duration-slow: map.get(maps.$animation-duration, slow) !default;
+
+// Easing functions
+$ease-in-quad: map.get(maps.$easing-functions, ease-in-quad) !default;
+$ease-in-cubic: map.get(maps.$easing-functions, ease-in-cubic) !default;
+$ease-out-quad: map.get(maps.$easing-functions, ease-out-quad) !default;
+$ease-out-cubic: map.get(maps.$easing-functions, ease-out-cubic) !default;
+
+// Course-specific progress states values - extracted from mappings
+$progress-height: map.get(maps.$progress-states, height) !default;
+
+// Code highlighting values - extracted from mappings
+$code-bg: map.get(maps.$code-colors, bg) !default;
+$code-color: map.get(maps.$code-colors, text) !default;
+
+// Typography values - extracted from mappings
+$small-font-size: map.get(maps.$typography-scale, small-font-size) !default;
+$lead-font-weight: map.get(maps.$typography-scale, lead-font-weight) !default;
+$display-font-weight: map.get(maps.$typography-scale, display-font-weight) !default;
+$line-height-relaxed: map.get(maps.$typography-scale, line-height-relaxed) !default;
+$paragraph-margin-bottom: map.get(maps.$typography-scale, paragraph-margin-bottom) !default;
+
+// Line height values - extracted from mappings
+$line-height-sm: map.get(maps.$line-heights, sm) !default;
+$line-height-lg: map.get(maps.$line-heights, lg) !default;
+
+// Opacity and transform values - extracted from mappings
+$badge-hover-opacity: map.get(maps.$opacity-scale, badge-hover) !default;
+$pill-hover-transform: map.get(maps.$transform-values, pill-hover) !default;
+$pill-active-transform: map.get(maps.$transform-values, pill-active) !default;
+
+// Modal box shadow and opacity values - extracted from mappings
+$modal-backdrop-opacity: map.get(maps.$opacity-scale, modal-backdrop) !default;
+$modal-box-shadow-xs: map.get(maps.$box-shadow-values, modal-xs) !default;
+$modal-box-shadow-sm-up: map.get(maps.$box-shadow-values, modal-sm-up) !default;
+$modal-dialog-margin: map.get(maps.$border-spacing-values, modal-dialog-margin) !default;
+$modal-dialog-margin-sm-up: map.get(maps.$border-spacing-values, modal-dialog-margin-sm-up) !default;
+
+// Modal size values - extracted from mappings
+$modal-sm: map.get(maps.$modal-sizes, sm) !default;
+$modal-md: map.get(maps.$modal-sizes, md) !default;
+$modal-lg: map.get(maps.$modal-sizes, lg) !default;
+$modal-xl: map.get(maps.$modal-sizes, xl) !default;
+
+// Table cell padding values - extracted from mappings
+$table-cell-padding-sm: map.get(maps.$border-spacing-values, table-cell-padding-sm) !default;
+
+// Table variation values - extracted from mappings
+$table-striped-bg-factor: map.get(maps.$table-variations, striped-bg-factor) !default;
+$table-active-bg-factor: map.get(maps.$table-variations, active-bg-factor) !default;
+$table-hover-bg-factor: map.get(maps.$table-variations, hover-bg-factor) !default;
+$table-border-factor: map.get(maps.$table-variations, border-factor) !default;
+
+// Interactive learning elements - using mapped values
+$demo-border: map.get(maps.$border-spacing-values, demo-border) !default;
+
+// Tooltip state values - extracted from mappings  
+$tooltip-hover-opacity: map.get(maps.$opacity-scale, tooltip-hover) !default;
+$tooltip-show-delay: map.get(maps.$timing-values, tooltip-show-delay) !default;
+$tooltip-hide-delay: map.get(maps.$timing-values, tooltip-hide-delay) !default;
+
+// Loading values - extracted from mappings
+$loading-spinner-size: map.get(maps.$loading-values, spinner-size) !default;
+$loading-spinner-border-width: map.get(maps.$loading-values, spinner-border-width) !default;
+$loading-opacity: map.get(maps.$loading-values, opacity) !default;
+$loading-backdrop: map.get(maps.$loading-values, backdrop) !default;
+
+// Animation duration values - extracted from mappings
+$error-shake-duration-value: map.get(maps.$animation-durations, error-shake) !default;
+$success-bounce-duration-value: map.get(maps.$animation-durations, success-bounce) !default;
+
+// Scale values - extracted from mappings
+$success-bounce-scale-value: map.get(maps.$scale-values, success-bounce) !default;
+$error-shake-distance-value: map.get(maps.$scale-values, error-shake-distance) !default;
+
+// Scroll values - extracted from mappings
+$scroll-smooth-value: map.get(maps.$scroll-values, smooth) !default;
+$scroll-padding-top-value: map.get(maps.$scroll-values, padding-top) !default;
+$scrollbar-width-value: map.get(maps.$scroll-values, scrollbar-width) !default;
+
+// ========================================
+// CORE COLOR SYSTEM
+// ========================================
+
+// Color variations (hover and dark states) - using extracted values from mappings
+$primary-hover: color.adjust(base.$primary, $lightness: $state-hover) !default;
+$primary-dark: color.adjust(base.$primary, $lightness: $state-dark) !default;
+$primary-active: color.adjust(base.$primary, $lightness: $state-active) !default;
+$primary-focus: rgba(base.$primary, $state-focus) !default;
+$primary-disabled: rgba(base.$primary, $state-disabled) !default;
+$primary-light: rgba(base.$primary, $state-light) !default;
+
+$secondary-hover: color.adjust(base.$secondary, $lightness: $state-hover) !default;
+$secondary-dark: color.adjust(base.$secondary, $lightness: $state-dark) !default;
+$secondary-active: color.adjust(base.$secondary, $lightness: $state-active) !default;
+$secondary-focus: rgba(base.$secondary, $state-focus) !default;
+$secondary-disabled: rgba(base.$secondary, $state-disabled) !default;
+$secondary-light: rgba(base.$secondary, $state-light) !default;
+
+$success-hover: color.adjust(base.$success, $lightness: $state-hover) !default;
+$success-dark: color.adjust(base.$success, $lightness: $state-dark) !default;
+$success-active: color.adjust(base.$success, $lightness: $state-active) !default;
+$success-focus: rgba(base.$success, $state-focus) !default;
+$success-disabled: rgba(base.$success, $state-disabled) !default;
+$success-light: rgba(base.$success, $state-light) !default;
+
+$info-hover: color.adjust(base.$info, $lightness: $state-hover) !default;
+$info-dark: color.adjust(base.$info, $lightness: $state-dark) !default;
+$info-active: color.adjust(base.$info, $lightness: $state-active) !default;
+$info-focus: rgba(base.$info, $state-focus) !default;
+$info-disabled: rgba(base.$info, $state-disabled) !default;
+$info-light: rgba(base.$info, $state-light) !default;
+
+$warning-hover: color.adjust(base.$warning, $lightness: $state-hover) !default;
+$warning-dark: color.adjust(base.$warning, $lightness: $state-dark) !default;
+$warning-active: color.adjust(base.$warning, $lightness: $state-active) !default;
+$warning-focus: rgba(base.$warning, $state-focus) !default;
+$warning-disabled: rgba(base.$warning, $state-disabled) !default;
+$warning-light: rgba(base.$warning, $state-light) !default;
+
+$danger-hover: color.adjust(base.$danger, $lightness: $state-hover) !default;
+$danger-dark: color.adjust(base.$danger, $lightness: $state-dark) !default;
+$danger-active: color.adjust(base.$danger, $lightness: $state-active) !default;
+$danger-focus: rgba(base.$danger, $state-focus) !default;
+$danger-disabled: rgba(base.$danger, $state-disabled) !default;
+$danger-light: rgba(base.$danger, $state-light) !default;
+
+// Gradient variations
+$gradient-primary: linear-gradient(135deg, base.$primary, $primary-dark) !default;
+$gradient-secondary: linear-gradient(135deg, base.$secondary, $secondary-dark) !default;
+$gradient-success: linear-gradient(135deg, base.$success, $success-dark) !default;
+$gradient-info: linear-gradient(135deg, base.$info, $info-dark) !default;
+$gradient-warning: linear-gradient(135deg, base.$warning, $warning-dark) !default;
+$gradient-danger: linear-gradient(135deg, base.$danger, $danger-dark) !default;
+
+// Web course specific colors
+$accent-primary: base.$indigo !default;
+$accent-secondary: base.$purple !default;
+
+
+// ========================================
+// SPACING SYSTEM
+// ========================================
+
+// Note: Spacer values are already defined in the mapped extraction section above
+
+// Extended spacing variables for components
+$spacing-base: base.$spacer !default;
+$spacing-xs: $spacer-1 !default;
+$spacing-sm: $spacer-2 !default;
+$spacing-md: base.$spacer * 0.75 !default;
+$spacing-lg: $spacer-4 !default;
+$spacing-xl: $spacer-5 !default;
+$spacing-2xl: base.$spacer * 2 !default;
+$spacing-3xl: $spacer-5 * 3 !default;
+
+// ========================================
+// FONT SIZES
+// ========================================
+
+// Note: Font size values already defined in mapped extraction section above
+
+// ========================================
+// LAYOUT & GRID SYSTEM
+// ========================================
+
+// Note: Grid system values already defined in mapped extraction section above
+
+// Breakpoint variables for easier access
+$breakpoint-xs: map.get(maps.$grid-breakpoints, xs) !default;
+$breakpoint-sm: map.get(maps.$grid-breakpoints, sm) !default;
+$breakpoint-md: map.get(maps.$grid-breakpoints, md) !default;
+$breakpoint-lg: map.get(maps.$grid-breakpoints, lg) !default;
+$breakpoint-xl: map.get(maps.$grid-breakpoints, xl) !default;
+$breakpoint-xxl: map.get(maps.$grid-breakpoints, xxl) !default;
+
+// ========================================
+// COMPONENT DIMENSIONS
+// ========================================
+
+// Border (border-width base value is imported from base file)
+$border-style: solid !default;
+
+$border-color: base.$gray-300 !default;
+$border-light: base.$gray-200 !default;
+$border-medium: base.$gray-400 !default;
+$border-dark: base.$gray-600 !default;
+
+// Border radius - consistent with mappings values
+$border-radius-default: map.get(maps.$border-radius-scale, default) !default;
+$border-radius-sm: map.get(maps.$border-radius-scale, sm) !default;
+$border-radius-md: map.get(maps.$border-radius-scale, md) !default;
+$border-radius-lg: map.get(maps.$border-radius-scale, lg) !default;
+$border-radius-xl: map.get(maps.$border-radius-scale, xl) !default;
+$border-radius-2xl: map.get(maps.$border-radius-scale, 2xl) !default;
+$border-radius-pill: map.get(maps.$border-radius-scale, pill) !default;
+
+// Box shadows - consistent with mappings values
+$box-shadow-default: map.get(maps.$box-shadows, default) !default;
+$box-shadow: $box-shadow-default !default;
+$box-shadow-sm: map.get(maps.$box-shadows, sm) !default;
+$box-shadow-lg: map.get(maps.$box-shadows, lg) !default;
+$box-shadow-inset: map.get(maps.$box-shadows, inset) !default;
+
+// ========================================
+// COMPONENT VARIABLES
+// ========================================
+
+// Interactive state values - extracted from mappings
+$hover-scale-value: map.get(maps.$interactive-states, hover-scale) !default;
+$active-scale-value: map.get(maps.$interactive-states, active-scale) !default;
+$hover-transform-value: map.get(maps.$interactive-states, hover-transform) !default;
+$active-transform-value: map.get(maps.$interactive-states, active-transform) !default;
+$focus-ring-width-value: map.get(maps.$interactive-states, focus-ring-width) !default;
+$disabled-opacity-value: map.get(maps.$interactive-states, disabled-opacity) !default;
+
+// Interactive states
+$hover-bg: rgba(base.$gray-500, 0.1) !default;
+$hover-color: base.$gray-700 !default;
+$active-bg: rgba(base.$gray-500, 0.2) !default;
+$active-color: base.$gray-800 !default;
+$focus-ring-color: rgba(base.$primary, 0.25) !default;
+$focus-ring-blur: 0 !default;
+$focus-ring-spread: $focus-ring-width !default;
+$focus-ring: 0 0 $focus-ring-blur $focus-ring-spread $focus-ring-color !default;
+$disabled-bg: base.$gray-300 !default;
+$disabled-color: base.$gray-600 !default;
+
+// Selection states
+$selection-bg: rgba(base.$primary, 0.2) !default;
+$selection-color: base.$primary !default;
+$selected-bg: base.$primary !default;
+$selected-color: base.$white !default;
+
+// Body
+$body-bg: base.$white !default;
+$body-color: base.$gray-900 !default;
+
+// Background colors for theme colors
+$bg-primary: base.$primary !default;
+$bg-secondary: base.$secondary !default;
+$bg-success: base.$success !default;
+$bg-warning: base.$warning !default;
+$bg-danger: base.$danger !default;
+$bg-info: base.$info !default;
+$bg-light: base.$light !default;
+$bg-dark: base.$dark !default;
+
+// Text colors
+$text-primary: $body-color !default;
+$text-secondary: base.$gray-600 !default;
+$text-muted: base.$gray-500 !default;
+$text-light: base.$white !default;
+$text-dark: base.$black !default;
+
+// Links
+$link-color: base.$primary !default;
+$link-decoration: underline !default;
+$link-hover-color: color.adjust($link-color, $lightness: -15%) !default;
+$link-hover-decoration: null !default;
+// Button opacity and box shadow values - extracted from mappings
+$btn-active-opacity-value: map.get(maps.$opacity-scale, btn-active) !default;
+$btn-hover-box-shadow-value: map.get(maps.$box-shadow-values, btn-hover) !default;
+$btn-focus-box-shadow-value: map.get(maps.$box-shadow-values, btn-focus) !default;
+$btn-active-box-shadow-value: map.get(maps.$box-shadow-values, btn-active) !default;
+
+$btn-transition: all 0.15s ease-in-out !default;
+
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+$btn-link-disabled-color: base.$gray-600 !default;
+
+$btn-border-radius: $border-radius-default !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+// ========================================
+// FONT WEIGHTS 
+// ========================================
+
+// Font weight values - extracted from mappings
+$font-weight-lighter: map.get(maps.$font-weights, lighter) !default;
+$font-weight-light: map.get(maps.$font-weights, light) !default;
+$font-weight-normal: map.get(maps.$font-weights, normal) !default;
+$font-weight-medium: map.get(maps.$font-weights, medium) !default;
+$font-weight-semibold: map.get(maps.$font-weights, semibold) !default;
+$font-weight-bold: map.get(maps.$font-weights, bold) !default;
+$font-weight-bolder: map.get(maps.$font-weights, bolder) !default;
+
+// ========================================
+// BUTTON VARIABLES
+// ========================================
+
+// Component size values - extracted from mappings
+$component-padding-y-default: map.get(maps.$component-sizes, default, padding-y) !default;
+$component-padding-x-default: map.get(maps.$component-sizes, default, padding-x) !default;
+$component-padding-y-sm: map.get(maps.$component-sizes, sm, padding-y) !default;
+$component-padding-x-sm: map.get(maps.$component-sizes, sm, padding-x) !default;
+$component-padding-y-lg: map.get(maps.$component-sizes, lg, padding-y) !default;
+$component-padding-x-lg: map.get(maps.$component-sizes, lg, padding-x) !default;
+
+$btn-border-width: base.$border-width !default;
+$btn-font-weight: $font-weight-normal !default;
+$btn-box-shadow: inset 0 1px 0 rgba(base.$white, 0.15), 0 1px 1px rgba(base.$black, 0.075) !default;
+$btn-focus-width: $focus-ring-width !default;
+$btn-disabled-opacity: $disabled-opacity !default;
+
+// Transition values - extracted from mappings
+$transition-color: map.get(maps.$transitions, color) !default;
+$transition-box-shadow: map.get(maps.$transitions, box-shadow) !default;
+
+// Forms
+$input-padding-y: $component-padding-y !default;
+$input-padding-x: $component-padding-x !default;
+$input-font-family: base.$font-family-sans-serif !default;
+$input-font-size: base.$font-size-base !default;
+$input-font-weight: $font-weight-normal !default;
+$input-line-height: base.$line-height-base !default;
+
+// Input padding shorthand
+$input-padding: $input-padding-y $input-padding-x !default;
+
+$input-padding-y-sm: $component-padding-y-sm !default;
+$input-padding-x-sm: $component-padding-x-sm !default;
+$input-font-size-sm: $font-size-sm !default;
+
+$input-padding-y-lg: $component-padding-y-lg !default;
+$input-padding-x-lg: $component-padding-x-lg !default;
+$input-font-size-lg: $font-size-lg !default;
+
+$input-bg: $body-bg !default;
+$input-disabled-color: null !default;
+$input-disabled-bg: base.$gray-200 !default;
+$input-disabled-border-color: null !default;
+
+$input-color: $body-color !default;
+$input-border-color: base.$gray-400 !default;
+$input-border-width: base.$border-width !default;
+$input-box-shadow: $box-shadow-inset !default;
+
+$input-border-radius: $border-radius-default !default;
+$input-border-radius-sm: $border-radius-sm !default;
+$input-border-radius-lg: $border-radius-lg !default;
+
+$input-focus-bg: $input-bg !default;
+$input-focus-border-color: color.adjust(base.$primary, $lightness: 25%) !default;
+$input-focus-color: $input-color !default;
+$input-focus-width: $focus-ring-width !default;
+$input-focus-box-shadow: $btn-focus-box-shadow !default;
+
+$input-placeholder-color: base.$gray-600 !default;
+$input-plaintext-color: $body-color !default;
+
+$input-height-border: $input-border-width * 2 !default;
+$input-height-inner: calc($input-line-height * 1em + $input-padding-y * 2) !default;
+$input-height-inner-half: calc($input-line-height * 0.5em + $input-padding-y) !default;
+$input-height-inner-quarter: calc($input-line-height * 0.25em + $input-padding-y * 0.5) !default;
+
+$input-height: calc($input-line-height * 1em + $input-padding-y * 2 + $input-height-border) !default;
+$input-height-sm: calc($input-line-height * 1em + $input-padding-y-sm * 2 + $input-height-border) !default;
+$input-height-lg: calc($input-line-height * 1em + $input-padding-y-lg * 2 + $input-height-border) !default;
+
+$input-transition: $transition-color, $transition-box-shadow !default;
+
+// Enhanced input state variations
+$input-hover-border-color: color.adjust($input-border-color, $lightness: -10%) !default;
+$input-hover-box-shadow: map.get(maps.$box-shadow-values, input-hover) !default;
+$input-valid-border-color: base.$success !default;
+$input-valid-focus-border-color: base.$success !default;
+$input-valid-focus-box-shadow: map.get(maps.$box-shadow-values, input-valid-focus) !default;
+$input-invalid-border-color: base.$danger !default;
+$input-invalid-focus-border-color: base.$danger !default;
+$input-invalid-focus-box-shadow: map.get(maps.$box-shadow-values, input-invalid-focus) !default;
+
+// Cards
+$card-spacer-y: $spacer-3 !default;
+$card-spacer-x: $spacer-3 !default;
+$card-title-spacer-y: math.div(base.$spacer, 2) !default;
+$card-border-width: base.$border-width !default;
+$card-border-color: rgba(base.$black, 0.125) !default;
+$card-border-radius: $border-radius-default !default;
+$card-box-shadow: null !default;
+$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-cap-padding-y: math.div($card-spacer-y, 2) !default;
+$card-cap-padding-x: $card-spacer-x !default;
+$card-cap-bg: rgba(base.$black, 0.03) !default;
+$card-cap-color: null !default;
+$card-height: null !default;
+$card-color: null !default;
+$card-bg: $body-bg !default;
+$card-img-overlay-padding: base.$spacer !default;
+$card-group-margin: math.div($grid-gutter-width, 2) !default;
+
+// ========================================
+// Z-INDEX SCALE
+// ========================================
+
+// Z-index values - extracted from mappings
+$zindex-dropdown: map.get(maps.$z-indexes, dropdown) !default;
+$zindex-sticky: map.get(maps.$z-indexes, sticky) !default;
+$zindex-fixed: map.get(maps.$z-indexes, fixed) !default;
+$zindex-offcanvas-backdrop: map.get(maps.$z-indexes, offcanvas-backdrop) !default;
+$zindex-offcanvas: map.get(maps.$z-indexes, offcanvas) !default;
+$zindex-modal-backdrop: map.get(maps.$z-indexes, modal-backdrop) !default;
+$zindex-modal: map.get(maps.$z-indexes, modal) !default;
+$zindex-popover: map.get(maps.$z-indexes, popover) !default;
+$zindex-tooltip: map.get(maps.$z-indexes, tooltip) !default;
+
+// ========================================
+// TRANSITION & ANIMATION
+// ========================================
+
+// Transition values - extracted from mappings
+$transition-base: map.get(maps.$transitions, base) !default;
+$transition-fade: map.get(maps.$transitions, fade) !default;
+$transition-collapse: map.get(maps.$transitions, collapse) !default;
+$transition-fast: map.get(maps.$transitions, base) !default;
+
+// Additional animation duration variables
+// $animation-duration-fast: map.get(maps.$animation-duration, fast) !default;
+// $animation-duration-base: map.get(maps.$animation-duration, base) !default;
+// $animation-duration-slow: map.get(maps.$animation-duration, slow) !default;
+
+// Easing functions
+$ease-in-quad: map.get(maps.$easing-functions, ease-in-quad) !default;
+$ease-in-cubic: map.get(maps.$easing-functions, ease-in-cubic) !default;
+$ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22) !default;
+$ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06) !default;
+$ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035) !default;
+$ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335) !default;
+
+$ease-out-quad: map.get(maps.$easing-functions, ease-out-quad) !default;
+$ease-out-cubic: map.get(maps.$easing-functions, ease-out-cubic) !default;
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1) !default;
+$ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1) !default;
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1) !default;
+$ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1) !default;
+
+$ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955) !default;
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1) !default;
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1) !default;
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1) !default;
+$ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86) !default;
+
+// ========================================
+// COURSE-SPECIFIC VARIABLES
+// ========================================
+
+
+// Course-specific progress states values - extracted from mappings
+$progress-height-value: map.get(maps.$progress-states, height) !default;
+
+// Code highlighting values - extracted from mappings
+$code-bg-value: map.get(maps.$code-colors, bg) !default;
+$code-color-value: map.get(maps.$code-colors, text) !default;
+
+// Code highlighting
+$code-border-radius: $border-radius-default !default;
+$code-padding: base.$spacer !default;
+
+// Quiz states
+$quiz-correct: base.$success !default;
+$quiz-incorrect: base.$danger !default;
+$quiz-selected: base.$warning !default;
+
+// Progress indicators
+$progress-bg: base.$gray-200 !default;
+$progress-border-radius: $border-radius-default !default;
+
+// Interactive states
+// Note: These are already defined in the mapped extraction section above
+
+// Enhanced interactive navigation states
+$nav-link-hover-color: base.$primary !default;
+$nav-link-active-color: base.$primary !default;
+$nav-link-active-bg: rgba(base.$primary, 0.1) !default;
+$nav-link-disabled-color: base.$gray-600 !default;
+$nav-tab-border-color: $border-color !default;
+$nav-tab-border-width: base.$border-width !default;
+$nav-tab-border-radius: $border-radius-default !default;
+$nav-tab-link-hover-border-color: base.$gray-200 base.$gray-200 $nav-tab-border-color !default;
+$nav-tab-link-active-color: base.$gray-700 !default;
+$nav-tab-link-active-bg: $body-bg !default;
+$nav-tab-link-active-border-color: $nav-tab-border-color $nav-tab-border-color $nav-tab-link-active-bg !default;
+
+// Dropdown states
+$dropdown-link-hover-color: base.$gray-900 !default;
+$dropdown-link-hover-bg: base.$gray-100 !default;
+$dropdown-link-active-color: base.$white !default;
+$dropdown-link-active-bg: base.$primary !default;
+$dropdown-link-disabled-color: base.$gray-600 !default;
+
+// Typography values - extracted from mappings (declared early to avoid undefined variable errors)
+$small-font-size-value: map.get(maps.$typography-scale, small-font-size) !default;
+$lead-font-weight-value: map.get(maps.$typography-scale, lead-font-weight) !default;
+$display-font-weight-value: map.get(maps.$typography-scale, display-font-weight) !default;
+$line-height-relaxed-value: map.get(maps.$typography-scale, line-height-relaxed) !default;
+$paragraph-margin-bottom-value: map.get(maps.$typography-scale, paragraph-margin-bottom) !default;
+
+// Opacity and transform values - extracted from mappings
+$badge-hover-opacity-value: map.get(maps.$opacity-scale, badge-hover) !default;
+$pill-hover-transform-value: map.get(maps.$transform-values, pill-hover) !default;
+$pill-active-transform-value: map.get(maps.$transform-values, pill-active) !default;
+
+// Badge and pill states
+// Note: These are already defined in the mapped extraction section above
+
+// Paragraph
+// Note: This is already defined in the mapped extraction section above
+
+// ========================================
+// TYPOGRAPHY SYSTEM
+// ========================================
+
+// Font families (derived from base)
+$font-family-base: base.$font-family-sans-serif !default;
+$font-family-code: base.$font-family-monospace !default;
+$font-family-primary: base.$font-family-sans-serif !default; // Alias for base file compatibility
+
+// Font sizes (derived from base)
+$font-size-root: null !default;
+$font-size-sm-typography: base.$font-size-base * 0.875 !default;
+$font-size-lg-typography: base.$font-size-base * 1.25 !default;
+$font-size-xl-typography: base.$font-size-base * 1.5 !default;
+$font-size-2xl-typography: base.$font-size-base * 1.75 !default;
+$font-size-3xl-typography: base.$font-size-base * 2 !default;
+$font-size-4xl: base.$font-size-base * 2.5 !default;
+$font-size-5xl: base.$font-size-base * 3 !default;
+$font-size-6xl: base.$font-size-base * 3.5 !default;
+
+// Line height values - extracted from mappings
+$line-height-sm-value: map.get(maps.$line-heights, sm) !default;
+$line-height-lg-value: map.get(maps.$line-heights, lg) !default;
+
+// Line heights (derived from base)
+// Note: These are already defined in the mapped extraction section above
+$line-height-normal: base.$line-height-base !default; // Alias for base file compatibility
+$line-height-tight: $line-height-sm !default;
+
+// Headings (derived from base)
+$headings-margin-bottom: base.$spacer * 0.5 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-color: null !default;
+
+$h1-font-size: base.$font-size-base * 2.5 !default;
+$h2-font-size: base.$font-size-base * 2 !default;
+$h3-font-size: base.$font-size-base * 1.75 !default;
+$h4-font-size: base.$font-size-base * 1.5 !default;
+$h5-font-size: base.$font-size-base * 1.25 !default;
+$h6-font-size: base.$font-size-base !default;
+
+// Display headings (derived from base) 
+$display-font-family: null !default;
+$display-font-style: null !default;
+$display-line-height: base.$headings-line-height !default;
+
+// Lead text
+$lead-font-size: base.$font-size-base * 1.25 !default;
+
+// Small text
+// Note: This is already defined in the mapped extraction section above
+
+// ========================================
+// BUTTON VARIABLES
+// ========================================
+
+$btn-padding-y: $component-padding-y !default;
+$btn-padding-x: $component-padding-x !default;
+$btn-font-family: $font-family-base !default;
+$btn-font-size: base.$font-size-base !default;
+$btn-line-height: base.$line-height-base !default;
+$btn-white-space: null !default; // Set to `nowrap` to prevent text wrapping
+
+$btn-padding-y-sm: $component-padding-y-sm !default;
+$btn-padding-x-sm: $component-padding-x-sm !default;
+$btn-font-size-sm: $font-size-sm !default;
+
+$btn-padding-y-lg: $component-padding-y-lg !default;
+$btn-padding-x-lg: $component-padding-x-lg !default;
+$btn-font-size-lg: $font-size-lg !default;
+
+// ========================================
+// CARD COMPONENT
+// ========================================
+
+// ========================================
+// MODAL COMPONENT
+// ========================================
+
+$modal-inner-padding: base.$spacer !default;
+
+$modal-footer-margin-between: $spacer-2 !default;
+
+$modal-dialog-margin: $spacer-2 !default;
+
+$modal-title-line-height: base.$line-height-base !default;
+
+$modal-content-color: null !default;
+$modal-content-bg: $body-bg !default;
+$modal-content-border-color: rgba(base.$black, 0.2) !default;
+$modal-content-border-width: base.$border-width !default;
+$modal-content-border-radius: $border-radius-lg !default;
+$modal-content-inner-border-radius: calc($modal-content-border-radius - $modal-content-border-width) !default;
+// Note: Modal box shadow and other values are already defined in the mapped extraction section above
+
+$modal-backdrop-bg: base.$black !default;
+$modal-backdrop-filter: blur(2px) !default;
+$modal-header-border-color: $border-color !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+$modal-header-border-width: $modal-content-border-width !default;
+$modal-footer-border-width: $modal-header-border-width !default;
+$modal-header-padding-y: $modal-inner-padding !default;
+$modal-header-padding-x: $modal-inner-padding !default;
+$modal-header-padding: $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-footer-margin-between: $spacer-2 !default;
+$modal-dialog-margin-y-sm-up: $modal-dialog-margin-sm-up !default;
+
+// Modal size values - already defined in the mapped extraction section above
+
+$modal-fade-transform: translate(0, -50px) !default;
+$modal-show-transform: none !default;
+$modal-hide-transform: translateY(-50px) !default;
+$modal-transition: transform base.$animation-duration-base ease-out !default;
+$modal-scale-transform: scale(1.02) !default;
+
+// ========================================
+// TABLE COMPONENT
+// ========================================
+
+// Note: Table cell padding values are already defined in the mapped extraction section above
+
+$table-cell-padding-y: $spacer-2 !default;
+$table-cell-padding-x: $spacer-2 !default;
+$table-cell-padding-y-sm: $table-cell-padding-sm !default;
+$table-cell-padding-x-sm: $table-cell-padding-sm !default;
+
+$table-cell-vertical-align: top !default;
+
+$table-color: $body-color !default;
+$table-bg: transparent !default;
+$table-accent-bg: transparent !default;
+
+$table-th-font-weight: null !default;
+
+$table-striped-color: $table-color !default;
+$table-striped-bg: rgba(base.$black, $table-striped-bg-factor) !default;
+
+$table-active-color: $table-color !default;
+$table-active-bg: rgba(base.$black, $table-active-bg-factor) !default;
+
+$table-hover-color: $table-color !default;
+$table-hover-bg: rgba(base.$black, $table-hover-bg-factor) !default;
+
+$table-border-width: base.$border-width !default;
+$table-border-color: rgba(base.$black, $table-border-factor) !default;
+
+$table-striped-order: odd !default;
+
+$table-group-separator-color: currentColor !default;
+
+$table-caption-color: $text-muted !default;
+
+$table-bg-scale: -80% !default;
+
+// ========================================
+// COURSE-SPECIFIC ENHANCEMENTS
+// ========================================
+
+// Interactive learning elements - using mapped values
+$quiz-border-radius: $border-radius-lg !default;
+$code-editor-bg: base.$gray-900 !default;
+$progress-gradient: linear-gradient(90deg, base.$primary, base.$secondary) !default;
+
+// Course navigation
+$breadcrumb-separator: "›" !default;
+$nav-link-transition: all $animation-duration-fast ease !default;
+
+// Interactive states (note: these are already defined in the mapped extraction section above)
+
+// Media queries helpers
+$media-query-sm: "(min-width: #{$breakpoint-sm})" !default;
+$media-query-md: "(min-width: #{$breakpoint-md})" !default;
+$media-query-lg: "(min-width: #{$breakpoint-lg})" !default;
+$media-query-xl: "(min-width: #{$breakpoint-xl})" !default;
+
+// ========================================
+// Enhanced Interactive State Variables
+// ========================================
+
+// Note: All tooltip, loading, animation, scale, and scroll values 
+// are already defined in the mapped extraction section above
+
+// Tooltip states
+$tooltip-transition: $transition-fade !default;
+
+// Modal interaction states (note: modal-backdrop-opacity already defined above)
+$modal-backdrop-filter: blur(2px) !default;
+$modal-show-transform: translateY(0) !default;
+$modal-hide-transform: translateY(-50px) !default;
+$modal-transition: transform 0.3s ease-out !default;
+
+// Loading states (already defined in mapped extraction section above)
+
+// Error states (already defined in mapped extraction section above)
+
+// Scroll states (already defined in mapped extraction section above)
+$scrollbar-track-color: base.$gray-200 !default;
+$scrollbar-thumb-color: base.$gray-400 !default;
+$scrollbar-thumb-hover-color: base.$gray-500 !default;

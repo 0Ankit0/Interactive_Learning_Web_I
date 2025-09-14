@@ -2,8 +2,11 @@
 // This file imports all the partial SCSS files using modern @use syntax
 // Updated with comprehensive topic page styling and fixed error-color variable
 
-// 1. Variables and configuration
-@use 'variables' as *;
+// Sass built-in modules
+@use 'sass:color';
+
+// 1. Variables and configuration (includes functions)
+@use 'variables/index' as *;
 
 // 2. Mixins and functions
 @use 'mixins' as *;
@@ -14,12 +17,12 @@
 // 4. Base styles and resets
 @use 'base' as *;
 
-// 5. Base components (shared styles) - now modular
+// 5. Base components (shared styles) - now modular and includes all topic styles
 @use 'components/index' as *;
 
-// 6. Utilities and helpers
+// 6. Course-specific interactive features
+@use 'course-features' as *;
+
+// 7. Utilities and helpers
 @use 'utilities/index' as *;
 @use 'helpers/index' as *;
-
-// 7. Topic-specific styles - now modular
-@use 'topics/index' as *;

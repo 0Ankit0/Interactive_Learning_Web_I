@@ -1,17 +1,22 @@
 // Shared Components for Interactive Course
 // This file contains reusable component classes used across multiple topics
 
+@use '../variables/index' as *;
+@use '../mixins' as *;
+@use 'sass:map';
+@use 'sass:color';
+
 // ========================================
 // CARD COMPONENTS
 // ========================================
 
 .card-interactive {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid $gray-200;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   
   &:hover {
     transform: translateY(-2px);
@@ -21,11 +26,11 @@
 
 .card-feature {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid $gray-200;
   border-radius: 8px;
   padding: 2rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   
   &:hover {
     transform: translateY(-5px);
@@ -34,8 +39,8 @@
 }
 
 .card-demo {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background: $gray-100;
+  border: 1px solid $gray-300;
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1rem 0;
@@ -116,7 +121,7 @@
 
 .timeline-content {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid $gray-200;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -142,8 +147,8 @@
 // ========================================
 
 .form-demo {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background: $gray-100;
+  border: 1px solid $gray-300;
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
@@ -166,7 +171,7 @@
   border: 2px solid #ced4da;
   border-radius: 6px;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   
   &:focus {
     outline: none;
@@ -191,7 +196,7 @@
   font-size: 1rem;
   min-height: 100px;
   resize: vertical;
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   
   &:focus {
     outline: none;
@@ -207,7 +212,7 @@
   border-radius: 6px;
   font-size: 1rem;
   background: white;
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   
   &:focus {
     outline: none;
@@ -266,8 +271,8 @@
 }
 
 .table-row {
-  border-bottom: 1px solid #dee2e6;
-  transition: background-color 0.3s ease;
+  border-bottom: 1px solid $gray-300;
+  transition: background-color map.get($animation-duration, base) ease;
   
   &:hover {
     background: rgba(102, 126, 234, 0.05);
@@ -308,7 +313,7 @@
   border: 2px solid #ced4da;
   
   th, td {
-    border: 1px solid #dee2e6;
+    border: 1px solid $gray-300;
   }
 }
 
@@ -324,7 +329,7 @@
 // ========================================
 
 .progress-container {
-  background: #e2e8f0;
+  background: $gray-200;
   border-radius: 10px;
   height: 20px;
   margin: 1rem 0;
@@ -367,7 +372,7 @@
 
 .quiz-section {
   background: white;
-  border: 1px solid #e2e8f0;
+  border: 1px solid $gray-200;
   border-radius: 12px;
   padding: 2rem;
   margin: 2rem 0;
@@ -389,13 +394,13 @@
   margin: 0;
   
   li {
-    background: #f8f9fa;
-    border: 2px solid #e2e8f0;
+    background: $gray-100;
+    border: 2px solid $gray-200;
     border-radius: 8px;
     margin-bottom: 0.5rem;
     padding: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all map.get($animation-duration, base) ease;
     
     &:hover {
       background: #e9ecef;
@@ -437,7 +442,7 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all map.get($animation-duration, base) ease;
   display: none;
   
   &.show {
@@ -477,8 +482,8 @@
 }
 
 .code-output {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background: $gray-100;
+  border: 1px solid $gray-300;
   border-radius: 8px;
   padding: 1.5rem;
   margin: 1rem 0;
@@ -488,7 +493,7 @@
 
 .code-editor {
   background: white;
-  border: 2px solid #e2e8f0;
+  border: 2px solid $gray-200;
   border-radius: 8px;
   padding: 1rem;
   font-family: 'JetBrains Mono', monospace;
@@ -569,11 +574,620 @@
 }
 
 // ========================================
+// CONSOLIDATED DEMO COMPONENTS
+// ========================================
+
+// Interactive demo container (consolidated from multiple topic files)
+.interactive-demo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  
+  h3, h4 {
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .demo-content {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(10px);
+  }
+  
+  .demo-controls {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    
+    .control-group {
+      margin-bottom: 1rem;
+      
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #e0e7ff;
+      }
+      
+      input, select, button {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 1rem;
+        transition: all map.get($animation-duration, base) ease;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.6);
+        }
+        
+        &:focus {
+          outline: none;
+          border-color: #a7f3d0;
+          box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
+        }
+      }
+      
+      button {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+      }
+    }
+  }
+  
+  .demo-result {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2d3748;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+}
+
+// Method/Property/Technique cards (consolidated from multiple topic files)
+.method-card,
+.property-card,
+.technique-card {
+  background: white;
+  border: 1px solid $gray-200;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all map.get($animation-duration, base) ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  h4 {
+    margin-bottom: 1rem;
+    color: #2d3748;
+    font-size: 1.1rem;
+  }
+  
+  p {
+    color: #4a5568;
+    margin-bottom: 1rem;
+  }
+  
+  .code-example {
+    background: #f7fafc;
+    border: 1px solid $gray-200;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 1rem;
+    
+    pre {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Grid layouts for cards
+.method-grid,
+.property-grid,
+.technique-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+// Selector demo specific styles
+.selector-demo {
+  .selector-controls {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    
+    .selector-input {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      
+      input {
+        flex: 1;
+        padding: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-family: 'JetBrains Mono', monospace;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.6);
+        }
+        
+        &:focus {
+          outline: none;
+          border-color: #a7f3d0;
+          box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
+        }
+      }
+      
+      button {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all map.get($animation-duration, base) ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+      }
+    }
+    
+    .quick-selectors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      button {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        color: white;
+        cursor: pointer;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        transition: all map.get($animation-duration, base) ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          border-color: #a7f3d0;
+        }
+      }
+    }
+    
+    .result-display {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: #2d3748;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  }
+  
+  .demo-html {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+    
+    h4 {
+      margin-bottom: 1rem;
+      color: #e0e7ff;
+    }
+    
+    .demo-content {
+      background: white;
+      color: #2d3748;
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Content editor specific styles
+.content-editor {
+  .editor-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    
+    .target-elements {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      
+      h4 {
+        margin-bottom: 1rem;
+        color: #e0e7ff;
+      }
+      
+      .demo-elements {
+        background: white;
+        color: #2d3748;
+        border-radius: 6px;
+        padding: 1rem;
+        
+        > * {
+          margin-bottom: 1rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    
+    .editor-controls {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      
+      h4 {
+        margin-bottom: 1rem;
+        color: #e0e7ff;
+      }
+      
+      .control-group {
+        margin-bottom: 1rem;
+        
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: #e0e7ff;
+        }
+        
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+          
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+          }
+          
+          &:focus {
+            outline: none;
+            border-color: #a7f3d0;
+            box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
+          }
+        }
+        
+        button {
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border: none;
+          padding: 0.75rem 1.5rem;
+          border-radius: 6px;
+          color: white;
+          cursor: pointer;
+          font-weight: 600;
+          transition: all map.get($animation-duration, base) ease;
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+          }
+        }
+      }
+      
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+}
+
+// Style editor specific styles
+.style-editor {
+  .style-demo {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    
+    .style-target {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      
+      .demo-box {
+        background: white;
+        color: #2d3748;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all map.get($animation-duration, base) ease;
+      }
+    }
+    
+    .style-controls {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      
+      .control-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        
+        .control-item {
+          label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e0e7ff;
+            font-size: 0.875rem;
+          }
+          
+          input[type="range"] {
+            width: 100%;
+            margin-bottom: 0.25rem;
+          }
+          
+          span {
+            font-size: 0.75rem;
+            color: #bfdbfe;
+          }
+        }
+      }
+      
+      .class-controls {
+        margin-top: 1.5rem;
+        
+        h4 {
+          margin-bottom: 1rem;
+          color: #e0e7ff;
+        }
+        
+        .class-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          
+          button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: white;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all map.get($animation-duration, base) ease;
+            
+            &:hover {
+              background: rgba(255, 255, 255, 0.3);
+              border-color: #a7f3d0;
+            }
+          }
+        }
+      }
+      
+      .generated-css {
+        margin-top: 1.5rem;
+        
+        h4 {
+          margin-bottom: 1rem;
+          color: #e0e7ff;
+        }
+        
+        pre {
+          background: rgba(0, 0, 0, 0.3);
+          border-radius: 6px;
+          padding: 1rem;
+          margin: 0;
+          overflow-x: auto;
+          
+          code {
+            color: #a0aec0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Attribute editor specific styles
+.attribute-editor {
+  .attribute-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    
+    .demo-element {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+      }
+      
+      a {
+        display: inline-block;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        transition: all map.get($animation-duration, base) ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+      }
+    }
+    
+    .attribute-controls {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      
+      h4 {
+        margin-bottom: 1rem;
+        color: #e0e7ff;
+      }
+      
+      .control-section {
+        margin-bottom: 2rem;
+        
+        h5 {
+          margin-bottom: 1rem;
+          color: #e0e7ff;
+          font-size: 1rem;
+        }
+        
+        .control-row {
+          margin-bottom: 1rem;
+          
+          label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e0e7ff;
+            font-size: 0.875rem;
+          }
+          
+          input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.6);
+            }
+            
+            &:focus {
+              outline: none;
+              border-color: #a7f3d0;
+              box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.3);
+            }
+          }
+          
+          select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+          }
+        }
+      }
+      
+      .attribute-display {
+        margin-top: 2rem;
+        
+        h5 {
+          margin-bottom: 1rem;
+          color: #e0e7ff;
+        }
+        
+        .attribute-list {
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 6px;
+          padding: 1rem;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.875rem;
+          
+          .attribute-item {
+            margin-bottom: 0.5rem;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            strong {
+              color: #a7f3d0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================================
 // UTILITY COMPONENTS
 // ========================================
 
 .hover-lift {
-  transition: transform 0.3s ease;
+  transition: transform map.get($animation-duration, base) ease;
   
   &:hover {
     transform: translateY(-3px);
@@ -581,7 +1195,7 @@
 }
 
 .hover-scale {
-  transition: transform 0.3s ease;
+  transition: transform map.get($animation-duration, base) ease;
   
   &:hover {
     transform: scale(1.05);
@@ -692,4 +1306,33 @@
   .timeline-content {
     padding: 1rem;
   }
+}
+
+// ========================================
+// IMAGE COMPONENTS
+// ========================================
+
+.image-container {
+  margin: 2rem 0;
+  text-align: center;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform map.get($animation-duration, base) ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.image-caption {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
 }

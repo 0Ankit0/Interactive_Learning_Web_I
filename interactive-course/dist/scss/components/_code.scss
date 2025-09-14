@@ -4,11 +4,12 @@
 
 @use '../variables' as *;
 @use '../mixins' as *;
+@use 'sass:map';
 
 // Basic code editor container
 .code-editor-container-base {
   margin: $spacing-lg 0;
-  border-radius: $border-radius-md;
+  border-radius: map.get($border-radius-scale, md);
   overflow: hidden;
   border: 1px solid $border-light;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -16,7 +17,7 @@
 
 // Basic code editor
 .code-editor-base {
-  background: $code-background;
+  background: $code-bg;
   border: none;
   padding: $spacing-lg;
   font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
@@ -29,7 +30,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 2px $primary-color;
+    box-shadow: inset 0 0 0 2px $primary;
   }
 }
 
@@ -45,7 +46,7 @@
   min-height: 150px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  border-radius: 0 0 $border-radius-md $border-radius-md;
+  border-radius: 0 0 map.get($border-radius-scale, md) map.get($border-radius-scale, md);
 }
 
 // ========================================
