@@ -2943,7 +2943,28 @@ input::placeholder, select::placeholder, textarea::placeholder {
   border-radius: 0.75rem;
   margin-bottom: 3rem;
 }
-.topic-page .topic-header .topic-title {
+.topic-page .topic-header .hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.topic-page .topic-header .hero-visual .topic-icon-large {
+  font-size: 3rem;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topic-page .topic-header .hero-visual .topic-header-text {
+  text-align: left;
+}
+.topic-page .topic-header .hero-visual .topic-header-text .topic-title {
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2495;
@@ -2953,14 +2974,36 @@ input::placeholder, select::placeholder, textarea::placeholder {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
-.topic-page .topic-header .topic-description {
+.topic-page .topic-header .hero-visual .topic-header-text .topic-subtitle {
+  font-size: "lg";
+  line-height: 1.5;
+  color: #4CAF50;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+.topic-page .topic-header .hero-visual .topic-header-text .topic-description {
   font-size: "lg";
   line-height: 1.5;
   color: #6c757d;
   max-width: 60ch;
-  margin: 0 auto;
+  margin: 0;
+}
+.topic-page .topic-header .progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(76, 175, 80, 0.2);
+  border-radius: 50rem;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+.topic-page .topic-header .progress-bar .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #198754, #4CAF50);
+  border-radius: 50rem;
+  width: 0%;
+  transition: width 0.5001s ease;
 }
 .topic-page .topic-navigation {
   position: sticky;
@@ -4130,6 +4173,81 @@ input::placeholder, select::placeholder, textarea::placeholder {
     border-color: #4CAF50;
   }
 }
+.unit-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  text-align: center;
+}
+.unit-header .hero-visual {
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+}
+.unit-header .hero-visual .unit-icon-large {
+  font-size: 4rem;
+  color: #4CAF50;
+  margin-bottom: 0.75rem;
+}
+.unit-header .hero-visual .unit-header-text .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.unit-header .hero-visual .unit-header-text .hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(76, 175, 80, 0.8);
+  margin-bottom: 0.75rem;
+}
+.unit-header .hero-visual .unit-header-text .unit-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.unit-header .progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+.unit-header .progress-bar .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #198754, #4CAF50);
+  border-radius: 50rem;
+  width: 0%;
+  transition: width 0.5001s ease;
+}
+
+.course-stats {
+  margin-top: 9rem;
+  padding: 2rem 0;
+}
+.course-stats .grid-auto-fit {
+  gap: 1.5rem;
+}
+.course-stats .card-feature .stat-icon {
+  font-size: 2.5rem;
+  color: #4CAF50;
+  margin-bottom: 0.75rem;
+}
+.course-stats .card-feature .stat-info h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 0.25rem;
+}
+.course-stats .card-feature .stat-info p {
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
 .m-0 {
   margin: 0 !important;
 }
