@@ -206,10 +206,30 @@ function showTooltip(text) {
 // Browser simulation
 function simulateBrowsing() {
     const demoStatus = document.getElementById('demo-status');
+    const browserContent = document.querySelector('.browser-content');
+    const browserSimulator = document.querySelector('.browser-simulator');
+    const simulateButton = document.querySelector('.demo-controls button');
+
+    // Reset status color and hide content initially
+    demoStatus.style.color = "";
+    if (browserContent) {
+        browserContent.classList.remove('visible');
+    }
+    if (browserSimulator) {
+        browserSimulator.classList.remove('visible');
+    }
+
+    // Disable button during simulation
+    if (simulateButton) {
+        simulateButton.disabled = true;
+        simulateButton.textContent = "Loading...";
+    }
+
     const messages = [
+        "Connecting to CERN server...",
         "Loading hypertext document...",
         "Navigating to linked page...",
-        "Displaying text-based content...",
+        "Rendering text-based content...",
         "Early web browsing complete!"
     ];
 
@@ -221,9 +241,23 @@ function simulateBrowsing() {
             messageIndex++;
             setTimeout(showNextMessage, 1500);
         } else {
+            // Show the browser simulator and content after simulation completes
             setTimeout(() => {
-                demoStatus.textContent = "Click to experience early web browsing!";
-            }, 2000);
+                if (browserSimulator) {
+                    browserSimulator.classList.add('visible');
+                }
+                if (browserContent) {
+                    browserContent.classList.add('visible');
+                }
+                demoStatus.textContent = "Web page loaded successfully! Try clicking the links above.";
+                demoStatus.style.color = "#28a745"; // Green color for success
+
+                // Re-enable button
+                if (simulateButton) {
+                    simulateButton.disabled = false;
+                    simulateButton.textContent = "Simulate Link Navigation";
+                }
+            }, 1000);
         }
     };
 

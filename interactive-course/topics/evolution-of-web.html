@@ -98,13 +98,13 @@
                   >Websites vs Web Apps</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   href="#interactive-timeline"
                   onclick="scrollToSection('interactive-timeline')"
                   >Interactive Timeline</a
                 >
-              </li>
+              </li> -->
               <li>
                 <a href="#quiz" onclick="scrollToSection('quiz')"
                   >Knowledge Check</a
@@ -277,6 +277,15 @@
                   <i class="fas fa-play"></i> Interactive Demo: First Web
                   Browser
                 </h3>
+                <div class="demo-controls">
+                  <button class="btn btn-primary" onclick="simulateBrowsing()">
+                    Simulate Link Navigation
+                  </button>
+                  <span id="demo-status"
+                    >Ready to simulate 1990s web browsing - click the button
+                    below!</span
+                  >
+                </div>
                 <div class="browser-simulator">
                   <div class="browser-header">
                     <div class="browser-title">WorldWideWeb Browser (1990)</div>
@@ -324,14 +333,6 @@
                       >.
                     </p>
                   </div>
-                </div>
-                <div class="demo-controls">
-                  <button class="btn btn-primary" onclick="simulateBrowsing()">
-                    Simulate Link Navigation
-                  </button>
-                  <span id="demo-status"
-                    >Click to experience early web browsing!</span
-                  >
                 </div>
               </div>
             </section>
@@ -849,7 +850,7 @@
               </div>
             </section>
 
-            <section id="interactive-timeline" class="content-section">
+            <!-- <section id="interactive-timeline" class="content-section">
               <h2><i class="fas fa-clock"></i> Interactive Web Timeline</h2>
 
               <div class="interactive-timeline">
@@ -957,7 +958,7 @@
                   </p>
                 </div>
               </div>
-            </section>
+            </section> -->
 
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>

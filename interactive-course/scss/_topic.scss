@@ -862,6 +862,7 @@
   }
 }
 
+// Consolidated tab button styling (prevents flickering)
 .tab-btn {
   @include button-outline;
   padding: $spacing-md $spacing-lg;
@@ -869,90 +870,94 @@
   border-bottom: none;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  
+  background: $bg-light;
+  color: $text-secondary;
+  transition: all $transition-fast;
+  position: relative;
+  z-index: 1;
+  border: 1px solid $border-light;
+  border-bottom: none;
+
   &.active {
-    @include button-primary;
-    border-bottom: none;
-  }
-  
-  &:hover:not(.active) {
-    background: rgba($primary-color, 0.1);
+    background: white;
+    border-color: $border-light $border-light white $border-light;
     color: $primary-color;
+    box-shadow: none;
+    transform: none;
+    border-bottom: $primary-color;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: white;
+      z-index: 2;
+    }
+  }
+
+  &:hover:not(.active) {
+    background: rgba($primary-color, 0.05);
+    color: $primary-color;
+    border-color: rgba($primary-color, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba($primary-color, 0.1);
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+    background: rgba($primary-color, 0.05);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 }
 
-// Demo controls buttons
+// Demo controls styling (consolidated)
 .demo-controls {
   text-align: center;
-  margin-top: $spacing-xl;
-  padding: $spacing-xl;
-  background: white;
+  margin: $spacing-lg 0 $spacing-2xl 0;
+  padding: $spacing-lg;
+  background: $bg-light;
   border-radius: $border-radius-lg;
-  border: 3px solid $primary-color;
-  box-shadow: $shadow-lg;
-  position: relative;
-  z-index: 10; // Ensure it's above other elements
-  
-  button:not([class]) {
-    display: inline-block;
-    padding: $spacing-lg $spacing-2xl;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-md;
+
+  button {
+    @include button-secondary;
+    padding: $spacing-lg $spacing-xl;
     font-size: $font-size-base;
     border-radius: $border-radius-md;
-    font-weight: $font-weight-bold;
-    background: $primary-color;
-    border: 3px solid $primary-color;
-    color: white;
-    min-height: 50px;
-    cursor: pointer;
+    margin: $spacing-sm;
     transition: all $transition-base;
-    text-decoration: none;
-    position: relative;
-    z-index: 11;
-    
-    // High contrast styling
-    &:hover {
-      background: #1a365d; // Darker blue for better contrast
-      border-color: #1a365d;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(26, 54, 93, 0.5);
-      color: white; // Ensure white text on dark background
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: $shadow-md;
+      background: $primary-color;
+      color: white;
     }
-    
-    &:focus {
-      outline: 3px solid #ffd700; // Gold focus ring for accessibility
-      outline-offset: 2px;
-    }
-    
-    &:active {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(26, 54, 93, 0.4);
-    }
-    
-    i {
-      margin-left: $spacing-sm;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      background: $text-muted;
+      color: white;
     }
   }
-  
+
   #demo-status {
     display: block;
     margin-top: $spacing-lg;
-    color: $text-primary;
-    font-style: normal;
-    font-weight: $font-weight-medium;
-    padding: $spacing-md $spacing-lg;
-    background: white;
-    border-radius: $border-radius-md;
-    border: 2px solid $border-light;
     font-size: $font-size-sm;
-    text-align: center;
-    transition: all $transition-base;
-    
-    &.active {
-      color: $primary-color;
-      border-color: $primary-color;
-      background: rgba($primary-color, 0.08);
-      font-weight: $font-weight-semibold;
-    }
+    color: $text-secondary;
+    font-weight: $font-weight-medium;
+    min-height: 1.5em;
   }
 }
 
@@ -1086,38 +1091,6 @@
     background: white;
   }
 }
-
-// Demo controls styling  
-.demo-controls {
-  text-align: center;
-  margin: $spacing-2xl 0;
-  padding: $spacing-xl;
-  background: $bg-light;
-  border-radius: $border-radius-lg;
-  border: 1px solid $border-light;
-  
-  button:not([class]) {
-    @include button-secondary;
-    padding: $spacing-lg $spacing-xl;
-    font-size: $font-size-base;
-    border-radius: $border-radius-md;
-    margin: $spacing-sm;
-    
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: $shadow-md;
-    }
-  }
-  
-  #demo-status {
-    display: block;
-    margin-top: $spacing-md;
-    color: $text-secondary;
-    font-style: italic;
-    font-size: $font-size-sm;
-  }
-}
-
 // URL anatomy breakdown
 .url-breakdown {
   @include card-base;
@@ -1334,8 +1307,8 @@
   }
 }
 
-// Search evolution timeline
-.search-evolution {
+// Search timeline component
+.search-timeline {
   .search-era {
     margin-bottom: $spacing-3xl;
     
@@ -1514,56 +1487,23 @@
   }
 }
 
-// Website vs Web app demo styling
+// Interactive comparison demo styling
 .demo-container {
   margin: $spacing-2xl 0;
-  
+
   .demo-tabs {
     display: flex;
     margin-bottom: 0;
     border-bottom: 1px solid $border-light;
-    
-    .tab-btn {
-      @include button-outline;
-      padding: $spacing-md $spacing-xl;
-      border-radius: $border-radius-md $border-radius-md 0 0;
-      border-bottom: none;
-      font-size: $font-size-sm;
-      font-weight: $font-weight-medium;
-      background: $bg-light;
-      
-      &.active {
-        background: white;
-        border-color: $border-light $border-light white $border-light;
-        color: $primary-color;
-        position: relative;
-        z-index: 1;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -1px;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: white;
-        }
-      }
-      
-      &:hover:not(.active) {
-        background: rgba($primary-color, 0.05);
-        color: $primary-color;
-      }
-    }
   }
-  
+
   .demo-content {
     display: none;
     padding: $spacing-2xl;
     border: 1px solid $border-light;
     border-top: none;
     background: white;
-    
+
     &.active {
       display: block;
     }
@@ -1659,7 +1599,7 @@
 }
 
 // ========================================
-// SPECIFIC EVOLUTION-OF-WEB PAGE COMPONENTS
+// GENERAL TOPIC PAGE COMPONENTS
 // ========================================
 
 // UIKit-inspired timeline styling
@@ -1712,7 +1652,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+  background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: -10%));
   color: white;
   border-radius: 50%;
   font-size: $font-size-sm;
@@ -1743,7 +1683,7 @@
     .timeline-card-header {
       padding: $spacing-lg $spacing-xl;
       border-bottom: 1px solid $border-light;
-      background: lighten($bg-light, 2%);
+      background: color.adjust($bg-light, $lightness: 2%);
 
       h4 {
         margin: 0;
@@ -1872,7 +1812,7 @@
   display: inline-block;
   padding: $spacing-xs $spacing-md;
   color: white;
-  border-radius: $border-radius-full;
+  border-radius: $border-radius-md;
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
   text-transform: uppercase;
@@ -1920,53 +1860,115 @@
   }
 }
 
-// Browser simulator styling
+// Browser simulator styling (consolidated)
 .browser-simulator {
   @include card-base;
-  border: 2px solid $border-dark;
+  background: white;
+  border: 1px solid $border-light;
   border-radius: $border-radius-lg;
   overflow: hidden;
-  margin: $spacing-2xl 0;
-  background: white;
+  margin: $spacing-xl 0;
+  position: relative;
+  z-index: 1;
   box-shadow: $shadow-lg;
   transition: all $transition-base;
-  
+  height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+
   &:hover {
     box-shadow: $shadow-xl;
-    transform: translateY(-2px);
+    transform: scaleY(0);
   }
-}
 
-.browser-header {
-  background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
-  padding: $spacing-md $spacing-lg;
-  border-bottom: 2px solid $border-dark;
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    left: $spacing-lg;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: #ff5f56;
-    border-radius: 50%;
-    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27ca3f;
+  &.visible {
+    height: auto;
+    opacity: 1;
+    transform: scaleY(1);
   }
-  
+
+  .browser-header {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: $spacing-lg $spacing-xl;
+    border-bottom: 1px solid $border-light;
+    @include flex-center;
+    justify-content: flex-start;
+    gap: $spacing-lg;
+    position: relative;
+    z-index: 2;
+
+    &::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #ff5f57;
+      border-radius: 50%;
+      box-shadow:
+        20px 0 0 #ffbd2e,
+        40px 0 0 #28ca42;
+      flex-shrink: 0;
+    }
+  }
+
   .browser-title {
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
     font-size: $font-size-sm;
-    text-align: center;
+    color: $text-secondary;
+    font-weight: $font-weight-medium;
+    margin-left: $spacing-xl;
     font-family: $font-family-monospace;
     background: rgba(white, 0.8);
     padding: $spacing-xs $spacing-md;
     border-radius: $border-radius-sm;
     display: inline-block;
-    margin-left: 60px;
+  }
+
+  .browser-content {
+    padding: $spacing-2xl;
+    font-family: 'Times New Roman', serif;
+    line-height: $line-height-relaxed;
+    background: white;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all $transition-base;
+
+    &.visible {
+      opacity: 1;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    h4 {
+      color: $primary-color;
+      margin-bottom: $spacing-lg;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+    }
+
+    p {
+      margin-bottom: $spacing-lg;
+      color: $text-secondary;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: $font-weight-medium;
+      border-bottom: 1px solid transparent;
+      transition: all $transition-fast;
+
+      &:hover {
+        border-bottom-color: $primary-color;
+        color: $primary-hover;
+      }
+    }
   }
 }
 
@@ -2355,141 +2357,141 @@
 // INTERACTIVE TIMELINE STYLES
 // ========================================
 
-.interactive-timeline {
-  @include card-base;
-  padding: $spacing-3xl;
-  margin: $spacing-3xl 0;
-  background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.02));
-  border: 1px solid rgba($primary-color, 0.2);
-  border-radius: $border-radius-xl;
-}
+// .interactive-timeline {
+//   @include card-base;
+//   padding: $spacing-3xl;
+//   margin: $spacing-3xl 0;
+//   background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.02));
+//   border: 1px solid rgba($primary-color, 0.2);
+//   border-radius: $border-radius-xl;
+// }
 
-.timeline-controls {
-  @include flex-center;
-  gap: $spacing-lg;
-  margin-bottom: $spacing-4xl;
-  flex-wrap: wrap;
-  justify-content: center;
+// .timeline-controls {
+//   @include flex-center;
+//   gap: $spacing-lg;
+//   margin-bottom: $spacing-4xl;
+//   flex-wrap: wrap;
+//   justify-content: center;
 
-  @include breakpoint($breakpoint-sm) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: $spacing-md;
-  }
+//   @include breakpoint($breakpoint-sm) {
+//     flex-direction: column;
+//     align-items: stretch;
+//     gap: $spacing-md;
+//   }
 
-  button {
-    @include button-primary;
-    gap: $spacing-sm;
-    padding: $spacing-lg $spacing-2xl;
-    font-size: $font-size-base;
-    border-radius: $border-radius-lg;
-    transition: all $transition-base;
+//   button {
+//     @include button-primary;
+//     gap: $spacing-sm;
+//     padding: $spacing-lg $spacing-2xl;
+//     font-size: $font-size-base;
+//     border-radius: $border-radius-lg;
+//     transition: all $transition-base;
 
-    &#play-btn {
-      background: $success-color;
-      border-color: $success-color;
+//     &#play-btn {
+//       background: $success-color;
+//       border-color: $success-color;
 
-      &:hover {
-        background: color.scale($success-color, $lightness: -10%);
-        transform: translateY(-2px);
-        box-shadow: $shadow-lg;
-      }
+//       &:hover {
+//         background: color.scale($success-color, $lightness: -10%);
+//         transform: translateY(-2px);
+//         box-shadow: $shadow-lg;
+//       }
 
-      &.playing {
-        background: $warning-color;
-        border-color: $warning-color;
+//       &.playing {
+//         background: $warning-color;
+//         border-color: $warning-color;
 
-        .fa-play::before {
-          content: "\f04c"; // pause icon
-        }
+//         .fa-play::before {
+//           content: "\f04c"; // pause icon
+//         }
 
-        &:hover {
-          background: color.scale($warning-color, $lightness: -10%);
-        }
-      }
-    }
+//         &:hover {
+//           background: color.scale($warning-color, $lightness: -10%);
+//         }
+//       }
+//     }
 
-    &:not(#play-btn) {
-      @include button-secondary;
+//     &:not(#play-btn) {
+//       @include button-secondary;
 
-      &:hover {
-        transform: translateY(-1px);
-        box-shadow: $shadow-md;
-      }
-    }
-  }
+//       &:hover {
+//         transform: translateY(-1px);
+//         box-shadow: $shadow-md;
+//       }
+//     }
+//   }
 
-  .timeline-speed {
-    @include flex-center;
-    gap: $spacing-md;
-    background: white;
-    padding: $spacing-md $spacing-lg;
-    border-radius: $border-radius-lg;
-    border: 1px solid $border-light;
+//   .timeline-speed {
+//     @include flex-center;
+//     gap: $spacing-md;
+//     background: white;
+//     padding: $spacing-md $spacing-lg;
+//     border-radius: $border-radius-lg;
+//     border: 1px solid $border-light;
 
-    @include breakpoint($breakpoint-sm) {
-      justify-content: space-between;
-      width: 100%;
-    }
+//     @include breakpoint($breakpoint-sm) {
+//       justify-content: space-between;
+//       width: 100%;
+//     }
 
-    label {
-      font-weight: $font-weight-medium;
-      color: $text-primary;
-      font-size: $font-size-sm;
-    }
+//     label {
+//       font-weight: $font-weight-medium;
+//       color: $text-primary;
+//       font-size: $font-size-sm;
+//     }
 
-    input[type="range"] {
-      width: 120px;
-      height: 6px;
-      border-radius: $border-radius-full;
-      background: $bg-light;
-      outline: none;
-      appearance: none;
-      cursor: pointer;
+//     input[type="range"] {
+//       width: 120px;
+//       height: 6px;
+//       border-radius: $border-radius-full;
+//       background: $bg-light;
+//       outline: none;
+//       appearance: none;
+//       cursor: pointer;
 
-      &::-webkit-slider-thumb {
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: $border-radius-full;
-        background: $primary-color;
-        cursor: pointer;
-        border: 2px solid white;
-        box-shadow: $shadow-md;
-        transition: all $transition-base;
+//       &::-webkit-slider-thumb {
+//         appearance: none;
+//         width: 20px;
+//         height: 20px;
+//         border-radius: $border-radius-full;
+//         background: $primary-color;
+//         cursor: pointer;
+//         border: 2px solid white;
+//         box-shadow: $shadow-md;
+//         transition: all $transition-base;
 
-        &:hover {
-          transform: scale(1.1);
-          box-shadow: $shadow-lg;
-        }
-      }
+//         &:hover {
+//           transform: scale(1.1);
+//           box-shadow: $shadow-lg;
+//         }
+//       }
 
-      &::-moz-range-thumb {
-        width: 20px;
-        height: 20px;
-        border-radius: $border-radius-full;
-        background: $primary-color;
-        cursor: pointer;
-        border: 2px solid white;
-        box-shadow: $shadow-md;
-        transition: all $transition-base;
-      }
+//       &::-moz-range-thumb {
+//         width: 20px;
+//         height: 20px;
+//         border-radius: $border-radius-full;
+//         background: $primary-color;
+//         cursor: pointer;
+//         border: 2px solid white;
+//         box-shadow: $shadow-md;
+//         transition: all $transition-base;
+//       }
 
-      &::-webkit-slider-track {
-        height: 6px;
-        border-radius: $border-radius-full;
-        background: $bg-light;
-      }
+//       &::-webkit-slider-track {
+//         height: 6px;
+//         border-radius: $border-radius-full;
+//         background: $bg-light;
+//       }
 
-      &::-moz-range-track {
-        height: 6px;
-        border-radius: $border-radius-full;
-        background: $bg-light;
-        border: none;
-      }
-    }
-  }
-}
+//       &::-moz-range-track {
+//         height: 6px;
+//         border-radius: $border-radius-full;
+//         background: $bg-light;
+//         border: none;
+//       }
+//     }
+//   }
+// }
 
 // Traditional Vertical Timeline Styles
 .timeline-container {
@@ -2748,7 +2750,7 @@
   line-height: $line-height-normal;
 }
 
-// === Evolution of Web Page Specific Styles ===
+// === General Topic Page Styles ===
 
 // WWW Architecture diagram
 .concept-diagram {
@@ -2836,96 +2838,6 @@
   span {
     font-weight: $font-weight-medium;
     text-align: center;
-  }
-}
-
-// Browser simulator styles (Fixed z-index and layering)
-.browser-simulator {
-  @include card-base;
-  background: white;
-  border: 1px solid $border-light;
-  border-radius: $border-radius-lg;
-  overflow: hidden;
-  margin: $spacing-xl 0;
-  position: relative;
-  z-index: 1;
-  box-shadow: $shadow-lg;
-  
-  .browser-header {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    padding: $spacing-lg $spacing-xl;
-    border-bottom: 1px solid $border-light;
-    @include flex-center;
-    justify-content: flex-start;
-    gap: $spacing-lg;
-    position: relative;
-    z-index: 2;
-    
-    &::before {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: #ff5f57;
-      border-radius: 50%;
-      box-shadow: 
-        20px 0 0 #ffbd2e,
-        40px 0 0 #28ca42;
-      flex-shrink: 0;
-    }
-  }
-  
-  .browser-title {
-    font-size: $font-size-sm;
-    color: $text-secondary;
-    font-weight: $font-weight-medium;
-    margin-left: $spacing-xl;
-  }
-  
-  .browser-content {
-    padding: $spacing-2xl;
-    font-family: 'Times New Roman', serif;
-    line-height: $line-height-relaxed;
-    background: white;
-    position: relative;
-    z-index: 1;
-    min-height: 200px;
-    
-    h4 {
-      margin-bottom: $spacing-lg;
-      color: $text-primary;
-      font-size: $font-size-lg;
-      font-weight: $font-weight-bold;
-    }
-    
-    p {
-      margin-bottom: $spacing-lg;
-      color: $text-primary;
-      font-size: $font-size-base;
-    }
-    
-    a {
-      color: #0066cc;
-      text-decoration: underline;
-      cursor: pointer;
-      font-weight: $font-weight-medium;
-      position: relative;
-      z-index: 2;
-      
-      &:visited {
-        color: #800080;
-      }
-      
-      &:hover {
-        background: rgba(0, 102, 204, 0.1);
-        color: #004499;
-        text-decoration-thickness: 2px;
-      }
-      
-      &:focus {
-        outline: 2px solid $primary-color;
-        outline-offset: 2px;
-      }
-    }
   }
 }
 
@@ -3162,7 +3074,7 @@
   }
 }
 
-// Quiz game specific styles
+// Interactive quiz component styles
 .quiz-game {
   @include card-base;
   background: white;
@@ -3238,8 +3150,8 @@
   }
 }
 
-// Search engine evolution
-.search-evolution {
+// Search history component
+.search-timeline {
   margin: $spacing-3xl 0;
 }
 
@@ -3420,35 +3332,6 @@
   border-bottom: 2px solid $border-light;
 }
 
-.tab-btn {
-  padding: $spacing-lg $spacing-xl;
-  background: white;
-  border: 2px solid $border-light;
-  color: $text-primary;
-  font-weight: $font-weight-semibold;
-  cursor: pointer;
-  border-radius: $border-radius-md;
-  margin-right: $spacing-sm;
-  transition: all $transition-base;
-  position: relative;
-  z-index: 3;
-  
-  &:hover {
-    background: rgba($primary-color, 0.1);
-    color: $primary-color;
-    border-color: $primary-color;
-    transform: translateY(-2px);
-    box-shadow: $shadow-md;
-  }
-  
-  &.active {
-    background: $primary-color;
-    color: white;
-    border-color: $primary-color;
-    box-shadow: $shadow-md;
-  }
-}
-
 .demo-container {
   position: relative;
   z-index: 1;
@@ -3457,16 +3340,6 @@
   border-radius: $border-radius-lg;
   margin-top: $spacing-lg;
   box-shadow: $shadow-md;
-}
-
-.demo-content {
-  display: none;
-  position: relative;
-  z-index: 2;
-  
-  &.active {
-    display: block;
-  }
 }
 
 .mock-browser {
@@ -3693,7 +3566,7 @@
   }
 }
 
-// Introduction section specific styles
+// Topic introduction section styles
 .learning-objectives {
   background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
   border-left: 4px solid $primary-color;
