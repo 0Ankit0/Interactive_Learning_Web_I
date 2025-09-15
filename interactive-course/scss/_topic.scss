@@ -223,7 +223,186 @@
     li {
       margin-bottom: $spacing-sm;
       
-      a {
+      // Dropdown toggle buttons (replacing strong elements)
+      .toc-dropdown-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: $spacing-md $spacing-lg;
+        background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($primary-color, 0.02));
+        border: 1px solid rgba($primary-color, 0.15);
+        border-radius: $border-radius-md;
+        color: $text-primary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all $transition-base;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba($primary-color, 0.1), transparent);
+          transition: left 0.5s ease-in-out;
+        }
+        
+        &:hover {
+          background: linear-gradient(135deg, rgba($primary-color, 0.1), rgba($primary-color, 0.05));
+          border-color: rgba($primary-color, 0.25);
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba($primary-color, 0.15);
+          
+          &::before {
+            left: 100%;
+          }
+        }
+        
+        &:focus {
+          outline: 2px solid $primary-color;
+          outline-offset: 2px;
+          background: linear-gradient(135deg, rgba($primary-color, 0.1), rgba($primary-color, 0.05));
+        }
+        
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 6px rgba($primary-color, 0.1);
+        }
+        
+        span {
+          flex: 1;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .toc-chevron {
+          margin-left: $spacing-sm;
+          transition: transform $transition-base, color $transition-base;
+          color: $primary-color;
+          font-size: $font-size-xs;
+          position: relative;
+          z-index: 1;
+        }
+        
+        &[aria-expanded="true"] {
+          background: linear-gradient(135deg, rgba($primary-color, 0.15), rgba($primary-color, 0.08));
+          border-color: rgba($primary-color, 0.35);
+          box-shadow: 0 2px 8px rgba($primary-color, 0.2);
+          
+          .toc-chevron {
+            color: color.scale($primary-color, $lightness: -15%);
+          }
+        }
+        
+        &[aria-expanded="true"] .toc-chevron {
+          color: color.scale($primary-color, $lightness: -15%);
+        }
+      }
+      
+      // Dropdown content container
+      .toc-dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.3s ease-in-out,
+                    margin-top 0.3s ease-in-out,
+                    transform 0.3s ease-in-out;
+        opacity: 0;
+        margin-left: $spacing-lg;
+        margin-top: 0;
+        transform: translateY(-5px);
+        border-left: 2px solid rgba($primary-color, 0.2);
+        background: rgba($text-light, 0.02);
+        border-radius: 0 $border-radius-sm $border-radius-sm 0;
+        
+        &.expanded {
+          max-height: 500px; // Enough to accommodate all subsections
+          opacity: 1;
+          margin-top: $spacing-sm;
+          transform: translateY(0);
+          padding-top: $spacing-xs;
+          padding-bottom: $spacing-xs;
+        }
+        
+        li {
+          margin-bottom: $spacing-xs;
+          position: relative;
+          
+          &::before {
+            content: '→';
+            position: absolute;
+            left: -$spacing-md;
+            color: $primary-color;
+            font-size: $font-size-xs;
+            transition: transform $transition-base;
+            opacity: 0.7;
+          }
+          
+          &:hover::before {
+            transform: translateX(2px);
+            opacity: 1;
+          }
+          
+          a {
+            display: block;
+            padding: $spacing-sm $spacing-md;
+            color: $text-secondary;
+            border-radius: $border-radius-sm;
+            transition: all $transition-base;
+            font-size: $font-size-xs;
+            font-weight: $font-weight-medium;
+            border-left: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba($primary-color, 0.1), transparent);
+              transition: left 0.5s ease-in-out;
+            }
+            
+            &:hover, &.active {
+              background: rgba($primary-color, 0.08);
+              color: $primary-color;
+              border-left-color: $primary-color;
+              transform: translateX(3px);
+              text-decoration: none;
+              box-shadow: 0 2px 8px rgba($primary-color, 0.1);
+              
+              &::before {
+                left: 100%;
+              }
+            }
+            
+            &:focus {
+              outline: 1px solid $primary-color;
+              outline-offset: 1px;
+              background: rgba($primary-color, 0.05);
+            }
+            
+            &.active {
+              background: rgba($primary-color, 0.15);
+              font-weight: $font-weight-semibold;
+            }
+          }
+        }
+      }
+      
+      // Top-level links (for non-grouped items) - keep for backwards compatibility
+      > a {
         display: block;
         padding: $spacing-md $spacing-lg;
         color: $text-secondary;
@@ -2216,142 +2395,6 @@
 // ========================================
 // INTERACTIVE TIMELINE STYLES
 // ========================================
-
-// .interactive-timeline {
-//   @include card-base;
-//   padding: $spacing-3xl;
-//   margin: $spacing-3xl 0;
-//   background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.02));
-//   border: 1px solid rgba($primary-color, 0.2);
-//   border-radius: $border-radius-xl;
-// }
-
-// .timeline-controls {
-//   @include flex-center;
-//   gap: $spacing-lg;
-//   margin-bottom: $spacing-4xl;
-//   flex-wrap: wrap;
-//   justify-content: center;
-
-//   @include breakpoint($breakpoint-sm) {
-//     flex-direction: column;
-//     align-items: stretch;
-//     gap: $spacing-md;
-//   }
-
-//   button {
-//     @include button-primary;
-//     gap: $spacing-sm;
-//     padding: $spacing-lg $spacing-2xl;
-//     font-size: $font-size-base;
-//     border-radius: $border-radius-lg;
-//     transition: all $transition-base;
-
-//     &#play-btn {
-//       background: $success-color;
-//       border-color: $success-color;
-
-//       &:hover {
-//         background: color.scale($success-color, $lightness: -10%);
-//         transform: translateY(-2px);
-//         box-shadow: $shadow-lg;
-//       }
-
-//       &.playing {
-//         background: $warning-color;
-//         border-color: $warning-color;
-
-//         .fa-play::before {
-//           content: "\f04c"; // pause icon
-//         }
-
-//         &:hover {
-//           background: color.scale($warning-color, $lightness: -10%);
-//         }
-//       }
-//     }
-
-//     &:not(#play-btn) {
-//       @include button-secondary;
-
-//       &:hover {
-//         transform: translateY(-1px);
-//         box-shadow: $shadow-md;
-//       }
-//     }
-//   }
-
-//   .timeline-speed {
-//     @include flex-center;
-//     gap: $spacing-md;
-//     background: white;
-//     padding: $spacing-md $spacing-lg;
-//     border-radius: $border-radius-lg;
-//     border: 1px solid $border-light;
-
-//     @include breakpoint($breakpoint-sm) {
-//       justify-content: space-between;
-//       width: 100%;
-//     }
-
-//     label {
-//       font-weight: $font-weight-medium;
-//       color: $text-primary;
-//       font-size: $font-size-sm;
-//     }
-
-//     input[type="range"] {
-//       width: 120px;
-//       height: 6px;
-//       border-radius: $border-radius-full;
-//       background: $bg-light;
-//       outline: none;
-//       appearance: none;
-//       cursor: pointer;
-
-//       &::-webkit-slider-thumb {
-//         appearance: none;
-//         width: 20px;
-//         height: 20px;
-//         border-radius: $border-radius-full;
-//         background: $primary-color;
-//         cursor: pointer;
-//         border: 2px solid white;
-//         box-shadow: $shadow-md;
-//         transition: all $transition-base;
-
-//         &:hover {
-//           transform: scale(1.1);
-//           box-shadow: $shadow-lg;
-//         }
-//       }
-
-//       &::-moz-range-thumb {
-//         width: 20px;
-//         height: 20px;
-//         border-radius: $border-radius-full;
-//         background: $primary-color;
-//         cursor: pointer;
-//         border: 2px solid white;
-//         box-shadow: $shadow-md;
-//         transition: all $transition-base;
-//       }
-
-//       &::-webkit-slider-track {
-//         height: 6px;
-//         border-radius: $border-radius-full;
-//         background: $bg-light;
-//       }
-
-//       &::-moz-range-track {
-//         height: 6px;
-//         border-radius: $border-radius-full;
-//         background: $bg-light;
-//         border: none;
-//       }
-//     }
-//   }
-// }
 
 // Traditional Vertical Timeline Styles
 .timeline-container {

@@ -58,64 +58,126 @@
             <h3>Table of Contents</h3>
             <ul>
               <li>
-                <a
-                  href="#introduction"
-                  onclick="scrollToSection('introduction')"
-                  >Introduction</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>Web Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#history" onclick="scrollToSection('history')"
+                      >History of the Web</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#www" onclick="scrollToSection('www')"
+                      >World Wide Web</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#url" onclick="scrollToSection('url')"
+                      >URLs and Addressing</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#history" onclick="scrollToSection('history')"
-                  >History of the Web</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>Web Evolution</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#versions" onclick="scrollToSection('versions')"
+                      >Web Versions</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#search-engines"
+                      onclick="scrollToSection('search-engines')"
+                      >Search Engines</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#websites-vs-apps"
+                      onclick="scrollToSection('websites-vs-apps')"
+                      >Websites vs Web Apps</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#www" onclick="scrollToSection('www')"
-                  >World Wide Web</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>Interactive Demos</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#search-demo"
+                      onclick="scrollToSection('search-demo')"
+                      >Search Demo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#browser-simulation"
+                      onclick="scrollToSection('browser-simulation')"
+                      >Browser Simulation</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#live-updates-demo"
+                      onclick="scrollToSection('live-updates-demo')"
+                      >Live Updates Demo</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#url" onclick="scrollToSection('url')"
-                  >URLs and Addressing</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
-              </li>
-              <li>
-                <a href="#versions" onclick="scrollToSection('versions')"
-                  >Web Versions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#search-engines"
-                  onclick="scrollToSection('search-engines')"
-                  >Search Engines</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#websites-vs-apps"
-                  onclick="scrollToSection('websites-vs-apps')"
-                  >Websites vs Web Apps</a
-                >
-              </li>
-              <!-- <li>
-                <a
-                  href="#interactive-timeline"
-                  onclick="scrollToSection('interactive-timeline')"
-                  >Interactive Timeline</a
-                >
-              </li> -->
-              <li>
-                <a href="#quiz" onclick="scrollToSection('quiz')"
-                  >Knowledge Check</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#external-resources"
-                  onclick="scrollToSection('external-resources')"
-                  >External Resources</a
-                >
+                  <span>Assessment & Resources</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#external-resources"
+                      onclick="scrollToSection('external-resources')"
+                      >External Resources</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </aside>
@@ -271,6 +333,244 @@
                             The first website goes online at
                             <code>info.cern.ch</code>, explaining the World Wide
                             Web project.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1993</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Mosaic Browser</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Marc Andreessen develops Mosaic, the first popular
+                            graphical web browser that makes the web accessible
+                            to the general public.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1994</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>W3C Consortium</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            The World Wide Web Consortium (W3C) is founded by
+                            Tim Berners-Lee to develop and maintain web
+                            standards.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1995</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>JavaScript & SSL</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Netscape introduces JavaScript programming language
+                            and SSL encryption, revolutionizing web
+                            interactivity and security.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1996</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>CSS Introduction</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Cascading Style Sheets (CSS) are introduced,
+                            separating content from presentation and enabling
+                            better web design.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Google Founded</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Larry Page and Sergey Brin found Google, introducing
+                            the PageRank algorithm that revolutionizes web
+                            search.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2004</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Web 2.0 Era Begins</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Facebook launches, marking the beginning of social
+                            media and user-generated content. The web becomes
+                            more interactive and social.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>AJAX Revolution</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            AJAX (Asynchronous JavaScript and XML) enables
+                            dynamic web pages that update without full page
+                            reloads, creating more app-like experiences.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Chrome Browser</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Google releases Chrome browser with the V8
+                            JavaScript engine, dramatically improving web
+                            performance and standards support.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2009</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>HTML5 Standard</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            HTML5 introduces semantic elements, multimedia
+                            support, and APIs for building rich web applications
+                            without plugins.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Mobile Web Revolution</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Responsive web design emerges as mobile internet
+                            usage grows rapidly, requiring websites to adapt to
+                            different screen sizes.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Web Components</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Web Components standard enables creation of reusable
+                            custom elements, revolutionizing how web
+                            applications are built.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Progressive Web Apps</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            PWAs combine the best of web and mobile apps,
+                            offering offline functionality, push notifications,
+                            and app-like experiences.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>Web 3.0 & AI Integration</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Blockchain technologies, AI-powered web services,
+                            and decentralized applications begin reshaping the
+                            web landscape.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                      <div class="timeline-card">
+                        <div class="timeline-card-header">
+                          <h4>AI-Powered Web</h4>
+                        </div>
+                        <div class="timeline-card-body">
+                          <p>
+                            Large Language Models and AI assistants become
+                            integrated into web browsers and websites, enabling
+                            intelligent user interactions.
                           </p>
                         </div>
                       </div>
@@ -857,115 +1157,92 @@
               </div>
             </section>
 
-            <!-- <section id="interactive-timeline" class="content-section">
-              <h2><i class="fas fa-clock"></i> Interactive Web Timeline</h2>
-
-              <div class="interactive-timeline">
-                <div class="timeline-controls">
-                  <button onclick="playTimeline()" id="play-btn">
-                    <i class="fas fa-play"></i> Play Timeline
+            <!-- Interactive Web Search Demo -->
+            <section id="search-demo" class="content-section">
+              <h2><i class="fas fa-search"></i> Early Web Search Simulation</h2>
+              <div class="interactive-element search-demo">
+                <p>
+                  Experience how early web search worked before modern search
+                  engines:
+                </p>
+                <div class="search-container">
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search the early web..."
+                    value="hypertext"
+                  />
+                  <button onclick="simulateSearch()" class="btn-primary">
+                    <i class="fas fa-search"></i> Search
                   </button>
-                  <button onclick="resetTimeline()">
-                    <i class="fas fa-refresh"></i> Reset
-                  </button>
-                  <div class="timeline-speed">
-                    <label>Speed:</label>
-                    <input
-                      type="range"
-                      id="speed-control"
-                      min="1"
-                      max="5"
-                      value="3"
-                      onchange="updateSpeed()"
-                    />
-                  </div>
                 </div>
+                <div id="search-results" class="search-results"></div>
+              </div>
+            </section>
 
-                <div class="timeline-container">
-                  <div class="timeline-line"></div>
-                  <div class="timeline-events">
-                    <div class="timeline-event left">
-                      <div class="timeline-content">
-                        <div class="event-year">1969</div>
-                        <div class="event-card">
-                          <h4>ARPANET Created</h4>
-                          <p>
-                            The first network that would eventually become the
-                            internet
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-dot"></div>
+            <!-- Browser Simulation -->
+            <section id="browser-simulation" class="content-section">
+              <h2>
+                <i class="fas fa-window-maximize"></i> Early Browser Simulation
+              </h2>
+              <div class="interactive-element browser-simulation">
+                <p>See how early web browsers worked:</p>
+                <div class="demo-controls">
+                  <button onclick="simulateBrowsing()" class="btn-primary">
+                    <i class="fas fa-play"></i> Simulate Browser Loading
+                  </button>
+                </div>
+                <div id="demo-status" class="demo-status">
+                  Ready to simulate...
+                </div>
+                <div id="browser-simulator" class="browser-simulator">
+                  <div class="browser-header">
+                    <div class="browser-controls">
+                      <span class="control-dot red"></span>
+                      <span class="control-dot yellow"></span>
+                      <span class="control-dot green"></span>
                     </div>
-
-                    <div class="timeline-event right">
-                      <div class="timeline-content">
-                        <div class="event-year">1989</div>
-                        <div class="event-card">
-                          <h4>WWW Proposed</h4>
-                          <p>
-                            Tim Berners-Lee submits his proposal for the World
-                            Wide Web
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-event left">
-                      <div class="timeline-content">
-                        <div class="event-year">1993</div>
-                        <div class="event-card">
-                          <h4>Mosaic Browser</h4>
-                          <p>
-                            The first web browser with inline images and
-                            user-friendly interface
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-event right">
-                      <div class="timeline-content">
-                        <div class="event-year">2004</div>
-                        <div class="event-card">
-                          <h4>Web 2.0 Era</h4>
-                          <p>
-                            Facebook launches, ushering in the era of social
-                            media
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-dot"></div>
-                    </div>
-
-                    <div class="timeline-event left">
-                      <div class="timeline-content">
-                        <div class="event-year">2020</div>
-                        <div class="event-card">
-                          <h4>Web 3.0 Era</h4>
-                          <p>
-                            AI, blockchain, and decentralized technologies
-                            reshape the web
-                          </p>
-                        </div>
-                      </div>
-                      <div class="timeline-dot"></div>
+                    <div class="address-bar">
+                      http://info.cern.ch/hypertext/WWW/TheProject.html
                     </div>
                   </div>
-                </div>
-
-                <div class="timeline-details" id="timeline-details">
-                  <h4>Web Evolution Timeline</h4>
-                  <p>
-                    Click play to see how the web evolved from a simple
-                    information sharing system to the complex ecosystem we know
-                    today.
-                  </p>
+                  <div id="browser-content" class="browser-content">
+                    <h1>World Wide Web</h1>
+                    <p>
+                      The WorldWideWeb (W3) is a wide-area hypermedia
+                      information retrieval initiative...
+                    </p>
+                    <a href="#">What's out there?</a> | <a href="#">Help</a> |
+                    <a href="#">Software Products</a>
+                  </div>
                 </div>
               </div>
-            </section> -->
+            </section>
+
+            <!-- Live Updates Demo -->
+            <section id="live-updates-demo" class="content-section">
+              <h2><i class="fas fa-rss"></i> Modern Web Live Updates</h2>
+              <div class="interactive-element live-updates">
+                <p>
+                  Experience how modern web applications provide real-time
+                  updates:
+                </p>
+                <div class="live-controls">
+                  <button onclick="startLiveUpdates()" class="btn-primary">
+                    <i class="fas fa-play"></i> Start Updates
+                  </button>
+                  <button onclick="stopLiveUpdates()" class="btn-secondary">
+                    <i class="fas fa-stop"></i> Stop Updates
+                  </button>
+                  <button onclick="toggleLiveUpdates()" class="btn-outline">
+                    <i class="fas fa-refresh"></i> Toggle
+                  </button>
+                </div>
+                <div id="live-updates" class="live-updates-display">
+                  <p>Click "Start Updates" to see live data streaming...</p>
+                </div>
+              </div>
+            </section>
 
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
