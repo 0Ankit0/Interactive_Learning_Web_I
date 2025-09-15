@@ -9,53 +9,35 @@
   background: $bg-secondary;
   
   .unit-header {
-    background: $gradient-primary;
-    color: white;
-    padding: $spacing-4xl 0;
+    @include page-header;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    
-    &::before {
-      content: '';
-      @include full-overlay;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    
+
     .unit-header-content {
       position: relative;
       z-index: 1;
     }
-    
+
     .unit-title {
       @include flex-center;
       gap: $spacing-lg;
-      font-size: $font-size-4xl;
-      font-weight: $font-weight-bold;
-      margin-bottom: $spacing-lg;
-      color: white;
-      
+      @include page-title;
+
       i {
         font-size: 1.2em;
         opacity: 0.9;
       }
-      
+
       @include breakpoint($breakpoint-md) {
-        font-size: $font-size-2xl;
+        font-size: font-size('2xl');
         flex-direction: column;
         gap: $spacing-md;
       }
     }
     
     .unit-description {
-      font-size: $font-size-lg;
-      opacity: 0.9;
+      @include page-description;
       max-width: 800px;
       margin: 0 auto $spacing-2xl;
-      line-height: $line-height-relaxed;
-      color: white;
     }
     
     .unit-stats {

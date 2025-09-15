@@ -37,6 +37,12 @@
   justify-content: center;
 }
 
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 @mixin flex-between {
   display: flex;
   align-items: center;
@@ -388,4 +394,283 @@
   transform: scale(0.8);
   animation: scaleIn $duration ease forwards;
   animation-delay: $delay;
+}
+
+// Gradient mixins
+@mixin gradient-primary {
+  background: $gradient-primary;
+}
+
+@mixin gradient-subtle($color1, $color2, $opacity1: 0.05, $opacity2: 0.05) {
+  background: linear-gradient(135deg, rgba($color1, $opacity1), rgba($color2, $opacity2));
+}
+
+@mixin gradient-card($color1: $primary-color, $color2: $secondary-color, $opacity1: 0.05, $opacity2: 0.05) {
+  background: linear-gradient(135deg, rgba($color1, $opacity1), rgba($color2, $opacity2));
+}
+
+@mixin gradient-header {
+  background: linear-gradient(135deg, $bg-secondary, rgba(white, 0.9));
+}
+
+@mixin gradient-dark {
+  background: linear-gradient(135deg, #2d3748, #4a5568);
+}
+
+@mixin gradient-light {
+  background: linear-gradient(135deg, #fafafa, #f0f0f0);
+}
+
+// Component mixins
+@mixin section-header {
+  font-size: $font-size-2xl;
+  color: $text-primary;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 2px solid $border-light;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: $gradient-primary;
+  }
+}
+
+@mixin subsection-header {
+  font-size: $font-size-xl;
+  color: $text-primary;
+  margin: $spacing-3xl 0 $spacing-xl 0;
+}
+
+@mixin subsubsection-header {
+  font-size: $font-size-lg;
+  color: $text-primary;
+  margin: $spacing-2xl 0 $spacing-lg 0;
+}
+
+@mixin interactive-card {
+  @include card-base;
+  margin: $spacing-3xl 0;
+  @include gradient-header;
+  border: 2px solid $border-light;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  position: relative;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    @include gradient-primary;
+    opacity: 0.8;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-xl;
+    border-color: rgba($primary-color, 0.3);
+  }
+}
+
+@mixin card-header {
+  background: rgba($primary-color, 0.05);
+  margin: 0 0 $spacing-2xl 0;
+  padding: $spacing-xl $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($primary-color, 0.1);
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+
+  i {
+    color: $primary-color;
+    margin-right: $spacing-lg;
+    font-size: $font-size-lg;
+    animation: pulse 2s infinite;
+  }
+}
+
+@mixin element-header {
+  @include flex-between;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $border-light;
+
+  h4 {
+    margin: 0;
+    color: $text-primary;
+    @include flex-center;
+    gap: $spacing-md;
+
+    i {
+      color: $primary-color;
+    }
+  }
+
+  .element-badge {
+    padding: $spacing-xs $spacing-md;
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+    border-radius: $border-radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+@mixin badge($color: $primary-color, $bg-opacity: 0.1) {
+  padding: $spacing-xs $spacing-md;
+  background: rgba($color, $bg-opacity);
+  color: $color;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+}
+
+@mixin status-badge($color) {
+  @include badge($color);
+}
+
+// Layout mixins
+@mixin content-section {
+  margin-bottom: $spacing-5xl;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp $animation-duration-base ease forwards;
+
+  // Make first section visible by default
+  &:first-of-type {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    @include section-header;
+  }
+
+  h3 {
+    @include subsection-header;
+  }
+
+  h4 {
+    @include subsubsection-header;
+  }
+
+  p {
+    margin-bottom: $spacing-xl;
+    line-height: $line-height-relaxed;
+  }
+
+  ul, ol {
+    margin-bottom: $spacing-xl;
+    padding-left: $spacing-2xl;
+
+    li {
+      margin-bottom: $spacing-md;
+      line-height: $line-height-relaxed;
+    }
+  }
+}
+
+@mixin page-header {
+  background: $gradient-primary;
+  color: white;
+  padding: $spacing-4xl 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    @include full-overlay;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@mixin page-title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-lg;
+  color: white;
+
+  @include breakpoint($breakpoint-md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin page-subtitle {
+  font-size: $font-size-lg;
+  opacity: 0.9;
+  margin-bottom: $spacing-lg;
+  color: white;
+}
+
+@mixin page-description {
+  font-size: $font-size-base;
+  opacity: 0.8;
+  color: white;
+  line-height: $line-height-relaxed;
+}
+
+// Utility functions
+@function spacing($multiplier: 1) {
+  @return $spacing-lg * $multiplier;
+}
+
+@function border-radius($size: 'md') {
+  @if $size == 'sm' {
+    @return $border-radius-sm;
+  } @else if $size == 'lg' {
+    @return $border-radius-lg;
+  } @else if $size == 'xl' {
+    @return $border-radius-xl;
+  } @else if $size == 'full' {
+    @return $border-radius-full;
+  } @else {
+    @return $border-radius-md;
+  }
+}
+
+@function font-size($size: 'base') {
+  @if $size == 'xs' {
+    @return $font-size-xs;
+  } @else if $size == 'sm' {
+    @return $font-size-sm;
+  } @else if $size == 'lg' {
+    @return $font-size-lg;
+  } @else if $size == 'xl' {
+    @return $font-size-xl;
+  } @else if $size == '2xl' {
+    @return $font-size-2xl;
+  } @else if $size == '3xl' {
+    @return $font-size-3xl;
+  } @else if $size == '4xl' {
+    @return $font-size-4xl;
+  } @else {
+    @return $font-size-base;
+  }
+}
+
+// Color utility functions
+@function color-alpha($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+@function gradient-angle($angle: 135deg) {
+  @return linear-gradient($angle, $primary-color, $primary-hover);
 }
