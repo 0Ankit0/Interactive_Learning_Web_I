@@ -72,39 +72,43 @@ const TOPICS_DATA = {
             events: [
                 {
                     year: "1989",
-                    title: "WWW Invented",
-                    description: "Tim Berners-Lee creates the World Wide Web at CERN",
-                    icon: "fas fa-lightbulb"
+                    title: "Web Proposal",
+                    description: "Berners-Lee submits \"Information Management: A Proposal\" at CERN, proposing a \"web\" of hypertext documents."
                 },
                 {
                     year: "1991",
                     title: "First Website",
-                    description: "The first website goes live at info.cern.ch",
-                    icon: "fas fa-globe"
+                    description: "The first website goes online at <code>info.cern.ch</code>, explaining the World Wide Web project."
                 },
                 {
                     year: "1993",
                     title: "Mosaic Browser",
-                    description: "First graphical web browser makes the web accessible to everyone",
-                    icon: "fas fa-window-maximize"
+                    description: "Marc Andreessen develops Mosaic, the first popular graphical web browser that makes the web accessible to the general public."
                 },
                 {
                     year: "1995",
-                    title: "JavaScript Born",
-                    description: "Netscape introduces JavaScript, making web pages interactive",
-                    icon: "fab fa-js-square"
+                    title: "JavaScript & SSL",
+                    description: "Netscape introduces JavaScript programming language and SSL encryption, revolutionizing web interactivity and security."
+                },
+                {
+                    year: "1998",
+                    title: "Google Founded",
+                    description: "Larry Page and Sergey Brin found Google, introducing the PageRank algorithm that revolutionizes web search."
                 },
                 {
                     year: "2004",
-                    title: "Web 2.0 Era",
-                    description: "Social media and user-generated content transform the web",
-                    icon: "fas fa-users"
+                    title: "Web 2.0 Era Begins",
+                    description: "Facebook launches, marking the beginning of social media and user-generated content. The web becomes more interactive and social."
                 },
                 {
-                    year: "2008",
+                    year: "2009",
                     title: "HTML5 Standard",
-                    description: "Modern web standards enable rich multimedia applications",
-                    icon: "fab fa-html5"
+                    description: "HTML5 introduces semantic elements, multimedia support, and APIs for building rich web applications without plugins."
+                },
+                {
+                    year: "2015",
+                    title: "Progressive Web Apps",
+                    description: "PWAs combine the best of web and mobile apps, offering offline functionality, push notifications, and app-like experiences."
                 }
             ]
         },
@@ -267,6 +271,83 @@ const TOPICS_DATA = {
 
         config: {
             topicId: 'css-basics',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Client-Server Architecture Topic Data
+    "client-server-architecture": {
+        // Quiz data
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary role of a server in client-server architecture?",
+                    options: ["To initiate requests for data", "To provide resources and services to clients", "To display web pages to users", "To store temporary user data"],
+                    correct: 1,
+                    explanation: "Servers provide resources and services to clients upon request in the client-server model."
+                },
+                {
+                    question: "Which protocol is commonly used for client-server communication on the web?",
+                    options: ["FTP", "HTTP", "SMTP", "SSH"],
+                    correct: 1,
+                    explanation: "HTTP (Hypertext Transfer Protocol) is the foundation of data communication on the World Wide Web."
+                },
+                {
+                    question: "What type of server handles HTTP requests and serves web pages?",
+                    options: ["Database Server", "Web Server", "Email Server", "File Server"],
+                    correct: 1,
+                    explanation: "Web servers handle HTTP requests and serve web pages, images, and other web resources to clients."
+                },
+                {
+                    question: "In the client-server model, who initiates the communication?",
+                    options: ["The server", "The client", "Both simultaneously", "Neither, it's automatic"],
+                    correct: 1,
+                    explanation: "The client initiates communication by sending requests to the server for resources or services."
+                },
+                {
+                    question: "Which of the following is an example of a client in client-server architecture?",
+                    options: ["Apache Web Server", "MySQL Database", "Web Browser", "Nginx Server"],
+                    correct: 2,
+                    explanation: "A web browser acts as a client by requesting web pages and resources from servers."
+                }
+            ]
+        },
+
+        // Communication demo data
+        communicationDemo: {
+            steps: [
+                {
+                    step: 1,
+                    clientMessage: "Sending HTTP Request...",
+                    serverMessage: "",
+                    delay: 1000
+                },
+                {
+                    step: 2,
+                    clientMessage: "Request sent!",
+                    serverMessage: "Processing Request...",
+                    delay: 1500
+                },
+                {
+                    step: 3,
+                    clientMessage: "Waiting for response...",
+                    serverMessage: "Preparing Response...",
+                    delay: 2000
+                },
+                {
+                    step: 4,
+                    clientMessage: "Received Response!",
+                    serverMessage: "Response sent successfully!",
+                    delay: 1000
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'client-server-architecture',
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'

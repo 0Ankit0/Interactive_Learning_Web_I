@@ -8,6 +8,7 @@ class TopicManager {
         this.currentQuizQuestion = 0;
         this.quizScore = 0;
         this.liveUpdatesInterval = null;
+        this.sectionMappingCache = null; // Cache for section mapping
     }
 
     // Initialize all page functionality
@@ -96,7 +97,7 @@ class TopicManager {
             }
         }
 
-        // Update TOC active states
+        // Update TOC active states for links
         tocLinks.forEach(link => {
             link.classList.remove('active');
             const href = link.getAttribute('href');
@@ -104,12 +105,68 @@ class TopicManager {
                 link.classList.add('active');
             }
         });
+
+        // Update dropdown section states
+        this.updateTOCDropdownStates(currentSection);
+    }
+
+    // Update TOC dropdown section states based on current section
+    updateTOCDropdownStates(currentSectionId) {
+        // Dynamically build section mapping from the TOC HTML structure
+        const sectionMapping = this.buildSectionMappingFromTOC();
+        
+        const targetSectionName = sectionMapping[currentSectionId];
+        if (!targetSectionName) return;
+
+        const toggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
+
+        toggleButtons.forEach(button => {
+            const content = button.nextElementSibling;
+            const chevron = button.querySelector('.toc-chevron');
+            const sectionName = button.querySelector('span').textContent.trim();
+
+            if (sectionName === targetSectionName) {
+                // Expand this section
+                content.classList.add('expanded');
+                chevron.classList.remove('fa-chevron-down');
+                chevron.classList.add('fa-chevron-up');
+                button.setAttribute('aria-expanded', 'true');
+            } else {
+                // Collapse other sections
+                content.classList.remove('expanded');
+                chevron.classList.remove('fa-chevron-up');
+                chevron.classList.add('fa-chevron-down');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
     // Table of contents functionality
     initializeTableOfContents() {
         const tocLinks = document.querySelectorAll('.table-of-contents a');
+        const toggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
 
+        // Initialize all sections as collapsed first
+        toggleButtons.forEach(button => {
+            const content = button.nextElementSibling;
+            const chevron = button.querySelector('.toc-chevron');
+
+            // Ensure all sections start collapsed
+            content.classList.remove('expanded');
+            chevron.classList.remove('fa-chevron-up');
+            chevron.classList.add('fa-chevron-down');
+            button.setAttribute('aria-expanded', 'false');
+
+            // Add keyboard accessibility
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.toggleTocSection(button);
+                }
+            });
+        });
+
+        // Add click handlers for TOC links
         tocLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -131,8 +188,86 @@ class TopicManager {
             });
         });
 
+        // Set initial active section after a delay
+        setTimeout(() => {
+            this.updateTOCHighlighting();
+        }, 100);
+
         // Initialize highlighting on page load
         this.updateTOCHighlighting();
+    }
+
+    // Dynamically build section mapping from TOC HTML structure
+    buildSectionMappingFromTOC() {
+        // Return cached version if available
+        if (this.sectionMappingCache) {
+            return this.sectionMappingCache;
+        }
+
+        const sectionMapping = {};
+        const toggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
+
+        toggleButtons.forEach(button => {
+            const content = button.nextElementSibling;
+            const sectionName = button.querySelector('span').textContent.trim();
+            
+            // Find all links in this TOC section
+            const links = content.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const sectionId = href.substring(1); // Remove the '#'
+                    sectionMapping[sectionId] = sectionName;
+                }
+            });
+        });
+
+        // Cache the result
+        this.sectionMappingCache = sectionMapping;
+        return sectionMapping;
+    }
+
+    // Toggle TOC dropdown section
+    toggleTocSection(button) {
+        const dropdownContent = button.nextElementSibling;
+        const chevron = button.querySelector('.toc-chevron');
+        const isExpanded = dropdownContent.classList.contains('expanded');
+
+        // First, close all other sections (accordion behavior)
+        const allToggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
+        allToggleButtons.forEach(otherButton => {
+            if (otherButton !== button) {
+                const otherContent = otherButton.nextElementSibling;
+                const otherChevron = otherButton.querySelector('.toc-chevron');
+
+                // Close other sections
+                otherContent.classList.remove('expanded');
+                otherChevron.classList.remove('fa-chevron-up');
+                otherChevron.classList.add('fa-chevron-down');
+                otherButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Now toggle the clicked section
+        if (isExpanded) {
+            // If already expanded, close it
+            dropdownContent.classList.remove('expanded');
+            chevron.classList.remove('fa-chevron-up');
+            chevron.classList.add('fa-chevron-down');
+            button.setAttribute('aria-expanded', 'false');
+        } else {
+            // If collapsed, expand it
+            dropdownContent.classList.add('expanded');
+            chevron.classList.remove('fa-chevron-down');
+            chevron.classList.add('fa-chevron-up');
+            button.setAttribute('aria-expanded', 'true');
+        }
+
+        // Temporarily disable scroll-based updates to prevent interference
+        window.tocUserInteracted = true;
+        setTimeout(() => {
+            window.tocUserInteracted = false;
+        }, 2000); // Re-enable after 2 seconds
     }
 
     // Interactive elements initialization

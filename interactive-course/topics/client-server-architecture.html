@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client-Server Architecture - Interactive Learning</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit1.html">Unit 1</a>
+        <span class="separator">/</span>
+        <span class="current">Client-Server Architecture</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">1.2 Client-Server Architecture</h1>
+            <p class="topic-subtitle">
+              Understanding the Foundation of Web Communication • 30 minutes
+            </p>
+            <p class="topic-description">
+              Learn how clients and servers work together to deliver web content
+              and services, forming the backbone of modern internet
+              applications.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Architecture Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#client-server-model"
+                      onclick="scrollToSection('client-server-model')"
+                      >Client-Server Model</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#how-it-works"
+                      onclick="scrollToSection('how-it-works')"
+                      >How It Works</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Server Types & Communication</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#server-types"
+                      onclick="scrollToSection('server-types')"
+                      >Types of Servers</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#examples" onclick="scrollToSection('examples')"
+                      >Real-World Examples</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Interactive Demos</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#communication-demo"
+                      onclick="scrollToSection('communication-demo')"
+                      >Communication Demo</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Assessment & Resources</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#external-resources"
+                      onclick="scrollToSection('external-resources')"
+                      >External Resources</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+            <section id="introduction" class="content-section">
+              <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+
+              <div class="definition-box">
+                <h3><i class="fas fa-book"></i> Definition</h3>
+                <p>
+                  Client-server architecture is a computing model where tasks
+                  are distributed between service providers (servers) and
+                  service requesters (clients). It forms the foundation of
+                  modern web applications and network communications.
+                </p>
+              </div>
+
+              <div class="key-terms">
+                <h3><i class="fas fa-key"></i> Key Terms</h3>
+                <ul>
+                  <li>
+                    <strong>Client:</strong> A device or application that
+                    requests services from a server
+                  </li>
+                  <li>
+                    <strong>Server:</strong> A computer system that provides
+                    resources, data, or services to clients
+                  </li>
+                  <li>
+                    <strong>Request-Response Cycle:</strong> The communication
+                    pattern where clients send requests and servers provide
+                    responses
+                  </li>
+                  <li>
+                    <strong>HTTP:</strong> The protocol used for communication
+                    between web clients and servers
+                  </li>
+                  <li>
+                    <strong>Scalability:</strong> The ability of the system to
+                    handle growing amounts of work
+                  </li>
+                </ul>
+              </div>
+
+              <div class="info-box">
+                <h3><i class="fas fa-lightbulb"></i> Why It Matters</h3>
+                <p>
+                  Understanding client-server architecture is essential because
+                  it explains how every website, app, and online service you use
+                  actually works behind the scenes.
+                </p>
+              </div>
+            </section>
+
+            <section id="client-server-model" class="content-section">
+              <h2><i class="fas fa-sitemap"></i> Client-Server Model</h2>
+
+              <p>
+                In the client-server model, computing tasks are distributed
+                between service providers (servers) and service requesters
+                (clients). This separation allows for efficient resource
+                utilization and scalability.
+              </p>
+
+              <div class="concept-diagram">
+                <h3>Client-Server Architecture</h3>
+                <div class="architecture-visual">
+                  <div class="arch-component client">
+                    <i class="fas fa-laptop"></i>
+                    <span>Client<br />(Browser/Mobile App)</span>
+                  </div>
+                  <div class="arch-arrow">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>HTTP Request/Response</span>
+                  </div>
+                  <div class="arch-component server">
+                    <i class="fas fa-server"></i>
+                    <span>Server<br />(Web/Database)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h3>
+                  <i class="fas fa-question-circle"></i> Think of It Like This
+                </h3>
+                <p>
+                  Imagine you're at a restaurant. You (the client) tell the
+                  waiter what you want (request). The kitchen (server) prepares
+                  your food and the waiter brings it back (response). The
+                  client-server model works the same way with computers!
+                </p>
+              </div>
+            </section>
+
+            <section id="how-it-works" class="content-section">
+              <h2><i class="fas fa-cogs"></i> How It Works</h2>
+
+              <p>
+                The client-server communication follows a specific protocol
+                where clients make requests and servers provide responses. This
+                process is governed by standards like HTTP.
+              </p>
+
+              <div class="step-guide">
+                <h4>Step-by-Step: The Request-Response Cycle</h4>
+                <ol>
+                  <li>
+                    <strong>Client Makes Request:</strong> The client sends a
+                    request to the server specifying what resource it needs
+                    (e.g., a web page, data, or service).
+                  </li>
+                  <li>
+                    <strong>Server Processes Request:</strong> The server
+                    receives the request, processes it, and prepares an
+                    appropriate response.
+                  </li>
+                  <li>
+                    <strong>Server Sends Response:</strong> The server sends the
+                    requested data back to the client with a status code
+                    indicating success or failure.
+                  </li>
+                  <li>
+                    <strong>Client Receives Response:</strong> The client
+                    receives and displays the response to the user, completing
+                    the cycle.
+                  </li>
+                </ol>
+              </div>
+
+              <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> Did You Know?</h3>
+                <p>
+                  Every time you visit a website, your browser makes dozens of
+                  HTTP requests to different servers for images, stylesheets,
+                  scripts, and other resources. This all happens in
+                  milliseconds!
+                </p>
+              </div>
+
+              <div class="code-example">
+                <h4>
+                  <i class="fas fa-terminal"></i> HTTP Request-Response Example
+                </h4>
+                <div class="code-editor">
+                  <pre><code>// HTTP Request from Client
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+
+// HTTP Response from Server
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1234
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Example Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+              </div>
+            </section>
+
+            <section id="server-types" class="content-section">
+              <h2><i class="fas fa-layer-group"></i> Types of Servers</h2>
+
+              <p>
+                Different types of servers handle different aspects of web
+                services, each specializing in specific functions within the
+                client-server architecture.
+              </p>
+
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <i class="fas fa-globe"></i>
+                  <h4>Web Server</h4>
+                  <p>
+                    Handles HTTP requests and serves web pages, images, and
+                    other web resources
+                  </p>
+                  <div class="examples">
+                    <span class="example-tag">Apache</span>
+                    <span class="example-tag">Nginx</span>
+                    <span class="example-tag">IIS</span>
+                  </div>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-database"></i>
+                  <h4>Database Server</h4>
+                  <p>
+                    Stores and manages data, processing queries from application
+                    servers
+                  </p>
+                  <div class="examples">
+                    <span class="example-tag">MySQL</span>
+                    <span class="example-tag">PostgreSQL</span>
+                    <span class="example-tag">MongoDB</span>
+                  </div>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-mail-bulk"></i>
+                  <h4>Email Server</h4>
+                  <p>Manages email transmission, reception, and storage</p>
+                  <div class="examples">
+                    <span class="example-tag">Sendmail</span>
+                    <span class="example-tag">Postfix</span>
+                    <span class="example-tag">Exchange</span>
+                  </div>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-file-alt"></i>
+                  <h4>File Server</h4>
+                  <p>
+                    Provides centralized file storage and sharing capabilities
+                  </p>
+                  <div class="examples">
+                    <span class="example-tag">Samba</span>
+                    <span class="example-tag">FTP</span>
+                    <span class="example-tag">NFS</span>
+                  </div>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-cogs"></i>
+                  <h4>Application Server</h4>
+                  <p>Runs application logic and business processes</p>
+                  <div class="examples">
+                    <span class="example-tag">Tomcat</span>
+                    <span class="example-tag">Node.js</span>
+                    <span class="example-tag">Django</span>
+                  </div>
+                </div>
+                <div class="feature-card">
+                  <i class="fas fa-cloud"></i>
+                  <h4>Cloud Server</h4>
+                  <p>Virtual servers hosted in cloud computing environments</p>
+                  <div class="examples">
+                    <span class="example-tag">AWS EC2</span>
+                    <span class="example-tag">Azure VM</span>
+                    <span class="example-tag">Google Cloud</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h3>
+                  <i class="fas fa-question-circle"></i> Why So Many Types?
+                </h3>
+                <p>
+                  Different servers specialize in different tasks because no
+                  single server can efficiently handle all types of requests.
+                  This specialization improves performance, security, and
+                  scalability.
+                </p>
+              </div>
+            </section>
+
+            <section id="examples" class="content-section">
+              <h2><i class="fas fa-lightbulb"></i> Real-World Examples</h2>
+
+              <div class="examples-grid">
+                <div class="example-card">
+                  <div class="example-icon">
+                    <i class="fab fa-google"></i>
+                  </div>
+                  <h4>Google Search</h4>
+                  <p>
+                    Your browser (client) sends a search query to Google's
+                    servers. The servers process the query against their massive
+                    database and return search results.
+                  </p>
+                </div>
+                <div class="example-card">
+                  <div class="example-icon">
+                    <i class="fab fa-facebook"></i>
+                  </div>
+                  <h4>Social Media</h4>
+                  <p>
+                    When you post on Facebook, your mobile app or browser sends
+                    the data to Facebook's servers, which store it and
+                    distribute it to other users.
+                  </p>
+                </div>
+                <div class="example-card">
+                  <div class="example-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                  </div>
+                  <h4>E-commerce</h4>
+                  <p>
+                    Online shopping sites use client-server architecture where
+                    product catalogs are stored on servers and shopping carts
+                    are managed server-side.
+                  </p>
+                </div>
+                <div class="example-card">
+                  <div class="example-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </div>
+                  <h4>Cloud Storage</h4>
+                  <p>
+                    Services like Dropbox or Google Drive store your files on
+                    remote servers, allowing access from any device connected to
+                    the internet.
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h3>
+                  <i class="fas fa-lightbulb"></i> The Power of Client-Server
+                </h3>
+                <p>
+                  Client-server architecture enables billions of people to
+                  access the same services simultaneously. Without it, the
+                  modern internet as we know it wouldn't exist!
+                </p>
+              </div>
+            </section>
+
+            <section id="communication-demo" class="content-section">
+              <h2>
+                <i class="fas fa-play-circle"></i> Client-Server Communication
+                Demo
+              </h2>
+
+              <div class="interactive-element">
+                <div
+                  class="communication-demo"
+                  id="communication-demo-visualization"
+                >
+                  <div class="demo-controls">
+                    <button
+                      onclick="startCommunicationDemo()"
+                      class="demo-button"
+                    >
+                      <i class="fas fa-play"></i> Start Demo
+                    </button>
+                    <button
+                      onclick="resetCommunicationDemo()"
+                      class="demo-button"
+                    >
+                      <i class="fas fa-redo"></i> Reset
+                    </button>
+                  </div>
+                  <div class="demo-visualization">
+                    <div class="client-box" id="client-box">
+                      <div class="box-header">Client (Browser)</div>
+                      <div class="box-content">
+                        <div
+                          class="request-message"
+                          id="request-message"
+                          style="display: none"
+                        >
+                          <i class="fas fa-arrow-right"></i> Sending Request...
+                        </div>
+                        <div
+                          class="response-message"
+                          id="response-message"
+                          style="display: none"
+                        >
+                          <i class="fas fa-arrow-left"></i> Received Response!
+                        </div>
+                      </div>
+                    </div>
+                    <div class="network-flow">
+                      <div class="packet" id="packet1" style="display: none">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                      <div class="packet" id="packet2" style="display: none">
+                        <i class="fas fa-envelope-open"></i>
+                      </div>
+                    </div>
+                    <div class="server-box" id="server-box">
+                      <div class="box-header">Server</div>
+                      <div class="box-content">
+                        <div
+                          class="processing-message"
+                          id="processing-message"
+                          style="display: none"
+                        >
+                          <i class="fas fa-cog fa-spin"></i> Processing
+                          Request...
+                        </div>
+                        <div
+                          class="ready-message"
+                          id="ready-message"
+                          style="display: none"
+                        >
+                          <i class="fas fa-check"></i> Response Ready!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="progress-bar">
+                    <div
+                      class="progress-fill"
+                      id="quiz-progress"
+                      style="width: 0%"
+                    ></div>
+                  </div>
+                  <span class="progress-text"
+                    >Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span></span
+                  >
+                </div>
+
+                <div class="quiz-question" id="quiz-question">
+                  <h3>
+                    What is the primary role of a server in client-server
+                    architecture?
+                  </h3>
+                  <div class="quiz-options">
+                    <button
+                      class="quiz-option"
+                      onclick="selectQuizAnswer(this, false)"
+                    >
+                      To initiate requests for data
+                    </button>
+                    <button
+                      class="quiz-option"
+                      onclick="selectQuizAnswer(this, true)"
+                    >
+                      To provide resources and services to clients
+                    </button>
+                    <button
+                      class="quiz-option"
+                      onclick="selectQuizAnswer(this, false)"
+                    >
+                      To display web pages to users
+                    </button>
+                    <button
+                      class="quiz-option"
+                      onclick="selectQuizAnswer(this, false)"
+                    >
+                      To store temporary user data
+                    </button>
+                  </div>
+                  <div class="quiz-feedback" id="quiz-feedback"></div>
+                  <button
+                    class="quiz-next"
+                    id="quiz-next"
+                    onclick="nextQuestion()"
+                    style="display: none"
+                  >
+                    Next Question
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <h3>Quiz Complete!</h3>
+                  <div class="score-display">
+                    <div class="score-circle">
+                      <span id="final-score">4/5</span>
+                    </div>
+                    <p>
+                      Great job! You've mastered client-server architecture.
+                    </p>
+                  </div>
+                  <div class="results-actions">
+                    <button onclick="retakeQuiz()">Retake Quiz</button>
+                    <button onclick="completeLesson()">Complete Lesson</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="external-resources" class="content-section">
+              <h2>
+                <i class="fas fa-external-link-alt"></i> External Resources
+              </h2>
+
+              <div class="resource-grid">
+                <div class="resource-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
+                    alt="Client-Server Architecture"
+                    loading="lazy"
+                  />
+                  <h4>Client-Server Model Explained</h4>
+                  <p>
+                    Comprehensive guide to client-server architecture and its
+                    applications in modern computing.
+                  </p>
+                  <a
+                    href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model"
+                    target="_blank"
+                    >Read Article</a
+                  >
+                </div>
+                <div class="resource-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
+                    alt="HTTP Protocol"
+                    loading="lazy"
+                  />
+                  <h4>HTTP Protocol Fundamentals</h4>
+                  <p>
+                    Learn about the Hypertext Transfer Protocol that powers
+                    client-server communication on the web.
+                  </p>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP"
+                    target="_blank"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
+  </body>
+</html>

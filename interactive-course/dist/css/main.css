@@ -139,6 +139,26 @@
     transform: rotate(360deg);
   }
 }
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -3388,6 +3408,160 @@ input::placeholder, select::placeholder, textarea::placeholder {
   min-height: 1.5em;
 }
 
+.communication-demo {
+  background: #ffffff;
+  border-radius: 0.9375rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #e9ecef 0%, rgba(76, 175, 80, 0.02) 100%);
+  border: 1px solid #e9ecef;
+}
+.communication-demo .demo-controls {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.communication-demo .demo-controls .demo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+.communication-demo .demo-controls .demo-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+.communication-demo .demo-controls .demo-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.communication-demo .demo-controls .demo-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+.communication-demo .demo-controls .demo-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+.communication-demo .demo-controls .demo-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+.communication-demo .demo-controls .demo-button {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+.communication-demo .demo-controls .demo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.communication-demo .demo-visualization {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 0.625rem;
+  border: 2px solid #e9ecef;
+  min-height: 200px;
+}
+.communication-demo .demo-visualization .client-box,
+.communication-demo .demo-visualization .server-box {
+  flex: 1;
+  max-width: 300px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #e9ecef;
+  border: 2px solid #e9ecef;
+  position: relative;
+}
+.communication-demo .demo-visualization .client-box .box-header,
+.communication-demo .demo-visualization .server-box .box-header {
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  font-size: 1.125rem;
+}
+.communication-demo .demo-visualization .client-box .box-content,
+.communication-demo .demo-visualization .server-box .box-content {
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.communication-demo .demo-visualization .client-box .box-content .request-message,
+.communication-demo .demo-visualization .client-box .box-content .response-message,
+.communication-demo .demo-visualization .client-box .box-content .processing-message,
+.communication-demo .demo-visualization .client-box .box-content .ready-message,
+.communication-demo .demo-visualization .server-box .box-content .request-message,
+.communication-demo .demo-visualization .server-box .box-content .response-message,
+.communication-demo .demo-visualization .server-box .box-content .processing-message,
+.communication-demo .demo-visualization .server-box .box-content .ready-message {
+  display: none;
+  padding: 0.5rem 0.75rem;
+  background: #4CAF50;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  margin: 0.25rem 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.communication-demo .demo-visualization .client-box .box-content .processing-message,
+.communication-demo .demo-visualization .server-box .box-content .processing-message {
+  background: #ffc107;
+  color: #2c3e50;
+}
+.communication-demo .demo-visualization .client-box .box-content .ready-message,
+.communication-demo .demo-visualization .server-box .box-content .ready-message {
+  background: #28a745;
+  color: white;
+}
+.communication-demo .demo-visualization .client-box .box-content .response-message,
+.communication-demo .demo-visualization .server-box .box-content .response-message {
+  background: #28a745;
+  color: white;
+}
+.communication-demo .demo-visualization .network-flow {
+  position: relative;
+  flex: 1;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.communication-demo .demo-visualization .network-flow .packet {
+  display: none;
+  position: absolute;
+  font-size: 1.5rem;
+  color: #4CAF50;
+  z-index: 10;
+}
+.communication-demo .demo-visualization .network-flow .packet.packet1 {
+  left: 20px;
+}
+.communication-demo .demo-visualization .network-flow .packet.packet2 {
+  right: 20px;
+}
+
 .quiz-option button:not([class]) {
   display: inline-flex;
   align-items: center;
@@ -5425,6 +5599,51 @@ input::placeholder, select::placeholder, textarea::placeholder {
 .feature-card p {
   color: #6c757d;
   margin: 0;
+  line-height: 1.625;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.example-card {
+  background: #ffffff;
+  border-radius: 0.9375rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  padding: 1.25rem;
+  border: 1px solid #e9ecef;
+  background: white;
+  transition: all 0.3s ease;
+}
+.example-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  border-color: #4CAF50;
+}
+.example-card:hover .example-icon {
+  transform: scale(1.1);
+  color: #45a049;
+}
+.example-card .example-icon {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.example-card h4 {
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.example-card p {
+  color: #6c757d;
+  margin: 0 0 0.75rem 0;
   line-height: 1.625;
 }
 

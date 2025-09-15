@@ -16,41 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     topicManager.initialize();
     topicManager.initializeQuiz(currentTopicData.quiz.questions);
 
-    // Initialize Table of Contents functionality
-    const toggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
-
-    // Initialize all sections as collapsed first
-    toggleButtons.forEach(button => {
-        const content = button.nextElementSibling;
-        const chevron = button.querySelector('.toc-chevron');
-
-        // Ensure all sections start collapsed
-        content.classList.remove('expanded');
-        chevron.classList.remove('fa-chevron-up');
-        chevron.classList.add('fa-chevron-down');
-        button.setAttribute('aria-expanded', 'false');
-
-        // Add keyboard accessibility
-        button.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleTocSection(button);
-            }
-        });
-    });
-
-    // Set the active section based on current page position
-    setTimeout(() => {
-        const currentSection = getCurrentVisibleSection();
-        const activeTocSection = getActiveTocSection(currentSection);
-
-        if (activeTocSection) {
-            setActiveTocSection(activeTocSection);
-        } else {
-            // If no section detected (top of page), show the first section by default
-            setActiveTocSection('Web Fundamentals');
-        }
-    }, 100); // Small delay to ensure content is fully loaded
+    // Initialize timeline if timeline data exists
+    if (currentTopicData.timeline && currentTopicData.timeline.events) {
+        loadTimeline(currentTopicData.timeline.events);
+    }
 
     // Add scroll listener to update active section as user scrolls
     let scrollTimeout;
@@ -59,11 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollTimeout = setTimeout(function () {
             // Only update if user hasn't manually interacted recently
             if (!window.tocUserInteracted) {
-                const currentSection = getCurrentVisibleSection();
-                const activeTocSection = getActiveTocSection(currentSection);
-                if (activeTocSection) {
-                    setActiveTocSection(activeTocSection);
-                }
+                topicManager.updateTOCHighlighting();
             }
         }, 100); // Debounce scroll events
     });
@@ -72,129 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Global functions for HTML onclick handlers
 function scrollToSection(sectionId) {
     topicManager.scrollToSection(sectionId);
-
-    // Update table of contents to show the appropriate section
-    setTimeout(() => {
-        const activeTocSection = getActiveTocSection(sectionId);
-        if (activeTocSection) {
-            setActiveTocSection(activeTocSection);
-        }
-    }, 100); // Small delay to allow scroll to complete
 }
 
 function toggleTocSection(button) {
-    const dropdownContent = button.nextElementSibling;
-    const chevron = button.querySelector('.toc-chevron');
-    const isExpanded = dropdownContent.classList.contains('expanded');
-
-    // First, close all other sections (accordion behavior)
-    const allToggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
-    allToggleButtons.forEach(otherButton => {
-        if (otherButton !== button) {
-            const otherContent = otherButton.nextElementSibling;
-            const otherChevron = otherButton.querySelector('.toc-chevron');
-
-            // Close other sections
-            otherContent.classList.remove('expanded');
-            otherChevron.classList.remove('fa-chevron-up');
-            otherChevron.classList.add('fa-chevron-down');
-            otherButton.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Now toggle the clicked section
-    if (isExpanded) {
-        // If already expanded, close it
-        dropdownContent.classList.remove('expanded');
-        chevron.classList.remove('fa-chevron-up');
-        chevron.classList.add('fa-chevron-down');
-        button.setAttribute('aria-expanded', 'false');
-    } else {
-        // If collapsed, expand it
-        dropdownContent.classList.add('expanded');
-        chevron.classList.remove('fa-chevron-down');
-        chevron.classList.add('fa-chevron-up');
-        button.setAttribute('aria-expanded', 'true');
-    }
-
-    // Temporarily disable scroll-based updates to prevent interference
-    window.tocUserInteracted = true;
-    setTimeout(() => {
-        window.tocUserInteracted = false;
-    }, 2000); // Re-enable after 2 seconds
-}
-
-// Function to find which ToC section should be active based on content section
-function getActiveTocSection(contentSectionId) {
-    // Map content sections to their corresponding ToC sections
-    const sectionMapping = {
-        'introduction': 'Web Fundamentals',
-        'history': 'Web Fundamentals',
-        'www': 'Web Fundamentals',
-        'url': 'Web Fundamentals',
-        'versions': 'Web Evolution',
-        'search-engines': 'Web Evolution',
-        'websites-vs-apps': 'Web Evolution',
-        'search-demo': 'Interactive Demos',
-        'browser-simulation': 'Interactive Demos',
-        'live-updates-demo': 'Interactive Demos',
-        'quiz': 'Assessment & Resources',
-        'external-resources': 'Assessment & Resources'
-    };
-
-    return sectionMapping[contentSectionId] || null;
-}
-
-// Function to expand the appropriate ToC section and highlight active link
-function setActiveTocSection(targetSectionName) {
-    const toggleButtons = document.querySelectorAll('.toc-dropdown-toggle');
-
-    // Remove active class from all links first
-    const allLinks = document.querySelectorAll('.toc-dropdown-content a');
-    allLinks.forEach(link => link.classList.remove('active'));
-
-    toggleButtons.forEach(button => {
-        const content = button.nextElementSibling;
-        const chevron = button.querySelector('.toc-chevron');
-        const sectionName = button.querySelector('span').textContent.trim();
-
-        if (sectionName === targetSectionName) {
-            // Expand this section
-            content.classList.add('expanded');
-            chevron.classList.remove('fa-chevron-down');
-            chevron.classList.add('fa-chevron-up');
-            button.setAttribute('aria-expanded', 'true');
-
-            // Also highlight the current content section link
-            const currentSection = getCurrentVisibleSection();
-            const activeLink = content.querySelector(`a[href="#${currentSection}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        } else {
-            // Collapse other sections
-            content.classList.remove('expanded');
-            chevron.classList.remove('fa-chevron-up');
-            chevron.classList.add('fa-chevron-down');
-            button.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-
-// Function to detect which content section is currently in view
-function getCurrentVisibleSection() {
-    const sections = document.querySelectorAll('.content-section');
-    const scrollPosition = window.scrollY + 100; // Add offset for fixed headers
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section.offsetTop <= scrollPosition) {
-            return section.id;
-        }
-    }
-
-    // Default to first section if none found
-    return sections.length > 0 ? sections[0].id : 'introduction';
+    topicManager.toggleTocSection(button);
 }
 
 function runHTMLExample() {
@@ -284,4 +130,117 @@ function retakeQuiz() {
 
 function completeLesson() {
     topicManager.completeLesson();
+}
+
+// Client-Server Communication Demo Functions
+function startCommunicationDemo() {
+    const demoData = currentTopicData.communicationDemo;
+    if (!demoData) {
+        console.log('Communication demo not available for this topic');
+        return;
+    }
+
+    const demo = document.getElementById('communication-demo');
+    const clientBox = document.getElementById('client-box');
+    const serverBox = document.getElementById('server-box');
+    const requestMessage = document.getElementById('request-message');
+    const responseMessage = document.getElementById('response-message');
+    const processingMessage = document.getElementById('processing-message');
+    const readyMessage = document.getElementById('ready-message');
+    const packet1 = document.getElementById('packet1');
+    const packet2 = document.getElementById('packet2');
+
+    // Reset demo state
+    resetCommunicationDemo();
+
+    // Start the animation sequence
+    let stepIndex = 0;
+
+    function animateStep() {
+        if (stepIndex >= demoData.steps.length) return;
+
+        const step = demoData.steps[stepIndex];
+
+        // Update messages based on step
+        if (step.clientMessage) {
+            if (step.step === 1) {
+                requestMessage.style.display = 'block';
+            } else if (step.step === 4) {
+                responseMessage.style.display = 'block';
+            }
+        }
+
+        if (step.serverMessage) {
+            if (step.step === 2) {
+                processingMessage.style.display = 'block';
+            } else if (step.step === 3) {
+                readyMessage.style.display = 'block';
+            } else if (step.step === 4) {
+                processingMessage.style.display = 'none';
+                readyMessage.style.display = 'none';
+            }
+        }
+
+        // Animate packets
+        if (step.step === 1) {
+            packet1.style.display = 'block';
+            packet1.style.animation = 'moveRight 1s ease-in-out';
+        } else if (step.step === 4) {
+            packet2.style.display = 'block';
+            packet2.style.animation = 'moveLeft 1s ease-in-out';
+        }
+
+        stepIndex++;
+        setTimeout(animateStep, step.delay);
+    }
+
+    animateStep();
+}
+
+function resetCommunicationDemo() {
+    const elements = [
+        'request-message', 'response-message', 'processing-message', 'ready-message',
+        'packet1', 'packet2'
+    ];
+
+    elements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.style.display = 'none';
+            if (element.style.animation) {
+                element.style.animation = '';
+            }
+        }
+    });
+}
+
+// Function to load timeline from topic data
+function loadTimeline(events) {
+    const timelineContainer = document.getElementById('timeline-container');
+    if (!timelineContainer) return;
+
+    // Clear existing content
+    timelineContainer.innerHTML = '';
+
+    // Generate timeline HTML from data
+    events.forEach(event => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+
+        timelineItem.innerHTML = `
+            <div class="timeline-year">${event.year}</div>
+            <div class="timeline-content">
+                <div class="timeline-card">
+                    <div class="timeline-card-header">
+                        <h4>${event.title}</h4>
+                    </div>
+                    <div class="timeline-card-body">
+                        <p>${event.description}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        timelineContainer.appendChild(timelineItem);
+    });
 }
