@@ -11,43 +11,43 @@
     <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
   </head>
   <body>
-    <div class="">
+    <div class="topic-container">
       <!-- Hero Section -->
-      <section class="">
-        <div class="">
-          <div class="">
-            <div class="">
-              <h1><i class=""></i> Web Accessibility (WCAG)</h1>
-              <p class="">
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1><i class="fas fa-universal-access"></i> Web Accessibility (WCAG)</h1>
+              <p class="lead">
                 Learn to create inclusive web experiences for all users. Master
                 WCAG guidelines, semantic HTML, ARIA attributes, and
                 accessibility testing techniques.
               </p>
-              <div class="">
-                <span class=""> <i class=""></i> Visual Accessibility </span>
-                <span class=""> <i class=""></i> Screen Readers </span>
-                <span class=""> <i class=""></i> Keyboard Navigation </span>
+              <div class="features">
+                <span class="feature-item"> <i class="fas fa-eye"></i> Visual Accessibility </span>
+                <span class="feature-item"> <i class="fas fa-assistive-listening-systems"></i> Screen Readers </span>
+                <span class="feature-item"> <i class="fas fa-keyboard"></i> Keyboard Navigation </span>
               </div>
             </div>
-            <div class="">
-              <div class="">
-                <div class="">
-                  <h3>WCAG Principles</h3>
-                  <div class="">
-                    <div class="" data-principle="perceivable">
-                      <i class=""></i>
+            <div class="hero-visual">
+              <div class="wcag-chart">
+                <div class="chart-header">
+                  <h3 class="chart-title">WCAG Principles</h3>
+                  <div class="principle-pills">
+                    <div class="pill perceivable" data-principle="perceivable">
+                      <i class="fas fa-eye"></i>
                       <span>Perceivable</span>
                     </div>
-                    <div class="" data-principle="operable">
-                      <i class=""></i>
+                    <div class="pill operable" data-principle="operable">
+                      <i class="fas fa-hand-pointer"></i>
                       <span>Operable</span>
                     </div>
-                    <div class="" data-principle="understandable">
-                      <i class=""></i>
+                    <div class="pill understandable" data-principle="understandable">
+                      <i class="fas fa-brain"></i>
                       <span>Understandable</span>
                     </div>
-                    <div class="" data-principle="robust">
-                      <i class=""></i>
+                    <div class="pill robust" data-principle="robust">
+                      <i class="fas fa-cogs"></i>
                       <span>Robust</span>
                     </div>
                   </div>
@@ -59,86 +59,87 @@
       </section>
 
       <!-- Main Content -->
-      <main class="">
-        <div class="">
+      <main class="main-content">
+        <div class="container">
           <!-- WCAG Guidelines -->
-          <section class="">
-            <h2><i class=""></i> WCAG 2.1 Guidelines</h2>
-            <div class="">
-              <div class="">
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Perceivable</h3>
+          <section class="topic-section">
+            <h2 class="section-header"><i class="fas fa-book-open"></i> WCAG 2.1 Guidelines</h2>
+            <div class="guidelines-grid">
+              <div class="guideline-card">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fas fa-eye"></i>
+                    <h3 class="card-title">Perceivable</h3>
                   </div>
-                  <div class="">
-                    <p>
+                  <div class="card-body">
+                    <p class="card-description">
                       Information must be presentable in ways users can
                       perceive.
                     </p>
-                    <ul class="">
-                      <li>
+                    <ul class="checklist">
+                      <li class="checklist-item">
                         <strong>Text Alternatives:</strong> Provide alt text for
                         images
                       </li>
-                      <li><strong>Captions:</strong> Add captions to videos</li>
-                      <li>
+                      <li class="checklist-item"><strong>Captions:</strong> Add captions to videos</li>
+                      <li class="checklist-item">
                         <strong>Color Contrast:</strong> Ensure sufficient
                         contrast ratios
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Adaptable Content:</strong> Use semantic HTML
                       </li>
                     </ul>
-                    <div class="">
-                      <h4>Color Contrast Example</h4>
-                      <div class="">
-                        <div class="">
-                          <span class="">Good Contrast (4.5:1)</span>
+                    <div class="card-footer">
+                      <h4 class="footer-title">Color Contrast Example</h4>
+                      <div class="contrast-examples">
+                        <div class="contrast-box good-contrast">
+                          <span class="contrast-label">Good Contrast (4.5:1)</span>
                         </div>
-                        <div class="">
-                          <span class="">Poor Contrast (1.8:1)</span>
+                        <div class="contrast-box poor-contrast">
+                          <span class="contrast-label">Poor Contrast (1.8:1)</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Operable</h3>
+                <div class="guideline-card">
+                  <div class="card-header">
+                    <i class="fas fa-hand-pointer"></i>
+                    <h3 class="card-title">Operable</h3>
                   </div>
-                  <div class="">
-                    <p>Interface components must be operable by all users.</p>
-                    <ul class="">
-                      <li>
+                  <div class="card-body">
+                    <p class="card-description">Interface components must be operable by all users.</p>
+                    <ul class="checklist">
+                      <li class="checklist-item">
                         <strong>Keyboard Access:</strong> All functions via
                         keyboard
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>No Seizures:</strong> Avoid flashing content
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Time Limits:</strong> Provide time controls
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Navigation:</strong> Clear navigation structure
                       </li>
                     </ul>
-                    <div class="">
-                      <h4>Keyboard Navigation Demo</h4>
-                      <div class="">
-                        <button class="" tabindex="1">Button 1</button>
-                        <button class="" tabindex="2">Button 2</button>
+                    <div class="card-footer">
+                      <h4 class="footer-title">Keyboard Navigation Demo</h4>
+                      <div class="keyboard-nav-demo">
+                        <button class="btn btn-primary" tabindex="1">Button 1</button>
+                        <button class="btn btn-secondary" tabindex="2">Button 2</button>
                         <input
                           type="text"
+                          class="form-control"
                           placeholder="Text input"
                           tabindex="3"
                         />
-                        <a href="#" tabindex="4">Link</a>
+                        <a href="#" class="btn-link" tabindex="4">Link</a>
                       </div>
-                      <p>
+                      <p class="demo-instructions">
                         <small
                           >Try using Tab key to navigate through elements</small
                         >
@@ -147,69 +148,71 @@
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Understandable</h3>
+                <div class="guideline-card">
+                  <div class="card-header">
+                    <i class="fas fa-brain"></i>
+                    <h3 class="card-title">Understandable</h3>
                   </div>
-                  <div class="">
-                    <p>Information and UI operation must be understandable.</p>
-                    <ul class="">
-                      <li>
+                  <div class="card-body">
+                    <p class="card-description">Information and UI operation must be understandable.</p>
+                    <ul class="checklist">
+                      <li class="checklist-item">
                         <strong>Readable Text:</strong> Use clear language
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Predictable:</strong> Consistent navigation
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Input Assistance:</strong> Help with form errors
                       </li>
-                      <li><strong>Language:</strong> Identify page language</li>
+                      <li class="checklist-item"><strong>Language:</strong> Identify page language</li>
                     </ul>
-                    <div class="">
-                      <h4>Form Error Example</h4>
-                      <form class="" id="demo-form">
-                        <div class="">
+                    <div class="card-footer">
+                      <h4 class="footer-title">Form Error Example</h4>
+                      <form class="form-styled" id="demo-form">
+                        <div class="form-group">
                           <label for="email-demo">Email Address *</label>
                           <input
                             type="email"
                             id="email-demo"
+                            class="form-control"
                             aria-describedby="email-error"
                             required
                           />
-                          <div id="email-error" class="" role="alert"></div>
+                          <div id="email-error" class="error-message" role="alert"></div>
                         </div>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
                     </div>
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Robust</h3>
+                <div class="guideline-card">
+                  <div class="card-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3 class="card-title">Robust</h3>
                   </div>
-                  <div class="">
-                    <p>
+                  <div class="card-body">
+                    <p class="card-description">
                       Content must work with various assistive technologies.
                     </p>
-                    <ul class="">
-                      <li><strong>Valid HTML:</strong> Use proper markup</li>
-                      <li>
+                    <ul class="checklist">
+                      <li class="checklist-item"><strong>Valid HTML:</strong> Use proper markup</li>
+                      <li class="checklist-item">
                         <strong>Compatible:</strong> Work with screen readers
                       </li>
-                      <li>
+                      <li class="checklist-item">
                         <strong>Future-proof:</strong> Technology-agnostic
                       </li>
-                      <li><strong>Standards:</strong> Follow web standards</li>
+                      <li class="checklist-item"><strong>Standards:</strong> Follow web standards</li>
                     </ul>
-                    <div class="">
-                      <h4>ARIA Example</h4>
-                      <div class="">
-                        <div role="tablist" aria-label="Sample tabs">
+                    <div class="card-footer">
+                      <h4 class="footer-title">ARIA Example</h4>
+                      <div class="aria-tabs-demo">
+                        <div role="tablist" class="tab-list" aria-label="Sample tabs">
                           <button
                             role="tab"
+                            class="tab-button"
                             aria-selected="true"
                             aria-controls="panel1"
                             id="tab1"
@@ -218,6 +221,7 @@
                           </button>
                           <button
                             role="tab"
+                            class="tab-button"
                             aria-selected="false"
                             aria-controls="panel2"
                             id="tab2"
@@ -225,12 +229,13 @@
                             Tab 2
                           </button>
                         </div>
-                        <div role="tabpanel" id="panel1" aria-labelledby="tab1">
+                        <div role="tabpanel" id="panel1" class="tab-panel" aria-labelledby="tab1">
                           Content for tab 1
                         </div>
                         <div
                           role="tabpanel"
                           id="panel2"
+                          class="tab-panel"
                           aria-labelledby="tab2"
                           hidden
                         >
@@ -245,43 +250,43 @@
           </section>
 
           <!-- Accessibility Testing Tool -->
-          <section class="">
-            <h2><i class=""></i> Accessibility Testing Tool</h2>
-            <div class="">
-              <div class="">
-                <div class="">
-                  <h4>Test Scenarios</h4>
-                  <div class="">
-                    <button class="" onclick="testColorContrast()">
-                      <i class=""></i> Color Contrast
+          <section class="topic-section">
+            <h2 class="section-header"><i class="fas fa-vial"></i> Accessibility Testing Tool</h2>
+            <div class="interactive-tool">
+              <div class="tool-controls">
+                <div class="control-group">
+                  <h3 class="group-title">Test Scenarios</h3>
+                  <div class="button-group">
+                    <button class="btn btn-outline" onclick="testColorContrast()">
+                      <i class="fas fa-eye"></i> Color Contrast
                     </button>
-                    <button class="" onclick="testKeyboardNav()">
-                      <i class=""></i> Keyboard Navigation
+                    <button class="btn btn-outline" onclick="testKeyboardNav()">
+                      <i class="fas fa-keyboard"></i> Keyboard Navigation
                     </button>
-                    <button class="" onclick="testScreenReader()">
-                      <i class=""></i> Screen Reader
+                    <button class="btn btn-outline" onclick="testScreenReader()">
+                      <i class="fas fa-assistive-listening-systems"></i> Screen Reader
                     </button>
-                    <button class="" onclick="testFormLabels()">
-                      <i class=""></i> Form Labels
+                    <button class="btn btn-outline" onclick="testFormLabels()">
+                      <i class="fas fa-tag"></i> Form Labels
                     </button>
-                    <button class="" onclick="testHeadingStructure()">
-                      <i class=""></i> Heading Structure
+                    <button class="btn btn-outline" onclick="testHeadingStructure()">
+                      <i class="fas fa-heading"></i> Heading Structure
                     </button>
                   </div>
                 </div>
-                <div class="" id="test-area">
-                  <h4>Test Area</h4>
-                  <p>
+                <div class="test-area" id="test-area">
+                  <h4 class="area-title">Test Area</h4>
+                  <p class="area-instructions">
                     Select a test from the buttons to see accessibility
                     demonstrations and issues.
                   </p>
-                  <div class="" id="test-content">
+                  <div class="test-content" id="test-content">
                     <!-- Dynamic content will be inserted here -->
                   </div>
                 </div>
-                <div class="" id="test-results">
-                  <h4>Test Results</h4>
-                  <div class="" id="results-content">
+                <div class="results-area" id="test-results">
+                  <h4 class="results-title">Test Results</h4>
+                  <div class="results-content" id="results-content">
                     <p>Test results will appear here after running a test.</p>
                   </div>
                 </div>
@@ -290,39 +295,37 @@
           </section>
 
           <!-- ARIA Attributes Demo -->
-          <section class="">
-            <h2><i class=""></i> ARIA Attributes in Action</h2>
-            <div class="">
-              <div class="">
-                <div class="">
-                  <h4>Interactive Widget</h4>
-                  <div class="">
-                    <div class="" id="dropdown-demo">
-                      <button
-                        class=""
-                        aria-haspopup="listbox"
-                        aria-expanded="false"
-                        aria-labelledby="dropdown-label"
-                        id="dropdown-button"
-                      >
-                        Choose an option
-                        <i class=""></i>
-                      </button>
-                      <div id="dropdown-label" class="">Dropdown menu</div>
-                      <ul
-                        class=""
-                        role="listbox"
-                        aria-labelledby="dropdown-button"
-                        hidden
-                      >
-                        <li role="option" data-value="option1">Option 1</li>
-                        <li role="option" data-value="option2">Option 2</li>
-                        <li role="option" data-value="option3">Option 3</li>
-                      </ul>
-                    </div>
+          <section class="topic-section">
+            <h2 class="section-header"><i class="fas fa-cogs"></i> ARIA Attributes in Action</h2>
+            <div class="aria-grid">
+              <div class="aria-card">
+                <h3 class="card-title">Interactive Widget</h3>
+                <div class="card-body">
+                  <div class="dropdown-demo" id="dropdown-demo">
+                    <button
+                      class="btn btn-primary dropdown-toggle"
+                      aria-haspopup="listbox"
+                      aria-expanded="false"
+                      aria-labelledby="dropdown-label"
+                      id="dropdown-button"
+                    >
+                      Choose an option
+                      <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="dropdown-label" class="sr-only">Dropdown menu</div>
+                    <ul
+                      class="dropdown-menu"
+                      role="listbox"
+                      aria-labelledby="dropdown-button"
+                      hidden
+                    >
+                      <li role="option" data-value="option1">Option 1</li>
+                      <li role="option" data-value="option2">Option 2</li>
+                      <li role="option" data-value="option3">Option 3</li>
+                    </ul>
                   </div>
-                  <div class="">
-                    <pre><code>&lt;button 
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;button 
   aria-haspopup="listbox" 
   aria-expanded="false"
   aria-labelledby="dropdown-label"&gt;
@@ -330,28 +333,30 @@
 &lt;/button&gt;</code></pre>
                   </div>
                 </div>
+              </div>
 
-                <div class="">
-                  <h4>Progress Indicator</h4>
-                  <div class="">
+              <div class="aria-card">
+                <h3 class="card-title">Progress Indicator</h3>
+                <div class="card-body">
+                  <div class="progress-demo">
                     <label for="progress-demo">File Upload Progress:</label>
                     <div
-                      class=""
+                      class="progress-bar"
                       role="progressbar"
                       aria-valuenow="65"
                       aria-valuemin="0"
                       aria-valuemax="100"
                       aria-labelledby="progress-label"
                     >
-                      <div class="" style="width: 65%"></div>
+                      <div class="progress-fill" style="width: 65%"></div>
                     </div>
-                    <div id="progress-label" class="">65% complete</div>
-                    <button onclick="updateProgress()" class="">
+                    <div id="progress-label" class="sr-only">65% complete</div>
+                    <button onclick="updateProgress()" class="btn btn-secondary">
                       Update Progress
                     </button>
                   </div>
-                  <div class="">
-                    <pre><code>&lt;div 
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;div 
   role="progressbar" 
   aria-valuenow="65" 
   aria-valuemin="0" 
@@ -359,24 +364,26 @@
 &lt;/div&gt;</code></pre>
                   </div>
                 </div>
+              </div>
 
-                <div class="">
-                  <h4>Live Region</h4>
-                  <div class="">
-                    <button onclick="announceMessage()" class="">
+              <div class="aria-card">
+                <h3 class="card-title">Live Region</h3>
+                <div class="card-body">
+                  <div class="live-region-demo">
+                    <button onclick="announceMessage()" class="btn btn-primary">
                       Make Announcement
                     </button>
                     <div
                       id="live-region"
                       aria-live="polite"
                       aria-atomic="true"
-                      class=""
+                      class="live-region-box"
                     >
                       <!-- Announcements will appear here -->
                     </div>
                   </div>
-                  <div class="">
-                    <pre><code>&lt;div 
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;div 
   aria-live="polite" 
   aria-atomic="true"&gt;
   Announcements appear here
@@ -388,20 +395,20 @@
           </section>
 
           <!-- Quiz Section -->
-          <section class="">
-            <div class="">
-              <h2><i class=""></i> Test Your Knowledge</h2>
-              <div class="" id="accessibility-quiz"></div>
-              <div class="">
-                <button class="" onclick="submitAccessibilityQuiz()">
+          <section class="topic-section">
+            <div class="container">
+              <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
+              <div class="quiz-container" id="accessibility-quiz"></div>
+              <div class="quiz-buttons">
+                <button class="btn btn-primary" onclick="submitAccessibilityQuiz()">
                   Submit Answers
                 </button>
-                <button class="" onclick="resetAccessibilityQuiz()">
+                <button class="btn btn-secondary" onclick="resetAccessibilityQuiz()">
                   Reset Quiz
                 </button>
               </div>
               <div
-                class=""
+                class="quiz-results"
                 id="accessibility-quiz-results"
                 style="display: none"
               ></div>

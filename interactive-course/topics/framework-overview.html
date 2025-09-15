@@ -16,54 +16,54 @@
   </head>
   <body>
       <!-- Hero Section -->
-      <section class="">
-        <div class="">
-          <div class="">
-            <div class="">
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <div class="col-lg-8">
               <h1>
-                <i class=""></i> Popular JavaScript Frameworks
+                <i class="fab fa-js-square"></i> Popular JavaScript Frameworks
               </h1>
-              <p class="">
+              <p class="lead">
                 Explore React, Angular, and Vue.js - the three most popular
                 JavaScript frameworks that power modern web applications
                 worldwide.
               </p>
-              <div class="">
-                <span class="">
-                  <i class=""></i> React
+              <div class="features">
+                <span class="feature-item">
+                  <i class="fab fa-react"></i> React
                 </span>
-                <span class="">
-                  <i class=""></i> Angular
+                <span class="feature-item">
+                  <i class="fab fa-angular"></i> Angular
                 </span>
-                <span class="">
-                  <i class=""></i> Vue.js
+                <span class="feature-item">
+                  <i class="fab fa-vuejs"></i> Vue.js
                 </span>
               </div>
             </div>
-            <div class="">
-              <div class="">
-                <div class="">
+            <div class="col-lg-4">
+              <div class="hero-visual">
+                <div class="popularity-chart">
                   <h3>Framework Popularity</h3>
-                  <div class="">
-                    <span class="">React</span>
-                    <div class="">
-                      <div class="" style="width: 74%"></div>
+                  <div class="chart-bar">
+                    <span class="label">React</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 74%"></div>
                     </div>
-                    <span class="">74%</span>
+                    <span class="percentage">74%</span>
                   </div>
-                  <div class="">
-                    <span class="">Angular</span>
-                    <div class="">
-                      <div class="" style="width: 22%"></div>
+                  <div class="chart-bar">
+                    <span class="label">Angular</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 22%"></div>
                     </div>
-                    <span class="">22%</span>
+                    <span class="percentage">22%</span>
                   </div>
-                  <div class="">
-                    <span class="">Vue.js</span>
-                    <div class="">
-                      <div class="" style="width: 18%"></div>
+                  <div class="chart-bar">
+                    <span class="label">Vue.js</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 18%"></div>
                     </div>
-                    <span class="">18%</span>
+                    <span class="percentage">18%</span>
                   </div>
                 </div>
               </div>
@@ -73,134 +73,138 @@
       </section>
 
       <!-- Main Content -->
-      <main class="">
-        <div class="">
+      <main class="main-content">
+        <div class="container">
           <!-- Framework Comparison -->
-          <section class="">
-            <h2><i class=""></i> Framework Comparison</h2>
-            <div class="">
-              <div class="">
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>React</h3>
-                    <span class="">Library</span>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-balance-scale"></i> Framework Comparison</h2>
+            <div class="topic-grid three-column">
+              <div class="topic-card">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fab fa-react"></i>
                   </div>
-                  <div class="">
-                    <p class="">
-                      A JavaScript library for building user interfaces,
-                      developed and maintained by Facebook.
-                    </p>
-                    <div class="">
-                      <div class="">✓ Component-based architecture</div>
-                      <div class="">✓ Virtual DOM for performance</div>
-                      <div class="">✓ Large ecosystem</div>
-                      <div class="">✓ JSX syntax</div>
-                      <div class="">✓ One-way data binding</div>
-                    </div>
-                  </div>
-                  <div class="">
-                    <button
-                      class=""
-                      onclick="showFrameworkDetails('react')"
-                    >
-                      Learn More <i class=""></i>
-                    </button>
+                  <h3>React</h3>
+                  <span class="badge badge-primary">Library</span>
+                </div>
+                <div class="card-body">
+                  <p class="card-description">
+                    A JavaScript library for building user interfaces,
+                    developed and maintained by Facebook.
+                  </p>
+                  <div class="feature-list">
+                    <div class="feature-item">✓ Component-based architecture</div>
+                    <div class="feature-item">✓ Virtual DOM for performance</div>
+                    <div class="feature-item">✓ Large ecosystem</div>
+                    <div class="feature-item">✓ JSX syntax</div>
+                    <div class="feature-item">✓ One-way data binding</div>
                   </div>
                 </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-secondary"
+                    onclick="showFrameworkDetails('react')"
+                  >
+                    Learn More <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Angular</h3>
-                    <span class="">Framework</span>
+              <div class="topic-card">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fab fa-angular"></i>
                   </div>
-                  <div class="">
-                    <p class="">
-                      A platform and framework for building single-page client
-                      applications using HTML and TypeScript.
-                    </p>
-                    <div class="">
-                      <div class="">✓ Full-featured framework</div>
-                      <div class="">✓ TypeScript by default</div>
-                      <div class="">✓ Dependency injection</div>
-                      <div class="">✓ Two-way data binding</div>
-                      <div class="">✓ Built-in testing tools</div>
-                    </div>
-                  </div>
-                  <div class="">
-                    <button
-                      class=""
-                      onclick="showFrameworkDetails('angular')"
-                    >
-                      Learn More <i class=""></i>
-                    </button>
+                  <h3>Angular</h3>
+                  <span class="badge badge-danger">Framework</span>
+                </div>
+                <div class="card-body">
+                  <p class="card-description">
+                    A platform and framework for building single-page client
+                    applications using HTML and TypeScript.
+                  </p>
+                  <div class="feature-list">
+                    <div class="feature-item">✓ Full-featured framework</div>
+                    <div class="feature-item">✓ TypeScript by default</div>
+                    <div class="feature-item">✓ Dependency injection</div>
+                    <div class="feature-item">✓ Two-way data binding</div>
+                    <div class="feature-item">✓ Built-in testing tools</div>
                   </div>
                 </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-secondary"
+                    onclick="showFrameworkDetails('angular')"
+                  >
+                    Learn More <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <h3>Vue.js</h3>
-                    <span class="">Framework</span>
+              <div class="topic-card">
+                <div class="card-header">
+                  <div class="card-icon">
+                    <i class="fab fa-vuejs"></i>
                   </div>
-                  <div class="">
-                    <p class="">
-                      The Progressive JavaScript Framework for building user
-                      interfaces and single-page applications.
-                    </p>
-                    <div class="">
-                      <div class="">✓ Easy learning curve</div>
-                      <div class="">✓ Progressive adoption</div>
-                      <div class="">✓ Template-based syntax</div>
-                      <div class="">✓ Reactive data binding</div>
-                      <div class="">✓ Excellent documentation</div>
-                    </div>
+                  <h3>Vue.js</h3>
+                  <span class="badge badge-success">Framework</span>
+                </div>
+                <div class="card-body">
+                  <p class="card-description">
+                    The Progressive JavaScript Framework for building user
+                    interfaces and single-page applications.
+                  </p>
+                  <div class="feature-list">
+                    <div class="feature-item">✓ Easy learning curve</div>
+                    <div class="feature-item">✓ Progressive adoption</div>
+                    <div class="feature-item">✓ Template-based syntax</div>
+                    <div class="feature-item">✓ Reactive data binding</div>
+                    <div class="feature-item">✓ Excellent documentation</div>
                   </div>
-                  <div class="">
-                    <button
-                      class=""
-                      onclick="showFrameworkDetails('vue')"
-                    >
-                      Learn More <i class=""></i>
-                    </button>
-                  </div>
+                </div>
+                <div class="card-footer">
+                  <button
+                    class="btn btn-secondary"
+                    onclick="showFrameworkDetails('vue')"
+                  >
+                    Learn More <i class="fas fa-arrow-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
           </section>
 
           <!-- Framework Details Modal -->
-          <div id="framework-modal" class="">
-            <div class="">
-              <div class="">
-                <h2 id="modal-title"></h2>
-                <button class="" onclick="closeFrameworkModal()">
+          <div id="framework-modal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <button class="close-button" onclick="closeFrameworkModal()">
                   &times;
                 </button>
               </div>
-              <div class="" id="modal-body">
+              <div class="modal-body" id="modal-body">
                 <!-- Framework details will be inserted here -->
               </div>
             </div>
           </div>
 
           <!-- Interactive Demo Section -->
-          <section class="">
-            <h2><i class=""></i> Code Examples</h2>
-            <div class="">
-              <div class="">
-                <button class="" data-tab="react">React</button>
-                <button class="" data-tab="angular">Angular</button>
-                <button class="" data-tab="vue">Vue.js</button>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-code"></i> Code Examples</h2>
+            <div class="tabbed-content">
+              <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="react">React</button>
+                <button class="tab-btn" data-tab="angular">Angular</button>
+                <button class="tab-btn" data-tab="vue">Vue.js</button>
               </div>
 
-              <div class="">
-                <div class="" id="react-panel">
-                  <div class="">
+              <div class="tab-panels">
+                <div class="tab-pane active" id="react-panel">
+                  <div class="code-block">
                     <h4>React Component Example</h4>
-                    <div class="">
-                      <pre><code class="">import React, { useState } from 'react';
+                    <div class="code-block-inner">
+                      <pre><code class="language-jsx">import React, { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -223,16 +227,16 @@ export default Counter;</code></pre>
                   </div>
                 </div>
 
-                <div class="" id="angular-panel">
-                  <div class="">
+                <div class="tab-pane" id="angular-panel">
+                  <div class="code-block">
                     <h4>Angular Component Example</h4>
-                    <div class="">
-                      <pre><code class="">import { Component } from '@angular/core';
+                    <div class="code-block-inner">
+                      <pre><code class="language-typescript">import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
   template: `
-    &lt;div class=""&gt;
+    &lt;div class="counter"&gt;
       &lt;h2&gt;Count: {{count}}&lt;/h2&gt;
       &lt;button (click)="increment()"&gt;Increment&lt;/button&gt;
       &lt;button (click)="decrement()"&gt;Decrement&lt;/button&gt;
@@ -255,12 +259,12 @@ export class CounterComponent {
                   </div>
                 </div>
 
-                <div class="" id="vue-panel">
-                  <div class="">
+                <div class="tab-pane" id="vue-panel">
+                  <div class="code-block">
                     <h4>Vue.js Component Example</h4>
-                    <div class="">
-                      <pre><code class="">&lt;template&gt;
-  &lt;div class=""&gt;
+                    <div class="code-block-inner">
+                      <pre><code class="language-html">&lt;template&gt;
+  &lt;div class="counter"&gt;
     &lt;h2&gt;Count: {{ count }}&lt;/h2&gt;
     &lt;button @click="increment"&gt;Increment&lt;/button&gt;
     &lt;button @click="decrement"&gt;Decrement&lt;/button&gt;
@@ -293,25 +297,25 @@ export default {
           </section>
 
           <!-- Quiz Section -->
-          <section class="">
-            <div class="">
-              <h2>
-                <i class=""></i> Test Your Knowledge
+          <section class="content-section">
+            <div class="quiz-container">
+              <h2 class="section-header">
+                <i class="fas fa-question-circle"></i> Test Your Knowledge
               </h2>
-              <div class="" id="framework-quiz"></div>
-              <div class="">
-                <button class="" onclick="submitFrameworkQuiz()">
+              <div class="quiz-content" id="framework-quiz"></div>
+              <div class="quiz-buttons">
+                <button class="btn btn-primary" onclick="submitFrameworkQuiz()">
                   Submit Answers
                 </button>
                 <button
-                  class=""
+                  class="btn btn-secondary"
                   onclick="resetFrameworkQuiz()"
                 >
                   Reset Quiz
                 </button>
               </div>
               <div
-                class=""
+                class="quiz-results"
                 id="framework-quiz-results"
                 style="display: none"
               ></div>

@@ -10,110 +10,117 @@
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
   </head>
   <body>
-    <nav class="">
-      <div class="">
-        <a href="../index.html"><i class=""></i> Home</a>
-        <span class="">/</span>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
         <a href="../units/unit1.html"
           >Unit 1: Introduction to Web Technologies</a
         >
-        <span class="">/</span>
-        <span class="">1.6 Client-Side vs Server-Side Scripting</span>
+        <span class="separator">/</span>
+        <span class="current">1.6 Client-Side vs Server-Side Scripting</span>
       </div>
     </nav>
 
-    <section class="">
-      <div class="">
-        <h1><i class=""></i> Client-Side vs Server-Side Scripting</h1>
-        <p>
-          Understand the fundamental differences between client and server-side
-          programming
-        </p>
-        <div class="">
-          <span><i class=""></i> 1.5 hours</span>
-          <span><i class=""></i> 12 examples</span>
-          <span><i class=""></i> Live code demonstrations</span>
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+            <div class="topic-icon-large">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="topic-header-text">
+                <h1 class="topic-title">Client-Side vs Server-Side Scripting</h1>
+                <p class="topic-subtitle">
+                Understand the fundamental differences between client and server-side
+                programming
+                </p>
+            </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <main class="">
-      <div class="">
+    <main class="main">
+      <div class="container">
         <!-- Overview Section -->
-        <section class="">
-          <h2><i class=""></i> Understanding the Difference</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i> Understanding the Difference</h2>
           <p>
             Web applications use both client-side and server-side scripting to
             create dynamic, interactive experiences. Understanding where code
             executes and why is crucial for web development.
           </p>
 
-          <div class="">
-            <div class="">
-              <div class="">
-                <i class=""></i>
-                <h3>Client-Side Scripting</h3>
-              </div>
-              <div class="">
-                <div class="">
-                  <span class="">Runs in: Browser</span>
-                  <span class="">Visible to: Everyone</span>
+          <div class="comparison-table">
+            <div class="comparison-row">
+              <div class="comparison-cell">
+                <div class="card-header">
+                  <i class="fas fa-desktop"></i>
+                  <h3>Client-Side Scripting</h3>
                 </div>
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <span>Fast, immediate response</span>
+                <div class="card-body">
+                  <div class="feature">
+                    <span class="badge">Runs in: Browser</span>
+                    <span class="badge">Visible to: Everyone</span>
                   </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Reduces server load</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Rich user interactions</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Code is visible/editable</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Browser dependent</span>
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Fast, immediate response</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Reduces server load</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Rich user interactions</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <span>Code is visible/editable</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <span>Browser dependent</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
-                <h3>Server-Side Scripting</h3>
-              </div>
-              <div class="">
-                <div class="">
-                  <span class="">Runs on: Web Server</span>
-                  <span class="">Visible to: Server only</span>
+              <div class="comparison-cell">
+                <div class="card-header">
+                  <i class="fas fa-server"></i>
+                  <h3>Server-Side Scripting</h3>
                 </div>
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
-                    <span>Secure code execution</span>
+                <div class="card-body">
+                  <div class="feature">
+                    <span class="badge">Runs on: Web Server</span>
+                    <span class="badge">Visible to: Server only</span>
                   </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Database access</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Platform independent</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Requires server resources</span>
-                  </div>
-                  <div class="">
-                    <i class=""></i>
-                    <span>Network dependency</span>
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Secure code execution</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Database access</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Platform independent</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <span>Requires server resources</span>
+                    </div>
+                    <div class="feature-item">
+                      <i class="fas fa-exclamation-triangle"></i>
+                      <span>Network dependency</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -122,32 +129,32 @@
         </section>
 
         <!-- Client-Side Technologies -->
-        <section class="">
-          <h2><i class=""></i> Client-Side Technologies</h2>
+        <section class="content-section">
+          <h2><i class="fab fa-js-square"></i> Client-Side Technologies</h2>
           <p>
             Client-side scripts run in the user's browser and handle user
             interface interactions, validations, and dynamic content updates.
           </p>
 
-          <div class="">
-            <div class="" data-tech="javascript">
-              <div class="">
-                <i class=""></i>
+          <div class="feature-grid">
+            <div class="feature-card" data-tech="javascript">
+              <div class="card-header">
+                <i class="fab fa-js"></i>
                 <h3>JavaScript</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>
                   The primary client-side scripting language for web browsers.
                 </p>
-                <div class="">
-                  <span class="">DOM Manipulation</span>
-                  <span class="">Event Handling</span>
-                  <span class="">AJAX Requests</span>
-                  <span class="">Form Validation</span>
+                <div class="tags">
+                  <span class="badge">DOM Manipulation</span>
+                  <span class="badge">Event Handling</span>
+                  <span class="badge">AJAX Requests</span>
+                  <span class="badge">Form Validation</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: Form Validation</h4>
-                  <pre><code class="">function validateEmail(email) {
+                  <pre><code class="language-js">function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
@@ -165,22 +172,22 @@ document.getElementById('email').addEventListener('input', function() {
               </div>
             </div>
 
-            <div class="" data-tech="frameworks">
-              <div class="">
-                <i class=""></i>
+            <div class="feature-card" data-tech="frameworks">
+              <div class="card-header">
+                <i class="fab fa-react"></i>
                 <h3>JavaScript Frameworks</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>Modern frameworks that enhance JavaScript development.</p>
-                <div class="">
-                  <span class="">React</span>
-                  <span class="">Vue.js</span>
-                  <span class="">Angular</span>
-                  <span class="">Svelte</span>
+                <div class="tags">
+                  <span class="badge">React</span>
+                  <span class="badge">Vue.js</span>
+                  <span class="badge">Angular</span>
+                  <span class="badge">Svelte</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: React Component</h4>
-                  <pre><code class="">function Counter() {
+                  <pre><code class="language-jsx">function Counter() {
   const [count, setCount] = useState(0);
   
   return (
@@ -196,22 +203,22 @@ document.getElementById('email').addEventListener('input', function() {
               </div>
             </div>
 
-            <div class="" data-tech="css">
-              <div class="">
-                <i class=""></i>
+            <div class="feature-card" data-tech="css">
+              <div class="card-header">
+                <i class="fab fa-css3-alt"></i>
                 <h3>CSS & Animations</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>Style and animate user interfaces without JavaScript.</p>
-                <div class="">
-                  <span class="">Transitions</span>
-                  <span class="">Keyframe Animations</span>
-                  <span class="">Hover Effects</span>
-                  <span class="">Responsive Design</span>
+                <div class="tags">
+                  <span class="badge">Transitions</span>
+                  <span class="badge">Keyframe Animations</span>
+                  <span class="badge">Hover Effects</span>
+                  <span class="badge">Responsive Design</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: CSS Animation</h4>
-                  <pre><code class="">.button {
+                  <pre><code class="language-css">.button {
   transition: all 0.3s ease;
   transform: scale(1);
 }
@@ -232,31 +239,31 @@ document.getElementById('email').addEventListener('input', function() {
         </section>
 
         <!-- Server-Side Technologies -->
-        <section class="">
-          <h2><i class=""></i> Server-Side Technologies</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-server"></i> Server-Side Technologies</h2>
           <p>
             Server-side scripts handle business logic, database operations, user
             authentication, and generate dynamic content before sending it to
             the client.
           </p>
 
-          <div class="">
-            <div class="" data-tech="nodejs">
-              <div class="">
-                <i class=""></i>
+          <div class="feature-grid">
+            <div class="feature-card" data-tech="nodejs">
+              <div class="card-header">
+                <i class="fab fa-node-js"></i>
                 <h3>Node.js</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>JavaScript runtime for server-side development.</p>
-                <div class="">
-                  <span class="">Express.js</span>
-                  <span class="">NPM Ecosystem</span>
-                  <span class="">Async/Await</span>
-                  <span class="">API Development</span>
+                <div class="tags">
+                  <span class="badge">Express.js</span>
+                  <span class="badge">NPM Ecosystem</span>
+                  <span class="badge">Async/Await</span>
+                  <span class="badge">API Development</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: Express Server</h4>
-                  <pre><code class="">const express = require('express');
+                  <pre><code class="language-js">const express = require('express');
 const app = express();
 
 app.get('/api/users/:id', async (req, res) => {
@@ -281,22 +288,22 @@ app.listen(3000, () => {
               </div>
             </div>
 
-            <div class="" data-tech="python">
-              <div class="">
-                <i class=""></i>
+            <div class="feature-card" data-tech="python">
+              <div class="card-header">
+                <i class="fab fa-python"></i>
                 <h3>Python</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>Popular language for web development and data processing.</p>
-                <div class="">
-                  <span class="">Django</span>
-                  <span class="">Flask</span>
-                  <span class="">FastAPI</span>
-                  <span class="">Data Science</span>
+                <div class="tags">
+                  <span class="badge">Django</span>
+                  <span class="badge">Flask</span>
+                  <span class="badge">FastAPI</span>
+                  <span class="badge">Data Science</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: Flask API</h4>
-                  <pre><code class="">from flask import Flask, jsonify, request
+                  <pre><code class="language-python">from flask import Flask, jsonify, request
 import sqlite3
 
 app = Flask(__name__)
@@ -325,25 +332,25 @@ def create_user():
               </div>
             </div>
 
-            <div class="" data-tech="php">
-              <div class="">
-                <i class=""></i>
+            <div class="feature-card" data-tech="php">
+              <div class="card-header">
+                <i class="fab fa-php"></i>
                 <h3>PHP</h3>
               </div>
-              <div class="">
+              <div class="card-body">
                 <p>
                   Widely-used server-side scripting language for web
                   development.
                 </p>
-                <div class="">
-                  <span class="">Laravel</span>
-                  <span class="">WordPress</span>
-                  <span class="">Symfony</span>
-                  <span class="">Easy Deployment</span>
+                <div class="tags">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">WordPress</span>
+                  <span class="badge">Symfony</span>
+                  <span class="badge">Easy Deployment</span>
                 </div>
-                <div class="">
+                <div class="code-example">
                   <h4>Example: User Authentication</h4>
-                  <pre><code class="">&lt;?php
+                  <pre><code class="language-php">&lt;?php
 session_start();
 
 function authenticate($username, $password) {
@@ -382,47 +389,47 @@ if ($_POST['username'] && $_POST['password']) {
         </section>
 
         <!-- Interactive Demonstration -->
-        <section class="">
-          <h2><i class=""></i> Interactive Comparison Demo</h2>
-          <div class="">
+        <section class="content-section">
+          <h2><i class="fas fa-play-circle"></i> Interactive Comparison Demo</h2>
+          <div class="interactive-element">
             <h3>See Client-Side vs Server-Side in Action!</h3>
             <p>
               Try both client-side and server-side form validation to understand
               the difference:
             </p>
 
-            <div class="">
-              <div class="">
-                <h4><i class=""></i> Client-Side Validation</h4>
+            <div class="comparison-table">
+              <div class="comparison-cell">
+                <h4><i class="fas fa-desktop"></i> Client-Side Validation</h4>
                 <p>Validates immediately as you type (JavaScript)</p>
 
-                <form class="" id="clientForm">
-                  <div class="">
+                <form class="interactive-form" id="clientForm">
+                  <div class="form-group">
                     <label for="clientEmail">Email Address:</label>
                     <input
                       type="email"
                       id="clientEmail"
                       placeholder="Enter your email"
                     />
-                    <div class="" id="clientEmailError"></div>
+                    <div class="error-message" id="clientEmailError"></div>
                   </div>
 
-                  <div class="">
+                  <div class="form-group">
                     <label for="clientPassword">Password:</label>
                     <input
                       type="password"
                       id="clientPassword"
                       placeholder="Enter password (8+ characters)"
                     />
-                    <div class="" id="clientPasswordError"></div>
+                    <div class="error-message" id="clientPasswordError"></div>
                   </div>
 
-                  <button type="submit" id="clientSubmit">
+                  <button type="submit" id="clientSubmit" class="btn-primary">
                     Submit (Client-Side)
                   </button>
                 </form>
 
-                <div class="">
+                <div class="feature-list">
                   <h5>Client-Side Features:</h5>
                   <ul>
                     <li>✅ Instant feedback</li>
@@ -433,37 +440,37 @@ if ($_POST['username'] && $_POST['password']) {
                 </div>
               </div>
 
-              <div class="">
-                <h4><i class=""></i> Server-Side Validation</h4>
+              <div class="comparison-cell">
+                <h4><i class="fas fa-server"></i> Server-Side Validation</h4>
                 <p>Validates when form is submitted (Simulated)</p>
 
-                <form class="" id="serverForm">
-                  <div class="">
+                <form class="interactive-form" id="serverForm">
+                  <div class="form-group">
                     <label for="serverEmail">Email Address:</label>
                     <input
                       type="email"
                       id="serverEmail"
                       placeholder="Enter your email"
                     />
-                    <div class="" id="serverEmailError"></div>
+                    <div class="error-message" id="serverEmailError"></div>
                   </div>
 
-                  <div class="">
+                  <div class="form-group">
                     <label for="serverPassword">Password:</label>
                     <input
                       type="password"
                       id="serverPassword"
                       placeholder="Enter password (8+ characters)"
                     />
-                    <div class="" id="serverPasswordError"></div>
+                    <div class="error-message" id="serverPasswordError"></div>
                   </div>
 
-                  <button type="submit" id="serverSubmit">
+                  <button type="submit" id="serverSubmit" class="btn-primary">
                     Submit (Server-Side)
                   </button>
                 </form>
 
-                <div class="">
+                <div class="feature-list">
                   <h5>Server-Side Features:</h5>
                   <ul>
                     <li>✅ Secure validation</li>
@@ -478,21 +485,21 @@ if ($_POST['username'] && $_POST['password']) {
         </section>
 
         <!-- Execution Flow Visualization -->
-        <section class="">
-          <h2><i class=""></i> Request-Response Flow</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-project-diagram"></i> Request-Response Flow</h2>
           <p>
             Understand how client-side and server-side code work together in a
             typical web application:
           </p>
 
-          <div class="">
-            <div class="" data-step="1">
-              <div class="">
-                <div class="">1</div>
-                <div class="">
+          <div class="step-guide vertical">
+            <div class="step" data-step="1">
+              <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-content">
                   <h4>User Interaction</h4>
                   <p>User fills form and clicks submit</p>
-                  <div class="">
+                  <div class="code-example">
                     <code
                       >document.getElementById('form').addEventListener('submit',
                       handleSubmit);</code
@@ -500,34 +507,34 @@ if ($_POST['username'] && $_POST['password']) {
                   </div>
                 </div>
               </div>
-              <div class="">Client</div>
+              <div class="badge">Client</div>
             </div>
 
-            <div class="">↓</div>
+            <div class="step-arrow">↓</div>
 
-            <div class="" data-step="2">
-              <div class="">
-                <div class="">2</div>
-                <div class="">
+            <div class="step" data-step="2">
+              <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-content">
                   <h4>Client-Side Validation</h4>
                   <p>JavaScript validates form before sending</p>
-                  <div class="">
+                  <div class="code-example">
                     <code>if (!validateEmail(email)) return false;</code>
                   </div>
                 </div>
               </div>
-              <div class="">Client</div>
+              <div class="badge">Client</div>
             </div>
 
-            <div class="">↓</div>
+            <div class="step-arrow">↓</div>
 
-            <div class="" data-step="3">
-              <div class="">
-                <div class="">3</div>
-                <div class="">
+            <div class="step" data-step="3">
+              <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-content">
                   <h4>HTTP Request</h4>
                   <p>Data sent to server via AJAX/Form</p>
-                  <div class="">
+                  <div class="code-example">
                     <code
                       >fetch('/api/users', { method: 'POST', body:
                       JSON.stringify(data) })</code
@@ -535,93 +542,93 @@ if ($_POST['username'] && $_POST['password']) {
                   </div>
                 </div>
               </div>
-              <div class="">Network</div>
+              <div class="badge network">Network</div>
             </div>
 
-            <div class="">↓</div>
+            <div class="step-arrow">↓</div>
 
-            <div class="" data-step="4">
-              <div class="">
-                <div class="">4</div>
-                <div class="">
+            <div class="step" data-step="4">
+              <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-content">
                   <h4>Server-Side Processing</h4>
                   <p>Server validates, processes, saves to database</p>
-                  <div class="">
+                  <div class="code-example">
                     <code>const user = await User.create(validatedData);</code>
                   </div>
                 </div>
               </div>
-              <div class="">Server</div>
+              <div class="badge server">Server</div>
             </div>
 
-            <div class="">↓</div>
+            <div class="step-arrow">↓</div>
 
-            <div class="" data-step="5">
-              <div class="">
-                <div class="">5</div>
-                <div class="">
+            <div class="step" data-step="5">
+              <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-content">
                   <h4>HTTP Response</h4>
                   <p>Server sends result back to client</p>
-                  <div class="">
+                  <div class="code-example">
                     <code>res.json({ success: true, user: newUser });</code>
                   </div>
                 </div>
               </div>
-              <div class="">Network</div>
+              <div class="badge network">Network</div>
             </div>
 
-            <div class="">↓</div>
+            <div class="step-arrow">↓</div>
 
-            <div class="" data-step="6">
-              <div class="">
-                <div class="">6</div>
-                <div class="">
+            <div class="step" data-step="6">
+              <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-content">
                   <h4>Update UI</h4>
                   <p>JavaScript updates page with response</p>
-                  <div class="">
+                  <div class="code-example">
                     <code
                       >showSuccessMessage('User created successfully!');</code
                     >
                   </div>
                 </div>
               </div>
-              <div class="">Client</div>
+              <div class="badge">Client</div>
             </div>
           </div>
         </section>
 
         <!-- Best Practices -->
-        <section class="">
-          <h2><i class=""></i> Best Practices & Guidelines</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-shield-alt"></i> Best Practices & Guidelines</h2>
 
-          <div class="">
-            <div class="">
-              <h3><i class=""></i> Client-Side Best Practices</h3>
-              <div class="">
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+          <div class="comparison-table">
+            <div class="comparison-cell">
+              <h3><i class="fas fa-desktop"></i> Client-Side Best Practices</h3>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Always Validate on Server Too</h4>
                     <p>Client-side validation is for UX, not security</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Minimize API Calls</h4>
                     <p>Cache data locally when possible</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Handle Errors Gracefully</h4>
                     <p>Provide meaningful error messages to users</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Progressive Enhancement</h4>
                     <p>Ensure functionality works without JavaScript</p>
                   </div>
@@ -629,33 +636,33 @@ if ($_POST['username'] && $_POST['password']) {
               </div>
             </div>
 
-            <div class="">
-              <h3><i class=""></i> Server-Side Best Practices</h3>
-              <div class="">
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+            <div class="comparison-cell">
+              <h3><i class="fas fa-server"></i> Server-Side Best Practices</h3>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Never Trust Client Input</h4>
                     <p>Validate and sanitize all incoming data</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Secure Database Queries</h4>
                     <p>Use parameterized queries to prevent SQL injection</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Implement Authentication</h4>
                     <p>Verify user identity and permissions</p>
                   </div>
                 </div>
-                <div class="">
-                  <i class=""></i>
-                  <div class="">
+                <div class="feature-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div class="feature-text">
                     <h4>Handle Errors Securely</h4>
                     <p>Don't expose sensitive information in error messages</p>
                   </div>
@@ -666,134 +673,134 @@ if ($_POST['username'] && $_POST['password']) {
         </section>
 
         <!-- Video Resources Section -->
-        <section class="">
-          <h2><i class=""></i> Video Tutorials & Learning Resources</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-video"></i> Video Tutorials & Learning Resources</h2>
           <p>
             Enhance your understanding with these comprehensive video tutorials
             and resources:
           </p>
 
-          <div class="">
-            <div class="">
-              <div class="">
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="card-header">
                 <img
                   src="https://img.youtube.com/vi/f_QJsAP2ZxQ/maxresdefault.jpg"
                   alt="Client vs Server Side"
                   loading="lazy"
                 />
-                <div class=""><i class=""></i></div>
-                <span class="">8:23</span>
+                <div class="play-icon"><i class="fas fa-play"></i></div>
+                <span class="duration">8:23</span>
               </div>
-              <div class="">
+              <div class="card-body">
                 <h3>Client-Side vs Server-Side Programming</h3>
-                <p class=""><i class=""></i> Programming with Mosh</p>
-                <p class="">
+                <p class="author"><i class="fas fa-user"></i> Programming with Mosh</p>
+                <p class="description">
                   Clear explanation of the differences between client-side and
                   server-side programming with practical examples.
                 </p>
-                <div class="">
-                  <span><i class=""></i> 1.2M views</span>
-                  <span><i class=""></i> 97% liked</span>
+                <div class="stats">
+                  <span><i class="fas fa-eye"></i> 1.2M views</span>
+                  <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
                 </div>
                 <a
                   href="https://www.youtube.com/watch?v=f_QJsAP2ZxQ"
                   target="_blank"
-                  class=""
+                  class="btn-primary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
+            <div class="resource-card">
+              <div class="card-header">
                 <img
                   src="https://img.youtube.com/vi/XQs5KcUj-Do/maxresdefault.jpg"
                   alt="JavaScript Full Course"
                   loading="lazy"
                 />
-                <div class=""><i class=""></i></div>
-                <span class="">3:26:42</span>
+                <div class="play-icon"><i class="fas fa-play"></i></div>
+                <span class="duration">3:26:42</span>
               </div>
-              <div class="">
+              <div class="card-body">
                 <h3>JavaScript Full Course for Beginners</h3>
-                <p class=""><i class=""></i> Bro Code</p>
-                <p class="">
+                <p class="author"><i class="fas fa-user"></i> Bro Code</p>
+                <p class="description">
                   Complete JavaScript tutorial covering client-side scripting
                   from basics to advanced concepts.
                 </p>
-                <div class="">
-                  <span><i class=""></i> 2.8M views</span>
-                  <span><i class=""></i> 98% liked</span>
+                <div class="stats">
+                  <span><i class="fas fa-eye"></i> 2.8M views</span>
+                  <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
                 </div>
                 <a
                   href="https://www.youtube.com/watch?v=XQs5KcUj-Do"
                   target="_blank"
-                  class=""
+                  class="btn-primary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
+            <div class="resource-card">
+              <div class="card-header">
                 <img
                   src="https://img.youtube.com/vi/EN6Dx22cPiI/maxresdefault.jpg"
                   alt="Node.js Tutorial"
                   loading="lazy"
                 />
-                <div class=""><i class=""></i></div>
-                <span class="">1:00:00</span>
+                <div class="play-icon"><i class="fas fa-play"></i></div>
+                <span class="duration">1:00:00</span>
               </div>
-              <div class="">
+              <div class="card-body">
                 <h3>Node.js Tutorial for Beginners</h3>
-                <p class=""><i class=""></i> Programming with Mosh</p>
-                <p class="">
+                <p class="author"><i class="fas fa-user"></i> Programming with Mosh</p>
+                <p class="description">
                   Learn server-side JavaScript with Node.js, perfect
                   introduction to backend development.
                 </p>
-                <div class="">
-                  <span><i class=""></i> 1.9M views</span>
-                  <span><i class=""></i> 96% liked</span>
+                <div class="stats">
+                  <span><i class="fas fa-eye"></i> 1.9M views</span>
+                  <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
                 </div>
                 <a
                   href="https://www.youtube.com/watch?v=EN6Dx22cPiI"
                   target="_blank"
-                  class=""
+                  class="btn-primary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
+            <div class="resource-card">
+              <div class="card-header">
                 <img
                   src="https://img.youtube.com/vi/iWOYAxlnaww/maxresdefault.jpg"
                   alt="PHP for Beginners"
                   loading="lazy"
                 />
-                <div class=""><i class=""></i></div>
-                <span class="">4:25:13</span>
+                <div class="play-icon"><i class="fas fa-play"></i></div>
+                <span class="duration">4:25:13</span>
               </div>
-              <div class="">
+              <div class="card-body">
                 <h3>PHP for Absolute Beginners</h3>
-                <p class=""><i class=""></i> Traversy Media</p>
-                <p class="">
+                <p class="author"><i class="fas fa-user"></i> Traversy Media</p>
+                <p class="description">
                   Complete PHP course covering server-side scripting
                   fundamentals and web development.
                 </p>
-                <div class="">
-                  <span><i class=""></i> 1.5M views</span>
-                  <span><i class=""></i> 95% liked</span>
+                <div class="stats">
+                  <span><i class="fas fa-eye"></i> 1.5M views</span>
+                  <span><i class="fas fa-thumbs-up"></i> 95% liked</span>
                 </div>
                 <a
                   href="https://www.youtube.com/watch?v=iWOYAxlnaww"
                   target="_blank"
-                  class=""
+                  class="btn-primary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
@@ -801,18 +808,18 @@ if ($_POST['username'] && $_POST['password']) {
         </section>
 
         <!-- External Resources -->
-        <section class="">
-          <h2><i class=""></i> Additional Learning Resources</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-external-link-alt"></i> Additional Learning Resources</h2>
 
-          <div class="">
-            <div class="">
-              <h3><i class=""></i> Documentation & References</h3>
-              <div class="">
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <h3><i class="fab fa-js-square"></i> Documentation & References</h3>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fab fa-js"></i>
                   </div>
-                  <div class="">
+                  <div class="feature-text">
                     <h4>MDN JavaScript Guide</h4>
                     <p>
                       Comprehensive JavaScript documentation and tutorials from
@@ -821,17 +828,17 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Visit Resource</a
                     >
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fab fa-node-js"></i>
                   </div>
-                  <div class="">
+                  <div class="feature-text">
                     <h4>Node.js Official Docs</h4>
                     <p>
                       Official Node.js documentation with API references and
@@ -840,15 +847,15 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://nodejs.org/en/docs/"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Visit Resource</a
                     >
                   </div>
                 </div>
 
-                <div class="">
-                  <div class=""><i class=""></i></div>
-                  <div class="">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fab fa-php"></i></div>
+                  <div class="feature-text">
                     <h4>PHP Documentation</h4>
                     <p>
                       Official PHP manual with function references and examples
@@ -856,7 +863,7 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://www.php.net/docs.php"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Visit Resource</a
                     >
                   </div>
@@ -864,14 +871,14 @@ if ($_POST['username'] && $_POST['password']) {
               </div>
             </div>
 
-            <div class="">
-              <h3><i class=""></i> Interactive Learning Platforms</h3>
-              <div class="">
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+            <div class="resource-card">
+              <h3><i class="fas fa-graduation-cap"></i> Interactive Learning Platforms</h3>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fab fa-free-code-camp"></i>
                   </div>
-                  <div class="">
+                  <div class="feature-text">
                     <h4>freeCodeCamp</h4>
                     <p>
                       Free interactive coding lessons covering both client and
@@ -880,17 +887,17 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://www.freecodecamp.org/"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Start Learning</a
                     >
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-code"></i>
                   </div>
-                  <div class="">
+                  <div class="feature-text">
                     <h4>Codecademy</h4>
                     <p>
                       Interactive courses in JavaScript, Python, PHP and web
@@ -899,17 +906,17 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://www.codecademy.com/"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Explore Courses</a
                     >
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
-                    <i class=""></i>
+                <div class="feature-item">
+                  <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
                   </div>
-                  <div class="">
+                  <div class="feature-text">
                     <h4>The Odin Project</h4>
                     <p>
                       Free full-stack web development curriculum with projects
@@ -917,7 +924,7 @@ if ($_POST['username'] && $_POST['password']) {
                     <a
                       href="https://www.theodinproject.com/"
                       target="_blank"
-                      class=""
+                      class="btn-secondary"
                       >Join Project</a
                     >
                   </div>
@@ -928,8 +935,8 @@ if ($_POST['username'] && $_POST['password']) {
         </section>
 
         <!-- Next Steps -->
-        <section class="">
-          <h2><i class=""></i> What's Next?</h2>
+        <section class="content-section">
+          <h2><i class="fas fa-step-forward"></i> What's Next?</h2>
           <p>
             Congratulations! You now understand the fundamental differences
             between client-side and server-side scripting. You've learned:
@@ -941,10 +948,10 @@ if ($_POST['username'] && $_POST['password']) {
             <li>How client and server-side code work together</li>
           </ul>
 
-          <div class="">
-            <a href="../units/unit2.html" class="">
-              <div class="">
-                <i class=""></i>
+          <div class="resource-grid">
+            <a href="../units/unit2.html" class="resource-card">
+              <div class="resource-card-content">
+                <i class="fab fa-html5"></i>
                 <h3>Next: Unit 2 - HTML Fundamentals</h3>
                 <p>
                   Dive deep into HTML structure, elements, and semantic markup
@@ -956,8 +963,8 @@ if ($_POST['username'] && $_POST['password']) {
       </div>
     </main>
 
-    <footer class="">
-      <div class="">
+    <footer class="footer">
+      <div class="container">
         <p>
           &copy; 2025 Web Technology I Course. Master scripting fundamentals
           through interactive learning.

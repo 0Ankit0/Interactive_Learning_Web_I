@@ -24,99 +24,99 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="">
-      <div class="">
-        <div class="">
-          <i class=""></i>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <i class="fas fa-code"></i>
           <span>Web Technology Course</span>
         </div>
-        <div class="">
-          <a href="../index.html" class=""> <i class=""></i> Home </a>
-          <a href="../units/unit5.html" class=""> <i class=""></i> Unit 5 </a>
+        <div class="navbar-links">
+          <a href="../index.html" class="nav-link"> <i class="fas fa-home"></i> Home </a>
+          <a href="../units/unit5.html" class="nav-link"> <i class="fas fa-book-open"></i> Unit 5 </a>
         </div>
       </div>
     </nav>
 
     <!-- Breadcrumb -->
-    <div class="">
-      <div class="">
-        <span class="">
-          <a href="../index.html"><i class=""></i> Home</a>
+    <div class="breadcrumb">
+      <div class="container">
+        <span class="breadcrumb-item">
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         </span>
-        <span class=""><i class=""></i></span>
-        <span class="">
+        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+        <span class="breadcrumb-item">
           <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
         </span>
-        <span class=""><i class=""></i></span>
-        <span class="">Regular Expressions</span>
+        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+        <span class="breadcrumb-item active">Regular Expressions</span>
       </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="">
-      <div class="">
-        <div class="">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
           <h1>
-            <i class=""></i>
+            <i class="fas fa-search"></i>
             Regular Expressions (RegEx)
           </h1>
-          <p class="">
+          <p class="lead">
             Master the art of pattern matching with Regular Expressions. Learn
             to search, validate, and manipulate text using powerful regex
             patterns in JavaScript.
           </p>
-          <div class="">
-            <span class=""><i class=""></i> Pattern Matching</span>
-            <span class=""><i class=""></i> Validation</span>
-            <span class=""><i class=""></i> Text Manipulation</span>
-            <span class=""><i class=""></i> Data Parsing</span>
+          <div class="features">
+            <span class="feature-item"><i class="fas fa-check-circle"></i> Pattern Matching</span>
+            <span class="feature-item"><i class="fas fa-check-circle"></i> Validation</span>
+            <span class="feature-item"><i class="fas fa-check-circle"></i> Text Manipulation</span>
+            <span class="feature-item"><i class="fas fa-check-circle"></i> Data Parsing</span>
           </div>
         </div>
-        <div class="">
-          <div class="">
-            <div class="">
-              <div class="">
-                <div class="">Live RegEx Pattern</div>
-                <div class="" id="livePattern">
+        <div class="hero-visual">
+          <div class="code-editor-container">
+            <div class="code-editor">
+              <div class="editor-header">
+                <div class="title">Live RegEx Pattern</div>
+                <div class="pattern" id="livePattern">
                   /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}/g
                 </div>
-                <div class="">Email Address Pattern</div>
+                <div class="description">Email Address Pattern</div>
               </div>
 
-              <div class="">
-                <div class="">Test Text</div>
-                <div class="">
-                  Contact us at <span class="">info@example.com</span> or
-                  <span class="">support@test.org</span> for more information.
+              <div class="editor-content">
+                <div class="label">Test Text</div>
+                <div class="text">
+                  Contact us at <span class="highlight">info@example.com</span> or
+                  <span class="highlight">support@test.org</span> for more information.
                   Invalid: notanemail.com
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <div class="" id="matchCount">2</div>
-                  <div class="">Matches Found</div>
+              <div class="editor-footer">
+                <div class="match-info">
+                  <div class="count" id="matchCount">2</div>
+                  <div class="label">Matches Found</div>
                 </div>
               </div>
             </div>
 
-            <div class="">
+            <div class="info-card">
               <h3>Why Use Regular Expressions?</h3>
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="info-list">
+                <div class="info-item">
+                  <i class="fas fa-bolt"></i>
                   <span>Powerful pattern matching</span>
                 </div>
-                <div class="">
-                  <i class=""></i>
+                <div class="info-item">
+                  <i class="fas fa-cogs"></i>
                   <span>Complex text operations</span>
                 </div>
-                <div class="">
-                  <i class=""></i>
+                <div class="info-item">
+                  <i class="fas fa-shield-alt"></i>
                   <span>Input validation</span>
                 </div>
-                <div class="">
-                  <i class=""></i>
+                <div class="info-item">
+                  <i class="fas fa-file-code"></i>
                   <span>Data extraction</span>
                 </div>
               </div>
@@ -127,79 +127,79 @@
     </section>
 
     <!-- Main Content -->
-    <main class="">
-      <div class="">
+    <main class="main-content">
+      <div class="container">
         <!-- Introduction -->
-        <section class="">
-          <h2><i class=""></i> What are Regular Expressions?</h2>
-          <div class="">
-            <p class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-info-circle"></i> What are Regular Expressions?</h2>
+          <div class="topic-grid">
+            <p class="lead">
               Regular expressions (regex or regexp) are patterns used to match
               character combinations in strings. In JavaScript, they are objects
               that can be used with various string methods to search, replace,
               and validate text.
             </p>
 
-            <div class="">
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+            <div class="topic-grid">
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-search"></i>
                 </div>
                 <h4>Search & Match</h4>
                 <p>
                   Find specific patterns within text, like email addresses,
                   phone numbers, or URLs.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "Call me at 555-1234";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "Call me at 555-1234";
 const phonePattern = /\d{3}-\d{4}/;
 console.log(text.match(phonePattern)); // ["555-1234"]</code></pre>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-exchange-alt"></i>
                 </div>
                 <h4>Replace & Substitute</h4>
                 <p>
                   Replace patterns in text with other content, perfect for
                   formatting and cleaning data.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "Hello World!";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "Hello World!";
 const newText = text.replace(/World/, "JavaScript");
 console.log(newText); // "Hello JavaScript!"</code></pre>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-check-double"></i>
                 </div>
                 <h4>Validate Input</h4>
                 <p>
                   Check if user input matches expected formats, essential for
                   form validation.
                 </p>
-                <div class="">
-                  <pre><code class="">const email = "user@example.com";
+                <div class="code-block">
+                  <pre><code class="language-js">const email = "user@example.com";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 console.log(emailPattern.test(email)); // true</code></pre>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-stream"></i>
                 </div>
                 <h4>Split & Parse</h4>
                 <p>
                   Break text into arrays based on complex patterns, useful for
                   parsing CSV or logs.
                 </p>
-                <div class="">
-                  <pre><code class="">const csv = "name,age,city";
+                <div class="code-block">
+                  <pre><code class="language-js">const csv = "name,age,city";
 const fields = csv.split(/,/);
 console.log(fields); // ["name", "age", "city"]</code></pre>
                 </div>
@@ -209,99 +209,100 @@ console.log(fields); // ["name", "age", "city"]</code></pre>
         </section>
 
         <!-- Basic Syntax -->
-        <section class="">
-          <h2><i class=""></i> Basic Regex Syntax</h2>
-          <div class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-code"></i> Basic Regex Syntax</h2>
+          <div class="topic-grid">
             <p>Regular expressions in JavaScript can be created in two ways:</p>
 
-            <div class="">
-              <div class="">
-                <div class="">
+            <div class="comparison-grid">
+              <div class="comparison-card">
+                <div class="card-header">
                   <h4>Literal Notation</h4>
-                  <div class="">
-                    <pre><code class="">// Using forward slashes
+                  <div class="code-container">
+                    <pre><code class="language-js">// Using forward slashes
 const regex1 = /pattern/flags;
 const regex2 = /hello/i;  // Case-insensitive</code></pre>
                   </div>
-                  <div class="">
+                  <div class="pros-cons">
                     <strong>Best for:</strong> Static patterns known at compile
                     time
                   </div>
                 </div>
 
-                <div class="">
+                <div class="comparison-card">
+                  <div class="card-header">
                   <h4>Constructor Function</h4>
-                  <div class="">
-                    <pre><code class="">// Using RegExp constructor
+                  <div class="code-container">
+                    <pre><code class="language-js">// Using RegExp constructor
 const regex1 = new RegExp("pattern", "flags");
 const regex2 = new RegExp("hello", "i");</code></pre>
                   </div>
-                  <div class="">
+                  <div class="pros-cons">
                     <strong>Best for:</strong> Dynamic patterns built at runtime
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="">
-              <h3><i class=""></i> Character Classes & Metacharacters</h3>
-              <div class="">
-                <button class="" data-tab="basic">Basic Characters</button>
-                <button class="" data-tab="classes">Character Classes</button>
-                <button class="" data-tab="quantifiers">Quantifiers</button>
-                <button class="" data-tab="anchors">Anchors</button>
+            <div class="interactive-tabs">
+              <h3 class="section-header"><i class="fas fa-stream"></i> Character Classes & Metacharacters</h3>
+              <div class="tab-buttons">
+                <button class="tab-button active" data-tab="basic">Basic Characters</button>
+                <button class="tab-button" data-tab="classes">Character Classes</button>
+                <button class="tab-button" data-tab="quantifiers">Quantifiers</button>
+                <button class="tab-button" data-tab="anchors">Anchors</button>
               </div>
 
-              <div class="">
+              <div class="tab-content">
                 <!-- Basic Characters -->
-                <div class="" id="basic-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">.</div>
-                      <div class="">Matches any character except newline</div>
-                      <div class="">
+                <div class="tab-panel active" id="basic-panel">
+                  <div class="definition-grid">
+                    <div class="definition-item">
+                      <div class="term">.</div>
+                      <div class="definition">Matches any character except newline</div>
+                      <div class="example">
                         <code>a.c</code> matches "abc", "a1c", "a@c"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">\</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">\</div>
+                      <div class="definition">
                         Escape character for special characters
                       </div>
-                      <div class="">
+                      <div class="example">
                         <code>\.</code> matches literal "." character
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">|</div>
-                      <div class="">Alternation (OR operator)</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">|</div>
+                      <div class="definition">Alternation (OR operator)</div>
+                      <div class="example">
                         <code>cat|dog</code> matches "cat" or "dog"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">()</div>
-                      <div class="">Grouping and capturing</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">()</div>
+                      <div class="definition">Grouping and capturing</div>
+                      <div class="example">
                         <code>(abc)+</code> matches "abc", "abcabc"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">[]</div>
-                      <div class="">Character set (any character inside)</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">[]</div>
+                      <div class="definition">Character set (any character inside)</div>
+                      <div class="example">
                         <code>[abc]</code> matches "a", "b", or "c"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">[^]</div>
-                      <div class="">Negated character set</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">[^]</div>
+                      <div class="definition">Negated character set</div>
+                      <div class="example">
                         <code>[^abc]</code> matches any char except a, b, c
                       </div>
                     </div>
@@ -309,99 +310,99 @@ const regex2 = new RegExp("hello", "i");</code></pre>
                 </div>
 
                 <!-- Character Classes -->
-                <div class="" id="classes-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">\d</div>
-                      <div class="">Any digit (0-9)</div>
-                      <div class="">
+                <div class="tab-panel" id="classes-panel">
+                  <div class="definition-grid">
+                    <div class="definition-item">
+                      <div class="term">\d</div>
+                      <div class="definition">Any digit (0-9)</div>
+                      <div class="example">
                         <code>\d{3}</code> matches "123", "456"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">\D</div>
-                      <div class="">Any non-digit</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">\D</div>
+                      <div class="definition">Any non-digit</div>
+                      <div class="example">
                         <code>\D+</code> matches "abc", "hello"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">\w</div>
-                      <div class="">Word character (a-z, A-Z, 0-9, _)</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">\w</div>
+                      <div class="definition">Word character (a-z, A-Z, 0-9, _)</div>
+                      <div class="example">
                         <code>\w+</code> matches "word", "test123"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">\W</div>
-                      <div class="">Non-word character</div>
-                      <div class=""><code>\W+</code> matches "!@#", " "</div>
+                    <div class="definition-item">
+                      <div class="term">\W</div>
+                      <div class="definition">Non-word character</div>
+                      <div class="example"><code>\W+</code> matches "!@#", " "</div>
                     </div>
 
-                    <div class="">
-                      <div class="">\s</div>
-                      <div class="">Whitespace (space, tab, newline)</div>
-                      <div class=""><code>\s+</code> matches spaces, tabs</div>
+                    <div class="definition-item">
+                      <div class="term">\s</div>
+                      <div class="definition">Whitespace (space, tab, newline)</div>
+                      <div class="example"><code>\s+</code> matches spaces, tabs</div>
                     </div>
 
-                    <div class="">
-                      <div class="">\S</div>
-                      <div class="">Non-whitespace character</div>
-                      <div class=""><code>\S+</code> matches "word", "123"</div>
+                    <div class="definition-item">
+                      <div class="term">\S</div>
+                      <div class="definition">Non-whitespace character</div>
+                      <div class="example"><code>\S+</code> matches "word", "123"</div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Quantifiers -->
-                <div class="" id="quantifiers-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">*</div>
-                      <div class="">Zero or more occurrences</div>
-                      <div class="">
+                <div class="tab-panel" id="quantifiers-panel">
+                  <div class="definition-grid">
+                    <div class="definition-item">
+                      <div class="term">*</div>
+                      <div class="definition">Zero or more occurrences</div>
+                      <div class="example">
                         <code>ab*</code> matches "a", "ab", "abbb"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">+</div>
-                      <div class="">One or more occurrences</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">+</div>
+                      <div class="definition">One or more occurrences</div>
+                      <div class="example">
                         <code>ab+</code> matches "ab", "abbb" (not "a")
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">?</div>
-                      <div class="">Zero or one occurrence (optional)</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">?</div>
+                      <div class="definition">Zero or one occurrence (optional)</div>
+                      <div class="example">
                         <code>colou?r</code> matches "color", "colour"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">{n}</div>
-                      <div class="">Exactly n occurrences</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">{n}</div>
+                      <div class="definition">Exactly n occurrences</div>
+                      <div class="example">
                         <code>\d{3}</code> matches exactly 3 digits
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">{n,}</div>
-                      <div class="">n or more occurrences</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">{n,}</div>
+                      <div class="definition">n or more occurrences</div>
+                      <div class="example">
                         <code>\d{3,}</code> matches 3 or more digits
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">{n,m}</div>
-                      <div class="">Between n and m occurrences</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">{n,m}</div>
+                      <div class="definition">Between n and m occurrences</div>
+                      <div class="example">
                         <code>\d{3,5}</code> matches 3 to 5 digits
                       </div>
                     </div>
@@ -409,34 +410,34 @@ const regex2 = new RegExp("hello", "i");</code></pre>
                 </div>
 
                 <!-- Anchors -->
-                <div class="" id="anchors-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">^</div>
-                      <div class="">Start of string/line</div>
-                      <div class="">
+                <div class="tab-panel" id="anchors-panel">
+                  <div class="definition-grid">
+                    <div class="definition-item">
+                      <div class="term">^</div>
+                      <div class="definition">Start of string/line</div>
+                      <div class="example">
                         <code>^Hello</code> matches "Hello" at start
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">$</div>
-                      <div class="">End of string/line</div>
-                      <div class=""><code>end$</code> matches "end" at end</div>
+                    <div class="definition-item">
+                      <div class="term">$</div>
+                      <div class="definition">End of string/line</div>
+                      <div class="example"><code>end$</code> matches "end" at end</div>
                     </div>
 
-                    <div class="">
-                      <div class="">\b</div>
-                      <div class="">Word boundary</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">\b</div>
+                      <div class="definition">Word boundary</div>
+                      <div class="example">
                         <code>\bcat\b</code> matches "cat" as whole word
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">\B</div>
-                      <div class="">Non-word boundary</div>
-                      <div class="">
+                    <div class="definition-item">
+                      <div class="term">\B</div>
+                      <div class="definition">Non-word boundary</div>
+                      <div class="example">
                         <code>\Bcat\B</code> matches "cat" inside words
                       </div>
                     </div>
@@ -445,19 +446,20 @@ const regex2 = new RegExp("hello", "i");</code></pre>
               </div>
             </div>
 
-            <div class="">
-              <h4><i class=""></i> Interactive Pattern Builder</h4>
-              <div class="">
-                <div class="">
-                  <div class="">
+            <div class="interactive-demo">
+              <h4 class="section-header"><i class="fas fa-flask"></i> Interactive Pattern Builder</h4>
+              <div class="demo-grid">
+                <div class="demo-controls">
+                  <div class="form-group">
                     <label for="patternInput">Enter your pattern:</label>
                     <input
                       type="text"
                       id="patternInput"
+                      class="form-control"
                       placeholder="Enter regex pattern (e.g., \d+)"
                       value="\d+"
                     />
-                    <div class="">
+                    <div class="form-group">
                       <label>Flags:</label>
                       <label
                         ><input type="checkbox" id="flagG" checked /> g
@@ -474,10 +476,11 @@ const regex2 = new RegExp("hello", "i");</code></pre>
                     </div>
                   </div>
 
-                  <div class="">
+                  <div class="form-group">
                     <label for="testText">Test text:</label>
                     <textarea
                       id="testText"
+                      class="form-control"
                       placeholder="Enter text to test against..."
                     >
 The price is $25.99 and the discount is 15%.</textarea
@@ -485,16 +488,16 @@ The price is $25.99 and the discount is 15%.</textarea
                   </div>
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="demo-result">
+                  <div class="result-header">
                     <h5>Pattern: <code id="displayPattern">/\d+/g</code></h5>
-                    <div id="highlightedText" class="">
-                      The price is $<span class="">25</span>.<span class=""
+                    <div id="highlightedText" class="highlight-container">
+                      The price is $<span class="highlight">25</span>.<span class="highlight"
                         >99</span
                       >
-                      and the discount is <span class="">15</span>%.
+                      and the discount is <span class="highlight">15</span>%.
                     </div>
-                    <div class="">
+                    <div class="match-summary">
                       <span>Matches: <strong id="matchCount">3</strong></span>
                       <span id="matchList">["25", "99", "15"]</span>
                     </div>
@@ -506,181 +509,181 @@ The price is $25.99 and the discount is 15%.</textarea
         </section>
 
         <!-- JavaScript Methods -->
-        <section class="">
-          <h2><i class=""></i> JavaScript Regex Methods</h2>
-          <div class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fab fa-js-square"></i> JavaScript Regex Methods</h2>
+          <div class="topic-grid">
             <p>
               JavaScript provides several methods for working with regular
               expressions:
             </p>
 
-            <div class="">
-              <div class="">
-                <div class="">
+            <div class="method-grid">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>test()</h4>
-                  <span class="">Returns: boolean</span>
+                  <span class="return-value">Returns: boolean</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Tests if a pattern matches in a string. Returns true or false.
                 </p>
-                <div class="">
-                  <pre><code class="">const regex = /hello/i;
+                <div class="code-block">
+                  <pre><code class="language-js">const regex = /hello/i;
 console.log(regex.test("Hello World")); // true
 console.log(regex.test("Hi there"));    // false</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter text to test"
                     data-method="test"
                     data-pattern="/hello/i"
                     value="Hello World"
                   />
-                  <div class="">Result: <span class="">true</span></div>
+                  <div class="result">Result: <span class="output">true</span></div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>match()</h4>
-                  <span class="">Returns: Array | null</span>
+                  <span class="return-value">Returns: Array | null</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Retrieves the matches when matching a string against a regex.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "The year 2023 was great!";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "The year 2023 was great!";
 const matches = text.match(/\d+/g);
 console.log(matches); // ["2023"]</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter text with numbers"
                     data-method="match"
                     data-pattern="/\d+/g"
                     value="I have 5 cats and 3 dogs"
                   />
-                  <div class="">Result: <span class="">["5", "3"]</span></div>
+                  <div class="result">Result: <span class="output">["5", "3"]</span></div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>replace()</h4>
-                  <span class="">Returns: string</span>
+                  <span class="return-value">Returns: string</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Returns a new string with matches replaced by a replacement
                   string.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "Hello World";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "Hello World";
 const newText = text.replace(/World/, "JavaScript");
 console.log(newText); // "Hello JavaScript"</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter text to replace"
                     data-method="replace"
                     data-pattern="/World/g"
                     data-replacement="JavaScript"
                     value="Hello World! World is great!"
                   />
-                  <div class="">
+                  <div class="result">
                     Result:
-                    <span class=""
+                    <span class="output"
                       >"Hello JavaScript! JavaScript is great!"</span
                     >
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>search()</h4>
-                  <span class="">Returns: number</span>
+                  <span class="return-value">Returns: number</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Returns the index of the first match, or -1 if not found.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "Find the number 42 here";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "Find the number 42 here";
 const index = text.search(/\d+/);
 console.log(index); // 16</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter text to search"
                     data-method="search"
                     data-pattern="/\d+/"
                     value="The answer is 42"
                   />
-                  <div class="">Result: <span class="">14</span></div>
+                  <div class="result">Result: <span class="output">14</span></div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>split()</h4>
-                  <span class="">Returns: Array</span>
+                  <span class="return-value">Returns: Array</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Splits a string into an array using a regex as the delimiter.
                 </p>
-                <div class="">
-                  <pre><code class="">const text = "apple,banana;orange:grape";
+                <div class="code-block">
+                  <pre><code class="language-js">const text = "apple,banana;orange:grape";
 const fruits = text.split(/[,;:]/);
 console.log(fruits); // ["apple", "banana", "orange", "grape"]</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter delimited text"
                     data-method="split"
                     data-pattern="/[,;:]/"
                     value="apple,banana;orange:grape"
                   />
-                  <div class="">
+                  <div class="result">
                     Result:
-                    <span class="">["apple", "banana", "orange", "grape"]</span>
+                    <span class="output">["apple", "banana", "orange", "grape"]</span>
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
+              <div class="method-card">
+                <div class="card-header">
                   <h4>exec()</h4>
-                  <span class="">Returns: Array | null</span>
+                  <span class="return-value">Returns: Array | null</span>
                 </div>
-                <p class="">
+                <p class="description">
                   Executes a search for a match and returns detailed
                   information.
                 </p>
-                <div class="">
-                  <pre><code class="">const regex = /(\d{4})-(\d{2})-(\d{2})/;
+                <div class="code-block">
+                  <pre><code class="language-js">const regex = /(\d{4})-(\d{2})-(\d{2})/;
 const result = regex.exec("Today is 2023-12-25");
 console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
                 </div>
-                <div class="">
+                <div class="interactive-input">
                   <input
                     type="text"
-                    class=""
+                    class="form-control"
                     placeholder="Enter date string"
                     data-method="exec"
                     data-pattern="/(\d{4})-(\d{2})-(\d{2})/"
                     value="Today is 2023-12-25"
                   />
-                  <div class="">
+                  <div class="result">
                     Result:
-                    <span class="">["2023-12-25", "2023", "12", "25"]</span>
+                    <span class="output">["2023-12-25", "2023", "12", "25"]</span>
                   </div>
                 </div>
               </div>
@@ -689,196 +692,196 @@ console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
         </section>
 
         <!-- Common Patterns -->
-        <section class="">
-          <h2><i class=""></i> Common Regex Patterns</h2>
-          <div class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-star"></i> Common Regex Patterns</h2>
+          <div class="topic-grid">
             <p>
               Here are some frequently used regex patterns for common validation
               tasks:
             </p>
 
-            <div class="">
-              <div class="">
-                <button class="" data-tab="validation">Validation</button>
-                <button class="" data-tab="extraction">Data Extraction</button>
-                <button class="" data-tab="formatting">Text Formatting</button>
+            <div class="interactive-tabs">
+              <div class="tab-buttons">
+                <button class="tab-button active" data-tab="validation">Validation</button>
+                <button class="tab-button" data-tab="extraction">Data Extraction</button>
+                <button class="tab-button" data-tab="formatting">Text Formatting</button>
               </div>
 
-              <div class="">
+              <div class="tab-content">
                 <!-- Validation Patterns -->
-                <div class="" id="validation-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Email Address</h5>
-                        <button class="" data-pattern="email">
+                <div class="tab-panel active" id="validation-panel">
+                  <div class="pattern-grid">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-envelope"></i> Email Address</h5>
+                        <button class="btn btn-secondary" data-pattern="email">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</code>
                       </div>
-                      <div class="">
+                      <div class="description">
                         Validates basic email format: no spaces, @ symbol,
                         domain with dot
                       </div>
-                      <div class="">
-                        <span class="">✓ user@example.com</span>
-                        <span class="">✓ test.email@domain.org</span>
-                        <span class="">✗ invalid.email</span>
-                        <span class="">✗ @domain.com</span>
+                      <div class="example-validation">
+                        <span class="valid">✓ user@example.com</span>
+                        <span class="valid">✓ test.email@domain.org</span>
+                        <span class="invalid">✗ invalid.email</span>
+                        <span class="invalid">✗ @domain.com</span>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Phone Number (US)</h5>
-                        <button class="" data-pattern="phone">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-phone"></i> Phone Number (US)</h5>
+                        <button class="btn btn-secondary" data-pattern="phone">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code
                           >/^(\+1[-.\s]?)?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})$/</code
                         >
                       </div>
-                      <div class="">
+                      <div class="description">
                         Matches US phone numbers in various formats
                       </div>
-                      <div class="">
-                        <span class="">✓ (555) 123-4567</span>
-                        <span class="">✓ 555.123.4567</span>
-                        <span class="">✓ +1 555 123 4567</span>
-                        <span class="">✗ 123-456</span>
+                      <div class="example-validation">
+                        <span class="valid">✓ (555) 123-4567</span>
+                        <span class="valid">✓ 555.123.4567</span>
+                        <span class="valid">✓ +1 555 123 4567</span>
+                        <span class="invalid">✗ 123-456</span>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Strong Password</h5>
-                        <button class="" data-pattern="password">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-key"></i> Strong Password</h5>
+                        <button class="btn btn-secondary" data-pattern="password">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code
                           >/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/</code
                         >
                       </div>
-                      <div class="">
+                      <div class="description">
                         At least 8 chars: lowercase, uppercase, digit, special
                         character
                       </div>
-                      <div class="">
-                        <span class="">✓ MyPass123!</span>
-                        <span class="">✓ Secure$456</span>
-                        <span class="">✗ password</span>
-                        <span class="">✗ 123456</span>
+                      <div class="example-validation">
+                        <span class="valid">✓ MyPass123!</span>
+                        <span class="valid">✓ Secure$456</span>
+                        <span class="invalid">✗ password</span>
+                        <span class="invalid">✗ 123456</span>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> URL</h5>
-                        <button class="" data-pattern="url">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-link"></i> URL</h5>
+                        <button class="btn btn-secondary" data-pattern="url">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code
                           >/^https?:\/\/(?:[-\w.])+(?:[:\d]+)?(?:\/(?:[\w/_.])*)?(?:\?(?:[\w&=%.])*)?(?:#(?:[\w.])*)?$/</code
                         >
                       </div>
-                      <div class="">
+                      <div class="description">
                         Matches HTTP and HTTPS URLs with optional ports, paths,
                         queries
                       </div>
-                      <div class="">
-                        <span class="">✓ https://example.com</span>
-                        <span class="">✓ http://site.com:8080/path</span>
-                        <span class="">✗ ftp://example.com</span>
-                        <span class="">✗ not-a-url</span>
+                      <div class="example-validation">
+                        <span class="valid">✓ https://example.com</span>
+                        <span class="valid">✓ http://site.com:8080/path</span>
+                        <span class="invalid">✗ ftp://example.com</span>
+                        <span class="invalid">✗ not-a-url</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Data Extraction Patterns -->
-                <div class="" id="extraction-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Date Extraction (YYYY-MM-DD)</h5>
-                        <button class="" data-pattern="date">
+                <div class="tab-panel" id="extraction-panel">
+                  <div class="pattern-grid">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-calendar-alt"></i> Date Extraction (YYYY-MM-DD)</h5>
+                        <button class="btn btn-secondary" data-pattern="date">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/(\d{4})-(\d{2})-(\d{2})/g</code>
                       </div>
-                      <div class="">
+                      <div class="description">
                         Extracts dates in ISO format with captured groups for
                         year, month, day
                       </div>
-                      <div class="">
+                      <div class="example-text">
                         Test: "The events are on 2023-12-25 and 2024-01-15"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Hashtags</h5>
-                        <button class="" data-pattern="hashtag">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-hashtag"></i> Hashtags</h5>
+                        <button class="btn btn-secondary" data-pattern="hashtag">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/#\w+/g</code>
                       </div>
-                      <div class="">
+                      <div class="description">
                         Finds all hashtags in text (# followed by word
                         characters)
                       </div>
-                      <div class="">
+                      <div class="example-text">
                         Test: "Learning #JavaScript and #RegEx is fun! #coding"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Currency Amounts</h5>
-                        <button class="" data-pattern="currency">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-dollar-sign"></i> Currency Amounts</h5>
+                        <button class="btn btn-secondary" data-pattern="currency">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?/g</code>
                       </div>
-                      <div class="">
+                      <div class="description">
                         Matches dollar amounts with proper comma separation and
                         optional cents
                       </div>
-                      <div class="">
+                      <div class="example-text">
                         Test: "Prices: $29.99, $1,234.56, $10,000"
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> HTML Tags</h5>
-                        <button class="" data-pattern="html">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-code"></i> HTML Tags</h5>
+                        <button class="btn btn-secondary" data-pattern="html">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code
                           >/&lt;([a-z]+)(\s[^&gt;]*)?&gt;.*?&lt;\/\1&gt;/gi</code
                         >
                       </div>
-                      <div class="">
+                      <div class="description">
                         Matches opening and closing HTML tags with content
                       </div>
-                      <div class="">
+                      <div class="example-text">
                         Test: "&lt;div class='test'&gt;Content&lt;/div&gt;
                         &lt;p&gt;Paragraph&lt;/p&gt;"
                       </div>
@@ -887,98 +890,102 @@ console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
                 </div>
 
                 <!-- Text Formatting Patterns -->
-                <div class="" id="formatting-panel">
-                  <div class="">
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Title Case</h5>
-                        <button class="" data-pattern="titlecase">
+                <div class="tab-panel" id="formatting-panel">
+                  <div class="pattern-grid">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-heading"></i> Title Case</h5>
+                        <button class="btn btn-secondary" data-pattern="titlecase">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/\b\w+/g</code> with replacement function
                       </div>
-                      <div class="">
+                      <div class="description">
                         Converts text to title case (first letter of each word
                         capitalized)
                       </div>
-                      <div class="" data-type="titlecase">
+                      <div class="interactive-format" data-type="titlecase">
                         <input
                           type="text"
+                          class="form-control"
                           placeholder="enter text to format"
                           value="hello world javascript"
                         />
-                        <div class="">Hello World Javascript</div>
+                        <div class="result">Hello World Javascript</div>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Remove Extra Spaces</h5>
-                        <button class="" data-pattern="spaces">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-align-justify"></i> Remove Extra Spaces</h5>
+                        <button class="btn btn-secondary" data-pattern="spaces">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/\s+/g</code> replace with single space
                       </div>
-                      <div class="">
+                      <div class="description">
                         Removes multiple consecutive spaces, tabs, newlines
                       </div>
-                      <div class="" data-type="spaces">
+                      <div class="interactive-format" data-type="spaces">
                         <input
                           type="text"
+                          class="form-control"
                           placeholder="text   with    extra     spaces"
                           value="text   with    extra     spaces"
                         />
-                        <div class="">text with extra spaces</div>
+                        <div class="result">text with extra spaces</div>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Format Phone Numbers</h5>
-                        <button class="" data-pattern="phoneformat">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-phone-alt"></i> Format Phone Numbers</h5>
+                        <button class="btn btn-secondary" data-pattern="phoneformat">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/(\d{3})(\d{3})(\d{4})/</code> → ($1) $2-$3
                       </div>
-                      <div class="">
+                      <div class="description">
                         Formats 10-digit numbers into (XXX) XXX-XXXX format
                       </div>
-                      <div class="" data-type="phone">
+                      <div class="interactive-format" data-type="phone">
                         <input
                           type="text"
+                          class="form-control"
                           placeholder="1234567890"
                           value="1234567890"
                         />
-                        <div class="">(123) 456-7890</div>
+                        <div class="result">(123) 456-7890</div>
                       </div>
                     </div>
 
-                    <div class="">
-                      <div class="">
-                        <h5><i class=""></i> Mask Sensitive Data</h5>
-                        <button class="" data-pattern="mask">
+                    <div class="pattern-card">
+                      <div class="card-header">
+                        <h5><i class="fas fa-user-secret"></i> Mask Sensitive Data</h5>
+                        <button class="btn btn-secondary" data-pattern="mask">
                           Test Pattern
                         </button>
                       </div>
-                      <div class="">
+                      <div class="code-block">
                         <code>/(\d{4})\d{4}(\d{4})/</code> → $1****$2
                       </div>
-                      <div class="">
+                      <div class="description">
                         Masks middle digits of credit card numbers
                       </div>
-                      <div class="" data-type="mask">
+                      <div class="interactive-format" data-type="mask">
                         <input
                           type="text"
+                          class="form-control"
                           placeholder="1234567890123456"
                           value="1234567890123456"
                         />
-                        <div class="">1234****3456</div>
+                        <div class="result">1234****3456</div>
                       </div>
                     </div>
                   </div>
@@ -986,14 +993,15 @@ console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
               </div>
             </div>
 
-            <div class="">
-              <h4><i class=""></i> Pattern Testing Lab</h4>
-              <div class="">
-                <div class="">
+            <div class="interactive-demo">
+              <h4 class="section-header"><i class="fas fa-vial"></i> Pattern Testing Lab</h4>
+              <div class="demo-grid">
+                <div class="demo-controls">
                   <label for="customPattern">Your Regex Pattern:</label>
                   <input
                     type="text"
                     id="customPattern"
+                    class="form-control"
                     placeholder="/your-pattern/flags"
                     value="/\b\w+@\w+\.\w+/g"
                   />
@@ -1001,29 +1009,30 @@ console.log(result); // ["2023-12-25", "2023", "12", "25", ...]</code></pre>
                   <label for="testInput">Test Text:</label>
                   <textarea
                     id="testInput"
+                    class="form-control"
                     placeholder="Enter text to test your pattern against..."
                   >
 Contact us at support@example.com or sales@test.org for help.</textarea
                   >
                 </div>
 
-                <div class="">
-                  <div class="">
+                <div class="demo-result">
+                  <div class="result-header">
                     <h5>Results:</h5>
-                    <div id="testerMatches" class="">
+                    <div id="testerMatches" class="match-summary">
                       Matches: <strong>2</strong> - ["support@example.com",
                       "sales@test.org"]
                     </div>
-                    <div id="testerHighlight" class="">
+                    <div id="testerHighlight" class="highlight-container">
                       Contact us at
-                      <span class="">support@example.com</span> or
-                      <span class="">sales@test.org</span> for help.
+                      <span class="highlight">support@example.com</span> or
+                      <span class="highlight">sales@test.org</span> for help.
                     </div>
                   </div>
 
-                  <div class="">
-                    <button id="testPatternBtn" class="">Test Pattern</button>
-                    <button id="clearTesterBtn" class="">Clear</button>
+                  <div class="demo-buttons">
+                    <button id="testPatternBtn" class="btn btn-primary">Test Pattern</button>
+                    <button id="clearTesterBtn" class="btn btn-secondary">Clear</button>
                   </div>
                 </div>
               </div>
@@ -1032,15 +1041,15 @@ Contact us at support@example.com or sales@test.org for help.</textarea
         </section>
 
         <!-- Quiz Section -->
-        <section class="">
-          <h2><i class=""></i> Test Your Regex Knowledge</h2>
-          <div class="">
-            <div class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Regex Knowledge</h2>
+          <div class="quiz-container">
+            <div class="quiz-question">
               <h4>
-                <span class="">1</span>
+                <span class="question-number">1</span>
                 What does the regex pattern <code>\d+</code> match?
               </h4>
-              <ul class="">
+              <ul class="quiz-options">
                 <li>
                   <label>
                     <input type="radio" name="q1" value="a" />
@@ -1068,13 +1077,13 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </ul>
             </div>
 
-            <div class="">
+            <div class="quiz-question">
               <h4>
-                <span class="">2</span>
+                <span class="question-number">2</span>
                 Which method returns <code>true</code> or
                 <code>false</code> when testing a regex?
               </h4>
-              <ul class="">
+              <ul class="quiz-options">
                 <li>
                   <label>
                     <input type="radio" name="q2" value="a" />
@@ -1102,12 +1111,12 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </ul>
             </div>
 
-            <div class="">
+            <div class="quiz-question">
               <h4>
-                <span class="">3</span>
+                <span class="question-number">3</span>
                 What does the <code>^</code> symbol represent in regex?
               </h4>
-              <ul class="">
+              <ul class="quiz-options">
                 <li>
                   <label>
                     <input type="radio" name="q3" value="a" />
@@ -1135,12 +1144,12 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </ul>
             </div>
 
-            <div class="">
+            <div class="quiz-question">
               <h4>
-                <span class="">4</span>
+                <span class="question-number">4</span>
                 Which pattern matches a valid email format?
               </h4>
-              <ul class="">
+              <ul class="quiz-options">
                 <li>
                   <label>
                     <input type="radio" name="q4" value="a" />
@@ -1168,13 +1177,13 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </ul>
             </div>
 
-            <div class="">
-              <button class="">Submit Quiz</button>
-              <button class="" style="display: none">Try Again</button>
+            <div class="quiz-buttons">
+              <button class="btn btn-primary">Submit Quiz</button>Btn
+              <button class="btn btn-secondary" style="display: none">Try Again</button>
             </div>
 
-            <div class="" style="display: none">
-              <h3><i class=""></i> Quiz Results</h3>
+            <div class="quiz-results" style="display: none">
+              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
               <p>
                 You scored <span id="score">0</span> out of 4 (<span
                   id="percentage"
@@ -1186,19 +1195,19 @@ Contact us at support@example.com or sales@test.org for help.</textarea
         </section>
 
         <!-- Video Resources Section -->
-        <section class="">
-          <h2><i class=""></i> Video Resources & Tutorials</h2>
-          <div class="">
-            <div class="">
-              <div class="">
-                <i class=""></i>
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-video"></i> Video Resources & Tutorials</h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="card-thumbnail">
+                <i class="fab fa-youtube"></i>
                 <img
                   src="https://img.youtube.com/vi/sa-TUpSx1JA/maxresdefault.jpg"
                   alt="RegEx Tutorial"
                   loading="lazy"
                 />
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Regular Expressions Explained</h4>
                 <p>
                   Comprehensive tutorial covering regex basics, patterns, and
@@ -1207,23 +1216,23 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://www.youtube.com/watch?v=sa-TUpSx1JA"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-thumbnail">
+                <i class="fab fa-youtube"></i>
                 <img
                   src="https://img.youtube.com/vi/rhzKDrUiJVk/maxresdefault.jpg"
                   alt="RegEx Validation"
                   loading="lazy"
                 />
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Form Validation with RegEx</h4>
                 <p>
                   Learn how to validate user input using regular expressions in
@@ -1232,23 +1241,23 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://www.youtube.com/watch?v=rhzKDrUiJVk"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-thumbnail">
+                <i class="fab fa-youtube"></i>
                 <img
                   src="https://img.youtube.com/vi/909NfO1St0A/maxresdefault.jpg"
                   alt="Advanced RegEx"
                   loading="lazy"
                 />
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Advanced RegEx Patterns</h4>
                 <p>
                   Deep dive into complex regex patterns, lookaheads, and
@@ -1257,23 +1266,23 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://www.youtube.com/watch?v=909NfO1St0A"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-thumbnail">
+                <i class="fab fa-youtube"></i>
                 <img
                   src="https://img.youtube.com/vi/7DG3kCDx53c/maxresdefault.jpg"
                   alt="RegEx Practice"
                   loading="lazy"
                 />
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>RegEx Practice Problems</h4>
                 <p>
                   Solve real-world regex challenges and improve your
@@ -1282,9 +1291,9 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://www.youtube.com/watch?v=7DG3kCDx53c"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> Watch on YouTube
+                  <i class="fab fa-youtube"></i> Watch on YouTube
                 </a>
               </div>
             </div>
@@ -1292,45 +1301,45 @@ Contact us at support@example.com or sales@test.org for help.</textarea
         </section>
 
         <!-- Additional Resources Section -->
-        <section class="">
-          <h2><i class=""></i> Additional Learning Resources</h2>
-          <div class="">
-            <div class="">
-              <div class="">
-                <i class=""></i>
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-book-open"></i> Additional Learning Resources</h2>
+          <div class="resource-grid">
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fas fa-external-link-alt"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>RegExr - Online Tool</h4>
                 <p>
                   Interactive regex testing and learning tool with real-time
                   pattern matching.
                 </p>
-                <a href="https://regexr.com/" target="_blank" class="">
-                  <i class=""></i> Try RegExr
+                <a href="https://regexr.com/" target="_blank" class="btn btn-secondary">
+                  <i class="fas fa-external-link-alt"></i> Try RegExr
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fas fa-graduation-cap"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>RegexOne Tutorial</h4>
                 <p>
                   Interactive lessons and exercises to learn regex step by step.
                 </p>
-                <a href="https://regexone.com/" target="_blank" class="">
-                  <i class=""></i> Learn with RegexOne
+                <a href="https://regexone.com/" target="_blank" class="btn btn-secondary">
+                  <i class="fas fa-external-link-alt"></i> Learn with RegexOne
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fab fa-js-square"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>MDN RegExp Guide</h4>
                 <p>
                   Comprehensive documentation for JavaScript regular
@@ -1339,34 +1348,34 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> Read MDN Docs
+                  <i class="fas fa-external-link-alt"></i> Read MDN Docs
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fas fa-puzzle-piece"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Regex Crossword</h4>
                 <p>
                   Fun crossword puzzles to practice and improve your regex
                   skills.
                 </p>
-                <a href="https://regexcrossword.com/" target="_blank" class="">
-                  <i class=""></i> Play Regex Crossword
+                <a href="https://regexcrossword.com/" target="_blank" class="btn btn-secondary">
+                  <i class="fas fa-external-link-alt"></i> Play Regex Crossword
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fas fa-clipboard-list"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Regex Cheat Sheet</h4>
                 <p>
                   Quick reference guide for common regex patterns and syntax.
@@ -1374,25 +1383,25 @@ Contact us at support@example.com or sales@test.org for help.</textarea
                 <a
                   href="https://www.rexegg.com/regex-quickstart.html"
                   target="_blank"
-                  class=""
+                  class="btn btn-secondary"
                 >
-                  <i class=""></i> View Cheat Sheet
+                  <i class="fas fa-external-link-alt"></i> View Cheat Sheet
                 </a>
               </div>
             </div>
 
-            <div class="">
-              <div class="">
-                <i class=""></i>
+            <div class="resource-card">
+              <div class="card-icon">
+                <i class="fas fa-search-plus"></i>
               </div>
-              <div class="">
+              <div class="card-content">
                 <h4>Regex Pal</h4>
                 <p>
                   Online regex tester with highlighting and explanation
                   features.
                 </p>
-                <a href="https://www.regexpal.com/" target="_blank" class="">
-                  <i class=""></i> Use Regex Pal
+                <a href="https://www.regexpal.com/" target="_blank" class="btn btn-secondary">
+                  <i class="fas fa-external-link-alt"></i> Use Regex Pal
                 </a>
               </div>
             </div>
@@ -1400,12 +1409,12 @@ Contact us at support@example.com or sales@test.org for help.</textarea
         </section>
 
         <!-- Next Steps Section -->
-        <section class="">
-          <h2><i class=""></i> Next Steps</h2>
-          <div class="">
-            <div class="">
-              <div class="">1</div>
-              <div class="">
+        <section class="topic-section">
+          <h2 class="section-header"><i class="fas fa-arrow-right"></i> Next Steps</h2>
+          <div class="next-steps">
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
                 <h3>Practice with Real Data</h3>
                 <p>
                   Apply regex patterns to real-world scenarios like form
@@ -1414,9 +1423,9 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </div>
             </div>
 
-            <div class="">
-              <div class="">2</div>
-              <div class="">
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
                 <h3>Learn Advanced Patterns</h3>
                 <p>
                   Explore lookaheads, lookbehinds, and other advanced regex
@@ -1425,15 +1434,15 @@ Contact us at support@example.com or sales@test.org for help.</textarea
               </div>
             </div>
 
-            <div class="">
-              <div class="">3</div>
-              <div class="">
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
                 <h3>Async Programming</h3>
                 <p>
                   Continue with asynchronous JavaScript concepts and modern
                   programming patterns.
                 </p>
-                <a href="async-await.html" class=""
+                <a href="async-await.html" class="btn btn-primary"
                   >Continue to Async/Await →</a
                 >
               </div>
@@ -1444,16 +1453,16 @@ Contact us at support@example.com or sales@test.org for help.</textarea
     </main>
 
     <!-- Footer -->
-    <footer class="">
-      <div class="">
-        <div class="">
-          <h3><i class=""></i> Web Technology Course</h3>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-brand">
+          <h3><i class="fas fa-code"></i> Web Technology Course</h3>
           <p>
             Master modern web development with our comprehensive interactive
             course.
           </p>
         </div>
-        <div class="">
+        <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="../index.html">Home</a></li>
@@ -1463,7 +1472,7 @@ Contact us at support@example.com or sales@test.org for help.</textarea
             <li><a href="es6-features.html">ES6+ Features</a></li>
           </ul>
         </div>
-        <div class="">
+        <div class="footer-resources">
           <h4>Resources</h4>
           <ul>
             <li><a href="https://regexr.com/" target="_blank">RegExr</a></li>
@@ -1480,7 +1489,7 @@ Contact us at support@example.com or sales@test.org for help.</textarea
           </ul>
         </div>
       </div>
-      <div class="">
+      <div class="footer-bottom">
         <p>
           &copy; 2024 Web Technology Interactive Course. All rights reserved.
         </p>

@@ -21,13 +21,13 @@
     <link rel="stylesheet" href="../dist/css/main.css" />
   </head>
   <body>
-      <header class="">
-        <div class="">
-          <h1>
-            <i class=""></i>
+      <header class="topic-header">
+        <div class="container">
+          <h1 class="topic-title">
+            <i class="fas fa-tasks"></i>
             Choosing the Right Framework
           </h1>
-          <p class="">
+          <p class="topic-subtitle">
             Learn how to make informed decisions when selecting a JavaScript
             framework for your projects. Understand the factors to consider,
             decision-making processes, and practical evaluation methods.
@@ -35,91 +35,91 @@
         </div>
       </header>
 
-      <main class="">
-        <div class="">
+      <main class="main-content">
+        <div class="container">
           <!-- Decision Factors Section -->
-          <section class="">
-            <h2><i class=""></i> Key Decision Factors</h2>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-clipboard-list"></i> Key Decision Factors</h2>
 
-            <div class="">
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+            <div class="topic-grid four-column">
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-cogs"></i>
                 </div>
                 <h3>Project Requirements</h3>
-                <div class="">
-                  <div class="">
+                <div class="feature-list">
+                  <div class="feature-item">
                     <strong>Application Size:</strong>
                     <span>Small prototype vs. enterprise application</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Complexity:</strong>
                     <span>Simple UI vs. complex interactions</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Performance Needs:</strong>
                     <span>Speed, bundle size, optimization requirements</span>
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-users"></i>
                 </div>
                 <h3>Team Considerations</h3>
-                <div class="">
-                  <div class="">
+                <div class="feature-list">
+                  <div class="feature-item">
                     <strong>Team Size:</strong>
                     <span>Solo developer vs. large team</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Skill Level:</strong>
                     <span>Junior vs. senior developers</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Learning Curve:</strong>
                     <span>Time available for training</span>
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-calendar-alt"></i>
                 </div>
                 <h3>Timeline & Budget</h3>
-                <div class="">
-                  <div class="">
+                <div class="feature-list">
+                  <div class="feature-item">
                     <strong>Development Time:</strong>
                     <span>Quick prototype vs. long-term project</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Maintenance:</strong>
                     <span>Long-term support and updates</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Training Costs:</strong>
                     <span>Team onboarding and education</span>
                   </div>
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-icon">
+                  <i class="fas fa-hands-helping"></i>
                 </div>
                 <h3>Ecosystem & Support</h3>
-                <div class="">
-                  <div class="">
+                <div class="feature-list">
+                  <div class="feature-item">
                     <strong>Community:</strong>
                     <span>Active development and support</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Libraries:</strong>
                     <span>Available third-party packages</span>
                   </div>
-                  <div class="">
+                  <div class="feature-item">
                     <strong>Documentation:</strong>
                     <span>Quality of guides and tutorials</span>
                   </div>
@@ -129,41 +129,41 @@
           </section>
 
           <!-- Interactive Framework Selector -->
-          <section class="">
-            <h2><i class=""></i> Interactive Framework Selector</h2>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-magic"></i> Interactive Framework Selector</h2>
             <p>
               Answer these questions to get a personalized framework
               recommendation:
             </p>
 
-            <div class="">
+            <div class="interactive-demo">
               <form id="framework-selector-form">
-                <div class="">
-                  <label class="">
-                    <i class=""></i>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-ruler-combined"></i>
                     What's the size of your project?
                   </label>
-                  <div class="">
-                    <label class="">
+                  <div class="radio-card-group">
+                    <label class="radio-card">
                       <input type="radio" name="projectSize" value="small" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-rocket"></i>
                         <h4>Small</h4>
                         <p>Landing pages, portfolios, simple apps</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="projectSize" value="medium" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-building"></i>
                         <h4>Medium</h4>
                         <p>E-commerce, dashboards, SaaS apps</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="projectSize" value="large" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-city"></i>
                         <h4>Large</h4>
                         <p>Enterprise apps, complex platforms</p>
                       </div>
@@ -171,32 +171,32 @@
                   </div>
                 </div>
 
-                <div class="">
-                  <label class="">
-                    <i class=""></i>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-users"></i>
                     How big is your development team?
                   </label>
-                  <div class="">
-                    <label class="">
+                  <div class="radio-card-group">
+                    <label class="radio-card">
                       <input type="radio" name="teamSize" value="solo" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-user"></i>
                         <h4>Solo</h4>
                         <p>Just me</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="teamSize" value="small" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-users"></i>
                         <h4>Small Team</h4>
                         <p>2-5 developers</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="teamSize" value="large" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-sitemap"></i>
                         <h4>Large Team</h4>
                         <p>6+ developers</p>
                       </div>
@@ -204,32 +204,32 @@
                   </div>
                 </div>
 
-                <div class="">
-                  <label class="">
-                    <i class=""></i>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-clock"></i>
                     What's your timeline?
                   </label>
-                  <div class="">
-                    <label class="">
+                  <div class="radio-card-group">
+                    <label class="radio-card">
                       <input type="radio" name="timeline" value="short" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-bolt"></i>
                         <h4>Quick</h4>
                         <p>Need it fast (weeks)</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="timeline" value="medium" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-calendar-alt"></i>
                         <h4>Normal</h4>
                         <p>Standard timeline (months)</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="timeline" value="long" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-hourglass-half"></i>
                         <h4>Long-term</h4>
                         <p>Can take time (6+ months)</p>
                       </div>
@@ -237,32 +237,32 @@
                   </div>
                 </div>
 
-                <div class="">
-                  <label class="">
-                    <i class=""></i>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-puzzle-piece"></i>
                     What's the complexity level?
                   </label>
-                  <div class="">
-                    <label class="">
+                  <div class="radio-card-group">
+                    <label class="radio-card">
                       <input type="radio" name="complexity" value="low" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-lightbulb"></i>
                         <h4>Simple</h4>
                         <p>Basic CRUD, simple UI</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="complexity" value="medium" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-cogs"></i>
                         <h4>Moderate</h4>
                         <p>Real-time features, APIs</p>
                       </div>
                     </label>
-                    <label class="">
+                    <label class="radio-card">
                       <input type="radio" name="complexity" value="high" />
-                      <div class="">
-                        <i class=""></i>
+                      <div class="card-content">
+                        <i class="fas fa-brain"></i>
                         <h4>Complex</h4>
                         <p>Advanced state, microservices</p>
                       </div>
@@ -270,61 +270,61 @@
                   </div>
                 </div>
 
-                <div class="">
+                <div class="button-group">
                   <button
                     type="button"
-                    class=""
+                    class="btn btn-primary"
                     onclick="getRecommendation()"
                   >
-                    <i class=""></i>
+                    <i class="fas fa-check"></i>
                     Get Recommendation
                   </button>
-                  <button type="reset" class="">
-                    <i class=""></i>
+                  <button type="reset" class="btn btn-secondary">
+                    <i class="fas fa-undo"></i>
                     Reset
                   </button>
                 </div>
               </form>
 
-              <div id="recommendation-result" class="">
+              <div id="recommendation-result" class="result-box">
                 <!-- Results will be populated by JavaScript -->
               </div>
             </div>
           </section>
 
           <!-- Decision Matrix -->
-          <section class="">
-            <h2><i class=""></i> Framework Comparison Matrix</h2>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-table"></i> Framework Comparison Matrix</h2>
             <p>
               Compare frameworks across different criteria to make informed
               decisions:
             </p>
 
-            <div class="">
-              <div class="">
+            <div class="interactive-demo">
+              <div class="button-group">
                 <button
-                  class=""
+                  class="btn btn-primary active"
                   data-criteria="all"
                   onclick="showCriteria('all')"
                 >
                   All Criteria
                 </button>
                 <button
-                  class=""
+                  class="btn btn-secondary"
                   data-criteria="technical"
                   onclick="showCriteria('technical')"
                 >
                   Technical
                 </button>
                 <button
-                  class=""
+                  class="btn btn-secondary"
                   data-criteria="business"
                   onclick="showCriteria('business')"
                 >
                   Business
                 </button>
                 <button
-                  class=""
+                  class="btn btn-secondary"
                   data-criteria="team"
                   onclick="showCriteria('team')"
                 >
@@ -332,174 +332,174 @@
                 </button>
               </div>
 
-              <div class="">
-                <table class="">
+              <div class="table-container">
+                <table class="comparison-table">
                   <thead>
                     <tr>
                       <th>Criteria</th>
-                      <th class="">
-                        <div class="">
-                          <i class=""></i>
+                      <th class="react-col">
+                        <div class="framework-header">
+                          <i class="fab fa-react"></i>
                           React
                         </div>
                       </th>
-                      <th class="">
-                        <div class="">
-                          <i class=""></i>
+                      <th class="angular-col">
+                        <div class="framework-header">
+                          <i class="fab fa-angular"></i>
                           Angular
                         </div>
                       </th>
-                      <th class="">
-                        <div class="">
-                          <i class=""></i>
+                      <th class="vue-col">
+                        <div class="framework-header">
+                          <i class="fab fa-vuejs"></i>
                           Vue.js
                         </div>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="">
-                      <td class="">Learning Curve</td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="6"></div>
+                    <tr class="team-criteria">
+                      <td class="criteria-label">Learning Curve</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="6"></div>
                         </div>
-                        <span class="">Moderate</span>
+                        <span class="score-text">Moderate</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="9"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="9"></div>
                         </div>
-                        <span class="">Steep</span>
+                        <span class="score-text">Steep</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="3"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="3"></div>
                         </div>
-                        <span class="">Easy</span>
+                        <span class="score-text">Easy</span>
                       </td>
                     </tr>
-                    <tr class="">
-                      <td class="">Performance</td>
-                      <td class="">
-                        <div class="">
+                    <tr class="technical-criteria">
+                      <td class="criteria-label">Performance</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="9"
                           ></div>
                         </div>
-                        <span class="">Excellent</span>
+                        <span class="score-text">Excellent</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="7"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="7"></div>
                         </div>
-                        <span class="">Good</span>
+                        <span class="score-text">Good</span>
                       </td>
-                      <td class="">
-                        <div class="">
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="9"
                           ></div>
                         </div>
-                        <span class="">Excellent</span>
+                        <span class="score-text">Excellent</span>
                       </td>
                     </tr>
-                    <tr class="">
-                      <td class="">Job Market</td>
-                      <td class="">
-                        <div class="">
+                    <tr class="business-criteria">
+                      <td class="criteria-label">Job Market</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="10"
                           ></div>
                         </div>
-                        <span class="">Highest</span>
+                        <span class="score-text">Highest</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="7"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="7"></div>
                         </div>
-                        <span class="">High</span>
+                        <span class="score-text">High</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="5"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="5"></div>
                         </div>
-                        <span class="">Growing</span>
+                        <span class="score-text">Growing</span>
                       </td>
                     </tr>
-                    <tr class="">
-                      <td class="">Ecosystem Size</td>
-                      <td class="">
-                        <div class="">
+                    <tr class="technical-criteria">
+                      <td class="criteria-label">Ecosystem Size</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="10"
                           ></div>
                         </div>
-                        <span class="">Huge</span>
+                        <span class="score-text">Huge</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="8"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="8"></div>
                         </div>
-                        <span class="">Complete</span>
+                        <span class="score-text">Complete</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="6"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="6"></div>
                         </div>
-                        <span class="">Growing</span>
+                        <span class="score-text">Growing</span>
                       </td>
                     </tr>
-                    <tr class="">
-                      <td class="">Team Collaboration</td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="7"></div>
+                    <tr class="team-criteria">
+                      <td class="criteria-label">Team Collaboration</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="7"></div>
                         </div>
-                        <span class="">Flexible</span>
+                        <span class="score-text">Flexible</span>
                       </td>
-                      <td class="">
-                        <div class="">
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="9"
                           ></div>
                         </div>
-                        <span class="">Structured</span>
+                        <span class="score-text">Structured</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="8"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="8"></div>
                         </div>
-                        <span class="">Organized</span>
+                        <span class="score-text">Organized</span>
                       </td>
                     </tr>
-                    <tr class="">
-                      <td class="">Bundle Size</td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="7"></div>
+                    <tr class="technical-criteria">
+                      <td class="criteria-label">Bundle Size</td>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="7"></div>
                         </div>
-                        <span class="">Medium</span>
+                        <span class="score-text">Medium</span>
                       </td>
-                      <td class="">
-                        <div class="">
-                          <div class="" data-score="4"></div>
+                      <td class="score-cell">
+                        <div class="score-bar">
+                          <div class="score-fill" data-score="4"></div>
                         </div>
-                        <span class="">Large</span>
+                        <span class="score-text">Large</span>
                       </td>
-                      <td class="">
-                        <div class="">
+                      <td class="score-cell">
+                        <div class="score-bar">
                           <div
-                            class=""
+                            class="score-fill"
                             data-score="9"
                           ></div>
                         </div>
-                        <span class="">Small</span>
+                        <span class="score-text">Small</span>
                       </td>
                     </tr>
                   </tbody>
@@ -509,21 +509,21 @@
           </section>
 
           <!-- Real-World Scenarios -->
-          <section class="">
-            <h2><i class=""></i> Real-World Scenarios</h2>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-briefcase"></i> Real-World Scenarios</h2>
             <p>
               Learn from common project scenarios and their recommended
               solutions:
             </p>
 
-            <div class="">
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+            <div class="topic-grid two-column">
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fas fa-shopping-cart"></i>
                   <h3>E-commerce Platform</h3>
                 </div>
-                <div class="">
-                  <div class="">
+                <div class="card-body">
+                  <div class="requirements">
                     <h4>Requirements:</h4>
                     <ul>
                       <li>Fast loading product pages</li>
@@ -532,7 +532,7 @@
                       <li>SEO optimization</li>
                     </ul>
                   </div>
-                  <div class="">
+                  <div class="recommendation">
                     <h4>Recommended: React with Next.js</h4>
                     <p>
                       <strong>Why:</strong> Server-side rendering for SEO, huge
@@ -543,13 +543,13 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fas fa-chart-bar"></i>
                   <h3>Enterprise Dashboard</h3>
                 </div>
-                <div class="">
-                  <div class="">
+                <div class="card-body">
+                  <div class="requirements">
                     <h4>Requirements:</h4>
                     <ul>
                       <li>Complex data visualization</li>
@@ -558,7 +558,7 @@
                       <li>Long-term maintenance</li>
                     </ul>
                   </div>
-                  <div class="">
+                  <div class="recommendation">
                     <h4>Recommended: Angular</h4>
                     <p>
                       <strong>Why:</strong> Built-in TypeScript support,
@@ -569,13 +569,13 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fas fa-rocket"></i>
                   <h3>Startup MVP</h3>
                 </div>
-                <div class="">
-                  <div class="">
+                <div class="card-body">
+                  <div class="requirements">
                     <h4>Requirements:</h4>
                     <ul>
                       <li>Rapid prototyping</li>
@@ -584,7 +584,7 @@
                       <li>Minimal complexity</li>
                     </ul>
                   </div>
-                  <div class="">
+                  <div class="recommendation">
                     <h4>Recommended: Vue.js</h4>
                     <p>
                       <strong>Why:</strong> Easy to learn and implement, great
@@ -595,13 +595,13 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">
-                  <i class=""></i>
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fas fa-mobile-alt"></i>
                   <h3>Cross-Platform Mobile App</h3>
                 </div>
-                <div class="">
-                  <div class="">
+                <div class="card-body">
+                  <div class="requirements">
                     <h4>Requirements:</h4>
                     <ul>
                       <li>iOS and Android support</li>
@@ -610,7 +610,7 @@
                       <li>Push notifications</li>
                     </ul>
                   </div>
-                  <div class="">
+                  <div class="recommendation">
                     <h4>Recommended: React with React Native</h4>
                     <p>
                       <strong>Why:</strong> Shared codebase between web and
@@ -624,24 +624,24 @@
           </section>
 
           <!-- Evaluation Checklist -->
-          <section class="">
-            <h2><i class=""></i> Framework Evaluation Checklist</h2>
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-check-double"></i> Framework Evaluation Checklist</h2>
             <p>
               Use this comprehensive checklist when evaluating frameworks for
               your project:
             </p>
 
-            <div class="">
-              <div class="">
+            <div class="topic-grid three-column">
+              <div class="topic-card">
                 <h3>
-                  <i class=""></i>
+                  <i class="fas fa-cogs"></i>
                   Technical Considerations
                 </h3>
-                <div class="">
-                  <label class="">
+                <div class="checklist">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Performance Requirements</strong>
                       <p>
                         Does the framework meet your speed and optimization
@@ -649,28 +649,28 @@
                       </p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Bundle Size</strong>
                       <p>
                         Is the framework's size acceptable for your use case?
                       </p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Browser Compatibility</strong>
                       <p>Does it support your target browsers?</p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Mobile Responsiveness</strong>
                       <p>How well does it handle mobile devices?</p>
                     </div>
@@ -678,44 +678,44 @@
                 </div>
               </div>
 
-              <div class="">
+              <div class="topic-card">
                 <h3>
-                  <i class=""></i>
+                  <i class="fas fa-users-cog"></i>
                   Team & Development
                 </h3>
-                <div class="">
-                  <label class="">
+                <div class="checklist">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Learning Curve</strong>
                       <p>
                         Can your team learn it within the available timeframe?
                       </p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Development Tools</strong>
                       <p>
                         Are there good development tools and debugging support?
                       </p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Testing Support</strong>
                       <p>Does it have good testing frameworks and tools?</p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Code Architecture</strong>
                       <p>Does it support your preferred code organization?</p>
                     </div>
@@ -723,42 +723,42 @@
                 </div>
               </div>
 
-              <div class="">
+              <div class="topic-card">
                 <h3>
-                  <i class=""></i>
+                  <i class="fas fa-briefcase"></i>
                   Business Factors
                 </h3>
-                <div class="">
-                  <label class="">
+                <div class="checklist">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Long-term Viability</strong>
                       <p>Will the framework be maintained in the future?</p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Talent Availability</strong>
                       <p>
                         Can you hire developers with this framework experience?
                       </p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Cost Considerations</strong>
                       <p>What are the training and development costs?</p>
                     </div>
                   </label>
-                  <label class="">
+                  <label class="checklist-item">
                     <input type="checkbox" />
-                    <span class=""></span>
-                    <div class="">
+                    <span class="checkmark"></span>
+                    <div class="checklist-text">
                       <strong>Scalability</strong>
                       <p>Can it grow with your business needs?</p>
                     </div>
@@ -767,31 +767,31 @@
               </div>
             </div>
 
-            <div class="">
-              <button class="" onclick="generateChecklistSummary()">
-                <i class=""></i>
+            <div class="button-group">
+              <button class="btn btn-primary" onclick="generateChecklistSummary()">
+                <i class="fas fa-file-alt"></i>
                 Generate Summary
               </button>
-              <div id="checklist-results" class=""></div>
+              <div id="checklist-results" class="result-box"></div>
             </div>
           </section>
 
           <!-- Best Practices -->
-          <section class="">
-            <h2>
-              <i class=""></i> Best Practices for Framework Selection
+          <section class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-clipboard-check"></i> Best Practices for Framework Selection
             </h2>
 
-            <div class="">
-              <div class="">
-                <div class="">1</div>
+            <div class="step-guide">
+              <div class="step-item">
+                <div class="step-number">1</div>
                 <h3>Start with Requirements</h3>
                 <p>
                   Clearly define your project requirements before evaluating
                   frameworks. Consider performance, features, timeline, and team
                   capabilities.
                 </p>
-                <div class="">
+                <div class="info-box">
                   <h4>Key Questions:</h4>
                   <ul>
                     <li>What type of application are you building?</li>
@@ -801,15 +801,15 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">2</div>
+              <div class="step-item">
+                <div class="step-number">2</div>
                 <h3>Prototype and Test</h3>
                 <p>
                   Build small prototypes with different frameworks to evaluate
                   developer experience, performance, and suitability for your
                   use case.
                 </p>
-                <div class="">
+                <div class="info-box">
                   <h4>Prototype Areas:</h4>
                   <ul>
                     <li>Key features and interactions</li>
@@ -819,15 +819,15 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">3</div>
+              <div class="step-item">
+                <div class="step-number">3</div>
                 <h3>Consider the Ecosystem</h3>
                 <p>
                   Evaluate the available libraries, tools, and community
                   support. A strong ecosystem can significantly accelerate
                   development.
                 </p>
-                <div class="">
+                <div class="info-box">
                   <h4>Ecosystem Factors:</h4>
                   <ul>
                     <li>Third-party library availability</li>
@@ -837,14 +837,14 @@
                 </div>
               </div>
 
-              <div class="">
-                <div class="">4</div>
+              <div class="step-item">
+                <div class="step-number">4</div>
                 <h3>Think Long-term</h3>
                 <p>
                   Consider maintenance, updates, and future requirements. Choose
                   frameworks with active development and long-term support.
                 </p>
-                <div class="">
+                <div class="info-box">
                   <h4>Long-term Considerations:</h4>
                   <ul>
                     <li>Framework maintenance and updates</li>
@@ -857,22 +857,22 @@
           </section>
 
           <!-- Interactive Quiz -->
-          <section class="">
-            <h2><i class=""></i> Knowledge Check</h2>
-            <div id="selection-quiz" class="">
+          <section class="content-section">
+            <h2 class="section-header"><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+            <div id="selection-quiz" class="quiz-container">
               <!-- Quiz will be populated by JavaScript -->
             </div>
-            <div class="">
-              <button class="" onclick="submitSelectionQuiz()">
-                <i class=""></i>
+            <div class="button-group">
+              <button class="btn btn-primary" onclick="submitSelectionQuiz()">
+                <i class="fas fa-check"></i>
                 Submit Quiz
               </button>
-              <button class="" onclick="resetSelectionQuiz()">
-                <i class=""></i>
+              <button class="btn btn-secondary" onclick="resetSelectionQuiz()">
+                <i class="fas fa-undo"></i>
                 Reset
               </button>
             </div>
-            <div id="selection-quiz-results" class=""></div>
+            <div id="selection-quiz-results" class="result-box"></div>
           </section>
         </div>
       </main>
@@ -884,4 +884,3 @@
     <script src="../dist/js/topic.js"></script>
   </body>
 </html>
-
