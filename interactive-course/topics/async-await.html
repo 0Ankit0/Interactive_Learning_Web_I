@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async/Await - Interactive Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="">
+      <div class="">
+        <div class="">
+          <i class=""></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="">
+          <a href="../index.html" class=""> <i class=""></i> Home </a>
+          <a href="../units/unit5.html" class=""> <i class=""></i> Unit 5 </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="">
+      <div class="">
+        <span class="">
+          <a href="../index.html"><i class=""></i> Home</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">Async/Await</span>
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="">
+      <div class="">
+        <div class="">
+          <h1><i class=""></i> Async/Await</h1>
+          <p class="">
+            Simplify asynchronous programming in JavaScript with async/await.
+            Learn to write clean, readable code for handling promises and
+            asynchronous operations.
+          </p>
+          <div class="">
+            <span class=""><i class=""></i> Asynchronous</span>
+            <span class=""><i class=""></i> Readable Code</span>
+            <span class=""><i class=""></i> Modern JS</span>
+            <span class=""><i class=""></i> Promise Handling</span>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">Live Async/Await Demo</div>
+              <div class="" id="liveAsyncDemo"></div>
+              <div class="">Fetch Data Example</div>
+            </div>
+            <div class="">
+              <h3>Why Use Async/Await?</h3>
+              <div class="">
+                <div class="">Cleaner syntax for async code</div>
+                <div class="">Easier error handling</div>
+                <div class="">Avoids callback hell</div>
+                <div class="">Works seamlessly with Promises</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <main class="">
+      <div class="">
+        <!-- Introduction -->
+        <section class="">
+          <h2><i class=""></i> What is Async/Await?</h2>
+          <div class="">
+            <p class="">
+              Async/await is a modern JavaScript feature for writing
+              asynchronous code that looks and behaves like synchronous code. It
+              is built on top of Promises and makes it easier to work with
+              asynchronous operations such as API calls, timers, and file I/O.
+            </p>
+            <div class="">
+              <div class="">
+                <div class=""><i class=""></i></div>
+                <h4>Async Functions</h4>
+                <p>Declare functions as async to use await inside them.</p>
+                <div class="">
+                  <pre><code class="">async function fetchData() {
+  const response = await fetch('https://api.example.com/data');
+  const data = await response.json();
+  return data;
+}</code></pre>
+                </div>
+              </div>
+              <div class="">
+                <div class=""><i class=""></i></div>
+                <h4>Await Keyword</h4>
+                <p>
+                  Pause execution until a Promise resolves, making code easier
+                  to read.
+                </p>
+                <div class="">
+                  <pre><code class="">const result = await someAsyncOperation();
+console.log(result);</code></pre>
+                </div>
+              </div>
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Error Handling</h4>
+                <p>
+                  Use try/catch blocks for robust error handling in async code.
+                </p>
+                <div class="">
+                  <pre><code class="">try {
+  await doSomethingAsync();
+} catch (error) {
+  console.error(error);
+}</code></pre>
+                </div>
+              </div>
+              <div class="">
+                <div class=""><i class=""></i></div>
+                <h4>Promise Integration</h4>
+                <p>
+                  Async/await works seamlessly with existing Promise-based APIs.
+                </p>
+                <div class="">
+                  <pre><code class="">async function getUser() {
+  return await fetchUserFromAPI();
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Interactive Demo -->
+        <section class="">
+          <h2><i class=""></i> Interactive Async/Await Demo</h2>
+          <div class="">
+            <div class="">
+              <label for="apiUrl">API URL:</label>
+              <input
+                type="text"
+                id="apiUrl"
+                value="https://jsonplaceholder.typicode.com/todos/1"
+              />
+              <button id="fetchBtn" class="">Fetch Data</button>
+              <div id="apiResult" class=""></div>
+            </div>
+          </div>
+        </section>
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your Async/Await Knowledge</h2>
+          <div class="">
+            <div class="">
+              <h4>
+                <span class="">1</span> What does the <code>async</code> keyword
+                do?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="a" />
+                    <span>Makes a function asynchronous</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="b" />
+                    <span>Declares a variable</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="c" />
+                    <span>Pauses code execution</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="d" />
+                    <span>Returns a callback</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <h4>
+                <span class="">2</span> Which statement is true about
+                <code>await</code>?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="a" />
+                    <span>Can be used outside async functions</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="b" />
+                    <span>Waits for a Promise to resolve</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="c" />
+                    <span>Declares a new Promise</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="d" />
+                    <span>Throws an error</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <h4>
+                <span class="">3</span> How do you handle errors in async/await
+                code?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="a" />
+                    <span>Using try/catch blocks</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="b" />
+                    <span>Using .catch() only</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="c" />
+                    <span>Ignoring errors</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="d" />
+                    <span>Using setTimeout</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <h4>
+                <span class="">4</span> What does
+                <code>await fetch(url)</code> do?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="a" />
+                    <span>Fetches data synchronously</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="b" />
+                    <span>Waits for the fetch Promise to resolve</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="c" />
+                    <span>Throws an error immediately</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="d" />
+                    <span>Returns undefined</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <button class="">Submit Quiz</button>
+              <button class="" style="display: none">Try Again</button>
+            </div>
+            <div class="" style="display: none">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Video Resources Section -->
+        <section class="">
+          <h2><i class=""></i> Video Resources & Tutorials</h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/V_Kr9OSfDeU/maxresdefault.jpg"
+                  alt="Async Await Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Async/Await Explained</h4>
+                <p>
+                  Comprehensive tutorial covering async/await basics, patterns,
+                  and JavaScript implementation.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=V_Kr9OSfDeU"
+                  target="_blank"
+                  class=""
+                  ><i class=""></i> Watch on YouTube</a
+                >
+              </div>
+            </div>
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/PoRJizFvM7s/maxresdefault.jpg"
+                  alt="Async Await Deep Dive"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Async/Await Deep Dive</h4>
+                <p>
+                  Advanced concepts, error handling, and performance
+                  optimization with async/await.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=PoRJizFvM7s"
+                  target="_blank"
+                  class=""
+                  ><i class=""></i> Watch on YouTube</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Additional Resources Section -->
+        <section class="">
+          <h2><i class=""></i> Additional Learning Resources</h2>
+          <div class="">
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>MDN Async/Await Guide</h4>
+                <p>Comprehensive documentation for JavaScript async/await.</p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+                  target="_blank"
+                  class=""
+                  ><i class=""></i> Read MDN Docs</a
+                >
+              </div>
+            </div>
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>Async/Await Cheat Sheet</h4>
+                <p>
+                  Quick reference guide for async/await patterns and syntax.
+                </p>
+                <a
+                  href="https://dev.to/lydiahallie/javascript-visualized-async-await-5gke"
+                  target="_blank"
+                  class=""
+                  ><i class=""></i> View Cheat Sheet</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Next Steps Section -->
+        <section class="">
+          <h2><i class=""></i> Next Steps</h2>
+          <div class="">
+            <div class="">
+              <div class="">1</div>
+              <div class="">
+                <h3>Practice with Real APIs</h3>
+                <p>
+                  Apply async/await to fetch data from real-world APIs and
+                  handle responses.
+                </p>
+              </div>
+            </div>
+            <div class="">
+              <div class="">2</div>
+              <div class="">
+                <h3>Learn Error Handling</h3>
+                <p>
+                  Explore robust error handling strategies for asynchronous
+                  code.
+                </p>
+              </div>
+            </div>
+            <div class="">
+              <div class="">3</div>
+              <div class="">
+                <h3>Continue to Error Handling</h3>
+                <p>Advance to the next topic: Error Handling in JavaScript.</p>
+                <a href="error-handling.html" class=""
+                  >Continue to Error Handling →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="">
+      <div class="">
+        <div class="">
+          <h3><i class=""></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="es6-features.html">ES6+ Features</a></li>
+            <li><a href="regular-expressions.html">Regular Expressions</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+                target="_blank"
+                >MDN Async/Await</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://dev.to/lydiahallie/javascript-visualized-async-await-5gke"
+                target="_blank"
+                >Async/Await Cheat Sheet</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

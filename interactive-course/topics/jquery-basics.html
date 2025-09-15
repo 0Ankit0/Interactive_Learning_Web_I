@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Basics and Integration - Interactive Course</title>
+
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+
+    <!-- jQuery CDN for demos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="">
+      <div class="">
+        <div class="">
+          <i class=""></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="">
+          <a href="../index.html" class="">
+            <i class=""></i> Home
+          </a>
+          <a href="../units/unit6.html" class="">
+            <i class=""></i> Unit 6
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="">
+      <div class="">
+        <span class="">
+          <a href="../index.html"><i class=""></i> Home</a>
+        </span>
+        <span class=""
+          ><i class=""></i
+        ></span>
+        <span class="">
+          <a href="../units/unit6.html">Unit 6: JS Frameworks & Libraries</a>
+        </span>
+        <span class=""
+          ><i class=""></i
+        ></span>
+        <span class="">jQuery Basics</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="">
+      <div class="">
+        <div class="">
+          <h1>
+            <i class=""></i>
+            jQuery Basics & Integration
+          </h1>
+          <p class="">
+            Master jQuery, the powerful JavaScript library that simplifies DOM
+            manipulation, event handling, and AJAX requests. Learn to "write
+            less, do more" with jQuery's elegant syntax.
+          </p>
+          <div class="">
+            <span class=""
+              ><i class=""></i> Write Less, Do More</span
+            >
+            <span class=""
+              ><i class=""></i> Simple Syntax</span
+            >
+            <span class=""
+              ><i class=""></i> Fast DOM</span
+            >
+            <span class=""
+              ><i class=""></i> Easy AJAX</span
+            >
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">
+                <h3><i class=""></i> Vanilla JavaScript</h3>
+                <div class="">
+                  <pre><code>document.addEventListener('DOMContentLoaded', function() {
+    var elements = document.querySelectorAll('.btn');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', function() {
+            this.style.backgroundColor = 'blue';
+        });
+    }
+});</code></pre>
+                </div>
+                <div class="">8 lines of code</div>
+              </div>
+
+              <div class="">
+                <span>VS</span>
+              </div>
+
+              <div class="">
+                <h3><i class=""></i> jQuery</h3>
+                <div class="">
+                  <pre><code>$(document).ready(function() {
+    $('.btn').click(function() {
+        $(this).css('background-color', 'blue');
+    });
+});</code></pre>
+                </div>
+                <div class="">4 lines of code</div>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <div class="">85%</div>
+                <div class="">Less Code</div>
+              </div>
+              <div class="">
+                <div class="">3M+</div>
+                <div class="">Websites</div>
+              </div>
+              <div class="">
+                <div class="">15+</div>
+                <div class="">Years Old</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="">
+      <div class="">
+        <!-- Introduction -->
+        <section class="">
+          <h2><i class=""></i> What is jQuery?</h2>
+          <div class="">
+            <p class="">
+              jQuery is a fast, lightweight, and feature-rich JavaScript
+              library. It makes things like HTML document traversal and
+              manipulation, event handling, animation, and Ajax much simpler
+              with an easy-to-use API that works across different browsers.
+            </p>
+
+            <div>
+              <h3><i class=""></i> Why Use jQuery?</h3>
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Simplified Syntax</h4>
+                  <p>
+                    jQuery's syntax is designed to make it easier to navigate
+                    documents, select DOM elements, and create animations.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Cross-Browser Compatibility</h4>
+                  <p>
+                    jQuery handles browser inconsistencies, providing a unified
+                    API that works across different browsers.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Powerful Selectors</h4>
+                  <p>
+                    Use CSS-like selectors to find and manipulate HTML elements
+                    with precision and ease.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Animation & Effects</h4>
+                  <p>
+                    Built-in animation methods make it easy to create smooth
+                    transitions and visual effects.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>AJAX Support</h4>
+                  <p>
+                    Simplified AJAX methods for making asynchronous HTTP
+                    requests and updating content dynamically.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Extensible</h4>
+                  <p>
+                    Thousands of plugins available to extend jQuery's
+                    functionality for specific needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section class="">
+          <h2><i class=""></i> Getting Started with jQuery</h2>
+          <div class="">
+            <p>
+              There are several ways to include jQuery in your project. You can
+              download it, use a CDN, or install it via a package manager.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <button class="" data-tab="cdn">CDN</button>
+                  <button class="" data-tab="download">Download</button>
+                  <button class="" data-tab="npm">npm/yarn</button>
+                </div>
+
+              <div class="">
+                <div class="" id="cdn-panel">
+                  <h4>
+                    <i class=""></i> CDN Installation (Recommended)
+                  </h4>
+                  <div class="">
+                    <pre><code class="">&lt;!-- jQuery 3.7.1 (Latest) --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Alternative CDNs --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt;</code></pre>
+                  </div>
+                  <div class="">
+                    <h5>Benefits:</h5>
+                    <ul>
+                      <li>No need to download files</li>
+                      <li>Faster loading due to CDN caching</li>
+                      <li>Always up-to-date</li>
+                      <li>Reduced server bandwidth</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="" id="download-panel">
+                  <h4>
+                    <i class=""></i> Download and Host Locally
+                  </h4>
+                  <div class="">
+                    <div class="">
+                      <h5>Production Version (Minified)</h5>
+                      <p>Compressed version for production use</p>
+                      <a
+                        href="https://code.jquery.com/jquery-3.7.1.min.js"
+                        class=""
+                        download
+                      >
+                        <i class=""></i> jquery-3.7.1.min.js
+                      </a>
+                    </div>
+                    <div class="">
+                      <h5>Development Version</h5>
+                      <p>Uncompressed version for development and debugging</p>
+                      <a
+                        href="https://code.jquery.com/jquery-3.7.1.js"
+                        class=""
+                        download
+                      >
+                        <i class=""></i> jquery-3.7.1.js
+                      </a>
+                    </div>
+                  </div>
+                  <div class="">
+                    <pre><code class="">&lt;!-- Include downloaded jQuery --&gt;
+&lt;script src="dist/js/jquery-3.7.1.min.js"&gt;&lt;/script&gt;</code></pre>
+                  </div>
+                </div>
+
+                <div class="" id="npm-panel">
+                  <h4>
+                    <i class=""></i> Package Manager Installation
+                  </h4>
+                  <div class="">
+                    <pre><code class=""># Using npm
+npm install jquery
+
+# Using yarn
+yarn add jquery
+
+# Using bower (legacy)
+bower install jquery</code></pre>
+                  </div>
+                  <div class="">
+                    <pre><code class="">// ES6 Module Import
+import $ from 'jquery';
+
+// CommonJS Require
+const $ = require('jquery');
+
+// Global Assignment
+window.jQuery = window.$ = require('jquery');</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- jQuery Fundamentals -->
+        <section class="">
+          <h2><i class=""></i> jQuery Fundamentals</h2>
+          <div class="">
+            <h3><i class=""></i> The jQuery Function</h3>
+            <p>
+              The heart of jQuery is the jQuery function, commonly aliased as
+              <code>$</code>. This function is used to select elements, create
+              elements, and execute functions.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Basic jQuery Syntax</h4>
+              <pre><code class="">// Basic syntax: $(selector).action()
+
+// Select by ID
+$('#myId')
+
+// Select by class
+$('.myClass')
+
+// Select by element
+$('p')
+
+// Select multiple elements
+$('h1, h2, h3')
+
+// Complex selectors
+$('div.container p:first-child')</code></pre>
+            </div>
+
+            <h3><i class=""></i> Document Ready</h3>
+            <p>
+              Always wrap your jQuery code in a document ready function to
+              ensure the DOM is fully loaded before executing your scripts.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Document Ready Examples</h4>
+              <pre><code class="">// Full syntax
+$(document).ready(function() {
+    // Your jQuery code here
+});
+
+// Short syntax
+$(function() {
+    // Your jQuery code here
+});
+
+// ES6 Arrow function
+$(() => {
+    // Your jQuery code here
+});</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Interactive Selector Demo</h4>
+              <div class="">
+                <div class="">
+                  <input
+                    type="text"
+                    id="selectorInput"
+                    placeholder="Enter jQuery selector (e.g., .demo-item)"
+                    value=".demo-item"
+                  />
+                  <button id="testSelector" class="">
+                    Test Selector
+                  </button>
+                  <button id="resetDemo" class="">
+                    Reset
+                  </button>
+                </div>
+
+                <div class="">
+                  <div class="" id="item1">Item 1 (ID: item1)</div>
+                  <div class="">Item 2 (.highlight)</div>
+                  <p class="">Paragraph Item 3</p>
+                  <div class="">Item 4 (.special)</div>
+                  <span class="">Span Item 5</span>
+                </div>
+
+                <div class="">
+                  <strong>Result:</strong>
+                  <span id="selectorResult"
+                    >Enter a selector to see results</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DOM Manipulation -->
+        <section class="">
+          <h2><i class=""></i> DOM Manipulation</h2>
+          <div class="">
+            <p>
+              jQuery makes DOM manipulation simple and intuitive. You can easily
+              modify content, attributes, and styles of HTML elements.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <button class="" data-tab="content">
+                    Content
+                  </button>
+                  <button class="" data-tab="attributes">
+                    Attributes
+                  </button>
+                  <button class="" data-tab="css">CSS & Classes</button>
+                  <button class="" data-tab="elements">
+                    Add/Remove Elements
+                  </button>
+                </div>
+
+              <div class="">
+                <!-- Content Tab -->
+                <div class="" id="content-panel">
+                  <h4><i class=""></i> Working with Content</h4>
+                  <div class="">
+                    <pre><code class="">// Get and set text content
+$('#myElement').text();                    // Get text
+$('#myElement').text('New text');          // Set text
+
+// Get and set HTML content
+$('#myElement').html();                    // Get HTML
+$('#myElement').html('&lt;b&gt;Bold text&lt;/b&gt;');    // Set HTML
+
+// Get and set form values
+$('#myInput').val();                       // Get value
+$('#myInput').val('New value');            // Set value
+
+// Append and prepend content
+$('#myElement').append('&lt;p&gt;Added at end&lt;/p&gt;');
+$('#myElement').prepend('&lt;p&gt;Added at beginning&lt;/p&gt;');</code></pre>
+                  </div>
+
+                  <div class="">
+                    <h5>Live Demo:</h5>
+                    <div class="">
+                      <div id="contentDemo">Original Content</div>
+                      <input
+                        type="text"
+                        id="newContent"
+                        placeholder="Enter new content"
+                      />
+                      <div class="">
+                        <button
+                          onclick="$('#contentDemo').text($('#newContent').val())"
+                          class=""
+                        >
+                          Set Text
+                        </button>
+                        <button
+                          onclick="$('#contentDemo').html('<strong>' + $('#newContent').val() + '</strong>')"
+                          class=""
+                        >
+                          Set HTML
+                        </button>
+                        <button
+                          onclick="$('#contentDemo').append('<br><em>Appended: ' + $('#newContent').val() + '</em>')"
+                          class=""
+                        >
+                          Append
+                        </button>
+                        <button
+                          onclick="$('#contentDemo').text('Original Content')"
+                          class=""
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Attributes Tab -->
+                <div class="" id="attributes-panel">
+                  <h4><i class=""></i> Working with Attributes</h4>
+                  <div class="">
+                    <pre><code class="">// Get and set attributes
+$('#myImage').attr('src');                     // Get src attribute
+$('#myImage').attr('src', 'new-image.jpg');    // Set src attribute
+$('#myLink').attr({                            // Set multiple attributes
+    'href': 'https://example.com',
+    'target': '_blank',
+    'title': 'External link'
+});
+
+// Remove attributes
+$('#myElement').removeAttr('disabled');
+
+// Data attributes
+$('#myElement').data('key', 'value');          // Set data
+$('#myElement').data('key');                   // Get data
+
+// Property methods (for form elements)
+$('#myCheckbox').prop('checked', true);        // Set checked
+$('#myCheckbox').prop('checked');              // Get checked state</code></pre>
+                  </div>
+
+                  <div class="">
+                    <h5>Live Demo:</h5>
+                    <div class="">
+                      <img
+                        id="attrDemo"
+                        src="https://picsum.photos/100/100?random=1"
+                        alt="Demo Image"
+                        title="Original Title"
+                      />
+                      <input
+                        type="url"
+                        id="newSrc"
+                        placeholder="Enter new image URL"
+                      />
+                      <input
+                        type="text"
+                        id="newTitle"
+                        placeholder="Enter new title"
+                      />
+                      <div class="">
+                        <button
+                          onclick="$('#attrDemo').attr('src', $('#newSrc').val() || 'https://picsum.photos/100/100?random=' + Math.floor(Math.random()*100))"
+                          class=""
+                        >
+                          Change Image
+                        </button>
+                        <button
+                          onclick="$('#attrDemo').attr('title', $('#newTitle').val())"
+                          class=""
+                        >
+                          Change Title
+                        </button>
+                        <button
+                          onclick="alert('Title: ' + $('#attrDemo').attr('title'))"
+                          class=""
+                        >
+                          Get Title
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CSS & Classes Tab -->
+                <div class="" id="css-panel">
+                  <h4><i class=""></i> CSS and Classes</h4>
+                  <div class="">
+                    <pre><code class="">// Working with CSS
+$('#myElement').css('color', 'red');           // Set single property
+$('#myElement').css({                          // Set multiple properties
+    'color': 'blue',
+    'font-size': '16px',
+    'margin': '10px'
+});
+$('#myElement').css('color');                  // Get property value
+
+// Working with classes
+$('#myElement').addClass('new-class');         // Add class
+$('#myElement').removeClass('old-class');      // Remove class
+$('#myElement').toggleClass('active');         // Toggle class
+$('#myElement').hasClass('active');            // Check if class exists
+
+// Show and hide elements
+$('#myElement').show();                        // Show element
+$('#myElement').hide();                        // Hide element
+$('#myElement').toggle();                      // Toggle visibility</code></pre>
+                  </div>
+
+                  <div class="">
+                    <h5>Live Demo:</h5>
+                    <div class="">
+                      <div id="cssDemo" class="">
+                        Styled Element
+                      </div>
+                      <div class="">
+                        <button
+                          onclick="$('#cssDemo').css('color', 'red')"
+                          class=""
+                        >
+                          Red Text
+                        </button>
+                        <button
+                          onclick="$('#cssDemo').css('background', 'yellow')"
+                          class=""
+                        >
+                          Yellow BG
+                        </button>
+                        <button
+                          onclick="$('#cssDemo').addClass('bordered')"
+                          class=""
+                        >
+                          Add Border
+                        </button>
+                        <button
+                          onclick="$('#cssDemo').toggleClass('large-text')"
+                          class=""
+                        >
+                          Toggle Size
+                        </button>
+                        <button
+                          onclick="$('#cssDemo').toggle()"
+                          class=""
+                        >
+                          Toggle Visibility
+                        </button>
+                        <button
+                          onclick="$('#cssDemo').attr('style', '').removeClass().addClass('demo-element')"
+                          class=""
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Add/Remove Elements Tab -->
+                <div class="" id="elements-panel">
+                  <h4>
+                    <i class=""></i> Add and Remove Elements
+                  </h4>
+                  <div class="">
+                    <pre><code class="">// Creating new elements
+$('&lt;p&gt;New paragraph&lt;/p&gt;');                   // Create element
+$('&lt;div/&gt;', {                                // Create with attributes
+    'class': 'my-div',
+    'id': 'new-div',
+    'text': 'Hello World'
+});
+
+// Adding elements
+$('#container').append('&lt;p&gt;Added at end&lt;/p&gt;');      // Add to end
+$('#container').prepend('&lt;p&gt;Added at start&lt;/p&gt;');   // Add to start
+$('#element').after('&lt;p&gt;Added after&lt;/p&gt;');        // Add after element
+$('#element').before('&lt;p&gt;Added before&lt;/p&gt;');      // Add before element
+
+// Removing elements
+$('#element').remove();                        // Remove element completely
+$('#element').empty();                         // Remove child elements only
+$('#element').detach();                        // Remove but keep data/events</code></pre>
+                  </div>
+
+                  <div class="">
+                    <h5>Live Demo:</h5>
+                    <div class="">
+                      <div id="elementsDemo">
+                        <p>Original paragraph</p>
+                      </div>
+                      <input
+                        type="text"
+                        id="newElementText"
+                        placeholder="Enter text for new element"
+                      />
+                      <div class="">
+                        <button
+                          onclick="$('#elementsDemo').append('<p>' + ($('#newElementText').val() || 'Appended paragraph') + '</p>')"
+                          class=""
+                        >
+                          Append
+                        </button>
+                        <button
+                          onclick="$('#elementsDemo').prepend('<p>' + ($('#newElementText').val() || 'Prepended paragraph') + '</p>')"
+                          class=""
+                        >
+                          Prepend
+                        </button>
+                        <button
+                          onclick="$('#elementsDemo p:last').remove()"
+                          class=""
+                        >
+                          Remove Last
+                        </button>
+                        <button
+                          onclick="$('#elementsDemo').empty().append('<p>Original paragraph</p>')"
+                          class=""
+                        >
+                          Reset
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Event Handling -->
+        <section class="">
+          <h2><i class=""></i> Event Handling</h2>
+          <div class="">
+            <p>
+              jQuery simplifies event handling by providing easy-to-use methods
+              for binding event handlers to elements.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Common Event Methods</h4>
+              <pre><code class="">// Click events
+$('#myButton').click(function() {
+    alert('Button clicked!');
+});
+
+// Multiple event types
+$('#myElement').on('click mouseover', function(event) {
+    console.log('Event type:', event.type);
+});
+
+// Event delegation (for dynamic elements)
+$(document).on('click', '.dynamic-button', function() {
+    // This works for buttons added later
+});
+
+// Form events
+$('#myForm').submit(function(event) {
+    event.preventDefault(); // Prevent default form submission
+    // Handle form data
+});
+
+$('#myInput').change(function() {
+    console.log('Input changed:', $(this).val());
+});
+
+// Mouse events
+$('#myElement')
+    .mouseenter(function() { $(this).addClass('hover'); })
+    .mouseleave(function() { $(this).removeClass('hover'); });
+
+// Keyboard events
+$(document).keydown(function(event) {
+    if (event.key === 'Escape') {
+        $('.modal').hide();
+    }
+});</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Interactive Event Demo</h4>
+              <div class="">
+                <div class="">
+                  <button id="clickBtn" class="">Click Me</button>
+                  <button id="hoverBtn" class="">Hover Over Me</button>
+                  <input
+                    type="text"
+                    id="typeInput"
+                    placeholder="Type something..."
+                  />
+                  <div id="eventLog">
+                    <h5>Event Log:</h5>
+                    <ul id="logList">
+                      <li>Events will appear here...</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="">
+                  <button id="clearLog" class="">
+                    Clear Log
+                  </button>
+                  <button id="addDynamicBtn" class="">
+                    Add Dynamic Button
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Animations and Effects -->
+        <section class="">
+          <h2><i class=""></i> Animations and Effects</h2>
+          <div class="">
+            <p>
+              jQuery provides built-in animation methods that make it easy to
+              create smooth transitions and visual effects.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Animation Methods</h4>
+              <pre><code class="">// Basic animations
+$('#myElement').fadeIn(1000);          // Fade in over 1 second
+$('#myElement').fadeOut('fast');       // Fade out quickly
+$('#myElement').slideUp('slow');       // Slide up slowly
+$('#myElement').slideDown(500);        // Slide down in 500ms
+
+// Toggle animations
+$('#myElement').fadeToggle();          // Toggle fade
+$('#myElement').slideToggle();         // Toggle slide
+
+// Custom animations
+$('#myElement').animate({
+    left: '250px',
+    opacity: '0.5',
+    height: '150px',
+    width: '150px'
+}, 1000);
+
+// Chaining animations
+$('#myElement')
+    .fadeOut(500)
+    .delay(1000)
+    .fadeIn(500);
+
+// Animation callbacks
+$('#myElement').fadeOut(1000, function() {
+    $(this).text('Animation complete!').fadeIn();
+});</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Animation Playground</h4>
+              <div class="">
+                <div class="">
+                  <div id="animBox" class="">Animate Me!</div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <button
+                      onclick="$('#animBox').fadeIn()"
+                      class=""
+                    >
+                      Fade In
+                    </button>
+                    <button
+                      onclick="$('#animBox').fadeOut()"
+                      class=""
+                    >
+                      Fade Out
+                    </button>
+                    <button
+                      onclick="$('#animBox').fadeToggle()"
+                      class=""
+                    >
+                      Fade Toggle
+                    </button>
+                  </div>
+                  <div class="">
+                    <button
+                      onclick="$('#animBox').slideUp()"
+                      class=""
+                    >
+                      Slide Up
+                    </button>
+                    <button
+                      onclick="$('#animBox').slideDown()"
+                      class=""
+                    >
+                      Slide Down
+                    </button>
+                    <button
+                      onclick="$('#animBox').slideToggle()"
+                      class=""
+                    >
+                      Slide Toggle
+                    </button>
+                  </div>
+                  <div class="">
+                    <button
+                      onclick="$('#animBox').animate({left: '200px'}, 1000)"
+                      class=""
+                    >
+                      Move Right
+                    </button>
+                    <button
+                      onclick="$('#animBox').animate({left: '0px'}, 1000)"
+                      class=""
+                    >
+                      Move Left
+                    </button>
+                    <button
+                      onclick="$('#animBox').animate({width: 'toggle', height: 'toggle'}, 1000)"
+                      class=""
+                    >
+                      Size Toggle
+                    </button>
+                  </div>
+                  <div class="">
+                    <button onclick="animateSequence()" class="">
+                      Sequence
+                    </button>
+                    <button
+                      onclick="$('#animBox').stop().css({left: '0px', width: '150px', height: '150px'}).show()"
+                      class=""
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AJAX with jQuery -->
+        <section class="">
+          <h2><i class=""></i> AJAX with jQuery</h2>
+          <div class="">
+            <p>
+              jQuery simplifies AJAX requests with easy-to-use methods for
+              making asynchronous HTTP requests and handling responses.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> AJAX Methods</h4>
+              <pre><code class="">// GET request
+$.get('api/data', function(data) {
+    console.log('Data received:', data);
+}).fail(function() {
+    console.log('Error occurred');
+});
+
+// POST request
+$.post('api/submit', {
+    name: 'John',
+    email: 'john@example.com'
+}, function(response) {
+    console.log('Response:', response);
+});
+
+// Full AJAX configuration
+$.ajax({
+    url: 'api/endpoint',
+    type: 'GET',
+    dataType: 'json',
+    timeout: 5000,
+    success: function(data) {
+        console.log('Success:', data);
+    },
+    error: function(xhr, status, error) {
+        console.log('Error:', error);
+    },
+    complete: function() {
+        console.log('Request completed');
+    }
+});
+
+// Load HTML content
+$('#content').load('page.html #section');
+
+// JSON shorthand
+$.getJSON('api/data.json', function(data) {
+    $.each(data, function(index, item) {
+        $('#list').append('&lt;li&gt;' + item.name + '&lt;/li&gt;');
+    });
+});</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> AJAX Demo</h4>
+              <div class="">
+                <div class="">
+                  <button id="loadUsers" class="">
+                    Load Users
+                  </button>
+                  <button id="loadPosts" class="">
+                    Load Posts
+                  </button>
+                  <button id="loadQuote" class="">
+                    Random Quote
+                  </button>
+                  <button id="clearAjaxData" class="">
+                    Clear
+                  </button>
+                </div>
+
+                <div id="ajaxResults" class="">
+                  <div class="" style="display: none">
+                    <i class=""></i> Loading...
+                  </div>
+                  <div class=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- jQuery Best Practices -->
+        <section class="">
+          <h2><i class=""></i> jQuery Best Practices</h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Performance Optimization</h4>
+                <ul class="">
+                  <li>
+                    Cache jQuery objects:
+                    <code>var $element = $('#myElement');</code>
+                  </li>
+                  <li>Use specific selectors instead of universal ones</li>
+                  <li>Minimize DOM queries in loops</li>
+                  <li>Use event delegation for dynamic content</li>
+                </ul>
+                <div class="">
+                  <pre><code class="">// Bad
+for (var i = 0; i < 100; i++) {
+    $('#list').append('&lt;li&gt;Item ' + i + '&lt;/li&gt;');
+}
+
+// Good
+var items = '';
+for (var i = 0; i < 100; i++) {
+    items += '&lt;li&gt;Item ' + i + '&lt;/li&gt;';
+}
+$('#list').append(items);</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Code Organization</h4>
+                <ul class="">
+                  <li>Use meaningful variable names</li>
+                  <li>Group related functionality</li>
+                  <li>Use consistent coding style</li>
+                  <li>Comment complex code sections</li>
+                </ul>
+                <div class="">
+                  <pre><code class="">// Good code organization
+var App = {
+    init: function() {
+        this.bindEvents();
+        this.loadInitialData();
+    },
+    
+    bindEvents: function() {
+        $('.menu-toggle').on('click', this.toggleMenu);
+        $('.form').on('submit', this.handleSubmit);
+    },
+    
+    toggleMenu: function() {
+        $('.menu').slideToggle();
+    }
+};
+
+$(document).ready(function() {
+    App.init();
+});</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Error Handling</h4>
+                <ul class="">
+                  <li>Always handle AJAX errors</li>
+                  <li>Check if elements exist before manipulation</li>
+                  <li>Use try-catch for complex operations</li>
+                  <li>Provide user feedback for errors</li>
+                </ul>
+                <div class="">
+                  <pre><code class="">// Check if element exists
+if ($('#myElement').length) {
+    $('#myElement').addClass('active');
+}
+
+// Handle AJAX errors
+$.ajax({
+    url: 'api/data',
+    success: function(data) {
+        // Handle success
+    },
+    error: function(xhr, status, error) {
+        console.error('AJAX Error:', error);
+        showUserMessage('Failed to load data');
+    }
+});</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Modern Considerations</h4>
+                <ul class="">
+                  <li>Consider vanilla JS for simple operations</li>
+                  <li>Use jQuery UI for complex widgets</li>
+                  <li>Keep jQuery updated for security</li>
+                  <li>Evaluate necessity for new projects</li>
+                </ul>
+                <div class="">
+                  <strong>Note:</strong> While jQuery is still widely used,
+                  modern browsers have native APIs that provide similar
+                  functionality. Consider your project needs and team expertise
+                  when choosing between jQuery and vanilla JavaScript.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your Knowledge</h2>
+          <div class="">
+            <div class="">
+              <h4>
+                <span class="">1</span>
+                Which symbol is commonly used as an alias for the jQuery
+                function?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>@</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>$</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>#</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>%</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">2</span>
+                What is the correct jQuery method to set the text content of an
+                element?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span>.text()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span>.content()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span>.setText()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span>.innerText()</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">3</span>
+                Which jQuery method is used to attach event handlers to
+                elements?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>.bind()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>.on()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>.attach()</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>.listen()</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">4</span>
+                What does $(document).ready() ensure?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="a" />
+                    <span>All images are loaded</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="b" />
+                    <span>The DOM is fully constructed</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="c" />
+                    <span>All CSS is loaded</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="d" />
+                    <span>jQuery is loaded</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <button class="">Submit Quiz</button>
+              <button
+                class=""
+                style="display: none"
+              >
+                Try Again
+              </button>
+            </div>
+
+            <div class="" style="display: none">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Resources Section -->
+        <section class="">
+          <h2>
+            <i class=""></i> Video Resources & Tutorials
+          </h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/hMxGhHNOkCU/maxresdefault.jpg"
+                  alt="jQuery Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>jQuery Complete Tutorial for Beginners</h4>
+                <p>
+                  Comprehensive jQuery tutorial covering all basics from
+                  selectors to AJAX.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=hMxGhHNOkCU"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/2OMzGhlIZpg/maxresdefault.jpg"
+                  alt="jQuery DOM Manipulation"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>jQuery DOM Manipulation</h4>
+                <p>
+                  Learn how to manipulate the DOM effectively using jQuery
+                  methods.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=2OMzGhlIZpg"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/VlWsJHsVb-E/maxresdefault.jpg"
+                  alt="jQuery AJAX"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>jQuery AJAX Tutorial</h4>
+                <p>
+                  Master AJAX requests with jQuery for dynamic web applications.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=VlWsJHsVb-E"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/SBmSRK3feww/maxresdefault.jpg"
+                  alt="jQuery vs Vanilla JS"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>jQuery vs Vanilla JavaScript</h4>
+                <p>
+                  Understanding when to use jQuery vs native JavaScript in
+                  modern development.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=SBmSRK3feww"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section class="">
+          <h2>
+            <i class=""></i> Additional Learning Resources
+          </h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery Documentation</h4>
+                <p>
+                  Official jQuery documentation with API reference, examples,
+                  and tutorials.
+                </p>
+                <a
+                  href="https://api.jquery.com/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Visit jQuery API
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery Learning Center</h4>
+                <p>Comprehensive tutorials and guides from the jQuery team.</p>
+                <a
+                  href="https://learn.jquery.com/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Learn jQuery
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery UI</h4>
+                <p>
+                  User interface library built on top of jQuery for advanced
+                  widgets.
+                </p>
+                <a
+                  href="https://jqueryui.com/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> jQuery UI
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery Mobile</h4>
+                <p>Touch-optimized web framework for mobile devices.</p>
+                <a
+                  href="https://jquerymobile.com/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> jQuery Mobile
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery Cheat Sheet</h4>
+                <p>Quick reference guide for jQuery methods and selectors.</p>
+                <a
+                  href="https://htmlcheatsheet.com/jquery/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Cheat Sheet
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>jQuery Plugins Repository</h4>
+                <p>Thousands of jQuery plugins for extended functionality.</p>
+                <a
+                  href="https://plugins.jquery.com/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Browse Plugins
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="">
+          <h2><i class=""></i> Next Steps</h2>
+          <div class="">
+            <div class="">
+              <div class="">1</div>
+              <div class="">
+                <h3>Practice with Real Projects</h3>
+                <p>
+                  Build interactive web pages using jQuery to reinforce your
+                  learning with hands-on experience.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">2</div>
+              <div class="">
+                <h3>Explore jQuery Plugins</h3>
+                <p>
+                  Discover and integrate popular jQuery plugins like sliders,
+                  galleries, and form validators.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">3</div>
+              <div class="">
+                <h3>Learn Modern Frameworks</h3>
+                <p>
+                  Explore modern JavaScript frameworks and libraries like React,
+                  Vue.js, and Angular.
+                </p>
+                <a href="js-frameworks-overview.html" class=""
+                  >Continue to Frameworks →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="">
+      <div class="">
+        <div class="">
+          <h3><i class=""></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../units/unit6.html">Unit 6: JS Frameworks</a></li>
+            <li><a href="js-introduction.html">JavaScript Basics</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
+            <li>
+              <a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+            </li>
+            <li>
+              <a href="https://api.jquery.com/" target="_blank">jQuery API</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>
+

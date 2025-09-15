@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Layout Elements - Interactive Course</title>
+    
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="">
+        <div class="">
+            <div class="">
+                <i class=""></i>
+                <span>Web Technology Course</span>
+            </div>
+            <div class="">
+                <a href="../index.html" class="">
+                    <i class=""></i> Home
+                </a>
+                <a href="../units/unit2.html" class="">
+                    <i class=""></i> Unit 2
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="">
+        <div class="">
+            <span class="">
+                <a href="../index.html"><i class=""></i> Home</a>
+            </span>
+            <span class=""><i class=""></i></span>
+            <span class="">
+                <a href="../units/unit2.html">Unit 2: HTML</a>
+            </span>
+            <span class=""><i class=""></i></span>
+            <span class="">HTML Layout Elements</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="">
+        <div class="">
+            <div class="">
+                <h1>
+                    <i class=""></i>
+                    HTML Layout Elements
+                </h1>
+                <p>
+                    Master HTML layout and structural elements including div, span, aside, iframe, and canvas. 
+                    Learn how to organize and structure content effectively for modern web development.
+                </p>
+                <div class="">
+                    <span><i class=""></i> Container Elements</span>
+                    <span><i class=""></i> Inline Elements</span>
+                    <span><i class=""></i> Embedded Content</span>
+                    <span><i class=""></i> Graphics Canvas</span>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h5>div</h5>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h5>span</h5>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h5>aside</h5>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h5>iframe</h5>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h5>canvas</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="">
+            
+            <!-- Introduction -->
+            <section>
+                <h2><i class=""></i> Understanding HTML Layout Elements</h2>
+                <p>
+                    HTML provides several elements for structuring and organizing content on web pages. 
+                    These layout elements serve different purposes and have unique characteristics that make them 
+                    suitable for various use cases in web development.
+                </p>
+                
+                <div class="">
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h3>div Element</h3>
+                        <p>Block-level container for grouping and styling content sections.</p>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h3>span Element</h3>
+                        <p>Inline container for styling small portions of text or content.</p>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h3>aside Element</h3>
+                        <p>Semantic element for sidebar content or tangentially related information.</p>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h3>iframe Element</h3>
+                        <p>Embeds external content or documents within the current page.</p>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <h3>canvas Element</h3>
+                        <p>Provides a drawing surface for graphics, animations, and interactive content.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Div Element Section -->
+            <section>
+                <h2><i class=""></i> The div Element</h2>
+                <p>
+                    The <code>&lt;div&gt;</code> element is a generic block-level container that's used to 
+                    group other elements for styling and layout purposes. It's the most commonly used 
+                    element for creating layouts and organizing content.
+                </p>
+                
+                <h3><i class=""></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class=""></i> Block-level element (takes full width)</li>
+                    <li><i class=""></i> No semantic meaning (purely for styling/grouping)</li>
+                    <li><i class=""></i> Can contain any other HTML elements</li>
+                    <li><i class=""></i> Supports all global attributes (class, id, style, etc.)</li>
+                    <li><i class=""></i> Essential for CSS layouts (Flexbox, Grid, etc.)</li>
+                </ul>
+                    
+                    <div class="">
+                        <h4><i class=""></i> Basic div Usage</h4>
+                        <pre><code class="">&lt;!-- Basic div container --&gt;
+&lt;div class=""&gt;
+    &lt;h2&gt;Section Title&lt;/h2&gt;
+    &lt;p&gt;This content is grouped inside a div.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Nested divs for layout --&gt;
+&lt;div class=""&gt;
+    &lt;div class=""&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class=""&gt;
+        &lt;nav&gt;
+            &lt;a href="home"&gt;Home&lt;/a&gt;
+            &lt;a href="about"&gt;About&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Div with CSS classes and styling --&gt;
+&lt;div class="" id="featured-card"&gt;
+    &lt;div class=""&gt;
+        &lt;h3&gt;Featured Content&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class=""&gt;
+        &lt;p&gt;This is a styled content card.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    
+                    <div class="" id="divDemo">
+                        <h4><i class=""></i> Interactive div Demo</h4>
+                        <div class="">
+                            <button class="" id="addDiv">Add div</button>
+                            <button class="" id="styleDiv">Toggle Styling</button>
+                            <button class="" id="nestDiv">Nest div</button>
+                            <button class="" id="clearDivs">Clear All</button>
+                        </div>
+                        <div class="" id="divOutput">
+                            <div class="">Sample div element</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Span Element Section -->
+            <section>
+                <h2><i class=""></i> The span Element</h2>
+                <p>
+                    The <code>&lt;span&gt;</code> element is a generic inline container used to 
+                    group inline elements or apply styles to specific portions of text without 
+                    affecting the document flow.
+                </p>
+                
+                <h3><i class=""></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class=""></i> Inline element (doesn't break line flow)</li>
+                    <li><i class=""></i> No semantic meaning (purely for styling)</li>
+                    <li><i class=""></i> Perfect for styling parts of text</li>
+                    <li><i class=""></i> Can contain other inline elements</li>
+                    <li><i class=""></i> Minimal visual impact without CSS</li>
+                </ul>
+                    
+                    <div class="">
+                        <h4><i class=""></i> span Usage Examples</h4>
+                        <pre><code class="">&lt;!-- Styling parts of text --&gt;
+&lt;p&gt;The price is &lt;span class=""&gt;$19.99&lt;/span&gt; only today!&lt;/p&gt;
+
+&lt;!-- Multiple spans for different styling --&gt;
+&lt;h2&gt;
+    &lt;span class=""&gt;Welcome&lt;/span&gt; 
+    &lt;span class=""&gt;to our website&lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;!-- Spans with JavaScript hooks --&gt;
+&lt;p&gt;
+    Current status: 
+    &lt;span id="status" class=""&gt;Loading...&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;!-- Spans for icons and text combination --&gt;
+&lt;button&gt;
+    &lt;span class=""&gt;📧&lt;/span&gt;
+    &lt;span class=""&gt;Send Email&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                    </div>
+                    
+                    <div class="" id="spanDemo">
+                        <h4><i class=""></i> Interactive span Demo</h4>
+                        <div class="">
+                            <input type="text" id="spanText" placeholder="Enter text to style..." value="This is sample text">
+                            <button class="" id="highlightSpan">Highlight Word</button>
+                            <button class="" id="colorSpan">Color Word</button>
+                            <button class="" id="emphasisSpan">Add Emphasis</button>
+                        </div>
+                        <div class="" id="spanOutput">
+                            <p>This is sample text for span demonstration.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Aside Element Section -->
+            <section>
+                <h2><i class=""></i> The aside Element</h2>
+                <p>
+                    The <code>&lt;aside&gt;</code> element represents content that is tangentially 
+                    related to the main content. It's often used for sidebars, pull quotes, 
+                    advertisements, or supplementary information.
+                </p>
+                
+                <h3><i class=""></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class=""></i> Semantic HTML5 element</li>
+                    <li><i class=""></i> Represents tangentially related content</li>
+                    <li><i class=""></i> Improves accessibility and SEO</li>
+                    <li><i class=""></i> Can be used inside or outside main content</li>
+                    <li><i class=""></i> Common for sidebars and supplementary info</li>
+                </ul>
+                    
+                    <div class="">
+                        <h4><i class=""></i> aside Usage Examples</h4>
+                        <pre><code class="">&lt;!-- Sidebar navigation --&gt;
+&lt;aside class=""&gt;
+    &lt;nav&gt;
+        &lt;h3&gt;Quick Links&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#section1"&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#section2"&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;
+
+&lt;!-- Pull quote within article --&gt;
+&lt;article&gt;
+    &lt;h2&gt;Article Title&lt;/h2&gt;
+    &lt;p&gt;Main article content...&lt;/p&gt;
+    
+    &lt;aside class=""&gt;
+        &lt;blockquote&gt;
+            "This is an important quote from the article."
+        &lt;/blockquote&gt;
+    &lt;/aside&gt;
+    
+    &lt;p&gt;More article content...&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;!-- Related links section --&gt;
+&lt;aside class=""&gt;
+    &lt;h3&gt;Related Articles&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="article1.html"&gt;How to Learn HTML&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="article2.html"&gt;CSS Best Practices&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+                    </div>
+                    
+                    <div class="">
+                        <h4><i class=""></i> aside Layout Example</h4>
+                        <div class="">
+                            <div class="">
+                                <h3>Main Content</h3>
+                                <p>This is the primary content of the page. It contains the main information that users are looking for.</p>
+                            </div>
+                            <div class="">
+                                <h4>Related Info</h4>
+                                <ul>
+                                    <li>Related Link 1</li>
+                                    <li>Related Link 2</li>
+                                    <li>Advertisement</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Iframe Element Section -->
+            <section>
+                <h2><i class=""></i> The iframe Element</h2>
+                <p>
+                    The <code>&lt;iframe&gt;</code> element embeds external content or documents 
+                    within the current HTML page. It's commonly used for maps, videos, 
+                    social media widgets, and third-party content.
+                </p>
+                
+                <h3><i class=""></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class=""></i> Embeds external documents</li>
+                    <li><i class=""></i> Creates isolated browsing context</li>
+                    <li><i class=""></i> Supports responsive sizing</li>
+                    <li><i class=""></i> Security considerations required</li>
+                    <li><i class=""></i> Common for third-party integrations</li>
+                </ul>
+                    
+                    <div class="">
+                        <h4><i class=""></i> iframe Usage Examples</h4>
+                        <pre><code class="">&lt;!-- Basic iframe --&gt;
+&lt;iframe src="https://example.com" 
+        width="600" 
+        height="400"
+        title="External Content"&gt;
+&lt;/iframe&gt;
+
+&lt;!-- YouTube video embed --&gt;
+&lt;iframe width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Google Maps embed --&gt;
+&lt;iframe src="https://www.google.com/maps/embed?pb=..."
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Responsive iframe --&gt;
+&lt;div class=""&gt;
+    &lt;iframe src="content.html"
+            title="Responsive Content"&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    
+                    <div class="">
+                        <h4><i class=""></i> iframe Examples</h4>
+                        <div class="">
+                            <button class="" data-tab="example1">Simple Page</button>
+                            <button class="" data-tab="example2">Interactive Content</button>
+                            <button class="" data-tab="example3">External Site</button>
+                        </div>
+                        <div class="">
+                            <div class="" id="example1">
+                                <iframe src="data:text/html,<html><body style='font-family: Arial; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;'><h2>Hello from iframe!</h2><p>This is content inside an iframe element.</p></body></html>"
+                                        width="100%" 
+                                        height="200"
+                                        title="Simple iframe example">
+                                </iframe>
+                            </div>
+                            <div class="" id="example2">
+                                <iframe src="data:text/html,<html><head><style>body{font-family: Arial; padding: 20px; background: #f0f0f0;} button{padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;} button:hover{background: #0056b3;}</style></head><body><h3>Interactive Content</h3><p>Current count: <span id='count'>0</span></p><button onclick='document.getElementById(\"count\").textContent = parseInt(document.getElementById(\"count\").textContent) + 1'>Click Me!</button></body></html>"
+                                        width="100%" 
+                                        height="200"
+                                        title="Interactive iframe example">
+                                </iframe>
+                            </div>
+                            <div class="" id="example3">
+                                <div class="">
+                                    <i class=""></i>
+                                    <p>External websites may restrict embedding due to security policies (X-Frame-Options).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="">
+                        <h4><i class=""></i> Security Considerations</h4>
+                        <ul>
+                            <li><i class=""></i> Always validate iframe sources</li>
+                            <li><i class=""></i> Use <code>sandbox</code> attribute for restrictions</li>
+                            <li><i class=""></i> Be aware of clickjacking attacks</li>
+                            <li><i class=""></i> Consider Content Security Policy (CSP)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Canvas Element Section -->
+            <section>
+                <h2><i class=""></i> The canvas Element</h2>
+                <p>
+                    The <code>&lt;canvas&gt;</code> element provides a drawing surface for creating 
+                    graphics, animations, and interactive visual content using JavaScript. 
+                    It's essential for games, data visualizations, and custom graphics.
+                </p>
+                
+                <h3><i class=""></i> Key Characteristics</h3>
+                <ul>
+                    <li><i class=""></i> Programmable drawing surface</li>
+                    <li><i class=""></i> 2D and WebGL (3D) contexts available</li>
+                    <li><i class=""></i> Pixel-based graphics manipulation</li>
+                    <li><i class=""></i> Great for animations and games</li>
+                    <li><i class=""></i> Supports mouse/touch interactions</li>
+                </ul>
+                    
+                    <div class="">
+                        <h4><i class=""></i> canvas Usage Examples</h4>
+                        <pre><code class="">&lt;!-- Basic canvas element --&gt;
+&lt;canvas id="myCanvas" 
+        width="400" 
+        height="300"
+        style="border: 1px solid #ccc;"&gt;
+    Your browser doesn't support canvas.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+// Get canvas and context
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw a rectangle
+ctx.fillStyle = '#3498db';
+ctx.fillRect(50, 50, 100, 80);
+
+// Draw a circle
+ctx.beginPath();
+ctx.arc(200, 100, 40, 0, 2 * Math.PI);
+ctx.fillStyle = '#e74c3c';
+ctx.fill();
+
+// Draw text
+ctx.fillStyle = '#2c3e50';
+ctx.font = '20px Arial';
+ctx.fillText('Hello Canvas!', 50, 200);
+&lt;/script&gt;</code></pre>
+                    </div>
+                    
+                    <div class="">
+                        <h4><i class=""></i> Interactive Canvas Demos</h4>
+                        
+                        <div class="">
+                            <button class="" data-demo="drawing">Drawing</button>
+                            <button class="" data-demo="animation">Animation</button>
+                            <button class="" data-demo="interactive">Interactive</button>
+                        </div>
+                        
+                        <div class="">
+                            <!-- Drawing Demo -->
+                            <div class="" id="drawing-demo">
+                                <div class="">
+                                    <label>
+                                        <i class=""></i> Color:
+                                        <input type="color" id="drawColor" value="#3498db">
+                                    </label>
+                                    <label>
+                                        <i class=""></i> Size:
+                                        <input type="range" id="drawSize" min="1" max="20" value="5">
+                                        <span id="sizeDisplay">5</span>
+                                    </label>
+                                    <button class="" id="clearCanvas">Clear</button>
+                                </div>
+                                <canvas id="drawingCanvas" width="400" height="300"></canvas>
+                                <p class="">Click and drag to draw on the canvas!</p>
+                            </div>
+                            
+                            <!-- Animation Demo -->
+                            <div class="" id="animation-demo">
+                                <div class="">
+                                    <button class="" id="startAnimation">Start</button>
+                                    <button class="" id="stopAnimation">Stop</button>
+                                    <label>
+                                        Speed: <input type="range" id="animSpeed" min="1" max="10" value="5">
+                                    </label>
+                                </div>
+                                <canvas id="animationCanvas" width="400" height="300"></canvas>
+                                <p class="">Watch the animated bouncing ball!</p>
+                            </div>
+                            
+                            <!-- Interactive Demo -->
+                            <div class="" id="interactive-demo">
+                                <div class="">
+                                    <button class="" id="addShape">Add Shape</button>
+                                    <button class="" id="resetShapes">Reset</button>
+                                    <span id="shapeCount">Shapes: 0</span>
+                                </div>
+                                <canvas id="interactiveCanvas" width="400" height="300"></canvas>
+                                <p class="">Click the canvas or "Add Shape" button to create interactive shapes!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Practices Section -->
+            <section class="">
+                <h2><i class=""></i> Best Practices & Guidelines</h2>
+                <div class="">
+                    <div class="">
+                        <div class="">
+                            <div class="">
+                                <i class=""></i>
+                                <h3>div Usage</h3>
+                            </div>
+                            <ul class="">
+                                <li><i class=""></i> Use semantic elements when available (header, nav, main, section)</li>
+                                <li><i class=""></i> Keep div nesting to a reasonable depth</li>
+                                <li><i class=""></i> Use meaningful class and id names</li>
+                                <li><i class=""></i> Avoid divitis (excessive div usage)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="">
+                            <div class="">
+                                <i class=""></i>
+                                <h3>span Usage</h3>
+                            </div>
+                            <ul class="">
+                                <li><i class=""></i> Use for styling inline content only</li>
+                                <li><i class=""></i> Consider semantic alternatives (strong, em, mark)</li>
+                                <li><i class=""></i> Don't use span for block-level styling</li>
+                                <li><i class=""></i> Keep spans lightweight and purposeful</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="">
+                            <div class="">
+                                <i class=""></i>
+                                <h3>aside Usage</h3>
+                            </div>
+                            <ul class="">
+                                <li><i class=""></i> Use for truly tangential content</li>
+                                <li><i class=""></i> Perfect for sidebars and supplementary info</li>
+                                <li><i class=""></i> Improves document structure and accessibility</li>
+                                <li><i class=""></i> Can be nested within articles or stand alone</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="">
+                            <div class="">
+                                <i class=""></i>
+                                <h3>iframe Security</h3>
+                            </div>
+                            <ul class="">
+                                <li><i class=""></i> Always validate and trust iframe sources</li>
+                                <li><i class=""></i> Use sandbox attribute for restrictions</li>
+                                <li><i class=""></i> Implement proper CSP headers</li>
+                                <li><i class=""></i> Consider HTTPS-only content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="">
+                            <div class="">
+                                <i class=""></i>
+                                <h3>canvas Performance</h3>
+                            </div>
+                            <ul class="">
+                                <li><i class=""></i> Use requestAnimationFrame for animations</li>
+                                <li><i class=""></i> Batch drawing operations when possible</li>
+                                <li><i class=""></i> Clear only necessary areas</li>
+                                <li><i class=""></i> Consider off-screen canvas for complex graphics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section class="">
+                <h2><i class=""></i> Test Your Knowledge</h2>
+                <div class="">
+                    <div class="">
+                        <h4>
+                            <span class="">1</span>
+                            Which element is best for grouping block-level content for styling purposes?
+                        </h4>
+                        <ul class="">
+                            <li>
+                                <label>
+                                    <input type="radio" name="q1" value="a">
+                                    <span>&lt;span&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q1" value="b">
+                                    <span>&lt;div&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q1" value="c">
+                                    <span>&lt;aside&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q1" value="d">
+                                    <span>&lt;iframe&gt;</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="">
+                        <h4>
+                            <span class="">2</span>
+                            What is the primary use case for the &lt;span&gt; element?
+                        </h4>
+                        <ul class="">
+                            <li>
+                                <label>
+                                    <input type="radio" name="q2" value="a">
+                                    <span>Creating page layouts</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q2" value="b">
+                                    <span>Styling inline content or text portions</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q2" value="c">
+                                    <span>Embedding external content</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q2" value="d">
+                                    <span>Drawing graphics</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="">
+                        <h4>
+                            <span class="">3</span>
+                            Which element requires JavaScript to be useful for drawing?
+                        </h4>
+                        <ul class="">
+                            <li>
+                                <label>
+                                    <input type="radio" name="q3" value="a">
+                                    <span>&lt;aside&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q3" value="b">
+                                    <span>&lt;iframe&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q3" value="c">
+                                    <span>&lt;canvas&gt;</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q3" value="d">
+                                    <span>&lt;div&gt;</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="">
+                        <h4>
+                            <span class="">4</span>
+                            What security consideration is most important when using iframes?
+                        </h4>
+                        <ul class="">
+                            <li>
+                                <label>
+                                    <input type="radio" name="q4" value="a">
+                                    <span>Validating and trusting iframe sources</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q4" value="b">
+                                    <span>Setting the correct width and height</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q4" value="c">
+                                    <span>Using proper CSS styling</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="radio" name="q4" value="d">
+                                    <span>Adding a title attribute</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="">
+                        <button class="">Submit Quiz</button>
+                        <button class="" style="display: none;">Try Again</button>
+                    </div>
+
+                    <div class="" style="display: none;">
+                        <h3><i class=""></i> Quiz Results</h3>
+                        <p>You scored <span id="score">0</span> out of 4 (<span id="percentage">0</span>%)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Resources Section -->
+            <section class="">
+                <h2><i class=""></i> Video Resources & Tutorials</h2>
+                <div class="">
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                            <img src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg" alt="HTML Basics" loading="lazy">
+                        </div>
+                        <div class="">
+                            <h4>HTML div and span Elements</h4>
+                            <p>Learn the fundamental differences between div and span elements and when to use each one.</p>
+                            <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" class="">
+                                <i class=""></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                            <img src="https://img.youtube.com/vi/kGW8Al_cga4/maxresdefault.jpg" alt="Canvas Tutorial" loading="lazy">
+                        </div>
+                        <div class="">
+                            <h4>HTML5 Canvas Tutorial</h4>
+                            <p>Complete introduction to HTML5 Canvas for creating graphics and interactive content.</p>
+                            <a href="https://www.youtube.com/watch?v=kGW8Al_cga4" target="_blank" class="">
+                                <i class=""></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                            <img src="https://img.youtube.com/vi/ZJSCl6XEdP8/maxresdefault.jpg" alt="HTML5 Semantic Elements" loading="lazy">
+                        </div>
+                        <div class="">
+                            <h4>HTML5 Semantic Elements</h4>
+                            <p>Understanding semantic HTML including aside, section, article, and other layout elements.</p>
+                            <a href="https://www.youtube.com/watch?v=ZJSCl6XEdP8" target="_blank" class="">
+                                <i class=""></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                            <img src="https://img.youtube.com/vi/A3JJkqnJyTM/maxresdefault.jpg" alt="iframe Security" loading="lazy">
+                        </div>
+                        <div class="">
+                            <h4>iframe Security Best Practices</h4>
+                            <p>Learn about iframe security concerns and how to safely embed external content.</p>
+                            <a href="https://www.youtube.com/watch?v=A3JJkqnJyTM" target="_blank" class="">
+                                <i class=""></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Resources Section -->
+            <section class="">
+                <h2><i class=""></i> Additional Learning Resources</h2>
+                <div class="">
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>MDN Web Docs - HTML Elements</h4>
+                            <p>Comprehensive documentation for all HTML elements including div, span, aside, iframe, and canvas.</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" class="">
+                                <i class=""></i> Visit MDN Docs
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>Canvas API Documentation</h4>
+                            <p>Complete reference for the HTML5 Canvas API with examples and tutorials.</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" class="">
+                                <i class=""></i> Learn Canvas API
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>iframe Security Guide</h4>
+                            <p>Security considerations and best practices for safely using iframe elements.</p>
+                            <a href="https://owasp.org/www-community/attacks/Clickjacking" target="_blank" class="">
+                                <i class=""></i> Security Guide
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>Interactive HTML Examples</h4>
+                            <p>Practice HTML layout elements with interactive examples and live code editing.</p>
+                            <a href="https://codepen.io/search/pens?q=html%20layout%20elements" target="_blank" class="">
+                                <i class=""></i> Try on CodePen
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>Canvas Game Development</h4>
+                            <p>Learn game development using HTML5 Canvas with step-by-step tutorials.</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript" target="_blank" class="">
+                                <i class=""></i> Game Tutorial
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="">
+                            <i class=""></i>
+                        </div>
+                        <div class="">
+                            <h4>Accessibility Guidelines</h4>
+                            <p>Learn how to make HTML layout elements accessible to all users including screen readers.</p>
+                            <a href="https://www.w3.org/WAI/WCAG21/Understanding/" target="_blank" class="">
+                                <i class=""></i> WCAG Guidelines
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Steps Section -->
+            <section class="">
+                <h2><i class=""></i> Next Steps</h2>
+                <div class="">
+                    <div class="">
+                        <div class="">1</div>
+                        <div class="">
+                            <h3>Practice with Layouts</h3>
+                            <p>Create different page layouts using div, aside, and semantic HTML elements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">2</div>
+                        <div class="">
+                            <h3>Explore Canvas Graphics</h3>
+                            <p>Build interactive graphics, animations, and simple games using the Canvas API.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="">
+                        <div class="">3</div>
+                        <div class="">
+                            <h3>CSS Styling</h3>
+                            <p>Learn CSS to style your HTML layout elements and create beautiful designs.</p>
+                            <a href="css-basics.html" class="">Continue to CSS Basics →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="">
+        <div class="">
+            <div class="">
+                <h3><i class=""></i> Web Technology Course</h3>
+                <p>Master modern web development with our comprehensive interactive course.</p>
+            </div>
+            <div class="">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../units/unit2.html">Unit 2: HTML</a></li>
+                    <li><a href="semantic-html.html">Semantic HTML</a></li>
+                </ul>
+            </div>
+            <div class="">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Docs</a></li>
+                    <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML</a></li>
+                    <li><a href="https://validator.w3.org/" target="_blank">HTML Validator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="">
+            <p>&copy; 2024 Web Technology Interactive Course. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+</body>
+</html>

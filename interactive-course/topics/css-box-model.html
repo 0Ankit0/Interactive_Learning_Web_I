@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Model - Interactive Learning</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <span class="">/</span>
+        <span class="">CSS Box Model</span>
+      </div>
+    </nav>
+
+    <header class="">
+      <div class="">
+        <div class="">
+          <div class="">
+            <i class=""></i>
+          </div>
+          <div class="">
+            <h1 class="">CSS Box Model</h1>
+            <p class="">Understanding Layout Fundamentals</p>
+            <p class="">
+              Master the CSS Box Model - the foundation of web layout including
+              content, padding, border, and margin.
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="" id="topic-progress"></div>
+          </div>
+          <span class="">0% Complete</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="">
+      <div class="">
+        <!-- Introduction Section -->
+        <section class="" data-section="introduction">
+          <div class="">
+            <h2><i class=""></i> What is the CSS Box Model?</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <p>
+                  The CSS Box Model is a fundamental concept that describes how
+                  elements are structured and sized in web layouts. Every HTML
+                  element is essentially a rectangular box consisting of four
+                  main components:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Content:</strong> The actual content of the element
+                    (text, images, etc.)
+                  </li>
+                  <li>
+                    <strong>Padding:</strong> Space between content and border
+                    (inside the element)
+                  </li>
+                  <li>
+                    <strong>Border:</strong> A border surrounding the padding
+                    (and content)
+                  </li>
+                  <li>
+                    <strong>Margin:</strong> Space outside the border (between
+                    elements)
+                  </li>
+                </ul>
+                <div class="">
+                  <h4>Key Insight:</h4>
+                  <p>
+                    Understanding the box model is crucial for controlling
+                    spacing, alignment, and the overall layout of web pages.
+                  </p>
+                </div>
+              </div>
+              <div class="">
+                <img
+                  src="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model/box-model.png"
+                  alt="CSS Box Model Diagram"
+                  class=""
+                />
+                <p class="">The CSS Box Model components</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Box Model Visualizer -->
+        <section class="" data-section="visualizer">
+          <div class="">
+            <h2><i class=""></i> Interactive Box Model Visualizer</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <h3>Adjust Box Model Properties:</h3>
+                <div class="">
+                  <label for="content-width">Content Width:</label>
+                  <input
+                    type="range"
+                    id="content-width"
+                    min="100"
+                    max="300"
+                    value="200"
+                  />
+                  <span id="content-width-value">200px</span>
+                </div>
+                <div class="">
+                  <label for="content-height">Content Height:</label>
+                  <input
+                    type="range"
+                    id="content-height"
+                    min="60"
+                    max="200"
+                    value="100"
+                  />
+                  <span id="content-height-value">100px</span>
+                </div>
+                <div class="">
+                  <label for="padding-size">Padding:</label>
+                  <input
+                    type="range"
+                    id="padding-size"
+                    min="0"
+                    max="50"
+                    value="20"
+                  />
+                  <span id="padding-size-value">20px</span>
+                </div>
+                <div class="">
+                  <label for="border-size">Border Width:</label>
+                  <input
+                    type="range"
+                    id="border-size"
+                    min="0"
+                    max="20"
+                    value="5"
+                  />
+                  <span id="border-size-value">5px</span>
+                </div>
+                <div class="">
+                  <label for="margin-size">Margin:</label>
+                  <input
+                    type="range"
+                    id="margin-size"
+                    min="0"
+                    max="50"
+                    value="15"
+                  />
+                  <span id="margin-size-value">15px</span>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="" id="demo-box">
+                  <div class="">
+                    <span class="">Margin</span>
+                    <div class="">
+                      <span class="">Border</span>
+                      <div class="">
+                        <span class="">Padding</span>
+                        <div class="">
+                          <span class="">Content</span>
+                          <p>This is the content area</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <strong>Total Width:</strong>
+                    <span id="total-width">250px</span>
+                  </div>
+                  <div class="">
+                    <strong>Total Height:</strong>
+                    <span id="total-height">150px</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Box Model Properties -->
+        <section class="" data-section="properties">
+          <div class="">
+            <h2><i class=""></i> Box Model Properties</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <h3><i class=""></i> Content</h3>
+                <p>
+                  The innermost part containing text, images, or other media.
+                </p>
+                <div class="">
+                  <pre><code class="">width: 200px;
+height: 100px;</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <h3><i class=""></i> Padding</h3>
+                <p>
+                  Space between content and border. Creates internal breathing
+                  room.
+                </p>
+                <div class="">
+                  <pre><code class="">padding: 20px; /* All sides */
+padding: 10px 20px; /* Top/bottom, left/right */
+padding: 10px 15px 20px 25px; /* T, R, B, L */</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <h3><i class=""></i> Border</h3>
+                <p>
+                  A visible or invisible line around the padding and content.
+                </p>
+                <div class="">
+                  <pre><code class="">border: 2px solid #333;
+border-width: 1px;
+border-style: solid;
+border-color: blue;</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <h3><i class=""></i> Margin</h3>
+                <p>
+                  Space outside the border. Creates distance between elements.
+                </p>
+                <div class="">
+                  <pre><code class="">margin: 20px; /* All sides */
+margin: 10px auto; /* Top/bottom, auto left/right */
+margin-top: 10px;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Box Sizing -->
+        <section class="" data-section="box-sizing">
+          <div class="">
+            <h2><i class=""></i> Box Sizing Property</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <p>
+                  The <code>box-sizing</code> property controls how the total
+                  width and height of an element is calculated:
+                </p>
+
+                <div class="">
+                  <h4>Content-Box (Default):</h4>
+                  <div class="">
+                    <div class="">
+                      <p>Width = content only</p>
+                      <small>Total: 200px + 20px + 5px = 225px</small>
+                    </div>
+                  </div>
+
+                  <h4>Border-Box:</h4>
+                  <div class="">
+                    <div class="">
+                      <p>Width = total box size</p>
+                      <small>Total: 200px (includes padding & border)</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="">
+                  <h4>Content-Box (Default):</h4>
+                  <pre><code class="">/* Default behavior */
+box-sizing: content-box;
+width: 200px;
+padding: 20px;
+border: 5px solid #ccc;
+/* Total width: 200 + 40 + 10 = 250px */</code></pre>
+                </div>
+
+                <div class="">
+                  <h4>Border-Box (Recommended):</h4>
+                  <pre><code class="">/* More intuitive */
+box-sizing: border-box;
+width: 200px;
+padding: 20px;
+border: 5px solid #ccc;
+/* Total width: exactly 200px */</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Centering Content -->
+        <section class="" data-section="centering">
+          <div class="">
+            <h2><i class=""></i> Centering with Margins</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <h3>Auto Margins for Horizontal Centering:</h3>
+              <div class="">
+                <div class="">
+                  <p>I'm horizontally centered!</p>
+                </div>
+              </div>
+
+              <div class="">
+                <pre><code class="">.centered-box {
+  width: 300px;
+  margin: 0 auto; /* Top/bottom: 0, Left/right: auto */
+  background: #e3f2fd;
+  padding: 20px;
+  text-align: center;
+}</code></pre>
+              </div>
+
+              <div class="">
+                <h4>Centering Techniques:</h4>
+                <ul>
+                  <li>
+                    <strong>Horizontal:</strong>
+                    <code>margin: 0 auto;</code> (requires fixed width)
+                  </li>
+                  <li>
+                    <strong>Text/Inline elements:</strong>
+                    <code>text-align: center;</code>
+                  </li>
+                  <li>
+                    <strong>Flexbox:</strong>
+                    <code>justify-content: center; align-items: center;</code>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Exercises -->
+        <section class="" data-section="exercises">
+          <div class="">
+            <h2><i class=""></i> Interactive Exercises</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <h3>Exercise 1: Box Model Calculator</h3>
+                <p>Calculate the total dimensions of this element:</p>
+
+                <div class="">
+                  <div class="">
+                    <div class="">Content: 150px × 80px</div>
+                    <div class="">Padding: 15px all sides</div>
+                    <div class="">Border: 3px all sides</div>
+                    <div class="">Margin: 10px all sides</div>
+                  </div>
+
+                  <div class="">
+                    <div class="">
+                      <label>Total Width:</label>
+                      <input
+                        type="number"
+                        id="calc-width"
+                        placeholder="Enter width"
+                      />
+                      <button onclick="checkWidth()">Check</button>
+                    </div>
+                    <div class="">
+                      <label>Total Height:</label>
+                      <input
+                        type="number"
+                        id="calc-height"
+                        placeholder="Enter height"
+                      />
+                      <button onclick="checkHeight()">Check</button>
+                    </div>
+                  </div>
+
+                  <div id="calculator-feedback" class=""></div>
+                </div>
+              </div>
+
+              <div class="">
+                <h3>Exercise 2: Create a Card Layout</h3>
+                <p>Use the live editor to create a card with proper spacing:</p>
+
+                <div class="">
+                  <div class="">
+                    <button class="" data-tab="css">CSS</button>
+                    <button class="" data-tab="result">Result</button>
+                  </div>
+
+                  <div class="">
+                    <div class="" data-tab="css">
+                      <textarea
+                        id="card-css"
+                        placeholder="Write your CSS here..."
+                      >
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: 20px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  margin-bottom: 0;
+  color: #666;
+}
+                      </textarea>
+                    </div>
+
+                    <div class="" data-tab="result">
+                      <div id="card-result">
+                        <div class="">
+                          <h3>Sample Card</h3>
+                          <p>
+                            This is a sample card demonstrating the box model
+                            with padding, border, and margin.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button onclick="updateCardPreview()" class="">
+                    <i class=""></i> Update Preview
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Resources -->
+        <section class="" data-section="videos">
+          <div class="">
+            <h2><i class=""></i> Video Resources</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <iframe
+                    src="https://www.youtube.com/embed/rIO5326FgPE"
+                    title="CSS Box Model - Web Dev Simplified"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+                <div class="">
+                  <h4>CSS Box Model Explained</h4>
+                  <p class="">Web Dev Simplified</p>
+                  <p class="">
+                    Complete guide to understanding the CSS box model with
+                    practical examples.
+                  </p>
+                  <span class="">12:34</span>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <iframe
+                    src="https://www.youtube.com/embed/M6coJNLFBWI"
+                    title="CSS Box Model - Traversy Media"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+                <div class="">
+                  <h4>CSS Box Model & Box Sizing</h4>
+                  <p class="">Traversy Media</p>
+                  <p class="">
+                    Learn about margin, padding, border and how box-sizing
+                    affects layout.
+                  </p>
+                  <span class="">18:45</span>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <iframe
+                    src="https://www.youtube.com/embed/Xt1Cw4qM3Ec"
+                    title="CSS Box Model - Kevin Powell"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+                <div class="">
+                  <h4>The CSS Box Model Deep Dive</h4>
+                  <p class="">Kevin Powell</p>
+                  <p class="">
+                    Advanced concepts and common pitfalls with the CSS box
+                    model.
+                  </p>
+                  <span class="">25:12</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- External Resources -->
+        <section class="" data-section="resources">
+          <div class="">
+            <h2><i class=""></i> External Resources</h2>
+          </div>
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>MDN Web Docs - CSS Box Model</h4>
+                  <p>
+                    Comprehensive documentation on the CSS box model with
+                    examples and browser compatibility.
+                  </p>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
+                    target="_blank"
+                    class=""
+                  >
+                    Visit Resource <i class=""></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>W3Schools - CSS Box Model</h4>
+                  <p>
+                    Interactive tutorials and examples for learning the CSS box
+                    model step by step.
+                  </p>
+                  <a
+                    href="https://www.w3schools.com/css/css_boxmodel.asp"
+                    target="_blank"
+                    class=""
+                  >
+                    Visit Resource <i class=""></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>CSS-Tricks - The CSS Box Model</h4>
+                  <p>
+                    Detailed article explaining box model concepts with
+                    practical tips and tricks.
+                  </p>
+                  <a
+                    href="https://css-tricks.com/the-css-box-model/"
+                    target="_blank"
+                    class=""
+                  >
+                    Visit Resource <i class=""></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>Flexbox Froggy</h4>
+                  <p>
+                    Interactive game to learn CSS flexbox which builds on box
+                    model concepts.
+                  </p>
+                  <a href="https://flexboxfroggy.com/" target="_blank" class="">
+                    Play Game <i class=""></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>Chrome DevTools Box Model</h4>
+                  <p>
+                    Learn how to inspect and debug the box model using browser
+                    developer tools.
+                  </p>
+                  <a
+                    href="https://developers.google.com/web/tools/chrome-devtools/css"
+                    target="_blank"
+                    class=""
+                  >
+                    Learn DevTools <i class=""></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <div class="">
+                  <h4>Box Model Calculator Tool</h4>
+                  <p>
+                    Online calculator to help visualize and calculate box model
+                    dimensions.
+                  </p>
+                  <a
+                    href="https://codepen.io/psalaets/pen/ygLzyl"
+                    target="_blank"
+                    class=""
+                  >
+                    Use Calculator <i class=""></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="">
+          <div class="">
+            <a href="css-basics.html" class="">
+              <i class=""></i> Previous: CSS Basics
+            </a>
+            <a href="flexbox-grid.html" class="">
+              Next: Flexbox and Grid <i class=""></i>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master the CSS Box Model for
+          better layouts.
+        </p>
+      </div>
+    </footer>
+
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX - Interactive Web Development</title>
+    <link rel="stylesheet" href="../scss/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+  </head>
+  <body>
+    <div class="">
+      <!-- Hero Section -->
+      <section class="">
+        <div class="">
+          <div class="">
+            <div class="">
+              <h1><i class=""></i> AJAX</h1>
+              <p class="">
+                Master Asynchronous JavaScript and XML (AJAX) to create dynamic,
+                responsive web applications that communicate with servers
+                without page reloads.
+              </p>
+              <div class="">
+                <span class=""> <i class=""></i> Asynchronous Requests </span>
+                <span class=""> <i class=""></i> Dynamic Updates </span>
+                <span class=""> <i class=""></i> Server Communication </span>
+                <span class=""> <i class=""></i> Real-time Data </span>
+              </div>
+            </div>
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <h3>AJAX Request Flow</h3>
+                    <div class="">
+                      <div class="">
+                        <div class=""><i class=""></i></div>
+                        <div class="">1. User Interaction</div>
+                      </div>
+                      <div class="">→</div>
+                      <div class="">
+                        <div class="">
+                          <i class=""></i>
+                        </div>
+                        <div class="">2. Send Request</div>
+                      </div>
+                      <div class="">→</div>
+                      <div class="">
+                        <div class="">
+                          <i class=""></i>
+                        </div>
+                        <div class="">3. Server Processing</div>
+                      </div>
+                      <div class="">→</div>
+                      <div class="">
+                        <div class="">
+                          <i class=""></i>
+                        </div>
+                        <div class="">4. Receive Response</div>
+                      </div>
+                      <div class="">→</div>
+                      <div class="">
+                        <div class=""><i class=""></i></div>
+                        <div class="">5. Update Page</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="">
+                    <h4>Why AJAX?</h4>
+                    <div class="">
+                      <div class="">
+                        <i class=""></i>
+                        <span>No page reloads</span>
+                      </div>
+                      <div class="">
+                        <i class=""></i>
+                        <span>Better performance</span>
+                      </div>
+                      <div class="">
+                        <i class=""></i>
+                        <span>Enhanced UX</span>
+                      </div>
+                      <div class="">
+                        <i class=""></i>
+                        <span>Real-time updates</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content -->
+      <main class="">
+        <div class="">
+          <!-- Introduction Section -->
+          <section class="">
+            <h2><i class=""></i> What is AJAX?</h2>
+            <div class="">
+              <p class="">
+                AJAX (Asynchronous JavaScript and XML) is a technique that
+                allows web pages to communicate with servers asynchronously,
+                enabling dynamic content updates without full page reloads.
+              </p>
+
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Asynchronous</h4>
+                  <p>
+                    Requests don't block the user interface, allowing multiple
+                    operations to run simultaneously.
+                  </p>
+                  <div class="">
+                    <pre><code class="">// Non-blocking request
+fetch('/api/data')
+    .then(response => response.json())
+    .then(data => updateUI(data));</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>JavaScript</h4>
+                  <p>
+                    JavaScript handles the communication and DOM manipulation
+                    for dynamic updates.
+                  </p>
+                  <div class="">
+                    <pre><code class="">// JavaScript drives the process
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = handleResponse;
+xhr.open('GET', '/api/users');
+xhr.send();</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Data Formats</h4>
+                  <p>
+                    While originally XML, AJAX now supports JSON, HTML, plain
+                    text, and other formats.
+                  </p>
+                  <div class="">
+                    <pre><code class="">// Modern AJAX with JSON
+fetch('/api/posts')
+    .then(response => response.json())
+    .then(posts => displayPosts(posts));</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- XMLHttpRequest Section -->
+          <section class="">
+            <h2><i class=""></i> XMLHttpRequest</h2>
+            <div class="">
+              <p class="">
+                XMLHttpRequest is the traditional JavaScript API for making HTTP
+                requests. Understanding XMLHttpRequest is fundamental to
+                mastering AJAX.
+              </p>
+
+              <div class="">
+                <h4>XMLHttpRequest Lifecycle</h4>
+                <div class="">
+                  <div class="">
+                    <div class="">1</div>
+                    <div class="">
+                      <h5>Create Instance</h5>
+                      <code>const xhr = new XMLHttpRequest();</code>
+                      <p>
+                        Create a new XMLHttpRequest object to handle the
+                        request.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="">2</div>
+                    <div class="">
+                      <h5>Configure Request</h5>
+                      <code>xhr.open('GET', '/api/data', true);</code>
+                      <p>Set up the request method, URL, and async flag.</p>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="">3</div>
+                    <div class="">
+                      <h5>Set Event Handlers</h5>
+                      <code>xhr.onreadystatechange = handleResponse;</code>
+                      <p>
+                        Define functions to handle state changes and responses.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="">4</div>
+                    <div class="">
+                      <h5>Send Request</h5>
+                      <code>xhr.send(data);</code>
+                      <p>Send the request to the server with optional data.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Try XMLHttpRequest</h4>
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <label for="xhr-method">HTTP Method:</label>
+                      <select id="xhr-method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                      </select>
+                    </div>
+
+                    <div class="">
+                      <label for="xhr-url">URL:</label>
+                      <input
+                        type="text"
+                        id="xhr-url"
+                        value="https://jsonplaceholder.typicode.com/posts/1"
+                        placeholder="Enter API URL"
+                      />
+                    </div>
+
+                    <div class="">
+                      <label for="xhr-data">Request Data (JSON):</label>
+                      <textarea
+                        id="xhr-data"
+                        placeholder='{"title": "New Post", "body": "Content", "userId": 1}'
+                      ></textarea>
+                    </div>
+
+                    <div class="">
+                      <button class="" onclick="sendXHRRequest()">
+                        <i class=""></i> Send Request
+                      </button>
+                      <button class="" onclick="clearXHRResult()">
+                        <i class=""></i> Clear
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="" id="xhr-result">
+                    <div class="">
+                      <i class=""></i>
+                      Configure your request above and click "Send Request" to
+                      see the result.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Fetch API Section -->
+          <section class="">
+            <h2><i class=""></i> Fetch API</h2>
+            <div class="">
+              <p class="">
+                The Fetch API is the modern, promise-based successor to
+                XMLHttpRequest, providing a cleaner and more powerful way to
+                make HTTP requests.
+              </p>
+
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <h4><i class=""></i> XMLHttpRequest (Legacy)</h4>
+                    <div class="">
+                      <pre><code class="">const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        console.log(data);
+    }
+};
+xhr.open('GET', '/api/data');
+xhr.send();</code></pre>
+                    </div>
+                    <div class="">
+                      <div class="">
+                        <h5>Pros:</h5>
+                        <ul>
+                          <li>Wide browser support</li>
+                          <li>Fine-grained control</li>
+                        </ul>
+                      </div>
+                      <div class="">
+                        <h5>Cons:</h5>
+                        <ul>
+                          <li>Verbose syntax</li>
+                          <li>Callback-based (callback hell)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <h4><i class=""></i> Fetch API (Modern)</h4>
+                    <div class="">
+                      <pre><code class="">fetch('/api/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+
+// Or with async/await
+const data = await fetch('/api/data');
+const json = await data.json();
+console.log(json);</code></pre>
+                    </div>
+                    <div class="">
+                      <div class="">
+                        <h5>Pros:</h5>
+                        <ul>
+                          <li>Promise-based</li>
+                          <li>Cleaner syntax</li>
+                          <li>Better error handling</li>
+                        </ul>
+                      </div>
+                      <div class="">
+                        <h5>Cons:</h5>
+                        <ul>
+                          <li>No IE support</li>
+                          <li>Less control over progress</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <h4>GET Request</h4>
+                    <span class="">GET</span>
+                  </div>
+                  <p class="">
+                    Retrieve data from the server without side effects.
+                  </p>
+                  <div class="">
+                    <pre><code class="">// Simple GET request
+fetch('/api/users')
+    .then(response => response.json())
+    .then(users => displayUsers(users));
+
+// GET with query parameters
+const url = new URL('/api/posts', window.location.origin);
+url.searchParams.set('page', '1');
+url.searchParams.set('limit', '10');
+fetch(url)</code></pre>
+                  </div>
+                  <div class="">
+                    <button class="" onclick="demonstrateFetchGET()">
+                      Try GET Request
+                    </button>
+                    <div class="" id="get-demo-result"></div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h4>POST Request</h4>
+                    <span class="">POST</span>
+                  </div>
+                  <p class="">
+                    Send data to the server to create new resources.
+                  </p>
+                  <div class="">
+                    <pre><code class="">// POST with JSON data
+fetch('/api/users', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        name: 'John Doe',
+        email: 'john@example.com'
+    })
+})</code></pre>
+                  </div>
+                  <div class="">
+                    <input
+                      type="text"
+                      id="post-title"
+                      placeholder="Post title"
+                      class=""
+                    />
+                    <button class="" onclick="demonstrateFetchPOST()">
+                      Try POST Request
+                    </button>
+                    <div class="" id="post-demo-result"></div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h4>PUT Request</h4>
+                    <span class="">PUT</span>
+                  </div>
+                  <p class="">Update existing resources on the server.</p>
+                  <div class="">
+                    <pre><code class="">// PUT request to update resource
+fetch('/api/users/123', {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: 123,
+        name: 'John Smith',
+        email: 'johnsmith@example.com'
+    })
+})</code></pre>
+                  </div>
+                  <div class="">
+                    <input
+                      type="number"
+                      id="put-id"
+                      placeholder="Post ID"
+                      class=""
+                      value="1"
+                    />
+                    <button class="" onclick="demonstrateFetchPUT()">
+                      Try PUT Request
+                    </button>
+                    <div class="" id="put-demo-result"></div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h4>DELETE Request</h4>
+                    <span class="">DELETE</span>
+                  </div>
+                  <p class="">Remove resources from the server.</p>
+                  <div class="">
+                    <pre><code class="">// DELETE request
+fetch('/api/users/123', {
+    method: 'DELETE'
+})
+.then(response => {
+    if (response.ok) {
+        console.log('User deleted successfully');
+    }
+})</code></pre>
+                  </div>
+                  <div class="">
+                    <input
+                      type="number"
+                      id="delete-id"
+                      placeholder="Post ID"
+                      class=""
+                      value="1"
+                    />
+                    <button class="" onclick="demonstrateFetchDELETE()">
+                      Try DELETE Request
+                    </button>
+                    <div class="" id="delete-demo-result"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Error Handling Section -->
+          <section class="">
+            <h2><i class=""></i> Error Handling</h2>
+            <div class="">
+              <p class="">
+                Proper error handling is crucial in AJAX applications to provide
+                good user experience and handle network issues gracefully.
+              </p>
+
+              <div class="">
+                <h4><i class=""></i> Error Handling Strategies</h4>
+                <div class="">
+                  <div class="">
+                    <h5>Network Errors</h5>
+                    <div class="">
+                      <pre><code class="">fetch('/api/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .catch(error => {
+        if (error instanceof TypeError) {
+            console.error('Network error:', error.message);
+        } else {
+            console.error('HTTP error:', error.message);
+        }
+    });</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <h5>Timeout Handling</h5>
+                    <div class="">
+                      <pre><code class="">// Custom timeout implementation
+function fetchWithTimeout(url, timeout = 5000) {
+    return Promise.race([
+        fetch(url),
+        new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Request timeout')), timeout)
+        )
+    ]);
+}
+
+fetchWithTimeout('/api/data', 3000)
+    .then(response => response.json())
+    .catch(error => console.error('Request failed:', error.message));</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <h5>Retry Logic</h5>
+                    <div class="">
+                      <pre><code class="">async function fetchWithRetry(url, retries = 3) {
+    for (let i = 0; i <= retries; i++) {
+        try {
+            const response = await fetch(url);
+            if (response.ok) return response;
+            throw new Error(`HTTP ${response.status}`);
+        } catch (error) {
+            if (i === retries) throw error;
+            console.log(`Attempt ${i + 1} failed, retrying...`);
+            await new Promise(resolve => setTimeout(resolve, 1000 * i));
+        }
+    }
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h4>Test Error Handling</h4>
+                  <div class="">
+                    <button class="" onclick="testNetworkError()">
+                      <i class=""></i> Test Network Error
+                    </button>
+                    <button class="" onclick="testHTTPError()">
+                      <i class=""></i> Test HTTP Error (404)
+                    </button>
+                    <button class="" onclick="testTimeout()">
+                      <i class=""></i> Test Timeout
+                    </button>
+                    <button class="" onclick="testRetry()">
+                      <i class=""></i> Test Retry Logic
+                    </button>
+                  </div>
+                  <div class="" id="error-test-result"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Real-world Applications -->
+          <section class="">
+            <h2><i class=""></i> Real-world Applications</h2>
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Live Search</h4>
+                  <p>Implement real-time search suggestions as users type.</p>
+                  <div class="">
+                    <input
+                      type="text"
+                      id="live-search"
+                      placeholder="Search posts..."
+                      class=""
+                    />
+                    <div class="" id="search-results"></div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Infinite Scroll</h4>
+                  <p>Load more content automatically as users scroll down.</p>
+                  <div class="">
+                    <div class="" id="scroll-container">
+                      <div class="">
+                        <!-- Dynamic content will be loaded here -->
+                      </div>
+                      <div class="" style="display: none">
+                        <i class=""></i> Loading more...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Form Submission</h4>
+                  <p>
+                    Submit forms without page reloads and show instant feedback.
+                  </p>
+                  <div class="">
+                    <form id="ajax-form" class="">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                      />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Your email"
+                        required
+                      />
+                      <button type="submit"><i class=""></i> Submit</button>
+                    </form>
+                    <div class="" id="form-feedback"></div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Real-time Updates</h4>
+                  <p>
+                    Poll server for updates and refresh content automatically.
+                  </p>
+                  <div class="">
+                    <div class="">
+                      <button class="" onclick="startPolling()">
+                        <i class=""></i> Start Updates
+                      </button>
+                      <button class="" onclick="stopPolling()">
+                        <i class=""></i> Stop Updates
+                      </button>
+                    </div>
+                    <div class="" id="realtime-display">
+                      <div class="">Click "Start Updates" to begin polling</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Quiz Section -->
+          <section class="">
+            <div class="">
+              <h2><i class=""></i> Test Your Knowledge</h2>
+              <div class="" id="ajax-quiz"></div>
+              <div class="">
+                <button class="" onclick="submitAjaxQuiz()">
+                  Submit Answers
+                </button>
+                <button class="" onclick="resetAjaxQuiz()">Reset Quiz</button>
+              </div>
+              <div class="" id="ajax-quiz-results" style="display: none"></div>
+            </div>
+          </section>
+
+          <!-- Resources Section -->
+          <section class="">
+            <h2><i class=""></i> Additional Resources</h2>
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <div class="">
+                    <h4>MDN Web Docs</h4>
+                    <p>
+                      Comprehensive documentation for Fetch API and
+                      XMLHttpRequest.
+                    </p>
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+                      class=""
+                      target="_blank"
+                    >
+                      <i class=""></i> View Documentation
+                    </a>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <div class="">
+                    <h4>JavaScript.info</h4>
+                    <p>
+                      In-depth tutorials on network requests and AJAX patterns.
+                    </p>
+                    <a
+                      href="https://javascript.info/network"
+                      class=""
+                      target="_blank"
+                    >
+                      <i class=""></i> Read Tutorial
+                    </a>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <div class="">
+                    <h4>JSONPlaceholder</h4>
+                    <p>
+                      Free fake API for testing and prototyping AJAX requests.
+                    </p>
+                    <a
+                      href="https://jsonplaceholder.typicode.com/"
+                      class=""
+                      target="_blank"
+                    >
+                      <i class=""></i> Test API
+                    </a>
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <div class="">
+                    <h4>Can I Use</h4>
+                    <p>
+                      Check browser support for Fetch API and modern web
+                      features.
+                    </p>
+                    <a
+                      href="https://caniuse.com/fetch"
+                      class=""
+                      target="_blank"
+                    >
+                      <i class=""></i> Check Support
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Next Steps -->
+          <section class="">
+            <h2><i class=""></i> What's Next?</h2>
+            <div class="">
+              <div class="">
+                <div class="">1</div>
+                <div class="">
+                  <h3>Practice with APIs</h3>
+                  <p>
+                    Try different public APIs to build real applications with
+                    AJAX.
+                  </p>
+                  <a href="#" class="">Explore APIs</a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">2</div>
+                <div class="">
+                  <h3>Learn jQuery AJAX</h3>
+                  <p>
+                    Discover how jQuery simplifies AJAX operations with its
+                    utility methods.
+                  </p>
+                  <a href="jquery-basics.html" class="">jQuery Basics</a>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">3</div>
+                <div class="">
+                  <h3>Advanced Patterns</h3>
+                  <p>
+                    Master advanced AJAX patterns like caching, interceptors,
+                    and middleware.
+                  </p>
+                  <a href="#" class="">Advanced Topics</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+  </body>
+</html>

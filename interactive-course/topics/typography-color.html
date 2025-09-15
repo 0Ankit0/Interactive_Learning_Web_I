@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typography & Color Theory - Interactive Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <span class="">/</span>
+        <span class="">Typography & Color Theory</span>
+      </div>
+    </nav>
+
+    <header class="">
+      <div class="">
+        <div class="">
+          <div class="">
+            <i class=""></i>
+          </div>
+          <div class="">
+            <h1 class="">Typography & Color Theory</h1>
+            <p class="">Visual Design Fundamentals</p>
+            <p class="">
+              Master the fundamentals of typography and color theory to create
+              visually appealing and accessible web designs. Learn about font
+              selection, color psychology, contrast, and how to apply these
+              principles effectively in web development.
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="" id="topic-progress"></div>
+          </div>
+          <span class="">0% Complete</span>
+        </div>
+      </div>
+    </header>
+
+      <main class="">
+        <!-- Typography Fundamentals Section -->
+        <section class="">
+          <h2><i class=""></i> Typography Fundamentals</h2>
+          <p>
+            Typography is the art and technique of arranging type to make
+            written language legible, readable, and appealing. In web design,
+            typography plays a crucial role in user experience, accessibility,
+            and brand communication.
+          </p>
+
+          <div class="">
+            <div class="" data-concept="anatomy">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <h3>Type Anatomy</h3>
+              <p>
+                Understanding the basic structure and terminology of letterforms
+              </p>
+              <button class="" data-target="anatomy">
+                <span>Explore</span>
+                <i class=""></i>
+              </button>
+            </div>
+
+            <div class="" data-concept="hierarchy">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <h3>Typographic Hierarchy</h3>
+              <p>
+                Creating visual order and importance through type variations
+              </p>
+              <button class="" data-target="hierarchy">
+                <span>Explore</span>
+                <i class=""></i>
+              </button>
+            </div>
+
+            <div class="" data-concept="pairing">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <h3>Font Pairing</h3>
+              <p>Combining fonts harmoniously for effective communication</p>
+              <button class="" data-target="pairing">
+                <span>Explore</span>
+                <i class=""></i>
+              </button>
+            </div>
+
+            <div class="" data-concept="spacing">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <h3>Spacing & Scale</h3>
+              <p>Managing white space, line height, and typographic scale</p>
+              <button class="" data-target="spacing">
+                <span>Explore</span>
+                <i class=""></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Concept Details -->
+          <div class="">
+            <!-- Type Anatomy -->
+            <div class="" id="anatomy-detail">
+              <div class="">
+                <h3><i class=""></i> Type Anatomy</h3>
+                <p>
+                  Understanding the anatomy of typefaces helps you make informed
+                  decisions about font selection and text treatment.
+                </p>
+
+                <div class="">
+                  <div class="">
+                    <span class="">Typography</span>
+                    <div class="">
+                      <div
+                        class=""
+                        data-label="Cap Height"
+                      ></div>
+                      <div class="" data-label="X-Height"></div>
+                      <div class="" data-label="Baseline"></div>
+                      <div class="" data-label="Descender"></div>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="">
+                      <strong>Baseline:</strong> The imaginary line where
+                      letters sit
+                    </div>
+                    <div class="">
+                      <strong>X-Height:</strong> Height of lowercase letters
+                      like 'x'
+                    </div>
+                    <div class="">
+                      <strong>Cap Height:</strong> Height of capital letters
+                    </div>
+                    <div class="">
+                      <strong>Ascender:</strong> Parts that extend above
+                      x-height (b, h, k)
+                    </div>
+                    <div class="">
+                      <strong>Descender:</strong> Parts that extend below
+                      baseline (g, p, y)
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typographic Hierarchy -->
+            <div class="" id="hierarchy-detail">
+              <div class="">
+                <h3>
+                  <i class=""></i> Typographic Hierarchy
+                </h3>
+                <p>
+                  Create clear information hierarchy using size, weight, color,
+                  and spacing to guide readers through your content.
+                </p>
+
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <label>H1 Size</label>
+                      <input
+                        type="range"
+                        id="h1-size"
+                        min="24"
+                        max="48"
+                        value="36"
+                      />
+                      <span id="h1-size-value">36px</span>
+                    </div>
+                    <div class="">
+                      <label>H2 Size</label>
+                      <input
+                        type="range"
+                        id="h2-size"
+                        min="18"
+                        max="36"
+                        value="28"
+                      />
+                      <span id="h2-size-value">28px</span>
+                    </div>
+                    <div class="">
+                      <label>Body Size</label>
+                      <input
+                        type="range"
+                        id="body-size"
+                        min="14"
+                        max="20"
+                        value="16"
+                      />
+                      <span id="body-size-value">16px</span>
+                    </div>
+                    <div class="">
+                      <label>Line Height</label>
+                      <input
+                        type="range"
+                        id="line-height"
+                        min="1.2"
+                        max="2"
+                        step="0.1"
+                        value="1.5"
+                      />
+                      <span id="line-height-value">1.5</span>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <h1 id="preview-h1">Main Heading</h1>
+                    <h2 id="preview-h2">Secondary Heading</h2>
+                    <p id="preview-body">
+                      This is body text that demonstrates how different text
+                      sizes work together to create visual hierarchy. Good
+                      typography helps users scan and understand content quickly
+                      and efficiently.
+                    </p>
+                    <p id="preview-body2">
+                      Multiple paragraphs show how consistent spacing and sizing
+                      creates a harmonious reading experience across different
+                      content blocks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Font Pairing -->
+            <div class="" id="pairing-detail">
+              <div class="">
+                <h3><i class=""></i> Font Pairing</h3>
+                <p>
+                  Learn to combine fonts effectively by understanding contrast,
+                  mood, and readability principles.
+                </p>
+
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <label>Heading Font</label>
+                      <select id="heading-font">
+                        <option value="Playfair Display">
+                          Playfair Display (Serif)
+                        </option>
+                        <option value="Montserrat">
+                          Montserrat (Sans-serif)
+                        </option>
+                        <option value="Merriweather">
+                          Merriweather (Serif)
+                        </option>
+                        <option value="Open Sans">
+                          Open Sans (Sans-serif)
+                        </option>
+                        <option value="Roboto Slab">
+                          Roboto Slab (Slab Serif)
+                        </option>
+                        <option value="Oswald">Oswald (Sans-serif)</option>
+                      </select>
+                    </div>
+                    <div class="">
+                      <label>Body Font</label>
+                      <select id="body-font">
+                        <option value="Source Sans Pro">
+                          Source Sans Pro (Sans-serif)
+                        </option>
+                        <option value="Lora">Lora (Serif)</option>
+                        <option value="Inter">Inter (Sans-serif)</option>
+                        <option value="Crimson Text">
+                          Crimson Text (Serif)
+                        </option>
+                        <option value="Roboto">Roboto (Sans-serif)</option>
+                        <option value="PT Serif">PT Serif (Serif)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="">
+                      <h1 id="pairing-heading">The Art of Typography</h1>
+                      <h2 id="pairing-subheading">
+                        Understanding Font Combinations
+                      </h2>
+                      <p id="pairing-body">
+                        Typography is more than just selecting beautiful fonts.
+                        It's about creating harmony between different typefaces
+                        while maintaining readability and establishing the right
+                        mood for your content.
+                      </p>
+                      <p id="pairing-body2">
+                        The best font pairings create contrast without conflict,
+                        complement each other's personality, and serve the
+                        content's purpose effectively.
+                      </p>
+                    </div>
+
+                    <div class="">
+                      <h4>Pairing Analysis</h4>
+                      <div class="">
+                        <div class="">
+                          <span class="">Contrast:</span>
+                          <div class="">
+                            <div class="" id="contrast-metric"></div>
+                          </div>
+                        </div>
+                        <div class="">
+                          <span class="">Harmony:</span>
+                          <div class="">
+                            <div class="" id="harmony-metric"></div>
+                          </div>
+                        </div>
+                        <div class="">
+                          <span class="">Readability:</span>
+                          <div class="">
+                            <div
+                              class=""
+                              id="readability-metric"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="" id="pairing-feedback">
+                        Select different font combinations to see analysis
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Spacing & Scale -->
+            <div class="" id="spacing-detail">
+              <div class="">
+                <h3>
+                  <i class=""></i> Spacing & Scale
+                </h3>
+                <p>
+                  Master the art of white space, line height, and typographic
+                  scale to improve readability and visual appeal.
+                </p>
+
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <h4>Letter Spacing</h4>
+                      <input
+                        type="range"
+                        id="letter-spacing"
+                        min="-2"
+                        max="8"
+                        step="0.5"
+                        value="0"
+                      />
+                      <span id="letter-spacing-value">0px</span>
+                    </div>
+                    <div class="">
+                      <h4>Word Spacing</h4>
+                      <input
+                        type="range"
+                        id="word-spacing"
+                        min="-5"
+                        max="20"
+                        step="1"
+                        value="0"
+                      />
+                      <span id="word-spacing-value">0px</span>
+                    </div>
+                    <div class="">
+                      <h4>Line Height</h4>
+                      <input
+                        type="range"
+                        id="spacing-line-height"
+                        min="1"
+                        max="2.5"
+                        step="0.1"
+                        value="1.5"
+                      />
+                      <span id="spacing-line-height-value">1.5</span>
+                    </div>
+                    <div class="">
+                      <h4>Paragraph Spacing</h4>
+                      <input
+                        type="range"
+                        id="paragraph-spacing"
+                        min="0"
+                        max="40"
+                        step="2"
+                        value="16"
+                      />
+                      <span id="paragraph-spacing-value">16px</span>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <div class="" id="spacing-text">
+                      <h3>Effective Typography Spacing</h3>
+                      <p>
+                        Proper spacing is crucial for readability and aesthetic
+                        appeal. Letter spacing affects the texture and density
+                        of text, while line height determines vertical rhythm
+                        and ease of reading.
+                      </p>
+                      <p>
+                        Word spacing and paragraph spacing contribute to the
+                        overall flow and organization of content, helping
+                        readers navigate through information effortlessly.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Color Theory Section -->
+        <section class="">
+          <h2><i class=""></i> Color Theory Fundamentals</h2>
+          <p>
+            Color theory provides a logical structure for understanding how
+            colors work together. In web design, color affects mood,
+            readability, accessibility, and user behavior.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class=""></div>
+                <!-- Color segments will be generated by JavaScript -->
+              </div>
+              <div class="">
+                <button class="" data-harmony="complementary">
+                  Complementary
+                </button>
+                <button class="" data-harmony="triadic">
+                  Triadic
+                </button>
+                <button class="" data-harmony="analogous">
+                  Analogous
+                </button>
+                <button class="" data-harmony="monochromatic">
+                  Monochromatic
+                </button>
+              </div>
+            </div>
+
+            <div class="">
+              <h3>Color Harmonies</h3>
+              <div class="">
+                <div class="">
+                  <h4 id="harmony-title">Select a Color Harmony</h4>
+                  <p id="harmony-description">
+                    Click on a color harmony type to see how different color
+                    relationships work together to create pleasing combinations.
+                  </p>
+                </div>
+                <div class="" id="selected-colors">
+                  <!-- Selected colors will be displayed here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Color Schemes Builder -->
+        <section class="">
+          <h2><i class=""></i> Color Scheme Builder</h2>
+          <p>
+            Create and test color schemes for web interfaces, considering
+            accessibility and user experience.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <label>Primary Color</label>
+                  <input type="color" id="primary-color" value="#3498db" />
+                  <input
+                    type="text"
+                    id="primary-hex"
+                    value="#3498db"
+                    maxlength="7"
+                  />
+                </div>
+                <div class="">
+                  <label>Secondary Color</label>
+                  <input type="color" id="secondary-color" value="#2ecc71" />
+                  <input
+                    type="text"
+                    id="secondary-hex"
+                    value="#2ecc71"
+                    maxlength="7"
+                  />
+                </div>
+                <div class="">
+                  <label>Accent Color</label>
+                  <input type="color" id="accent-color" value="#e74c3c" />
+                  <input
+                    type="text"
+                    id="accent-hex"
+                    value="#e74c3c"
+                    maxlength="7"
+                  />
+                </div>
+                <div class="">
+                  <label>Background</label>
+                  <input type="color" id="background-color" value="#ffffff" />
+                  <input
+                    type="text"
+                    id="background-hex"
+                    value="#ffffff"
+                    maxlength="7"
+                  />
+                </div>
+                <div class="">
+                  <label>Text Color</label>
+                  <input type="color" id="text-color" value="#2c3e50" />
+                  <input
+                    type="text"
+                    id="text-hex"
+                    value="#2c3e50"
+                    maxlength="7"
+                  />
+                </div>
+              </div>
+
+              <div class="">
+                <button class="" id="generate-scheme">
+                  <i class=""></i>
+                  Generate Scheme
+                </button>
+                <button class="" id="check-accessibility">
+                  <i class=""></i>
+                  Check Accessibility
+                </button>
+                <button class="" id="save-scheme">
+                  <i class=""></i>
+                  Save Scheme
+                </button>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="" id="color-preview">
+                <header class="">
+                  <h1>Website Header</h1>
+                  <nav>
+                    <a href="#" class="">Home</a>
+                    <a href="#" class="">About</a>
+                    <a href="#" class="">Services</a>
+                    <a href="#" class="">Contact</a>
+                  </nav>
+                </header>
+
+                <main class="">
+                  <section class="">
+                    <h2>Welcome to Our Service</h2>
+                    <p>
+                      This preview shows how your color scheme works in a real
+                      interface design.
+                    </p>
+                    <button class="">Get Started</button>
+                  </section>
+
+                  <section class="">
+                    <div class="">
+                      <h3>Feature One</h3>
+                      <p>
+                        Sample content to demonstrate text readability with your
+                        color choices.
+                      </p>
+                      <button class="">Learn More</button>
+                    </div>
+                    <div class="">
+                      <h3>Feature Two</h3>
+                      <p>
+                        Another example of how content appears with your
+                        selected color palette.
+                      </p>
+                      <button class="">Learn More</button>
+                    </div>
+                  </section>
+                </main>
+              </div>
+
+              <div class="" id="accessibility-report">
+                <h4><i class=""></i> Accessibility Report</h4>
+                <div class="">
+                  <!-- Contrast ratios will be displayed here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practical Application -->
+        <section class="">
+          <h2><i class=""></i> CSS Implementation</h2>
+          <p>
+            Learn how to implement typography and color choices in CSS with best
+            practices.
+          </p>
+
+          <div class="">
+            <button class="" data-tab="typography-css">
+              Typography CSS
+            </button>
+            <button class="" data-tab="color-css">Color CSS</button>
+            <button class="" data-tab="responsive">
+              Responsive Design
+            </button>
+          </div>
+
+          <div class="">
+            <div class="" id="typography-css">
+              <h3>Typography CSS Best Practices</h3>
+              <div class="">
+                <pre><code class="">/* CSS Custom Properties for Typography */
+:root {
+  /* Font Families */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Font Sizes - Modular Scale */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+}
+
+/* Typography Classes */
+.text-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Responsive Typography */
+h1 {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+}
+
+/* Improve Readability */
+p {
+  max-width: 65ch; /* Optimal line length */
+  margin-bottom: 1.5em;
+}
+
+/* Web Font Loading */
+@font-face {
+  font-family: 'Inter';
+  src: url('inter.woff2') format('woff2');
+  font-display: swap; /* Improve loading performance */
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="" id="color-css">
+              <h3>Color CSS Implementation</h3>
+              <div class="">
+                <pre><code class="">/* CSS Custom Properties for Colors */
+:root {
+  /* Color Palette */
+  --color-primary: hsl(210, 79%, 46%);
+  --color-primary-dark: hsl(210, 79%, 36%);
+  --color-primary-light: hsl(210, 79%, 56%);
+  
+  --color-secondary: hsl(142, 69%, 49%);
+  --color-accent: hsl(6, 78%, 57%);
+  
+  /* Neutral Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-gray-50: hsl(210, 20%, 98%);
+  --color-gray-100: hsl(210, 16%, 93%);
+  --color-gray-300: hsl(210, 14%, 83%);
+  --color-gray-500: hsl(210, 11%, 71%);
+  --color-gray-700: hsl(210, 10%, 40%);
+  --color-gray-900: hsl(210, 24%, 16%);
+  
+  /* Semantic Colors */
+  --color-success: hsl(142, 69%, 49%);
+  --color-warning: hsl(38, 92%, 50%);
+  --color-error: hsl(6, 78%, 57%);
+  --color-info: hsl(199, 89%, 48%);
+  
+  /* Text Colors */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-500);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: var(--color-gray-50);
+    --color-text-secondary: var(--color-gray-300);
+    --color-text-muted: var(--color-gray-500);
+  }
+}
+
+/* Color Utility Classes */
+.text-primary { color: var(--color-primary); }
+.bg-primary { background-color: var(--color-primary); }
+.border-primary { border-color: var(--color-primary); }
+
+/* Accessibility Considerations */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="" id="responsive">
+              <h3>Responsive Typography & Colors</h3>
+              <div class="">
+                <pre><code class="">/* Responsive Typography */
+.responsive-text {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  line-height: clamp(1.2, 1.5, 1.8);
+}
+
+/* Container Queries for Typography */
+@container (min-width: 400px) {
+  .card-title {
+    font-size: var(--text-xl);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: hsl(210, 100%, 30%);
+    --color-text-primary: hsl(0, 0%, 0%);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  :root {
+    --color-primary: hsl(0, 0%, 0%);
+    --color-text-primary: hsl(0, 0%, 0%);
+  }
+  
+  .bg-primary {
+    background: transparent !important;
+    border: 1px solid black;
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Quiz -->
+        <section class="">
+          <h2>
+            <i class=""></i> Typography & Color Quiz
+          </h2>
+          <div class="">
+            <div class="" data-question="1">
+              <div class="">
+                <span class="">1</span>
+                <h3>What is the optimal line length for readability?</h3>
+              </div>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>40-50 characters</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>45-75 characters</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>80-100 characters</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>100+ characters</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="" data-question="2">
+              <div class="">
+                <span class="">2</span>
+                <h3>Which color combination provides the highest contrast?</h3>
+              </div>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span>Blue text on white background</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span>Black text on white background</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span>Gray text on white background</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span>Red text on green background</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="" data-question="3">
+              <div class="">
+                <span class="">3</span>
+                <h3>
+                  What is the minimum contrast ratio for normal text according
+                  to WCAG AA?
+                </h3>
+              </div>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>3:1</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>4.5:1</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>7:1</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>10:1</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="" data-question="4">
+              <div class="">
+                <span class="">4</span>
+                <h3>
+                  Which font pairing principle creates effective contrast?
+                </h3>
+              </div>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="a" />
+                    <span>Use fonts from the same family</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="b" />
+                    <span>Pair serif with sans-serif</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="c" />
+                    <span>Use similar x-heights</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="d" />
+                    <span>Match letter spacing exactly</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="" data-question="5">
+              <div class="">
+                <span class="">5</span>
+                <h3>What does HSL stand for in color theory?</h3>
+              </div>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q5" value="a" />
+                    <span>High Saturation Light</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q5" value="b" />
+                    <span>Hue, Saturation, Lightness</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q5" value="c" />
+                    <span>HTML Style Language</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q5" value="d" />
+                    <span>Hexadecimal Style Layout</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <button class="" id="check-answers">
+                <i class=""></i>
+                Check Answers
+              </button>
+              <button class="" id="reset-quiz">
+                <i class=""></i>
+                Reset Quiz
+              </button>
+            </div>
+
+            <div class="" id="quiz-results">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>You scored <span id="score">0</span> out of 5!</p>
+              <div class="" id="result-message"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="">
+        <div class="">
+          <a href="uiux-design.html" class="">
+            <i class=""></i>
+            <span>Previous: UI/UX Design Principles</span>
+          </a>
+          <a href="web-accessibility.html" class="">
+            <span>Next: Web Accessibility</span>
+            <i class=""></i>
+          </a>
+        </div>
+
+        <div class="">
+          <p>
+            &copy; 2024 Interactive Web Development Course. All rights reserved.
+          </p>
+          <div class="">
+            <a href="../index.html">Course Home</a>
+            <a href="#top">Back to Top</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- Topic Script -->
+  </body>
+</html>

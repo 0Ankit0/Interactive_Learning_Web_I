@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Embedding JavaScript - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit4.html">Unit 4: JavaScript Basics</a>
+        <span class="">/</span>
+        <span class="">4.2 Embedding JavaScript</span>
+      </div>
+    </nav>
+
+    <section class="">
+      <div class="">
+        <h1><i class=""></i> Embedding JavaScript</h1>
+        <p>Learn the different ways to include JavaScript in your web pages</p>
+        <div class="">
+          <span><i class=""></i> 45 minutes</span>
+          <span><i class=""></i> Beginner</span>
+          <span><i class=""></i> 5 methods</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="">
+      <div class="">
+        <!-- Premium Video Resources -->
+        <section class="">
+          <h2><i class=""></i> JavaScript Embedding Video Tutorials</h2>
+          <p>
+            Master JavaScript embedding with these comprehensive video guides.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/QSuTH0C_3_Y/maxresdefault.jpg"
+                  alt="JavaScript in HTML"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">18:32</span>
+              </div>
+              <div class="">
+                <h3>How to Add JavaScript to HTML</h3>
+                <p class=""><i class=""></i> Web Dev Simplified</p>
+                <p class="">
+                  Complete guide to embedding JavaScript in HTML documents with
+                  best practices.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 1.2M views</span>
+                  <span><i class=""></i> 98% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=QSuTH0C_3_Y"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/A3ZUpQoYa4I/maxresdefault.jpg"
+                  alt="External JavaScript Files"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">12:15</span>
+              </div>
+              <div class="">
+                <h3>External JavaScript Files Explained</h3>
+                <p class=""><i class=""></i> Traversy Media</p>
+                <p class="">
+                  Learn how to organize JavaScript code using external files for
+                  better maintainability.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 890K views</span>
+                  <span><i class=""></i> 96% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=A3ZUpQoYa4I"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/Hh_se2Zqsdk/maxresdefault.jpg"
+                  alt="JavaScript Best Practices"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">25:47</span>
+              </div>
+              <div class="">
+                <h3>JavaScript Best Practices 2024</h3>
+                <p class=""><i class=""></i> Programming with Mosh</p>
+                <p class="">
+                  Modern JavaScript best practices including proper script
+                  placement and loading strategies.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 2.1M views</span>
+                  <span><i class=""></i> 99% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=Hh_se2Zqsdk"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/VlvKffcLd90/maxresdefault.jpg"
+                  alt="Script Tag Placement"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">14:23</span>
+              </div>
+              <div class="">
+                <h3>Where to Place Script Tags in HTML</h3>
+                <p class=""><i class=""></i> dcode</p>
+                <p class="">
+                  Understanding script tag placement for optimal page loading
+                  and performance.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 675K views</span>
+                  <span><i class=""></i> 97% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=VlvKffcLd90"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JavaScript Embedding Methods -->
+        <section class="">
+          <h2><i class=""></i> Methods of Embedding JavaScript</h2>
+          <p>
+            There are several ways to include JavaScript in your HTML documents.
+            Each method has its own use cases and benefits.
+          </p>
+
+          <div class="">
+            <!-- Method 1: Inline JavaScript -->
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h3>1. Inline JavaScript</h3>
+                <p>JavaScript code directly in HTML attributes</p>
+              </div>
+              <div class="">
+                <h4>How it works:</h4>
+                <div class="">
+                  &lt;button onclick="alert('Hello World!')"&gt;Click
+                  Me&lt;/button&gt; &lt;a href="javascript:void(0)"
+                  onclick="showDetails()"&gt;Show Details&lt;/a&gt; &lt;input
+                  onchange="validateInput(this.value)"&gt;
+                </div>
+
+                <div class="">
+                  <h5>Try it yourself:</h5>
+                  <button
+                    onclick="alert('Hello from inline JavaScript!')"
+                    class=""
+                  >
+                    <i class=""></i> Click Me
+                  </button>
+                  <button
+                    onclick="document.getElementById('inline-demo').style.background = 'lightblue'"
+                    class=""
+                  >
+                    Change Color
+                  </button>
+                  <div
+                    id="inline-demo"
+                    style="
+                      padding: 1rem;
+                      background: #f3f4f6;
+                      border-radius: 6px;
+                      margin: 0.5rem 0;
+                    "
+                  >
+                    This div will change color when you click the button above!
+                  </div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h5><i class=""></i> Pros:</h5>
+                    <ul>
+                      <li>Quick for small scripts</li>
+                      <li>No external files needed</li>
+                      <li>Good for prototyping</li>
+                    </ul>
+                  </div>
+                  <div class="">
+                    <h5><i class=""></i> Cons:</h5>
+                    <ul>
+                      <li>Hard to maintain</li>
+                      <li>Code duplication</li>
+                      <li>Security concerns</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Method 2: Internal JavaScript -->
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h3>2. Internal JavaScript</h3>
+                <p>JavaScript code inside &lt;script&gt; tags</p>
+              </div>
+              <div class="">
+                <h4>How it works:</h4>
+                <div class="">
+                  &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;
+                  &lt;title&gt;My Page&lt;/title&gt; &lt;script&gt; function
+                  greetUser() { alert('Welcome to our website!'); }
+                  document.addEventListener('DOMContentLoaded', function() {
+                  console.log('Page loaded successfully'); }); &lt;/script&gt;
+                  &lt;/head&gt; &lt;body&gt; &lt;button
+                  onclick="greetUser()"&gt;Greet&lt;/button&gt; &lt;/body&gt;
+                  &lt;/html&gt;
+                </div>
+
+                <div class="">
+                  <h5>Try it yourself:</h5>
+                  <button onclick="internalGreet()" class="">
+                    <i class=""></i> Internal Greet
+                  </button>
+                  <button onclick="showDateTime()" class="">
+                    Show Current Time
+                  </button>
+                  <div
+                    id="datetime-display"
+                    style="
+                      margin: 0.5rem 0;
+                      padding: 1rem;
+                      background: #f8fafc;
+                      border-radius: 6px;
+                      display: none;
+                    "
+                  ></div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h5><i class=""></i> Pros:</h5>
+                    <ul>
+                      <li>All code in one file</li>
+                      <li>Better than inline</li>
+                      <li>Good for small projects</li>
+                    </ul>
+                  </div>
+                  <div class="">
+                    <h5><i class=""></i> Cons:</h5>
+                    <ul>
+                      <li>Large HTML files</li>
+                      <li>Can't reuse code</li>
+                      <li>Harder to debug</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Method 3: External JavaScript -->
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h3>3. External JavaScript</h3>
+                <p>JavaScript code in separate .js files</p>
+              </div>
+              <div class="">
+                <h4>How it works:</h4>
+                <div class="">
+                  // File: scripts/main.js function calculateTotal(price, tax) {
+                  return price + (price * tax); } function
+                  displayMessage(message) {
+                  document.getElementById('output').textContent = message; } //
+                  HTML file &lt;script src="scripts/main.js"&gt;&lt;/script&gt;
+                  &lt;script
+                  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"&gt;&lt;/script&gt;
+                </div>
+
+                <div class="">
+                  <h5>External JavaScript Demo:</h5>
+                  <input
+                    type="number"
+                    id="price-input"
+                    placeholder="Enter price"
+                    style="padding: 0.5rem; margin: 0.5rem"
+                  />
+                  <button onclick="calculateWithExternal()" class="">
+                    <i class=""></i> Calculate Total
+                  </button>
+                  <div
+                    id="calculation-result"
+                    style="
+                      margin: 0.5rem 0;
+                      padding: 1rem;
+                      background: #f0f9ff;
+                      border-radius: 6px;
+                      display: none;
+                    "
+                  ></div>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <h5><i class=""></i> Pros:</h5>
+                    <ul>
+                      <li>Reusable code</li>
+                      <li>Cacheable by browsers</li>
+                      <li>Better organization</li>
+                      <li>Team collaboration</li>
+                    </ul>
+                  </div>
+                  <div class="">
+                    <h5><i class=""></i> Cons:</h5>
+                    <ul>
+                      <li>Additional HTTP requests</li>
+                      <li>File management</li>
+                      <li>Path dependencies</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Script Tag Placement -->
+        <section class="">
+          <h2><i class=""></i> Script Tag Placement</h2>
+          <p>
+            Where you place your script tags affects when and how your
+            JavaScript executes.
+          </p>
+
+          <div class="">
+            <h3>Script Placement Comparison</h3>
+
+            <div class="">
+              <!-- 1. In the &lt;head&gt; section -->
+              &lt;head&gt; &lt;script src="script.js"&gt;&lt;/script&gt;
+              &lt;/head&gt;
+
+              <!-- 2. Before closing &lt;/body&gt; tag -->
+              &lt;body&gt; &lt;!-- Your HTML content --&gt; &lt;script
+              src="script.js"&gt;&lt;/script&gt; &lt;/body&gt;
+
+              <!-- 3. With defer attribute -->
+              &lt;head&gt; &lt;script src="script.js" defer&gt;&lt;/script&gt;
+              &lt;/head&gt;
+
+              <!-- 4. With async attribute -->
+              &lt;head&gt; &lt;script src="script.js" async&gt;&lt;/script&gt;
+              &lt;/head&gt;
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+                margin: 2rem 0;
+              "
+            >
+              <div class="">
+                <h4><i class=""></i> Head Placement</h4>
+                <p>Blocks HTML parsing until script loads and executes.</p>
+                <strong>Use when:</strong> Script is critical for page
+                functionality.
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Body End</h4>
+                <p>Executes after HTML is parsed and DOM is ready.</p>
+                <strong>Use when:</strong> Script manipulates DOM elements.
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Defer Attribute</h4>
+                <p>Downloads while parsing, executes after DOM is complete.</p>
+                <strong>Use when:</strong> Script depends on full DOM but can
+                load early.
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Async Attribute</h4>
+                <p>Downloads and executes immediately when ready.</p>
+                <strong>Use when:</strong> Script is independent of DOM and
+                other scripts.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="">
+          <div class="">
+            <h2><i class=""></i> Best Practices for Embedding JavaScript</h2>
+
+            <div class="">
+              <h4><i class=""></i> 1. Use External Files for Production</h4>
+              <p>
+                Keep JavaScript in separate .js files for better
+                maintainability, caching, and code reuse. Only use inline
+                JavaScript for very small, page-specific scripts.
+              </p>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> 2. Place Scripts at the Bottom</h4>
+              <p>
+                Put script tags just before the closing &lt;/body&gt; tag to
+                ensure DOM elements are loaded before JavaScript tries to access
+                them.
+              </p>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> 3. Minify and Compress</h4>
+              <p>
+                Use minified versions of JavaScript files in production to
+                reduce file size and improve loading speed.
+              </p>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> 4. Validate User Input</h4>
+              <p>
+                Always validate and sanitize user input in JavaScript to prevent
+                security vulnerabilities and ensure data integrity.
+              </p>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> 5. Use Version Control</h4>
+              <p>
+                Keep JavaScript files in version control systems like Git to
+                track changes and collaborate with team members effectively.
+              </p>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> 6. Consider Mobile Performance</h4>
+              <p>
+                Optimize JavaScript for mobile devices by reducing file sizes,
+                minimizing DOM manipulation, and using efficient algorithms.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Code Editor -->
+        <section class="">
+          <h2><i class=""></i> Try Different Embedding Methods</h2>
+          <p>Practice embedding JavaScript using this interactive editor!</p>
+
+          <div class="">
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"
+            >
+              <div>
+                <h4>HTML Code:</h4>
+                <textarea
+                  id="html-editor"
+                  style="
+                    width: 100%;
+                    height: 300px;
+                    font-family: 'JetBrains Mono', monospace;
+                    padding: 1rem;
+                    border: 1px solid #d1d5db;
+                    border-radius: 6px;
+                    font-size: 0.9rem;
+                  "
+                >
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Demo</title>
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <button onclick="alert('Hello!')">Click Me</button>
+  
+  <script>
+    console.log('Page loaded!');
+  </script>
+</body>
+</html></textarea
+                >
+                <button
+                  onclick="updatePreview()"
+                  class=""
+                  style="margin-top: 1rem"
+                >
+                  <i class=""></i> Update Preview
+                </button>
+              </div>
+
+              <div>
+                <h4>Live Preview:</h4>
+                <iframe
+                  id="preview-frame"
+                  style="
+                    width: 100%;
+                    height: 350px;
+                    border: 1px solid #d1d5db;
+                    border-radius: 6px;
+                    background: white;
+                  "
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- External Resources -->
+        <section class="">
+          <h2><i class=""></i> Essential JavaScript Embedding Resources</h2>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>MDN: HTML Script Element</h3>
+              </div>
+              <p>
+                Complete documentation for the HTML script element and all its
+                attributes.
+              </p>
+              <div class="">
+                <span class="">Reference</span>
+                <span class="">Examples</span>
+                <span class="">Browser Support</span>
+              </div>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+                target="_blank"
+                class=""
+              >
+                Read Documentation <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>JavaScript Loading Performance</h3>
+              </div>
+              <p>
+                Learn about defer, async, and script loading optimization
+                techniques.
+              </p>
+              <div class="">
+                <span class="">Performance</span>
+                <span class="">Best Practices</span>
+                <span class="">Modern JS</span>
+              </div>
+              <a
+                href="https://web.dev/efficiently-load-third-party-javascript/"
+                target="_blank"
+                class=""
+              >
+                Optimize Loading <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>JavaScript Modules Guide</h3>
+              </div>
+              <p>
+                Modern JavaScript modules and ES6 import/export syntax for
+                better code organization.
+              </p>
+              <div class="">
+                <span class="">ES6 Modules</span>
+                <span class="">Modern JS</span>
+                <span class="">Code Organization</span>
+              </div>
+              <a
+                href="https://javascript.info/modules-intro"
+                target="_blank"
+                class=""
+              >
+                Learn Modules <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>JavaScript Build Tools</h3>
+              </div>
+              <p>
+                Learn about Webpack, Vite, and other tools for bundling and
+                optimizing JavaScript.
+              </p>
+              <div class="">
+                <span class="">Build Tools</span>
+                <span class="">Bundling</span>
+                <span class="">Optimization</span>
+              </div>
+              <a
+                href="https://webpack.js.org/guides/getting-started/"
+                target="_blank"
+                class=""
+              >
+                Explore Tools <i class=""></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="">
+          <div class="">
+            <button
+              class=""
+              onclick="window.location.href='js-introduction.html'"
+            >
+              <i class=""></i> Previous: JavaScript Introduction
+            </button>
+            <button class="" onclick="window.location.href='js-variables.html'">
+              Next: Variables & Data Types <i class=""></i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master JavaScript embedding
+          techniques.
+        </p>
+      </div>
+    </footer>
+
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

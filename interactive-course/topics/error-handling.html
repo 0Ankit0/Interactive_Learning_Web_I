@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling - Interactive Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="">
+      <div class="">
+        <div class="">
+          <i class=""></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="">
+          <a href="../index.html" class=""> <i class=""></i> Home </a>
+          <a href="../units/unit5.html" class=""> <i class=""></i> Unit 5 </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="">
+      <div class="">
+        <span class="">
+          <a href="../index.html"><i class=""></i> Home</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">Error Handling</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="">
+      <div class="">
+        <div class="">
+          <h1><i class=""></i> Error Handling</h1>
+          <p class="">
+            Master robust error handling in JavaScript. Learn to catch, handle,
+            and debug errors effectively to build reliable applications that
+            gracefully handle unexpected situations.
+          </p>
+          <div class="">
+            <span class=""><i class=""></i> Robust Code</span>
+            <span class=""><i class=""></i> Debug Effectively</span>
+            <span class=""><i class=""></i> Error Recovery</span>
+            <span class=""><i class=""></i> Better UX</span>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">Error Handling Demo</div>
+              <div class="" id="liveErrorDemo">
+                <div class="">try {</div>
+                <div class="">await riskyOperation();</div>
+                <div class="">} catch (error) {</div>
+                <div class="">handleError(error);</div>
+                <div class="">}</div>
+              </div>
+              <div class="">Try-Catch Pattern</div>
+            </div>
+            <div class="">
+              <h3>Why Handle Errors?</h3>
+              <div class="">
+                <div class="">Prevent application crashes</div>
+                <div class="">Improve user experience</div>
+                <div class="">Enable graceful degradation</div>
+                <div class="">Facilitate debugging</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="">
+      <div class="">
+        <!-- Introduction -->
+        <section class="">
+          <h2><i class=""></i> Understanding JavaScript Errors</h2>
+          <div class="">
+            <p class="">
+              Error handling is a crucial aspect of JavaScript programming that
+              allows you to anticipate, catch, and manage runtime errors
+              gracefully. Proper error handling prevents applications from
+              crashing and provides users with meaningful feedback.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Syntax Errors</h4>
+                <p>
+                  Errors in code structure that prevent parsing and execution.
+                </p>
+                <div class="">
+                  <pre><code class="">// Syntax Error - Missing closing parenthesis
+console.log("Hello World";</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Runtime Errors</h4>
+                <p>
+                  Errors that occur during code execution, such as accessing
+                  undefined properties.
+                </p>
+                <div class="">
+                  <pre><code class="">// Runtime Error - Cannot read property of undefined
+let obj;
+console.log(obj.name); // TypeError</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Logical Errors</h4>
+                <p>
+                  Code runs without throwing errors but produces incorrect
+                  results.
+                </p>
+                <div class="">
+                  <pre><code class="">// Logical Error - Wrong operator
+function add(a, b) {
+  return a - b; // Should be a + b
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Network Errors</h4>
+                <p>
+                  Errors related to network requests, API calls, or connectivity
+                  issues.
+                </p>
+                <div class="">
+                  <pre><code class="">// Network Error - Failed fetch request
+fetch('/api/data')
+  .catch(error => console.error('Network error:', error));</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Try-Catch Blocks -->
+        <section class="">
+          <h2><i class=""></i> Try-Catch-Finally</h2>
+          <div class="">
+            <p>
+              The try-catch-finally statement is the primary mechanism for
+              handling errors in JavaScript.
+            </p>
+
+            <div class="">
+              <div class="">
+                <h4>Basic Syntax</h4>
+                <div class="">
+                  <pre><code class="">try {
+  // Code that might throw an error
+  let result = riskyOperation();
+  console.log(result);
+} catch (error) {
+  // Handle the error
+  console.error('An error occurred:', error.message);
+} finally {
+  // Always executed (optional)
+  console.log('Cleanup operations');
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Interactive Try-Catch Demo</h4>
+                <div class="">
+                  <div class="">
+                    <label for="errorType">Choose error scenario:</label>
+                    <select id="errorType">
+                      <option value="success">No Error (Success)</option>
+                      <option value="reference">Reference Error</option>
+                      <option value="type">Type Error</option>
+                      <option value="syntax">Syntax Error</option>
+                      <option value="custom">Custom Error</option>
+                    </select>
+                    <button id="runErrorDemo" class="">Run Demo</button>
+                  </div>
+
+                  <div class="">
+                    <div class="">
+                      <h5>Code:</h5>
+                      <div id="demoCode" class=""></div>
+                    </div>
+                    <div class="">
+                      <h5>Result:</h5>
+                      <div id="demoResult" class=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Error Objects -->
+        <section class="">
+          <h2><i class=""></i> Error Objects and Types</h2>
+          <div class="">
+            <p>
+              JavaScript provides several built-in error types, each designed
+              for specific error scenarios.
+            </p>
+
+            <div class="">
+              <div class="">
+                <button class="" data-tab="built-in">Built-in Errors</button>
+                <button class="" data-tab="custom">Custom Errors</button>
+                <button class="" data-tab="properties">Error Properties</button>
+              </div>
+
+              <div class="">
+                <!-- Built-in Errors -->
+                <div class="" id="built-in-panel">
+                  <div class="">
+                    <div class="">
+                      <h5>Error (Base Class)</h5>
+                      <p>
+                        Generic error object, parent of all other error types.
+                      </p>
+                      <div class="">
+                        <pre><code class="">throw new Error('Something went wrong');</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>SyntaxError</h5>
+                      <p>Thrown when there's a syntax error in the code.</p>
+                      <div class="">
+                        <pre><code class="">// This will throw a SyntaxError
+eval('const x = ;');</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>ReferenceError</h5>
+                      <p>Thrown when trying to access an undefined variable.</p>
+                      <div class="">
+                        <pre><code class="">// This will throw a ReferenceError
+console.log(undefinedVariable);</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>TypeError</h5>
+                      <p>Thrown when a value is not of the expected type.</p>
+                      <div class="">
+                        <pre><code class="">// This will throw a TypeError
+let x = null;
+x.someMethod();</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>RangeError</h5>
+                      <p>Thrown when a number is outside its allowed range.</p>
+                      <div class="">
+                        <pre><code class="">// This will throw a RangeError
+let arr = new Array(-1);</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Custom Errors -->
+                <div class="" id="custom-panel">
+                  <div class="">
+                    <h4>Creating Custom Error Classes</h4>
+                    <div class="">
+                      <pre><code class="">class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
+class NetworkError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    this.name = 'NetworkError';
+    this.statusCode = statusCode;
+  }
+}
+
+// Usage
+throw new ValidationError('Invalid email format');
+throw new NetworkError('Server unavailable', 503);</code></pre>
+                    </div>
+
+                    <div class="">
+                      <h5>Interactive Custom Error Demo</h5>
+                      <div class="">
+                        <input
+                          type="text"
+                          id="customErrorMessage"
+                          placeholder="Enter error message"
+                          value="Custom validation failed"
+                        />
+                        <button id="throwCustomError" class="">
+                          Throw Custom Error
+                        </button>
+                      </div>
+                      <div id="customErrorResult" class=""></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Error Properties -->
+                <div class="" id="properties-panel">
+                  <div class="">
+                    <h4>Common Error Properties</h4>
+                    <div class="">
+                      <div class="">
+                        <strong>name</strong>
+                        <p>
+                          The name of the error type (e.g., 'TypeError',
+                          'ReferenceError')
+                        </p>
+                        <code>error.name</code>
+                      </div>
+
+                      <div class="">
+                        <strong>message</strong>
+                        <p>A human-readable description of the error</p>
+                        <code>error.message</code>
+                      </div>
+
+                      <div class="">
+                        <strong>stack</strong>
+                        <p>A stack trace showing where the error occurred</p>
+                        <code>error.stack</code>
+                      </div>
+
+                      <div class="">
+                        <strong>cause</strong>
+                        <p>The underlying cause of the error (ES2022)</p>
+                        <code>error.cause</code>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>Error Inspection Demo</h5>
+                      <button id="inspectError" class="">
+                        Generate & Inspect Error
+                      </button>
+                      <div id="errorInspectionResult" class=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Async Error Handling -->
+        <section class="">
+          <h2><i class=""></i> Async Error Handling</h2>
+          <div class="">
+            <p>
+              Handling errors in asynchronous code requires special attention,
+              especially with Promises and async/await.
+            </p>
+
+            <div class="">
+              <div class="">
+                <h4>Promise Error Handling</h4>
+                <div class="">
+                  <pre><code class="">// Using .catch() with Promises
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => {
+    console.error('Error fetching data:', error);
+    // Handle error (show user message, retry, etc.)
+  });
+
+// Chaining multiple catches for different error types
+fetch('/api/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    return response.json();
+  })
+  .catch(error => {
+    if (error instanceof TypeError) {
+      console.error('Network error:', error);
+    } else {
+      console.error('HTTP error:', error);
+    }
+  });</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <h4>Async/Await Error Handling</h4>
+                <div class="">
+                  <pre><code class="">async function fetchUserData(userId) {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user: ${response.status}`);
+    }
+    
+    const userData = await response.json();
+    return userData;
+    
+  } catch (error) {
+    if (error.name === 'TypeError') {
+      // Network error
+      console.error('Network connection failed:', error);
+      throw new Error('Unable to connect to server');
+    } else {
+      // Other errors
+      console.error('Error fetching user data:', error);
+      throw error;
+    }
+  }
+}
+
+// Usage with error handling
+try {
+  const user = await fetchUserData(123);
+  console.log('User data:', user);
+} catch (error) {
+  displayErrorMessage(error.message);
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Async Error Handling Demo</h4>
+              <div class="">
+                <label for="asyncUrl">API URL:</label>
+                <input
+                  type="text"
+                  id="asyncUrl"
+                  value="https://jsonplaceholder.typicode.com/posts/1"
+                />
+                <button id="fetchWithErrorHandling" class="">
+                  Fetch with Error Handling
+                </button>
+                <button id="simulateNetworkError" class="">
+                  Simulate Network Error
+                </button>
+              </div>
+              <div id="asyncErrorResult" class=""></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="">
+          <h2><i class=""></i> Error Handling Best Practices</h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>Be Specific with Errors</h4>
+                <p>
+                  Create meaningful error messages that help identify the
+                  problem.
+                </p>
+                <div class="">
+                  <pre><code class="">// Good
+throw new Error('User email is required and must be valid');
+
+// Bad
+throw new Error('Invalid input');</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class=""><i class=""></i></div>
+                <h4>Use Error Boundaries</h4>
+                <p>
+                  Implement centralized error handling to catch unhandled
+                  errors.
+                </p>
+                <div class="">
+                  <pre><code class="">window.addEventListener('error', (event) => {
+  console.error('Global error:', event.error);
+  // Send to logging service
+  logError(event.error);
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Unhandled promise rejection:', event.reason);
+  event.preventDefault();
+});</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class=""><i class=""></i></div>
+                <h4>Implement Retry Logic</h4>
+                <p>
+                  For network errors, implement retry mechanisms with
+                  exponential backoff.
+                </p>
+                <div class="">
+                  <pre><code class="">async function fetchWithRetry(url, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      return await fetch(url);
+    } catch (error) {
+      if (i === maxRetries - 1) throw error;
+      await new Promise(resolve => 
+        setTimeout(resolve, 1000 * Math.pow(2, i))
+      );
+    }
+  }
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <h4>User-Friendly Messages</h4>
+                <p>Show users helpful error messages, not technical details.</p>
+                <div class="">
+                  <pre><code class="">function handleError(error) {
+  // Log technical details for developers
+  console.error('Technical error:', error);
+  
+  // Show user-friendly message
+  const userMessage = getUserFriendlyMessage(error);
+  showNotification(userMessage, 'error');
+}
+
+function getUserFriendlyMessage(error) {
+  if (error.name === 'NetworkError') {
+    return 'Unable to connect. Please check your internet connection.';
+  }
+  return 'Something went wrong. Please try again later.';
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your Error Handling Knowledge</h2>
+          <div class="">
+            <div class="">
+              <h4>
+                <span class="">1</span> What happens if an error is not caught
+                in a try-catch block?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="a" />
+                    <span>The error is silently ignored</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="b" />
+                    <span>The program crashes</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="c" />
+                    <span>The error is automatically logged</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q1" value="d" />
+                    <span>The error becomes a warning</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">2</span> Which block always executes in a
+                try-catch-finally statement?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="a" />
+                    <span>try</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="b" />
+                    <span>catch</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="c" />
+                    <span>finally</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q2" value="d" />
+                    <span>All blocks always execute</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">3</span> How do you handle errors in async/await
+                functions?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="a" />
+                    <span>Using try-catch blocks</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="b" />
+                    <span>Using .catch() method only</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="c" />
+                    <span
+                      >Errors cannot be handled in async functions</span
+                    ></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q3" value="d" />
+                    <span>Using setTimeout</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">4</span> What is the purpose of the Error.stack
+                property?
+              </h4>
+              <ul class="">
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="a" />
+                    <span>To store the error message</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="b" />
+                    <span>To provide a stack trace for debugging</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="c" />
+                    <span>To indicate the error type</span></label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="q4" value="d" />
+                    <span>To count the number of errors</span></label
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <button class="">Submit Quiz</button>
+              <button class="" style="display: none">Try Again</button>
+            </div>
+
+            <div class="" style="display: none">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="">
+          <h2><i class=""></i> Additional Learning Resources</h2>
+          <div class="">
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>MDN Error Handling Guide</h4>
+                <p>
+                  Comprehensive documentation for JavaScript error handling and
+                  debugging.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Read MDN Docs
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>JavaScript Error Types</h4>
+                <p>
+                  Detailed reference of all JavaScript error types and their use
+                  cases.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Learn Error Types
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>Debugging Best Practices</h4>
+                <p>
+                  Learn effective debugging techniques and error handling
+                  strategies.
+                </p>
+                <a
+                  href="https://javascript.info/debugging-chrome"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Debugging Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class=""><i class=""></i></div>
+              <div class="">
+                <h4>Error Monitoring Tools</h4>
+                <p>
+                  Explore tools like Sentry, Rollbar for production error
+                  monitoring.
+                </p>
+                <a href="https://sentry.io/welcome/" target="_blank" class="">
+                  <i class=""></i> Explore Sentry
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="">
+          <h2><i class=""></i> Next Steps</h2>
+          <div class="">
+            <div class="">
+              <div class="">1</div>
+              <div class="">
+                <h3>Practice Error Scenarios</h3>
+                <p>
+                  Create applications with intentional errors to practice
+                  handling different error types.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">2</div>
+              <div class="">
+                <h3>Implement Logging</h3>
+                <p>
+                  Set up error logging and monitoring in your applications for
+                  production environments.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">3</div>
+              <div class="">
+                <h3>Explore Advanced Topics</h3>
+                <p>
+                  Continue learning advanced JavaScript concepts and modern
+                  development practices.
+                </p>
+                <a href="../units/unit6.html" class="">Continue to Unit 6 →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="">
+      <div class="">
+        <div class="">
+          <h3><i class=""></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="es6-features.html">ES6+ Features</a></li>
+            <li><a href="regular-expressions.html">Regular Expressions</a></li>
+            <li><a href="async-await.html">Async/Await</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+                target="_blank"
+                >MDN Error Handling</a
+              >
+            </li>
+            <li>
+              <a href="https://javascript.info/debugging-chrome" target="_blank"
+                >Debugging Guide</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

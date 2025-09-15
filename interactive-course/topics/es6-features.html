@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6+ Features - Interactive Course</title>
+
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="">
+      <div class="">
+        <div class="">
+          <i class=""></i>
+          <span>Web Technology Course</span>
+        </div>
+        <div class="">
+          <a href="../index.html" class=""> <i class=""></i> Home </a>
+          <a href="../units/unit5.html" class=""> <i class=""></i> Unit 5 </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="">
+      <div class="">
+        <span class="">
+          <a href="../index.html"><i class=""></i> Home</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">
+          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        </span>
+        <span class=""><i class=""></i></span>
+        <span class="">ES6+ Features</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="">
+      <div class="">
+        <div class="">
+          <h1>
+            <i class=""></i>
+            ES6+ Features & Modern JavaScript
+          </h1>
+          <p class="">
+            Discover the modern JavaScript features that revolutionized web
+            development. Master ES6+ syntax, destructuring, arrow functions,
+            promises, and more to write cleaner, more efficient code.
+          </p>
+          <div class="">
+            <span class=""><i class=""></i> Arrow Functions</span>
+            <span class=""><i class=""></i> Destructuring</span>
+            <span class=""><i class=""></i> Template Literals</span>
+            <span class=""><i class=""></i> Promises</span>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">1995</div>
+                <div class="">JavaScript</div>
+                <div class="">Birth of JavaScript</div>
+              </div>
+              <div class="">
+                <div class="">2009</div>
+                <div class="">ES5</div>
+                <div class="">Standardization</div>
+              </div>
+              <div class="">
+                <div class="">2015</div>
+                <div class="">ES6/ES2015</div>
+                <div class="">Major Update</div>
+              </div>
+              <div class="">
+                <div class="">2020+</div>
+                <div class="">ES2020+</div>
+                <div class="">Annual Updates</div>
+              </div>
+            </div>
+
+            <div class="">
+              <h3>ES6+ Key Features</h3>
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                  <span>Arrow Functions</span>
+                </div>
+                <div class="">
+                  <i class=""></i>
+                  <span>Let & Const</span>
+                </div>
+                <div class="">
+                  <i class=""></i>
+                  <span>Destructuring</span>
+                </div>
+                <div class="">
+                  <i class=""></i>
+                  <span>Template Literals</span>
+                </div>
+                <div class="">
+                  <i class=""></i>
+                  <span>Promises</span>
+                </div>
+                <div class="">
+                  <i class=""></i>
+                  <span>Classes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="">
+      <div class="">
+        <!-- Variable Declarations -->
+        <section class="">
+          <h2><i class=""></i> Modern Variable Declarations</h2>
+          <div class="">
+            <p class="">
+              ES6 introduced <code>let</code> and <code>const</code> as
+              alternatives to <code>var</code>, providing block scope and
+              preventing common JavaScript pitfalls.
+            </p>
+
+            <div class="">
+              <div class="">
+                <h3><i class=""></i> var (ES5)</h3>
+                <div class="">
+                  <pre><code class="">// Function-scoped, can be redeclared
+var name = 'John';
+var name = 'Jane'; // No error
+console.log(name); // 'Jane'
+
+// Hoisting issues
+console.log(age); // undefined (not error)
+var age = 25;
+
+// Loop scope problems
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 100); // 3, 3, 3
+}</code></pre>
+                </div>
+                <div class="">
+                  <h4>Issues with var:</h4>
+                  <ul>
+                    <li>Function-scoped (not block-scoped)</li>
+                    <li>Can be redeclared</li>
+                    <li>Hoisting behavior</li>
+                    <li>Closure loop problems</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="">
+                <h3><i class=""></i> let & const (ES6)</h3>
+                <div class="">
+                  <pre><code class="">// Block-scoped
+let name = 'John';
+// let name = 'Jane'; // SyntaxError
+
+const PI = 3.14159;
+// PI = 3.14; // TypeError
+
+// Proper scoping
+for (let i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 100); // 0, 1, 2
+}
+
+// Temporal dead zone
+// console.log(x); // ReferenceError
+let x = 10;</code></pre>
+                </div>
+                <div class="">
+                  <h4>Benefits:</h4>
+                  <ul>
+                    <li>Block-scoped</li>
+                    <li>Cannot be redeclared</li>
+                    <li>No hoisting confusion</li>
+                    <li>Temporal dead zone protection</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Variable Scope Demo</h4>
+              <div class="">
+                <div class="">
+                  <textarea
+                    id="scopeCode"
+                    placeholder="Enter JavaScript code to test variable scope..."
+                  >
+function testScope() {
+    if (true) {
+        var varVariable = 'var';
+        let letVariable = 'let';
+        const constVariable = 'const';
+    }
+    
+    console.log('var:', varVariable); // Works
+    // console.log('let:', letVariable); // Error
+    // console.log('const:', constVariable); // Error
+}
+
+testScope();
+                                </textarea
+                  >
+                </div>
+                <div class="">
+                  <button id="runScopeCode" class="">Run Code</button>
+                  <button id="clearScopeOutput" class="">Clear Output</button>
+                </div>
+                <div class="">
+                  <h5>Output:</h5>
+                  <pre id="scopeOutput">Click "Run Code" to see the result</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Arrow Functions -->
+        <section class="">
+          <h2><i class=""></i> Arrow Functions</h2>
+          <div class="">
+            <p class="">
+              Arrow functions provide a shorter syntax for writing functions and
+              automatically bind the
+              <code>this</code> context from the surrounding scope.
+            </p>
+
+            <div class="">
+              <div class="">
+                <button class="" data-tab="syntax">Syntax Comparison</button>
+                <button class="" data-tab="this-binding">This Binding</button>
+                <button class="" data-tab="use-cases">Use Cases</button>
+              </div>
+
+              <div class="">
+                <!-- Syntax Comparison -->
+                <div class="" id="syntax-panel">
+                  <div class="">
+                    <div class="">
+                      <h4>Traditional Functions</h4>
+                      <div class="">
+                        <pre><code class="">// Regular function declaration
+function add(a, b) {
+    return a + b;
+}
+
+// Function expression
+const multiply = function(a, b) {
+    return a * b;
+};
+
+// Method in object
+const calculator = {
+    name: 'Calculator',
+    add: function(a, b) {
+        return a + b;
+    }
+};</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h4>Arrow Functions</h4>
+                      <div class="">
+                        <pre><code class="">// Basic arrow function
+const add = (a, b) => {
+    return a + b;
+};
+
+// Implicit return (single expression)
+const multiply = (a, b) => a * b;
+
+// Single parameter (parentheses optional)
+const square = x => x * x;
+
+// No parameters
+const greet = () => 'Hello World!';
+
+// Multiple statements
+const processData = (data) => {
+    const processed = data.map(item => item * 2);
+    return processed.filter(item => item > 10);
+};</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- This Binding -->
+                <div class="" id="this-binding-panel">
+                  <h4>Understanding 'this' in Arrow Functions</h4>
+                  <div class="">
+                    <pre><code class="">// Traditional function - 'this' depends on how it's called
+const obj1 = {
+    name: 'Object 1',
+    regularFunction: function() {
+        console.log('Regular function this:', this.name);
+        
+        setTimeout(function() {
+            console.log('Timeout regular:', this.name); // undefined
+        }, 1000);
+    }
+};
+
+// Arrow function - 'this' inherited from enclosing scope
+const obj2 = {
+    name: 'Object 2',
+    arrowFunction: function() {
+        console.log('Regular function this:', this.name);
+        
+        setTimeout(() => {
+            console.log('Timeout arrow:', this.name); // 'Object 2'
+        }, 1000);
+    }
+};
+
+// Event handlers comparison
+class Button {
+    constructor(element) {
+        this.element = element;
+        this.clickCount = 0;
+        
+        // Wrong way (this binding issue)
+        this.element.addEventListener('click', function() {
+            this.clickCount++; // 'this' refers to element, not Button
+        });
+        
+        // Right way (arrow function preserves this)
+        this.element.addEventListener('click', () => {
+            this.clickCount++; // 'this' refers to Button instance
+        });
+    }
+}</code></pre>
+                  </div>
+                </div>
+
+                <!-- Use Cases -->
+                <div class="" id="use-cases-panel">
+                  <h4>When to Use Arrow Functions</h4>
+
+                  <div class="">
+                    <div class="">
+                      <h5><i class=""></i> Good Use Cases</h5>
+                      <ul class="">
+                        <li>Array methods (map, filter, reduce)</li>
+                        <li>Event handlers in classes</li>
+                        <li>Callback functions</li>
+                        <li>Short, pure functions</li>
+                        <li>When you need lexical 'this'</li>
+                      </ul>
+                      <div class="">
+                        <pre><code class="">// Array methods
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(n => n * 2);
+const evens = numbers.filter(n => n % 2 === 0);
+
+// Callbacks
+fetch('/api/data')
+    .then(response => response.json())
+    .then(data => console.log(data));</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5><i class=""></i> Avoid When</h5>
+                      <ul class="">
+                        <li>Object methods (need dynamic 'this')</li>
+                        <li>Constructor functions</li>
+                        <li>Need 'arguments' object</li>
+                        <li>Methods that use 'call' or 'apply'</li>
+                        <li>Need function hoisting</li>
+                      </ul>
+                      <div class="">
+                        <pre><code class="">// Avoid for object methods
+const user = {
+    name: 'John',
+    greet: () => {
+        // 'this' doesn't refer to user object
+        console.log(`Hello, ${this.name}`); // undefined
+    }
+};
+
+// Use regular function instead
+const user2 = {
+    name: 'John',
+    greet: function() {
+        console.log(`Hello, ${this.name}`); // 'John'
+    }
+};</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Arrow Function Playground</h4>
+              <div class="">
+                <div class="">
+                  <h5>Exercise: Convert to Arrow Functions</h5>
+                  <div class="">
+                    <div class="">
+                      <label>Traditional Function:</label>
+                      <textarea id="traditionalFunction" readonly>
+function multiply(a, b) {
+    return a * b;
+}</textarea
+                      >
+                    </div>
+                    <div class="">
+                      <label>Your Arrow Function:</label>
+                      <textarea
+                        id="arrowFunction"
+                        placeholder="Convert the function to arrow syntax..."
+                      ></textarea>
+                      <button id="checkArrowFunction" class="">
+                        Check Answer
+                      </button>
+                      <div id="arrowFeedback" class=""></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Try These Examples:</h5>
+                  <div class="">
+                    <button class="" data-example="simple">
+                      Simple Function
+                    </button>
+                    <button class="" data-example="array">Array Method</button>
+                    <button class="" data-example="object">
+                      Object Method
+                    </button>
+                    <button class="" data-example="callback">Callback</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Template Literals -->
+        <section class="">
+          <h2><i class=""></i> Template Literals</h2>
+          <div class="">
+            <p class="">
+              Template literals provide an easy way to create strings with
+              embedded expressions, multi-line strings, and better formatting.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <h4>Before ES6 (String Concatenation)</h4>
+                  <div class="">
+                    <pre><code class="">// String concatenation
+var name = 'John';
+var age = 30;
+var greeting = 'Hello, my name is ' + name + 
+               ' and I am ' + age + ' years old.';
+
+// Multi-line strings (ugly)
+var html = '&lt;div class=""&gt;' +
+           '  &lt;h2&gt;' + title + '&lt;/h2&gt;' +
+           '  &lt;p&gt;' + description + '&lt;/p&gt;' +
+           '&lt;/div&gt;';
+
+// Expression evaluation
+var total = 'Total: $' + (price * quantity).toFixed(2);</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h4>ES6+ (Template Literals)</h4>
+                  <div class="">
+                    <pre><code class="">// Template literals with expressions
+const name = 'John';
+const age = 30;
+const greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+
+// Multi-line strings (clean)
+const html = `
+    &lt;div class=""&gt;
+        &lt;h2&gt;${title}&lt;/h2&gt;
+        &lt;p&gt;${description}&lt;/p&gt;
+    &lt;/div&gt;
+`;
+
+// Complex expressions
+const total = `Total: $${(price * quantity).toFixed(2)}`;
+
+// Tagged templates
+const styled = css`
+    color: ${primaryColor};
+    font-size: ${fontSize}px;
+`;</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Template Literal Features</h4>
+              <div class="">
+                <div class="">
+                  <h5>Expression Interpolation</h5>
+                  <div class="">
+                    <pre><code class="">const x = 10;
+const y = 20;
+
+console.log(`${x} + ${y} = ${x + y}`);
+// "10 + 20 = 30"
+
+console.log(`Square root of ${x} is ${Math.sqrt(x)}`);
+// "Square root of 10 is 3.1622776601683795"</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Multi-line Strings</h5>
+                  <div class="">
+                    <pre><code class="">const poem = `
+    Roses are red,
+    Violets are blue,
+    Template literals
+    Make coding fun too!
+`;
+
+console.log(poem);</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Nested Templates</h5>
+                  <div class="">
+                    <pre><code class="">const users = ['Alice', 'Bob', 'Charlie'];
+
+const userList = `
+    &lt;ul&gt;
+        ${users.map(user => 
+            `&lt;li&gt;${user}&lt;/li&gt;`
+        ).join('')}
+    &lt;/ul&gt;
+`;
+
+console.log(userList);</code></pre>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Tagged Templates</h5>
+                  <div class="">
+                    <pre><code class="">function highlight(strings, ...values) {
+    return strings.reduce((result, string, i) => {
+        const value = values[i] ? `&lt;mark&gt;${values[i]}&lt;/mark&gt;` : '';
+        return result + string + value;
+    }, '');
+}
+
+const name = 'John';
+const score = 95;
+const message = highlight`${name} scored ${score}% on the test!`;
+// "John scored 95% on the test!" (with highlighting)</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Template Literal Builder</h4>
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <label for="userName">Name:</label>
+                    <input
+                      type="text"
+                      id="userName"
+                      placeholder="Enter name"
+                      value="John Doe"
+                    />
+                  </div>
+                  <div class="">
+                    <label for="userAge">Age:</label>
+                    <input
+                      type="number"
+                      id="userAge"
+                      placeholder="Enter age"
+                      value="25"
+                    />
+                  </div>
+                  <div class="">
+                    <label for="userCity">City:</label>
+                    <input
+                      type="text"
+                      id="userCity"
+                      placeholder="Enter city"
+                      value="New York"
+                    />
+                  </div>
+                  <div class="">
+                    <label for="userSkills">Skills (comma-separated):</label>
+                    <input
+                      type="text"
+                      id="userSkills"
+                      placeholder="JavaScript, CSS, HTML"
+                      value="JavaScript, React, Node.js"
+                    />
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Generated Template:</h5>
+                  <pre id="templateResult"></pre>
+                </div>
+
+                <div class="">
+                  <h5>HTML Preview:</h5>
+                  <div id="htmlPreview"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Destructuring -->
+        <section class="">
+          <h2><i class=""></i> Destructuring Assignment</h2>
+          <div class="">
+            <p class="">
+              Destructuring allows you to extract values from arrays and objects
+              into distinct variables in a more readable and concise way.
+            </p>
+
+            <div class="">
+              <div class="">
+                <button class="" data-tab="arrays">Array Destructuring</button>
+                <button class="" data-tab="objects">
+                  Object Destructuring
+                </button>
+                <button class="" data-tab="advanced">Advanced Patterns</button>
+              </div>
+
+              <div class="">
+                <!-- Array Destructuring -->
+                <div class="" id="arrays-panel">
+                  <h4>Array Destructuring</h4>
+                  <div class="">
+                    <div class="">
+                      <h5>Basic Array Destructuring</h5>
+                      <div class="">
+                        <pre><code class="">// Traditional way
+const colors = ['red', 'green', 'blue'];
+const first = colors[0];
+const second = colors[1];
+const third = colors[2];
+
+// ES6 destructuring
+const [red, green, blue] = colors;
+console.log(red);   // 'red'
+console.log(green); // 'green'
+console.log(blue);  // 'blue'
+
+// Skip elements
+const [primary, , tertiary] = colors;
+console.log(primary);  // 'red'
+console.log(tertiary); // 'blue'</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>Default Values & Rest</h5>
+                      <div class="">
+                        <pre><code class="">// Default values
+const [a = 1, b = 2, c = 3] = [10];
+console.log(a, b, c); // 10, 2, 3
+
+// Rest operator
+const numbers = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = numbers;
+console.log(first);  // 1
+console.log(second); // 2
+console.log(rest);   // [3, 4, 5]
+
+// Swapping variables
+let x = 1, y = 2;
+[x, y] = [y, x];
+console.log(x, y); // 2, 1</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Object Destructuring -->
+                <div class="" id="objects-panel">
+                  <h4>Object Destructuring</h4>
+                  <div class="">
+                    <div class="">
+                      <h5>Basic Object Destructuring</h5>
+                      <div class="">
+                        <pre><code class="">// Traditional way
+const user = {
+    name: 'John Doe',
+    age: 30,
+    email: 'john@example.com'
+};
+const name = user.name;
+const age = user.age;
+
+// ES6 destructuring
+const {name, age, email} = user;
+console.log(name);  // 'John Doe'
+console.log(age);   // 30
+console.log(email); // 'john@example.com'
+
+// Rename variables
+const {name: userName, age: userAge} = user;
+console.log(userName); // 'John Doe'
+console.log(userAge);  // 30</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>Nested & Default Values</h5>
+                      <div class="">
+                        <pre><code class="">// Nested destructuring
+const user = {
+    name: 'John',
+    address: {
+        street: '123 Main St',
+        city: 'Boston',
+        country: 'USA'
+    }
+};
+
+const {name, address: {city, country}} = user;
+console.log(name);    // 'John'
+console.log(city);    // 'Boston'
+console.log(country); // 'USA'
+
+// Default values
+const {name, age = 25, city = 'Unknown'} = user;
+console.log(age);  // 25 (default)
+console.log(city); // 'Unknown' (default)</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Advanced Patterns -->
+                <div class="" id="advanced-panel">
+                  <h4>Advanced Destructuring Patterns</h4>
+                  <div class="">
+                    <div class="">
+                      <h5>Function Parameters</h5>
+                      <div class="">
+                        <pre><code class="">// Destructuring in function parameters
+function greetUser({name, age, city = 'Unknown'}) {
+    console.log(`Hello ${name}, you are ${age} years old from ${city}`);
+}
+
+greetUser({name: 'Alice', age: 28}); 
+// "Hello Alice, you are 28 years old from Unknown"
+
+// Array destructuring in parameters
+function sum([a, b, c = 0]) {
+    return a + b + c;
+}
+
+console.log(sum([1, 2]));    // 3
+console.log(sum([1, 2, 3])); // 6</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <h5>Mixed Destructuring</h5>
+                      <div class="">
+                        <pre><code class="">// Complex data structures
+const response = {
+    data: {
+        users: [
+            {id: 1, name: 'John', roles: ['admin', 'user']},
+            {id: 2, name: 'Jane', roles: ['user']}
+        ]
+    },
+    status: 'success'
+};
+
+// Extract nested data
+const {
+    data: {
+        users: [
+            {name: firstName, roles: [firstRole]},
+            {name: secondName}
+        ]
+    },
+    status
+} = response;
+
+console.log(firstName);  // 'John'
+console.log(firstRole);  // 'admin'
+console.log(secondName); // 'Jane'
+console.log(status);     // 'success'</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Destructuring Practice</h4>
+              <div class="">
+                <div class="">
+                  <h5>Challenge: Extract the Data</h5>
+                  <div class="">
+                    <pre id="challengeData">
+{
+  "company": {
+    "name": "Tech Corp",
+    "employees": [
+      {"name": "Alice", "department": "Engineering", "salary": 85000},
+      {"name": "Bob", "department": "Marketing", "salary": 75000}
+    ],
+    "location": {
+      "city": "San Francisco",
+      "state": "CA"
+    }
+  }
+}</pre
+                    >
+                  </div>
+                  <div class="">
+                    <p>
+                      Extract: company name, first employee's name and salary,
+                      and the city using destructuring.
+                    </p>
+                    <textarea
+                      id="destructuringAnswer"
+                      placeholder="Write your destructuring code here..."
+                    ></textarea>
+                    <button id="checkDestructuring" class="">
+                      Check Answer
+                    </button>
+                    <div id="destructuringFeedback" class=""></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Promises -->
+        <section class="">
+          <h2><i class=""></i> Promises</h2>
+          <div class="">
+            <p class="">
+              Promises represent the eventual completion (or failure) of an
+              asynchronous operation and provide a cleaner alternative to
+              callback-based code.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Pending</h4>
+                  <p>Initial state, neither fulfilled nor rejected</p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Fulfilled</h4>
+                  <p>Operation completed successfully</p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Rejected</h4>
+                  <p>Operation failed</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4>Promise Creation and Usage</h4>
+              <div class="">
+                <button class="" data-tab="basic">Basic Promise</button>
+                <button class="" data-tab="chaining">Chaining</button>
+                <button class="" data-tab="methods">Promise Methods</button>
+              </div>
+
+              <div class="">
+                <!-- Basic Promise -->
+                <div class="" id="basic-panel">
+                  <div class="">
+                    <pre><code class="">// Creating a Promise
+const myPromise = new Promise((resolve, reject) => {
+    // Simulate async operation
+    setTimeout(() => {
+        const success = Math.random() > 0.5;
+        
+        if (success) {
+            resolve('Operation successful!');
+        } else {
+            reject('Operation failed!');
+        }
+    }, 2000);
+});
+
+// Using the Promise
+myPromise
+    .then(result => {
+        console.log('Success:', result);
+    })
+    .catch(error => {
+        console.log('Error:', error);
+    })
+    .finally(() => {
+        console.log('Promise completed');
+    });
+
+// Real-world example: API call
+function fetchUserData(userId) {
+    return new Promise((resolve, reject) => {
+        // Simulate API call
+        setTimeout(() => {
+            if (userId > 0) {
+                resolve({
+                    id: userId,
+                    name: 'John Doe',
+                    email: 'john@example.com'
+                });
+            } else {
+                reject(new Error('Invalid user ID'));
+            }
+        }, 1000);
+    });
+}
+
+fetchUserData(1)
+    .then(user => console.log('User:', user))
+    .catch(error => console.log('Error:', error.message));</code></pre>
+                  </div>
+                </div>
+
+                <!-- Promise Chaining -->
+                <div class="" id="chaining-panel">
+                  <div class="">
+                    <pre><code class="">// Promise chaining
+fetchUserData(1)
+    .then(user => {
+        console.log('Got user:', user.name);
+        // Return another promise
+        return fetch(`/api/posts/${user.id}`);
+    })
+    .then(response => response.json())
+    .then(posts => {
+        console.log('User posts:', posts);
+        // Chain another operation
+        return posts.filter(post => post.published);
+    })
+    .then(publishedPosts => {
+        console.log('Published posts:', publishedPosts);
+    })
+    .catch(error => {
+        console.log('Error in chain:', error);
+    });
+
+// Avoiding callback hell
+// Old way (callback hell)
+getData(function(a) {
+    getMoreData(a, function(b) {
+        getEvenMoreData(b, function(c) {
+            getFinalData(c, function(d) {
+                // Finally done!
+            });
+        });
+    });
+});
+
+// Promise way (much cleaner)
+getData()
+    .then(a => getMoreData(a))
+    .then(b => getEvenMoreData(b))
+    .then(c => getFinalData(c))
+    .then(d => {
+        // Finally done!
+    })
+    .catch(error => {
+        // Handle any error in the chain
+    });</code></pre>
+                  </div>
+                </div>
+
+                <!-- Promise Methods -->
+                <div class="" id="methods-panel">
+                  <div class="">
+                    <pre><code class="">// Promise.all() - Wait for all promises
+const promise1 = fetchUserData(1);
+const promise2 = fetchUserData(2);
+const promise3 = fetchUserData(3);
+
+Promise.all([promise1, promise2, promise3])
+    .then(users => {
+        console.log('All users:', users);
+        // All promises resolved
+    })
+    .catch(error => {
+        console.log('At least one failed:', error);
+    });
+
+// Promise.allSettled() - Wait for all, regardless of outcome
+Promise.allSettled([promise1, promise2, promise3])
+    .then(results => {
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled') {
+                console.log(`User ${index + 1}:`, result.value);
+            } else {
+                console.log(`User ${index + 1} failed:`, result.reason);
+            }
+        });
+    });
+
+// Promise.race() - First one to complete wins
+Promise.race([promise1, promise2, promise3])
+    .then(firstUser => {
+        console.log('First user loaded:', firstUser);
+    })
+    .catch(error => {
+        console.log('First promise failed:', error);
+    });
+
+// Promise.any() - First successful one wins
+Promise.any([promise1, promise2, promise3])
+    .then(firstSuccessfulUser => {
+        console.log('First successful user:', firstSuccessfulUser);
+    })
+    .catch(error => {
+        console.log('All promises failed:', error);
+    });</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Promise Simulator</h4>
+              <div class="">
+                <div class="">
+                  <button id="createPromise" class="">Create Promise</button>
+                  <button id="promiseAll" class="">Promise.all()</button>
+                  <button id="promiseRace" class="">Promise.race()</button>
+                  <button id="clearPromiseOutput" class="">Clear</button>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <span class="">Created:</span>
+                    <span id="promiseCount">0</span>
+                  </div>
+                  <div class="">
+                    <span class="">Resolved:</span>
+                    <span id="resolvedCount">0</span>
+                  </div>
+                  <div class="">
+                    <span class="">Rejected:</span>
+                    <span id="rejectedCount">0</span>
+                  </div>
+                </div>
+
+                <div class="">
+                  <h5>Promise Output:</h5>
+                  <pre id="promiseResults">
+Click buttons above to see promise behavior</pre
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your ES6+ Knowledge</h2>
+          <div class="">
+            <div class="">
+              <h4>
+                <span class="">1</span>
+                What is the main difference between `let` and `var`?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>`let` is function-scoped, `var` is block-scoped</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>`let` is block-scoped, `var` is function-scoped</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>They are identical in behavior</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>`let` can be redeclared, `var` cannot</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">2</span>
+                What will `console.log(\`2 + 3 = ${2 + 3}\`)` output?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span>2 + 3 = ${2 + 3}</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span>2 + 3 = 5</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span>2 + 3 = 23</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span>SyntaxError</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">3</span>
+                Which is the correct arrow function syntax?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>(x) -> x * 2</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>x => x * 2</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>x -> { return x * 2; }</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>function(x) => x * 2</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">4</span>
+                What does `const [a, , c] = [1, 2, 3]` do?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="a" />
+                    <span>Creates an error</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="b" />
+                    <span>a=1, c=3, skips second element</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="c" />
+                    <span>a=1, c=2</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="d" />
+                    <span>a=undefined, c=undefined</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <button class="">Submit Quiz</button>
+              <button class="" style="display: none">Try Again</button>
+            </div>
+
+            <div class="" style="display: none">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Resources Section -->
+        <section class="">
+          <h2><i class=""></i> Video Resources & Tutorials</h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/nZ1DMMsyVyI/maxresdefault.jpg"
+                  alt="ES6 Features"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>ES6 JavaScript Features</h4>
+                <p>
+                  Complete overview of ES6 features including let, const, arrow
+                  functions, and more.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=nZ1DMMsyVyI"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/h33Srr5J9nY/maxresdefault.jpg"
+                  alt="Arrow Functions"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Arrow Functions Explained</h4>
+                <p>
+                  Deep dive into arrow functions, this binding, and when to use
+                  them.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=h33Srr5J9nY"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/qp8zQ7SXQAI/maxresdefault.jpg"
+                  alt="Destructuring"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>JavaScript Destructuring</h4>
+                <p>
+                  Learn array and object destructuring with practical examples.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=qp8zQ7SXQAI"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/DHvZLI7Db8E/maxresdefault.jpg"
+                  alt="Promises"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>JavaScript Promises</h4>
+                <p>
+                  Understanding promises, chaining, and error handling in
+                  JavaScript.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=DHvZLI7Db8E"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section class="">
+          <h2><i class=""></i> Additional Learning Resources</h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>MDN ES6 Guide</h4>
+                <p>
+                  Comprehensive documentation of all ES6+ features from Mozilla.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Visit MDN
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>ES6 Features Overview</h4>
+                <p>Quick reference guide to ES6 features with examples.</p>
+                <a
+                  href="https://github.com/lukehoban/es6features"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> GitHub Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Babel ES6 Guide</h4>
+                <p>Learn about transpiling ES6+ code for older browsers.</p>
+                <a
+                  href="https://babeljs.io/learn-es2015/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Babel Learn
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>ES6 Katas</h4>
+                <p>Practice ES6+ features with interactive coding exercises.</p>
+                <a href="http://es6katas.org/" target="_blank" class="">
+                  <i class=""></i> Practice ES6
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Can I Use ES6?</h4>
+                <p>Check browser compatibility for ES6+ features.</p>
+                <a
+                  href="https://caniuse.com/?search=es6"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Check Support
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>JavaScript.info ES6</h4>
+                <p>Detailed tutorials on modern JavaScript features.</p>
+                <a href="https://javascript.info/js" target="_blank" class="">
+                  <i class=""></i> Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="">
+          <h2><i class=""></i> Next Steps</h2>
+          <div class="">
+            <div class="">
+              <div class="">1</div>
+              <div class="">
+                <h3>Practice Modern Syntax</h3>
+                <p>
+                  Start using ES6+ features in your projects to become
+                  comfortable with the new syntax.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">2</div>
+              <div class="">
+                <h3>Learn Async Programming</h3>
+                <p>
+                  Build on promises knowledge by learning async/await and
+                  advanced asynchronous patterns.
+                </p>
+                <a href="async-await.html" class=""
+                  >Continue to Async/Await →</a
+                >
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">3</div>
+              <div class="">
+                <h3>Explore Advanced Features</h3>
+                <p>
+                  Dive deeper into modules, classes, generators, and other
+                  advanced ES6+ features.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="">
+      <div class="">
+        <div class="">
+          <h3><i class=""></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+            </li>
+            <li><a href="js-introduction.html">JavaScript Basics</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank"
+                >MDN JavaScript</a
+              >
+            </li>
+            <li>
+              <a href="https://tc39.es/" target="_blank">TC39 Standards</a>
+            </li>
+            <li><a href="https://babeljs.io/" target="_blank">Babel</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS and Its Hierarchy - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit1.html"
+          >Unit 1: Introduction to Web Technologies</a
+        >
+        <span class="">/</span>
+        <span class="">1.5 DNS and Its Hierarchy</span>
+      </div>
+    </nav>
+
+    <section class="">
+      <div class="">
+        <h1><i class=""></i> DNS and Its Hierarchy</h1>
+        <p>
+          Discover how domain names are translated into IP addresses across the
+          internet
+        </p>
+        <div class="">
+          <span><i class=""></i> 1 hour</span>
+          <span><i class=""></i> 5 examples</span>
+          <span><i class=""></i> DNS lookup simulator</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="">
+      <div class="">
+        <!-- DNS Overview -->
+        <section class="">
+          <h2><i class=""></i> What is DNS?</h2>
+          <p>
+            DNS (Domain Name System) is the phonebook of the Internet. It
+            translates human-readable domain names like "example.com" into
+            machine-readable IP addresses like "192.168.1.1" that computers use
+            to communicate.
+          </p>
+
+          <div class="">
+            <div class="">
+              <h3>Without DNS</h3>
+              <div class="">
+                <i class=""></i>
+                <p>Users would need to remember:</p>
+                <div class="">
+                  <code>142.250.184.14</code> for Google
+                  <code>151.101.1.140</code> for Reddit
+                  <code>185.199.108.153</code> for GitHub
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h3>With DNS</h3>
+              <div class="">
+                <i class=""></i>
+                <p>Users can simply type:</p>
+                <div class="">
+                  <code>google.com</code>
+                  <code>reddit.com</code>
+                  <code>github.com</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DNS Hierarchy -->
+        <section class="">
+          <h2><i class=""></i> DNS Hierarchy Structure</h2>
+          <p>
+            DNS follows a hierarchical, tree-like structure starting from the
+            root and branching down to individual hostnames.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <span>Root (.)</span>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="" data-tld="com">
+                <i class=""></i>
+                <span>.com</span>
+              </div>
+              <div class="" data-tld="org">
+                <i class=""></i>
+                <span>.org</span>
+              </div>
+              <div class="" data-tld="edu">
+                <i class=""></i>
+                <span>.edu</span>
+              </div>
+              <div class="" data-tld="gov">
+                <i class=""></i>
+                <span>.gov</span>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="" data-parent="com">
+                <i class=""></i>
+                <span>google</span>
+              </div>
+              <div class="" data-parent="com">
+                <i class=""></i>
+                <span>amazon</span>
+              </div>
+              <div class="" data-parent="org">
+                <i class=""></i>
+                <span>mozilla</span>
+              </div>
+              <div class="" data-parent="edu">
+                <i class=""></i>
+                <span>mit</span>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="" data-parent="google">
+                <i class=""></i>
+                <span>mail</span>
+              </div>
+              <div class="" data-parent="google">
+                <i class=""></i>
+                <span>maps</span>
+              </div>
+              <div class="" data-parent="amazon">
+                <i class=""></i>
+                <span>aws</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="">
+              <h4><i class=""></i> Root Level</h4>
+              <p>
+                The top of the DNS hierarchy, managed by IANA. Represented by a
+                single dot (.) but usually omitted.
+              </p>
+            </div>
+            <div class="">
+              <h4><i class=""></i> Top-Level Domains (TLD)</h4>
+              <p>
+                Generic TLDs (.com, .org, .net) and Country Code TLDs (.us, .uk,
+                .de). Managed by registry operators.
+              </p>
+            </div>
+            <div class="">
+              <h4><i class=""></i> Second-Level Domains (SLD)</h4>
+              <p>
+                The main domain name purchased by organizations or individuals
+                (e.g., "google" in google.com).
+              </p>
+            </div>
+            <div class="">
+              <h4><i class=""></i> Subdomains</h4>
+              <p>
+                Additional levels created by domain owners (e.g., "mail" in
+                mail.google.com).
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- DNS Resolution Process -->
+        <section class="">
+          <h2><i class=""></i> DNS Resolution Process</h2>
+          <p>
+            When you type a domain name, multiple servers work together to
+            resolve it to an IP address:
+          </p>
+
+          <div class="">
+            <div class="" data-step="1">
+              <div class="">
+                <div class="">1</div>
+                <h4>Browser Cache Check</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>Browser checks its cache for the domain's IP address</p>
+                <div class="">If found, resolution complete!</div>
+              </div>
+            </div>
+
+            <div class="" data-step="2">
+              <div class="">
+                <div class="">2</div>
+                <h4>OS Cache Check</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>Operating system checks its DNS cache</p>
+                <div class="">Includes hosts file lookup</div>
+              </div>
+            </div>
+
+            <div class="" data-step="3">
+              <div class="">
+                <div class="">3</div>
+                <h4>Recursive Resolver</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>ISP's DNS server receives the query</p>
+                <div class="">Acts as intermediary for the client</div>
+              </div>
+            </div>
+
+            <div class="" data-step="4">
+              <div class="">
+                <div class="">4</div>
+                <h4>Root Nameserver</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>Query sent to root nameserver</p>
+                <div class="">Returns TLD nameserver address</div>
+              </div>
+            </div>
+
+            <div class="" data-step="5">
+              <div class="">
+                <div class="">5</div>
+                <h4>TLD Nameserver</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>Query sent to TLD nameserver (.com, .org, etc.)</p>
+                <div class="">Returns authoritative nameserver</div>
+              </div>
+            </div>
+
+            <div class="" data-step="6">
+              <div class="">
+                <div class="">6</div>
+                <h4>Authoritative Nameserver</h4>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <p>Final query to authoritative server</p>
+                <div class="">Returns the actual IP address</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DNS Record Types -->
+        <section class="">
+          <h2><i class=""></i> DNS Record Types</h2>
+          <p>
+            Different types of DNS records serve various purposes in the domain
+            name system:
+          </p>
+
+          <div class="">
+            <div class="" data-type="A">
+              <div class="">
+                <span class="">A</span>
+                <h4>Address Record</h4>
+              </div>
+              <p>Maps a domain name to an IPv4 address</p>
+              <div class="">
+                <code>example.com. IN A 192.0.2.1</code>
+              </div>
+            </div>
+
+            <div class="" data-type="AAAA">
+              <div class="">
+                <span class="">AAAA</span>
+                <h4>IPv6 Address Record</h4>
+              </div>
+              <p>Maps a domain name to an IPv6 address</p>
+              <div class="">
+                <code>example.com. IN AAAA 2001:db8::1</code>
+              </div>
+            </div>
+
+            <div class="" data-type="CNAME">
+              <div class="">
+                <span class="">CNAME</span>
+                <h4>Canonical Name</h4>
+              </div>
+              <p>Creates an alias pointing to another domain name</p>
+              <div class="">
+                <code>www.example.com. IN CNAME example.com.</code>
+              </div>
+            </div>
+
+            <div class="" data-type="MX">
+              <div class="">
+                <span class="">MX</span>
+                <h4>Mail Exchange</h4>
+              </div>
+              <p>Specifies mail server for email delivery</p>
+              <div class="">
+                <code>example.com. IN MX 10 mail.example.com.</code>
+              </div>
+            </div>
+
+            <div class="" data-type="NS">
+              <div class="">
+                <span class="">NS</span>
+                <h4>Name Server</h4>
+              </div>
+              <p>Delegates a subdomain to a set of name servers</p>
+              <div class="">
+                <code>example.com. IN NS ns1.example.com.</code>
+              </div>
+            </div>
+
+            <div class="" data-type="TXT">
+              <div class="">
+                <span class="">TXT</span>
+                <h4>Text Record</h4>
+              </div>
+              <p>Contains arbitrary text, often for verification</p>
+              <div class="">
+                <code
+                  >example.com. IN TXT "v=spf1 include:_spf.google.com
+                  ~all"</code
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive DNS Simulator -->
+        <section class="">
+          <h2><i class=""></i> DNS Lookup Simulator</h2>
+          <div class="">
+            <h3>Simulate a DNS Query!</h3>
+            <p>
+              Enter a domain name to see how DNS resolution works step by step:
+            </p>
+
+            <div class="">
+              <div class="">
+                <input
+                  type="text"
+                  id="domainInput"
+                  placeholder="Enter domain (e.g., example.com)"
+                  value="example.com"
+                />
+                <button onclick="startDnsLookup()" class="" id="lookupBtn">
+                  <i class=""></i> Lookup DNS
+                </button>
+              </div>
+
+              <div class="" id="lookupVisualization" style="display: none">
+                <div class="">
+                  <div class="" id="step1">
+                    <div class=""><i class=""></i></div>
+                    <div class="">
+                      <h4>Browser Cache</h4>
+                      <div class="">Checking...</div>
+                    </div>
+                  </div>
+
+                  <div class="" id="step2">
+                    <div class=""><i class=""></i></div>
+                    <div class="">
+                      <h4>OS Cache</h4>
+                      <div class="">Waiting...</div>
+                    </div>
+                  </div>
+
+                  <div class="" id="step3">
+                    <div class=""><i class=""></i></div>
+                    <div class="">
+                      <h4>Recursive Resolver</h4>
+                      <div class="">Waiting...</div>
+                    </div>
+                  </div>
+
+                  <div class="" id="step4">
+                    <div class="">
+                      <i class=""></i>
+                    </div>
+                    <div class="">
+                      <h4>Root Nameserver</h4>
+                      <div class="">Waiting...</div>
+                    </div>
+                  </div>
+
+                  <div class="" id="step5">
+                    <div class=""><i class=""></i></div>
+                    <div class="">
+                      <h4>TLD Nameserver</h4>
+                      <div class="">Waiting...</div>
+                    </div>
+                  </div>
+
+                  <div class="" id="step6">
+                    <div class="">
+                      <i class=""></i>
+                    </div>
+                    <div class="">
+                      <h4>Authoritative Server</h4>
+                      <div class="">Waiting...</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="" id="lookupResult" style="display: none">
+                  <h4>DNS Resolution Complete!</h4>
+                  <div class="">
+                    <div class="">
+                      <span class="">Domain:</span>
+                      <span class="" id="resultDomain">example.com</span>
+                    </div>
+                    <div class="">
+                      <span class="">IP Address:</span>
+                      <span class="" id="resultIP">192.0.2.1</span>
+                    </div>
+                    <div class="">
+                      <span class="">Record Type:</span>
+                      <span class="" id="resultType">A</span>
+                    </div>
+                    <div class="">
+                      <span class="">TTL:</span>
+                      <span class="" id="resultTTL">3600 seconds</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="">
+          <h2><i class=""></i> What's Next?</h2>
+          <p>
+            Excellent! You now understand DNS and its hierarchy. You've learned:
+          </p>
+          <ul>
+            <li>What DNS is and why it's essential</li>
+            <li>The hierarchical structure of DNS</li>
+            <li>How DNS resolution works step by step</li>
+            <li>Different types of DNS records and their purposes</li>
+          </ul>
+
+          <div class="">
+            <a href="client-server-scripting.html" class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Next: Client-Side vs Server-Side Scripting</h3>
+                <p>
+                  Learn the differences between client and server-side
+                  programming
+                </p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master DNS fundamentals through
+          interactive learning.
+        </p>
+      </div>
+    </footer>
+
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

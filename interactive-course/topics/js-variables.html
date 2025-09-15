@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables & Data Types - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit4.html">Unit 4: JavaScript Basics</a>
+        <span class="">/</span>
+        <span class="">4.3 Variables & Data Types</span>
+      </div>
+    </nav>
+
+    <section class="">
+      <div class="">
+        <h1><i class=""></i> Variables & Data Types</h1>
+        <p>
+          Learn how to store and work with different types of data in JavaScript
+        </p>
+        <div class="">
+          <span><i class=""></i> 1.5 hours</span>
+          <span><i class=""></i> Beginner</span>
+          <span><i class=""></i> 6 data types</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="">
+      <div class="">
+        <!-- Premium Video Resources -->
+        <section class="">
+          <h2><i class=""></i> JavaScript Variables & Data Types Videos</h2>
+          <p>
+            Master JavaScript variables and data types with these excellent
+            tutorials.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/9vIqRk4wGbY/maxresdefault.jpg"
+                  alt="JavaScript Variables"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">22:14</span>
+              </div>
+              <div class="">
+                <h3>JavaScript Variables Explained</h3>
+                <p class=""><i class=""></i> Programming with Mosh</p>
+                <p class="">
+                  Complete guide to JavaScript variables including var, let,
+                  const and scoping rules.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 2.3M views</span>
+                  <span><i class=""></i> 98% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=9vIqRk4wGbY"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/Jn7BgDl4J94/maxresdefault.jpg"
+                  alt="JavaScript Data Types"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">18:45</span>
+              </div>
+              <div class="">
+                <h3>JavaScript Data Types - Complete Guide</h3>
+                <p class=""><i class=""></i> Traversy Media</p>
+                <p class="">
+                  Learn about all JavaScript data types with practical examples
+                  and use cases.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 1.8M views</span>
+                  <span><i class=""></i> 97% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=Jn7BgDl4J94"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/2md4HQNRqJA/maxresdefault.jpg"
+                  alt="Let vs Const vs Var"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">15:32</span>
+              </div>
+              <div class="">
+                <h3>Let vs Const vs Var - JavaScript</h3>
+                <p class=""><i class=""></i> Web Dev Simplified</p>
+                <p class="">
+                  Understand the differences between let, const, and var in
+                  modern JavaScript.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 1.2M views</span>
+                  <span><i class=""></i> 99% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=2md4HQNRqJA"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <img
+                  src="https://img.youtube.com/vi/pNqnf4YPqZw/maxresdefault.jpg"
+                  alt="JavaScript Basics"
+                  loading="lazy"
+                />
+                <div class="">
+                  <i class=""></i>
+                </div>
+                <span class="">28:17</span>
+              </div>
+              <div class="">
+                <h3>JavaScript Variables and Data Types Crash Course</h3>
+                <p class=""><i class=""></i> freeCodeCamp.org</p>
+                <p class="">
+                  Comprehensive crash course covering variables, data types, and
+                  type conversion.
+                </p>
+                <div class="">
+                  <span><i class=""></i> 1.5M views</span>
+                  <span><i class=""></i> 96% liked</span>
+                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=pNqnf4YPqZw"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Variable Declaration Comparison -->
+        <section class="">
+          <div class="">
+            <h2><i class=""></i> var vs let vs const</h2>
+            <p>
+              Understanding the differences between variable declaration
+              keywords in JavaScript.
+            </p>
+
+            <table class="">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th><code>var</code></th>
+                  <th><code>let</code></th>
+                  <th><code>const</code></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Scope</strong></td>
+                  <td>Function or Global</td>
+                  <td>Block</td>
+                  <td>Block</td>
+                </tr>
+                <tr>
+                  <td><strong>Reassignable</strong></td>
+                  <td>✅ Yes</td>
+                  <td>✅ Yes</td>
+                  <td>❌ No</td>
+                </tr>
+                <tr>
+                  <td><strong>Hoisting</strong></td>
+                  <td>✅ Yes (undefined)</td>
+                  <td>⚠️ Yes (TDZ)</td>
+                  <td>⚠️ Yes (TDZ)</td>
+                </tr>
+                <tr>
+                  <td><strong>Redeclaration</strong></td>
+                  <td>✅ Allowed</td>
+                  <td>❌ Error</td>
+                  <td>❌ Error</td>
+                </tr>
+                <tr>
+                  <td><strong>Best Practice</strong></td>
+                  <td>❌ Avoid</td>
+                  <td>✅ Use for variables</td>
+                  <td>✅ Use for constants</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div style="margin-top: 2rem">
+              <h4>Quick Examples:</h4>
+              <div
+                class=""
+                style="
+                  background: white;
+                  color: #2d3748;
+                  padding: 1.5rem;
+                  border-radius: 8px;
+                  font-family: 'JetBrains Mono', monospace;
+                "
+              >
+                // var - function scoped var name = "John"; var name = "Jane";
+                // Allowed (redeclaration) name = "Bob"; // Allowed
+                (reassignment) // let - block scoped let age = 25; // let age =
+                30; // Error: Cannot redeclare age = 30; // Allowed
+                (reassignment) // const - block scoped, immutable const PI =
+                3.14159; // PI = 3.14; // Error: Cannot reassign // const E; //
+                Error: Must initialize
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JavaScript Data Types -->
+        <section class="">
+          <h2><i class=""></i> JavaScript Data Types</h2>
+          <p>
+            JavaScript has dynamic typing, meaning variables can hold different
+            types of values.
+          </p>
+
+          <div class="">
+            <!-- Number -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Number</h3>
+              </div>
+              <div class="">
+                <p>Represents both integers and floating-point numbers.</p>
+                <div class="">
+                  let age = 25; // Integer let price = 19.99; // Float let
+                  negative = -42; // Negative let infinity = Infinity; //
+                  Special value let notNumber = NaN; // Not a Number
+                </div>
+                <button class="" onclick="testNumber()">
+                  <i class=""></i> Test Numbers
+                </button>
+              </div>
+            </div>
+
+            <!-- String -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>String</h3>
+              </div>
+              <div class="">
+                <p>Represents textual data enclosed in quotes.</p>
+                <div class="">
+                  let firstName = "John"; // Double quotes let lastName = 'Doe';
+                  // Single quotes let fullName = `${firstName} ${lastName}`; //
+                  Template literal let multiline = `Line 1 Line 2`; // Multiline
+                  string
+                </div>
+                <button class="" onclick="testString()">
+                  <i class=""></i> Test Strings
+                </button>
+              </div>
+            </div>
+
+            <!-- Boolean -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Boolean</h3>
+              </div>
+              <div class="">
+                <p>Represents logical values: true or false.</p>
+                <div class="">
+                  let isActive = true; let isComplete = false; let hasAccess =
+                  Boolean(1); // true let isEmpty = Boolean(0); // false let
+                  result = 5 > 3; // true
+                </div>
+                <button class="" onclick="testBoolean()">
+                  <i class=""></i> Test Booleans
+                </button>
+              </div>
+            </div>
+
+            <!-- Undefined -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Undefined</h3>
+              </div>
+              <div class="">
+                <p>Variable declared but not assigned a value.</p>
+                <div class="">
+                  let x; // undefined let y = undefined; // explicitly undefined
+                  function test() {} // returns undefined let obj = {};
+                  console.log(obj.missing); // undefined
+                </div>
+                <button class="" onclick="testUndefined()">
+                  <i class=""></i> Test Undefined
+                </button>
+              </div>
+            </div>
+
+            <!-- Null -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Null</h3>
+              </div>
+              <div class="">
+                <p>Represents intentional absence of any object value.</p>
+                <div class="">
+                  let data = null; // intentionally empty let response = null;
+                  // no data received // Note: typeof null === "object"
+                  (JavaScript quirk) console.log(null == undefined); // true
+                  console.log(null === undefined); // false
+                </div>
+                <button class="" onclick="testNull()">
+                  <i class=""></i> Test Null
+                </button>
+              </div>
+            </div>
+
+            <!-- Object -->
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Object</h3>
+              </div>
+              <div class="">
+                <p>Complex data type for collections and entities.</p>
+                <div class="">
+                  let person = { // Object literal name: "Alice", age: 30 }; let
+                  numbers = [1, 2, 3]; // Array (special object) let today = new
+                  Date(); // Date object let pattern = /abc/g; // RegExp object
+                </div>
+                <button class="" onclick="testObject()">
+                  <i class=""></i> Test Objects
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Type Tester -->
+        <section class="">
+          <div class="">
+            <h2><i class=""></i> Interactive Type Checker</h2>
+            <p>
+              Enter any JavaScript value to see its type and learn more about
+              it!
+            </p>
+
+            <input
+              type="text"
+              id="type-input"
+              class=""
+              placeholder='Try: 42, "hello", true, null, undefined, {}, []'
+            />
+            <button class="" onclick="checkType()">
+              <i class=""></i> Check Type
+            </button>
+
+            <div id="type-result" class="" style="display: none"></div>
+
+            <div style="margin-top: 2rem">
+              <h4>Quick Test Examples:</h4>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap">
+                <button class="" onclick="quickTest('42')">42</button>
+                <button class="" onclick="quickTest('&quot;Hello&quot;')">
+                  "Hello"
+                </button>
+                <button class="" onclick="quickTest('true')">true</button>
+                <button class="" onclick="quickTest('null')">null</button>
+                <button class="" onclick="quickTest('undefined')">
+                  undefined
+                </button>
+                <button class="" onclick="quickTest('[1,2,3]')">[1,2,3]</button>
+                <button
+                  class=""
+                  onclick='quickTest(&apos;{"name":"John"}&apos;)'
+                >
+                  {name:"John"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Variable Playground -->
+        <section class="">
+          <h2><i class=""></i> Variable Playground</h2>
+          <p>Practice creating and modifying variables in real-time!</p>
+
+          <div class="">
+            <div class="">
+              <h4>JavaScript Code:</h4>
+              <textarea
+                id="js-input"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  font-family: 'JetBrains Mono', monospace;
+                  padding: 1rem;
+                  border: 1px solid #d1d5db;
+                  border-radius: 6px;
+                  font-size: 0.9rem;
+                "
+                placeholder="// Try creating variables:
+let name = 'Alice';
+const age = 25;
+var isStudent = true;
+
+console.log(`Name: ${name}, Age: ${age}`);
+console.log('Type of name:', typeof name);
+console.log('Type of age:', typeof age);
+console.log('Type of isStudent:', typeof isStudent);"
+              >
+// Try creating variables:
+let name = 'Alice';
+const age = 25;
+var isStudent = true;
+
+console.log(`Name: ${name}, Age: ${age}`);
+console.log('Type of name:', typeof name);
+console.log('Type of age:', typeof age);
+console.log('Type of isStudent:', typeof isStudent);</textarea
+              >
+
+              <button class="" onclick="runCode()" style="margin-top: 1rem">
+                <i class=""></i> Run Code
+              </button>
+              <button
+                class=""
+                onclick="clearConsole()"
+                style="margin-top: 1rem"
+              >
+                <i class=""></i> Clear Console
+              </button>
+            </div>
+
+            <div class="">
+              <div style="color: #fbbf24; margin-bottom: 1rem">
+                JavaScript Console Output:
+              </div>
+              <div id="console-output">
+                Click "Run Code" to see results here...
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Type Conversion -->
+        <section class="">
+          <h2><i class=""></i> Type Conversion</h2>
+          <p>
+            JavaScript can automatically convert between types or you can
+            convert explicitly.
+          </p>
+
+          <div class="">
+            <h3>Automatic Type Conversion (Coercion)</h3>
+            <div
+              class=""
+              style="
+                background: #374151;
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+              "
+            >
+              // Automatic conversions console.log("5" + 3); // "53" (number to
+              string) console.log("5" - 3); // 2 (string to number)
+              console.log("5" * "2"); // 10 (both to numbers) console.log(true +
+              1); // 2 (boolean to number) console.log(false + 1); // 1 (boolean
+              to number) console.log("" + 42); // "42" (number to string)
+              console.log(Boolean(0)); // false console.log(Boolean(1)); // true
+            </div>
+
+            <h3>Explicit Type Conversion</h3>
+            <div
+              class=""
+              style="
+                background: #374151;
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+              "
+            >
+              // String conversion let num = 123; let str = String(num); //
+              "123" let str2 = num.toString(); // "123" // Number conversion let
+              text = "456"; let number = Number(text); // 456 let int =
+              parseInt(text); // 456 let float = parseFloat("3.14"); // 3.14 //
+              Boolean conversion let bool1 = Boolean(1); // true let bool2 =
+              Boolean(0); // false let bool3 = Boolean(""); // false let bool4 =
+              Boolean("hi"); // true
+            </div>
+
+            <button class="" onclick="demonstrateConversion()">
+              <i class=""></i> Run Conversion Examples
+            </button>
+            <div
+              id="conversion-output"
+              style="
+                background: #0f172a;
+                color: #00ff00;
+                padding: 1rem;
+                border-radius: 6px;
+                margin-top: 1rem;
+                display: none;
+              "
+            ></div>
+          </div>
+        </section>
+
+        <!-- Essential Resources -->
+        <section class="">
+          <h2><i class=""></i> Essential JavaScript Variables Resources</h2>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>MDN: JavaScript Variables</h3>
+              </div>
+              <p>
+                Comprehensive guide to variable declarations, scope, and
+                hoisting in JavaScript.
+              </p>
+              <div class="">
+                <span class="">Complete Reference</span>
+                <span class="">Examples</span>
+                <span class="">Best Practices</span>
+              </div>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+                target="_blank"
+                class=""
+              >
+                Read Guide <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>JavaScript.info: Data Types</h3>
+              </div>
+              <p>
+                In-depth explanation of JavaScript data types with interactive
+                examples.
+              </p>
+              <div class="">
+                <span class="">Interactive</span>
+                <span class="">Detailed</span>
+                <span class="">Modern JS</span>
+              </div>
+              <a href="https://javascript.info/types" target="_blank" class="">
+                Learn Types <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>freeCodeCamp: Variables</h3>
+              </div>
+              <p>
+                Interactive exercises and projects to practice JavaScript
+                variables and data types.
+              </p>
+              <div class="">
+                <span class="">Hands-on</span>
+                <span class="">Projects</span>
+                <span class="">Free</span>
+              </div>
+              <a
+                href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/"
+                target="_blank"
+                class=""
+              >
+                Start Exercises <i class=""></i>
+              </a>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h3>CodePen: Variable Examples</h3>
+              </div>
+              <p>
+                Explore creative examples and experiments with JavaScript
+                variables and types.
+              </p>
+              <div class="">
+                <span class="">Live Examples</span>
+                <span class="">Community</span>
+                <span class="">Inspiration</span>
+              </div>
+              <a
+                href="https://codepen.io/search/pens?q=javascript%20variables"
+                target="_blank"
+                class=""
+              >
+                Browse Examples <i class=""></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="">
+          <div class="">
+            <button class="" onclick="window.location.href='js-embedding.html'">
+              <i class=""></i> Previous: Embedding JavaScript
+            </button>
+            <button class="" onclick="window.location.href='js-operators.html'">
+              Next: Operators & Expressions <i class=""></i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master JavaScript variables and
+          data types.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript functionality -->
+    <script src="../dist/js/main.js"></script>
+    <script src="../dist/js/data-loader.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

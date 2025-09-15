@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Protocols - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit1.html"
+          >Unit 1: Introduction to Web Technologies</a
+        >
+        <span class="">/</span>
+        <span class="">1.4 Basic Protocols</span>
+      </div>
+    </nav>
+
+    <section class="">
+      <div class="">
+        <h1><i class=""></i> Basic Web Protocols</h1>
+        <p>Master the communication protocols that power the modern web</p>
+        <div class="">
+          <span><i class=""></i> 1.5 hours</span>
+          <span><i class=""></i> 10 examples</span>
+          <span><i class=""></i> Interactive protocol simulator</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="">
+      <div class="">
+        <!-- Protocol Overview -->
+        <section class="">
+          <h2><i class=""></i> What are Web Protocols?</h2>
+          <p>
+            Web protocols are standardized rules and conventions that govern how
+            data is transmitted between web browsers and servers. They ensure
+            reliable, secure, and efficient communication across the internet.
+          </p>
+
+          <div class="">
+            <h3>The Web Protocol Stack</h3>
+            <div class="">
+              <div class="" data-layer="application">
+                <div class="">
+                  <h4>Application Layer</h4>
+                  <div class="">
+                    <span class="">HTTP</span>
+                    <span class="">HTTPS</span>
+                    <span class="">FTP</span>
+                    <span class="">SMTP</span>
+                  </div>
+                </div>
+              </div>
+              <div class="" data-layer="transport">
+                <div class="">
+                  <h4>Transport Layer</h4>
+                  <div class="">
+                    <span class="">TCP</span>
+                    <span class="">UDP</span>
+                  </div>
+                </div>
+              </div>
+              <div class="" data-layer="network">
+                <div class="">
+                  <h4>Network Layer</h4>
+                  <div class="">
+                    <span class="">IP</span>
+                    <span class="">ICMP</span>
+                  </div>
+                </div>
+              </div>
+              <div class="" data-layer="physical">
+                <div class="">
+                  <h4>Physical Layer</h4>
+                  <div class="">
+                    <span class="">Ethernet</span>
+                    <span class="">WiFi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTTP Protocol -->
+        <section class="">
+          <h2><i class=""></i> HTTP - HyperText Transfer Protocol</h2>
+          <p>
+            HTTP is the foundation of data communication on the World Wide Web.
+            It's a stateless, request-response protocol used for transferring
+            web pages and resources.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <h4>Stateless</h4>
+                <p>
+                  Each request is independent; server doesn't retain client
+                  information
+                </p>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <h4>Request-Response</h4>
+                <p>Client sends request, server sends response</p>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <h4>Text-Based</h4>
+                <p>Human-readable message format</p>
+              </div>
+              <div class="">
+                <i class=""></i>
+                <h4>Connectionless</h4>
+                <p>Connection closes after each request-response cycle</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <h3>HTTP Request Structure</h3>
+            <div class="">
+              <pre><code class="">GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+
+[Request Body - for POST/PUT requests]</code></pre>
+            </div>
+
+            <h3>HTTP Response Structure</h3>
+            <div class="">
+              <pre><code class="">HTTP/1.1 200 OK
+Date: Mon, 11 Sep 2025 10:30:00 GMT
+Server: Apache/2.4.41
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1234
+Last-Modified: Mon, 11 Sep 2025 09:00:00 GMT
+ETag: "4f80f-13c-3e1cb03b"
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Example Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTTP Methods -->
+        <section class="">
+          <h2><i class=""></i> HTTP Methods</h2>
+          <p>
+            HTTP methods indicate the desired action to be performed on a
+            resource:
+          </p>
+
+          <div class="">
+            <div class="" data-method="GET">
+              <div class="">
+                <span class="">GET</span>
+                <span class="">Safe</span>
+              </div>
+              <p>
+                Retrieves data from the server. Should not modify server state.
+              </p>
+              <div class="">
+                <code>GET /api/users/123</code>
+              </div>
+            </div>
+
+            <div class="" data-method="POST">
+              <div class="">
+                <span class="">POST</span>
+                <span class="">Unsafe</span>
+              </div>
+              <p>Sends data to create or process resources on the server.</p>
+              <div class="">
+                <code>POST /api/users</code>
+              </div>
+            </div>
+
+            <div class="" data-method="PUT">
+              <div class="">
+                <span class="">PUT</span>
+                <span class="">Unsafe</span>
+              </div>
+              <p>Updates or creates a resource at a specific location.</p>
+              <div class="">
+                <code>PUT /api/users/123</code>
+              </div>
+            </div>
+
+            <div class="" data-method="DELETE">
+              <div class="">
+                <span class="">DELETE</span>
+                <span class="">Unsafe</span>
+              </div>
+              <p>Removes the specified resource from the server.</p>
+              <div class="">
+                <code>DELETE /api/users/123</code>
+              </div>
+            </div>
+
+            <div class="" data-method="PATCH">
+              <div class="">
+                <span class="">PATCH</span>
+                <span class="">Unsafe</span>
+              </div>
+              <p>Partially updates a resource with provided data.</p>
+              <div class="">
+                <code>PATCH /api/users/123</code>
+              </div>
+            </div>
+
+            <div class="" data-method="HEAD">
+              <div class="">
+                <span class="">HEAD</span>
+                <span class="">Safe</span>
+              </div>
+              <p>Like GET but returns only headers, no body content.</p>
+              <div class="">
+                <code>HEAD /api/users/123</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTTP Status Codes -->
+        <section class="">
+          <h2><i class=""></i> HTTP Status Codes</h2>
+          <p>Status codes indicate the result of the HTTP request:</p>
+
+          <div class="">
+            <div class="" data-category="1xx">
+              <h3><span class="">1xx</span> Informational</h3>
+              <div class="">
+                <div class="">
+                  <span class="">100</span>
+                  <span class="">Continue</span>
+                </div>
+                <div class="">
+                  <span class="">101</span>
+                  <span class="">Switching Protocols</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="" data-category="2xx">
+              <h3><span class="">2xx</span> Success</h3>
+              <div class="">
+                <div class="">
+                  <span class="">200</span>
+                  <span class="">OK</span>
+                </div>
+                <div class="">
+                  <span class="">201</span>
+                  <span class="">Created</span>
+                </div>
+                <div class="">
+                  <span class="">204</span>
+                  <span class="">No Content</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="" data-category="3xx">
+              <h3><span class="">3xx</span> Redirection</h3>
+              <div class="">
+                <div class="">
+                  <span class="">301</span>
+                  <span class="">Moved Permanently</span>
+                </div>
+                <div class="">
+                  <span class="">302</span>
+                  <span class="">Found</span>
+                </div>
+                <div class="">
+                  <span class="">304</span>
+                  <span class="">Not Modified</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="" data-category="4xx">
+              <h3><span class="">4xx</span> Client Error</h3>
+              <div class="">
+                <div class="">
+                  <span class="">400</span>
+                  <span class="">Bad Request</span>
+                </div>
+                <div class="">
+                  <span class="">401</span>
+                  <span class="">Unauthorized</span>
+                </div>
+                <div class="">
+                  <span class="">404</span>
+                  <span class="">Not Found</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="" data-category="5xx">
+              <h3><span class="">5xx</span> Server Error</h3>
+              <div class="">
+                <div class="">
+                  <span class="">500</span>
+                  <span class="">Internal Server Error</span>
+                </div>
+                <div class="">
+                  <span class="">502</span>
+                  <span class="">Bad Gateway</span>
+                </div>
+                <div class="">
+                  <span class="">503</span>
+                  <span class="">Service Unavailable</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTTPS Section -->
+        <section class="">
+          <h2><i class=""></i> HTTPS - HTTP Secure</h2>
+          <p>
+            HTTPS is the secure version of HTTP, using TLS/SSL encryption to
+            protect data in transit between browsers and servers.
+          </p>
+
+          <div class="">
+            <div class="">
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                  <h3>HTTP</h3>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                    <span>Unencrypted data transmission</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Vulnerable to eavesdropping</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Data can be modified in transit</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Faster (no encryption overhead)</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Uses port 80</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="">
+                  <i class=""></i>
+                  <h3>HTTPS</h3>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                    <span>Encrypted data transmission</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Protection against eavesdropping</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Data integrity verification</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>Server authentication</span>
+                  </div>
+                  <div class="">
+                    <i class=""></i>
+                    <span>SEO benefits</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <h3>SSL/TLS Handshake Process</h3>
+            <div class="">
+              <div class="">
+                <div class="">1</div>
+                <div class="">
+                  <h4>Client Hello</h4>
+                  <p>
+                    Browser sends supported cipher suites and SSL/TLS version
+                  </p>
+                </div>
+              </div>
+              <div class="">
+                <div class="">2</div>
+                <div class="">
+                  <h4>Server Hello</h4>
+                  <p>
+                    Server responds with chosen cipher and sends certificate
+                  </p>
+                </div>
+              </div>
+              <div class="">
+                <div class="">3</div>
+                <div class="">
+                  <h4>Certificate Verification</h4>
+                  <p>
+                    Browser verifies server certificate with Certificate
+                    Authority
+                  </p>
+                </div>
+              </div>
+              <div class="">
+                <div class="">4</div>
+                <div class="">
+                  <h4>Key Exchange</h4>
+                  <p>Both parties establish shared encryption keys</p>
+                </div>
+              </div>
+              <div class="">
+                <div class="">5</div>
+                <div class="">
+                  <h4>Secure Communication</h4>
+                  <p>Encrypted data transmission begins</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Protocol Simulator -->
+        <section class="">
+          <h2><i class=""></i> HTTP Protocol Simulator</h2>
+          <div class="">
+            <h3>Build and Send HTTP Requests!</h3>
+            <p>
+              Use the simulator below to construct HTTP requests and see the
+              responses:
+            </p>
+
+            <div class="">
+              <div class="">
+                <h4>Request Builder</h4>
+
+                <div class="">
+                  <div class="">
+                    <label>Method:</label>
+                    <select id="httpMethod" onchange="updateRequest()">
+                      <option value="GET">GET</option>
+                      <option value="POST">POST</option>
+                      <option value="PUT">PUT</option>
+                      <option value="DELETE">DELETE</option>
+                    </select>
+                  </div>
+
+                  <div class="">
+                    <label>URL:</label>
+                    <input
+                      type="text"
+                      id="httpUrl"
+                      value="https://api.example.com/users"
+                      onchange="updateRequest()"
+                    />
+                  </div>
+
+                  <div class="">
+                    <label>Headers:</label>
+                    <textarea
+                      id="httpHeaders"
+                      rows="3"
+                      onchange="updateRequest()"
+                    >
+Content-Type: application/json
+Authorization: Bearer token123
+Accept: application/json</textarea
+                    >
+                  </div>
+
+                  <div class="" id="bodyRow" style="display: none">
+                    <label>Request Body:</label>
+                    <textarea id="httpBody" rows="4" onchange="updateRequest()">
+{"name": "John Doe", "email": "john@example.com"}</textarea
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="">
+                <h4>Generated Request</h4>
+                <div class="" id="requestPreview">
+                  <code
+                    >GET https://api.example.com/users HTTP/1.1 Host:
+                    api.example.com Content-Type: application/json
+                    Authorization: Bearer token123 Accept:
+                    application/json</code
+                  >
+                </div>
+              </div>
+
+              <div class="">
+                <button onclick="sendRequest()" class="">
+                  <i class=""></i> Send Request
+                </button>
+                <button onclick="clearForm()" class="">
+                  <i class=""></i> Clear
+                </button>
+              </div>
+
+              <div class="" id="responseDisplay" style="display: none">
+                <h4>Server Response</h4>
+                <div class="" id="responseStatus"></div>
+                <div class="" id="responseHeaders"></div>
+                <div class="" id="responseBody"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your Knowledge</h2>
+          <div class="" id="protocolQuiz">
+            <div class="">
+              <h3>Which HTTP status code indicates a successful request?</h3>
+              <div class="">
+                <div class="" onclick="selectProtocolAnswer(this, false)">
+                  404 Not Found
+                </div>
+                <div class="" onclick="selectProtocolAnswer(this, true)">
+                  200 OK
+                </div>
+                <div class="" onclick="selectProtocolAnswer(this, false)">
+                  301 Moved Permanently
+                </div>
+                <div class="" onclick="selectProtocolAnswer(this, false)">
+                  500 Internal Server Error
+                </div>
+              </div>
+              <div class="" style="display: none">
+                <p>
+                  <strong>Correct!</strong> 200 OK indicates that the HTTP
+                  request was successful and the server has returned the
+                  requested resource.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="">
+          <h2><i class=""></i> What's Next?</h2>
+          <p>Fantastic! You now understand web protocols. You've learned:</p>
+          <ul>
+            <li>HTTP protocol structure and characteristics</li>
+            <li>HTTP methods and their purposes</li>
+            <li>HTTP status codes and their meanings</li>
+            <li>HTTPS security features and SSL/TLS handshake</li>
+            <li>How to construct and interpret HTTP requests and responses</li>
+          </ul>
+
+          <div class="">
+            <a href="dns-hierarchy.html" class="">
+              <div class="">
+                <i class=""></i>
+                <h3>Next: DNS and Its Hierarchy</h3>
+                <p>Discover how domain names are resolved to IP addresses</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master web protocols through
+          interactive learning.
+        </p>
+      </div>
+    </footer>
+
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Responsive Design Principles - Interactive Course</title>
+
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="">
+      <div class="">
+        <a href="../index.html"><i class=""></i> Home</a>
+        <span class="">/</span>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <span class="">/</span>
+        <span class="">Responsive Design Principles</span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="">
+      <div class="">
+        <div class="">
+          <div class="">
+            <i class=""></i>
+          </div>
+          <div class="">
+            <h1 class="">Responsive Design Principles</h1>
+            <p class="">Mobile-First Web Development</p>
+            <p class="">
+              Master the art of creating websites that work seamlessly across all
+              devices. Learn media queries, flexible layouts, and mobile-first
+              design strategies for modern web development.
+            </p>
+          </div>
+        </div>
+        <div class="">
+          <div class="">
+            <div class="" id="topic-progress"></div>
+          </div>
+          <span class="">0% Complete</span>
+        </div>
+      </div>
+    </header>
+                      <div class=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="">Tablet</span>
+            </div>
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <div class=""></div>
+                    <div class="">
+                      <div class=""></div>
+                      <div class=""></div>
+                      <div class=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="">Desktop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="">
+      <div class="">
+        <!-- Introduction -->
+        <section class="">
+          <h2><i class=""></i> What is Responsive Design?</h2>
+          <div class="">
+            <p class="">
+              Responsive design is an approach to web design that ensures
+              websites provide an optimal viewing experience across all devices,
+              from desktop computers to mobile phones. It uses flexible layouts,
+              images, and CSS media queries to adapt to different screen sizes
+              and orientations.
+            </p>
+
+            <div class="">
+              <h3><i class=""></i> Core Principles</h3>
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Flexible Grid Systems</h4>
+                  <p>
+                    Use percentage-based widths and flexible containers that
+                    adapt to screen size.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Flexible Images</h4>
+                  <p>
+                    Scale images and media content proportionally to prevent
+                    overflow on smaller screens.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Media Queries</h4>
+                  <p>
+                    Apply different CSS rules based on device characteristics
+                    like screen width.
+                  </p>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Mobile-First Approach</h4>
+                  <p>
+                    Design for mobile devices first, then progressively enhance
+                    for larger screens.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h3>
+                <i class=""></i> Why Responsive Design Matters
+              </h3>
+              <div class="">
+                <div class="">
+                  <div class="">58%</div>
+                  <div class="">Mobile Web Traffic</div>
+                </div>
+                <div class="">
+                  <div class="">3.7s</div>
+                  <div class="">Max Load Time</div>
+                </div>
+                <div class="">
+                  <div class="">53%</div>
+                  <div class="">Users Leave if Slow</div>
+                </div>
+                <div class="">
+                  <div class="">61%</div>
+                  <div class="">Won't Return if Poor UX</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Viewport and Meta Tags -->
+        <section class="">
+          <h2><i class=""></i> Viewport and Meta Tags</h2>
+          <div class="">
+            <p>
+              The viewport meta tag is essential for responsive design. It
+              controls how the webpage is displayed on mobile devices by setting
+              the viewport's width and initial scale.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Essential Viewport Meta Tag</h4>
+              <pre><code class="">&lt;!-- Basic responsive viewport --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;!-- Complete viewport control --&gt;
+&lt;meta name="viewport" 
+      content="width=device-width, 
+               initial-scale=1.0, 
+               maximum-scale=5.0, 
+               minimum-scale=1.0, 
+               user-scalable=yes"&gt;
+
+&lt;!-- Prevent zoom (not recommended for accessibility) --&gt;
+&lt;meta name="viewport" 
+      content="width=device-width, 
+               initial-scale=1.0, 
+               user-scalable=no"&gt;</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Viewport Properties Explained</h4>
+              <div class="">
+                <div class="">
+                  <code>width=device-width</code>
+                  <p>Sets the width to match the device's screen width</p>
+                </div>
+                <div class="">
+                  <code>initial-scale=1.0</code>
+                  <p>Sets the initial zoom level when page loads</p>
+                </div>
+                <div class="">
+                  <code>maximum-scale</code>
+                  <p>Controls the maximum zoom level users can reach</p>
+                </div>
+                <div class="">
+                  <code>user-scalable</code>
+                  <p>Allows or prevents users from zooming</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Media Queries -->
+        <section class="">
+          <h2><i class=""></i> CSS Media Queries</h2>
+          <div class="">
+            <p>
+              Media queries allow you to apply different CSS styles based on
+              device characteristics such as screen width, height, orientation,
+              and resolution.
+            </p>
+
+            <h3><i class=""></i> Media Query Syntax</h3>
+            <div class="">
+              <h4><i class=""></i> Basic Media Query Structure</h4>
+              <pre><code class="">/* Basic media query syntax */
+@media media-type and (media-feature) {
+    /* CSS rules */
+}
+
+/* Common breakpoints */
+/* Mobile First Approach */
+/* Base styles for mobile */
+.container {
+    width: 100%;
+    padding: 1rem;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 2rem;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+}</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Common Breakpoints</h4>
+              <div class="">
+                <div class="">
+                  <div class="">Device</div>
+                  <div class="">Screen Width</div>
+                  <div class="">Media Query</div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i> Mobile
+                  </div>
+                  <div class="">320px - 767px</div>
+                  <div class="">
+                    <code>@media (max-width: 767px)</code>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i> Tablet
+                  </div>
+                  <div class="">768px - 1023px</div>
+                  <div class="">
+                    <code>@media (min-width: 768px)</code>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i> Desktop
+                  </div>
+                  <div class="">1024px - 1439px</div>
+                  <div class="">
+                    <code>@media (min-width: 1024px)</code>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="">
+                    <i class=""></i> Large Desktop
+                  </div>
+                  <div class="">1440px+</div>
+                  <div class="">
+                    <code>@media (min-width: 1440px)</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Interactive Media Query Demo</h4>
+              <div class="">
+                <div class="">
+                  <label for="screenWidth"
+                    >Screen Width: <span id="widthDisplay">1200</span>px</label
+                  >
+                  <input
+                    type="range"
+                    id="screenWidth"
+                    min="320"
+                    max="1920"
+                    value="1200"
+                  />
+                  <div class="">
+                    <button class="" data-width="375">Mobile</button>
+                    <button class="" data-width="768">Tablet</button>
+                    <button class="" data-width="1024">Laptop</button>
+                    <button class="" data-width="1440">
+                      Desktop
+                    </button>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="" id="demoViewport">
+                    <div class="">
+                      <header class="">Header</header>
+                      <nav class="">Navigation</nav>
+                      <main class="">
+                        <section class="">Main Content</section>
+                        <aside class="">Sidebar</aside>
+                      </main>
+                      <footer class="">Footer</footer>
+                    </div>
+                  </div>
+                </div>
+                <div class="" id="currentBreakpoint">
+                  Current: Desktop (1200px)
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Flexible Layouts -->
+        <section class="">
+          <h2><i class=""></i> Flexible Layout Techniques</h2>
+          <div class="">
+            <p>
+              Creating flexible layouts is crucial for responsive design. Modern
+              CSS provides several powerful tools for building adaptive layouts.
+            </p>
+
+            <div class="">
+              <div class="">
+                <button class="" data-tab="flexbox">
+                  Flexbox
+                </button>
+                <button class="" data-tab="grid">CSS Grid</button>
+                <button class="" data-tab="fluid">
+                  Fluid Containers
+                </button>
+                <button class="" data-tab="responsive-units">
+                  Responsive Units
+                </button>
+              </div>
+
+              <div class="">
+                <!-- Flexbox Tab -->
+                <div class="" id="flexbox-panel">
+                  <h4>
+                    <i class=""></i> Flexbox for Responsive
+                    Design
+                  </h4>
+                  <div class="">
+                    <pre><code class="">/* Responsive flexbox container */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.flex-item {
+    flex: 1 1 300px; /* grow, shrink, basis */
+    min-width: 250px;
+}
+
+/* Responsive navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Mobile: Stack items vertically */
+@media (max-width: 767px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}</code></pre>
+                  </div>
+                  <div class="">
+                    <div class="">
+                      <div class="">Item 1</div>
+                      <div class="">Item 2</div>
+                      <div class="">Item 3</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CSS Grid Tab -->
+                <div class="" id="grid-panel">
+                  <h4>
+                    <i class=""></i> CSS Grid for Responsive
+                    Layouts
+                  </h4>
+                  <div class="">
+                    <pre><code class="">/* Responsive grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Complex responsive grid */
+.page-grid {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    gap: 1rem;
+}
+
+/* Mobile: Single column layout */
+@media (max-width: 768px) {
+    .page-grid {
+        grid-template-areas: 
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+                  </div>
+                  <div class="">
+                    <div class="">
+                      <div class="">1</div>
+                      <div class="">2</div>
+                      <div class="">3</div>
+                      <div class="">4</div>
+                      <div class="">5</div>
+                      <div class="">6</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fluid Containers Tab -->
+                <div class="" id="fluid-panel">
+                  <h4>
+                    <i class=""></i> Fluid Containers and Max-Width
+                  </h4>
+                  <div class="">
+                    <pre><code class="">/* Fluid container with max-width */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Responsive container sizes */
+.container-sm { max-width: 540px; }
+.container-md { max-width: 720px; }
+.container-lg { max-width: 960px; }
+.container-xl { max-width: 1140px; }
+
+/* Percentage-based columns */
+.column {
+    width: 100%;
+    padding: 0 15px;
+}
+
+.col-1 { width: 8.333333%; }
+.col-2 { width: 16.666667%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333333%; }
+.col-6 { width: 50%; }
+.col-12 { width: 100%; }
+
+/* Mobile: All columns full width */
+@media (max-width: 767px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+}</code></pre>
+                  </div>
+                  <div class="">
+                    <div class="">
+                      <div class="">25%</div>
+                      <div class="">50%</div>
+                      <div class="">25%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Responsive Units Tab -->
+                <div class="" id="responsive-units-panel">
+                  <h4>
+                    <i class=""></i> Responsive Units and
+                    Typography
+                  </h4>
+                  <div class="">
+                    <pre><code class="">/* Viewport units */
+.hero-section {
+    height: 100vh; /* 100% of viewport height */
+    width: 100vw;  /* 100% of viewport width */
+}
+
+/* Responsive typography with clamp() */
+.heading {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    /* min: 1.5rem, preferred: 4vw, max: 3rem */
+}
+
+/* Relative units for scalability */
+.card {
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Em and rem for consistent spacing */
+.text-content {
+    font-size: 1rem;      /* Base font size */
+    line-height: 1.6em;   /* Relative to font size */
+    margin-bottom: 1.5rem; /* Relative to root font size */
+}
+
+/* Responsive font sizing */
+html { font-size: 16px; }
+
+@media (max-width: 768px) {
+    html { font-size: 14px; }
+}
+
+@media (min-width: 1200px) {
+    html { font-size: 18px; }
+}</code></pre>
+                  </div>
+                  <div class="">
+                    <div class="">
+                      <div class="">10vw width</div>
+                      <div class="">20vh height</div>
+                      <div class="">2rem padding</div>
+                      <div class="">1.5em margin</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Images and Media -->
+        <section class="">
+          <h2><i class=""></i> Responsive Images and Media</h2>
+          <div class="">
+            <p>
+              Making images and media responsive ensures they scale properly
+              across different devices and don't break your layout or cause
+              horizontal scrolling.
+            </p>
+
+            <div class="">
+              <h4><i class=""></i> Responsive Images Techniques</h4>
+              <pre><code class="">/* Basic responsive image */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive video/iframe */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Art direction with picture element */
+.responsive-picture {
+    width: 100%;
+    height: auto;
+}</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> HTML Picture Element</h4>
+              <pre><code class="">&lt;!-- Responsive images with different sources --&gt;
+&lt;picture&gt;
+    &lt;source media="(max-width: 767px)" 
+            srcset="image-mobile.jpg"&gt;
+    &lt;source media="(max-width: 1023px)" 
+            srcset="image-tablet.jpg"&gt;
+    &lt;source media="(min-width: 1024px)" 
+            srcset="image-desktop.jpg"&gt;
+    &lt;img src="image-fallback.jpg" 
+         alt="Responsive image"&gt;
+&lt;/picture&gt;
+
+&lt;!-- Srcset for different resolutions --&gt;
+&lt;img srcset="image-320.jpg 320w,
+             image-480.jpg 480w,
+             image-800.jpg 800w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px"
+     src="image-800.jpg"
+     alt="High DPI responsive image"&gt;</code></pre>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Responsive Images Demo</h4>
+              <div class="">
+                <div class="">
+                  <h5>Fixed Image (Not Responsive)</h5>
+                  <div class="" style="overflow: hidden">
+                    <img
+                      src="https://picsum.photos/800/400"
+                      alt="Fixed image"
+                      style="width: 800px; height: 400px"
+                    />
+                  </div>
+                  <p class="">❌ Breaks layout on small screens</p>
+                </div>
+
+                <div class="">
+                  <h5>Responsive Image</h5>
+                  <div class="">
+                    <img
+                      src="https://picsum.photos/800/400"
+                      alt="Responsive image"
+                      style="max-width: 100%; height: auto"
+                    />
+                  </div>
+                  <p class="">✅ Scales with container</p>
+                </div>
+
+                <div class="">
+                  <h5>Responsive Video Container</h5>
+                  <div class="">
+                    <iframe
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allowfullscreen
+                    >
+                    </iframe>
+                  </div>
+                  <p class="">✅ Maintains aspect ratio</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mobile-First Strategy -->
+        <section class="">
+          <h2>
+            <i class=""></i> Mobile-First Design Strategy
+          </h2>
+          <div class="">
+            <p>
+              Mobile-first design is an approach where you design for mobile
+              devices first, then progressively enhance the experience for
+              larger screens using min-width media queries.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <h4>
+                    <i class=""></i> Desktop-First (Traditional)
+                  </h4>
+                  <div class="">
+                    <div class="">Desktop Design</div>
+                    <div class="">↓</div>
+                    <div class="">Tablet Adaptation</div>
+                    <div class="">↓</div>
+                    <div class="">Mobile Adaptation</div>
+                  </div>
+                  <ul class="">
+                    <li class="">
+                      <i class=""></i> Requires removing features
+                    </li>
+                    <li class="">
+                      <i class=""></i> Larger file sizes on mobile
+                    </li>
+                    <li class="">
+                      <i class=""></i> Performance issues
+                    </li>
+                    <li class="">
+                      <i class=""></i> Complex media queries
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="">
+                  <h4>
+                    <i class=""></i> Mobile-First (Recommended)
+                  </h4>
+                  <div class="">
+                    <div class="">Mobile Design</div>
+                    <div class="">↑</div>
+                    <div class="">Tablet Enhancement</div>
+                    <div class="">↑</div>
+                    <div class="">Desktop Enhancement</div>
+                  </div>
+                  <ul class="">
+                    <li class="">
+                      <i class=""></i> Progressive enhancement
+                    </li>
+                    <li class="">
+                      <i class=""></i> Better performance
+                    </li>
+                    <li class="">
+                      <i class=""></i> Simpler media queries
+                    </li>
+                    <li class="">
+                      <i class=""></i> Content-focused design
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="">
+              <h4><i class=""></i> Mobile-First CSS Example</h4>
+              <pre><code class="">/* Mobile-first approach */
+
+/* Base styles (mobile) */
+.navigation {
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    padding: 1rem;
+}
+
+.nav-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #555;
+    text-align: center;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.sidebar {
+    order: 2; /* Show after main content on mobile */
+}
+
+/* Tablet enhancement (768px+) */
+@media (min-width: 768px) {
+    .navigation {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+    
+    .nav-item {
+        border-bottom: none;
+        border-right: 1px solid #555;
+    }
+    
+    .content-grid {
+        grid-template-columns: 2fr 1fr;
+        padding: 2rem;
+    }
+    
+    .sidebar {
+        order: 1; /* Show sidebar first on larger screens */
+    }
+}
+
+/* Desktop enhancement (1024px+) */
+@media (min-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr 3fr 1fr;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem;
+    }
+    
+    .navigation {
+        padding: 1rem 3rem;
+    }
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Performance Considerations -->
+        <section class="">
+          <h2>
+            <i class=""></i> Performance Considerations
+          </h2>
+          <div class="">
+            <p>
+              Responsive design should not compromise performance. Here are key
+              strategies to ensure your responsive sites load quickly on all
+              devices.
+            </p>
+
+            <div class="">
+              <div class="">
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Optimize Images</h4>
+                  <ul>
+                    <li>Use appropriate image formats (WebP, AVIF)</li>
+                    <li>Implement lazy loading</li>
+                    <li>Use srcset for different screen densities</li>
+                    <li>Compress images without quality loss</li>
+                  </ul>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Minimize CSS</h4>
+                  <ul>
+                    <li>Use CSS minification</li>
+                    <li>Avoid redundant media queries</li>
+                    <li>Use efficient selectors</li>
+                    <li>Consider critical CSS inlining</li>
+                  </ul>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Mobile Optimization</h4>
+                  <ul>
+                    <li>Prioritize content loading</li>
+                    <li>Use touch-friendly UI elements</li>
+                    <li>Optimize font loading</li>
+                    <li>Reduce HTTP requests</li>
+                  </ul>
+                </div>
+
+                <div class="">
+                  <div class="">
+                    <i class=""></i>
+                  </div>
+                  <h4>Performance Metrics</h4>
+                  <ul>
+                    <li>Monitor Core Web Vitals</li>
+                    <li>Test on real devices</li>
+                    <li>Use performance budgets</li>
+                    <li>Regular performance audits</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testing and Tools -->
+        <section class="">
+          <h2><i class=""></i> Testing and Development Tools</h2>
+          <div class="">
+            <p>
+              Proper testing across devices and screen sizes is crucial for
+              successful responsive design. Here are essential tools and
+              techniques for testing responsive websites.
+            </p>
+
+            <div class="">
+              <div class="">
+                <h4><i class=""></i> Browser Dev Tools</h4>
+                <ul class="">
+                  <li>
+                    <strong>Chrome DevTools:</strong> Device simulation,
+                    responsive design mode
+                  </li>
+                  <li>
+                    <strong>Firefox Responsive Design Mode:</strong> Multiple
+                    device presets
+                  </li>
+                  <li>
+                    <strong>Safari Web Inspector:</strong> iOS device simulation
+                  </li>
+                </ul>
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Testing Platforms</h4>
+                <ul class="">
+                  <li>
+                    <strong>BrowserStack:</strong> Real device cloud testing
+                  </li>
+                  <li>
+                    <strong>Sauce Labs:</strong> Automated responsive testing
+                  </li>
+                  <li><strong>LambdaTest:</strong> Cross-browser testing</li>
+                </ul>
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Design Tools</h4>
+                <ul class="">
+                  <li><strong>Figma:</strong> Responsive design prototyping</li>
+                  <li>
+                    <strong>Adobe XD:</strong> Multi-device design systems
+                  </li>
+                  <li>
+                    <strong>Sketch:</strong> Responsive symbols and layouts
+                  </li>
+                </ul>
+              </div>
+
+              <div class="">
+                <h4><i class=""></i> Performance Tools</h4>
+                <ul class="">
+                  <li>
+                    <strong>Google PageSpeed Insights:</strong> Mobile
+                    performance analysis
+                  </li>
+                  <li>
+                    <strong>GTmetrix:</strong> Responsive performance metrics
+                  </li>
+                  <li>
+                    <strong>WebPageTest:</strong> Mobile network simulation
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="">
+              <h4>
+                <i class=""></i> Responsive Testing Checklist
+              </h4>
+              <div class="">
+                <div class="">
+                  <h5>Visual Testing</h5>
+                  <ul class="">
+                    <li>
+                      <input type="checkbox" /> Layout doesn't break at any
+                      width
+                    </li>
+                    <li>
+                      <input type="checkbox" /> Text remains readable on all
+                      devices
+                    </li>
+                    <li><input type="checkbox" /> Images scale properly</li>
+                    <li>
+                      <input type="checkbox" /> Navigation works on mobile
+                    </li>
+                    <li>
+                      <input type="checkbox" /> Touch targets are adequate
+                      (44px+)
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="">
+                  <h5>Functional Testing</h5>
+                  <ul class="">
+                    <li><input type="checkbox" /> Forms work on all devices</li>
+                    <li>
+                      <input type="checkbox" /> Videos/media scale correctly
+                    </li>
+                    <li>
+                      <input type="checkbox" /> Hover effects work on touch
+                    </li>
+                    <li>
+                      <input type="checkbox" /> Page loads quickly on mobile
+                    </li>
+                    <li><input type="checkbox" /> Content is accessible</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="">
+          <h2><i class=""></i> Test Your Knowledge</h2>
+          <div class="">
+            <div class="">
+              <h4>
+                <span class="">1</span>
+                What is the recommended approach for responsive design?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="a" />
+                    <span>Desktop-first design</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="b" />
+                    <span>Mobile-first design</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="c" />
+                    <span>Tablet-first design</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q1" value="d" />
+                    <span>No specific approach needed</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">2</span>
+                Which viewport meta tag is essential for responsive design?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="a" />
+                    <span
+                      >&lt;meta name="viewport" content="width=1024"&gt;</span
+                    >
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="b" />
+                    <span
+                      >&lt;meta name="viewport" content="width=device-width,
+                      initial-scale=1.0"&gt;</span
+                    >
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="c" />
+                    <span
+                      >&lt;meta name="viewport"
+                      content="user-scalable=no"&gt;</span
+                    >
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q2" value="d" />
+                    <span
+                      >&lt;meta name="viewport" content="width=100%"&gt;</span
+                    >
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">3</span>
+                What CSS property makes images responsive by default?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="a" />
+                    <span>width: 100%;</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="b" />
+                    <span>max-width: 100%; height: auto;</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="c" />
+                    <span>height: 100%;</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q3" value="d" />
+                    <span>display: block;</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <h4>
+                <span class="">4</span>
+                Which media query targets tablets in a mobile-first approach?
+              </h4>
+              <ul class="">
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="a" />
+                    <span>@media (max-width: 768px)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="b" />
+                    <span>@media (min-width: 768px)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="c" />
+                    <span>@media (width: 768px)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="q4" value="d" />
+                    <span>@media screen and (tablet)</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="">
+              <button class="">Submit Quiz</button>
+              <button
+                class=""
+                style="display: none"
+              >
+                Try Again
+              </button>
+            </div>
+
+            <div class="" style="display: none">
+              <h3><i class=""></i> Quiz Results</h3>
+              <p>
+                You scored <span id="score">0</span> out of 4 (<span
+                  id="percentage"
+                  >0</span
+                >%)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Resources Section -->
+        <section class="">
+          <h2>
+            <i class=""></i> Video Resources & Tutorials
+          </h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/srvUrASNj0s/maxresdefault.jpg"
+                  alt="Responsive Design Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Responsive Web Design Tutorial</h4>
+                <p>
+                  Complete guide to responsive design principles, mobile-first
+                  approach, and media queries.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=srvUrASNj0s"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/K24lUqcT0Ms/maxresdefault.jpg"
+                  alt="CSS Grid Layout"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>CSS Grid Layout for Responsive Design</h4>
+                <p>
+                  Learn how to create powerful responsive layouts using CSS Grid
+                  with practical examples.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=K24lUqcT0Ms"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/VQraviuwbzU/maxresdefault.jpg"
+                  alt="Flexbox Tutorial"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Flexbox Complete Tutorial</h4>
+                <p>
+                  Master Flexbox for creating flexible and responsive web
+                  layouts with real-world examples.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=VQraviuwbzU"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+                <img
+                  src="https://img.youtube.com/vi/yU7jJ3NbPdA/maxresdefault.jpg"
+                  alt="Mobile First Design"
+                  loading="lazy"
+                />
+              </div>
+              <div class="">
+                <h4>Mobile-First Design Strategy</h4>
+                <p>
+                  Learn why mobile-first design is important and how to
+                  implement it effectively.
+                </p>
+                <a
+                  href="https://www.youtube.com/watch?v=yU7jJ3NbPdA"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Resources Section -->
+        <section class="">
+          <h2>
+            <i class=""></i> Additional Learning Resources
+          </h2>
+          <div class="">
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>MDN Responsive Design Guide</h4>
+                <p>
+                  Comprehensive documentation on responsive design principles
+                  and best practices.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Visit MDN Docs
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Google Web Fundamentals</h4>
+                <p>
+                  Google's guide to responsive web design with performance
+                  considerations and best practices.
+                </p>
+                <a
+                  href="https://web.dev/responsive-web-design-basics/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Learn More
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>CSS Grid Complete Guide</h4>
+                <p>
+                  A complete guide to CSS Grid for creating responsive layouts
+                  with practical examples.
+                </p>
+                <a
+                  href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> CSS-Tricks Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Flexbox Complete Guide</h4>
+                <p>
+                  Learn everything about Flexbox with visual examples and use
+                  cases for responsive design.
+                </p>
+                <a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Flexbox Guide
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Responsive Design Testing</h4>
+                <p>
+                  Tools and techniques for testing responsive designs across
+                  different devices and browsers.
+                </p>
+                <a
+                  href="https://www.browserstack.com/responsive"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Testing Tools
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <i class=""></i>
+              </div>
+              <div class="">
+                <h4>Web Performance Optimization</h4>
+                <p>
+                  Optimize your responsive websites for better performance on
+                  mobile and desktop devices.
+                </p>
+                <a
+                  href="https://web.dev/fast/"
+                  target="_blank"
+                  class=""
+                >
+                  <i class=""></i> Performance Guide
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="">
+          <h2><i class=""></i> Next Steps</h2>
+          <div class="">
+            <div class="">
+              <div class="">1</div>
+              <div class="">
+                <h3>Practice with Real Projects</h3>
+                <p>
+                  Build responsive websites using the techniques you've learned.
+                  Start with simple layouts and gradually increase complexity.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">2</div>
+              <div class="">
+                <h3>Learn CSS Frameworks</h3>
+                <p>
+                  Explore frameworks like Bootstrap, Tailwind CSS, or Foundation
+                  to speed up responsive development.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">3</div>
+              <div class="">
+                <h3>Advanced JavaScript Concepts</h3>
+                <p>
+                  Learn how to enhance responsive designs with JavaScript for
+                  dynamic interactions.
+                </p>
+                <a href="js-introduction.html" class=""
+                  >Continue to JavaScript →</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="">
+      <div class="">
+        <div class="">
+          <h3><i class=""></i> Web Technology Course</h3>
+          <p>
+            Master modern web development with our comprehensive interactive
+            course.
+          </p>
+        </div>
+        <div class="">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../units/unit3.html">Unit 3: CSS</a></li>
+            <li><a href="css-basics.html">CSS Basics</a></li>
+          </ul>
+        </div>
+        <div class="">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                target="_blank"
+                >MDN CSS Docs</a
+              >
+            </li>
+            <li>
+              <a href="https://caniuse.com/" target="_blank">Can I Use</a>
+            </li>
+            <li><a href="https://web.dev/" target="_blank">Web.dev</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          &copy; 2024 Web Technology Interactive Course. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="dist/js/prism-core.min.js"></script>
+    <script src="dist/js/prism-autoloader.min.js"></script>
+  </body>
+</html>
