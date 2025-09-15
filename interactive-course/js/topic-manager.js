@@ -114,7 +114,7 @@ class TopicManager {
     updateTOCDropdownStates(currentSectionId) {
         // Dynamically build section mapping from the TOC HTML structure
         const sectionMapping = this.buildSectionMappingFromTOC();
-        
+
         const targetSectionName = sectionMapping[currentSectionId];
         if (!targetSectionName) return;
 
@@ -210,7 +210,7 @@ class TopicManager {
         toggleButtons.forEach(button => {
             const content = button.nextElementSibling;
             const sectionName = button.querySelector('span').textContent.trim();
-            
+
             // Find all links in this TOC section
             const links = content.querySelectorAll('a[href^="#"]');
             links.forEach(link => {
