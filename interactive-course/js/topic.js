@@ -136,14 +136,6 @@ function simulateSearch() {
     }
 }
 
-function selectQuizAnswer(button, isCorrect) {
-    topicManager.selectQuizAnswer(button, isCorrect);
-}
-
-function nextQuestion() {
-    topicManager.nextQuestion();
-}
-
 function showQuizResults() {
     topicManager.showQuizResults();
 }
@@ -154,6 +146,93 @@ function retakeQuiz() {
 
 function completeLesson() {
     topicManager.completeLesson();
+}
+
+function startDnsLookup() {
+    const domainInput = document.getElementById('domainInput');
+    const lookupVisualization = document.getElementById('lookupVisualization');
+    const lookupResult = document.getElementById('lookupResult');
+    const resultDomain = document.getElementById('resultDomain');
+    const resultIP = document.getElementById('resultIP');
+    const resultType = document.getElementById('resultType');
+    const resultTTL = document.getElementById('resultTTL');
+
+    if (!domainInput || !lookupVisualization || !lookupResult) {
+        console.log('DNS lookup elements not found');
+        return;
+    }
+
+    const domain = domainInput.value.trim();
+    if (!domain) {
+        alert('Please enter a domain name');
+        return;
+    }
+
+    // Only hide the previous result when starting a NEW search
+    // Don't clear it immediately - let it persist until new search completes
+    if (lookupResult.style.display !== 'none') {
+        lookupResult.style.display = 'none';
+    }
+
+    // Show visualization
+    lookupVisualization.style.display = 'block';
+
+    // Reset all steps - remove active class and reset status
+    const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6'];
+    steps.forEach(stepId => {
+        const step = document.getElementById(stepId);
+        if (step) {
+            step.classList.remove('active');
+            const status = step.querySelector('.status');
+            if (status) status.textContent = 'Waiting...';
+        }
+    });
+
+    // Simulate DNS resolution steps
+    let currentStep = 0;
+    const stepMessages = [
+        'Checking browser cache...',
+        'Checking OS DNS cache...',
+        'Contacting recursive resolver...',
+        'Querying root nameserver...',
+        'Querying TLD nameserver (.com)...',
+        'Querying authoritative nameserver...'
+    ];
+
+    const simulateStep = () => {
+        if (currentStep < steps.length) {
+            const stepElement = document.getElementById(steps[currentStep]);
+            const statusElement = stepElement.querySelector('.status');
+
+            stepElement.classList.add('active');
+            statusElement.textContent = stepMessages[currentStep];
+
+            currentStep++;
+            setTimeout(simulateStep, 1000);
+        } else {
+            // Show results
+            setTimeout(() => {
+                lookupVisualization.style.display = 'none';
+                lookupResult.style.display = 'block';
+
+                // Mock DNS result
+                const mockResults = {
+                    'google.com': { ip: '142.250.184.14', type: 'A', ttl: '300' },
+                    'github.com': { ip: '140.82.121.4', type: 'A', ttl: '60' },
+                    'example.com': { ip: '93.184.216.34', type: 'A', ttl: '86400' }
+                };
+
+                const result = mockResults[domain] || { ip: '192.0.2.1', type: 'A', ttl: '3600' };
+
+                if (resultDomain) resultDomain.textContent = domain;
+                if (resultIP) resultIP.textContent = result.ip;
+                if (resultType) resultType.textContent = result.type;
+                if (resultTTL) resultTTL.textContent = result.ttl + ' seconds';
+            }, 500);
+        }
+    };
+
+    simulateStep();
 }
 
 // Client-Server Communication Demo Functions

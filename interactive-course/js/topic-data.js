@@ -232,6 +232,117 @@ const TOPICS_DATA = {
         }
     },
 
+    // Basic Protocols Topic Data
+    "basic-protocols": {
+        // Quiz data
+        quiz: {
+            questions: [
+                {
+                    question: "What does HTTP stand for?",
+                    options: ["HyperText Transfer Protocol", "High Tech Transfer Process", "Home Text Transfer Protocol", "Hyperlink Text Transfer Process"],
+                    correct: 0,
+                    explanation: "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the World Wide Web."
+                },
+                {
+                    question: "Which HTTP status code indicates a successful request?",
+                    options: ["404 Not Found", "200 OK", "301 Moved Permanently", "500 Internal Server Error"],
+                    correct: 1,
+                    explanation: "200 OK indicates that the HTTP request was successful and the server has returned the requested resource."
+                },
+                {
+                    question: "What is the main difference between HTTP and HTTPS?",
+                    options: ["HTTP is faster", "HTTPS uses encryption", "HTTP supports more methods", "HTTPS is only for images"],
+                    correct: 1,
+                    explanation: "HTTPS (HTTP Secure) uses TLS/SSL encryption to protect data in transit between browsers and servers."
+                },
+                {
+                    question: "Which HTTP method is used to retrieve data from a server?",
+                    options: ["POST", "PUT", "GET", "DELETE"],
+                    correct: 2,
+                    explanation: "The GET method is used to retrieve data from a server. It should not modify server state."
+                },
+                {
+                    question: "What does the HTTP status code 404 mean?",
+                    options: ["Server Error", "Unauthorized", "Not Found", "Bad Request"],
+                    correct: 2,
+                    explanation: "404 Not Found indicates that the server cannot find the requested resource."
+                },
+                {
+                    question: "Which HTTP method is considered 'unsafe' and can modify server data?",
+                    options: ["GET", "HEAD", "POST", "OPTIONS"],
+                    correct: 2,
+                    explanation: "POST is an unsafe method that sends data to create or process resources on the server."
+                },
+                {
+                    question: "What is the purpose of the SSL/TLS handshake?",
+                    options: ["To exchange greetings", "To establish secure encryption keys", "To check server availability", "To transfer files"],
+                    correct: 1,
+                    explanation: "The SSL/TLS handshake establishes shared encryption keys between client and server for secure communication."
+                },
+                {
+                    question: "Which HTTP status code range indicates client errors?",
+                    options: ["1xx", "2xx", "3xx", "4xx"],
+                    correct: 3,
+                    explanation: "4xx status codes indicate client errors, such as bad syntax or unauthorized requests."
+                },
+                {
+                    question: "What does HTTPS use to encrypt data?",
+                    options: ["HTTP", "SSL/TLS", "HTML", "JavaScript"],
+                    correct: 1,
+                    explanation: "HTTPS uses SSL (Secure Sockets Layer) or TLS (Transport Layer Security) to encrypt data transmission."
+                },
+                {
+                    question: "Which HTTP method is used to update an existing resource?",
+                    options: ["POST", "PUT", "PATCH", "DELETE"],
+                    correct: 1,
+                    explanation: "PUT is used to update or create a resource at a specific location on the server."
+                }
+            ]
+        },
+
+        // Protocol simulation data
+        protocolSimulation: {
+            methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
+            statusCodes: {
+                "1xx": ["100 Continue", "101 Switching Protocols"],
+                "2xx": ["200 OK", "201 Created", "204 No Content"],
+                "3xx": ["301 Moved Permanently", "302 Found", "304 Not Modified"],
+                "4xx": ["400 Bad Request", "401 Unauthorized", "404 Not Found"],
+                "5xx": ["500 Internal Server Error", "502 Bad Gateway", "503 Service Unavailable"]
+            },
+            sampleRequests: [
+                {
+                    method: "GET",
+                    url: "https://api.example.com/users/123",
+                    headers: "Accept: application/json\nAuthorization: Bearer token123",
+                    description: "Retrieve user data"
+                },
+                {
+                    method: "POST",
+                    url: "https://api.example.com/users",
+                    headers: "Content-Type: application/json",
+                    body: '{"name": "John Doe", "email": "john@example.com"}',
+                    description: "Create new user"
+                },
+                {
+                    method: "PUT",
+                    url: "https://api.example.com/users/123",
+                    headers: "Content-Type: application/json",
+                    body: '{"name": "Jane Doe", "email": "jane@example.com"}',
+                    description: "Update user data"
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'basic-protocols',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
     // Example: CSS Basics Topic Data
     "css-basics": {
         quiz: {
@@ -441,6 +552,111 @@ const TOPICS_DATA = {
         // Configuration
         config: {
             topicId: 'web-browsers-servers',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // DNS and Its Hierarchy Topic Data
+    "dns-hierarchy": {
+        // Quiz data
+        quiz: {
+            questions: [
+                {
+                    question: "What does DNS stand for?",
+                    options: ["Domain Name System", "Digital Network Service", "Data Network Server", "Domain Network Security"],
+                    correct: 0,
+                    explanation: "DNS stands for Domain Name System, which translates human-readable domain names into IP addresses."
+                },
+                {
+                    question: "What is the top level of the DNS hierarchy?",
+                    options: ["Root Level", "Top-Level Domains", "Second-Level Domains", "Subdomains"],
+                    correct: 0,
+                    explanation: "The root level is the top of the DNS hierarchy, represented by a single dot (.) and managed by IANA."
+                },
+                {
+                    question: "Which DNS record type maps a domain name to an IPv4 address?",
+                    options: ["AAAA", "CNAME", "A", "MX"],
+                    correct: 2,
+                    explanation: "The A (Address) record maps a domain name to an IPv4 address, like example.com to 192.0.2.1."
+                },
+                {
+                    question: "What is the first step in DNS resolution when you type a domain name?",
+                    options: ["Contact root nameserver", "Check browser cache", "Contact TLD nameserver", "Contact authoritative server"],
+                    correct: 1,
+                    explanation: "DNS resolution starts by checking the browser cache for the domain's IP address."
+                },
+                {
+                    question: "Which DNS record type is used for email server configuration?",
+                    options: ["A", "AAAA", "MX", "TXT"],
+                    correct: 2,
+                    explanation: "MX (Mail Exchange) records specify which mail servers are responsible for accepting email for a domain."
+                },
+                {
+                    question: "What does a CNAME record do?",
+                    options: ["Maps to IPv6 address", "Creates an alias", "Specifies mail server", "Contains verification text"],
+                    correct: 1,
+                    explanation: "A CNAME (Canonical Name) record creates an alias pointing to another domain name."
+                },
+                {
+                    question: "Which server type provides the final IP address in DNS resolution?",
+                    options: ["Root nameserver", "TLD nameserver", "Recursive resolver", "Authoritative nameserver"],
+                    correct: 3,
+                    explanation: "The authoritative nameserver provides the final IP address for a domain during DNS resolution."
+                },
+                {
+                    question: "What is the purpose of DNS?",
+                    options: ["Encrypt web traffic", "Translate domain names to IP addresses", "Host websites", "Store web content"],
+                    correct: 1,
+                    explanation: "DNS translates human-readable domain names like google.com into machine-readable IP addresses."
+                },
+                {
+                    question: "Which TLD category includes .com, .org, and .net?",
+                    options: ["Country Code TLDs", "Generic TLDs", "Sponsored TLDs", "Infrastructure TLDs"],
+                    correct: 1,
+                    explanation: "Generic TLDs include .com, .org, .net, and are not tied to any specific country."
+                },
+                {
+                    question: "What happens if DNS resolution fails?",
+                    options: ["Website loads slowly", "Browser shows error page", "Computer crashes", "Internet disconnects"],
+                    correct: 1,
+                    explanation: "If DNS resolution fails, the browser typically shows an error page indicating the domain cannot be found."
+                }
+            ]
+        },
+
+        // DNS lookup simulation data
+        dnsLookup: {
+            sampleDomains: [
+                { domain: "google.com", ip: "142.250.184.14", type: "A", ttl: 300 },
+                { domain: "github.com", ip: "140.82.121.4", type: "A", ttl: 60 },
+                { domain: "stackoverflow.com", ip: "151.101.1.69", type: "A", ttl: 180 }
+            ],
+            resolutionSteps: [
+                "Checking browser cache...",
+                "Checking OS DNS cache...",
+                "Contacting recursive resolver...",
+                "Querying root nameserver...",
+                "Querying TLD nameserver (.com)...",
+                "Querying authoritative nameserver...",
+                "IP address resolved!"
+            ]
+        },
+
+        // DNS hierarchy visualization data
+        hierarchyData: {
+            levels: [
+                { name: "Root", icon: "fas fa-globe", description: "Top level, managed by IANA" },
+                { name: "TLD", icon: "fas fa-server", description: "Top-level domains like .com, .org" },
+                { name: "SLD", icon: "fas fa-building", description: "Second-level domains like google.com" },
+                { name: "Subdomain", icon: "fas fa-laptop-code", description: "Subdomains like mail.google.com" }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'dns-hierarchy',
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'

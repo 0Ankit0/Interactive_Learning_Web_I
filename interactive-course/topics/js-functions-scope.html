@@ -36,7 +36,11 @@
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
           <span class="progress-text">0% Complete</span>
         </div>
       </div>
@@ -108,7 +112,10 @@
         <!-- Function Declaration and Expression -->
         <section class="content-section" data-section="declaration">
           <div class="section-header">
-            <h2><i class="fas fa-file-code"></i> Function Declaration vs Expression</h2>
+            <h2>
+              <i class="fas fa-file-code"></i> Function Declaration vs
+              Expression
+            </h2>
           </div>
           <div class="topic-grid three-column">
             <div class="topic-card">
@@ -423,14 +430,30 @@ console.log(result); // undefined</code></pre>
                 </div>
 
                 <div class="button-group">
-                  <button onclick="performOperation('add')" class="btn btn-primary">Add</button>
-                  <button onclick="performOperation('subtract')" class="btn btn-secondary">
+                  <button
+                    onclick="performOperation('add')"
+                    class="btn btn-primary"
+                  >
+                    Add
+                  </button>
+                  <button
+                    onclick="performOperation('subtract')"
+                    class="btn btn-secondary"
+                  >
                     Subtract
                   </button>
-                  <button onclick="performOperation('multiply')" class="btn btn-info">
+                  <button
+                    onclick="performOperation('multiply')"
+                    class="btn btn-info"
+                  >
                     Multiply
                   </button>
-                  <button onclick="performOperation('divide')" class="btn btn-warning">Divide</button>
+                  <button
+                    onclick="performOperation('divide')"
+                    class="btn btn-warning"
+                  >
+                    Divide
+                  </button>
                 </div>
 
                 <div id="return-result" class="result-box"></div>
@@ -510,16 +533,26 @@ console.log(globalVar); // Accessible here too</code></pre>
                   <div class="scope-container function-scope">
                     <h4>Function Scope</h4>
                     <div class="variable-list">
-                      <span class="variable" data-scope="function">functionVar</span>
-                      <span class="variable inherited" data-scope="global">globalVar</span>
+                      <span class="variable" data-scope="function"
+                        >functionVar</span
+                      >
+                      <span class="variable inherited" data-scope="global"
+                        >globalVar</span
+                      >
                     </div>
 
                     <div class="scope-container block-scope">
                       <h4>Block Scope</h4>
                       <div class="variable-list">
-                        <span class="variable" data-scope="block">blockVar</span>
-                        <span class="variable inherited" data-scope="function">functionVar</span>
-                        <span class="variable inherited" data-scope="global">globalVar</span>
+                        <span class="variable" data-scope="block"
+                          >blockVar</span
+                        >
+                        <span class="variable inherited" data-scope="function"
+                          >functionVar</span
+                        >
+                        <span class="variable inherited" data-scope="global"
+                          >globalVar</span
+                        >
                       </div>
                     </div>
                   </div>
@@ -581,7 +614,8 @@ function celsiusToFahrenheit(celsius) {
 // Test it
 console.log(celsiusToFahrenheit(0));  // Should return 32
 console.log(celsiusToFahrenheit(25)); // Should return 77
-                      </textarea>
+                      </textarea
+                    >
                   </div>
                   <button onclick="testChallenge1()" class="btn btn-primary">
                     Test Function
@@ -592,8 +626,7 @@ console.log(celsiusToFahrenheit(25)); // Should return 77
                 <div class="challenge-item">
                   <h4>Challenge 2: Array Maximum</h4>
                   <p>
-                    Create a function that finds the maximum number in an
-                    array
+                    Create a function that finds the maximum number in an array
                   </p>
                   <div class="code-block">
                     <textarea
@@ -609,7 +642,8 @@ function findMax(numbers) {
 // Test it
 console.log(findMax([1, 5, 3, 9, 2])); // Should return 9
 console.log(findMax([-1, -5, -3]));    // Should return -1
-                      </textarea>
+                      </textarea
+                    >
                   </div>
                   <button onclick="testChallenge2()" class="btn btn-primary">
                     Test Function
@@ -812,8 +846,8 @@ console.log("Global:", x);</code></pre>
               <div class="card-content">
                 <h4>JavaScript.info - Functions</h4>
                 <p>
-                  Detailed tutorial covering function basics, advanced
-                  concepts, and scope.
+                  Detailed tutorial covering function basics, advanced concepts,
+                  and scope.
                 </p>
                 <a
                   href="https://javascript.info/function-basics"
@@ -930,8 +964,8 @@ console.log("Global:", x);</code></pre>
       </div>
     </footer>
 
-    <script src="dist/js/prism-core.min.js"></script>
-    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../dist/js/topic.js"></script>
     <!-- JavaScript functionality -->
     <script src="../dist/js/main.js"></script>

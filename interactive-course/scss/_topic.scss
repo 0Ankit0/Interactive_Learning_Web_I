@@ -1168,7 +1168,7 @@
   @include card-base;
   margin: $spacing-3xl 0;
   border: 1px solid $border-light;
-  overflow: hidden;
+  overflow: visible;
   
   h4 {
     background: $bg-light;
@@ -1182,6 +1182,13 @@
       color: $primary-color;
       margin-right: $spacing-sm;
     }
+  }
+  
+  pre {
+    margin: $spacing-lg 0;
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: pre;
   }
 }
 
@@ -2867,6 +2874,251 @@
   }
 }
 
+// Generic Hierarchy Diagram Styles
+.hierarchy-diagram {
+  @include card-base;
+  padding: $spacing-2xl;
+  margin: $spacing-3xl 0;
+  background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.05));
+  border: 1px solid rgba($primary-color, 0.2);
+  position: relative;
+  overflow: visible;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color, $accent-color, $purple-color);
+    border-radius: $border-radius-lg $border-radius-lg 0 0;
+  }
+}
+
+.hierarchy-level {
+  @include flex-center;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-3xl;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -$spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: $spacing-3xl;
+    background: linear-gradient(to bottom,
+      rgba($primary-color, 0.4),
+      rgba($secondary-color, 0.4),
+      rgba($accent-color, 0.4),
+      rgba($purple-color, 0.4)
+    );
+    border-radius: 1px;
+    animation: pulse-connector 3s ease-in-out infinite;
+  }
+}
+
+.hierarchy-node {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-lg $spacing-xl;
+  background: white;
+  border-radius: $border-radius-lg;
+  border: 2px solid $border-light;
+  text-align: center;
+  min-width: 120px;
+  max-width: 160px;
+  transition: all $transition-fast;
+  position: relative;
+  box-shadow: $shadow-sm;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba($primary-color, 0.15);
+    z-index: 10;
+
+    i {
+      transform: scale(1.15) rotate(5deg);
+      color: $primary-hover;
+    }
+
+    span {
+      color: $primary-hover;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
+  i {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+    transition: all $transition-fast;
+    display: block;
+  }
+
+  span {
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    font-size: $font-size-sm;
+    line-height: 1.3;
+    transition: all $transition-fast;
+    word-break: break-word;
+  }
+
+  // Add subtle glow effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba($primary-color, 0.1), transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity $transition-base;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// Enhanced hierarchy levels styling with better color schemes
+.hierarchy-level:nth-child(1) .hierarchy-node {
+  border-color: rgba($primary-color, 0.6);
+  background: linear-gradient(135deg, rgba($primary-color, 0.08), rgba($primary-color, 0.03));
+
+  i {
+    color: $primary-color;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+    background: linear-gradient(135deg, rgba($primary-color, 0.15), rgba($primary-color, 0.08));
+  }
+}
+
+.hierarchy-level:nth-child(2) .hierarchy-node {
+  border-color: rgba($secondary-color, 0.6);
+  background: linear-gradient(135deg, rgba($secondary-color, 0.08), rgba($secondary-color, 0.03));
+
+  i {
+    color: $secondary-color;
+  }
+
+  &:hover {
+    border-color: $secondary-color;
+    background: linear-gradient(135deg, rgba($secondary-color, 0.15), rgba($secondary-color, 0.08));
+  }
+}
+
+.hierarchy-level:nth-child(3) .hierarchy-node {
+  border-color: rgba($accent-color, 0.6);
+  background: linear-gradient(135deg, rgba($accent-color, 0.08), rgba($accent-color, 0.03));
+
+  i {
+    color: $accent-color;
+  }
+
+  &:hover {
+    border-color: $accent-color;
+    background: linear-gradient(135deg, rgba($accent-color, 0.15), rgba($accent-color, 0.08));
+  }
+}
+
+.hierarchy-level:nth-child(4) .hierarchy-node {
+  border-color: rgba($purple-color, 0.6);
+  background: linear-gradient(135deg, rgba($purple-color, 0.08), rgba($purple-color, 0.03));
+
+  i {
+    color: $purple-color;
+  }
+
+  &:hover {
+    border-color: $purple-color;
+    background: linear-gradient(135deg, rgba($purple-color, 0.15), rgba($purple-color, 0.08));
+  }
+}
+
+// Animations for connectors
+@keyframes pulse-connector {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1.2);
+  }
+}
+
+// Enhanced responsive design for hierarchy
+@include breakpoint($breakpoint-md) {
+  .hierarchy-level {
+    flex-direction: column;
+    gap: $spacing-md;
+
+    &:not(:last-child)::after {
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transform: none;
+      bottom: -$spacing-md;
+    }
+
+    &::before {
+      top: -20px;
+      left: 20px;
+      transform: none;
+    }
+  }
+
+  .hierarchy-node {
+    min-width: 100px;
+    max-width: 200px;
+    padding: $spacing-md $spacing-lg;
+
+    &:hover {
+      transform: translateY(-3px) scale(1.01);
+    }
+  }
+
+  .hierarchy-diagram {
+    padding: $spacing-xl;
+  }
+}
+
+@include breakpoint($breakpoint-sm) {
+  .hierarchy-node {
+    min-width: 80px;
+    padding: $spacing-sm $spacing-md;
+
+    i {
+      font-size: $font-size-2xl;
+    }
+
+    span {
+      font-size: $font-size-xs;
+    }
+  }
+
+  .hierarchy-level {
+    gap: $spacing-sm;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
 // Feature grid for WWW technologies
 .feature-grid {
   display: grid;
@@ -2913,6 +3165,18 @@
     color: $text-secondary;
     margin: 0;
     line-height: $line-height-relaxed;
+  }
+  
+  // Cards with code examples should span full width
+  &:has(.code-example) {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    text-align: left;
+    
+    .card-body {
+      text-align: left;
+      align-items: flex-start;
+    }
   }
 }
 
@@ -4023,6 +4287,79 @@
     &:nth-child(#{$i}) {
       animation-delay: #{$i * 0.15}s;
     }
+  }
+}
+
+// Individual step classes for specific styling
+.step-1 {
+  border-color: $primary-color;
+  
+  .step-number {
+    background: $primary-color;
+  }
+  
+  &:hover {
+    border-color: $primary-hover;
+  }
+}
+
+.step-2 {
+  border-color: $success-color;
+  
+  .step-number {
+    background: $success-color;
+  }
+  
+  &:hover {
+    border-color: color.scale($success-color, $lightness: -10%);
+  }
+}
+
+.step-3 {
+  border-color: $warning-color;
+  
+  .step-number {
+    background: $warning-color;
+  }
+  
+  &:hover {
+    border-color: color.scale($warning-color, $lightness: -10%);
+  }
+}
+
+.step-4 {
+  border-color: $info-color;
+  
+  .step-number {
+    background: $info-color;
+  }
+  
+  &:hover {
+    border-color: color.scale($info-color, $lightness: -10%);
+  }
+}
+
+.step-5 {
+  border-color: $secondary-color;
+  
+  .step-number {
+    background: $secondary-color;
+  }
+  
+  &:hover {
+    border-color: color.scale($secondary-color, $lightness: -10%);
+  }
+}
+
+.step-6 {
+  border-color: $error-color;
+  
+  .step-number {
+    background: $error-color;
+  }
+  
+  &:hover {
+    border-color: color.scale($error-color, $lightness: -10%);
   }
 }
 

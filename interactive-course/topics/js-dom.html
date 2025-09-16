@@ -36,7 +36,11 @@
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
           <span class="progress-text">0% Complete</span>
         </div>
       </div>
@@ -224,16 +228,28 @@ const cards = document.querySelectorAll('.card');</code></pre>
                   </div>
 
                   <div class="button-group">
-                    <button onclick="setSelector('#main-title')" class="btn btn-secondary">
+                    <button
+                      onclick="setSelector('#main-title')"
+                      class="btn btn-secondary"
+                    >
                       #main-title
                     </button>
-                    <button onclick="setSelector('.intro')" class="btn btn-secondary">
+                    <button
+                      onclick="setSelector('.intro')"
+                      class="btn btn-secondary"
+                    >
                       .intro
                     </button>
-                    <button onclick="setSelector('button')" class="btn btn-secondary">
+                    <button
+                      onclick="setSelector('button')"
+                      class="btn btn-secondary"
+                    >
                       button
                     </button>
-                    <button onclick="setSelector('.btn.primary')" class="btn btn-secondary">
+                    <button
+                      onclick="setSelector('.btn.primary')"
+                      class="btn btn-secondary"
+                    >
                       .btn.primary
                     </button>
                   </div>
@@ -352,7 +368,10 @@ console.log(input.value); // "New input value"</code></pre>
                       class="form-control"
                       placeholder="New input value"
                     />
-                    <button onclick="changeInputValue()" class="btn btn-primary">
+                    <button
+                      onclick="changeInputValue()"
+                      class="btn btn-primary"
+                    >
                       Update Input
                     </button>
                   </div>
@@ -509,13 +528,22 @@ element.classList.contains('highlight'); // true/false</code></pre>
                   <div class="form-group">
                     <h4>CSS Classes:</h4>
                     <div class="button-group">
-                      <button onclick="toggleClass('shadow')" class="btn btn-secondary">
+                      <button
+                        onclick="toggleClass('shadow')"
+                        class="btn btn-secondary"
+                      >
                         Toggle Shadow
                       </button>
-                      <button onclick="toggleClass('rotate')" class="btn btn-secondary">
+                      <button
+                        onclick="toggleClass('rotate')"
+                        class="btn btn-secondary"
+                      >
                         Toggle Rotate
                       </button>
-                      <button onclick="toggleClass('pulse')" class="btn btn-secondary">
+                      <button
+                        onclick="toggleClass('pulse')"
+                        class="btn btn-secondary"
+                      >
                         Toggle Pulse
                       </button>
                     </div>
@@ -609,7 +637,11 @@ element.dataset.status = 'active';</code></pre>
                     <h5>Image Attributes:</h5>
                     <div class="form-group">
                       <label>Image Source:</label>
-                      <select id="img-src" class="form-select" onchange="updateImageSrc()">
+                      <select
+                        id="img-src"
+                        class="form-select"
+                        onchange="updateImageSrc()"
+                      >
                         <option
                           value="https://via.placeholder.com/200x150/3498db/ffffff?text=Demo+Image"
                         >
@@ -666,7 +698,11 @@ element.dataset.status = 'active';</code></pre>
 
                     <div class="form-group">
                       <label>Target:</label>
-                      <select id="link-target" class="form-select" onchange="updateLinkTarget()">
+                      <select
+                        id="link-target"
+                        class="form-select"
+                        onchange="updateLinkTarget()"
+                      >
                         <option value="_self">Same Window (_self)</option>
                         <option value="_blank">New Window (_blank)</option>
                       </select>
@@ -823,8 +859,8 @@ element.dataset.status = 'active';</code></pre>
               <div class="card-content">
                 <h4>MDN - DOM Introduction</h4>
                 <p>
-                  Comprehensive guide to the Document Object Model with
-                  detailed examples and API reference.
+                  Comprehensive guide to the Document Object Model with detailed
+                  examples and API reference.
                 </p>
                 <a
                   href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
@@ -961,8 +997,8 @@ element.dataset.status = 'active';</code></pre>
       </div>
     </footer>
 
-    <script src="dist/js/prism-core.min.js"></script>
-    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <!-- Shared utilities -->
     <script src="../dist/js/shared-utils.js"></script>
     <!-- Common topic functionality -->

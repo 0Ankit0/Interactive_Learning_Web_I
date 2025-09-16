@@ -6,19 +6,28 @@
     <title>DNS and Its Hierarchy - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googlea
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
+    .com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   </head>
   <body>
     <nav class="breadcrumb">
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         <span class="separator">/</span>
-        <a href="../units/unit1.html"
-          >Unit 1: Introduction to Web Technologies</a
-        >
+        <a href="../units/unit1.html">Unit 1</a>
         <span class="separator">/</span>
-        <span class="current">1.5 DNS and Its Hierarchy</span>
+        <span class="current">DNS and Its Hierarchy</span>
       </div>
     </nav>
 
@@ -34,6 +43,10 @@
               Discover how domain names are translated into IP addresses across
               the internet
             </p>
+            <p class="topic-description">
+              Learn the fundamentals of DNS, its hierarchical structure, and how
+              domain resolution works step by step.
+            </p>
           </div>
         </div>
         <div class="progress-bar">
@@ -48,464 +61,591 @@
 
     <main class="main">
       <div class="container">
-        <!-- DNS Overview -->
-        <section class="content-section">
-          <h2><i class="fas fa-globe-americas"></i> What is DNS?</h2>
-          <p>
-            DNS (Domain Name System) is the phonebook of the Internet. It
-            translates human-readable domain names like "example.com" into
-            machine-readable IP addresses like "192.168.1.1" that computers use
-            to communicate.
-          </p>
-
-          <div class="info-box">
-            <div class="feature-grid">
-              <div class="feature-card">
-                <h3>Without DNS</h3>
-                <div class="code-example">
-                  <i class="fas fa-times-circle"></i>
-                  <p>Users would need to remember:</p>
-                  <div class="code-editor">
-                    <code>142.250.184.14</code> for Google
-                    <code>151.101.1.140</code> for Reddit
-                    <code>185.199.108.153</code> for GitHub
-                  </div>
-                </div>
-              </div>
-
-              <div class="feature-card">
-                <h3>With DNS</h3>
-                <div class="code-example">
-                  <i class="fas fa-check-circle"></i>
-                  <p>Users can simply type:</p>
-                  <div class="code-editor">
-                    <code>google.com</code>
-                    <code>reddit.com</code>
-                    <code>github.com</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- DNS Hierarchy -->
-        <section class="content-section">
-          <h2><i class="fas fa-sitemap"></i> DNS Hierarchy Structure</h2>
-          <p>
-            DNS follows a hierarchical, tree-like structure starting from the
-            root and branching down to individual hostnames.
-          </p>
-
-          <div class="concept-diagram">
-            <div class="dns-hierarchy">
-              <div class="dns-level">
-                <i class="fas fa-globe"></i>
-                <span>Root (.)</span>
-              </div>
-            </div>
-
-            <div class="dns-hierarchy">
-              <div class="dns-level" data-tld="com">
-                <i class="fas fa-server"></i>
-                <span>.com</span>
-              </div>
-              <div class="dns-level" data-tld="org">
-                <i class="fas fa-server"></i>
-                <span>.org</span>
-              </div>
-              <div class="dns-level" data-tld="edu">
-                <i class="fas fa-server"></i>
-                <span>.edu</span>
-              </div>
-              <div class="dns-level" data-tld="gov">
-                <i class="fas fa-server"></i>
-                <span>.gov</span>
-              </div>
-            </div>
-
-            <div class="dns-hierarchy">
-              <div class="dns-level" data-parent="com">
-                <i class="fas fa-building"></i>
-                <span>google</span>
-              </div>
-              <div class="dns-level" data-parent="com">
-                <i class="fas fa-building"></i>
-                <span>amazon</span>
-              </div>
-              <div class="dns-level" data-parent="org">
-                <i class="fas fa-building"></i>
-                <span>mozilla</span>
-              </div>
-              <div class="dns-level" data-parent="edu">
-                <i class="fas fa-building"></i>
-                <span>mit</span>
-              </div>
-            </div>
-
-            <div class="dns-hierarchy">
-              <div class="dns-level" data-parent="google">
-                <i class="fas fa-laptop-code"></i>
-                <span>mail</span>
-              </div>
-              <div class="dns-level" data-parent="google">
-                <i class="fas fa-laptop-code"></i>
-                <span>maps</span>
-              </div>
-              <div class="dns-level" data-parent="amazon">
-                <i class="fas fa-laptop-code"></i>
-                <span>aws</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="feature-grid">
-            <div class="feature-card">
-              <h4><i class="fas fa-globe"></i> Root Level</h4>
-              <p>
-                The top of the DNS hierarchy, managed by IANA. Represented by a
-                single dot (.) but usually omitted.
-              </p>
-            </div>
-            <div class="feature-card">
-              <h4><i class="fas fa-server"></i> Top-Level Domains (TLD)</h4>
-              <p>
-                Generic TLDs (.com, .org, .net) and Country Code TLDs (.us, .uk,
-                .de). Managed by registry operators.
-              </p>
-            </div>
-            <div class="feature-card">
-              <h4>
-                <i class="fas fa-building"></i> Second-Level Domains (SLD)
-              </h4>
-              <p>
-                The main domain name purchased by organizations or individuals
-                (e.g., "google" in google.com).
-              </p>
-            </div>
-            <div class="feature-card">
-              <h4><i class="fas fa-laptop-code"></i> Subdomains</h4>
-              <p>
-                Additional levels created by domain owners (e.g., "mail" in
-                mail.google.com).
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- DNS Resolution Process -->
-        <section class="content-section">
-          <h2><i class="fas fa-project-diagram"></i> DNS Resolution Process</h2>
-          <p>
-            When you type a domain name, multiple servers work together to
-            resolve it to an IP address:
-          </p>
-
-          <div class="step-guide">
-            <div class="step" data-step="1">
-              <div class="step-header">
-                <div class="step-number">1</div>
-                <h4>Browser Cache Check</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-history"></i>
-                <p>Browser checks its cache for the domain's IP address</p>
-                <div class="badge">If found, resolution complete!</div>
-              </div>
-            </div>
-
-            <div class="step" data-step="2">
-              <div class="step-header">
-                <div class="step-number">2</div>
-                <h4>OS Cache Check</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-desktop"></i>
-                <p>Operating system checks its DNS cache</p>
-                <div class="badge">Includes hosts file lookup</div>
-              </div>
-            </div>
-
-            <div class="step" data-step="3">
-              <div class="step-header">
-                <div class="step-number">3</div>
-                <h4>Recursive Resolver</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-sync-alt"></i>
-                <p>ISP's DNS server receives the query</p>
-                <div class="badge">Acts as intermediary for the client</div>
-              </div>
-            </div>
-
-            <div class="step" data-step="4">
-              <div class="step-header">
-                <div class="step-number">4</div>
-                <h4>Root Nameserver</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-globe"></i>
-                <p>Query sent to root nameserver</p>
-                <div class="badge">Returns TLD nameserver address</div>
-              </div>
-            </div>
-
-            <div class="step" data-step="5">
-              <div class="step-header">
-                <div class="step-number">5</div>
-                <h4>TLD Nameserver</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-server"></i>
-                <p>Query sent to TLD nameserver (.com, .org, etc.)</p>
-                <div class="badge">Returns authoritative nameserver</div>
-              </div>
-            </div>
-
-            <div class="step" data-step="6">
-              <div class="step-header">
-                <div class="step-number">6</div>
-                <h4>Authoritative Nameserver</h4>
-              </div>
-              <div class="step-content">
-                <i class="fas fa-user-shield"></i>
-                <p>Final query to authoritative server</p>
-                <div class="badge">Returns the actual IP address</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- DNS Record Types -->
-        <section class="content-section">
-          <h2><i class="fas fa-list-ul"></i> DNS Record Types</h2>
-          <p>
-            Different types of DNS records serve various purposes in the domain
-            name system:
-          </p>
-
-          <div class="feature-grid">
-            <div class="feature-card" data-type="A">
-              <div class="card-header">
-                <span class="badge">A</span>
-                <h4>Address Record</h4>
-              </div>
-              <p>Maps a domain name to an IPv4 address</p>
-              <div class="code-example">
-                <code>example.com. IN A 192.0.2.1</code>
-              </div>
-            </div>
-
-            <div class="feature-card" data-type="AAAA">
-              <div class="card-header">
-                <span class="badge">AAAA</span>
-                <h4>IPv6 Address Record</h4>
-              </div>
-              <p>Maps a domain name to an IPv6 address</p>
-              <div class="code-example">
-                <code>example.com. IN AAAA 2001:db8::1</code>
-              </div>
-            </div>
-
-            <div class="feature-card" data-type="CNAME">
-              <div class="card-header">
-                <span class="badge">CNAME</span>
-                <h4>Canonical Name</h4>
-              </div>
-              <p>Creates an alias pointing to another domain name</p>
-              <div class="code-example">
-                <code>www.example.com. IN CNAME example.com.</code>
-              </div>
-            </div>
-
-            <div class="feature-card" data-type="MX">
-              <div class="card-header">
-                <span class="badge">MX</span>
-                <h4>Mail Exchange</h4>
-              </div>
-              <p>Specifies mail server for email delivery</p>
-              <div class="code-example">
-                <code>example.com. IN MX 10 mail.example.com.</code>
-              </div>
-            </div>
-
-            <div class="feature-card" data-type="NS">
-              <div class="card-header">
-                <span class="badge">NS</span>
-                <h4>Name Server</h4>
-              </div>
-              <p>Delegates a subdomain to a set of name servers</p>
-              <div class="code-example">
-                <code>example.com. IN NS ns1.example.com.</code>
-              </div>
-            </div>
-
-            <div class="feature-card" data-type="TXT">
-              <div class="card-header">
-                <span class="badge">TXT</span>
-                <h4>Text Record</h4>
-              </div>
-              <p>Contains arbitrary text, often for verification</p>
-              <div class="code-example">
-                <code
-                  >example.com. IN TXT "v=spf1 include:_spf.google.com
-                  ~all"</code
-                >
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Interactive DNS Simulator -->
-        <section class="content-section">
-          <h2><i class="fas fa-play-circle"></i> DNS Lookup Simulator</h2>
-          <div class="interactive-element">
-            <h3>Simulate a DNS Query!</h3>
-            <p>
-              Enter a domain name to see how DNS resolution works step by step:
-            </p>
-
-            <div class="dns-simulator">
-              <div class="input-group">
-                <input
-                  type="text"
-                  id="domainInput"
-                  placeholder="Enter domain (e.g., example.com)"
-                  value="example.com"
-                />
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
                 <button
-                  onclick="startDnsLookup()"
-                  class="btn-primary"
-                  id="lookupBtn"
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
-                  <i class="fas fa-search"></i> Lookup DNS
+                  <span>DNS Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#dns-overview"
+                      onclick="scrollToSection('dns-overview')"
+                      >What is DNS?</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#hierarchy" onclick="scrollToSection('hierarchy')"
+                      >DNS Hierarchy Structure</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#resolution"
+                      onclick="scrollToSection('resolution')"
+                      >DNS Resolution Process</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>DNS Records & Tools</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#records" onclick="scrollToSection('records')"
+                      >DNS Record Types</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#simulator" onclick="scrollToSection('simulator')"
+                      >DNS Lookup Simulator</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Next Steps</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#next" onclick="scrollToSection('next')"
+                      >What's Next?</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+            <!-- DNS Overview -->
+            <section class="content-section" id="dns-overview">
+              <h2><i class="fas fa-globe-americas"></i> What is DNS?</h2>
+              <p>
+                DNS (Domain Name System) is the phonebook of the Internet. It
+                translates human-readable domain names like "example.com" into
+                machine-readable IP addresses like "192.168.1.1" that computers
+                use to communicate.
+              </p>
+
+              <div class="info-box">
+                <div class="feature-grid">
+                  <div class="feature-card">
+                    <h3>Without DNS</h3>
+                    <div class="code-example">
+                      <h4><i class="fas fa-times-circle"></i> Without DNS</h4>
+                      <p>Users would need to remember:</p>
+                      <div class="code-editor">
+                        <code>142.250.184.14</code> --> for Google<br />
+                        <code>151.101.1.140</code> --> for Reddit<br />
+                        <code>185.199.108.153</code> --> for GitHub
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="feature-card">
+                    <h3>With DNS</h3>
+                    <div class="code-example">
+                      <h4><i class="fas fa-check-circle"></i> With DNS</h4>
+                      <p>Users can simply type:</p>
+                      <div class="code-editor">
+                        <code>google.com</code><br />
+                        <code>reddit.com</code><br />
+                        <code>github.com</code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- DNS Hierarchy -->
+            <section class="content-section" id="hierarchy">
+              <h2><i class="fas fa-sitemap"></i> DNS Hierarchy Structure</h2>
+              <p>
+                DNS follows a hierarchical, tree-like structure starting from
+                the root and branching down to individual hostnames.
+              </p>
+
+              <div class="hierarchy-diagram">
+                <div class="hierarchy-level">
+                  <div class="hierarchy-node">
+                    <i class="fas fa-globe"></i>
+                    <span>Root (.)</span>
+                  </div>
+                </div>
+
+                <div class="hierarchy-level">
+                  <div class="hierarchy-node" data-tld="com">
+                    <i class="fas fa-server"></i>
+                    <span>.com</span>
+                  </div>
+                  <div class="hierarchy-node" data-tld="org">
+                    <i class="fas fa-server"></i>
+                    <span>.org</span>
+                  </div>
+                  <div class="hierarchy-node" data-tld="edu">
+                    <i class="fas fa-server"></i>
+                    <span>.edu</span>
+                  </div>
+                  <div class="hierarchy-node" data-tld="gov">
+                    <i class="fas fa-server"></i>
+                    <span>.gov</span>
+                  </div>
+                </div>
+
+                <div class="hierarchy-level">
+                  <div class="hierarchy-node" data-parent="com">
+                    <i class="fas fa-building"></i>
+                    <span>google</span>
+                  </div>
+                  <div class="hierarchy-node" data-parent="com">
+                    <i class="fas fa-building"></i>
+                    <span>amazon</span>
+                  </div>
+                  <div class="hierarchy-node" data-parent="org">
+                    <i class="fas fa-building"></i>
+                    <span>mozilla</span>
+                  </div>
+                  <div class="hierarchy-node" data-parent="edu">
+                    <i class="fas fa-building"></i>
+                    <span>mit</span>
+                  </div>
+                </div>
+
+                <div class="hierarchy-level">
+                  <div class="hierarchy-node" data-parent="google">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>mail</span>
+                  </div>
+                  <div class="hierarchy-node" data-parent="google">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>maps</span>
+                  </div>
+                  <div class="hierarchy-node" data-parent="amazon">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>aws</span>
+                  </div>
+                </div>
               </div>
 
-              <div
-                class="lookup-visualization"
-                id="lookupVisualization"
-                style="display: none"
-              >
-                <div class="step-guide">
-                  <div class="step" id="step1">
-                    <div class="step-header">
-                      <i class="fas fa-desktop"></i>
-                    </div>
-                    <div class="step-content">
-                      <h4>Browser Cache</h4>
-                      <div class="status">Checking...</div>
-                    </div>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <h4><i class="fas fa-globe"></i> Root Level</h4>
+                  <p>
+                    The top of the DNS hierarchy, managed by IANA. Represented
+                    by a single dot (.) but usually omitted.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <h4><i class="fas fa-server"></i> Top-Level Domains (TLD)</h4>
+                  <p>
+                    Generic TLDs (.com, .org, .net) and Country Code TLDs (.us,
+                    .uk, .de). Managed by registry operators.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <h4>
+                    <i class="fas fa-building"></i> Second-Level Domains (SLD)
+                  </h4>
+                  <p>
+                    The main domain name purchased by organizations or
+                    individuals (e.g., "google" in google.com).
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <h4><i class="fas fa-laptop-code"></i> Subdomains</h4>
+                  <p>
+                    Additional levels created by domain owners (e.g., "mail" in
+                    mail.google.com).
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- DNS Resolution Process -->
+            <section class="content-section" id="resolution">
+              <h2>
+                <i class="fas fa-project-diagram"></i> DNS Resolution Process
+              </h2>
+              <p>
+                When you type a domain name, multiple servers work together to
+                resolve it to an IP address:
+              </p>
+
+              <div class="step-container">
+                <div class="step" id="resolution-step1">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Browser Cache Check</h4>
+                    <i class="fas fa-history"></i>
+                    <p>Browser checks its cache for the domain's IP address</p>
+                    <div class="badge">If found, resolution complete!</div>
+                  </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step" id="resolution-step2">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>OS Cache Check</h4>
+                    <i class="fas fa-desktop"></i>
+                    <p>Operating system checks its DNS cache</p>
+                    <div class="badge">Includes hosts file lookup</div>
+                  </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step" id="resolution-step3">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Recursive Resolver</h4>
+                    <i class="fas fa-sync-alt"></i>
+                    <p>ISP's DNS server receives the query</p>
+                    <div class="badge">Acts as intermediary for the client</div>
+                  </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step" id="resolution-step4">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Root Nameserver</h4>
+                    <i class="fas fa-globe"></i>
+                    <p>Query sent to root nameserver</p>
+                    <div class="badge">Returns TLD nameserver address</div>
+                  </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step" id="resolution-step5">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>TLD Nameserver</h4>
+                    <i class="fas fa-server"></i>
+                    <p>Query sent to TLD nameserver (.com, .org, etc.)</p>
+                    <div class="badge">Returns authoritative nameserver</div>
+                  </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step" id="resolution-step6">
+                  <div class="step-number">6</div>
+                  <div class="step-content">
+                    <h4>Authoritative Nameserver</h4>
+                    <i class="fas fa-user-shield"></i>
+                    <p>Final query to authoritative server</p>
+                    <div class="badge">Returns the actual IP address</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- DNS Record Types -->
+            <section class="content-section" id="records">
+              <h2><i class="fas fa-list-ul"></i> DNS Record Types</h2>
+              <p>
+                Different types of DNS records serve various purposes in the
+                domain name system:
+              </p>
+
+              <div class="feature-grid">
+                <div class="feature-card" data-type="A">
+                  <div class="card-header">
+                    <span class="badge">A</span>
+                    <h4>Address Record</h4>
+                  </div>
+                  <p>Maps a domain name to an IPv4 address</p>
+                  <div class="code-example">
+                    <code>example.com. IN A 192.0.2.1</code>
+                  </div>
+                </div>
+
+                <div class="feature-card" data-type="AAAA">
+                  <div class="card-header">
+                    <span class="badge">AAAA</span>
+                    <h4>IPv6 Address Record</h4>
+                  </div>
+                  <p>Maps a domain name to an IPv6 address</p>
+                  <div class="code-example">
+                    <code>example.com. IN AAAA 2001:db8::1</code>
+                  </div>
+                </div>
+
+                <div class="feature-card" data-type="CNAME">
+                  <div class="card-header">
+                    <span class="badge">CNAME</span>
+                    <h4>Canonical Name</h4>
+                  </div>
+                  <p>Creates an alias pointing to another domain name</p>
+                  <div class="code-example">
+                    <code>www.example.com. IN CNAME example.com.</code>
+                  </div>
+                </div>
+
+                <div class="feature-card" data-type="MX">
+                  <div class="card-header">
+                    <span class="badge">MX</span>
+                    <h4>Mail Exchange</h4>
+                  </div>
+                  <p>Specifies mail server for email delivery</p>
+                  <div class="code-example">
+                    <code>example.com. IN MX 10 mail.example.com.</code>
+                  </div>
+                </div>
+
+                <div class="feature-card" data-type="NS">
+                  <div class="card-header">
+                    <span class="badge">NS</span>
+                    <h4>Name Server</h4>
+                  </div>
+                  <p>Delegates a subdomain to a set of name servers</p>
+                  <div class="code-example">
+                    <code>example.com. IN NS ns1.example.com.</code>
+                  </div>
+                </div>
+
+                <div class="feature-card" data-type="TXT">
+                  <div class="card-header">
+                    <span class="badge">TXT</span>
+                    <h4>Text Record</h4>
+                  </div>
+                  <p>Contains arbitrary text, often for verification</p>
+                  <div class="code-example">
+                    <code
+                      >example.com. IN TXT "v=spf1 include:_spf.google.com
+                      ~all"</code
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Interactive DNS Simulator -->
+            <section class="content-section" id="simulator">
+              <h2><i class="fas fa-play-circle"></i> DNS Lookup Simulator</h2>
+              <div class="interactive-element">
+                <h3>Simulate a DNS Query!</h3>
+                <p>
+                  Enter a domain name to see how DNS resolution works step by
+                  step:
+                </p>
+
+                <div class="dns-simulator">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="domainInput"
+                      placeholder="Enter domain (e.g., example.com)"
+                      value="example.com"
+                    />
+                    <button
+                      onclick="startDnsLookup()"
+                      class="btn-primary"
+                      id="lookupBtn"
+                    >
+                      <i class="fas fa-search"></i> Lookup DNS
+                    </button>
                   </div>
 
-                  <div class="step" id="step2">
-                    <div class="step-header"><i class="fas fa-hdd"></i></div>
-                    <div class="step-content">
-                      <h4>OS Cache</h4>
-                      <div class="status">Waiting...</div>
+                  <div
+                    class="lookup-visualization"
+                    id="lookupVisualization"
+                    style="display: none"
+                  >
+                    <div class="step-container">
+                      <div class="step" id="step1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                          <h4>Browser Cache</h4>
+                          <div class="status">Checking...</div>
+                        </div>
+                      </div>
+                      <div class="step-arrow">→</div>
+                      <div class="step" id="step2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                          <h4>OS Cache</h4>
+                          <div class="status">Waiting...</div>
+                        </div>
+                      </div>
+                      <div class="step-arrow">→</div>
+                      <div class="step" id="step3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                          <h4>Recursive Resolver</h4>
+                          <div class="status">Waiting...</div>
+                        </div>
+                      </div>
+                      <div class="step-arrow">→</div>
+                      <div class="step" id="step4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                          <h4>Root Nameserver</h4>
+                          <div class="status">Waiting...</div>
+                        </div>
+                      </div>
+                      <div class="step-arrow">→</div>
+                      <div class="step" id="step5">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                          <h4>TLD Nameserver</h4>
+                          <div class="status">Waiting...</div>
+                        </div>
+                      </div>
+                      <div class="step-arrow">→</div>
+                      <div class="step" id="step6">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                          <h4>Authoritative Server</h4>
+                          <div class="status">Waiting...</div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="step" id="step3">
-                    <div class="step-header">
-                      <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <div class="step-content">
-                      <h4>Recursive Resolver</h4>
-                      <div class="status">Waiting...</div>
+                    <div
+                      class="lookup-result"
+                      id="lookupResult"
+                      style="display: none"
+                    >
+                      <h4>DNS Resolution Complete!</h4>
+                      <div class="result-grid">
+                        <div class="result-item">
+                          <span class="label">Domain:</span>
+                          <span class="value" id="resultDomain"
+                            >example.com</span
+                          >
+                        </div>
+                        <div class="result-item">
+                          <span class="label">IP Address:</span>
+                          <span class="value" id="resultIP">192.0.2.1</span>
+                        </div>
+                        <div class="result-item">
+                          <span class="label">Record Type:</span>
+                          <span class="value" id="resultType">A</span>
+                        </div>
+                        <div class="result-item">
+                          <span class="label">TTL:</span>
+                          <span class="value" id="resultTTL">3600 seconds</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </section>
 
-                  <div class="step" id="step4">
-                    <div class="step-header">
-                      <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="step-content">
-                      <h4>Root Nameserver</h4>
-                      <div class="status">Waiting...</div>
-                    </div>
+            <!-- Knowledge Check -->
+            <section class="content-section" id="quiz">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+              <div class="quiz-container">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
 
-                  <div class="step" id="step5">
-                    <div class="step-header"><i class="fas fa-server"></i></div>
-                    <div class="step-content">
-                      <h4>TLD Nameserver</h4>
-                      <div class="status">Waiting...</div>
-                    </div>
-                  </div>
-
-                  <div class="step" id="step6">
-                    <div class="step-header">
-                      <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div class="step-content">
-                      <h4>Authoritative Server</h4>
-                      <div class="status">Waiting...</div>
-                    </div>
-                  </div>
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
                 </div>
 
                 <div
-                  class="lookup-result"
-                  id="lookupResult"
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
                   style="display: none"
                 >
-                  <h4>DNS Resolution Complete!</h4>
-                  <div class="result-grid">
-                    <div class="result-item">
-                      <span class="label">Domain:</span>
-                      <span class="value" id="resultDomain">example.com</span>
-                    </div>
-                    <div class="result-item">
-                      <span class="label">IP Address:</span>
-                      <span class="value" id="resultIP">192.0.2.1</span>
-                    </div>
-                    <div class="result-item">
-                      <span class="label">Record Type:</span>
-                      <span class="value" id="resultType">A</span>
-                    </div>
-                    <div class="result-item">
-                      <span class="label">TTL:</span>
-                      <span class="value" id="resultTTL">3600 seconds</span>
-                    </div>
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Next Steps -->
-        <section class="content-section">
-          <h2><i class="fas fa-step-forward"></i> What's Next?</h2>
-          <p>
-            Excellent! You now understand DNS and its hierarchy. You've learned:
-          </p>
-          <ul>
-            <li>What DNS is and why it's essential</li>
-            <li>The hierarchical structure of DNS</li>
-            <li>How DNS resolution works step by step</li>
-            <li>Different types of DNS records and their purposes</li>
-          </ul>
+            <!-- Next Steps -->
+            <section class="content-section" id="next">
+              <h2><i class="fas fa-step-forward"></i> What's Next?</h2>
+              <p>
+                Excellent! You now understand DNS and its hierarchy. You've
+                learned:
+              </p>
+              <ul>
+                <li>What DNS is and why it's essential</li>
+                <li>The hierarchical structure of DNS</li>
+                <li>How DNS resolution works step by step</li>
+                <li>Different types of DNS records and their purposes</li>
+              </ul>
 
-          <div class="resource-grid">
-            <a href="client-server-scripting.html" class="resource-card">
-              <div class="resource-card-content">
-                <i class="fas fa-code"></i>
-                <h3>Next: Client-Side vs Server-Side Scripting</h3>
-                <p>
-                  Learn the differences between client and server-side
-                  programming
-                </p>
+              <div class="resource-grid">
+                <a href="client-server-scripting.html" class="resource-card">
+                  <div class="resource-card-content">
+                    <i class="fas fa-code"></i>
+                    <h3>Next: Client-Side vs Server-Side Scripting</h3>
+                    <p>
+                      Learn the differences between client and server-side
+                      programming
+                    </p>
+                  </div>
+                </a>
               </div>
-            </a>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
     </main>
 
-    <script src="dist/js/prism-core.min.js"></script>
-    <script src="dist/js/prism-autoloader.min.js"></script>
-    <script src="../dist/js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
   </body>
 </html>

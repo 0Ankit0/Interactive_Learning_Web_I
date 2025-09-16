@@ -30,12 +30,17 @@
             <h1 class="topic-title">Flexbox and Grid Layouts</h1>
             <p class="topic-subtitle">Modern CSS Layout Techniques</p>
             <p class="topic-description">
-              Master CSS Flexbox and Grid for creating flexible, responsive layouts with ease.
+              Master CSS Flexbox and Grid for creating flexible, responsive
+              layouts with ease.
             </p>
           </div>
         </div>
         <div class="progress-bar">
-          <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
           <span class="progress-text">0% Complete</span>
         </div>
       </div>
@@ -61,10 +66,13 @@
               </ul>
               <div class="info-box">
                 <h4>Best For:</h4>
-                <p>Navigation bars, form controls, card layouts, centering content</p>
+                <p>
+                  Navigation bars, form controls, card layouts, centering
+                  content
+                </p>
               </div>
             </div>
-            
+
             <div class="topic-card">
               <div class="card-header">
                 <h3><i class="fas fa-th"></i> CSS Grid</h3>
@@ -77,7 +85,9 @@
               </ul>
               <div class="info-box">
                 <h4>Best For:</h4>
-                <p>Page layouts, dashboards, image galleries, complex designs</p>
+                <p>
+                  Page layouts, dashboards, image galleries, complex designs
+                </p>
               </div>
             </div>
           </div>
@@ -92,7 +102,7 @@
             <!-- Interactive Flexbox Playground -->
             <div class="demo-card">
               <h3>Interactive Flexbox Playground</h3>
-              
+
               <div class="demo-controls">
                 <div class="form-group">
                   <label>Flex Direction:</label>
@@ -103,7 +113,7 @@
                     <option value="column-reverse">column-reverse</option>
                   </select>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Justify Content:</label>
                   <select id="justify-content" class="form-select">
@@ -115,7 +125,7 @@
                     <option value="space-evenly">space-evenly</option>
                   </select>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Align Items:</label>
                   <select id="align-items" class="form-select">
@@ -126,7 +136,7 @@
                     <option value="baseline">baseline</option>
                   </select>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Flex Wrap:</label>
                   <select id="flex-wrap" class="form-select">
@@ -136,15 +146,15 @@
                   </select>
                 </div>
               </div>
-              
+
               <div class="flex-container" id="flex-demo">
-                <div class="flex-item" style="background: #ff6b6b;">1</div>
-                <div class="flex-item" style="background: #4ecdc4;">2</div>
-                <div class="flex-item" style="background: #45b7d1;">3</div>
-                <div class="flex-item" style="background: #96ceb4;">4</div>
-                <div class="flex-item" style="background: #ffeaa7;">5</div>
+                <div class="flex-item" style="background: #ff6b6b">1</div>
+                <div class="flex-item" style="background: #4ecdc4">2</div>
+                <div class="flex-item" style="background: #45b7d1">3</div>
+                <div class="flex-item" style="background: #96ceb4">4</div>
+                <div class="flex-item" style="background: #ffeaa7">5</div>
               </div>
-              
+
               <div class="code-block">
                 <h4>Generated CSS:</h4>
                 <pre><code id="flex-css-output" class="language-css">.container {
@@ -160,13 +170,17 @@
             <!-- Flexbox Properties Guide -->
             <div class="topic-card">
               <h3>Flexbox Properties Reference</h3>
-              
+
               <div class="tabbed-content">
                 <div class="tab-buttons">
-                  <button class="tab-btn active" data-tab="container">Container Properties</button>
-                  <button class="tab-btn" data-tab="items">Item Properties</button>
+                  <button class="tab-btn active" data-tab="container">
+                    Container Properties
+                  </button>
+                  <button class="tab-btn" data-tab="items">
+                    Item Properties
+                  </button>
                 </div>
-                
+
                 <div class="tab-pane active" data-tab="container">
                   <div class="topic-grid two-column">
                     <div class="topic-card">
@@ -178,7 +192,7 @@
 }</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>flex-direction</h4>
                       <p>Defines the main axis direction</p>
@@ -186,7 +200,7 @@
                         <pre><code class="language-css">flex-direction: row | row-reverse | column | column-reverse;</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>justify-content</h4>
                       <p>Aligns items along main axis</p>
@@ -194,7 +208,7 @@
                         <pre><code class="language-css">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>align-items</h4>
                       <p>Aligns items along cross axis</p>
@@ -204,7 +218,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="tab-pane" data-tab="items">
                   <div class="topic-grid two-column">
                     <div class="topic-card">
@@ -217,7 +231,7 @@
 }</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>flex-shrink</h4>
                       <p>How much an item should shrink</p>
@@ -228,7 +242,7 @@
 }</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>flex-basis</h4>
                       <p>Initial size before growing/shrinking</p>
@@ -240,7 +254,7 @@
 }</code></pre>
                       </div>
                     </div>
-                    
+
                     <div class="topic-card">
                       <h4>align-self</h4>
                       <p>Override align-items for individual item</p>
@@ -266,7 +280,7 @@
             <!-- Interactive Grid Playground -->
             <div class="demo-card">
               <h3>Interactive Grid Playground</h3>
-              
+
               <div class="demo-controls">
                 <div class="form-group">
                   <label>Grid Template Columns:</label>
@@ -274,38 +288,48 @@
                     <option value="repeat(3, 1fr)">repeat(3, 1fr)</option>
                     <option value="1fr 2fr 1fr">1fr 2fr 1fr</option>
                     <option value="200px 1fr 100px">200px 1fr 100px</option>
-                    <option value="repeat(auto-fit, minmax(150px, 1fr))">auto-fit minmax</option>
+                    <option value="repeat(auto-fit, minmax(150px, 1fr))">
+                      auto-fit minmax
+                    </option>
                   </select>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Grid Template Rows:</label>
                   <select id="grid-rows" class="form-select">
                     <option value="repeat(3, 1fr)">repeat(3, 1fr)</option>
                     <option value="100px auto 50px">100px auto 50px</option>
-                    <option value="repeat(2, minmax(100px, auto))">minmax rows</option>
+                    <option value="repeat(2, minmax(100px, auto))">
+                      minmax rows
+                    </option>
                   </select>
                 </div>
-                
+
                 <div class="form-group">
                   <label>Grid Gap:</label>
-                  <input type="range" id="grid-gap" min="0" max="30" value="10">
+                  <input
+                    type="range"
+                    id="grid-gap"
+                    min="0"
+                    max="30"
+                    value="10"
+                  />
                   <span id="grid-gap-value">10px</span>
                 </div>
               </div>
-              
+
               <div class="grid-container" id="grid-demo">
-                <div class="grid-item" style="background: #ff6b6b;">1</div>
-                <div class="grid-item" style="background: #4ecdc4;">2</div>
-                <div class="grid-item" style="background: #45b7d1;">3</div>
-                <div class="grid-item" style="background: #96ceb4;">4</div>
-                <div class="grid-item" style="background: #ffeaa7;">5</div>
-                <div class="grid-item" style="background: #dda0dd;">6</div>
-                <div class="grid-item" style="background: #98d8c8;">7</div>
-                <div class="grid-item" style="background: #f7dc6f;">8</div>
-                <div class="grid-item" style="background: #bb8fce;">9</div>
+                <div class="grid-item" style="background: #ff6b6b">1</div>
+                <div class="grid-item" style="background: #4ecdc4">2</div>
+                <div class="grid-item" style="background: #45b7d1">3</div>
+                <div class="grid-item" style="background: #96ceb4">4</div>
+                <div class="grid-item" style="background: #ffeaa7">5</div>
+                <div class="grid-item" style="background: #dda0dd">6</div>
+                <div class="grid-item" style="background: #98d8c8">7</div>
+                <div class="grid-item" style="background: #f7dc6f">8</div>
+                <div class="grid-item" style="background: #bb8fce">9</div>
               </div>
-              
+
               <div class="code-block">
                 <h4>Generated CSS:</h4>
                 <pre><code id="grid-css-output" class="language-css">.container {
@@ -320,7 +344,7 @@
             <!-- Grid Layout Examples -->
             <div class="topic-card">
               <h3>Common Grid Layouts</h3>
-              
+
               <div class="topic-grid two-column">
                 <div class="topic-card">
                   <h4>Holy Grail Layout</h4>
@@ -343,7 +367,7 @@
 }</code></pre>
                   </div>
                 </div>
-                
+
                 <div class="topic-card">
                   <h4>Card Grid Layout</h4>
                   <div class="card-grid-demo">
@@ -378,14 +402,16 @@
                 <h3>Exercise 1: Flexbox Navigation</h3>
               </div>
               <p>Create a responsive navigation bar using Flexbox:</p>
-              
+
               <div class="live-editor">
                 <div class="editor-tabs">
-                  <button class="tab-btn active" data-tab="nav-html">HTML</button>
+                  <button class="tab-btn active" data-tab="nav-html">
+                    HTML
+                  </button>
                   <button class="tab-btn" data-tab="nav-css">CSS</button>
                   <button class="tab-btn" data-tab="nav-result">Result</button>
                 </div>
-                
+
                 <div class="tab-pane active" data-tab="nav-html">
                   <textarea id="nav-html" class="code-editor-textarea" readonly>
 <nav class="navbar">
@@ -399,9 +425,10 @@
     <li><a href="#">Contact</a></li>
   </ul>
 </nav>
-                    </textarea>
+                    </textarea
+                  >
                 </div>
-                
+
                 <div class="tab-pane" data-tab="nav-css">
                   <textarea id="nav-css" class="code-editor-textarea">
 .navbar {
@@ -435,34 +462,41 @@
 .nav-links a:hover {
   color: #4ecdc4;
 }
-                    </textarea>
+                    </textarea
+                  >
                 </div>
-                
+
                 <div class="tab-pane" data-tab="nav-result">
                   <div id="nav-result" class="preview-area"></div>
                 </div>
               </div>
-              
+
               <button onclick="updateNavPreview()" class="btn btn-primary">
                 <i class="fas fa-sync-alt"></i> Update Preview
               </button>
             </div>
-            
+
             <div class="topic-card">
               <div class="card-header">
                 <h3>Exercise 2: Grid Dashboard</h3>
               </div>
               <p>Create a dashboard layout using CSS Grid:</p>
-              
+
               <div class="live-editor">
                 <div class="editor-tabs">
-                  <button class="tab-btn active" data-tab="dash-html">HTML</button>
+                  <button class="tab-btn active" data-tab="dash-html">
+                    HTML
+                  </button>
                   <button class="tab-btn" data-tab="dash-css">CSS</button>
                   <button class="tab-btn" data-tab="dash-result">Result</button>
                 </div>
-                
+
                 <div class="tab-pane active" data-tab="dash-html">
-                  <textarea id="dash-html" class="code-editor-textarea" readonly>
+                  <textarea
+                    id="dash-html"
+                    class="code-editor-textarea"
+                    readonly
+                  >
 <div class="dashboard">
   <header class="dash-header">Dashboard Header</header>
   <nav class="dash-sidebar">Sidebar</nav>
@@ -473,9 +507,10 @@
     <div class="widget">Widget 4</div>
   </main>
 </div>
-                    </textarea>
+                    </textarea
+                  >
                 </div>
-                
+
                 <div class="tab-pane" data-tab="dash-css">
                   <textarea id="dash-css" class="code-editor-textarea">
 .dashboard {
@@ -520,14 +555,15 @@
   text-align: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-                    </textarea>
+                    </textarea
+                  >
                 </div>
-                
+
                 <div class="tab-pane" data-tab="dash-result">
                   <div id="dash-result" class="preview-area"></div>
                 </div>
               </div>
-              
+
               <button onclick="updateDashPreview()" class="btn btn-primary">
                 <i class="fas fa-sync-alt"></i> Update Preview
               </button>
@@ -544,17 +580,21 @@
             <div class="resource-card video-card">
               <div class="card-thumbnail">
                 <div class="video-wrapper">
-                  <iframe src="https://www.youtube.com/embed/fYq5PXgSsbE" 
-                          title="CSS Flexbox Course - freeCodeCamp"
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
+                  <iframe
+                    src="https://www.youtube.com/embed/fYq5PXgSsbE"
+                    title="CSS Flexbox Course - freeCodeCamp"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
                   </iframe>
                 </div>
                 <div class="card-content">
                   <h4>CSS Flexbox Course</h4>
                   <p class="author">freeCodeCamp</p>
-                  <p class="description">Complete flexbox tutorial from basics to advanced layouts.</p>
+                  <p class="description">
+                    Complete flexbox tutorial from basics to advanced layouts.
+                  </p>
                   <span class="duration">1:17:46</span>
                 </div>
               </div>
@@ -563,17 +603,21 @@
             <div class="resource-card video-card">
               <div class="card-thumbnail">
                 <div class="video-wrapper">
-                  <iframe src="https://www.youtube.com/embed/t6CBKf8K_Ac" 
-                          title="CSS Grid Course - Traversy Media"
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
+                  <iframe
+                    src="https://www.youtube.com/embed/t6CBKf8K_Ac"
+                    title="CSS Grid Course - Traversy Media"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
                   </iframe>
                 </div>
                 <div class="card-content">
                   <h4>CSS Grid Crash Course</h4>
                   <p class="author">Traversy Media</p>
-                  <p class="description">Learn CSS Grid layout system in 25 minutes.</p>
+                  <p class="description">
+                    Learn CSS Grid layout system in 25 minutes.
+                  </p>
                   <span class="duration">25:17</span>
                 </div>
               </div>
@@ -582,17 +626,21 @@
             <div class="resource-card video-card">
               <div class="card-thumbnail">
                 <div class="video-wrapper">
-                  <iframe src="https://www.youtube.com/embed/JJSoEo8JSnc" 
-                          title="Flexbox vs Grid - Kevin Powell"
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
+                  <iframe
+                    src="https://www.youtube.com/embed/JJSoEo8JSnc"
+                    title="Flexbox vs Grid - Kevin Powell"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
                   </iframe>
                 </div>
                 <div class="card-content">
                   <h4>Flexbox vs Grid - When to Use Each</h4>
                   <p class="author">Kevin Powell</p>
-                  <p class="description">Understanding when to use Flexbox vs CSS Grid.</p>
+                  <p class="description">
+                    Understanding when to use Flexbox vs CSS Grid.
+                  </p>
                   <span class="duration">12:05</span>
                 </div>
               </div>
@@ -601,17 +649,21 @@
             <div class="resource-card video-card">
               <div class="card-thumbnail">
                 <div class="video-wrapper">
-                  <iframe src="https://www.youtube.com/embed/RSIclWvNTdQ" 
-                          title="Learn Flexbox in 15 Minutes"
-                          frameborder="0" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen>
+                  <iframe
+                    src="https://www.youtube.com/embed/RSIclWvNTdQ"
+                    title="Learn Flexbox in 15 Minutes"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
                   </iframe>
                 </div>
                 <div class="card-content">
                   <h4>Learn Flexbox in 15 Minutes</h4>
                   <p class="author">Web Dev Simplified</p>
-                  <p class="description">Quick and comprehensive flexbox tutorial.</p>
+                  <p class="description">
+                    Quick and comprehensive flexbox tutorial.
+                  </p>
                   <span class="duration">15:33</span>
                 </div>
               </div>
@@ -631,8 +683,15 @@
               </div>
               <div class="card-content">
                 <h4>Flexbox Froggy</h4>
-                <p>Interactive game to learn CSS flexbox by helping Froggy and friends reach their lilypads!</p>
-                <a href="https://flexboxfroggy.com/" target="_blank" class="btn btn-secondary">
+                <p>
+                  Interactive game to learn CSS flexbox by helping Froggy and
+                  friends reach their lilypads!
+                </p>
+                <a
+                  href="https://flexboxfroggy.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Play Game <i class="fas fa-gamepad"></i>
                 </a>
               </div>
@@ -644,8 +703,15 @@
               </div>
               <div class="card-content">
                 <h4>Grid Garden</h4>
-                <p>Learn CSS Grid layout by growing your carrot garden in this fun puzzle game!</p>
-                <a href="https://cssgridgarden.com/" target="_blank" class="btn btn-secondary">
+                <p>
+                  Learn CSS Grid layout by growing your carrot garden in this
+                  fun puzzle game!
+                </p>
+                <a
+                  href="https://cssgridgarden.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Play Game <i class="fas fa-gamepad"></i>
                 </a>
               </div>
@@ -657,8 +723,15 @@
               </div>
               <div class="card-content">
                 <h4>MDN - CSS Flexbox</h4>
-                <p>Complete guide to CSS Flexible Box Layout with examples and browser support.</p>
-                <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" class="btn btn-secondary">
+                <p>
+                  Complete guide to CSS Flexible Box Layout with examples and
+                  browser support.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Visit MDN <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -670,8 +743,14 @@
               </div>
               <div class="card-content">
                 <h4>MDN - CSS Grid Layout</h4>
-                <p>Comprehensive documentation on CSS Grid Layout specification.</p>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" class="btn btn-secondary">
+                <p>
+                  Comprehensive documentation on CSS Grid Layout specification.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Visit MDN <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -683,8 +762,15 @@
               </div>
               <div class="card-content">
                 <h4>CSS-Tricks Flexbox Guide</h4>
-                <p>A complete guide to Flexbox with visual examples and use cases.</p>
-                <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" class="btn btn-secondary">
+                <p>
+                  A complete guide to Flexbox with visual examples and use
+                  cases.
+                </p>
+                <a
+                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Read Guide <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -696,8 +782,15 @@
               </div>
               <div class="card-content">
                 <h4>CSS-Tricks Grid Guide</h4>
-                <p>Complete guide to CSS Grid with visual examples and practical applications.</p>
-                <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="btn btn-secondary">
+                <p>
+                  Complete guide to CSS Grid with visual examples and practical
+                  applications.
+                </p>
+                <a
+                  href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Read Guide <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -709,8 +802,15 @@
               </div>
               <div class="card-content">
                 <h4>Flexbox Patterns</h4>
-                <p>Collection of common flexbox layout patterns and code snippets.</p>
-                <a href="https://www.flexboxpatterns.com/" target="_blank" class="btn btn-secondary">
+                <p>
+                  Collection of common flexbox layout patterns and code
+                  snippets.
+                </p>
+                <a
+                  href="https://www.flexboxpatterns.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   Browse Patterns <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -722,8 +822,15 @@
               </div>
               <div class="card-content">
                 <h4>Grid by Example</h4>
-                <p>Collection of examples demonstrating CSS Grid Layout usage patterns.</p>
-                <a href="https://gridbyexample.com/" target="_blank" class="btn btn-secondary">
+                <p>
+                  Collection of examples demonstrating CSS Grid Layout usage
+                  patterns.
+                </p>
+                <a
+                  href="https://gridbyexample.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
                   View Examples <i class="fas fa-external-link-alt"></i>
                 </a>
               </div>
@@ -747,12 +854,15 @@
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 Web Technology I Course. Master modern CSS layouts with Flexbox and Grid.</p>
+        <p>
+          &copy; 2025 Web Technology I Course. Master modern CSS layouts with
+          Flexbox and Grid.
+        </p>
       </div>
     </footer>
 
-    <script src="dist/js/prism-core.min.js"></script>
-    <script src="dist/js/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../dist/js/topic.js"></script>
   </body>
 </html>
