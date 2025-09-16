@@ -352,6 +352,99 @@ const TOPICS_DATA = {
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'
         }
+    },
+
+    // Web Browsers and Servers Topic Data
+    "web-browsers-servers": {
+        // Quiz data
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary function of a web browser?",
+                    options: ["Store data", "Render web pages", "Host websites", "Send emails"],
+                    correct: 1,
+                    explanation: "Web browsers render HTML, CSS, and JavaScript to display web pages to users."
+                },
+                {
+                    question: "Which browser engine does Google Chrome use?",
+                    options: ["Gecko", "WebKit", "Blink", "Trident"],
+                    correct: 2,
+                    explanation: "Google Chrome uses the Blink rendering engine, forked from WebKit."
+                },
+                {
+                    question: "What does a web server primarily do?",
+                    options: ["Display web pages", "Store and serve web content", "Create websites", "Browse the internet"],
+                    correct: 1,
+                    explanation: "Web servers store website files and serve them to clients upon request."
+                },
+                {
+                    question: "What is cross-browser compatibility?",
+                    options: ["Browsers working together", "Websites working in different browsers", "Servers communicating", "Internet speed"],
+                    correct: 1,
+                    explanation: "Cross-browser compatibility ensures websites function correctly across different web browsers."
+                },
+                {
+                    question: "Which protocol do web servers use to communicate with browsers?",
+                    options: ["FTP", "HTTP", "SMTP", "POP3"],
+                    correct: 1,
+                    explanation: "HTTP (Hypertext Transfer Protocol) is the standard protocol for web communication."
+                }
+            ]
+        },
+
+        // Search simulation data
+        search: {
+            results: [
+                {
+                    title: "Web Browser History",
+                    description: "Evolution of web browsers from text-based to modern graphical interfaces...",
+                    url: "en.wikipedia.org/wiki/Web_browser"
+                },
+                {
+                    title: "How Web Servers Work",
+                    description: "Understanding the role of web servers in serving content...",
+                    url: "developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+                },
+                {
+                    title: "Cross-Browser Testing",
+                    description: "Best practices for ensuring websites work across different browsers...",
+                    url: "web.dev/cross-browser-testing"
+                },
+                {
+                    title: "Popular Web Servers",
+                    description: "Apache, Nginx, IIS, and other web server technologies...",
+                    url: "en.wikipedia.org/wiki/Web_server"
+                }
+            ]
+        },
+
+
+
+        // Browser simulation data
+        browserSimulation: {
+            browsers: [
+                { name: "Chrome", engine: "Blink", marketShare: "65%" },
+                { name: "Firefox", engine: "Gecko", marketShare: "10%" },
+                { name: "Safari", engine: "WebKit", marketShare: "15%" },
+                { name: "Edge", engine: "Blink", marketShare: "5%" }
+            ]
+        },
+
+        // Live updates demo data
+        liveUpdates: {
+            endpoints: [
+                "https://httpbin.org/get",
+                "https://jsonplaceholder.typicode.com/posts/1"
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'web-browsers-servers',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
     }
 };
 
@@ -359,14 +452,20 @@ const TOPICS_DATA = {
 function getCurrentTopicData() {
     // Extract topic name from current URL
     const path = window.location.pathname;
-    const topicMatch = path.match(/\/([^\/]+)\.html$/);
+    console.log('Current pathname:', path);
+
+    // Handle both file:// and http:// URLs
+    const topicMatch = path.match(/\/([^\/]+)\.html$/) || path.match(/([^\\\/]+)\.html$/);
 
     if (topicMatch) {
         const topicId = topicMatch[1];
+        console.log('Extracted topic ID:', topicId);
+        console.log('Available topic data:', Object.keys(TOPICS_DATA));
         return TOPICS_DATA[topicId] || TOPICS_DATA['evolution-of-web']; // fallback
     }
 
     // Default fallback
+    console.log('No topic match found, using fallback');
     return TOPICS_DATA['evolution-of-web'];
 }
 

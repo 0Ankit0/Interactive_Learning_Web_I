@@ -583,6 +583,8 @@ class TopicManager {
 
     // Quiz functionality
     initializeQuiz(questions) {
+        console.log('Initializing quiz with questions:', questions);
+        console.log('Current topic data:', this.topicData);
         this.quizQuestions = questions;
         this.currentQuizQuestion = 0;
         this.quizScore = 0;
@@ -590,19 +592,39 @@ class TopicManager {
     }
 
     showQuizQuestion() {
+        console.log('showQuizQuestion called, current question:', this.currentQuizQuestion);
+        console.log('quizQuestions:', this.quizQuestions);
+
         if (!this.quizQuestions || this.currentQuizQuestion >= this.quizQuestions.length) {
+            console.log('No questions or end of quiz reached');
             this.showQuizResults();
             return;
         }
 
         const question = this.quizQuestions[this.currentQuizQuestion];
-        const questionElement = document.querySelector('#quiz-question h3');
+        console.log('Current question object:', question);
+
+        const questionElement = document.querySelector('.quiz-question h3');
         const optionsContainer = document.querySelector('.quiz-options');
         const progressFill = document.getElementById('quiz-progress');
         const currentQuestionSpan = document.getElementById('current-question');
         const totalQuestionsSpan = document.getElementById('total-questions');
 
-        if (questionElement) questionElement.textContent = question.question;
+        console.log('DOM elements found:', {
+            questionElement: !!questionElement,
+            optionsContainer: !!optionsContainer,
+            progressFill: !!progressFill,
+            currentQuestionSpan: !!currentQuestionSpan,
+            totalQuestionsSpan: !!totalQuestionsSpan
+        });
+
+        if (questionElement) {
+            questionElement.textContent = question.question;
+            console.log('Question text set to:', question.question);
+        } else {
+            console.error('Question element not found!');
+        }
+
         if (currentQuestionSpan) currentQuestionSpan.textContent = this.currentQuizQuestion + 1;
         if (totalQuestionsSpan) totalQuestionsSpan.textContent = this.quizQuestions.length;
 
@@ -617,6 +639,9 @@ class TopicManager {
                     ${option}
                 </button>
             `).join('');
+            console.log('Options HTML set');
+        } else {
+            console.error('Options container not found!');
         }
 
         // Hide feedback and next button

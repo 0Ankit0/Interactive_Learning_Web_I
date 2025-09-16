@@ -13,10 +13,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update global TOPIC_DATA for backward compatibility
     TOPIC_DATA = currentTopicData;
 
-    topicManager.initialize();
-    topicManager.initializeQuiz(currentTopicData.quiz.questions);
+    console.log('Current topic data:', currentTopicData);
+    console.log('Quiz data:', currentTopicData.quiz);
+    console.log('Quiz questions:', currentTopicData.quiz ? currentTopicData.quiz.questions : 'No quiz data');
 
-    // Initialize timeline if timeline data exists
+    topicManager.initialize();
+
+    // Check if quiz elements exist before initializing
+    const quizContainer = document.querySelector('.quiz-container');
+    console.log('Quiz container found:', quizContainer);
+
+    if (quizContainer && currentTopicData.quiz && currentTopicData.quiz.questions) {
+        topicManager.initializeQuiz(currentTopicData.quiz.questions);
+    } else {
+        console.log('Quiz not initialized - missing elements or data');
+    }    // Initialize timeline if timeline data exists
     if (currentTopicData.timeline && currentTopicData.timeline.events) {
         loadTimeline(currentTopicData.timeline.events);
     }
@@ -101,6 +112,19 @@ function toggleLiveUpdates() {
     } else {
         console.log('Live updates not available for this topic');
     }
+}
+
+// Quiz functions
+function selectQuizAnswer(button, isCorrect) {
+    topicManager.selectQuizAnswer(button, isCorrect);
+}
+
+function nextQuizQuestion() {
+    topicManager.nextQuestion();
+}
+
+function retakeQuiz() {
+    topicManager.retakeQuiz();
 }
 
 function simulateSearch() {
