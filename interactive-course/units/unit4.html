@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit 4: JavaScript Basics</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <span class="current">Unit 4: JavaScript Basics</span>
+      </div>
+    </nav>
+
+    <header class="unit-header">
+      <div class="container">
+        <div class="unit-header-content">
+          <div class="unit-icon-large">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <div class="unit-header-text">
+            <h1 class="unit-title">Unit 4: JavaScript Basics</h1>
+            <p class="unit-subtitle">8 hours • 8 Topics</p>
+            <p class="unit-description">
+              Understand JavaScript fundamentals: variables, functions, DOM
+              manipulation, and event handling for interactive web pages.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="unit-progress"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="topics-grid">
+          <div class="topic-card" data-topic="4.1">
+            <div class="topic-header">
+              <div class="topic-number">4.1</div>
+              <h3 class="topic-title">Introduction to JavaScript</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn what JavaScript is, its role in web development, and how
+                it makes websites interactive.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-history"></i> JS History</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-code"></i> First Script</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-mouse-pointer"></i> Interactive Demo</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1 hour</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.1', 'js-introduction')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.2">
+            <div class="topic-header">
+              <div class="topic-number">4.2</div>
+              <h3 class="topic-title">Embedding JavaScript</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn different ways to add JavaScript to web pages: external
+                scripts, internal scripts, and event handlers.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-file-code"></i> External Scripts</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-hand-pointer"></i> Event Handlers</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-code-branch"></i> Script Placement</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1 hour</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.2', 'js-embedding')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.3">
+            <div class="topic-header">
+              <div class="topic-number">4.3</div>
+              <h3 class="topic-title">Variables, Data Types, Operators</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Master JavaScript variables, primitive data types, operators,
+                and expressions for programming logic.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-calculator"></i> Expression Evaluator</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-search"></i> Type Checker</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-gamepad"></i> Variable Game</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1.5 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.3', 'js-variables')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.4">
+            <div class="topic-header">
+              <div class="topic-number">4.4</div>
+              <h3 class="topic-title">Programming Constructs</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn control structures: if/else, switch, loops (for, while),
+                break/continue, and arrays.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-code-branch"></i> Flow Control</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-sync"></i> Loop Visualizer</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-list"></i> Array Explorer</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 2 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.4', 'js-operators')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.5">
+            <div class="topic-header">
+              <div class="topic-number">4.5</div>
+              <h3 class="topic-title">Functions and Scope</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Understanding JavaScript functions, parameters, return values,
+                and variable scope concepts.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-cogs"></i> Function Builder</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-eye"></i> Scope Visualizer</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-undo"></i> Return Demo</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1.5 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.5', 'js-functions-scope')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.6">
+            <div class="topic-header">
+              <div class="topic-number">4.6</div>
+              <h3 class="topic-title">Dialog Boxes</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn to use alert(), confirm(), and prompt() dialog boxes for
+                user interaction.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-exclamation-triangle"></i> Alert Demo</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-question-circle"></i> Confirm Dialog</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-keyboard"></i> Prompt Input</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 0.5 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Beginner</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.6', 'js-dialogs')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.7">
+            <div class="topic-header">
+              <div class="topic-number">4.7</div>
+              <h3 class="topic-title">Document Object Model</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Master DOM manipulation: selecting elements, changing content,
+                modifying styles and attributes.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-mouse-pointer"></i> Element Selection</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-edit"></i> Content Modification</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-paint-brush"></i> Style Manipulation</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1.5 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.7', 'js-dom')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="topic-card" data-topic="4.8">
+            <div class="topic-header">
+              <div class="topic-number">4.8</div>
+              <h3 class="topic-title">Event Handling</h3>
+              <div class="topic-status">
+                <i class="fas fa-clock"></i>
+              </div>
+            </div>
+            <div class="topic-content">
+              <p class="topic-description">
+                Learn to respond to user interactions: clicks, form submissions,
+                keyboard input, and mouse events.
+              </p>
+              <div class="subtopics">
+                <span class="subtopic"
+                  ><i class="fas fa-hand-pointer"></i> Click Events</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-keyboard"></i> Key Events</span
+                >
+                <span class="subtopic"
+                  ><i class="fas fa-gamepad"></i> Event Game</span
+                >
+              </div>
+              <div class="topic-meta">
+                <span class="duration"
+                  ><i class="fas fa-clock"></i> 1.5 hours</span
+                >
+                <span class="difficulty"
+                  ><i class="fas fa-signal"></i> Intermediate</span
+                >
+              </div>
+            </div>
+            <div class="topic-footer">
+              <button
+                class="btn-topic"
+                onclick="navigateToTopic('4.8', 'js-events')"
+              >
+                Start Learning <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="unit-summary">
+          <div class="summary-content">
+            <h2>What You'll Learn</h2>
+            <div class="learning-outcomes">
+              <div class="summary-text">
+                <i class="fab fa-js-square"></i>
+                <span>JavaScript fundamentals and syntax</span>
+              </div>
+              <div class="summary-text">
+                <i class="fas fa-code"></i>
+                <span>Variables, data types, and operators</span>
+              </div>
+              <div class="summary-text">
+                <i class="fas fa-code-branch"></i>
+                <span>Control structures and loops</span>
+              </div>
+              <div class="summary-text">
+                <i class="fas fa-cogs"></i>
+                <span>Functions and variable scope</span>
+              </div>
+              <div class="summary-text">
+                <i class="fas fa-sitemap"></i>
+                <span>DOM manipulation techniques</span>
+              </div>
+              <div class="summary-text">
+                <i class="fas fa-hand-pointer"></i>
+                <span>Event handling for interactivity</span>
+              </div>
+            </div>
+
+            <div class="summary-visual">
+              <h3>Important Questions on Exam Basis</h3>
+              <div class="concept-map">
+                <div class="concept-node">
+                  <span class="subtopic">Theory</span>
+                  <p>
+                    Explain JavaScript data types with examples and type
+                    conversion methods.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Practical</span>
+                  <p>
+                    Write JavaScript functions demonstrating different variable
+                    scopes (global, local, block).
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Application</span>
+                  <p>
+                    Create an interactive web page that manipulates DOM elements
+                    dynamically.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Theory</span>
+                  <p>
+                    Compare different ways to embed JavaScript in HTML documents
+                    and their advantages.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Practical</span>
+                  <p>
+                    Implement event handlers for form validation with proper
+                    error messaging.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Application</span>
+                  <p>
+                    Build a calculator application using JavaScript functions
+                    and DOM manipulation.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Theory</span>
+                  <p>
+                    Explain the difference between == and === operators with
+                    practical examples.
+                  </p>
+                </div>
+                <div class="concept-node">
+                  <span class="subtopic">Debugging</span>
+                  <p>
+                    Debug JavaScript code using browser developer tools and
+                    identify common errors.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="">
+            <div class="">
+              <div class="">8</div>
+              <div class="">Topics</div>
+            </div>
+            <div class="">
+              <div class="">25+</div>
+              <div class="">Examples</div>
+            </div>
+            <div class="">
+              <div class="">15</div>
+              <div class="">Exercises</div>
+            </div>
+          </div> -->
+        </section>
+      </div>
+    </main>
+
+    <!-- <footer class="">
+      <div class="">
+        <p>
+          &copy; 2025 Web Technology I Course. Master JavaScript fundamentals
+          for interactive web development.
+        </p>
+      </div>
+    </footer> -->
+
+    <script src="../dist/js/prism-core.min.js"></script>
+    <script src="../dist/js/prism-autoloader.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/unit.js"></script>
+  </body>
+</html>
