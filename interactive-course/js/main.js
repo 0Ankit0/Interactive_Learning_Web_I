@@ -260,13 +260,11 @@ function showNotification(message, type = 'info') {
 function trackPagePerformance() {
     window.addEventListener('load', function () {
         const loadTime = performance.now();
-        console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
 
         // Track largest contentful paint
         new PerformanceObserver((entryList) => {
             const entries = entryList.getEntries();
             const lastEntry = entries[entries.length - 1];
-            console.log(`LCP: ${lastEntry.startTime.toFixed(2)}ms`);
         }).observe({ entryTypes: ['largest-contentful-paint'] });
     });
 }

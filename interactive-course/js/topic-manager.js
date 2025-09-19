@@ -26,19 +26,12 @@ class TopicManager {
     initializeOptionalFeatures() {
         // Only initialize features that have data and corresponding HTML elements
         if (this.topicData.search && document.querySelector('.search-demo')) {
-            console.log('Search feature available for this topic');
         }
 
         if (this.topicData.liveUpdates && document.querySelector('.live-updates')) {
-            console.log('Live updates feature available for this topic');
-        }
-
-        if (this.topicData.browserSimulation && document.querySelector('.browser-simulation')) {
-            console.log('Browser simulation feature available for this topic');
         }
 
         if (this.topicData.timeline && document.querySelector('.timeline-container')) {
-            console.log('Timeline feature available for this topic');
         }
     }
 
@@ -311,13 +304,9 @@ class TopicManager {
 
         if (htmlCode && htmlOutput) {
             const code = htmlCode.value;
-            const blob = new Blob([code], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
 
-            htmlOutput.innerHTML = `<iframe src="${url}" width="100%" height="200"></iframe>`;
-
-            // Clean up the object URL after a short delay
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            // Use srcdoc for better security and simplicity
+            htmlOutput.srcdoc = code;
         }
     }
 
@@ -333,55 +322,6 @@ class TopicManager {
         if (builtUrl) {
             builtUrl.textContent = url;
         }
-    }
-
-    simulateBrowsing(messages) {
-        const demoStatus = document.getElementById('demo-status');
-        const browserSimulator = document.getElementById('browser-simulator');
-        const browserContent = document.getElementById('browser-content');
-        const simulateButton = document.querySelector('[onclick*="simulateBrowsing"]');
-
-        // Check if browser simulation feature is available
-        if (!demoStatus || !messages || !browserSimulator) {
-            console.log('Browser simulation feature not available on this page');
-            return;
-        }
-
-        // Reset previous state
-        if (browserSimulator) browserSimulator.classList.remove('visible');
-        if (browserContent) browserContent.classList.remove('visible');
-
-        // Disable button during simulation
-        if (simulateButton) {
-            simulateButton.disabled = true;
-            simulateButton.textContent = "Loading...";
-        }
-
-        let messageIndex = 0;
-
-        const showNextMessage = () => {
-            if (messageIndex < messages.length) {
-                demoStatus.textContent = messages[messageIndex];
-                messageIndex++;
-                setTimeout(showNextMessage, 1500);
-            } else {
-                // Show the browser simulator and content after simulation completes
-                setTimeout(() => {
-                    if (browserSimulator) browserSimulator.classList.add('visible');
-                    if (browserContent) browserContent.classList.add('visible');
-                    demoStatus.textContent = "Web page loaded successfully! Try clicking the links above.";
-                    demoStatus.style.color = "#28a745"; // Green color for success
-
-                    // Re-enable button
-                    if (simulateButton) {
-                        simulateButton.disabled = false;
-                        simulateButton.textContent = "Simulate Link Navigation";
-                    }
-                }, 1000);
-            }
-        };
-
-        showNextMessage();
     }
 
     showTooltip(text) {
@@ -471,7 +411,6 @@ class TopicManager {
 
         // Check if search feature is available on this page
         if (!searchInput || !searchResultsContainer || !searchResults) {
-            console.log('Search feature not available on this page');
             return;
         }
 
@@ -525,7 +464,6 @@ class TopicManager {
     startLiveUpdates(updateMessages) {
         // Check if live updates feature is available
         if (!updateMessages || !document.querySelector('.live-updates')) {
-            console.log('Live updates feature not available on this page');
             return;
         }
 
@@ -548,8 +486,19 @@ class TopicManager {
 
     addUpdate(message = null) {
         const liveUpdates = document.getElementById('live-updates');
-        if (!liveUpdates || !message) {
+        if (!liveUpdates) {
             return;
+        }
+
+        // If no message provided, use a message from the topic data
+        if (!message) {
+            const topicMessages = this.topicData.liveUpdates?.messages;
+            if (topicMessages && topicMessages.length > 0) {
+                message = topicMessages[Math.floor(Math.random() * topicMessages.length)];
+            } else {
+                // Fallback if no topic messages are available
+                message = "New update received!";
+            }
         }
 
         const timestamp = new Date().toLocaleTimeString();
@@ -583,8 +532,6 @@ class TopicManager {
 
     // Quiz functionality
     initializeQuiz(questions) {
-        console.log('Initializing quiz with questions:', questions);
-        console.log('Current topic data:', this.topicData);
         this.quizQuestions = questions;
         this.currentQuizQuestion = 0;
         this.quizScore = 0;
@@ -592,17 +539,13 @@ class TopicManager {
     }
 
     showQuizQuestion() {
-        console.log('showQuizQuestion called, current question:', this.currentQuizQuestion);
-        console.log('quizQuestions:', this.quizQuestions);
 
         if (!this.quizQuestions || this.currentQuizQuestion >= this.quizQuestions.length) {
-            console.log('No questions or end of quiz reached');
             this.showQuizResults();
             return;
         }
 
         const question = this.quizQuestions[this.currentQuizQuestion];
-        console.log('Current question object:', question);
 
         const questionElement = document.querySelector('.quiz-question h3');
         const optionsContainer = document.querySelector('.quiz-options');
@@ -610,19 +553,8 @@ class TopicManager {
         const currentQuestionSpan = document.getElementById('current-question');
         const totalQuestionsSpan = document.getElementById('total-questions');
 
-        console.log('DOM elements found:', {
-            questionElement: !!questionElement,
-            optionsContainer: !!optionsContainer,
-            progressFill: !!progressFill,
-            currentQuestionSpan: !!currentQuestionSpan,
-            totalQuestionsSpan: !!totalQuestionsSpan
-        });
-
         if (questionElement) {
             questionElement.textContent = question.question;
-            console.log('Question text set to:', question.question);
-        } else {
-            console.error('Question element not found!');
         }
 
         if (currentQuestionSpan) currentQuestionSpan.textContent = this.currentQuizQuestion + 1;
@@ -639,9 +571,6 @@ class TopicManager {
                     ${option}
                 </button>
             `).join('');
-            console.log('Options HTML set');
-        } else {
-            console.error('Options container not found!');
         }
 
         // Hide feedback and next button
@@ -753,6 +682,95 @@ class TopicManager {
         };
 
         localStorage.setItem(`topic-completion-${this.config.topicId}`, JSON.stringify(completion));
+    }
+
+    simulateBrowsing() {
+        const browserSimulation = this.topicData.browserSimulation;
+        if (!browserSimulation || !browserSimulation.pages) {
+            console.warn('Browser simulation data not found');
+            return;
+        }
+
+        const browserContent = document.querySelector('.browser-content');
+        const browserTitle = document.querySelector('.browser-title');
+        const demoStatus = document.getElementById('demo-status');
+
+        if (!browserContent || !browserTitle || !demoStatus) {
+            console.warn('Browser simulation elements not found');
+            return;
+        }
+
+        // Initialize simulation state if not set
+        if (typeof this.currentBrowserPage === 'undefined') {
+            this.currentBrowserPage = 0;
+        }
+        if (typeof this.simulationComplete === 'undefined') {
+            this.simulationComplete = false;
+        }
+
+        // Check if simulation is complete and showing completion message
+        if (this.simulationComplete) {
+            // Reset simulation and start over
+            this.currentBrowserPage = 0;
+            this.simulationComplete = false;
+
+            // Show loading state for restart
+            demoStatus.textContent = 'Loading...';
+
+            // Simulate loading delay before showing first page
+            setTimeout(() => {
+                this.showBrowserPage(browserSimulation, browserContent, browserTitle, demoStatus, 0);
+                this.currentBrowserPage = 1;
+            }, 1000);
+            return;
+        }
+
+        // Check if we've reached the end of pages
+        if (this.currentBrowserPage >= browserSimulation.pages.length) {
+            // Show completion message
+            this.simulationComplete = true;
+            browserTitle.textContent = 'Simulation Complete - WorldWideWeb Browser (1990)';
+            browserContent.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <h4 style="color: #28a745; margin-bottom: 15px;">
+                        <i class="fas fa-check-circle"></i> Browser Simulation Complete!
+                    </h4>
+                    <p>You've explored all the key pages from the early World Wide Web!</p>
+                    <p style="margin-top: 10px; font-size: 14px; color: #666;">
+                        Click the button again to restart the simulation.
+                    </p>
+                </div>
+            `;
+            demoStatus.textContent = ''; // Clear status, completion message is in content
+            return;
+        }
+
+        // Show loading state for current page
+        demoStatus.textContent = 'Loading...';
+
+        // Simulate loading delay before showing current page
+        setTimeout(() => {
+            this.showBrowserPage(browserSimulation, browserContent, browserTitle, demoStatus, this.currentBrowserPage);
+            this.currentBrowserPage++;
+        }, 1000);
+    }
+
+    showBrowserPage(browserSimulation, browserContent, browserTitle, demoStatus, pageIndex) {
+        const currentPage = browserSimulation.pages[pageIndex];
+
+        // Update browser title and content
+        browserTitle.textContent = `${currentPage.title} - WorldWideWeb Browser (1990)`;
+        browserContent.innerHTML = currentPage.content;
+
+        // Clear status text after loading
+        demoStatus.textContent = '';
+
+        // Add visual feedback
+        browserContent.style.opacity = '0';
+        setTimeout(() => {
+            browserContent.style.transition = 'opacity 0.5s ease';
+            browserContent.style.opacity = '1';
+        }, 50);
     }
 
     getSectionsRead() {

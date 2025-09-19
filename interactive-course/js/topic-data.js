@@ -126,17 +126,6 @@ const TOPICS_DATA = {
             ]
         },
 
-        // Browser simulation data
-        browserSimulation: {
-            messages: [
-                "Initializing browser simulation...",
-                "Loading HTML parser...",
-                "Rendering CSS styles...",
-                "Executing JavaScript...",
-                "Page loaded successfully!"
-            ]
-        },
-
         // Web evolution game data
         webEvolutionGame: {
             correctAnswers: 0,
@@ -156,6 +145,61 @@ const TOPICS_DATA = {
                     "Incorrect. Remember the chronological order!"
                 ]
             }
+        },
+
+        // Browser simulation data
+        browserSimulation: {
+            pages: [
+                {
+                    title: "The WorldWideWeb Project",
+                    url: "http://info.cern.ch/hypertext/WWW/TheProject.html",
+                    content: `
+                        <h4>The WorldWideWeb Project</h4>
+                        <p>The WorldWideWeb (W3) is a wide-area <a href="#" onclick="showTooltip('Hypertext is text which contains links to other texts')">hypertext</a> information retrieval initiative aiming to give universal access to a large universe of documents.</p>
+                        <p>Everything there is online about W3 is linked directly or indirectly to this document, including an <a href="#" onclick="showTooltip('Executive summary of the WWW project')">executive summary</a> of the project, <a href="#" onclick="showTooltip('Lists available on the first web server')">Mailing lists</a>, <a href="#" onclick="showTooltip('Policy guidelines for web development')">Policy</a>, November's <a href="#" onclick="showTooltip('W3 news and announcements')">W3 news</a>, <a href="#" onclick="showTooltip('Frequently asked questions')">Frequently Asked Questions</a>.</p>
+                        <p><strong>Tim Berners-Lee</strong>, <a href="#" onclick="showTooltip('World Wide Web inventor and W3C director')">CERN</a></p>
+                    `
+                },
+                {
+                    title: "What is Hypertext?",
+                    url: "http://info.cern.ch/hypertext/WWW/WhatIs.html",
+                    content: `
+                        <h4>What is Hypertext?</h4>
+                        <p>Hypertext is text which is not constrained to be linear. Hypertext is text which contains <strong>links</strong> to other texts. The term was coined by <em>Ted Nelson</em> around 1965.</p>
+                        <p>HyperMedia is a term used for hypertext which is not constrained to be text: it can include graphics, video and <a href="#" onclick="showTooltip('Computer generated sounds and music')">sound</a>, for example. Apparently Ted Nelson was the first to use this term too.</p>
+                        <p>Hypertext and HyperMedia are concepts, not products.</p>
+                    `
+                },
+                {
+                    title: "WWW News - November 1992",
+                    url: "http://info.cern.ch/hypertext/WWW/News/9211.html",
+                    content: `
+                        <h4>World Wide Web News - November 1992</h4>
+                        <h5>New Servers</h5>
+                        <ul>
+                            <li><strong>CERN</strong> - The original server, now with improved documentation</li>
+                            <li><strong>NCAR</strong> - Scientific data and visualization</li>
+                            <li><strong>NCSA</strong> - Home of the Mosaic browser project</li>
+                        </ul>
+                        <h5>Recent Developments</h5>
+                        <p>The number of WWW servers has grown from 1 to over 20 in the past 6 months!</p>
+                        <p>New browsers are being developed for different platforms including <a href="#" onclick="showTooltip('Macintosh computer')">Mac</a>, <a href="#" onclick="showTooltip('Microsoft Windows operating system')">Windows</a>, and <a href="#" onclick="showTooltip('Unix operating system')">Unix</a>.</p>
+                    `
+                },
+                {
+                    title: "Technical Details",
+                    url: "http://info.cern.ch/hypertext/WWW/Technical.html",
+                    content: `
+                        <h4>Technical Details of the WorldWideWeb</h4>
+                        <h5>The HyperText Transfer Protocol (HTTP)</h5>
+                        <p>HTTP is an application-level protocol with the lightness and speed necessary for a distributed collaborative hypermedia information system. It is a generic stateless object-oriented protocol which may be used for many similar systems.</p>
+                        <h5>Universal Resource Identifiers (URI)</h5>
+                        <p>URIs are short strings that identify resources in the web: documents, images, downloadable files, services, electronic mailboxes, and other resources. They make resources available under a variety of naming schemes and access methods such as HTTP, FTP and local file access.</p>
+                        <h5>The HyperText Markup Language (HTML)</h5>
+                        <p>HTML is a simple data format used to create hypertext documents that are portable from one platform to another. HTML documents are SGML documents with generic semantics that are appropriate for representing information from a wide range of applications.</p>
+                    `
+                }
+            ]
         },
 
         // Configuration
@@ -531,16 +575,6 @@ const TOPICS_DATA = {
 
 
 
-        // Browser simulation data
-        browserSimulation: {
-            browsers: [
-                { name: "Chrome", engine: "Blink", marketShare: "65%" },
-                { name: "Firefox", engine: "Gecko", marketShare: "10%" },
-                { name: "Safari", engine: "WebKit", marketShare: "15%" },
-                { name: "Edge", engine: "Blink", marketShare: "5%" }
-            ]
-        },
-
         // Live updates demo data
         liveUpdates: {
             endpoints: [
@@ -668,20 +702,16 @@ const TOPICS_DATA = {
 function getCurrentTopicData() {
     // Extract topic name from current URL
     const path = window.location.pathname;
-    console.log('Current pathname:', path);
 
     // Handle both file:// and http:// URLs
     const topicMatch = path.match(/\/([^\/]+)\.html$/) || path.match(/([^\\\/]+)\.html$/);
 
     if (topicMatch) {
         const topicId = topicMatch[1];
-        console.log('Extracted topic ID:', topicId);
-        console.log('Available topic data:', Object.keys(TOPICS_DATA));
         return TOPICS_DATA[topicId] || TOPICS_DATA['evolution-of-web']; // fallback
     }
 
     // Default fallback
-    console.log('No topic match found, using fallback');
     return TOPICS_DATA['evolution-of-web'];
 }
 

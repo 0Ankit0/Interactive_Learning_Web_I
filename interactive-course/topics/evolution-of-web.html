@@ -124,39 +124,7 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Interactive Demos</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#search-demo"
-                      onclick="scrollToSection('search-demo')"
-                      >Search Demo</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#browser-simulation"
-                      onclick="scrollToSection('browser-simulation')"
-                      >Browser Simulation</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#live-updates-demo"
-                      onclick="scrollToSection('live-updates-demo')"
-                      >Live Updates Demo</a
-                    >
-                  </li>
-                </ul>
-              </li>
+
               <li>
                 <button
                   class="toc-dropdown-toggle"
@@ -275,70 +243,6 @@
                 <h3>Key Milestones in Web History</h3>
                 <div class="timeline" id="timeline-container">
                   <!-- Timeline will be loaded dynamically from topic-data.js -->
-                </div>
-              </div>
-
-              <div class="interactive-element">
-                <h3>
-                  <i class="fas fa-play"></i> Interactive Demo: First Web
-                  Browser
-                </h3>
-                <div class="demo-controls">
-                  <button class="btn btn-primary" onclick="simulateBrowsing()">
-                    Simulate Link Navigation
-                  </button>
-                  <span id="demo-status"
-                    >Ready to simulate 1990s web browsing - click the button
-                    below!</span
-                  >
-                </div>
-                <div class="browser-simulator">
-                  <div class="browser-header">
-                    <div class="browser-title">WorldWideWeb Browser (1990)</div>
-                  </div>
-                  <div class="browser-content">
-                    <h4>The project</h4>
-                    <p>
-                      The WorldWideWeb (W3) is a wide-area
-                      <a
-                        href="#"
-                        onclick="showTooltip('Hypertext is text which contains links to other texts')"
-                        >hypertext</a
-                      >
-                      information retrieval initiative aiming to give universal
-                      access to a large universe of documents.
-                    </p>
-                    <p>
-                      Everything there is online about W3 is linked directly or
-                      indirectly to this document, including an
-                      <a
-                        href="#"
-                        onclick="showTooltip('Executive summary of the WWW project')"
-                        >executive summary</a
-                      >
-                      of the project,
-                      <a
-                        href="#"
-                        onclick="showTooltip('Lists available on the first web server')"
-                        >Mailing lists</a
-                      >,
-                      <a
-                        href="#"
-                        onclick="showTooltip('Policy guidelines for web development')"
-                        >Policy</a
-                      >, November's
-                      <a
-                        href="#"
-                        onclick="showTooltip('W3 news and announcements')"
-                        >W3 news</a
-                      >,
-                      <a
-                        href="#"
-                        onclick="showTooltip('Frequently asked questions')"
-                        >Frequently Asked Questions</a
-                      >.
-                    </p>
-                  </div>
                 </div>
               </div>
             </section>
@@ -856,147 +760,38 @@
               </div>
             </section>
 
-            <!-- Interactive Web Search Demo -->
-            <section id="search-demo" class="content-section">
-              <h2><i class="fas fa-search"></i> Early Web Search Simulation</h2>
-              <div class="interactive-element search-demo">
-                <p>
-                  Experience how early web search worked before modern search
-                  engines:
-                </p>
-                <div class="search-container">
-                  <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search the early web..."
-                    value="hypertext"
-                  />
-                  <button onclick="simulateSearch()" class="btn-primary">
-                    <i class="fas fa-search"></i> Search
-                  </button>
-                </div>
-                <div id="search-results" class="search-results"></div>
-              </div>
-            </section>
-
-            <!-- Browser Simulation -->
-            <section id="browser-simulation" class="content-section">
-              <h2>
-                <i class="fas fa-window-maximize"></i> Early Browser Simulation
-              </h2>
-              <div class="interactive-element browser-simulation">
-                <p>See how early web browsers worked:</p>
-                <div class="demo-controls">
-                  <button onclick="simulateBrowsing()" class="btn-primary">
-                    <i class="fas fa-play"></i> Simulate Browser Loading
-                  </button>
-                </div>
-                <div id="demo-status" class="demo-status">
-                  Ready to simulate...
-                </div>
-                <div id="browser-simulator" class="browser-simulator">
-                  <div class="browser-header">
-                    <div class="browser-controls">
-                      <span class="control-dot red"></span>
-                      <span class="control-dot yellow"></span>
-                      <span class="control-dot green"></span>
-                    </div>
-                    <div class="address-bar">
-                      http://info.cern.ch/hypertext/WWW/TheProject.html
-                    </div>
-                  </div>
-                  <div id="browser-content" class="browser-content">
-                    <h1>World Wide Web</h1>
-                    <p>
-                      The WorldWideWeb (W3) is a wide-area hypermedia
-                      information retrieval initiative...
-                    </p>
-                    <a href="#">What's out there?</a> | <a href="#">Help</a> |
-                    <a href="#">Software Products</a>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Live Updates Demo -->
-            <section id="live-updates-demo" class="content-section">
-              <h2><i class="fas fa-rss"></i> Modern Web Live Updates</h2>
-              <div class="interactive-element live-updates">
-                <p>
-                  Experience how modern web applications provide real-time
-                  updates:
-                </p>
-                <div class="live-controls">
-                  <button onclick="startLiveUpdates()" class="btn-primary">
-                    <i class="fas fa-play"></i> Start Updates
-                  </button>
-                  <button onclick="stopLiveUpdates()" class="btn-secondary">
-                    <i class="fas fa-stop"></i> Stop Updates
-                  </button>
-                  <button onclick="toggleLiveUpdates()" class="btn-outline">
-                    <i class="fas fa-refresh"></i> Toggle
-                  </button>
-                </div>
-                <div id="live-updates" class="live-updates-display">
-                  <p>Click "Start Updates" to see live data streaming...</p>
-                </div>
-              </div>
-            </section>
-
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
               <div class="quiz-container" id="knowledge-quiz">
                 <div class="quiz-progress">
-                  <div class="progress-bar">
-                    <div
-                      class="progress-fill"
-                      id="quiz-progress"
-                      style="width: 0%"
-                    ></div>
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
-                  <span class="progress-text"
-                    >Question <span id="current-question">1</span> of
-                    <span id="total-questions">5</span></span
-                  >
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
                 </div>
 
-                <div class="quiz-question" id="quiz-question">
-                  <h3>Who invented the World Wide Web?</h3>
-                  <div class="quiz-options">
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      Bill Gates
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, true)"
-                    >
-                      Tim Berners-Lee
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      Steve Jobs
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      Mark Zuckerberg
-                    </button>
-                  </div>
-                  <div class="quiz-feedback" id="quiz-feedback"></div>
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
                   <button
-                    class="quiz-next"
                     id="quiz-next"
-                    onclick="nextQuestion()"
                     style="display: none"
+                    onclick="nextQuizQuestion()"
                   >
-                    Next Question
+                    Next Question <i class="fas fa-arrow-right"></i>
                   </button>
                 </div>
 
@@ -1005,16 +800,15 @@
                   id="quiz-results"
                   style="display: none"
                 >
-                  <h3>Quiz Complete!</h3>
-                  <div class="score-display">
-                    <div class="score-circle">
-                      <span id="final-score">4/5</span>
-                    </div>
-                    <p>Great job! You've mastered the evolution of the web.</p>
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
                   </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
                   <div class="results-actions">
-                    <button onclick="retakeQuiz()">Retake Quiz</button>
-                    <button onclick="completeLesson()">Complete Lesson</button>
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
                   </div>
                 </div>
               </div>

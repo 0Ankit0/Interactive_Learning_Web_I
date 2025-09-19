@@ -13,20 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update global TOPIC_DATA for backward compatibility
     TOPIC_DATA = currentTopicData;
 
-    console.log('Current topic data:', currentTopicData);
-    console.log('Quiz data:', currentTopicData.quiz);
-    console.log('Quiz questions:', currentTopicData.quiz ? currentTopicData.quiz.questions : 'No quiz data');
-
     topicManager.initialize();
 
     // Check if quiz elements exist before initializing
     const quizContainer = document.querySelector('.quiz-container');
-    console.log('Quiz container found:', quizContainer);
 
     if (quizContainer && currentTopicData.quiz && currentTopicData.quiz.questions) {
         topicManager.initializeQuiz(currentTopicData.quiz.questions);
-    } else {
-        console.log('Quiz not initialized - missing elements or data');
     }    // Initialize timeline if timeline data exists
     if (currentTopicData.timeline && currentTopicData.timeline.events) {
         loadTimeline(currentTopicData.timeline.events);
@@ -62,15 +55,6 @@ function buildURL() {
     topicManager.buildURL();
 }
 
-function simulateBrowsing() {
-    const messages = currentTopicData.browserSimulation?.messages;
-    if (messages) {
-        topicManager.simulateBrowsing(messages);
-    } else {
-        console.log('Browser simulation not available for this topic');
-    }
-}
-
 function showTooltip(text) {
     topicManager.showTooltip(text);
 }
@@ -79,8 +63,6 @@ function selectAnswer(button, isCorrect) {
     const gameData = currentTopicData.webEvolutionGame;
     if (gameData) {
         topicManager.selectAnswer(button, isCorrect, gameData);
-    } else {
-        console.log('Web evolution game not available for this topic');
     }
 }
 
@@ -92,8 +74,6 @@ function startLiveUpdates() {
     const messages = currentTopicData.liveUpdates?.messages;
     if (messages) {
         topicManager.startLiveUpdates(messages);
-    } else {
-        console.log('Live updates not available for this topic');
     }
 }
 
@@ -109,8 +89,6 @@ function toggleLiveUpdates() {
     const messages = currentTopicData.liveUpdates?.messages;
     if (messages) {
         topicManager.toggleLiveUpdates(messages);
-    } else {
-        console.log('Live updates not available for this topic');
     }
 }
 
@@ -131,9 +109,11 @@ function simulateSearch() {
     const results = currentTopicData.search?.results;
     if (results) {
         topicManager.simulateSearch(results);
-    } else {
-        console.log('Search feature not available for this topic');
     }
+}
+
+function simulateBrowsing() {
+    topicManager.simulateBrowsing();
 }
 
 function showQuizResults() {
@@ -158,7 +138,6 @@ function startDnsLookup() {
     const resultTTL = document.getElementById('resultTTL');
 
     if (!domainInput || !lookupVisualization || !lookupResult) {
-        console.log('DNS lookup elements not found');
         return;
     }
 
@@ -239,7 +218,6 @@ function startDnsLookup() {
 function startCommunicationDemo() {
     const demoData = currentTopicData.communicationDemo;
     if (!demoData) {
-        console.log('Communication demo not available for this topic');
         return;
     }
 
