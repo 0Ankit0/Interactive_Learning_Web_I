@@ -453,6 +453,71 @@
   }
 }
 
+// Topic grid system
+.topic-grid {
+  display: grid;
+  gap: $spacing-2xl;
+  margin: $spacing-3xl 0;
+
+  // Default responsive behavior
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  @include breakpoint($breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  @include breakpoint($breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  // Three column modifier
+  &.three-column {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include breakpoint($breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Two column modifier
+  &.two-column {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include breakpoint($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Four column modifier
+  &.four-column {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include breakpoint($breakpoint-lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include breakpoint($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
 // Interactive elements
 .interactive-element {
   @include interactive-card;
