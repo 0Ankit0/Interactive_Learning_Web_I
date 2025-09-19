@@ -212,7 +212,7 @@ const TOPICS_DATA = {
     },
 
     // Example: HTML Basics Topic Data (placeholder for future topics)
-    "html-basics": {
+    "html-introduction": {
         quiz: {
             questions: [
                 {
@@ -232,6 +232,18 @@ const TOPICS_DATA = {
                     options: ["<break>", "<lb>", "<br>", "<newline>"],
                     correct: 2,
                     explanation: "The <br> tag is used to create a line break in HTML."
+                },
+                {
+                    question: "Which HTML attribute is used to define inline styles?",
+                    options: ["class", "style", "id", "font"],
+                    correct: 1,
+                    explanation: "The 'style' attribute is used to define inline CSS styles for an HTML element."
+                },
+                {
+                    question: "What is the purpose of the alt attribute in an img tag?",
+                    options: ["To set image size", "To provide alternative text for accessibility", "To link to another page", "To add a border"],
+                    correct: 1,
+                    explanation: "The alt attribute provides alternative text that describes the image, which is important for accessibility and screen readers."
                 }
             ]
         },
@@ -276,156 +288,184 @@ const TOPICS_DATA = {
         }
     },
 
-    // Basic Protocols Topic Data
-    "basic-protocols": {
-        // Quiz data
+    // HTML Lists, Links & Images Topic Data
+    "lists-links-images": {
         quiz: {
             questions: [
                 {
-                    question: "What does HTTP stand for?",
-                    options: ["HyperText Transfer Protocol", "High Tech Transfer Process", "Home Text Transfer Protocol", "Hyperlink Text Transfer Process"],
+                    question: "Which HTML tag is used to create an unordered list?",
+                    options: ["&lt;ol&gt;", "&lt;ul&gt;", "&lt;li&gt;", "&lt;list&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;ul&gt; tag creates an unordered list, typically displayed with bullet points."
+                },
+                {
+                    question: "What is the correct HTML for creating a hyperlink?",
+                    options: ["&lt;a href=\"url\"&gt;Link text&lt;/a&gt;", "&lt;a url=\"url\"&gt;Link text&lt;/a&gt;", "&lt;a&gt;url&lt;/a&gt;", "&lt;link href=\"url\"&gt;Link text&lt;/link&gt;"],
                     correct: 0,
-                    explanation: "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the World Wide Web."
+                    explanation: "The &lt;a&gt; tag with href attribute creates a hyperlink to the specified URL."
                 },
                 {
-                    question: "Which HTTP status code indicates a successful request?",
-                    options: ["404 Not Found", "200 OK", "301 Moved Permanently", "500 Internal Server Error"],
+                    question: "Which attribute specifies alternative text for an image?",
+                    options: ["title", "alt", "src", "desc"],
                     correct: 1,
-                    explanation: "200 OK indicates that the HTTP request was successful and the server has returned the requested resource."
+                    explanation: "The alt attribute provides alternative text for images, important for accessibility and when images fail to load."
                 },
                 {
-                    question: "What is the main difference between HTTP and HTTPS?",
-                    options: ["HTTP is faster", "HTTPS uses encryption", "HTTP supports more methods", "HTTPS is only for images"],
+                    question: "What does the target=\"_blank\" attribute do in a link?",
+                    options: ["Opens link in same tab", "Opens link in new tab", "Opens link in popup", "Downloads the link"],
                     correct: 1,
-                    explanation: "HTTPS (HTTP Secure) uses TLS/SSL encryption to protect data in transit between browsers and servers."
+                    explanation: "target=\"_blank\" opens the linked document in a new browser tab or window."
                 },
                 {
-                    question: "Which HTTP method is used to retrieve data from a server?",
-                    options: ["POST", "PUT", "GET", "DELETE"],
-                    correct: 2,
-                    explanation: "The GET method is used to retrieve data from a server. It should not modify server state."
-                },
-                {
-                    question: "What does the HTTP status code 404 mean?",
-                    options: ["Server Error", "Unauthorized", "Not Found", "Bad Request"],
-                    correct: 2,
-                    explanation: "404 Not Found indicates that the server cannot find the requested resource."
-                },
-                {
-                    question: "Which HTTP method is considered 'unsafe' and can modify server data?",
-                    options: ["GET", "HEAD", "POST", "OPTIONS"],
-                    correct: 2,
-                    explanation: "POST is an unsafe method that sends data to create or process resources on the server."
-                },
-                {
-                    question: "What is the purpose of the SSL/TLS handshake?",
-                    options: ["To exchange greetings", "To establish secure encryption keys", "To check server availability", "To transfer files"],
+                    question: "Which HTML tag is used to create an ordered list?",
+                    options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;dl&gt;"],
                     correct: 1,
-                    explanation: "The SSL/TLS handshake establishes shared encryption keys between client and server for secure communication."
-                },
-                {
-                    question: "Which HTTP status code range indicates client errors?",
-                    options: ["1xx", "2xx", "3xx", "4xx"],
-                    correct: 3,
-                    explanation: "4xx status codes indicate client errors, such as bad syntax or unauthorized requests."
-                },
-                {
-                    question: "What does HTTPS use to encrypt data?",
-                    options: ["HTTP", "SSL/TLS", "HTML", "JavaScript"],
-                    correct: 1,
-                    explanation: "HTTPS uses SSL (Secure Sockets Layer) or TLS (Transport Layer Security) to encrypt data transmission."
-                },
-                {
-                    question: "Which HTTP method is used to update an existing resource?",
-                    options: ["POST", "PUT", "PATCH", "DELETE"],
-                    correct: 1,
-                    explanation: "PUT is used to update or create a resource at a specific location on the server."
-                }
-            ]
-        },
-
-        // Protocol simulation data
-        protocolSimulation: {
-            methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
-            statusCodes: {
-                "1xx": ["100 Continue", "101 Switching Protocols"],
-                "2xx": ["200 OK", "201 Created", "204 No Content"],
-                "3xx": ["301 Moved Permanently", "302 Found", "304 Not Modified"],
-                "4xx": ["400 Bad Request", "401 Unauthorized", "404 Not Found"],
-                "5xx": ["500 Internal Server Error", "502 Bad Gateway", "503 Service Unavailable"]
-            },
-            sampleRequests: [
-                {
-                    method: "GET",
-                    url: "https://api.example.com/users/123",
-                    headers: "Accept: application/json\nAuthorization: Bearer token123",
-                    description: "Retrieve user data"
-                },
-                {
-                    method: "POST",
-                    url: "https://api.example.com/users",
-                    headers: "Content-Type: application/json",
-                    body: '{"name": "John Doe", "email": "john@example.com"}',
-                    description: "Create new user"
-                },
-                {
-                    method: "PUT",
-                    url: "https://api.example.com/users/123",
-                    headers: "Content-Type: application/json",
-                    body: '{"name": "Jane Doe", "email": "jane@example.com"}',
-                    description: "Update user data"
+                    explanation: "The &lt;ol&gt; tag creates an ordered list, typically displayed with numbers."
                 }
             ]
         },
 
         // Configuration
         config: {
-            topicId: 'basic-protocols',
+            topicId: 'lists-links-images',
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'
         }
     },
 
-    // Example: CSS Basics Topic Data
-    "css-basics": {
+    // HTML Audio and Video Topic Data
+    "html-audio-video": {
         quiz: {
             questions: [
                 {
-                    question: "What does CSS stand for?",
-                    options: ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"],
+                    question: "Which attribute is required to show default video controls?",
+                    options: ["autoplay", "controls", "preload", "muted"],
                     correct: 1,
-                    explanation: "CSS stands for Cascading Style Sheets, used for styling HTML documents."
+                    explanation: "The 'controls' attribute displays the default browser controls for the video element, including play, pause, and volume controls."
                 },
                 {
-                    question: "Which CSS property is used to change the text color?",
-                    options: ["font-color", "text-color", "color", "text-style"],
-                    correct: 2,
-                    explanation: "The 'color' property is used to set the color of text in CSS."
+                    question: "What is the purpose of the poster attribute in video elements?",
+                    options: ["To set video dimensions", "To show an image before video loads", "To add captions to video", "To enable fullscreen mode"],
+                    correct: 1,
+                    explanation: "The poster attribute specifies an image to display while the video is downloading or until the user hits the play button."
+                },
+                {
+                    question: "Which preload value loads only basic video information?",
+                    options: ["none", "metadata", "auto", "buffered"],
+                    correct: 1,
+                    explanation: "The 'metadata' preload value loads only basic information like duration and dimensions, without downloading the video content."
+                },
+                {
+                    question: "What is the correct way to provide multiple audio formats for better browser support?",
+                    options: ["Use multiple &lt;audio&gt; elements", "Use &lt;source&gt; elements inside &lt;audio&gt;", "Use the format attribute", "Use different codecs in one file"],
+                    correct: 1,
+                    explanation: "Multiple &lt;source&gt; elements inside an &lt;audio&gt; or &lt;video&gt; element allow browsers to choose the best supported format."
+                },
+                {
+                    question: "Which attribute prevents videos from autoplaying?",
+                    options: ["controls", "muted", "autoplay", "preload='none'"],
+                    correct: 3,
+                    explanation: "Setting preload='none' prevents the browser from downloading video content until the user explicitly requests it."
                 }
             ]
         },
 
-        // CSS might have its own specific timeline
-        timeline: {
-            events: [
-                {
-                    year: "1996",
-                    title: "CSS 1.0",
-                    description: "First CSS specification by W3C",
-                    icon: "fab fa-css3-alt"
-                },
-                {
-                    year: "1998",
-                    title: "CSS 2.0",
-                    description: "Added positioning, z-index, and media types",
-                    icon: "fab fa-css3-alt"
-                }
-            ]
-        },
-
+        // Configuration
         config: {
-            topicId: 'css-basics',
+            topicId: 'html-audio-video',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // HTML Layout Elements Topic Data
+    "html-layout-elements": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which element is best for grouping block-level content for styling purposes?",
+                    options: ["&lt;span&gt;", "&lt;div&gt;", "&lt;aside&gt;", "&lt;iframe&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;div&gt; element is a generic container for block-level content and is commonly used for grouping elements for styling and layout purposes."
+                },
+                {
+                    question: "What is the primary use case for the &lt;span&gt; element?",
+                    options: ["Creating page layouts", "Styling inline content or text portions", "Embedding external content", "Drawing graphics"],
+                    correct: 1,
+                    explanation: "The &lt;span&gt; element is an inline container used to style portions of text or inline content without affecting the document flow."
+                },
+                {
+                    question: "Which element requires JavaScript to be useful for drawing?",
+                    options: ["&lt;aside&gt;", "&lt;iframe&gt;", "&lt;canvas&gt;", "&lt;div&gt;"],
+                    correct: 2,
+                    explanation: "The &lt;canvas&gt; element provides a drawing surface that requires JavaScript to create graphics, animations, and interactive content."
+                },
+                {
+                    question: "What security consideration is most important when using iframes?",
+                    options: ["Validating and trusting iframe sources", "Setting the correct width and height", "Using proper CSS styling", "Adding a title attribute"],
+                    correct: 0,
+                    explanation: "Security is crucial with iframes - you should only embed content from trusted sources to prevent security vulnerabilities."
+                },
+                {
+                    question: "Which HTML element is used to embed external web pages or content?",
+                    options: ["&lt;embed&gt;", "&lt;object&gt;", "&lt;iframe&gt;", "&lt;frame&gt;"],
+                    correct: 2,
+                    explanation: "The &lt;iframe&gt; element is used to embed another HTML document within the current document."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'html-layout-elements',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Semantic HTML Topic Data
+    "semantic-html": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary benefit of using semantic HTML elements?",
+                    options: ["Better visual appearance", "Improved accessibility and SEO", "Smaller file sizes", "Faster loading times"],
+                    correct: 1,
+                    explanation: "Semantic HTML elements provide meaning to content, improving accessibility for screen readers and search engine optimization."
+                },
+                {
+                    question: "Which element should be used for the main content of a webpage?",
+                    options: ["&lt;div&gt;", "&lt;main&gt;", "&lt;section&gt;", "&lt;article&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;main&gt; element represents the main content of the document, excluding headers, footers, and navigation."
+                },
+                {
+                    question: "What is the purpose of the &lt;nav&gt; element?",
+                    options: ["To style navigation links", "To contain navigation links", "To create a navigation menu", "To highlight the current page"],
+                    correct: 1,
+                    explanation: "The &lt;nav&gt; element is used to contain navigation links, helping screen readers identify navigation areas."
+                },
+                {
+                    question: "Which element is best for marking up a standalone piece of content?",
+                    options: ["&lt;section&gt;", "&lt;article&gt;", "&lt;div&gt;", "&lt;span&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;article&gt; element represents a self-contained composition that could be distributed independently."
+                },
+                {
+                    question: "What does the &lt;aside&gt; element typically contain?",
+                    options: ["Main content", "Navigation", "Sidebar content or related information", "Footer information"],
+                    correct: 2,
+                    explanation: "The &lt;aside&gt; element represents content that is tangentially related to the main content, often used for sidebars."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'semantic-html',
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'
@@ -626,36 +666,6 @@ const TOPICS_DATA = {
                     options: ["A", "AAAA", "MX", "TXT"],
                     correct: 2,
                     explanation: "MX (Mail Exchange) records specify which mail servers are responsible for accepting email for a domain."
-                },
-                {
-                    question: "What does a CNAME record do?",
-                    options: ["Maps to IPv6 address", "Creates an alias", "Specifies mail server", "Contains verification text"],
-                    correct: 1,
-                    explanation: "A CNAME (Canonical Name) record creates an alias pointing to another domain name."
-                },
-                {
-                    question: "Which server type provides the final IP address in DNS resolution?",
-                    options: ["Root nameserver", "TLD nameserver", "Recursive resolver", "Authoritative nameserver"],
-                    correct: 3,
-                    explanation: "The authoritative nameserver provides the final IP address for a domain during DNS resolution."
-                },
-                {
-                    question: "What is the purpose of DNS?",
-                    options: ["Encrypt web traffic", "Translate domain names to IP addresses", "Host websites", "Store web content"],
-                    correct: 1,
-                    explanation: "DNS translates human-readable domain names like google.com into machine-readable IP addresses."
-                },
-                {
-                    question: "Which TLD category includes .com, .org, and .net?",
-                    options: ["Country Code TLDs", "Generic TLDs", "Sponsored TLDs", "Infrastructure TLDs"],
-                    correct: 1,
-                    explanation: "Generic TLDs include .com, .org, .net, and are not tied to any specific country."
-                },
-                {
-                    question: "What happens if DNS resolution fails?",
-                    options: ["Website loads slowly", "Browser shows error page", "Computer crashes", "Internet disconnects"],
-                    correct: 1,
-                    explanation: "If DNS resolution fails, the browser typically shows an error page indicating the domain cannot be found."
                 }
             ]
         },
@@ -691,6 +701,1432 @@ const TOPICS_DATA = {
         // Configuration
         config: {
             topicId: 'dns-hierarchy',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // JSON Topic Data
+    "json": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which method converts a JSON string to a JavaScript object?",
+                    options: ["JSON.stringify()", "JSON.parse()", "JSON.convert()", "JSON.decode()"],
+                    correct: 1,
+                    explanation: "JSON.parse() converts a JSON string into a JavaScript object."
+                },
+                {
+                    question: "Which of the following is valid JSON?",
+                    options: ["{\"name\": 'John', \"age\": 30}", "{\"name\": \"John\", \"age\": 30}", "{name: \"John\", age: 30}", "{\"name\": \"John\"; \"age\": 30}"],
+                    correct: 1,
+                    explanation: "Valid JSON requires double quotes around both keys and string values."
+                },
+                {
+                    question: "What happens when JSON.parse() encounters invalid JSON?",
+                    options: ["Returns null", "Returns an empty object", "Throws a SyntaxError", "Returns undefined"],
+                    correct: 2,
+                    explanation: "JSON.parse() throws a SyntaxError when it encounters invalid JSON syntax."
+                },
+                {
+                    question: "Which data types are NOT supported in JSON?",
+                    options: ["String and Number", "Boolean and Array", "Function and undefined", "Object and null"],
+                    correct: 2,
+                    explanation: "JSON does not support Functions, undefined, Date objects, or other complex JavaScript types."
+                },
+                {
+                    question: "What does JSON stand for?",
+                    options: ["JavaScript Object Notation", "JavaScript Oriented Notation", "JavaScript Object Network", "JavaScript Operational Notation"],
+                    correct: 0,
+                    explanation: "JSON stands for JavaScript Object Notation, a lightweight data interchange format."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'json',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Responsive Design Topic Data
+    "responsive-design": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the recommended approach for responsive design?",
+                    options: ["Desktop-first design", "Mobile-first design", "Tablet-first design", "No specific approach needed"],
+                    correct: 1,
+                    explanation: "Mobile-first design is recommended as it ensures the site works on smaller screens first, then progressively enhances for larger screens."
+                },
+                {
+                    question: "Which viewport meta tag is essential for responsive design?",
+                    options: ["<meta name=\"viewport\" content=\"width=1024\">", "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">", "<meta name=\"viewport\" content=\"user-scalable=no\">", "<meta name=\"viewport\" content=\"width=100%\">"],
+                    correct: 1,
+                    explanation: "The viewport meta tag with width=device-width and initial-scale=1.0 is essential for responsive design as it tells the browser how to control the page's dimensions."
+                },
+                {
+                    question: "What CSS property makes images responsive by default?",
+                    options: ["width: 100%;", "max-width: 100%; height: auto;", "height: 100%;", "display: block;"],
+                    correct: 1,
+                    explanation: "Setting max-width: 100% and height: auto makes images responsive by ensuring they never exceed their container width while maintaining aspect ratio."
+                },
+                {
+                    question: "Which media query targets tablets in a mobile-first approach?",
+                    options: ["@media (max-width: 768px)", "@media (min-width: 768px)", "@media (width: 768px)", "@media screen and (tablet)"],
+                    correct: 1,
+                    explanation: "In mobile-first design, @media (min-width: 768px) targets tablets and larger screens, applying styles that enhance the mobile layout."
+                },
+                {
+                    question: "What is the purpose of CSS Grid and Flexbox in responsive design?",
+                    options: ["To create fixed layouts", "To create flexible, responsive layouts", "To replace media queries", "To style text only"],
+                    correct: 1,
+                    explanation: "CSS Grid and Flexbox provide powerful layout tools that automatically adapt to different screen sizes, making responsive design more flexible and maintainable."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'responsive-design',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Regular Expressions Topic Data
+    "regular-expressions": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does the regex pattern \\d+ match?",
+                    options: ["One or more digits", "Exactly one digit", "Zero or more digits", "Any character followed by a plus sign"],
+                    correct: 0,
+                    explanation: "\\d+ matches one or more digits (0-9). The + quantifier means 'one or more'."
+                },
+                {
+                    question: "Which method returns true or false when testing a regex?",
+                    options: ["match()", "test()", "exec()", "search()"],
+                    correct: 1,
+                    explanation: "The test() method returns true if the regex matches the string, false otherwise."
+                },
+                {
+                    question: "What does the ^ symbol represent in regex?",
+                    options: ["Start of string", "End of string", "Negation inside character class", "Both A and C depending on context"],
+                    correct: 3,
+                    explanation: "^ means start of string when used outside character classes, and negation when used inside character classes [^abc]."
+                },
+                {
+                    question: "Which pattern matches a valid email format?",
+                    options: ["/.*@.*\\..*/", "/^[\\^\\s@]+@[\\^\\s@]+\\.[\\^\\s@]+$/", "/\\w+@\\w+/", "/email/"],
+                    correct: 1,
+                    explanation: "/^[\\^\\s@]+@[\\^\\s@]+\\.[\\^\\s@]+$/ matches a proper email format with username, @, domain, and TLD."
+                },
+                {
+                    question: "What does the * quantifier mean in regex?",
+                    options: ["Exactly one occurrence", "Zero or one occurrence", "Zero or more occurrences", "One or more occurrences"],
+                    correct: 2,
+                    explanation: "* matches zero or more occurrences of the preceding element."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'regular-expressions',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // jQuery Basics Topic Data
+    "jquery-basics": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which symbol is commonly used as an alias for the jQuery function?",
+                    options: ["@", "$", "#", "%"],
+                    correct: 1,
+                    explanation: "$ is the most commonly used alias for the jQuery function, making code more concise."
+                },
+                {
+                    question: "What is the correct jQuery method to set the text content of an element?",
+                    options: [".text()", ".content()", ".setText()", ".innerText()"],
+                    correct: 0,
+                    explanation: ".text() is the jQuery method used to get or set the text content of an element."
+                },
+                {
+                    question: "Which jQuery method is used to attach event handlers to elements?",
+                    options: [".bind()", ".on()", ".attach()", ".listen()"],
+                    correct: 1,
+                    explanation: ".on() is the preferred method for attaching event handlers in modern jQuery."
+                },
+                {
+                    question: "What does $(document).ready() ensure?",
+                    options: ["All images are loaded", "The DOM is fully constructed", "All CSS is loaded", "jQuery is loaded"],
+                    correct: 1,
+                    explanation: "$(document).ready() ensures the DOM is fully loaded before executing JavaScript code."
+                },
+                {
+                    question: "Which jQuery method is used to hide an element?",
+                    options: [".hide()", ".invisible()", ".display()", ".remove()"],
+                    correct: 0,
+                    explanation: ".hide() is the jQuery method that hides an element by setting display: none."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'jquery-basics',
+            unitId: 'unit6',
+            totalTopicsInUnit: 3,
+            nextPageUrl: '../units/unit6.html'
+        }
+    },
+
+    // JavaScript DOM Topic Data
+    "js-dom": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does DOM stand for?",
+                    options: ["Document Object Model", "Dynamic Object Management", "Data Object Module", "Document Oriented Markup"],
+                    correct: 0,
+                    explanation: "DOM stands for Document Object Model, which represents the structure of HTML documents."
+                },
+                {
+                    question: "Which method is used to select an element by its ID?",
+                    options: ["getElementByClass()", "getElementById()", "querySelector()", "getElementsByTagName()"],
+                    correct: 1,
+                    explanation: "getElementById() is the method used to select a single element by its unique ID attribute."
+                },
+                {
+                    question: "What property is used to change the text content of an element?",
+                    options: [".innerHTML", ".textContent", ".innerText", ".content"],
+                    correct: 1,
+                    explanation: ".textContent gets or sets the text content of an element, excluding HTML markup."
+                },
+                {
+                    question: "Which method adds an event listener to an element?",
+                    options: [".addEvent()", ".onEvent()", ".addEventListener()", ".listen()"],
+                    correct: 2,
+                    explanation: "addEventListener() is the standard method to attach event handlers to DOM elements."
+                },
+                {
+                    question: "What does the querySelector() method return?",
+                    options: ["An array of elements", "The first matching element", "All matching elements", "A NodeList"],
+                    correct: 1,
+                    explanation: "querySelector() returns the first element that matches the specified CSS selector."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-dom',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // Error Handling Topic Data
+    "error-handling": {
+        quiz: {
+            questions: [
+                {
+                    question: "What happens if an error is not caught in a try-catch block?",
+                    options: ["The error is silently ignored", "The program crashes", "The error is automatically logged", "The error becomes a warning"],
+                    correct: 1,
+                    explanation: "If an error is not caught, it propagates up the call stack and can crash the program or cause unexpected behavior."
+                },
+                {
+                    question: "Which block always executes in a try-catch-finally statement?",
+                    options: ["try", "catch", "finally", "All blocks always execute"],
+                    correct: 2,
+                    explanation: "The finally block always executes, regardless of whether an error occurred or was caught."
+                },
+                {
+                    question: "How do you handle errors in async/await functions?",
+                    options: ["Using try-catch blocks", "Using .catch() method only", "Errors cannot be handled in async functions", "Using setTimeout"],
+                    correct: 0,
+                    explanation: "Async/await functions use standard try-catch blocks to handle errors, just like synchronous code."
+                },
+                {
+                    question: "What is the purpose of the Error.stack property?",
+                    options: ["To store the error message", "To provide a stack trace for debugging", "To indicate the error type", "To count the number of errors"],
+                    correct: 1,
+                    explanation: "The stack property contains a stack trace showing the sequence of function calls that led to the error."
+                },
+                {
+                    question: "Which of these is NOT a built-in JavaScript error type?",
+                    options: ["TypeError", "ReferenceError", "SyntaxError", "LogicError"],
+                    correct: 3,
+                    explanation: "LogicError is not a built-in JavaScript error type. The built-in types are Error, TypeError, ReferenceError, SyntaxError, etc."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'error-handling',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // ES6 Features Topic Data
+    "es6-features": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the main difference between `let` and `var`?",
+                    options: ["`let` is function-scoped, `var` is block-scoped", "`let` is block-scoped, `var` is function-scoped", "They are identical in behavior", "`let` can be redeclared, `var` cannot"],
+                    correct: 1,
+                    explanation: "`let` is block-scoped while `var` is function-scoped. This means `let` variables are only accessible within their block."
+                },
+                {
+                    question: "What will `console.log(`2 + 3 = ${2 + 3}`)` output?",
+                    options: ["2 + 3 = ${2 + 3}", "2 + 3 = 5", "2 + 3 = 23", "SyntaxError"],
+                    correct: 1,
+                    explanation: "Template literals (backticks) allow string interpolation with ${} syntax, so it evaluates the expression 2 + 3."
+                },
+                {
+                    question: "Which is the correct arrow function syntax?",
+                    options: ["(x) -> x * 2", "x => x * 2", "x -> { return x * 2; }", "function(x) => x * 2"],
+                    correct: 1,
+                    explanation: "Arrow functions use the => syntax. The correct syntax for a single parameter and expression is: x => x * 2"
+                },
+                {
+                    question: "What does `const [a, , c] = [1, 2, 3]` do?",
+                    options: ["Creates an error", "a=1, c=3, skips second element", "a=1, c=2", "a=undefined, c=undefined"],
+                    correct: 1,
+                    explanation: "This is array destructuring with a comma to skip the second element, so a gets 1 and c gets 3."
+                },
+                {
+                    question: "What is the default parameter syntax in ES6?",
+                    options: ["function func(a = 1) {}", "function func(a: 1) {}", "function func(a == 1) {}", "function func(a || 1) {}"],
+                    correct: 0,
+                    explanation: "ES6 introduced default parameters using the = syntax: function func(a = 1) {} sets a default value of 1 if no argument is provided."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'es6-features',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // JavaScript Embedding Topic Data
+    "js-embedding": {
+        quiz: {
+            questions: [
+                {
+                    question: "Where is the best place to put JavaScript code in an HTML document?",
+                    options: ["In the &lt;head&gt; section", "At the end of the &lt;body&gt; section", "In the &lt;title&gt; tag", "In a &lt;div&gt; element"],
+                    correct: 1,
+                    explanation: "Placing JavaScript at the end of the body ensures the DOM is loaded before the script runs."
+                },
+                {
+                    question: "Which HTML tag is used to embed external JavaScript files?",
+                    options: ["&lt;js&gt;", "&lt;script&gt;", "&lt;javascript&gt;", "&lt;code&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;script&gt; tag is used to embed JavaScript code, either inline or from external files."
+                },
+                {
+                    question: "What attribute specifies the path to an external JavaScript file?",
+                    options: ["href", "src", "link", "path"],
+                    correct: 1,
+                    explanation: "The src attribute in the &lt;script&gt; tag specifies the URL of an external JavaScript file."
+                },
+                {
+                    question: "What happens if JavaScript is disabled in the browser?",
+                    options: ["The page won't load", "Inline scripts are ignored", "External scripts cause errors", "The browser crashes"],
+                    correct: 1,
+                    explanation: "When JavaScript is disabled, inline scripts are ignored but the page still loads normally."
+                },
+                {
+                    question: "Which attribute makes a script execute only after the page loads?",
+                    options: ["defer", "async", "load", "ready"],
+                    correct: 0,
+                    explanation: "The defer attribute makes the script execute after the document has been parsed."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-embedding',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // JavaScript Functions & Scope Topic Data
+    "js-functions-scope": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the scope of a variable declared with 'let' inside a function?",
+                    options: ["Global scope", "Function scope", "Block scope", "File scope"],
+                    correct: 1,
+                    explanation: "Variables declared with 'let' inside a function have function scope and are accessible throughout the function."
+                },
+                {
+                    question: "Which keyword creates a function that can be called before it's defined?",
+                    options: ["function", "const", "let", "var"],
+                    correct: 0,
+                    explanation: "Function declarations are hoisted, meaning they can be called before they are defined in the code."
+                },
+                {
+                    question: "What will happen if you try to access a 'let' variable before it's declared?",
+                    options: ["It will be undefined", "It will throw a ReferenceError", "It will be null", "It will work normally"],
+                    correct: 1,
+                    explanation: "'let' variables are not hoisted and accessing them before declaration throws a ReferenceError."
+                },
+                {
+                    question: "Which of these creates a function expression?",
+                    options: ["function myFunc() {}", "const myFunc = function() {}", "Both A and B", "Neither A nor B"],
+                    correct: 2,
+                    explanation: "Both function declarations and function expressions create functions, but expressions assign them to variables."
+                },
+                {
+                    question: "What is the scope of variables declared with 'var' in a for loop?",
+                    options: ["Block scope", "Function scope", "Global scope", "Loop scope"],
+                    correct: 1,
+                    explanation: "'var' declarations have function scope, not block scope, so loop variables are accessible outside the loop."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-functions-scope',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // JavaScript Introduction Topic Data
+    "js-introduction": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is JavaScript primarily used for?",
+                    options: ["Styling web pages", "Creating interactive web content", "Defining page structure", "Managing databases"],
+                    correct: 1,
+                    explanation: "JavaScript is primarily used for creating interactive web content and adding dynamic behavior to websites."
+                },
+                {
+                    question: "Where can JavaScript code be placed in an HTML document?",
+                    options: ["Only in the &lt;head&gt; section", "Only in the &lt;body&gt; section", "In both &lt;head&gt; and &lt;body&gt; sections", "Only in external files"],
+                    correct: 2,
+                    explanation: "JavaScript can be placed in both the &lt;head&gt; and &lt;body&gt; sections, or in external files."
+                },
+                {
+                    question: "Which of these is NOT a JavaScript data type?",
+                    options: ["string", "boolean", "integer", "undefined"],
+                    correct: 2,
+                    explanation: "JavaScript doesn't have a separate 'integer' type - all numbers are of type 'number'."
+                },
+                {
+                    question: "What does the 'console.log()' function do?",
+                    options: ["Displays an alert box", "Writes to the browser console", "Creates a log file", "Sends data to a server"],
+                    correct: 1,
+                    explanation: "console.log() outputs messages to the browser's developer console for debugging purposes."
+                },
+                {
+                    question: "Which symbol is used for single-line comments in JavaScript?",
+                    options: ["//", "/*", "#", "--"],
+                    correct: 0,
+                    explanation: "// is used for single-line comments in JavaScript."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-introduction',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // JavaScript Operators Topic Data
+    "js-operators": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the result of 5 + '5' in JavaScript?",
+                    options: ["10", "'55'", "Error", "undefined"],
+                    correct: 1,
+                    explanation: "When adding a number and a string, JavaScript converts the number to a string and concatenates them."
+                },
+                {
+                    question: "Which operator checks both value and type equality?",
+                    options: ["==", "===", "!=", "!=="],
+                    correct: 1,
+                    explanation: "The === operator checks for both value and type equality, while == only checks value."
+                },
+                {
+                    question: "What does the '&&' operator return?",
+                    options: ["The first truthy value", "The first falsy value", "Always true", "Always false"],
+                    correct: 0,
+                    explanation: "The && operator returns the first falsy value, or the last truthy value if all are truthy."
+                },
+                {
+                    question: "Which of these is a ternary operator?",
+                    options: ["+", "-", "*", "?"],
+                    correct: 3,
+                    explanation: "The ? operator is the ternary (conditional) operator: condition ? value1 : value2"
+                },
+                {
+                    question: "What is the modulus operator in JavaScript?",
+                    options: ["/", "%", "*", "**"],
+                    correct: 1,
+                    explanation: "The % operator returns the remainder of a division operation."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-operators',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // JavaScript Variables Topic Data
+    "js-variables": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which keyword declares a block-scoped variable that can be reassigned?",
+                    options: ["const", "let", "var", "static"],
+                    correct: 1,
+                    explanation: "'let' declares block-scoped variables that can be reassigned, unlike 'const' which cannot."
+                },
+                {
+                    question: "What is the difference between 'null' and 'undefined'?",
+                    options: ["They are identical", "'null' is an object, 'undefined' means uninitialized", "Both represent empty values", "'undefined' is an object, 'null' means uninitialized"],
+                    correct: 1,
+                    explanation: "'null' is an object representing 'no value', while 'undefined' means a variable has been declared but not assigned a value."
+                },
+                {
+                    question: "Which data type is NOT primitive in JavaScript?",
+                    options: ["string", "boolean", "object", "number"],
+                    correct: 2,
+                    explanation: "Object is not a primitive data type. Primitive types are: string, number, boolean, undefined, null, symbol, bigint."
+                },
+                {
+                    question: "What happens when you try to reassign a 'const' variable?",
+                    options: ["It works normally", "It throws a TypeError", "It becomes undefined", "It converts to 'let'"],
+                    correct: 1,
+                    explanation: "Attempting to reassign a 'const' variable throws a TypeError because const variables are read-only."
+                },
+                {
+                    question: "Which variable declaration has function scope?",
+                    options: ["let", "const", "var", "Both let and const"],
+                    correct: 2,
+                    explanation: "'var' has function scope, while 'let' and 'const' have block scope."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'js-variables',
+            unitId: 'unit4',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit4.html'
+        }
+    },
+
+    // AJAX Topic Data
+    "ajax": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does AJAX stand for?",
+                    options: ["Asynchronous JavaScript and XML", "Advanced JavaScript and XHTML", "Asynchronous Java And XML", "All JavaScript And XML"],
+                    correct: 0,
+                    explanation: "AJAX stands for Asynchronous JavaScript and XML, a technique for creating interactive web applications."
+                },
+                {
+                    question: "Which JavaScript object is used to make AJAX requests?",
+                    options: ["XMLHttpRequest", "AjaxRequest", "HttpRequest", "WebRequest"],
+                    correct: 0,
+                    explanation: "XMLHttpRequest is the core JavaScript object used to make asynchronous HTTP requests."
+                },
+                {
+                    question: "What is the readyState value when the request is complete?",
+                    options: ["1", "2", "3", "4"],
+                    correct: 3,
+                    explanation: "readyState 4 indicates that the request has been completed and the response is ready."
+                },
+                {
+                    question: "Which method sends the AJAX request?",
+                    options: ["send()", "request()", "execute()", "run()"],
+                    correct: 0,
+                    explanation: "The send() method sends the request to the server."
+                },
+                {
+                    question: "What does the status code 200 indicate?",
+                    options: ["Server error", "Not found", "OK/Success", "Forbidden"],
+                    correct: 2,
+                    explanation: "HTTP status code 200 indicates that the request was successful."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'ajax',
+            unitId: 'unit5',
+            totalTopicsInUnit: 4,
+            nextPageUrl: '../units/unit5.html'
+        }
+    },
+
+    // Async/Await Topic Data
+    "async-await": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does the 'async' keyword do?",
+                    options: ["Makes a function asynchronous", "Declares a variable", "Pauses code execution", "Returns a callback"],
+                    correct: 0,
+                    explanation: "The 'async' keyword declares a function as asynchronous, allowing the use of 'await' inside it."
+                },
+                {
+                    question: "Which statement is true about 'await'?",
+                    options: ["Can be used outside async functions", "Waits for a Promise to resolve", "Declares a new Promise", "Throws an error"],
+                    correct: 1,
+                    explanation: "'await' pauses execution until a Promise resolves, making asynchronous code look synchronous."
+                },
+                {
+                    question: "How do you handle errors in async/await code?",
+                    options: ["Using try/catch blocks", "Using .catch() only", "Ignoring errors", "Using setTimeout"],
+                    correct: 0,
+                    explanation: "Errors in async/await are handled using try/catch blocks, just like synchronous code."
+                },
+                {
+                    question: "What does 'await fetch(url)' do?",
+                    options: ["Fetches data synchronously", "Waits for the fetch Promise to resolve", "Throws an error immediately", "Returns undefined"],
+                    correct: 1,
+                    explanation: "'await fetch(url)' waits for the fetch Promise to resolve and returns the Response object."
+                },
+                {
+                    question: "What type of value must 'await' be used with?",
+                    options: ["Any value", "Promises only", "Strings only", "Numbers only"],
+                    correct: 1,
+                    explanation: "'await' can only be used with Promises. Non-Promise values are automatically wrapped in resolved Promises."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'async-await',
+            unitId: 'unit5',
+            totalTopicsInUnit: 4,
+            nextPageUrl: '../units/unit5.html'
+        }
+    },
+
+    // Basic Protocols Topic Data
+    "basic-protocols": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does HTTP stand for?",
+                    options: ["Hypertext Transfer Protocol", "High Tech Transfer Process", "Home Text Transfer Protocol", "Hyperlink Text Transfer Process"],
+                    correct: 0,
+                    explanation: "HTTP stands for Hypertext Transfer Protocol, the foundation of data communication on the web."
+                },
+                {
+                    question: "Which port does HTTP typically use?",
+                    options: ["21", "22", "80", "443"],
+                    correct: 2,
+                    explanation: "HTTP typically uses port 80 for unencrypted connections."
+                },
+                {
+                    question: "What does HTTPS add to HTTP?",
+                    options: ["Speed", "Security", "Compression", "Caching"],
+                    correct: 1,
+                    explanation: "HTTPS adds encryption and security through SSL/TLS certificates."
+                },
+                {
+                    question: "Which HTTP method is used to retrieve data?",
+                    options: ["POST", "PUT", "GET", "DELETE"],
+                    correct: 2,
+                    explanation: "The GET method is used to retrieve data from a server."
+                },
+                {
+                    question: "What does the HTTP status code 404 indicate?",
+                    options: ["Server error", "Not found", "Forbidden", "OK"],
+                    correct: 1,
+                    explanation: "HTTP status code 404 indicates that the requested resource was not found."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'basic-protocols',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Client-Server Scripting Topic Data
+    "client-server-scripting": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the main difference between client-side and server-side scripting?",
+                    options: ["Client-side runs in browser, server-side runs on server", "Client-side is faster, server-side is slower", "Client-side uses JavaScript, server-side uses PHP", "Client-side is visible, server-side is hidden"],
+                    correct: 0,
+                    explanation: "Client-side scripting runs in the user's browser, while server-side scripting runs on the web server."
+                },
+                {
+                    question: "Which of these is a client-side scripting language?",
+                    options: ["PHP", "Python", "JavaScript", "Ruby"],
+                    correct: 2,
+                    explanation: "JavaScript is the primary client-side scripting language that runs in web browsers."
+                },
+                {
+                    question: "What can server-side scripting access that client-side cannot?",
+                    options: ["User's local files", "Database servers", "User's browser history", "User's keyboard input"],
+                    correct: 1,
+                    explanation: "Server-side scripting can access databases, file systems, and server resources that client-side scripts cannot."
+                },
+                {
+                    question: "Which HTTP method is commonly used for form submissions?",
+                    options: ["GET", "POST", "PUT", "DELETE"],
+                    correct: 1,
+                    explanation: "POST is commonly used for form submissions as it can send larger amounts of data securely."
+                },
+                {
+                    question: "What does CGI stand for?",
+                    options: ["Common Gateway Interface", "Computer Graphics Interface", "Client Gateway Interface", "Common Graphics Interface"],
+                    correct: 0,
+                    explanation: "CGI stands for Common Gateway Interface, a standard for external gateway programs to interface with web servers."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'client-server-scripting',
+            unitId: 'unit2',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit2.html'
+        }
+    },
+
+    // CSS Basics Topic Data
+    "css-basics": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does CSS stand for?",
+                    options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Cascading Simple Sheets"],
+                    correct: 0,
+                    explanation: "CSS stands for Cascading Style Sheets, used to describe the presentation of a document written in HTML."
+                },
+                {
+                    question: "Which CSS property is used to change the text color?",
+                    options: ["font-color", "text-color", "color", "foreground-color"],
+                    correct: 2,
+                    explanation: "The 'color' property is used to set the color of text in CSS."
+                },
+                {
+                    question: "What is the correct CSS syntax for making all paragraphs bold?",
+                    options: ["p {font-weight: bold;}", "p {text-weight: bold;}", "p {font-style: bold;}", "p {bold: true;}"],
+                    correct: 0,
+                    explanation: "p {font-weight: bold;} is the correct syntax to make all paragraph elements bold."
+                },
+                {
+                    question: "Which CSS property controls the space between elements?",
+                    options: ["margin", "padding", "border", "spacing"],
+                    correct: 0,
+                    explanation: "The 'margin' property controls the space outside an element's border."
+                },
+                {
+                    question: "What does the CSS 'float' property do?",
+                    options: ["Makes elements fly", "Positions elements to the left or right", "Changes element opacity", "Rotates elements"],
+                    correct: 1,
+                    explanation: "The 'float' property allows elements to be positioned to the left or right of their container."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'css-basics',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit3.html'
+        }
+    },
+
+    // CSS Box Model Topic Data
+    "css-box-model": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which of these is NOT part of the CSS Box Model?",
+                    options: ["Content", "Padding", "Border", "Outline"],
+                    correct: 3,
+                    explanation: "Outline is not part of the CSS Box Model. The four components are: Content, Padding, Border, and Margin."
+                },
+                {
+                    question: "What does the CSS 'margin' property control?",
+                    options: ["Space inside the element", "Space between elements", "The element's border", "The element's background"],
+                    correct: 1,
+                    explanation: "Margin controls the space outside the element's border, creating space between elements."
+                },
+                {
+                    question: "Which property affects the space between the content and the border?",
+                    options: ["margin", "padding", "border-width", "outline"],
+                    correct: 1,
+                    explanation: "Padding controls the space between the element's content and its border."
+                },
+                {
+                    question: "What is the default value of the CSS 'box-sizing' property?",
+                    options: ["content-box", "border-box", "padding-box", "margin-box"],
+                    correct: 0,
+                    explanation: "The default value of box-sizing is 'content-box', which means width and height only include the content area."
+                },
+                {
+                    question: "Which CSS property can be used to include padding and border in an element's total width?",
+                    options: ["box-sizing: content-box", "box-sizing: border-box", "width: 100%", "max-width: 100%"],
+                    correct: 1,
+                    explanation: "box-sizing: border-box makes the width and height properties include the padding and border, not just the content."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'css-box-model',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit3.html'
+        }
+    },
+
+    // Flexbox and Grid Layouts Topic Data
+    "flexbox-grid": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the main difference between Flexbox and Grid?",
+                    options: ["Flexbox is 1-dimensional, Grid is 2-dimensional", "Grid is newer than Flexbox", "Flexbox only works with images", "Grid requires more code"],
+                    correct: 0,
+                    explanation: "Flexbox is designed for 1-dimensional layouts (rows or columns), while Grid is designed for 2-dimensional layouts (both rows and columns)."
+                },
+                {
+                    question: "Which CSS property is used to enable Flexbox on a container?",
+                    options: ["display: flex", "display: grid", "display: block", "display: inline"],
+                    correct: 0,
+                    explanation: "display: flex enables Flexbox layout on the container element, making its children flex items."
+                },
+                {
+                    question: "What does the 'justify-content' property control in Flexbox?",
+                    options: ["Vertical alignment", "Horizontal alignment", "Item sizing", "Item order"],
+                    correct: 1,
+                    explanation: "justify-content controls the horizontal alignment of flex items along the main axis."
+                },
+                {
+                    question: "Which CSS property is used to enable Grid layout?",
+                    options: ["display: flex", "display: grid", "display: table", "display: block"],
+                    correct: 1,
+                    explanation: "display: grid enables CSS Grid layout on the container element."
+                },
+                {
+                    question: "What does 'grid-template-columns: 1fr 2fr 1fr' create?",
+                    options: ["Three equal columns", "Three columns where middle is twice as wide", "Three rows", "A responsive grid"],
+                    correct: 1,
+                    explanation: "The fr unit represents a fraction of the available space. 1fr 2fr 1fr creates three columns where the middle column takes up twice as much space as the side columns."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'flexbox-grid',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit3.html'
+        }
+    },
+
+    // CSS Preprocessors Topic Data
+    "css-preprocessors": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the main purpose of CSS preprocessors?",
+                    options: ["To replace CSS entirely", "To extend CSS with programming features", "To compress CSS files", "To validate CSS syntax"],
+                    correct: 1,
+                    explanation: "CSS preprocessors extend CSS with programming features like variables, functions, and nesting to make stylesheets more maintainable."
+                },
+                {
+                    question: "Which symbol is used for variables in SASS/SCSS?",
+                    options: ["@", "$", "#", "%"],
+                    correct: 1,
+                    explanation: "SASS/SCSS uses the dollar sign ($) for variables, while LESS uses the at sign (@)."
+                },
+                {
+                    question: "Which directive is used to create mixins in SASS?",
+                    options: ["@mixin", "@function", "@extend", "@import"],
+                    correct: 0,
+                    explanation: "The @mixin directive is used to define reusable code blocks in SASS that can be included in other selectors."
+                },
+                {
+                    question: "What is the recommended maximum nesting depth in SASS?",
+                    options: ["2 levels", "3-4 levels", "5-6 levels", "No limit"],
+                    correct: 1,
+                    explanation: "A maximum nesting depth of 3-4 levels is recommended to avoid overly specific selectors and bloated CSS."
+                },
+                {
+                    question: "Which of these is NOT a popular CSS preprocessor?",
+                    options: ["SASS/SCSS", "LESS", "Stylus", "Bootstrap"],
+                    correct: 3,
+                    explanation: "Bootstrap is a CSS framework, not a preprocessor. SASS/SCSS, LESS, and Stylus are all CSS preprocessors."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'css-preprocessors',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit3.html'
+        }
+    },
+
+    // CSS Frameworks Topic Data
+    "css-frameworks": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which class is used in Bootstrap for a responsive container?",
+                    options: [".container-fluid", ".container", "Both .container and .container-fluid", ".responsive-container"],
+                    correct: 2,
+                    explanation: "Both .container and .container-fluid are used in Bootstrap for responsive containers, with .container being fixed-width and .container-fluid being full-width."
+                },
+                {
+                    question: "How many columns does Bootstrap's default grid system have?",
+                    options: ["8 columns", "10 columns", "12 columns", "16 columns"],
+                    correct: 2,
+                    explanation: "Bootstrap's grid system is based on 12 columns, which provides flexibility for creating various layouts."
+                },
+                {
+                    question: "Which framework is known for semantic HTML and highly customizable grid systems?",
+                    options: ["Bootstrap", "Foundation", "Tailwind CSS", "Bulma"],
+                    correct: 3,
+                    explanation: "Bulma is known for its semantic HTML structure and highly customizable, modern CSS framework approach."
+                },
+                {
+                    question: "What is the best practice when customizing CSS frameworks?",
+                    options: ["Override classes with !important", "Use framework variables and customization options", "Create completely new CSS files", "Modify the framework source code directly"],
+                    correct: 1,
+                    explanation: "Using framework variables and customization options is the best practice as it maintains framework updates and avoids specificity issues."
+                },
+                {
+                    question: "Which CSS framework uses utility-first approach?",
+                    options: ["Bootstrap", "Foundation", "Tailwind CSS", "Bulma"],
+                    correct: 2,
+                    explanation: "Tailwind CSS uses a utility-first approach where you build designs using utility classes rather than predefined components."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'css-frameworks',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit3.html'
+        }
+    },
+
+    // Framework Overview Topic Data
+    "framework-overview": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary purpose of JavaScript frameworks?",
+                    options: ["To replace HTML and CSS", "To provide structure and tools for building web applications", "To create animations only", "To handle server-side processing"],
+                    correct: 1,
+                    explanation: "JavaScript frameworks provide structure, tools, and best practices for building scalable and maintainable web applications."
+                },
+                {
+                    question: "Which framework is known for its virtual DOM and component-based architecture?",
+                    options: ["Angular", "React", "Vue.js", "jQuery"],
+                    correct: 1,
+                    explanation: "React is famous for its virtual DOM implementation and component-based architecture that improves performance and reusability."
+                },
+                {
+                    question: "What is the main advantage of using a JavaScript framework?",
+                    options: ["Faster initial page load", "Structured development approach and reusable components", "Smaller file sizes", "Better browser compatibility"],
+                    correct: 1,
+                    explanation: "Frameworks provide structured development approaches, reusable components, and development tools that improve productivity and code quality."
+                },
+                {
+                    question: "Which framework uses TypeScript as its primary language?",
+                    options: ["React", "Vue.js", "Angular", "Svelte"],
+                    correct: 2,
+                    explanation: "Angular is built with TypeScript and encourages its use for better type safety and development experience."
+                },
+                {
+                    question: "What should you consider first when choosing a JavaScript framework?",
+                    options: ["Popularity on social media", "Project requirements and team expertise", "Framework age", "Number of GitHub stars"],
+                    correct: 1,
+                    explanation: "The choice of framework should be based on project requirements, team expertise, and long-term maintainability rather than popularity metrics."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'framework-overview',
+            unitId: 'unit5',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit5.html'
+        }
+    },
+
+    // Framework Selection Topic Data
+    "framework-selection": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the most important factor when selecting a JavaScript framework?",
+                    options: ["Framework popularity", "Project requirements and team skills", "Framework release date", "Number of npm downloads"],
+                    correct: 1,
+                    explanation: "Project requirements and team skills are the most important factors, as they determine if the framework will meet your needs and if your team can effectively use it."
+                },
+                {
+                    question: "Which framework would be best for a small, simple project?",
+                    options: ["Angular (too heavy)", "React (good balance)", "Vue.js (lightweight)", "All frameworks work equally well"],
+                    correct: 2,
+                    explanation: "Vue.js is often preferred for smaller projects due to its lightweight nature and gentle learning curve."
+                },
+                {
+                    question: "What should you evaluate when comparing framework performance?",
+                    options: ["Only initial bundle size", "Bundle size, runtime performance, and development experience", "Only GitHub stars", "Only the number of contributors"],
+                    correct: 1,
+                    explanation: "Performance evaluation should include bundle size, runtime performance, memory usage, and development experience metrics."
+                },
+                {
+                    question: "Which factor is LEAST important when choosing a framework?",
+                    options: ["Community support", "Documentation quality", "Current popularity trends", "Learning curve"],
+                    correct: 2,
+                    explanation: "Current popularity trends are less important than long-term viability, community support, and documentation quality."
+                },
+                {
+                    question: "What is the best approach for migrating between frameworks?",
+                    options: ["Rewrite the entire application", "Gradual migration with feature flags", "Use multiple frameworks simultaneously", "Avoid migration altogether"],
+                    correct: 1,
+                    explanation: "Gradual migration using feature flags or incremental replacement allows for safer transitions and maintains application stability."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'framework-selection',
+            unitId: 'unit5',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit5.html'
+        }
+    },
+
+    // Frameworks Overview Topic Data
+    "frameworks-overview": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary benefit of using JavaScript frameworks?",
+                    options: ["Faster initial page load", "Structured development and reusable components", "Smaller JavaScript files", "Better browser compatibility"],
+                    correct: 1,
+                    explanation: "JavaScript frameworks provide structured development approaches, reusable components, and development tools that improve productivity and code maintainability."
+                },
+                {
+                    question: "Which framework is known for its two-way data binding feature?",
+                    options: ["React", "Vue.js", "Angular", "Svelte"],
+                    correct: 2,
+                    explanation: "Angular is known for its two-way data binding, which automatically synchronizes data between the model and view."
+                },
+                {
+                    question: "What does 'SPA' stand for in the context of JavaScript frameworks?",
+                    options: ["Simple Page Application", "Single Page Application", "Static Page Architecture", "Server-side Page Application"],
+                    correct: 1,
+                    explanation: "SPA stands for Single Page Application, where the entire application runs in the browser and dynamically updates content without full page reloads."
+                },
+                {
+                    question: "Which framework uses a virtual DOM for performance optimization?",
+                    options: ["Angular", "Vue.js", "React", "All of the above"],
+                    correct: 2,
+                    explanation: "React uses a virtual DOM to optimize rendering performance by minimizing direct DOM manipulations."
+                },
+                {
+                    question: "What is a key advantage of component-based frameworks?",
+                    options: ["Smaller file sizes", "Reusable and maintainable code", "Faster initial load", "Better SEO"],
+                    correct: 1,
+                    explanation: "Component-based frameworks allow developers to create reusable UI components, improving code maintainability and development efficiency."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'frameworks-overview',
+            unitId: 'unit5',
+            totalTopicsInUnit: 5,
+            nextPageUrl: '../units/unit5.html'
+        }
+    },
+
+    // SEO Fundamentals Topic Data
+    "seo-fundamentals": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does SEO stand for?",
+                    options: ["Search Engine Optimization", "Site Enhancement Operations", "Search Engine Operations", "Site Enhancement Optimization"],
+                    correct: 0,
+                    explanation: "SEO stands for Search Engine Optimization, the practice of improving websites to increase visibility in search engine results."
+                },
+                {
+                    question: "Which HTML element is most important for SEO?",
+                    options: ["&lt;div&gt;", "&lt;title&gt;", "&lt;h1&gt;", "&lt;span&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;title&gt; element is crucial for SEO as it tells search engines what the page is about and appears in search results."
+                },
+                {
+                    question: "What is the recommended length for a page title?",
+                    options: ["10-20 characters", "30-60 characters", "100-150 characters", "200+ characters"],
+                    correct: 1,
+                    explanation: "Page titles should be 30-60 characters long to display properly in search results without being cut off."
+                },
+                {
+                    question: "Which attribute provides alternative text for images?",
+                    options: ["title", "alt", "src", "desc"],
+                    correct: 1,
+                    explanation: "The alt attribute provides alternative text for images, which is important for accessibility and helps search engines understand image content."
+                },
+                {
+                    question: "What is the purpose of meta descriptions?",
+                    options: ["To style the page", "To provide a summary in search results", "To link to other pages", "To add keywords"],
+                    correct: 1,
+                    explanation: "Meta descriptions provide a brief summary of the page content that appears under the title in search engine results."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'seo-fundamentals',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Tables & Forms Topic Data
+    "tables-forms": {
+        quiz: {
+            questions: [
+                {
+                    question: "Which HTML element is used to create a table?",
+                    options: ["&lt;table&gt;", "&lt;tab&gt;", "&lt;tbl&gt;", "&lt;grid&gt;"],
+                    correct: 0,
+                    explanation: "The &lt;table&gt; element is used to create tables in HTML."
+                },
+                {
+                    question: "What is the correct HTML for creating a table row?",
+                    options: ["&lt;tr&gt;", "&lt;row&gt;", "&lt;td&gt;", "&lt;th&gt;"],
+                    correct: 0,
+                    explanation: "The &lt;tr&gt; element defines a table row."
+                },
+                {
+                    question: "Which element is used for table headers?",
+                    options: ["&lt;td&gt;", "&lt;th&gt;", "&lt;tr&gt;", "&lt;thead&gt;"],
+                    correct: 1,
+                    explanation: "The &lt;th&gt; element defines a header cell in a table."
+                },
+                {
+                    question: "What is the purpose of the 'action' attribute in a form?",
+                    options: ["To style the form", "To specify where to send form data", "To validate form data", "To add form elements"],
+                    correct: 1,
+                    explanation: "The action attribute specifies the URL where form data should be sent when submitted."
+                },
+                {
+                    question: "Which input type creates a password field?",
+                    options: ["text", "password", "hidden", "email"],
+                    correct: 1,
+                    explanation: "The password input type creates a field that hides the entered text for security."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'tables-forms',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Typography & Color Topic Data
+    "typography-color": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the optimal line length for readability?",
+                    options: ["40-50 characters", "45-75 characters", "80-100 characters", "100+ characters"],
+                    correct: 1,
+                    explanation: "The optimal line length for readability is typically 45-75 characters per line, which helps maintain reader focus and reduces eye strain."
+                },
+                {
+                    question: "Which color combination provides the highest contrast?",
+                    options: ["Blue text on white background", "Black text on white background", "Gray text on white background", "Red text on green background"],
+                    correct: 1,
+                    explanation: "Black text on a white background provides the highest contrast ratio, making it the most readable combination."
+                },
+                {
+                    question: "What is the minimum contrast ratio for normal text according to WCAG AA?",
+                    options: ["3:1", "4.5:1", "7:1", "10:1"],
+                    correct: 1,
+                    explanation: "WCAG AA guidelines require a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text."
+                },
+                {
+                    question: "Which font pairing principle creates effective contrast?",
+                    options: ["Use fonts from the same family", "Pair serif with sans-serif", "Use similar x-heights", "Match letter spacing exactly"],
+                    correct: 1,
+                    explanation: "Pairing serif fonts with sans-serif fonts creates effective contrast and visual hierarchy in typography."
+                },
+                {
+                    question: "What does HSL stand for in color theory?",
+                    options: ["High Saturation Light", "Hue, Saturation, Lightness", "HTML Style Language", "Hexadecimal Style Layout"],
+                    correct: 1,
+                    explanation: "HSL stands for Hue, Saturation, and Lightness - a cylindrical-coordinate representation of colors."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'typography-color',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Typography Topic Data
+    "typography": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the main purpose of typography in web design?",
+                    options: ["To make text colorful", "To make text readable and visually appealing", "To hide text from users", "To encrypt text content"],
+                    correct: 1,
+                    explanation: "Typography's main purpose is to make text readable and visually appealing, enhancing user experience and communication."
+                },
+                {
+                    question: "Which CSS property controls the space between lines of text?",
+                    options: ["letter-spacing", "word-spacing", "line-height", "text-indent"],
+                    correct: 2,
+                    explanation: "The line-height property controls the space between lines of text, affecting readability and visual hierarchy."
+                },
+                {
+                    question: "What does 'leading' refer to in typography?",
+                    options: ["Font size", "Space between lines", "Font weight", "Letter spacing"],
+                    correct: 1,
+                    explanation: "Leading refers to the vertical space between lines of text, traditionally measured in points."
+                },
+                {
+                    question: "Which font category is best for body text on screens?",
+                    options: ["Script fonts", "Display fonts", "Sans-serif fonts", "Decorative fonts"],
+                    correct: 2,
+                    explanation: "Sans-serif fonts are generally more readable on screens due to their clean lines and lack of serifs."
+                },
+                {
+                    question: "What is the recommended font size range for body text on websites?",
+                    options: ["8-12px", "14-18px", "20-24px", "26-32px"],
+                    correct: 1,
+                    explanation: "14-18px is the recommended font size range for body text, providing good readability across devices."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'typography',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // UI/UX Design Topic Data
+    "ui-ux-design": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does UX stand for in web design?",
+                    options: ["User Experience", "User Extension", "Universal Experience", "User Experiment"],
+                    correct: 0,
+                    explanation: "UX stands for User Experience, which focuses on how users interact with and experience a product."
+                },
+                {
+                    question: "What does UI stand for in web design?",
+                    options: ["User Interface", "User Interaction", "Universal Interface", "User Integration"],
+                    correct: 0,
+                    explanation: "UI stands for User Interface, which refers to the visual elements users interact with on a website."
+                },
+                {
+                    question: "Which principle focuses on making interfaces easy to understand?",
+                    options: ["Consistency", "Visibility", "Learnability", "All of the above"],
+                    correct: 3,
+                    explanation: "All these principles - consistency, visibility, and learnability - contribute to making interfaces easy to understand."
+                },
+                {
+                    question: "What is the primary goal of UX design?",
+                    options: ["Make websites look beautiful", "Ensure user satisfaction and usability", "Use the latest design trends", "Create complex navigation"],
+                    correct: 1,
+                    explanation: "The primary goal of UX design is to ensure user satisfaction and usability through intuitive, efficient interactions."
+                },
+                {
+                    question: "Which of these is NOT a key component of good UI design?",
+                    options: ["Intuitive navigation", "Consistent color scheme", "Complex animations", "Clear typography"],
+                    correct: 2,
+                    explanation: "While animations can enhance UI, complex animations that distract from usability are not a key component of good UI design."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'ui-ux-design',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // UIUX Design Topic Data
+    "uiux-design": {
+        quiz: {
+            questions: [
+                {
+                    question: "What is the difference between UI and UX design?",
+                    options: ["UI is about visuals, UX is about experience", "UI is about code, UX is about design", "UI is about mobile, UX is about web", "There is no difference"],
+                    correct: 0,
+                    explanation: "UI (User Interface) focuses on the visual elements users interact with, while UX (User Experience) focuses on the overall experience and usability."
+                },
+                {
+                    question: "Which of these is a key principle of good UX design?",
+                    options: ["Making everything colorful", "Ensuring intuitive navigation", "Using complex animations", "Adding as many features as possible"],
+                    correct: 1,
+                    explanation: "Intuitive navigation is a key principle of good UX design, helping users find what they need easily."
+                },
+                {
+                    question: "What does 'accessibility' mean in UI/UX design?",
+                    options: ["Making designs look professional", "Ensuring designs work for all users including those with disabilities", "Using the latest design trends", "Creating designs that load quickly"],
+                    correct: 1,
+                    explanation: "Accessibility in UI/UX design means ensuring that designs work for all users, including those with disabilities, following guidelines like WCAG."
+                },
+                {
+                    question: "What is a 'user persona' in UX design?",
+                    options: ["A fictional character representing a user type", "A real user who tests the design", "A designer's self-portrait", "A type of user interface element"],
+                    correct: 0,
+                    explanation: "A user persona is a fictional character created to represent a user type, helping designers understand user needs and behaviors."
+                },
+                {
+                    question: "Which tool is commonly used for creating UI/UX wireframes?",
+                    options: ["Microsoft Word", "Figma", "Calculator", "File Explorer"],
+                    correct: 1,
+                    explanation: "Figma is a popular tool for creating UI/UX wireframes, prototypes, and collaborative design work."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'uiux-design',
+            unitId: 'unit1',
+            totalTopicsInUnit: 6,
+            nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Web Accessibility Topic Data
+    "web-accessibility": {
+        quiz: {
+            questions: [
+                {
+                    question: "What does WCAG stand for?",
+                    options: ["Web Content Accessibility Guidelines", "World Wide Accessibility Code", "Web Compliance Accessibility Group", "Website Content Access Guide"],
+                    correct: 0,
+                    explanation: "WCAG stands for Web Content Accessibility Guidelines, the international standard for web accessibility."
+                },
+                {
+                    question: "Which of these is NOT a principle of WCAG?",
+                    options: ["Perceivable", "Operable", "Understandable", "Compatible"],
+                    correct: 3,
+                    explanation: "The four main principles of WCAG are: Perceivable, Operable, Understandable, and Robust (not Compatible)."
+                },
+                {
+                    question: "What is the purpose of alt text on images?",
+                    options: ["To make images load faster", "To provide text descriptions for screen readers", "To improve SEO only", "To add captions to images"],
+                    correct: 1,
+                    explanation: "Alt text provides text descriptions of images for screen readers, helping visually impaired users understand image content."
+                },
+                {
+                    question: "What is the minimum contrast ratio required by WCAG AA for normal text?",
+                    options: ["2:1", "3:1", "4.5:1", "7:1"],
+                    correct: 2,
+                    explanation: "WCAG AA requires a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text."
+                },
+                {
+                    question: "Which HTML element should be used for page headings?",
+                    options: ["&lt;div&gt;", "&lt;span&gt;", "&lt;h1&gt;-&lt;h6&gt;", "&lt;p&gt;"],
+                    correct: 2,
+                    explanation: "Heading elements (&lt;h1&gt; through &lt;h6&gt;) provide semantic structure and are essential for screen reader navigation."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'web-accessibility',
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'

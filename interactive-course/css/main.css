@@ -4400,7 +4400,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
   color: #2c3e50;
 }
 
-.browser-simulator {
+.search-simulator {
   background: #ffffff;
   border-radius: 0.9375rem;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -4420,121 +4420,6 @@ input::placeholder, select::placeholder, textarea::placeholder {
   transform: scaleY(0);
   transform-origin: top;
 }
-.browser-simulator:hover {
-  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
-  transform: scaleY(0);
-}
-.browser-simulator.visible {
-  height: auto;
-  opacity: 1;
-  transform: scaleY(1);
-}
-.browser-simulator .browser-header {
-  background: linear-gradient(135deg, #fafafa, #f0f0f0);
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid #e9ecef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
-}
-.browser-simulator .browser-header::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background: #ff5f57;
-  border-radius: 50%;
-  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #28ca42;
-  flex-shrink: 0;
-}
-.browser-simulator .browser-title {
-  font-size: 0.875rem;
-  color: #6c757d;
-  font-weight: 500;
-  margin-left: 1.25rem;
-  font-family: "Monaco", "Consolas", "Courier New", monospace;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
-  display: inline-block;
-}
-.browser-simulator .browser-content {
-  padding: 1.5rem;
-  font-family: "Times New Roman", serif;
-  line-height: 1.625;
-  background: white;
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.browser-simulator .browser-content.visible {
-  opacity: 1;
-  max-height: 500px;
-  overflow-y: auto;
-}
-.browser-simulator .browser-content h4 {
-  color: #4CAF50;
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-}
-.browser-simulator .browser-content p {
-  margin-bottom: 1rem;
-  color: #6c757d;
-}
-.browser-simulator .browser-content p:last-child {
-  margin-bottom: 0;
-}
-.browser-simulator .browser-content a {
-  color: #4CAF50;
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: all 0.15s ease;
-}
-.browser-simulator .browser-content a:hover {
-  border-bottom-color: #4CAF50;
-  color: #45a049;
-}
-
-.browser-content {
-  padding: 1.25rem;
-  min-height: 240px;
-  background: linear-gradient(135deg, #fafafa, #f0f0f0);
-  font-family: "Times New Roman", serif;
-  font-size: 0.875rem;
-  line-height: 1.625;
-}
-.browser-content h4 {
-  color: #000080;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  text-decoration: underline;
-}
-.browser-content a {
-  color: #0000EE;
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color 0.15s ease;
-}
-.browser-content a:hover {
-  color: #FF00FF;
-  background: rgba(255, 255, 0, 0.2);
-}
-.browser-content a:visited {
-  color: #551A8B;
-}
-.browser-content p {
-  margin-bottom: 1rem;
-  text-align: justify;
-}
-
 .search-simulator {
   background: #ffffff;
   border-radius: 0.9375rem;
