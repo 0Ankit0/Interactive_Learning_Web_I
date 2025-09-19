@@ -474,6 +474,168 @@
   }
 }
 
+// Interactive demo styles
+.interactive-demo {
+  margin: $spacing-xl 0;
+
+  .btn-primary {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.demo-output {
+  background: $bg-light;
+  border: 1px solid $border-light;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  margin-top: $spacing-lg;
+  animation: fadeIn $animation-duration-base ease forwards;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: $spacing-lg;
+    color: $primary-color;
+    font-weight: $font-weight-semibold;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: $spacing-xl;
+
+    li {
+      margin-bottom: $spacing-sm;
+      line-height: $line-height-normal;
+
+      strong {
+        color: $text-primary;
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
+  pre {
+    background: $bg-dark;
+    color: $text-light;
+    padding: $spacing-lg;
+    border-radius: $border-radius-sm;
+    overflow-x: auto;
+    font-family: $font-family-monospace;
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+    margin: $spacing-lg 0 0 0;
+    border: 1px solid $border-dark;
+  }
+}
+
+// Bottom navigation section
+.navigation-section {
+  @include flex-between;
+  border-top: 1px solid $border-light;
+  padding: $spacing-4xl 0;
+  margin-top: $spacing-4xl;
+
+  .nav-links {
+    @include flex-between;
+    gap: $spacing-2xl;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-xl;
+
+    @include breakpoint($breakpoint-md) {
+      gap: $spacing-xl;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-xl;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    color: $primary-color;
+    transition: all $transition-base;
+    border-radius: $border-radius-md;
+
+    &:hover {
+      color: $primary-hover;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    i {
+      font-size: $font-size-lg;
+      flex-shrink: 0;
+      transition: transform $transition-base;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+
+    .nav-topic-title {
+      color: $text-secondary;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-normal;
+      margin-top: $spacing-xs;
+      display: block;
+      opacity: 0.8;
+    }
+
+    // Responsive behavior - hide topic titles on small screens
+    @include breakpoint($breakpoint-sm) {
+      padding: $spacing-lg $spacing-xl;
+      font-size: $font-size-base;
+
+      .nav-topic-title {
+        display: none;
+      }
+
+      // Only show "Previous" and "Next" text on small screens
+      span:not(.nav-topic-title) {
+        font-size: $font-size-sm;
+        color: $primary-color;
+      }
+    }
+
+    @include breakpoint($breakpoint-xs) {
+      gap: $spacing-md;
+      padding: $spacing-md $spacing-lg;
+
+      i {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+
+  .nav-previous {
+    justify-content: flex-start;
+    text-align: left;
+
+    i {
+      order: -1; // Move icon to the left
+    }
+  }
+
+  .nav-next {
+    justify-content: flex-end;
+    text-align: right;
+
+    i {
+      order: 1; // Move icon to the right
+    }
+  }
+}
+
 // Code playground
 .code-playground {
   .playground-tabs {

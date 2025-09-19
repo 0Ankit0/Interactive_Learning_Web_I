@@ -3541,6 +3541,187 @@ input::placeholder, select::placeholder, textarea::placeholder {
   font-style: italic;
 }
 
+.interactive-demo {
+  margin: 1.25rem 0;
+}
+.interactive-demo .btn-primary {
+  margin-bottom: 1rem;
+}
+
+.demo-output {
+  background: #e9ecef;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  -webkit-animation: fadeIn 0.3s ease forwards;
+          animation: fadeIn 0.3s ease forwards;
+}
+.demo-output h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #4CAF50;
+  font-weight: 600;
+}
+.demo-output ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.demo-output ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.demo-output ul li strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+.demo-output pre {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  font-family: "Monaco", "Consolas", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 1rem 0 0 0;
+  border: 1px solid #ced4da;
+}
+
+.navigation-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 1px solid #e9ecef;
+  padding: 2.5rem 0;
+  margin-top: 2.5rem;
+}
+.navigation-section .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+@media (max-width: 768px) {
+  .navigation-section .nav-links {
+    gap: 1.25rem;
+  }
+}
+@media (max-width: 576px) {
+  .navigation-section .nav-links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1rem;
+  }
+}
+.navigation-section .nav-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #4CAF50;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+.navigation-section .nav-link:hover {
+  color: #45a049;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+.navigation-section .nav-link:active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.navigation-section .nav-link i {
+  font-size: 1.125rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.navigation-section .nav-link span {
+  white-space: nowrap;
+}
+.navigation-section .nav-link .nav-topic-title {
+  color: #6c757d;
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin-top: 0.25rem;
+  display: block;
+  opacity: 0.8;
+}
+@media (max-width: 576px) {
+  .navigation-section .nav-link {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+  .navigation-section .nav-link .nav-topic-title {
+    display: none;
+  }
+  .navigation-section .nav-link span:not(.nav-topic-title) {
+    font-size: 0.875rem;
+    color: #4CAF50;
+  }
+}
+@media (max-width: 0) {
+  .navigation-section .nav-link {
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .navigation-section .nav-link i {
+    font-size: 1.125rem;
+  }
+}
+.navigation-section .nav-previous {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-align: left;
+}
+.navigation-section .nav-previous i {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+.navigation-section .nav-next {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+.navigation-section .nav-next i {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
 .code-playground .playground-tabs {
   display: -webkit-box;
   display: -ms-flexbox;

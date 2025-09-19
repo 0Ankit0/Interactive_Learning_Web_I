@@ -25,6 +25,18 @@ document.addEventListener('DOMContentLoaded', function () {
         loadTimeline(currentTopicData.timeline.events);
     }
 
+    // Initialize browser info demo if button exists
+    const browserInfoBtn = document.getElementById('browserInfoBtn');
+    if (browserInfoBtn) {
+        browserInfoBtn.addEventListener('click', showBrowserInfo);
+    }
+
+    // Initialize HTTP request demo if button exists
+    const httpRequestBtn = document.getElementById('httpRequestBtn');
+    if (httpRequestBtn) {
+        httpRequestBtn.addEventListener('click', makeHttpRequest);
+    }
+
     // Add scroll listener to update active section as user scrolls
     let scrollTimeout;
     window.addEventListener('scroll', function () {
@@ -324,4 +336,98 @@ function loadTimeline(events) {
 
         timelineContainer.appendChild(timelineItem);
     });
+}
+
+// Browser Info Demo Function
+function showBrowserInfo() {
+    const browserInfoDiv = document.getElementById('browserInfo');
+    const browserDetailsList = document.getElementById('browserDetails');
+
+    if (!browserInfoDiv || !browserDetailsList) {
+        console.error('Browser info demo elements not found');
+        return;
+    }
+
+    // Clear existing content
+    browserDetailsList.innerHTML = '';
+
+    // Get browser information
+    const browserInfo = {
+        'Browser Name': navigator.appName,
+        'Browser Version': navigator.appVersion,
+        'User Agent': navigator.userAgent,
+        'Platform': navigator.platform,
+        'Language': navigator.language,
+        'Cookies Enabled': navigator.cookieEnabled ? 'Yes' : 'No',
+        'Online Status': navigator.onLine ? 'Online' : 'Offline',
+        'Screen Resolution': `${screen.width} x ${screen.height}`,
+        'Viewport Size': `${window.innerWidth} x ${window.innerHeight}`,
+        'Color Depth': `${screen.colorDepth} bits`,
+        'Timezone': Intl.DateTimeFormat().resolvedOptions().timeZone
+    };
+
+    // Create list items for each piece of information
+    Object.entries(browserInfo).forEach(([key, value]) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${key}:</strong> ${value}`;
+        browserDetailsList.appendChild(listItem);
+    });
+
+    // Show the browser info div
+    browserInfoDiv.style.display = 'block';
+
+    // Scroll to the browser info section
+    browserInfoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// HTTP Request Demo Function
+function makeHttpRequest() {
+    const httpResponseDiv = document.getElementById('httpResponse');
+    const responseDataPre = document.getElementById('responseData');
+    const httpRequestBtn = document.getElementById('httpRequestBtn');
+
+    if (!httpResponseDiv || !responseDataPre || !httpRequestBtn) {
+        console.error('HTTP request demo elements not found');
+        return;
+    }
+
+    // Show loading state
+    httpRequestBtn.disabled = true;
+    httpRequestBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Making Request...';
+    responseDataPre.textContent = 'Loading...';
+
+    // Show the response div
+    httpResponseDiv.style.display = 'block';
+
+    // Make HTTP request to a public API
+    fetch('https://httpbin.org/get')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Format the response data for display
+            const formattedData = {
+                url: data.url,
+                origin: data.origin,
+                headers: data.headers,
+                timestamp: new Date().toLocaleString()
+            };
+
+            responseDataPre.textContent = JSON.stringify(formattedData, null, 2);
+        })
+        .catch(error => {
+            responseDataPre.textContent = `Error: ${error.message}\n\nThis could be due to:\n- Network connectivity issues\n- CORS restrictions\n- API being unavailable\n\nTry refreshing the page and trying again.`;
+            console.error('HTTP Request Error:', error);
+        })
+        .finally(() => {
+            // Reset button state
+            httpRequestBtn.disabled = false;
+            httpRequestBtn.innerHTML = '<i class="fas fa-play"></i> Make HTTP Request';
+        });
+
+    // Scroll to the HTTP response section
+    httpResponseDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

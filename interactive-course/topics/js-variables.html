@@ -772,26 +772,19 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
 
         <!-- Navigation -->
         <section class="navigation-section">
-          <div class="nav-buttons">
-            <button class="btn btn-secondary" onclick="window.location.href='js-embedding.html'">
-              <i class="fas fa-arrow-left"></i> Previous: Embedding JavaScript
-            </button>
-            <button class="btn btn-primary" onclick="window.location.href='js-operators.html'">
-              Next: Operators & Expressions <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
+          <a href="js-embedding.html" class="nav-link nav-previous">
+            <i class="fas fa-arrow-left"></i>
+            <span>Previous Topic</span>
+            <span class="nav-topic-title">Embedding JavaScript</span>
+          </a>
+          <a href="js-operators.html" class="nav-link nav-next">
+            <span>Next Topic</span>
+            <span class="nav-topic-title">JavaScript Operators</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </section>
       </div>
     </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2025 Web Technology I Course. Master JavaScript variables and
-          data types.
-        </p>
-      </div>
-    </footer>
 
     <!-- JavaScript functionality -->
     <script src="../dist/js/main.js"></script>
