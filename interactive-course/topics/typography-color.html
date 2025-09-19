@@ -3,59 +3,397 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typography & Color Theory - Interactive Course</title>
+    <title>Typography & Color Theory - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="breadcrumb">
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         <span class="separator">/</span>
-        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <a href="../units/unit1.html">Unit 1</a>
         <span class="separator">/</span>
-        <span class="active">Typography & Color Theory</span>
+        <span class="current">Typography & Color Theory</span>
       </div>
     </nav>
 
     <header class="topic-header">
       <div class="container">
-        <div class="header-content">
-          <div class="icon-container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-paint-brush"></i>
           </div>
-          <div class="text-container">
+          <div class="topic-header-text">
             <h1 class="topic-title">Typography & Color Theory</h1>
-            <p class="topic-subtitle">Visual Design Fundamentals</p>
+            <p class="topic-subtitle">
+              Master the fundamentals of typography and color theory
+            </p>
             <p class="topic-description">
-              Master the fundamentals of typography and color theory to create
-              visually appealing and accessible web designs. Learn about font
-              selection, color psychology, contrast, and how to apply these
-              principles effectively in web development.
+              Learn about font selection, color psychology, contrast, and how to apply these principles effectively in web development.
             </p>
           </div>
         </div>
-        <div class="progress-container">
-          <div class="progress-bar" id="topic-progress"></div>
-          <span class="progress-text">0% Complete</span>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
     </header>
 
-      <main class="main-content">
-        <!-- Typography Fundamentals Section -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-font"></i> Typography Fundamentals</h2>
-          <p class="section-intro">
-            Typography is the art and technique of arranging type to make
-            written language legible, readable, and appealing. In web design,
-            typography plays a crucial role in user experience, accessibility,
-            and brand communication.
-          </p>
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Typography Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#font-selection"
+                      onclick="scrollToSection('font-selection')"
+                      >Font Selection</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#font-hierarchy"
+                      onclick="scrollToSection('font-hierarchy')"
+                      >Font Hierarchy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#readability"
+                      onclick="scrollToSection('readability')"
+                      >Readability</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Color Theory</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#color-psychology"
+                      onclick="scrollToSection('color-psychology')"
+                      >Color Psychology</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#color-harmony"
+                      onclick="scrollToSection('color-harmony')"
+                      >Color Harmony</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#contrast-accessibility"
+                      onclick="scrollToSection('contrast-accessibility')"
+                      >Contrast & Accessibility</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#practical-application"
+                  onclick="scrollToSection('practical-application')"
+                  >Practical Application</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#design-tools"
+                  onclick="scrollToSection('design-tools')"
+                  >Design Tools & Resources</a
+                >
+              </li>
+            </ul>
+          </aside>
 
-          <div class="concept-tabs">
+          <div class="content-main">
+            <!-- Typography Fundamentals -->
+            <section class="content-section" id="font-selection">
+              <h2 class="section-header"><i class="fas fa-font"></i> Font Selection</h2>
+              <p class="lead">
+                Typography is the art and technique of arranging type to make written language legible, readable, and appealing. In web design, typography plays a crucial role in user experience, accessibility, and brand communication.
+              </p>
+              <div class="concept-tabs">
+                <div class="tab-item">
+                  <div class="tab-icon">
+                    <i class="fas fa-pen-nib"></i>
+                  </div>
+                  <h3 class="tab-title">Type Anatomy</h3>
+                  <p class="tab-description">
+                    Understanding the basic structure and terminology of letterforms
+                  </p>
+                </div>
+                <div class="tab-item">
+                  <div class="tab-icon">
+                    <i class="fas fa-sitemap"></i>
+                  </div>
+                  <h3 class="tab-title">Typographic Hierarchy</h3>
+                  <p class="tab-description">
+                    Creating visual order and importance through type variations
+                  </p>
+                </div>
+                <div class="tab-item">
+                  <div class="tab-icon">
+                    <i class="fas fa-link"></i>
+                  </div>
+                  <h3 class="tab-title">Font Pairing</h3>
+                  <p class="tab-description">Combining fonts harmoniously for effective communication</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="content-section" id="font-hierarchy">
+              <h2 class="section-header"><i class="fas fa-sitemap"></i> Font Hierarchy</h2>
+              <p class="lead">
+                Create clear information hierarchy using size, weight, color, and spacing to guide readers through your content.
+              </p>
+              <div class="hierarchy-tool">
+                <div class="tool-controls">
+                  <div class="form-group">
+                    <label for="h1-size">H1 Size</label>
+                    <input
+                      type="range"
+                      id="h1-size"
+                      class="form-control"
+                      min="24"
+                      max="48"
+                      value="36"
+                    />
+                    <span id="h1-size-value">36px</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="body-size">Body Size</label>
+                    <input
+                      type="range"
+                      id="body-size"
+                      class="form-control"
+                      min="14"
+                      max="20"
+                      value="16"
+                    />
+                    <span id="body-size-value">16px</span>
+                  </div>
+                </div>
+                <div class="hierarchy-preview">
+                  <h1 id="preview-h1">Main Heading</h1>
+                  <h2 id="preview-h2">Secondary Heading</h2>
+                  <p id="preview-body">
+                    This is body text that demonstrates how different text sizes work together to create visual hierarchy.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="content-section" id="readability">
+              <h2 class="section-header"><i class="fas fa-eye"></i> Readability</h2>
+              <p class="lead">
+                Understanding the anatomy of typefaces helps you make informed decisions about font selection and text treatment.
+              </p>
+              <div class="anatomy-diagram">
+                <div class="diagram-image">
+                  <span class="font-sample">Typography</span>
+                  <div class="annotations">
+                    <div class="annotation cap-height" data-label="Cap Height"></div>
+                    <div class="annotation x-height" data-label="X-Height"></div>
+                    <div class="annotation baseline" data-label="Baseline"></div>
+                    <div class="annotation descender" data-label="Descender"></div>
+                  </div>
+                </div>
+                <div class="term-definitions">
+                  <div class="definition-item">
+                    <strong>Baseline:</strong> The imaginary line where letters sit
+                  </div>
+                  <div class="definition-item">
+                    <strong>X-Height:</strong> Height of lowercase letters like 'x'
+                  </div>
+                  <div class="definition-item">
+                    <strong>Cap Height:</strong> Height of capital letters
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Color Theory -->
+            <section class="content-section" id="color-psychology">
+              <h2 class="section-header"><i class="fas fa-brain"></i> Color Psychology</h2>
+              <p class="lead">
+                Colors evoke emotions and influence user behavior. Understanding color psychology helps create better user experiences.
+              </p>
+              <div class="color-examples">
+                <div class="color-card">
+                  <div class="color-sample blue"></div>
+                  <h3>Blue</h3>
+                  <p>Trust, reliability, calmness</p>
+                </div>
+                <div class="color-card">
+                  <div class="color-sample green"></div>
+                  <h3>Green</h3>
+                  <p>Growth, harmony, freshness</p>
+                </div>
+                <div class="color-card">
+                  <div class="color-sample red"></div>
+                  <h3>Red</h3>
+                  <p>Energy, passion, urgency</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="content-section" id="color-harmony">
+              <h2 class="section-header"><i class="fas fa-palette"></i> Color Harmony</h2>
+              <p class="lead">
+                Learn to combine colors effectively using color theory principles like complementary, analogous, and triadic color schemes.
+              </p>
+              <div class="color-wheel">
+                <div class="wheel-section primary">Primary</div>
+                <div class="wheel-section secondary">Secondary</div>
+                <div class="wheel-section tertiary">Tertiary</div>
+              </div>
+            </section>
+
+            <section class="content-section" id="contrast-accessibility">
+              <h2 class="section-header"><i class="fas fa-adjust"></i> Contrast & Accessibility</h2>
+              <p class="lead">
+                Ensure your color choices meet accessibility standards and provide sufficient contrast for all users.
+              </p>
+              <div class="contrast-examples">
+                <div class="contrast-test">
+                  <div class="text-on-background good-contrast">
+                    <span>Good Contrast</span>
+                  </div>
+                  <div class="text-on-background poor-contrast">
+                    <span>Poor Contrast</span>
+                  </div>
+                </div>
+                <div class="wcag-standards">
+                  <h4>WCAG Guidelines</h4>
+                  <ul>
+                    <li>Normal text: 4.5:1 contrast ratio</li>
+                    <li>Large text: 3:1 contrast ratio</li>
+                    <li>Graphics: 3:1 contrast ratio</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="content-section" id="practical-application">
+              <h2 class="section-header"><i class="fas fa-cogs"></i> Practical Application</h2>
+              <p class="lead">
+                Apply typography and color theory principles to real-world web design scenarios.
+              </p>
+              <div class="application-examples">
+                <div class="example-card">
+                  <h3>E-commerce Site</h3>
+                  <p>Use high-contrast colors for CTAs and clear typography hierarchy for product information.</p>
+                </div>
+                <div class="example-card">
+                  <h3>Blog/Content Site</h3>
+                  <p>Focus on readability with appropriate line spacing and color schemes that reduce eye strain.</p>
+                </div>
+                <div class="example-card">
+                  <h3>Corporate Website</h3>
+                  <p>Use brand colors consistently and establish clear typographic hierarchy for professional appearance.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="content-section" id="design-tools">
+              <h2 class="section-header"><i class="fas fa-tools"></i> Design Tools & Resources</h2>
+              <p class="lead">
+                Essential tools and resources for implementing typography and color theory in your designs.
+              </p>
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <i class="fab fa-google"></i>
+                  <h3>Google Fonts</h3>
+                  <p>Free, open-source fonts with excellent web optimization</p>
+                </div>
+                <div class="tool-card">
+                  <i class="fas fa-palette"></i>
+                  <h3>Coolors</h3>
+                  <p>Color palette generator with accessibility checking</p>
+                </div>
+                <div class="tool-card">
+                  <i class="fas fa-adjust"></i>
+                  <h3>Contrast Checker</h3>
+                  <p>Verify color contrast ratios for accessibility compliance</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Web Technology I</h3>
+            <p>Interactive course on modern web development</p>
+          </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../units/unit1.html">Unit 1</a></li>
+              <li><a href="#font-selection">Typography</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#color-psychology">Color Theory</a></li>
+              <li><a href="#design-tools">Design Tools</a></li>
+              <li><a href="#practical-application">Applications</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Web Technology I Course. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  </body>
+</html>
             <div class="tab-item" data-concept="anatomy">
               <div class="tab-icon">
                 <i class="fas fa-pen-nib"></i>
@@ -817,202 +1155,59 @@ p {
               </div>
             </div>
           </div>
-        </section>
+        </section><section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-        <!-- Interactive Quiz -->
-        <section class="topic-section">
-          <h2 class="section-header">
-            <i class="fas fa-question-circle"></i> Typography & Color Quiz
-          </h2>
-          <div class="quiz-container">
-            <div class="quiz-question" data-question="1">
-              <div class="question-header">
-                <span class="question-number">1</span>
-                <h3 class="question-title">What is the optimal line length for readability?</h3>
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
               </div>
-              <ul class="options-list">
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="a" />
-                    <span>40-50 characters</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="b" />
-                    <span>45-75 characters</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="c" />
-                    <span>80-100 characters</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="d" />
-                    <span>100+ characters</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question" data-question="2">
-              <div class="question-header">
-                <span class="question-number">2</span>
-                <h3 class="question-title">Which color combination provides the highest contrast?</h3>
-              </div>
-              <ul class="options-list">
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="a" />
-                    <span>Blue text on white background</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="b" />
-                    <span>Black text on white background</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="c" />
-                    <span>Gray text on white background</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="d" />
-                    <span>Red text on green background</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question" data-question="3">
-              <div class="question-header">
-                <span class="question-number">3</span>
-                <h3 class="question-title">
-                  What is the minimum contrast ratio for normal text according
-                  to WCAG AA?
-                </h3>
-              </div>
-              <ul class="options-list">
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="a" />
-                    <span>3:1</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="b" />
-                    <span>4.5:1</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="c" />
-                    <span>7:1</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="d" />
-                    <span>10:1</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question" data-question="4">
-              <div class="question-header">
-                <span class="question-number">4</span>
-                <h3 class="question-title">
-                  Which font pairing principle creates effective contrast?
-                </h3>
-              </div>
-              <ul class="options-list">
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q4" value="a" />
-                    <span>Use fonts from the same family</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q4" value="b" />
-                    <span>Pair serif with sans-serif</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q4" value="c" />
-                    <span>Use similar x-heights</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q4" value="d" />
-                    <span>Match letter spacing exactly</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question" data-question="5">
-              <div class="question-header">
-                <span class="question-number">5</span>
-                <h3 class="question-title">What does HSL stand for in color theory?</h3>
-              </div>
-              <ul class="options-list">
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q5" value="a" />
-                    <span>High Saturation Light</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q5" value="b" />
-                    <span>Hue, Saturation, Lightness</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q5" value="c" />
-                    <span>HTML Style Language</span>
-                  </label>
-                </li>
-                <li>
-                  <label class="option-label">
-                    <input type="radio" name="q5" value="d" />
-                    <span>Hexadecimal Style Layout</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-controls">
-              <button class="btn btn-primary" id="check-answers">
-                <i class="fas fa-check"></i>
-                Check Answers
-              </button>
-              <button class="btn btn-secondary" id="reset-quiz">
-                <i class="fas fa-sync-alt"></i>
-                Reset Quiz
-              </button>
-            </div>
-
-            <div class="quiz-results" id="quiz-results">
-              <h3 class="results-title"><i class="fas fa-poll"></i> Quiz Results</h3>
-              <p class="results-summary">You scored <span id="score">0</span> out of 5!</p>
-              <div class="result-details" id="result-message"></div>
-            </div>
-          </div>
-        </section>
+            </section>
       </main>
 
       <footer class="footer">

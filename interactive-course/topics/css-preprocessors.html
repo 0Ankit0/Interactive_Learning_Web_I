@@ -8,259 +8,288 @@
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Preprocessors (SASS, LESS) - Interactive Web Course</title>
-    <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="breadcrumb">
-      <div class="container">
-        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-        <span class="separator">/</span>
-        <a href="../units/unit3.html">Unit 3: CSS</a>
-        <span class="separator">/</span>
-        <span class="current">CSS Preprocessors</span>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <!-- Hero Section -->
-        <header class="topic-header">
-          <div class="topic-header-content">
-            <div class="topic-icon-large">
-              <div class="topic-icon-large-inner">
-                <i class="fab fa-sass"></i>
-              </div>
-              <div class="topic-header-text">
-                <h1 class="topic-title">CSS Preprocessors: SASS & LESS</h1>
-                <p class="topic-subtitle">Supercharge Your CSS Development</p>
-                <p class="topic-description">
-                  Supercharge your CSS development with preprocessors! Learn
-                  SASS and LESS to write more maintainable, organized, and
-                  powerful stylesheets with variables, nesting, functions, and
-                  more.
-                </p>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
-              <span class="progress-text">0% Complete</span>
-            </div>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Preprocessors (SASS, LESS) - Interactive Web Course</title>
+        <link rel="stylesheet" href="../dist/css/main.css" />
+        <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+        <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+      </head>
+      <body>
+        <!-- Navigation -->
+        <nav class="breadcrumb">
+          <div class="container">
+            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+            <span class="separator">/</span>
+            <a href="../units/unit3.html">Unit 3: CSS</a>
+            <span class="separator">/</span>
+            <span class="current">CSS Preprocessors</span>
           </div>
-        </header>
+        </nav>
 
-        <!-- Learning Objectives -->
-        <section class="content-section">
-          <div class="section-header">
-            <h2 class="section-title"><i class="fas fa-bullseye"></i> Learning Objectives</h2>
-          </div>
-          <div class="feature-grid four-column">
-            <div class="feature-card">
-              <div class="card-icon">
-                <div class="card-icon-inner">
-                  <i class="fab fa-sass"></i>
+        <!-- Main Content -->
+        <main class="main-content">
+          <div class="container">
+            <!-- Hero Section -->
+            <header class="topic-header">
+              <div class="topic-header-content">
+                <div class="topic-icon-large">
+                  <div class="topic-icon-large-inner">
+                    <i class="fab fa-sass"></i>
+                  </div>
+                  <div class="topic-header-text">
+                    <h1 class="topic-title">CSS Preprocessors: SASS & LESS</h1>
+                    <p class="topic-subtitle">
+                      Supercharge Your CSS Development
+                    </p>
+                    <p class="topic-description">
+                      Supercharge your CSS development with preprocessors! Learn
+                      SASS and LESS to write more maintainable, organized, and
+                      powerful stylesheets with variables, nesting, functions,
+                      and more.
+                    </p>
+                  </div>
                 </div>
-                <h3 class="card-title">Master SASS</h3>
+                <div class="progress-bar">
+                  <div
+                    class="progress-fill"
+                    id="topic-progress"
+                    style="width: 0%"
+                  ></div>
+                  <span class="progress-text">0% Complete</span>
+                </div>
+              </div>
+            </header>
+
+            <!-- Learning Objectives -->
+            <section class="content-section">
+              <div class="section-header">
+                <h2 class="section-title">
+                  <i class="fas fa-bullseye"></i> Learning Objectives
+                </h2>
+              </div>
+              <div class="feature-grid four-column">
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <div class="card-icon-inner">
+                      <i class="fab fa-sass"></i>
+                    </div>
+                    <h3 class="card-title">Master SASS</h3>
+                    <p class="card-description">
+                      Learn SASS syntax, variables, nesting, mixins, and
+                      advanced features for efficient CSS development.
+                    </p>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <div class="card-icon-inner">
+                        <i class="fab fa-less"></i>
+                      </div>
+                      <h3 class="card-title">Understand LESS</h3>
+                      <p class="card-description">
+                        Explore LESS features, syntax differences, and when to
+                        choose LESS over other preprocessors.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <div class="card-icon-inner">
+                        <i class="fas fa-cogs"></i>
+                      </div>
+                      <h3 class="card-title">Build Workflows</h3>
+                      <p class="card-description">
+                        Set up preprocessing workflows with build tools, watch
+                        tasks, and automated compilation.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <div class="card-icon-inner">
+                        <i class="fas fa-clipboard-check"></i>
+                      </div>
+                      <h3 class="card-title">Best Practices</h3>
+                      <p class="card-description">
+                        Apply organizational strategies, naming conventions, and
+                        maintainable architecture patterns.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Preprocessor Comparison -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-balance-scale"></i> CSS Preprocessors Overview
+              </h2>
+              <p class="lead">
+                CSS preprocessors extend CSS with programming features like
+                variables, functions, and nesting. They compile to standard CSS,
+                making your stylesheets more maintainable and powerful.
+              </p>
+
+              <div class="topic-grid three-column">
+                <div class="topic-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <i class="fab fa-sass"></i>
+                      <h3 class="card-title">SASS (SCSS)</h3>
+                      <span class="badge badge-primary">Most Popular</span>
+                    </div>
+                    <div class="card-body">
+                      <div class="feature-list">
+                        <h4 class="list-title">Key Features</h4>
+                        <ul class="list-items">
+                          <li>Variables and nesting</li>
+                          <li>Mixins and functions</li>
+                          <li>Inheritance with @extend</li>
+                          <li>Control directives (if, for, while)</li>
+                          <li>Modular imports and partials</li>
+                          <li>Built-in functions</li>
+                        </ul>
+                      </div>
+                      <div class="code-example">
+                        <strong>Syntax Style:</strong>
+                        <code>.nested { color: $primary; }</code>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="card-header">
+                      <i class="fab fa-less"></i>
+                      <h3 class="card-title">LESS</h3>
+                      <span class="badge badge-secondary"
+                        >JavaScript-based</span
+                      >
+                    </div>
+                    <div class="card-body">
+                      <div class="feature-list">
+                        <h4 class="list-title">Key Features</h4>
+                        <ul class="list-items">
+                          <li>Variables and nesting</li>
+                          <li>Mixins with parameters</li>
+                          <li>Functions and operations</li>
+                          <li>Client-side compilation</li>
+                          <li>Bootstrap framework usage</li>
+                          <li>Simple syntax</li>
+                        </ul>
+                      </div>
+                      <div class="code-example">
+                        <strong>Syntax Style:</strong>
+                        <code>.nested { color: @primary; }</code>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <div class="card-header">
+                      <i class="fas fa-feather-alt"></i>
+                      <h3 class="card-title">Stylus</h3>
+                      <span class="badge badge-info">Flexible</span>
+                    </div>
+                    <div class="card-body">
+                      <div class="feature-list">
+                        <h4 class="list-title">Key Features</h4>
+                        <ul class="list-items">
+                          <li>Optional braces and semicolons</li>
+                          <li>Transparent mixins</li>
+                          <li>Robust conditionals</li>
+                          <li>Built-in functions</li>
+                          <li>Flexible syntax options</li>
+                          <li>Node.js integration</li>
+                        </ul>
+                      </div>
+                      <div class="code-example">
+                        <strong>Syntax Style:</strong>
+                        <code>.nested<br />&nbsp;&nbsp;color primary</code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Comparison Tool -->
+              <div class="interactive-demo">
+                <h4 class="demo-title">
+                  <i class="fas fa-exchange-alt"></i> Interactive Preprocessor
+                  Comparison
+                </h4>
+                <p class="demo-description">
+                  Compare how the same styles are written in different
+                  preprocessors:
+                </p>
+
+                <div class="demo-controls">
+                  <div class="form-group">
+                    <label for="styleExample">Choose Example:</label>
+                    <select id="styleExample" class="form-select">
+                      <option value="variables">Variables</option>
+                      <option value="nesting">Nesting</option>
+                      <option value="mixins">Mixins</option>
+                      <option value="functions">Functions</option>
+                      <option value="loops">Loops</option>
+                    </select>
+                  </div>
+
+                  <div class="code-comparison">
+                    <div class="code-block">
+                      <h5 class="code-title">
+                        <i class="fab fa-sass"></i> SASS/SCSS
+                      </h5>
+                      <pre><code id="sassCode" class="language-scss">// SASS code will appear here</code></pre>
+                    </div>
+                    <div class="code-block">
+                      <h5 class="code-title">
+                        <i class="fab fa-less"></i> LESS
+                      </h5>
+                      <pre><code id="lessCode" class="language-less">// LESS code will appear here</code></pre>
+                    </div>
+                    <div class="code-block">
+                      <h5 class="code-title">
+                        <i class="fab fa-css3-alt"></i> Compiled CSS
+                      </h5>
+                      <pre><code id="cssCode" class="language-css">/* Compiled CSS will appear here */</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- SASS Deep Dive -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fab fa-sass"></i> SASS/SCSS Deep Dive
+              </h2>
+              <p class="lead">
+                SASS (Syntactically Awesome StyleSheets) is the most popular CSS
+                preprocessor, offering two syntaxes: the indented SASS syntax
+                and the CSS-like SCSS syntax.
+              </p>
+
+              <!-- Variables -->
+              <div class="topic-card">
+                <h3 class="card-title">
+                  <i class="fas fa-dollar-sign"></i> Variables
+                </h3>
                 <p class="card-description">
-                  Learn SASS syntax, variables, nesting, mixins, and advanced
-                  features for efficient CSS development.
+                  Store values in variables for reuse and easy maintenance.
                 </p>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <div class="card-icon-inner">
-                    <i class="fab fa-less"></i>
-                  </div>
-                  <h3 class="card-title">Understand LESS</h3>
-                  <p class="card-description">
-                    Explore LESS features, syntax differences, and when to choose
-                    LESS over other preprocessors.
-                  </p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <div class="card-icon-inner">
-                    <i class="fas fa-cogs"></i>
-                  </div>
-                  <h3 class="card-title">Build Workflows</h3>
-                  <p class="card-description">
-                    Set up preprocessing workflows with build tools, watch tasks,
-                    and automated compilation.
-                  </p>
-                </div>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <div class="card-icon-inner">
-                    <i class="fas fa-clipboard-check"></i>
-                  </div>
-                  <h3 class="card-title">Best Practices</h3>
-                  <p class="card-description">
-                    Apply organizational strategies, naming conventions, and
-                    maintainable architecture patterns.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <!-- Preprocessor Comparison -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-balance-scale"></i> CSS Preprocessors Overview</h2>
-          <p class="lead">
-            CSS preprocessors extend CSS with programming features like
-            variables, functions, and nesting. They compile to standard CSS,
-            making your stylesheets more maintainable and powerful.
-          </p>
-
-          <div class="topic-grid three-column">
-            <div class="topic-card">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fab fa-sass"></i>
-                  <h3 class="card-title">SASS (SCSS)</h3>
-                  <span class="badge badge-primary">Most Popular</span>
-                </div>
-                <div class="card-body">
-                  <div class="feature-list">
-                    <h4 class="list-title">Key Features</h4>
-                    <ul class="list-items">
-                      <li>Variables and nesting</li>
-                      <li>Mixins and functions</li>
-                      <li>Inheritance with @extend</li>
-                      <li>Control directives (if, for, while)</li>
-                      <li>Modular imports and partials</li>
-                      <li>Built-in functions</li>
-                    </ul>
-                  </div>
-                  <div class="code-example">
-                    <strong>Syntax Style:</strong>
-                    <code>.nested { color: $primary; }</code>
-                  </div>
-                </div>
-              </div>
-
-              <div class="topic-card">
-                <div class="card-header">
-                  <i class="fab fa-less"></i>
-                  <h3 class="card-title">LESS</h3>
-                  <span class="badge badge-secondary">JavaScript-based</span>
-                </div>
-                <div class="card-body">
-                  <div class="feature-list">
-                    <h4 class="list-title">Key Features</h4>
-                    <ul class="list-items">
-                      <li>Variables and nesting</li>
-                      <li>Mixins with parameters</li>
-                      <li>Functions and operations</li>
-                      <li>Client-side compilation</li>
-                      <li>Bootstrap framework usage</li>
-                      <li>Simple syntax</li>
-                    </ul>
-                  </div>
-                  <div class="code-example">
-                    <strong>Syntax Style:</strong>
-                    <code>.nested { color: @primary; }</code>
-                  </div>
-                </div>
-              </div>
-
-              <div class="topic-card">
-                <div class="card-header">
-                  <i class="fas fa-feather-alt"></i>
-                  <h3 class="card-title">Stylus</h3>
-                  <span class="badge badge-info">Flexible</span>
-                </div>
-                <div class="card-body">
-                  <div class="feature-list">
-                    <h4 class="list-title">Key Features</h4>
-                    <ul class="list-items">
-                      <li>Optional braces and semicolons</li>
-                      <li>Transparent mixins</li>
-                      <li>Robust conditionals</li>
-                      <li>Built-in functions</li>
-                      <li>Flexible syntax options</li>
-                      <li>Node.js integration</li>
-                    </ul>
-                  </div>
-                  <div class="code-example">
-                    <strong>Syntax Style:</strong>
-                    <code>.nested<br />&nbsp;&nbsp;color primary</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Comparison Tool -->
-          <div class="interactive-demo">
-            <h4 class="demo-title"><i class="fas fa-exchange-alt"></i> Interactive Preprocessor Comparison</h4>
-            <p class="demo-description">
-              Compare how the same styles are written in different
-              preprocessors:
-            </p>
-
-            <div class="demo-controls">
-              <div class="form-group">
-                <label for="styleExample">Choose Example:</label>
-                <select id="styleExample" class="form-select">
-                  <option value="variables">Variables</option>
-                  <option value="nesting">Nesting</option>
-                  <option value="mixins">Mixins</option>
-                  <option value="functions">Functions</option>
-                  <option value="loops">Loops</option>
-                </select>
-              </div>
-
-              <div class="code-comparison">
                 <div class="code-block">
-                  <h5 class="code-title"><i class="fab fa-sass"></i> SASS/SCSS</h5>
-                  <pre><code id="sassCode" class="language-scss">// SASS code will appear here</code></pre>
-                </div>
-                <div class="code-block">
-                  <h5 class="code-title"><i class="fab fa-less"></i> LESS</h5>
-                  <pre><code id="lessCode" class="language-less">// LESS code will appear here</code></pre>
-                </div>
-                <div class="code-block">
-                  <h5 class="code-title"><i class="fab fa-css3-alt"></i> Compiled CSS</h5>
-                  <pre><code id="cssCode" class="language-css">/* Compiled CSS will appear here */</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SASS Deep Dive -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fab fa-sass"></i> SASS/SCSS Deep Dive</h2>
-          <p class="lead">
-            SASS (Syntactically Awesome StyleSheets) is the most popular CSS
-            preprocessor, offering two syntaxes: the indented SASS syntax and
-            the CSS-like SCSS syntax.
-          </p>
-
-          <!-- Variables -->
-          <div class="topic-card">
-            <h3 class="card-title"><i class="fas fa-dollar-sign"></i> Variables</h3>
-            <p class="card-description">Store values in variables for reuse and easy maintenance.</p>
-
-            <div class="code-block">
-              <div class="code-header">
-                <h4 class="code-title"><i class="fab fa-sass"></i> SASS Variables</h4>
-                <span class="badge badge-scss">SCSS</span>
-              </div>
-              <pre><code class="language-scss">// Color variables
+                  <div class="code-header">
+                    <h4 class="code-title">
+                      <i class="fab fa-sass"></i> SASS Variables
+                    </h4>
+                    <span class="badge badge-scss">SCSS</span>
+                  </div>
+                  <pre><code class="language-scss">// Color variables
 $primary: #3498db;
 $secondary-color: #2ecc71;
 $accent-color: #e74c3c;
@@ -289,23 +318,27 @@ $heading-font: 'Georgia', serif;
     background-color: darken($primary, 10%);
   }
 }</code></pre>
-            </div>
-          </div>
-
-          <!-- Nesting -->
-          <div class="topic-card">
-            <h3 class="card-title"><i class="fas fa-sitemap"></i> Nesting</h3>
-            <p class="card-description">
-              Nest CSS selectors to match your HTML hierarchy for better
-              organization.
-            </p>
-
-            <div class="code-block">
-              <div class="code-header">
-                <h4 class="code-title"><i class="fab fa-sass"></i> Nesting Example</h4>
-                <span class="badge badge-scss">SCSS</span>
+                </div>
               </div>
-              <pre><code class="language-scss">// SCSS with nesting
+
+              <!-- Nesting -->
+              <div class="topic-card">
+                <h3 class="card-title">
+                  <i class="fas fa-sitemap"></i> Nesting
+                </h3>
+                <p class="card-description">
+                  Nest CSS selectors to match your HTML hierarchy for better
+                  organization.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4 class="code-title">
+                      <i class="fab fa-sass"></i> Nesting Example
+                    </h4>
+                    <span class="badge badge-scss">SCSS</span>
+                  </div>
+                  <pre><code class="language-scss">// SCSS with nesting
 .navigation {
   background: $primary;
   padding: 1rem;
@@ -346,23 +379,27 @@ $heading-font: 'Georgia', serif;
     z-index: 1000;
   }
 }</code></pre>
-            </div>
-          </div>
-
-          <!-- Mixins -->
-          <div class="topic-card">
-            <h3 class="card-title"><i class="fas fa-blender"></i> Mixins</h3>
-            <p class="card-description">
-              Create reusable groups of CSS declarations with optional
-              parameters.
-            </p>
-
-            <div class="code-block">
-              <div class="code-header">
-                <h4 class="code-title"><i class="fab fa-sass"></i> SASS Mixins</h4>
-                <span class="badge badge-scss">SCSS</span>
+                </div>
               </div>
-              <pre><code class="language-scss">// Button mixin with parameters
+
+              <!-- Mixins -->
+              <div class="topic-card">
+                <h3 class="card-title">
+                  <i class="fas fa-blender"></i> Mixins
+                </h3>
+                <p class="card-description">
+                  Create reusable groups of CSS declarations with optional
+                  parameters.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4 class="code-title">
+                      <i class="fab fa-sass"></i> SASS Mixins
+                    </h4>
+                    <span class="badge badge-scss">SCSS</span>
+                  </div>
+                  <pre><code class="language-scss">// Button mixin with parameters
 @mixin button-style($bg-color: $primary, $text-color: white, $size: medium) {
   background: $bg-color;
   color: $text-color;
@@ -429,23 +466,27 @@ $heading-font: 'Georgia', serif;
     padding: 2rem;
   }
 }</code></pre>
-            </div>
-          </div>
-
-          <!-- Functions and Extensions -->
-          <div class="topic-card">
-            <h3 class="card-title"><i class="fas fa-calculator"></i> Functions & Extensions</h3>
-            <p class="card-description">
-              Use built-in functions and create custom functions for complex
-              calculations.
-            </p>
-
-            <div class="code-block">
-              <div class="code-header">
-                <h4 class="code-title"><i class="fab fa-sass"></i> SASS Functions</h4>
-                <span class="badge badge-scss">SCSS</span>
+                </div>
               </div>
-              <pre><code class="language-scss">// Custom functions
+
+              <!-- Functions and Extensions -->
+              <div class="topic-card">
+                <h3 class="card-title">
+                  <i class="fas fa-calculator"></i> Functions & Extensions
+                </h3>
+                <p class="card-description">
+                  Use built-in functions and create custom functions for complex
+                  calculations.
+                </p>
+
+                <div class="code-block">
+                  <div class="code-header">
+                    <h4 class="code-title">
+                      <i class="fab fa-sass"></i> SASS Functions
+                    </h4>
+                    <span class="badge badge-scss">SCSS</span>
+                  </div>
+                  <pre><code class="language-scss">// Custom functions
 @function rem($pixels) {
   @return #{$pixels / 16}rem;
 }
@@ -517,70 +558,74 @@ $heading-font: 'Georgia', serif;
   .desaturated { background: desaturate($primary, 30%); }
   .complement { background: complement($primary); }
 }</code></pre>
-            </div>
-          </div>
-        </section>
+                </div>
+              </div>
+            </section>
 
-        <!-- LESS Overview -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fab fa-less"></i> LESS Essentials</h2>
-          <p class="lead">
-            LESS (Leaner Style Sheets) is a JavaScript-based CSS preprocessor
-            that extends CSS with dynamic behavior such as variables, mixins,
-            operations and functions.
-          </p>
+            <!-- LESS Overview -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fab fa-less"></i> LESS Essentials
+              </h2>
+              <p class="lead">
+                LESS (Leaner Style Sheets) is a JavaScript-based CSS
+                preprocessor that extends CSS with dynamic behavior such as
+                variables, mixins, operations and functions.
+              </p>
 
-          <!-- LESS Features -->
-          <div class="feature-grid four-column">
-            <div class="feature-card">
-              <div class="card-icon">
-                <i class="fas fa-at"></i>
+              <!-- LESS Features -->
+              <div class="feature-grid four-column">
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="fas fa-at"></i>
+                  </div>
+                  <h3 class="card-title">Variables</h3>
+                  <p class="card-description">
+                    Use @ symbol for variables, making them easily identifiable
+                    and reusable.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="fas fa-blender"></i>
+                  </div>
+                  <h3 class="card-title">Mixins</h3>
+                  <p class="card-description">
+                    Create reusable mixins with parameters and guards for
+                    conditional logic.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="fas fa-sitemap"></i>
+                  </div>
+                  <h3 class="card-title">Nesting</h3>
+                  <p class="card-description">
+                    Nest rules within other rules to create hierarchical CSS
+                    structures.
+                  </p>
+                </div>
+                <div class="feature-card">
+                  <div class="card-icon">
+                    <i class="fas fa-calculator"></i>
+                  </div>
+                  <h3 class="card-title">Operations</h3>
+                  <p class="card-description">
+                    Perform mathematical operations and string manipulations in
+                    your styles.
+                  </p>
+                </div>
               </div>
-              <h3 class="card-title">Variables</h3>
-              <p class="card-description">
-                Use @ symbol for variables, making them easily identifiable and
-                reusable.
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="card-icon">
-                <i class="fas fa-blender"></i>
-              </div>
-              <h3 class="card-title">Mixins</h3>
-              <p class="card-description">
-                Create reusable mixins with parameters and guards for
-                conditional logic.
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="card-icon">
-                <i class="fas fa-sitemap"></i>
-              </div>
-              <h3 class="card-title">Nesting</h3>
-              <p class="card-description">
-                Nest rules within other rules to create hierarchical CSS
-                structures.
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="card-icon">
-                <i class="fas fa-calculator"></i>
-              </div>
-              <h3 class="card-title">Operations</h3>
-              <p class="card-description">
-                Perform mathematical operations and string manipulations in your
-                styles.
-              </p>
-            </div>
-          </div>
 
-          <!-- LESS Examples -->
-          <div class="code-block">
-            <div class="code-header">
-              <h4 class="code-title"><i class="fab fa-less"></i> LESS Syntax Examples</h4>
-              <span class="badge badge-less">LESS</span>
-            </div>
-            <pre><code class="language-less">// Variables in LESS (using @)
+              <!-- LESS Examples -->
+              <div class="code-block">
+                <div class="code-header">
+                  <h4 class="code-title">
+                    <i class="fab fa-less"></i> LESS Syntax Examples
+                  </h4>
+                  <span class="badge badge-less">LESS</span>
+                </div>
+                <pre><code class="language-less">// Variables in LESS (using @)
 @primary-color: #3498db;
 @secondary-color: #2ecc71;
 @base-font-size: 16px;
@@ -648,41 +693,47 @@ $heading-font: 'Georgia', serif;
 .secondary-button {
   .button-style(@secondary-color, white);
 }</code></pre>
-          </div>
-        </section>
+              </div>
+            </section>
 
-        <!-- Build Tools and Workflow -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-tools"></i> Build Tools & Workflow</h2>
-          <p class="lead">
-            Set up efficient development workflows with popular build tools and
-            task runners for automatic compilation and optimization.
-          </p>
+            <!-- Build Tools and Workflow -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-tools"></i> Build Tools & Workflow
+              </h2>
+              <p class="lead">
+                Set up efficient development workflows with popular build tools
+                and task runners for automatic compilation and optimization.
+              </p>
 
-          <div class="tabbed-content">
-            <div class="tab-buttons">
-              <button class="tab-btn active" data-tool="node-sass">Node.js</button>
-              <button class="tab-btn" data-tool="webpack">Webpack</button>
-              <button class="tab-btn" data-tool="gulp">Gulp</button>
-              <button class="tab-btn" data-tool="vscode">VS Code</button>
-              <button class="tab-btn" data-tool="cli">CLI Tools</button>
-            </div>
+              <div class="tabbed-content">
+                <div class="tab-buttons">
+                  <button class="tab-btn active" data-tool="node-sass">
+                    Node.js
+                  </button>
+                  <button class="tab-btn" data-tool="webpack">Webpack</button>
+                  <button class="tab-btn" data-tool="gulp">Gulp</button>
+                  <button class="tab-btn" data-tool="vscode">VS Code</button>
+                  <button class="tab-btn" data-tool="cli">CLI Tools</button>
+                </div>
 
-            <div class="tab-panels">
-              <div id="node-sass" class="tab-pane active">
-                <h4 class="pane-title"><i class="fab fa-node-js"></i> Node.js Setup</h4>
-                <div class="topic-grid three-column">
-                  <div class="topic-card">
-                    <h5 class="card-title">1. Install Node.js and npm</h5>
-                    <pre><code class="language-bash"># Install SASS globally
+                <div class="tab-panels">
+                  <div id="node-sass" class="tab-pane active">
+                    <h4 class="pane-title">
+                      <i class="fab fa-node-js"></i> Node.js Setup
+                    </h4>
+                    <div class="topic-grid three-column">
+                      <div class="topic-card">
+                        <h5 class="card-title">1. Install Node.js and npm</h5>
+                        <pre><code class="language-bash"># Install SASS globally
 npm install -g sass
 
 # Or install locally in your project
 npm install --save-dev sass</code></pre>
-                  </div>
-                  <div class="topic-card">
-                    <h5 class="card-title">2. Create package.json</h5>
-                    <pre><code class="language-json">{
+                      </div>
+                      <div class="topic-card">
+                        <h5 class="card-title">2. Create package.json</h5>
+                        <pre><code class="language-json">{
   "name": "my-project",
   "version": "1.0.0",
   "scripts": {
@@ -694,10 +745,10 @@ npm install --save-dev sass</code></pre>
     "sass": "^1.50.0"
   }
 }</code></pre>
-                  </div>
-                  <div class="topic-card">
-                    <h5 class="card-title">3. Run build commands</h5>
-                    <pre><code class="language-bash"># Build CSS once
+                      </div>
+                      <div class="topic-card">
+                        <h5 class="card-title">3. Run build commands</h5>
+                        <pre><code class="language-bash"># Build CSS once
 npm run build-css
 
 # Watch for changes
@@ -705,13 +756,15 @@ npm run watch-css
 
 # Build compressed CSS for production
 npm run build-css-compressed</code></pre>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div id="webpack" class="tab-pane">
-                <h4 class="pane-title"><i class="fas fa-box"></i> Webpack Configuration</h4>
-                <pre><code class="language-javascript">// webpack.config.js
+                  <div id="webpack" class="tab-pane">
+                    <h4 class="pane-title">
+                      <i class="fas fa-box"></i> Webpack Configuration
+                    </h4>
+                    <pre><code class="language-javascript">// webpack.config.js
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -739,11 +792,13 @@ module.exports = {
     }),
   ],
 };</code></pre>
-              </div>
+                  </div>
 
-              <div id="gulp" class="tab-pane">
-                <h4 class="pane-title"><i class="fab fa-gulp"></i> Gulp Task Runner</h4>
-                <pre><code class="language-javascript">// gulpfile.js
+                  <div id="gulp" class="tab-pane">
+                    <h4 class="pane-title">
+                      <i class="fab fa-gulp"></i> Gulp Task Runner
+                    </h4>
+                    <pre><code class="language-javascript">// gulpfile.js
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
@@ -767,40 +822,45 @@ function watch() {
 exports.styles = styles;
 exports.watch = watch;
 exports.default = gulp.series(styles, watch);</code></pre>
-              </div>
+                  </div>
 
-              <div id="vscode" class="tab-pane">
-                <h4 class="pane-title"><i class="fas fa-code"></i> VS Code Extensions</h4>
-                <div class="feature-grid three-column">
-                  <div class="feature-card">
-                    <h5 class="card-title">Live Sass Compiler</h5>
-                    <p class="card-description">
-                      Automatically compile SASS/SCSS files to CSS with live
-                      browser reload.
-                    </p>
-                    <code>ritwickdey.live-sass</code>
+                  <div id="vscode" class="tab-pane">
+                    <h4 class="pane-title">
+                      <i class="fas fa-code"></i> VS Code Extensions
+                    </h4>
+                    <div class="feature-grid three-column">
+                      <div class="feature-card">
+                        <h5 class="card-title">Live Sass Compiler</h5>
+                        <p class="card-description">
+                          Automatically compile SASS/SCSS files to CSS with live
+                          browser reload.
+                        </p>
+                        <code>ritwickdey.live-sass</code>
+                      </div>
+                      <div class="feature-card">
+                        <h5 class="card-title">SCSS IntelliSense</h5>
+                        <p class="card-description">
+                          Advanced autocompletion and refactoring support for
+                          SCSS.
+                        </p>
+                        <code>mrmlnc.vscode-scss</code>
+                      </div>
+                      <div class="feature-card">
+                        <h5 class="card-title">Sass</h5>
+                        <p class="card-description">
+                          Syntax highlighting and IntelliSense for Sass and SCSS
+                          files.
+                        </p>
+                        <code>syler.sass-indented</code>
+                      </div>
+                    </div>
                   </div>
-                  <div class="feature-card">
-                    <h5 class="card-title">SCSS IntelliSense</h5>
-                    <p class="card-description">
-                      Advanced autocompletion and refactoring support for SCSS.
-                    </p>
-                    <code>mrmlnc.vscode-scss</code>
-                  </div>
-                  <div class="feature-card">
-                    <h5 class="card-title">Sass</h5>
-                    <p class="card-description">
-                      Syntax highlighting and IntelliSense for Sass and SCSS
-                      files.
-                    </p>
-                    <code>syler.sass-indented</code>
-                  </div>
-                </div>
-              </div>
 
-              <div id="cli" class="tab-pane">
-                <h4 class="pane-title"><i class="fas fa-terminal"></i> Command Line Tools</h4>
-                <pre><code class="language-bash"># SASS CLI commands
+                  <div id="cli" class="tab-pane">
+                    <h4 class="pane-title">
+                      <i class="fas fa-terminal"></i> Command Line Tools
+                    </h4>
+                    <pre><code class="language-bash"># SASS CLI commands
 sass input.scss output.css
 sass --watch input.scss:output.css
 sass --watch app/sass:public/stylesheets
@@ -817,20 +877,24 @@ lessc --source-map styles.less styles.css
 # Compressed output
 sass --style compressed input.scss output.css
 lessc --compress styles.less styles.css</code></pre>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Best Practices -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-shield-alt"></i> Best Practices & Architecture</h2>
+            <!-- Best Practices -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-shield-alt"></i> Best Practices & Architecture
+              </h2>
 
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <h3 class="card-title"><i class="fas fa-folder-open"></i> File Organization</h3>
-              <div class="code-block">
-                <pre><code class="language-plaintext">scss/
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <h3 class="card-title">
+                    <i class="fas fa-folder-open"></i> File Organization
+                  </h3>
+                  <div class="code-block">
+                    <pre><code class="language-plaintext">scss/
 ├── abstracts/
 │   ├── _variables.scss
 │   ├── _mixins.scss
@@ -859,16 +923,18 @@ lessc --compress styles.less styles.css</code></pre>
 │   ├── _dark.scss
 │   └── _index.scss
 └── main.scss</code></pre>
-              </div>
-            </div>
-
-            <div class="topic-card">
-              <h3 class="card-title"><i class="fas fa-pencil-alt"></i> Naming Conventions</h3>
-              <div class="code-block">
-                <div class="code-header">
-                  <h4 class="code-title">BEM Methodology</h4>
+                  </div>
                 </div>
-                <pre><code class="language-scss">// Block
+
+                <div class="topic-card">
+                  <h3 class="card-title">
+                    <i class="fas fa-pencil-alt"></i> Naming Conventions
+                  </h3>
+                  <div class="code-block">
+                    <div class="code-header">
+                      <h4 class="code-title">BEM Methodology</h4>
+                    </div>
+                    <pre><code class="language-scss">// Block
 .card { }
 
 // Block__Element
@@ -881,12 +947,12 @@ lessc --compress styles.less styles.css</code></pre>
 
 // Block__Element--Modifier
 .card__title--highlighted { }</code></pre>
-              </div>
-              <div class="code-block">
-                <div class="code-header">
-                  <h4 class="code-title">Variable Naming</h4>
-                </div>
-                <pre><code class="language-scss">// Colors
+                  </div>
+                  <div class="code-block">
+                    <div class="code-header">
+                      <h4 class="code-title">Variable Naming</h4>
+                    </div>
+                    <pre><code class="language-scss">// Colors
 $color-primary: #3498db;
 $color-secondary: #2ecc71;
 $color-text-light: #666;
@@ -901,81 +967,89 @@ $size-lg: 1.25rem;
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <!-- Performance Tips -->
-          <div class="info-box">
-            <h3 class="info-box-title"><i class="fas fa-tachometer-alt"></i> Performance Optimization</h3>
-            <div class="feature-grid four-column">
-              <div class="feature-card">
-                <div class="card-icon">
-                  <i class="fas fa-sitemap"></i>
-                </div>
-                <h4 class="card-title">Minimize Nesting</h4>
-                <p class="card-description">
-                  Avoid nesting more than 3-4 levels deep to prevent overly
-                  specific selectors and large CSS output.
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <i class="fas fa-blender"></i>
-                </div>
-                <h4 class="card-title">Use Mixins Wisely</h4>
-                <p class="card-description">
-                  Only use mixins for code that accepts parameters. Use @extend
-                  for static code blocks.
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <i class="fas fa-file-import"></i>
-                </div>
-                <h4 class="card-title">Modular Imports</h4>
-                <p class="card-description">
-                  Use partials and @import to keep files manageable and enable
-                  team collaboration.
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="card-icon">
-                  <i class="fas fa-compress-arrows-alt"></i>
-                </div>
-                <h4 class="card-title">Compile for Production</h4>
-                <p class="card-description">
-                  Always use compressed output and remove source maps for
-                  production deployments.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Interactive Playground -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-vial"></i> Interactive SASS Playground</h2>
-          <div class="interactive-demo">
-            <div class="demo-grid two-column">
-              <div class="demo-card">
-                <div class="code-header">
-                  <h4 class="code-title"><i class="fab fa-sass"></i> Write SASS Code</h4>
-                  <div class="button-group">
-                    <button id="compileBtn" class="btn btn-primary">
-                      <i class="fas fa-cogs"></i> Compile
-                    </button>
-                    <button id="clearBtn" class="btn btn-secondary"><i class="fas fa-undo"></i> Clear</button>
-                    <button id="exampleBtn" class="btn btn-info">
-                      <i class="fas fa-file-code"></i> Load Example
-                    </button>
                   </div>
                 </div>
-                <textarea
-                  id="sassEditor"
-                  class="code-editor-textarea"
-                  placeholder="Write your SASS/SCSS code here..."
-                >
+              </div>
+
+              <!-- Performance Tips -->
+              <div class="info-box">
+                <h3 class="info-box-title">
+                  <i class="fas fa-tachometer-alt"></i> Performance Optimization
+                </h3>
+                <div class="feature-grid four-column">
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h4 class="card-title">Minimize Nesting</h4>
+                    <p class="card-description">
+                      Avoid nesting more than 3-4 levels deep to prevent overly
+                      specific selectors and large CSS output.
+                    </p>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <i class="fas fa-blender"></i>
+                    </div>
+                    <h4 class="card-title">Use Mixins Wisely</h4>
+                    <p class="card-description">
+                      Only use mixins for code that accepts parameters. Use
+                      @extend for static code blocks.
+                    </p>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <i class="fas fa-file-import"></i>
+                    </div>
+                    <h4 class="card-title">Modular Imports</h4>
+                    <p class="card-description">
+                      Use partials and @import to keep files manageable and
+                      enable team collaboration.
+                    </p>
+                  </div>
+                  <div class="feature-card">
+                    <div class="card-icon">
+                      <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <h4 class="card-title">Compile for Production</h4>
+                    <p class="card-description">
+                      Always use compressed output and remove source maps for
+                      production deployments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Interactive Playground -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-vial"></i> Interactive SASS Playground
+              </h2>
+              <div class="interactive-demo">
+                <div class="demo-grid two-column">
+                  <div class="demo-card">
+                    <div class="code-header">
+                      <h4 class="code-title">
+                        <i class="fab fa-sass"></i> Write SASS Code
+                      </h4>
+                      <div class="button-group">
+                        <button id="compileBtn" class="btn btn-primary">
+                          <i class="fas fa-cogs"></i> Compile
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                          <i class="fas fa-undo"></i> Clear
+                        </button>
+                        <button id="exampleBtn" class="btn btn-info">
+                          <i class="fas fa-file-code"></i> Load Example
+                        </button>
+                      </div>
+                    </div>
+                    <textarea
+                      id="sassEditor"
+                      class="code-editor-textarea"
+                      placeholder="Write your SASS/SCSS code here..."
+                    >
 $primary: #3498db;
 $secondary: #2ecc71;
 
@@ -999,383 +1073,327 @@ $secondary: #2ecc71;
 .btn-secondary {
   @include button-style($secondary);
 }</textarea
-                >
+                    >
+                  </div>
+
+                  <div class="demo-card">
+                    <div class="code-header">
+                      <h4 class="code-title">
+                        <i class="fab fa-css3-alt"></i> Compiled CSS
+                      </h4>
+                      <div class="button-group">
+                        <button id="copyOutputBtn" class="btn btn-secondary">
+                          <i class="fas fa-copy"></i> Copy
+                        </button>
+                      </div>
+                    </div>
+                    <pre><code id="cssOutput" class="language-css">/* Compiled CSS will appear here */</code></pre>
+                  </div>
+                </div>
+
+                <div class="demo-preview">
+                  <h4 class="preview-title">
+                    <i class="fas fa-eye"></i> Live Preview
+                  </h4>
+                  <div id="previewContainer" class="preview-area">
+                    <button class="btn-primary">Primary Button</button>
+                    <button class="btn-secondary">Secondary Button</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Videos and Resources -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-video"></i> Video Tutorials & Resources
+              </h2>
+
+              <div class="resource-grid two-column">
+                <div class="resource-card video-card">
+                  <div class="card-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">SASS Complete Tutorial</h4>
+                    <p class="card-description">
+                      Comprehensive guide to SASS/SCSS covering variables,
+                      nesting, mixins, functions, and advanced features for
+                      modern web development.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=Zz6eOVaaelI"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-youtube"></i> Watch Tutorial
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">LESS CSS Preprocessor Guide</h4>
+                    <p class="card-description">
+                      Learn LESS fundamentals, syntax, and how to integrate it
+                      into your development workflow with practical examples.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=YD91G8DdUsw"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-youtube"></i> Watch Tutorial
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">CSS Preprocessor Comparison</h4>
+                    <p class="card-description">
+                      Compare SASS, LESS, and Stylus to understand the
+                      differences and choose the right preprocessor for your
+                      project.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=Ag1AKIl5-wY"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-youtube"></i> Watch Tutorial
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-icon">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">Modern CSS Architecture</h4>
+                    <p class="card-description">
+                      Learn best practices for organizing and structuring your
+                      CSS/SASS codebase for maintainability and scalability.
+                    </p>
+                    <a
+                      href="https://www.youtube.com/watch?v=jrTQDxbF150"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-youtube"></i> Watch Tutorial
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div class="demo-card">
-                <div class="code-header">
-                  <h4 class="code-title"><i class="fab fa-css3-alt"></i> Compiled CSS</h4>
-                  <div class="button-group">
-                    <button id="copyOutputBtn" class="btn btn-secondary">
-                      <i class="fas fa-copy"></i> Copy
+              <div class="resource-grid two-column">
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-sass"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">Official SASS Documentation</h4>
+                    <p class="card-description">
+                      Complete reference guide for SASS/SCSS syntax, functions,
+                      and features from the official documentation.
+                    </p>
+                    <a
+                      href="https://sass-lang.com/documentation"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fas fa-book-open"></i> Read Docs
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-less"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">LESS Official Guide</h4>
+                    <p class="card-description">
+                      Official LESS documentation with examples, features, and
+                      usage patterns for effective stylesheet development.
+                    </p>
+                    <a
+                      href="https://lesscss.org/"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fas fa-book-open"></i> Visit Site
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">SASS Guidelines</h4>
+                    <p class="card-description">
+                      Comprehensive style guide and best practices for writing
+                      maintainable and scalable SASS code.
+                    </p>
+                    <a
+                      href="https://sass-guidelin.es/"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fas fa-book-open"></i> Read Guidelines
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-flask"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4 class="card-title">SassMeister Online Playground</h4>
+                    <p class="card-description">
+                      Online SASS/SCSS compiler and playground for testing code
+                      snippets and sharing examples.
+                    </p>
+                    <a
+                      href="https://www.sassmeister.com/"
+                      class="btn btn-secondary"
+                      target="_blank"
+                    >
+                      <i class="fas fa-external-link-alt"></i> Try Online
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
                     </button>
                   </div>
                 </div>
-                <pre><code id="cssOutput" class="language-css">/* Compiled CSS will appear here */</code></pre>
               </div>
-            </div>
+            </section>
 
-            <div class="demo-preview">
-              <h4 class="preview-title"><i class="fas fa-eye"></i> Live Preview</h4>
-              <div id="previewContainer" class="preview-area">
-                <button class="btn-primary">Primary Button</button>
-                <button class="btn-secondary">Secondary Button</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Videos and Resources -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-video"></i> Video Tutorials & Resources</h2>
-
-          <div class="resource-grid two-column">
-            <div class="resource-card video-card">
-              <div class="card-icon">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">SASS Complete Tutorial</h4>
-                <p class="card-description">
-                  Comprehensive guide to SASS/SCSS covering variables, nesting,
-                  mixins, functions, and advanced features for modern web
-                  development.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=Zz6eOVaaelI"
-                  class="btn btn-secondary"
-                  target="_blank"
-                >
-                  <i class="fab fa-youtube"></i> Watch Tutorial
+            <!-- Next Steps -->
+            <section class="content-section">
+              <h3 class="section-header">
+                <i class="fas fa-arrow-right"></i> What's Next?
+              </h3>
+              <p>
+                You've learned CSS preprocessors! Continue building your skills
+                with these advanced topics:
+              </p>
+              <div class="button-group">
+                <a href="js-introduction.html" class="btn btn-primary">
+                  <i class="fab fa-js-square"></i> JavaScript Basics
+                </a>
+                <a href="../units/unit4.html" class="btn btn-secondary">
+                  <i class="fas fa-book-open"></i> Unit 4: JavaScript
                 </a>
               </div>
-            </div>
+            </section>
+          </div>
+        </main>
 
-            <div class="resource-card video-card">
-              <div class="card-icon">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">LESS CSS Preprocessor Guide</h4>
-                <p class="card-description">
-                  Learn LESS fundamentals, syntax, and how to integrate it into
-                  your development workflow with practical examples.
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-content">
+              <div class="footer-brand">
+                <h3 class="brand-title">Interactive Web Course</h3>
+                <p class="brand-description">
+                  Master web development with hands-on learning and real-world
+                  projects.
                 </p>
-                <a
-                  href="https://www.youtube.com/watch?v=YD91G8DdUsw"
-                  class="btn btn-secondary"
-                  target="_blank"
-                >
-                  <i class="fab fa-youtube"></i> Watch Tutorial
-                </a>
               </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-icon">
-                <i class="fab fa-youtube"></i>
+              <div class="footer-links">
+                <h4 class="links-title">Quick Links</h4>
+                <ul class="links-list">
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../units/unit1.html">HTML Basics</a></li>
+                  <li><a href="../units/unit2.html">CSS Fundamentals</a></li>
+                  <li><a href="../units/unit3.html">JavaScript</a></li>
+                </ul>
               </div>
-              <div class="card-content">
-                <h4 class="card-title">CSS Preprocessor Comparison</h4>
-                <p class="card-description">
-                  Compare SASS, LESS, and Stylus to understand the differences
-                  and choose the right preprocessor for your project.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=Ag1AKIl5-wY"
-                  class="btn btn-secondary"
-                  target="_blank"
-                >
-                  <i class="fab fa-youtube"></i> Watch Tutorial
-                </a>
+              <div class="footer-resources">
+                <h4 class="resources-title">Resources</h4>
+                <ul class="resources-list">
+                  <li><a href="#">Documentation</a></li>
+                  <li><a href="#">Tutorials</a></li>
+                  <li><a href="#">Examples</a></li>
+                  <li><a href="#">Support</a></li>
+                </ul>
               </div>
             </div>
-
-            <div class="resource-card video-card">
-              <div class="card-icon">
-                <i class="fab fa-youtube"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">Modern CSS Architecture</h4>
-                <p class="card-description">
-                  Learn best practices for organizing and structuring your
-                  CSS/SASS codebase for maintainability and scalability.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=jrTQDxbF150"
-                  class="btn btn-secondary"
-                  target="_blank"
-                >
-                  <i class="fab fa-youtube"></i> Watch Tutorial
-                </a>
-              </div>
+            <div class="footer-bottom">
+              <p>
+                &copy; 2024 Interactive Web Course. Built with ❤️ for learning.
+              </p>
             </div>
           </div>
+        </footer>
 
-          <div class="resource-grid two-column">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-sass"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">Official SASS Documentation</h4>
-                <p class="card-description">
-                  Complete reference guide for SASS/SCSS syntax, functions, and
-                  features from the official documentation.
-                </p>
-                <a
-                  href="https://sass-lang.com/documentation"
-                  class="btn btn-secondary"
-                  target="_blank"
-                >
-                  <i class="fas fa-book-open"></i> Read Docs
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-less"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">LESS Official Guide</h4>
-                <p class="card-description">
-                  Official LESS documentation with examples, features, and usage
-                  patterns for effective stylesheet development.
-                </p>
-                <a href="https://lesscss.org/" class="btn btn-secondary" target="_blank">
-                  <i class="fas fa-book-open"></i> Visit Site
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-ruler-combined"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">SASS Guidelines</h4>
-                <p class="card-description">
-                  Comprehensive style guide and best practices for writing
-                  maintainable and scalable SASS code.
-                </p>
-                <a href="https://sass-guidelin.es/" class="btn btn-secondary" target="_blank">
-                  <i class="fas fa-book-open"></i> Read Guidelines
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-flask"></i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title">SassMeister Online Playground</h4>
-                <p class="card-description">
-                  Online SASS/SCSS compiler and playground for testing code
-                  snippets and sharing examples.
-                </p>
-                <a href="https://www.sassmeister.com/" class="btn btn-secondary" target="_blank">
-                  <i class="fas fa-external-link-alt"></i> Try Online
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Interactive Quiz -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-question-circle"></i> Knowledge Check</h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4 class="question-title">Question 1: What symbol is used for variables in SASS?</h4>
-              <ul class="quiz-options">
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="a" />
-                    <span>@</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="b" />
-                    <span>$</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="c" />
-                    <span>#</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q1" value="d" />
-                    <span>%</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4 class="question-title">
-                Question 2: Which directive is used to create mixins in SASS?
-              </h4>
-              <ul class="quiz-options">
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="a" />
-                    <span>@mixin</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="b" />
-                    <span>@function</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="c" />
-                    <span>@extend</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q2" value="d" />
-                    <span>@import</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4 class="question-title">
-                Question 3: What is the maximum recommended nesting depth in
-                SASS?
-              </h4>
-              <ul class="quiz-options">
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="a" />
-                    <span>2 levels</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="b" />
-                    <span>3-4 levels</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="c" />
-                    <span>5-6 levels</span>
-                  </label>
-                </li>
-                <li class="option-item">
-                  <label class="option-label">
-                    <input type="radio" name="q3" value="d" />
-                    <span>No limit</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <button class="btn btn-primary"><i class="fas fa-check"></i> Check Answers</button>
-
-            <div class="quiz-results" style="display: none">
-              <h4 class="results-title">Quiz Results:</h4>
-              <div class="score-display">
-                <span class="score-text">Score: <span id="score">0</span>/3</span>
-                <span class="percentage-text"
-                  >Percentage: <span id="percentage">0</span>%</span
-                >
-              </div>
-              <div class="feedback-container">
-                <div class="feedback-item">
-                  <strong>Question 1:</strong> The correct answer is
-                  <strong>$</strong>. SASS uses the dollar sign ($) for
-                  variables, while LESS uses the at sign (@).
-                </div>
-                <div class="feedback-item">
-                  <strong>Question 2:</strong> The correct answer is
-                  <strong>@mixin</strong>. The @mixin directive is used to
-                  define reusable code blocks in SASS.
-                </div>
-                <div class="feedback-item">
-                  <strong>Question 3:</strong> The correct answer is
-                  <strong>3-4 levels</strong>. Excessive nesting creates overly
-                  specific selectors and bloated CSS.
-                </div>
-              </div>
-              <button class="btn btn-secondary"><i class="fas fa-redo"></i> Try Again</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Next Steps -->
-        <section class="content-section">
-          <h3 class="section-header"><i class="fas fa-arrow-right"></i> What's Next?</h3>
-          <p>
-            You've learned CSS preprocessors! Continue building your skills with
-            these advanced topics:
-          </p>
-          <div class="button-group">
-            <a href="js-introduction.html" class="btn btn-primary">
-              <i class="fab fa-js-square"></i> JavaScript Basics
-            </a>
-            <a href="../units/unit4.html" class="btn btn-secondary">
-              <i class="fas fa-book-open"></i> Unit 4: JavaScript
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <h3 class="brand-title">Interactive Web Course</h3>
-            <p class="brand-description">
-              Master web development with hands-on learning and real-world
-              projects.
-            </p>
-          </div>
-          <div class="footer-links">
-            <h4 class="links-title">Quick Links</h4>
-            <ul class="links-list">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="../units/unit1.html">HTML Basics</a></li>
-              <li><a href="../units/unit2.html">CSS Fundamentals</a></li>
-              <li><a href="../units/unit3.html">JavaScript</a></li>
-            </ul>
-          </div>
-          <div class="footer-resources">
-            <h4 class="resources-title">Resources</h4>
-            <ul class="resources-list">
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Tutorials</a></li>
-              <li><a href="#">Examples</a></li>
-              <li><a href="#">Support</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Interactive Web Course. Built with ❤️ for learning.</p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../dist/js/main.js"></script>
-  </body>
-</html>
-
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+        <script src="../dist/js/main.js"></script>
+      </body>
+    </html>
   </head>
   <body>
     <!-- Navigation -->
@@ -1411,7 +1429,11 @@ $secondary: #2ecc71;
               </div>
             </div>
             <div class="progress-bar">
-              <div class="progress-fill" id="topic-progress" style="width: 0%"></div>
+              <div
+                class="progress-fill"
+                id="topic-progress"
+                style="width: 0%"
+              ></div>
               <span class="progress-text">0% Complete</span>
             </div>
           </div>
@@ -1441,8 +1463,8 @@ $secondary: #2ecc71;
                   </div>
                   <h3>Understand LESS</h3>
                   <p>
-                    Explore LESS features, syntax differences, and when to choose
-                    LESS over other preprocessors.
+                    Explore LESS features, syntax differences, and when to
+                    choose LESS over other preprocessors.
                   </p>
                 </div>
               </div>
@@ -1453,8 +1475,8 @@ $secondary: #2ecc71;
                   </div>
                   <h3>Build Workflows</h3>
                   <p>
-                    Set up preprocessing workflows with build tools, watch tasks,
-                    and automated compilation.
+                    Set up preprocessing workflows with build tools, watch
+                    tasks, and automated compilation.
                   </p>
                 </div>
               </div>
@@ -1476,7 +1498,9 @@ $secondary: #2ecc71;
 
         <!-- Preprocessor Comparison -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-balance-scale"></i> CSS Preprocessors Overview</h2>
+          <h2 class="section-header">
+            <i class="fas fa-balance-scale"></i> CSS Preprocessors Overview
+          </h2>
           <p class="lead">
             CSS preprocessors extend CSS with programming features like
             variables, functions, and nesting. They compile to standard CSS,
@@ -1564,7 +1588,10 @@ $secondary: #2ecc71;
 
           <!-- Interactive Comparison Tool -->
           <div class="interactive-demo">
-            <h4><i class="fas fa-exchange-alt"></i> Interactive Preprocessor Comparison</h4>
+            <h4>
+              <i class="fas fa-exchange-alt"></i> Interactive Preprocessor
+              Comparison
+            </h4>
             <p>
               Compare how the same styles are written in different
               preprocessors:
@@ -1602,7 +1629,9 @@ $secondary: #2ecc71;
 
         <!-- SASS Deep Dive -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fab fa-sass"></i> SASS/SCSS Deep Dive</h2>
+          <h2 class="section-header">
+            <i class="fab fa-sass"></i> SASS/SCSS Deep Dive
+          </h2>
           <p class="lead">
             SASS (Syntactically Awesome StyleSheets) is the most popular CSS
             preprocessor, offering two syntaxes: the indented SASS syntax and
@@ -1882,7 +1911,9 @@ $heading-font: 'Georgia', serif;
 
         <!-- LESS Overview -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fab fa-less"></i> LESS Essentials</h2>
+          <h2 class="section-header">
+            <i class="fab fa-less"></i> LESS Essentials
+          </h2>
           <p class="lead">
             LESS (Leaner Style Sheets) is a JavaScript-based CSS preprocessor
             that extends CSS with dynamic behavior such as variables, mixins,
@@ -2012,7 +2043,9 @@ $heading-font: 'Georgia', serif;
 
         <!-- Build Tools and Workflow -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-tools"></i> Build Tools & Workflow</h2>
+          <h2 class="section-header">
+            <i class="fas fa-tools"></i> Build Tools & Workflow
+          </h2>
           <p class="lead">
             Set up efficient development workflows with popular build tools and
             task runners for automatic compilation and optimization.
@@ -2020,7 +2053,9 @@ $heading-font: 'Georgia', serif;
 
           <div class="tabbed-content">
             <div class="tab-buttons">
-              <button class="tab-btn active" data-tool="node-sass">Node.js</button>
+              <button class="tab-btn active" data-tool="node-sass">
+                Node.js
+              </button>
               <button class="tab-btn" data-tool="webpack">Webpack</button>
               <button class="tab-btn" data-tool="gulp">Gulp</button>
               <button class="tab-btn" data-tool="vscode">VS Code</button>
@@ -2183,7 +2218,9 @@ lessc --compress styles.less styles.css</code></pre>
 
         <!-- Best Practices -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-shield-alt"></i> Best Practices & Architecture</h2>
+          <h2 class="section-header">
+            <i class="fas fa-shield-alt"></i> Best Practices & Architecture
+          </h2>
 
           <div class="topic-grid two-column">
             <div class="topic-card">
@@ -2266,7 +2303,9 @@ $breakpoint-desktop: 1024px;</code></pre>
 
           <!-- Performance Tips -->
           <div class="info-box">
-            <h3><i class="fas fa-tachometer-alt"></i> Performance Optimization</h3>
+            <h3>
+              <i class="fas fa-tachometer-alt"></i> Performance Optimization
+            </h3>
             <div class="feature-grid four-column">
               <div class="feature-card">
                 <div class="card-icon">
@@ -2314,7 +2353,9 @@ $breakpoint-desktop: 1024px;</code></pre>
 
         <!-- Interactive Playground -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-vial"></i> Interactive SASS Playground</h2>
+          <h2 class="section-header">
+            <i class="fas fa-vial"></i> Interactive SASS Playground
+          </h2>
           <div class="interactive-demo">
             <div class="demo-grid two-column">
               <div class="demo-card">
@@ -2324,7 +2365,9 @@ $breakpoint-desktop: 1024px;</code></pre>
                     <button id="compileBtn" class="btn btn-primary">
                       <i class="fas fa-cogs"></i> Compile
                     </button>
-                    <button id="clearBtn" class="btn btn-secondary"><i class="fas fa-undo"></i> Clear</button>
+                    <button id="clearBtn" class="btn btn-secondary">
+                      <i class="fas fa-undo"></i> Clear
+                    </button>
                     <button id="exampleBtn" class="btn btn-info">
                       <i class="fas fa-file-code"></i> Load Example
                     </button>
@@ -2386,7 +2429,9 @@ $secondary: #2ecc71;
 
         <!-- Videos and Resources -->
         <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-video"></i> Video Tutorials & Resources</h2>
+          <h2 class="section-header">
+            <i class="fas fa-video"></i> Video Tutorials & Resources
+          </h2>
 
           <div class="resource-grid two-column">
             <div class="resource-card video-card">
@@ -2502,7 +2547,11 @@ $secondary: #2ecc71;
                   Official LESS documentation with examples, features, and usage
                   patterns for effective stylesheet development.
                 </p>
-                <a href="https://lesscss.org/" class="btn btn-secondary" target="_blank">
+                <a
+                  href="https://lesscss.org/"
+                  class="btn btn-secondary"
+                  target="_blank"
+                >
                   <i class="fas fa-book-open"></i> Visit Site
                 </a>
               </div>
@@ -2518,7 +2567,11 @@ $secondary: #2ecc71;
                   Comprehensive style guide and best practices for writing
                   maintainable and scalable SASS code.
                 </p>
-                <a href="https://sass-guidelin.es/" class="btn btn-secondary" target="_blank">
+                <a
+                  href="https://sass-guidelin.es/"
+                  class="btn btn-secondary"
+                  target="_blank"
+                >
                   <i class="fas fa-book-open"></i> Read Guidelines
                 </a>
               </div>
@@ -2534,148 +2587,72 @@ $secondary: #2ecc71;
                   Online SASS/SCSS compiler and playground for testing code
                   snippets and sharing examples.
                 </p>
-                <a href="https://www.sassmeister.com/" class="btn btn-secondary" target="_blank">
+                <a
+                  href="https://www.sassmeister.com/"
+                  class="btn btn-secondary"
+                  target="_blank"
+                >
                   <i class="fas fa-external-link-alt"></i> Try Online
                 </a>
               </div>
             </div>
           </div>
         </section>
+        <section id="quiz" class="content-section">
+          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-        <!-- Interactive Quiz -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-question-circle"></i> Knowledge Check</h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4>Question 1: What symbol is used for variables in SASS?</h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="a" />
-                    <span>@</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="b" />
-                    <span>$</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="c" />
-                    <span>#</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="d" />
-                    <span>%</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                Question 2: Which directive is used to create mixins in SASS?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="a" />
-                    <span>@mixin</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="b" />
-                    <span>@function</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="c" />
-                    <span>@extend</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="d" />
-                    <span>@import</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                Question 3: What is the maximum recommended nesting depth in
-                SASS?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="a" />
-                    <span>2 levels</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="b" />
-                    <span>3-4 levels</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="c" />
-                    <span>5-6 levels</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="d" />
-                    <span>No limit</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <button class="btn btn-primary"><i class="fas fa-check"></i> Check Answers</button>
-
-            <div class="quiz-results" style="display: none">
-              <h4>Quiz Results:</h4>
-              <div class="score-display">
-                <span class="score-text">Score: <span id="score">0</span>/3</span>
-                <span class="percentage-text"
-                  >Percentage: <span id="percentage">0</span>%</span
-                >
+          <div class="quiz-container" id="knowledge-quiz">
+            <div class="quiz-progress">
+              <div class="quiz-info">
+                Question <span id="current-question">1</span> of
+                <span id="total-questions">5</span>
               </div>
-              <div class="feedback-container">
-                <div class="feedback-item">
-                  <strong>Question 1:</strong> The correct answer is
-                  <strong>$</strong>. SASS uses the dollar sign ($) for
-                  variables, while LESS uses the at sign (@).
-                </div>
-                <div class="feedback-item">
-                  <strong>Question 2:</strong> The correct answer is
-                  <strong>@mixin</strong>. The @mixin directive is used to
-                  define reusable code blocks in SASS.
-                </div>
-                <div class="feedback-item">
-                  <strong>Question 3:</strong> The correct answer is
-                  <strong>3-4 levels</strong>. Excessive nesting creates overly
-                  specific selectors and bloated CSS.
-                </div>
+              <div class="progress-bar">
+                <div id="quiz-progress" class="progress-fill"></div>
               </div>
-              <button class="btn btn-secondary"><i class="fas fa-redo"></i> Try Again</button>
+            </div>
+
+            <div class="quiz-question">
+              <h3>Loading question...</h3>
+              <div class="quiz-options"></div>
+            </div>
+
+            <div
+              class="quiz-feedback"
+              id="quiz-feedback"
+              style="display: none"
+            ></div>
+
+            <div class="quiz-controls">
+              <button
+                id="quiz-next"
+                style="display: none"
+                onclick="nextQuizQuestion()"
+              >
+                Next Question <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="quiz-results" id="quiz-results" style="display: none">
+              <div class="results-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h3>Quiz Complete!</h3>
+              <div id="final-score">0/0</div>
+              <div class="results-actions">
+                <button class="btn-secondary" onclick="retakeQuiz()">
+                  Retake Quiz
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
         <!-- Next Steps -->
         <section class="content-section">
-          <h3 class="section-header"><i class="fas fa-arrow-right"></i> What's Next?</h3>
+          <h3 class="section-header">
+            <i class="fas fa-arrow-right"></i> What's Next?
+          </h3>
           <p>
             You've learned CSS preprocessors! Continue building your skills with
             these advanced topics:

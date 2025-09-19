@@ -221,8 +221,8 @@
                 transferring web pages and resources.
               </p>
 
-              <div class="feature-grid">
-                <div class="feature-card">
+              <div class="topic-grid three-column">
+                <div class="topic-card">
                   <i class="fas fa-handshake-slash"></i>
                   <h4>Stateless</h4>
                   <p>
@@ -230,17 +230,17 @@
                     information
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <i class="fas fa-exchange-alt"></i>
                   <h4>Request-Response</h4>
                   <p>Client sends request, server sends response</p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <i class="fas fa-font"></i>
                   <h4>Text-Based</h4>
                   <p>Human-readable message format</p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <i class="fas fa-unlink"></i>
                   <h4>Connectionless</h4>
                   <p>Connection closes after each request-response cycle</p>
@@ -292,8 +292,8 @@ ETag: "4f80f-13c-3e1cb03b"
                 resource:
               </p>
 
-              <div class="feature-grid">
-                <div class="feature-card" data-method="GET">
+              <div class="topic-grid three-column">
+                <div class="topic-card" data-method="GET">
                   <div class="card-header">
                     <span class="badge">GET</span>
                     <span class="badge safe">Safe</span>
@@ -307,7 +307,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="POST">
+                <div class="topic-card" data-method="POST">
                   <div class="card-header">
                     <span class="badge">POST</span>
                     <span class="badge unsafe">Unsafe</span>
@@ -320,7 +320,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="PUT">
+                <div class="topic-card" data-method="PUT">
                   <div class="card-header">
                     <span class="badge">PUT</span>
                     <span class="badge unsafe">Unsafe</span>
@@ -331,7 +331,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="DELETE">
+                <div class="topic-card" data-method="DELETE">
                   <div class="card-header">
                     <span class="badge">DELETE</span>
                     <span class="badge unsafe">Unsafe</span>
@@ -342,7 +342,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="PATCH">
+                <div class="topic-card" data-method="PATCH">
                   <div class="card-header">
                     <span class="badge">PATCH</span>
                     <span class="badge unsafe">Unsafe</span>
@@ -353,7 +353,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="HEAD">
+                <div class="topic-card" data-method="HEAD">
                   <div class="card-header">
                     <span class="badge">HEAD</span>
                     <span class="badge safe">Safe</span>
@@ -371,8 +371,8 @@ ETag: "4f80f-13c-3e1cb03b"
               <h2><i class="fas fa-info-circle"></i> HTTP Status Codes</h2>
               <p>Status codes indicate the result of the HTTP request:</p>
 
-              <div class="feature-grid">
-                <div class="feature-card" data-method="1xx">
+              <div class="topic-grid three-column">
+                <div class="topic-card" data-method="1xx">
                   <div class="card-header">
                     <span class="badge">1xx</span>
                     <span class="badge informational">Informational</span>
@@ -383,7 +383,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="2xx">
+                <div class="topic-card" data-method="2xx">
                   <div class="card-header">
                     <span class="badge">2xx</span>
                     <span class="badge success">Success</span>
@@ -394,7 +394,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="3xx">
+                <div class="topic-card" data-method="3xx">
                   <div class="card-header">
                     <span class="badge">3xx</span>
                     <span class="badge redirection">Redirection</span>
@@ -409,7 +409,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="4xx">
+                <div class="topic-card" data-method="4xx">
                   <div class="card-header">
                     <span class="badge">4xx</span>
                     <span class="badge client-error">Client Error</span>
@@ -420,7 +420,7 @@ ETag: "4f80f-13c-3e1cb03b"
                   </div>
                 </div>
 
-                <div class="feature-card" data-method="5xx">
+                <div class="topic-card" data-method="5xx">
                   <div class="card-header">
                     <span class="badge">5xx</span>
                     <span class="badge server-error">Server Error</span>
@@ -668,15 +668,14 @@ Accept: application/json</code></pre>
                 </div>
               </div>
             </section>
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-            <!-- Quiz Section -->
-            <section id="protocol-quiz" class="content-section">
-              <h2><i class="fas fa-brain"></i> Test Your Knowledge</h2>
-              <div class="quiz-container">
+              <div class="quiz-container" id="knowledge-quiz">
                 <div class="quiz-progress">
                   <div class="quiz-info">
                     Question <span id="current-question">1</span> of
-                    <span id="total-questions">10</span>
+                    <span id="total-questions">5</span>
                   </div>
                   <div class="progress-bar">
                     <div id="quiz-progress" class="progress-fill"></div>

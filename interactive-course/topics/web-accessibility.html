@@ -3,67 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Accessibility - Interactive Course</title>
+    <title>Web Accessibility - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="topic-container">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-text">
-              <h1><i class="fas fa-universal-access"></i> Web Accessibility (WCAG)</h1>
-              <p class="lead">
-                Learn to create inclusive web experiences for all users. Master
-                WCAG guidelines, semantic HTML, ARIA attributes, and
-                accessibility testing techniques.
-              </p>
-              <div class="features">
-                <span class="feature-item"> <i class="fas fa-eye"></i> Visual Accessibility </span>
-                <span class="feature-item"> <i class="fas fa-assistive-listening-systems"></i> Screen Readers </span>
-                <span class="feature-item"> <i class="fas fa-keyboard"></i> Keyboard Navigation </span>
-              </div>
-            </div>
-            <div class="hero-visual">
-              <div class="wcag-chart">
-                <div class="chart-header">
-                  <h3 class="chart-title">WCAG Principles</h3>
-                  <div class="principle-pills">
-                    <div class="pill perceivable" data-principle="perceivable">
-                      <i class="fas fa-eye"></i>
-                      <span>Perceivable</span>
-                    </div>
-                    <div class="pill operable" data-principle="operable">
-                      <i class="fas fa-hand-pointer"></i>
-                      <span>Operable</span>
-                    </div>
-                    <div class="pill understandable" data-principle="understandable">
-                      <i class="fas fa-brain"></i>
-                      <span>Understandable</span>
-                    </div>
-                    <div class="pill robust" data-principle="robust">
-                      <i class="fas fa-cogs"></i>
-                      <span>Robust</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit1.html">Unit 1</a>
+        <span class="separator">/</span>
+        <span class="current">Web Accessibility</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-universal-access"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Web Accessibility</h1>
+            <p class="topic-subtitle">
+              Creating inclusive web experiences for all users
+            </p>
+            <p class="topic-description">
+              Learn to create inclusive web experiences for all users. Master WCAG guidelines, semantic HTML, ARIA attributes, and accessibility testing techniques.
+            </p>
           </div>
         </div>
-      </section>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <div class="container">
-          <!-- WCAG Guidelines -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-book-open"></i> WCAG 2.1 Guidelines</h2>
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>WCAG Principles</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#perceivable"
+                      onclick="scrollToSection('perceivable')"
+                      >Perceivable</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#operable"
+                      onclick="scrollToSection('operable')"
+                      >Operable</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#understandable"
+                      onclick="scrollToSection('understandable')"
+                      >Understandable</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#robust"
+                      onclick="scrollToSection('robust')"
+                      >Robust</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#semantic-html"
+                  onclick="scrollToSection('semantic-html')"
+                  >Semantic HTML</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#aria-attributes"
+                  onclick="scrollToSection('aria-attributes')"
+                  >ARIA Attributes</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#testing-tools"
+                  onclick="scrollToSection('testing-tools')"
+                  >Testing & Tools</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+            <!-- WCAG Guidelines -->
+            <div class="content-section" id="wcag-guidelines">
+              <h2 class="section-title">WCAG 2.1 Guidelines</h2>
+            </div>
             <div class="guidelines-grid">
               <div class="guideline-card">
                 <div class="card-header">
@@ -72,15 +135,9 @@
                     <h3 class="card-title">Perceivable</h3>
                   </div>
                   <div class="card-body">
-                    <p class="card-description">
-                      Information must be presentable in ways users can
-                      perceive.
-                    </p>
+                    <p class="card-description">Information must be presentable to users in ways they can perceive.</p>
                     <ul class="checklist">
-                      <li class="checklist-item">
-                        <strong>Text Alternatives:</strong> Provide alt text for
-                        images
-                      </li>
+                      <li class="checklist-item"><strong>Text Alternatives:</strong> Provide text alternatives for non-text content</li>
                       <li class="checklist-item"><strong>Captions:</strong> Add captions to videos</li>
                       <li class="checklist-item">
                         <strong>Color Contrast:</strong> Ensure sufficient
@@ -247,175 +304,204 @@
                 </div>
               </div>
             </div>
-          </section>
 
-          <!-- Accessibility Testing Tool -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-vial"></i> Accessibility Testing Tool</h2>
-            <div class="interactive-tool">
-              <div class="tool-controls">
-                <div class="control-group">
-                  <h3 class="group-title">Test Scenarios</h3>
-                  <div class="button-group">
-                    <button class="btn btn-outline" onclick="testColorContrast()">
-                      <i class="fas fa-eye"></i> Color Contrast
-                    </button>
-                    <button class="btn btn-outline" onclick="testKeyboardNav()">
-                      <i class="fas fa-keyboard"></i> Keyboard Navigation
-                    </button>
-                    <button class="btn btn-outline" onclick="testScreenReader()">
-                      <i class="fas fa-assistive-listening-systems"></i> Screen Reader
-                    </button>
-                    <button class="btn btn-outline" onclick="testFormLabels()">
-                      <i class="fas fa-tag"></i> Form Labels
-                    </button>
-                    <button class="btn btn-outline" onclick="testHeadingStructure()">
-                      <i class="fas fa-heading"></i> Heading Structure
-                    </button>
+            <!-- Accessibility Testing Tool -->
+            <div class="content-section" id="testing-tools">
+              <h2 class="section-title">Accessibility Testing Tool</h2>
+              <div class="interactive-tool">
+                <div class="tool-controls">
+                  <div class="control-group">
+                    <h3 class="group-title">Test Scenarios</h3>
+                    <div class="button-group">
+                      <button class="btn btn-outline" onclick="testColorContrast()">
+                        <i class="fas fa-eye"></i> Color Contrast
+                      </button>
+                      <button class="btn btn-outline" onclick="testKeyboardNav()">
+                        <i class="fas fa-keyboard"></i> Keyboard Navigation
+                      </button>
+                      <button class="btn btn-outline" onclick="testScreenReader()">
+                        <i class="fas fa-assistive-listening-systems"></i> Screen Reader
+                      </button>
+                      <button class="btn btn-outline" onclick="testFormLabels()">
+                        <i class="fas fa-tag"></i> Form Labels
+                      </button>
+                      <button class="btn btn-outline" onclick="testHeadingStructure()">
+                        <i class="fas fa-heading"></i> Heading Structure
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="test-area" id="test-area">
-                  <h4 class="area-title">Test Area</h4>
-                  <p class="area-instructions">
-                    Select a test from the buttons to see accessibility
-                    demonstrations and issues.
-                  </p>
-                  <div class="test-content" id="test-content">
-                    <!-- Dynamic content will be inserted here -->
+                  <div class="test-area" id="test-area">
+                    <h4 class="area-title">Test Area</h4>
+                    <p class="area-instructions">
+                      Select a test from the buttons to see accessibility
+                      demonstrations and issues.
+                    </p>
+                    <div class="test-content" id="test-content">
+                      <!-- Dynamic content will be inserted here -->
+                    </div>
                   </div>
-                </div>
-                <div class="results-area" id="test-results">
-                  <h4 class="results-title">Test Results</h4>
-                  <div class="results-content" id="results-content">
-                    <p>Test results will appear here after running a test.</p>
+                  <div class="results-area" id="test-results">
+                    <h4 class="results-title">Test Results</h4>
+                    <div class="results-content" id="results-content">
+                      <p>Test results will appear here after running a test.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
 
-          <!-- ARIA Attributes Demo -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-cogs"></i> ARIA Attributes in Action</h2>
-            <div class="aria-grid">
-              <div class="aria-card">
-                <h3 class="card-title">Interactive Widget</h3>
-                <div class="card-body">
-                  <div class="dropdown-demo" id="dropdown-demo">
-                    <button
-                      class="btn btn-primary dropdown-toggle"
-                      aria-haspopup="listbox"
-                      aria-expanded="false"
-                      aria-labelledby="dropdown-label"
-                      id="dropdown-button"
-                    >
-                      Choose an option
-                      <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="dropdown-label" class="sr-only">Dropdown menu</div>
-                    <ul
-                      class="dropdown-menu"
-                      role="listbox"
-                      aria-labelledby="dropdown-button"
-                      hidden
-                    >
-                      <li role="option" data-value="option1">Option 1</li>
-                      <li role="option" data-value="option2">Option 2</li>
-                      <li role="option" data-value="option3">Option 3</li>
-                    </ul>
-                  </div>
-                  <div class="code-block">
-                    <pre><code class="language-html">&lt;button 
+            <!-- ARIA Attributes Demo -->
+            <div class="content-section" id="aria-attributes">
+              <h2 class="section-title">ARIA Attributes in Action</h2>
+              <div class="aria-grid">
+                <div class="aria-card">
+                  <h3 class="card-title">Interactive Widget</h3>
+                  <div class="card-body">
+                    <div class="dropdown-demo" id="dropdown-demo">
+                      <button
+                        class="btn btn-primary dropdown-toggle"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-labelledby="dropdown-label"
+                        id="dropdown-button"
+                      >
+                        Choose an option
+                        <i class="fas fa-chevron-down"></i>
+                      </button>
+                      <div id="dropdown-label" class="sr-only">Dropdown menu</div>
+                      <ul
+                        class="dropdown-menu"
+                        role="listbox"
+                        aria-labelledby="dropdown-button"
+                        hidden
+                      >
+                        <li role="option" data-value="option1">Option 1</li>
+                        <li role="option" data-value="option2">Option 2</li>
+                        <li role="option" data-value="option3">Option 3</li>
+                      </ul>
+                    </div>
+                    <div class="code-block">
+                      <pre><code class="language-html">&lt;button 
   aria-haspopup="listbox" 
   aria-expanded="false"
   aria-labelledby="dropdown-label"&gt;
   Choose an option
 &lt;/button&gt;</code></pre>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="aria-card">
-                <h3 class="card-title">Progress Indicator</h3>
-                <div class="card-body">
-                  <div class="progress-demo">
-                    <label for="progress-demo">File Upload Progress:</label>
-                    <div
-                      class="progress-bar"
-                      role="progressbar"
-                      aria-valuenow="65"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                      aria-labelledby="progress-label"
-                    >
-                      <div class="progress-fill" style="width: 65%"></div>
+                <div class="aria-card">
+                  <h3 class="card-title">Progress Indicator</h3>
+                  <div class="card-body">
+                    <div class="progress-demo">
+                      <label for="progress-demo">File Upload Progress:</label>
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="65"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-labelledby="progress-label"
+                      >
+                        <div class="progress-fill" style="width: 65%"></div>
+                      </div>
+                      <div id="progress-label" class="sr-only">65% complete</div>
+                      <button onclick="updateProgress()" class="btn btn-secondary">
+                        Update Progress
+                      </button>
                     </div>
-                    <div id="progress-label" class="sr-only">65% complete</div>
-                    <button onclick="updateProgress()" class="btn btn-secondary">
-                      Update Progress
-                    </button>
-                  </div>
-                  <div class="code-block">
-                    <pre><code class="language-html">&lt;div 
+                    <div class="code-block">
+                      <pre><code class="language-html">&lt;div 
   role="progressbar" 
   aria-valuenow="65" 
   aria-valuemin="0" 
   aria-valuemax="100"&gt;
 &lt;/div&gt;</code></pre>
-                  </div>
-                </div>
-              </div>
-
-              <div class="aria-card">
-                <h3 class="card-title">Live Region</h3>
-                <div class="card-body">
-                  <div class="live-region-demo">
-                    <button onclick="announceMessage()" class="btn btn-primary">
-                      Make Announcement
-                    </button>
-                    <div
-                      id="live-region"
-                      aria-live="polite"
-                      aria-atomic="true"
-                      class="live-region-box"
-                    >
-                      <!-- Announcements will appear here -->
                     </div>
                   </div>
-                  <div class="code-block">
-                    <pre><code class="language-html">&lt;div 
+                </div>
+
+                <div class="aria-card">
+                  <h3 class="card-title">Live Region</h3>
+                  <div class="card-body">
+                    <div class="live-region-demo">
+                      <button onclick="announceMessage()" class="btn btn-primary">
+                        Make Announcement
+                      </button>
+                      <div
+                        id="live-region"
+                        aria-live="polite"
+                        aria-atomic="true"
+                        class="live-region-box"
+                      >
+                        <!-- Announcements will appear here -->
+                      </div>
+                    </div>
+                    <div class="code-block">
+                      <pre><code class="language-html">&lt;div 
   aria-live="polite" 
   aria-atomic="true"&gt;
   Announcements appear here
 &lt;/div&gt;</code></pre>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </div><section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-          <!-- Quiz Section -->
-          <section class="topic-section">
-            <div class="container">
-              <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
-              <div class="quiz-container" id="accessibility-quiz"></div>
-              <div class="quiz-buttons">
-                <button class="btn btn-primary" onclick="submitAccessibilityQuiz()">
-                  Submit Answers
-                </button>
-                <button class="btn btn-secondary" onclick="resetAccessibilityQuiz()">
-                  Reset Quiz
-                </button>
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div
-                class="quiz-results"
-                id="accessibility-quiz-results"
-                style="display: none"
-              ></div>
-            </div>
-          </section>
-        </div>
-      </main>
+            </section>
+          </div>
     </div>
 
     <!-- Scripts -->

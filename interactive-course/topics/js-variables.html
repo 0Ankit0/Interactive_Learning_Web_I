@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Variables & Data Types - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="breadcrumb">
@@ -22,20 +28,119 @@
 
     <header class="topic-header">
       <div class="container">
-        <h1 class="topic-title"><i class="fas fa-code"></i> Variables & Data Types</h1>
-        <p class="topic-subtitle">
-          Learn how to store and work with different types of data in JavaScript
-        </p>
-        <div class="topic-meta">
-          <span><i class="fas fa-clock"></i> 1.5 hours</span>
-          <span><i class="fas fa-layer-group"></i> Beginner</span>
-          <span><i class="fas fa-list-ol"></i> 6 data types</span>
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Variables & Data Types</h1>
+            <p class="topic-subtitle">JavaScript Fundamentals</p>
+            <p class="topic-description">
+              Learn how to store and work with different types of data in JavaScript for dynamic programming.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+          <span class="progress-text">0% Complete</span>
         </div>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
+                >
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Variables</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#declaring-variables"
+                      onclick="scrollToSection('declaring-variables')"
+                      >Declaring Variables</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#var-let-const"
+                      onclick="scrollToSection('var-let-const')"
+                      >var, let, const</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#scope"
+                      onclick="scrollToSection('scope')"
+                      >Variable Scope</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Data Types</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#primitive-types"
+                      onclick="scrollToSection('primitive-types')"
+                      >Primitive Types</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#reference-types"
+                      onclick="scrollToSection('reference-types')"
+                      >Reference Types</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#type-conversion"
+                      onclick="scrollToSection('type-conversion')"
+                      >Type Conversion</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#examples"
+                  onclick="scrollToSection('examples')"
+                  >Practical Examples</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
         <!-- Premium Video Resources -->
         <section class="content-section">
           <h2 class="section-header"><i class="fas fa-video"></i> JavaScript Variables & Data Types Videos</h2>
@@ -411,7 +516,7 @@
                 <button class="btn btn-secondary" onclick="quickTest('[1,2,3]')">[1,2,3]</button>
                 <button
                   class="btn btn-secondary"
-                  onclick='quickTest(&apos;{"name":"John"}&apos;)'
+                  onclick="quickTest('{&quot;name&quot;:&quot;John&quot;}')"
                 >
                   {name:"John"}
                 </button>
@@ -450,8 +555,7 @@ var isStudent = true;
 console.log(`Name: ${name}, Age: ${age}`);
 console.log('Type of name:', typeof name);
 console.log('Type of age:', typeof age);
-console.log('Type of isStudent:', typeof isStudent);</textarea
-                >
+console.log('Type of isStudent:', typeof isStudent);</textarea>
 
                 <button class="btn btn-primary" onclick="runCode()">
                   <i class="fas fa-play"></i> Run Code
@@ -617,6 +721,45 @@ console.log('Type of isStudent:', typeof isStudent);</textarea
                 Browse Examples <i class="fas fa-external-link-alt"></i>
               </a>
             </div>
+          </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="content-section">
+          <h2 class="section-header">
+            <i class="fas fa-question-circle"></i> Knowledge Check
+          </h2>
+          <div class="quiz-info">
+            <p>Test your understanding of JavaScript variables with this interactive quiz.</p>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="quiz-question">
+            <h4 class="question-text"></h4>
+            <ul class="answer-options"></ul>
+          </div>
+          <div class="quiz-feedback">
+            <div class="feedback-icon">
+              <i class="fas fa-check-circle correct-icon"></i>
+              <i class="fas fa-times-circle incorrect-icon"></i>
+            </div>
+            <p class="feedback-text"></p>
+          </div>
+          <div class="quiz-controls">
+            <button class="btn btn-primary next-btn">Next Question</button>
+            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+          </div>
+          <div class="quiz-results">
+            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+            <div class="results-summary">
+              <div class="score-circle">
+                <span class="score-percentage">0%</span>
+              </div>
+              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
+            </div>
+            <div class="results-message"></div>
+            <button class="btn btn-primary restart-btn">Try Again</button>
           </div>
         </section>
 

@@ -3,307 +3,338 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AJAX - Interactive Web Development</title>
-    <link rel="stylesheet" href="../scss/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
+    <title>AJAX - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
   </head>
   <body>
-    <div class="topic">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-7">
-              <div class="hero-content">
-                <h1><i class="fas fa-sync-alt"></i> AJAX</h1>
-                <p class="lead">
-                  Master Asynchronous JavaScript and XML (AJAX) to create dynamic,
-                  responsive web applications that communicate with servers
-                  without page reloads.
-                </p>
-                <div class="features">
-                  <span class="feature-item">
-                    <i class="fas fa-bolt"></i> Asynchronous Requests
-                  </span>
-                  <span class="feature-item">
-                    <i class="fas fa-magic"></i> Dynamic Updates
-                  </span>
-                  <span class="feature-item">
-                    <i class="fas fa-server"></i> Server Communication
-                  </span>
-                  <span class="feature-item">
-                    <i class="fas fa-clock"></i> Real-time Data
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="hero-visual">
-                <div class="flowchart">
-                  <div class="flowchart-header">
-                    <h3>AJAX Request Flow</h3>
-                  </div>
-                  <div class="flowchart-steps">
-                    <div class="flowchart-step">
-                      <div class="flowchart-icon"><i class="fas fa-mouse-pointer"></i></div>
-                      <div class="flowchart-label">1. User Interaction</div>
-                    </div>
-                    <div class="flowchart-arrow">→</div>
-                    <div class="flowchart-step">
-                      <div class="flowchart-icon">
-                        <i class="fas fa-paper-plane"></i>
-                      </div>
-                      <div class="flowchart-label">2. Send Request</div>
-                    </div>
-                    <div class="flowchart-arrow">→</div>
-                    <div class="flowchart-step">
-                      <div class="flowchart-icon">
-                        <i class="fas fa-cogs"></i>
-                      </div>
-                      <div class="flowchart-label">3. Server Processing</div>
-                    </div>
-                    <div class="flowchart-arrow">→</div>
-                    <div class="flowchart-step">
-                      <div class="flowchart-icon">
-                        <i class="fas fa-inbox"></i>
-                      </div>
-                      <div class="flowchart-label">4. Receive Response</div>
-                    </div>
-                    <div class="flowchart-arrow">→</div>
-                    <div class="flowchart-step">
-                      <div class="flowchart-icon"><i class="fas fa-desktop"></i></div>
-                      <div class="flowchart-label">5. Update Page</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-card">
-                  <div class="info-header">
-                    <h4>Why AJAX?</h4>
-                  </div>
-                  <div class="info-list">
-                    <div class="info-item">
-                      <i class="fas fa-check-circle"></i>
-                      <span>No page reloads</span>
-                    </div>
-                    <div class="info-item">
-                      <i class="fas fa-check-circle"></i>
-                      <span>Better performance</span>
-                    </div>
-                    <div class="info-item">
-                      <i class="fas fa-check-circle"></i>
-                      <span>Enhanced UX</span>
-                    </div>
-                    <div class="info-item">
-                      <i class="fas fa-check-circle"></i>
-                      <span>Real-time updates</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit1.html">Unit 1</a>
+        <span class="separator">/</span>
+        <span class="current">AJAX</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">AJAX</h1>
+            <p class="topic-subtitle">
+              Master Asynchronous JavaScript and XML (AJAX) to create dynamic, responsive web applications
+            </p>
+            <p class="topic-description">
+              Learn how to communicate with servers asynchronously, enabling dynamic content updates without full page reloads.
+            </p>
           </div>
         </div>
-      </section>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <div class="container">
-          <!-- Introduction Section -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-info-circle"></i> What is AJAX?</h2>
-            <div class="topic-grid">
-              <p class="lead">
-                AJAX (Asynchronous JavaScript and XML) is a technique that
-                allows web pages to communicate with servers asynchronously,
-                enabling dynamic content updates without full page reloads.
-              </p>
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>AJAX Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#ajax-overview"
+                      onclick="scrollToSection('ajax-overview')"
+                      >What is AJAX?</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#xmlhttprequest"
+                      onclick="scrollToSection('xmlhttprequest')"
+                      >XMLHttpRequest</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#fetch-api"
+                      onclick="scrollToSection('fetch-api')"
+                      >Fetch API</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Advanced Topics</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#error-handling"
+                      onclick="scrollToSection('error-handling')"
+                      >Error Handling</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#real-world-apps"
+                      onclick="scrollToSection('real-world-apps')"
+                      >Real-world Applications</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#ajax-quiz"
+                      onclick="scrollToSection('ajax-quiz')"
+                      >Test Your Knowledge</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#next-steps"
+                      onclick="scrollToSection('next-steps')"
+                      >What's Next?</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
 
+          <div class="content-main">
+            <section id="ajax-overview" class="content-section">
+              <h2><i class="fas fa-info-circle"></i> What is AJAX?</h2>
               <div class="topic-grid">
-                <div class="topic-card">
-                  <div class="card-icon">
-                    <i class="fas fa-bolt"></i>
-                  </div>
-                  <h4>Asynchronous</h4>
-                  <p>
-                    Requests don't block the user interface, allowing multiple
-                    operations to run simultaneously.
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// Non-blocking request
+                <p class="lead">
+                  AJAX (Asynchronous JavaScript and XML) is a technique that
+                  allows web pages to communicate with servers asynchronously,
+                  enabling dynamic content updates without full page reloads.
+                </p>
+
+                <div class="topic-grid">
+                  <div class="topic-card">
+                    <div class="card-icon">
+                      <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Asynchronous</h4>
+                    <p>
+                      Requests don't block the user interface, allowing multiple
+                      operations to run simultaneously.
+                    </p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Non-blocking request
 fetch('/api/data')
     .then(response => response.json())
     .then(data => updateUI(data));</code></pre>
+                    </div>
                   </div>
-                </div>
 
-                <div class="topic-card">
-                  <div class="card-icon">
-                    <i class="fab fa-js-square"></i>
-                  </div>
-                  <h4>JavaScript</h4>
-                  <p>
-                    JavaScript handles the communication and DOM manipulation
-                    for dynamic updates.
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// JavaScript drives the process
+                  <div class="topic-card">
+                    <div class="card-icon">
+                      <i class="fab fa-js-square"></i>
+                    </div>
+                    <h4>JavaScript</h4>
+                    <p>
+                      JavaScript handles the communication and DOM manipulation
+                      for dynamic updates.
+                    </p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// JavaScript drives the process
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = handleResponse;
 xhr.open('GET', '/api/users');
 xhr.send();</code></pre>
+                    </div>
                   </div>
-                </div>
 
-                <div class="topic-card">
-                  <div class="card-icon">
-                    <i class="fas fa-file-code"></i>
-                  </div>
-                  <h4>Data Formats</h4>
-                  <p>
-                    While originally XML, AJAX now supports JSON, HTML, plain
-                    text, and other formats.
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// Modern AJAX with JSON
+                  <div class="topic-card">
+                    <div class="card-icon">
+                      <i class="fas fa-file-code"></i>
+                    </div>
+                    <h4>Data Formats</h4>
+                    <p>
+                      While originally XML, AJAX now supports JSON, HTML, plain
+                      text, and other formats.
+                    </p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Modern AJAX with JSON
 fetch('/api/posts')
     .then(response => response.json())
     .then(posts => displayPosts(posts));</code></pre>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <!-- XMLHttpRequest Section -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-exchange-alt"></i> XMLHttpRequest</h2>
-            <div class="topic-grid">
-              <p class="lead">
-                XMLHttpRequest is the traditional JavaScript API for making HTTP
-                requests. Understanding XMLHttpRequest is fundamental to
-                mastering AJAX.
-              </p>
+            <!-- XMLHttpRequest Section -->
+            <section id="xmlhttprequest" class="content-section">
+              <h2><i class="fas fa-exchange-alt"></i> XMLHttpRequest</h2>
+              <div class="topic-grid">
+                <p class="lead">
+                  XMLHttpRequest is the traditional JavaScript API for making HTTP
+                  requests. Understanding XMLHttpRequest is fundamental to
+                  mastering AJAX.
+                </p>
 
-              <div class="timeline">
-                <h4>XMLHttpRequest Lifecycle</h4>
-                <div class="timeline-item">
-                  <div class="timeline-number">1</div>
-                  <div class="timeline-content">
-                    <h5>Create Instance</h5>
-                    <code>const xhr = new XMLHttpRequest();</code>
-                    <p>
-                      Create a new XMLHttpRequest object to handle the
-                      request.
-                    </p>
+                <div class="timeline">
+                  <h4>XMLHttpRequest Lifecycle</h4>
+                  <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                      <h5>Create Instance</h5>
+                      <code>const xhr = new XMLHttpRequest();</code>
+                      <p>
+                        Create a new XMLHttpRequest object to handle the
+                        request.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                      <h5>Configure Request</h5>
+                      <code>xhr.open('GET', '/api/data', true);</code>
+                      <p>Set up the request method, URL, and async flag.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                      <h5>Set Event Handlers</h5>
+                      <code>xhr.onreadystatechange = handleResponse;</code>
+                      <p>
+                        Define functions to handle state changes and responses.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                      <h5>Send Request</h5>
+                      <code>xhr.send(data);</code>
+                      <p>Send the request to the server with optional data.</p>
+                    </div>
                   </div>
                 </div>
 
-                <div class="timeline-item">
-                  <div class="timeline-number">2</div>
-                  <div class="timeline-content">
-                    <h5>Configure Request</h5>
-                    <code>xhr.open('GET', '/api/data', true);</code>
-                    <p>Set up the request method, URL, and async flag.</p>
-                  </div>
-                </div>
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> Try XMLHttpRequest</h4>
+                  <div class="demo-controls">
+                    <div class="form-group">
+                      <label for="xhr-method">HTTP Method:</label>
+                      <select id="xhr-method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                      </select>
+                    </div>
 
-                <div class="timeline-item">
-                  <div class="timeline-number">3</div>
-                  <div class="timeline-content">
-                    <h5>Set Event Handlers</h5>
-                    <code>xhr.onreadystatechange = handleResponse;</code>
-                    <p>
-                      Define functions to handle state changes and responses.
-                    </p>
-                  </div>
-                </div>
+                    <div class="form-group">
+                      <label for="xhr-url">URL:</label>
+                      <input
+                        type="text"
+                        id="xhr-url"
+                        value="https://jsonplaceholder.typicode.com/posts/1"
+                        placeholder="Enter API URL"
+                      />
+                    </div>
 
-                <div class="timeline-item">
-                  <div class="timeline-number">4</div>
-                  <div class="timeline-content">
-                    <h5>Send Request</h5>
-                    <code>xhr.send(data);</code>
-                    <p>Send the request to the server with optional data.</p>
+                    <div class="form-group">
+                      <label for="xhr-data">Request Data (JSON):</label>
+                      <textarea
+                        id="xhr-data"
+                        placeholder='''{"title": "New Post", "body": "Content", "userId": 1}'''
+                      ></textarea>
+                    </div>
+
+                    <div class="demo-buttons">
+                      <button class="btn btn-primary" onclick="sendXHRRequest()">
+                        <i class="fas fa-paper-plane"></i> Send Request
+                      </button>
+                      <button class="btn btn-secondary" onclick="clearXHRResult()">
+                        <i class="fas fa-undo"></i> Clear
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="demo-result" id="xhr-result">
+                    <div class="placeholder">
+                      <i class="fas fa-info-circle"></i>
+                      Configure your request above and click "Send Request" to
+                      see the result.
+                    </div>
                   </div>
                 </div>
               </div>
+            </section>
 
-              <div class="interactive-demo">
-                <h4><i class="fas fa-vial"></i> Try XMLHttpRequest</h4>
-                <div class="demo-controls">
-                  <div class="form-group">
-                    <label for="xhr-method">HTTP Method:</label>
-                    <select id="xhr-method">
-                      <option value="GET">GET</option>
-                      <option value="POST">POST</option>
-                      <option value="PUT">PUT</option>
-                      <option value="DELETE">DELETE</option>
-                    </select>
-                  </div>
+            <!-- Fetch API Section -->
+            <section id="fetch-api" class="content-section">
+              <h2><i class="fas fa-rocket"></i> Fetch API</h2>
+              <div class="topic-grid">
+                <p class="lead">
+                  The Fetch API is the modern, promise-based successor to
+                  XMLHttpRequest, providing a cleaner and more powerful way to
+                  make HTTP requests.
+                </p>
 
-                  <div class="form-group">
-                    <label for="xhr-url">URL:</label>
-                    <input
-                      type="text"
-                      id="xhr-url"
-                      value="https://jsonplaceholder.typicode.com/posts/1"
-                      placeholder="Enter API URL"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="xhr-data">Request Data (JSON):</label>
-                    <textarea
-                      id="xhr-data"
-                      placeholder='''{"title": "New Post", "body": "Content", "userId": 1}'''
-                    ></textarea>
-                  </div>
-
-                  <div class="demo-buttons">
-                    <button class="btn btn-primary" onclick="sendXHRRequest()">
-                      <i class="fas fa-paper-plane"></i> Send Request
-                    </button>
-                    <button class="btn btn-secondary" onclick="clearXHRResult()">
-                      <i class="fas fa-undo"></i> Clear
-                    </button>
-                  </div>
-                </div>
-
-                <div class="demo-result" id="xhr-result">
-                  <div class="placeholder">
-                    <i class="fas fa-info-circle"></i>
-                    Configure your request above and click "Send Request" to
-                    see the result.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Fetch API Section -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-rocket"></i> Fetch API</h2>
-            <div class="topic-grid">
-              <p class="lead">
-                The Fetch API is the modern, promise-based successor to
-                XMLHttpRequest, providing a cleaner and more powerful way to
-                make HTTP requests.
-              </p>
-
-              <div class="comparison-grid">
-                <div class="comparison-card">
-                  <div class="card-header">
-                    <h4><i class="fas fa-history"></i> XMLHttpRequest (Legacy)</h4>
-                  </div>
-                  <div class="code-container">
-                    <pre><code class="language-js">const xhr = new XMLHttpRequest();
+                <div class="comparison-grid">
+                  <div class="comparison-card">
+                    <div class="card-header">
+                      <h4><i class="fas fa-history"></i> XMLHttpRequest (Legacy)</h4>
+                    </div>
+                    <div class="code-container">
+                      <pre><code class="language-js">const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
         const data = JSON.parse(xhr.responseText);
@@ -312,31 +343,31 @@ xhr.onreadystatechange = function() {
 };
 xhr.open('GET', '/api/data');
 xhr.send();</code></pre>
-                  </div>
-                  <div class="pros-cons">
-                    <div class="pros">
-                      <h5>Pros:</h5>
-                      <ul>
-                        <li>Wide browser support</li>
-                        <li>Fine-grained control</li>
-                      </ul>
                     </div>
-                    <div class="cons">
-                      <h5>Cons:</h5>
-                      <ul>
-                        <li>Verbose syntax</li>
-                        <li>Callback-based (callback hell)</li>
-                      </ul>
+                    <div class="pros-cons">
+                      <div class="pros">
+                        <h5>Pros:</h5>
+                        <ul>
+                          <li>Wide browser support</li>
+                          <li>Fine-grained control</li>
+                        </ul>
+                      </div>
+                      <div class="cons">
+                        <h5>Cons:</h5>
+                        <ul>
+                          <li>Verbose syntax</li>
+                          <li>Callback-based (callback hell)</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="comparison-card">
-                  <div class="card-header">
-                    <h4><i class="fas fa-bolt"></i> Fetch API (Modern)</h4>
-                  </div>
-                  <div class="code-container">
-                    <pre><code class="language-js">fetch('/api/data')
+                  <div class="comparison-card">
+                    <div class="card-header">
+                      <h4><i class="fas fa-bolt"></i> Fetch API (Modern)</h4>
+                    </div>
+                    <div class="code-container">
+                      <pre><code class="language-js">fetch('/api/data')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
@@ -345,38 +376,38 @@ xhr.send();</code></pre>
 const data = await fetch('/api/data');
 const json = await data.json();
 console.log(json);</code></pre>
-                  </div>
-                  <div class="pros-cons">
-                    <div class="pros">
-                      <h5>Pros:</h5>
-                      <ul>
-                        <li>Promise-based</li>
-                        <li>Cleaner syntax</li>
-                        <li>Better error handling</li>
-                      </ul>
                     </div>
-                    <div class="cons">
-                      <h5>Cons:</h5>
-                      <ul>
-                        <li>No IE support</li>
-                        <li>Less control over progress</li>
-                      </ul>
+                    <div class="pros-cons">
+                      <div class="pros">
+                        <h5>Pros:</h5>
+                        <ul>
+                          <li>Promise-based</li>
+                          <li>Cleaner syntax</li>
+                          <li>Better error handling</li>
+                        </ul>
+                      </div>
+                      <div class="cons">
+                        <h5>Cons:</h5>
+                        <ul>
+                          <li>No IE support</li>
+                          <li>Less control over progress</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="http-methods">
-                <div class="method-card">
-                  <div class="method-header">
-                    <h4>GET Request</h4>
-                    <span class="method-tag get">GET</span>
-                  </div>
-                  <p class="method-description">
-                    Retrieve data from the server without side effects.
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// Simple GET request
+                <div class="http-methods">
+                  <div class="method-card">
+                    <div class="method-header">
+                      <h4>GET Request</h4>
+                      <span class="method-tag get">GET</span>
+                    </div>
+                    <p class="method-description">
+                      Retrieve data from the server without side effects.
+                    </p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Simple GET request
 fetch('/api/users')
     .then(response => response.json())
     .then(users => displayUsers(users));
@@ -386,25 +417,25 @@ const url = new URL('/api/posts', window.location.origin);
 url.searchParams.set('page', '1');
 url.searchParams.set('limit', '10');
 fetch(url)</code></pre>
+                    </div>
+                    <div class="method-demo">
+                      <button class="btn btn-primary" onclick="demonstrateFetchGET()">
+                        Try GET Request
+                      </button>
+                      <div class="demo-output" id="get-demo-result"></div>
+                    </div>
                   </div>
-                  <div class="method-demo">
-                    <button class="btn btn-primary" onclick="demonstrateFetchGET()">
-                      Try GET Request
-                    </button>
-                    <div class="demo-output" id="get-demo-result"></div>
-                  </div>
-                </div>
 
-                <div class="method-card">
-                  <div class="method-header">
-                    <h4>POST Request</h4>
-                    <span class="method-tag post">POST</span>
-                  </div>
-                  <p class="method-description">
-                    Send data to the server to create new resources.
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// POST with JSON data
+                  <div class="method-card">
+                    <div class="method-header">
+                      <h4>POST Request</h4>
+                      <span class="method-tag post">POST</span>
+                    </div>
+                    <p class="method-description">
+                      Send data to the server to create new resources.
+                    </p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// POST with JSON data
 fetch('/api/users', {
     method: 'POST',
     headers: {
@@ -415,29 +446,29 @@ fetch('/api/users', {
         email: 'john@example.com'
     })
 })</code></pre>
+                    </div>
+                    <div class="method-demo">
+                      <input
+                        type="text"
+                        id="post-title"
+                        placeholder="Post title"
+                        class="form-control"
+                      />
+                      <button class="btn btn-primary" onclick="demonstrateFetchPOST()">
+                        Try POST Request
+                      </button>
+                      <div class="demo-output" id="post-demo-result"></div>
+                    </div>
                   </div>
-                  <div class="method-demo">
-                    <input
-                      type="text"
-                      id="post-title"
-                      placeholder="Post title"
-                      class="form-control"
-                    />
-                    <button class="btn btn-primary" onclick="demonstrateFetchPOST()">
-                      Try POST Request
-                    </button>
-                    <div class="demo-output" id="post-demo-result"></div>
-                  </div>
-                </div>
 
-                <div class="method-card">
-                  <div class="method-header">
-                    <h4>PUT Request</h4>
-                    <span class="method-tag put">PUT</span>
-                  </div>
-                  <p class="method-description">Update existing resources on the server.</p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// PUT request to update resource
+                  <div class="method-card">
+                    <div class="method-header">
+                      <h4>PUT Request</h4>
+                      <span class="method-tag put">PUT</span>
+                    </div>
+                    <p class="method-description">Update existing resources on the server.</p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// PUT request to update resource
 fetch('/api/users/123', {
     method: 'PUT',
     headers: {
@@ -449,30 +480,30 @@ fetch('/api/users/123', {
         email: 'johnsmith@example.com'
     })
 })</code></pre>
+                    </div>
+                    <div class="method-demo">
+                      <input
+                        type="number"
+                        id="put-id"
+                        placeholder="Post ID"
+                        class="form-control"
+                        value="1"
+                      />
+                      <button class="btn btn-primary" onclick="demonstrateFetchPUT()">
+                        Try PUT Request
+                      </button>
+                      <div class="demo-output" id="put-demo-result"></div>
+                    </div>
                   </div>
-                  <div class="method-demo">
-                    <input
-                      type="number"
-                      id="put-id"
-                      placeholder="Post ID"
-                      class="form-control"
-                      value="1"
-                    />
-                    <button class="btn btn-primary" onclick="demonstrateFetchPUT()">
-                      Try PUT Request
-                    </button>
-                    <div class="demo-output" id="put-demo-result"></div>
-                  </div>
-                </div>
 
-                <div class="method-card">
-                  <div class="method-header">
-                    <h4>DELETE Request</h4>
-                    <span class="method-tag delete">DELETE</span>
-                  </div>
-                  <p>Remove resources from the server.</p>
-                  <div class="code-block">
-                    <pre><code class="language-js">// DELETE request
+                  <div class="method-card">
+                    <div class="method-header">
+                      <h4>DELETE Request</h4>
+                      <span class="method-tag delete">DELETE</span>
+                    </div>
+                    <p>Remove resources from the server.</p>
+                    <div class="code-block">
+                      <pre><code class="language-js">// DELETE request
 fetch('/api/users/123', {
     method: 'DELETE'
 })
@@ -481,39 +512,39 @@ fetch('/api/users/123', {
         console.log('User deleted successfully');
     }
 })</code></pre>
-                  </div>
-                  <div class="method-demo">
-                    <input
-                      type="number"
-                      id="delete-id"
-                      placeholder="Post ID"
-                      class="form-control"
-                      value="1"
-                    />
-                    <button class="btn btn-primary" onclick="demonstrateFetchDELETE()">
-                      Try DELETE Request
-                    </button>
-                    <div class="demo-output" id="delete-demo-result"></div>
+                    </div>
+                    <div class="method-demo">
+                      <input
+                        type="number"
+                        id="delete-id"
+                        placeholder="Post ID"
+                        class="form-control"
+                        value="1"
+                      />
+                      <button class="btn btn-primary" onclick="demonstrateFetchDELETE()">
+                        Try DELETE Request
+                      </button>
+                      <div class="demo-output" id="delete-demo-result"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <!-- Error Handling Section -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-exclamation-triangle"></i> Error Handling</h2>
-            <div class="topic-grid">
-              <p class="lead">
-                Proper error handling is crucial in AJAX applications to provide
-                good user experience and handle network issues gracefully.
-              </p>
+            <!-- Error Handling Section -->
+            <section id="error-handling" class="content-section">
+              <h2><i class="fas fa-exclamation-triangle"></i> Error Handling</h2>
+              <div class="topic-grid">
+                <p class="lead">
+                  Proper error handling is crucial in AJAX applications to provide
+                  good user experience and handle network issues gracefully.
+                </p>
 
-              <div class="error-handling-grid">
-                <div class="error-card">
-                  <h5>Network Errors</h5>
-                  <div class="code-block">
-                    <pre><code class="language-js">fetch('/api/data')
+                <div class="error-handling-grid">
+                  <div class="error-card">
+                    <h5>Network Errors</h5>
+                    <div class="code-block">
+                      <pre><code class="language-js">fetch('/api/data')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -527,13 +558,13 @@ fetch('/api/users/123', {
             console.error('HTTP error:', error.message);
         }
     });</code></pre>
+                    </div>
                   </div>
-                </div>
 
-                <div class="error-card">
-                  <h5>Timeout Handling</h5>
-                  <div class="code-block">
-                    <pre><code class="language-js">// Custom timeout implementation
+                  <div class="error-card">
+                    <h5>Timeout Handling</h5>
+                    <div class="code-block">
+                      <pre><code class="language-js">// Custom timeout implementation
 function fetchWithTimeout(url, timeout = 5000) {
     return Promise.race([
         fetch(url),
@@ -546,13 +577,13 @@ function fetchWithTimeout(url, timeout = 5000) {
 fetchWithTimeout('/api/data', 3000)
     .then(response => response.json())
     .catch(error => console.error('Request failed:', error.message));</code></pre>
+                    </div>
                   </div>
-                </div>
 
-                <div class="error-card">
-                  <h5>Retry Logic</h5>
-                  <div class="code-block">
-                    <pre><code class="language-js">async function fetchWithRetry(url, retries = 3) {
+                  <div class="error-card">
+                    <h5>Retry Logic</h5>
+                    <div class="code-block">
+                      <pre><code class="language-js">async function fetchWithRetry(url, retries = 3) {
     for (let i = 0; i <= retries; i++) {
         try {
             const response = await fetch(url);
@@ -565,269 +596,225 @@ fetchWithTimeout('/api/data', 3000)
         }
     }
 }</code></pre>
-                  </div>
-                </div>
-              </div>
-
-              <div class="interactive-demo">
-                <h4>Test Error Handling</h4>
-                <div class="demo-buttons">
-                  <button class="btn btn-danger" onclick="testNetworkError()">
-                    <i class="fas fa-wifi"></i> Test Network Error
-                  </button>
-                  <button class="btn btn-warning" onclick="testHTTPError()">
-                    <i class="fas fa-server"></i> Test HTTP Error (404)
-                  </button>
-                  <button class="btn btn-info" onclick="testTimeout()">
-                    <i class="fas fa-clock"></i> Test Timeout
-                  </button>
-                  <button class="btn btn-success" onclick="testRetry()">
-                    <i class="fas fa-redo"></i> Test Retry Logic
-                  </button>
-                </div>
-                <div class="demo-result" id="error-test-result"></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Real-world Applications -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-cogs"></i> Real-world Applications</h2>
-            <div class="real-world-grid">
-              <div class="app-card">
-                <div class="app-icon">
-                  <i class="fas fa-search"></i>
-                </div>
-                <h4>Live Search</h4>
-                <p>Implement real-time search suggestions as users type.</p>
-                <div class="app-demo">
-                  <input
-                    type="text"
-                    id="live-search"
-                    placeholder="Search posts..."
-                    class="form-control"
-                  />
-                  <div class="search-results" id="search-results"></div>
-                </div>
-              </div>
-
-              <div class="app-card">
-                <div class="app-icon">
-                  <i class="fas fa-infinity"></i>
-                </div>
-                <h4>Infinite Scroll</h4>
-                <p>Load more content automatically as users scroll down.</p>
-                <div class="app-demo">
-                  <div class="scroll-container" id="scroll-container">
-                    <div class="scroll-content">
-                      <!-- Dynamic content will be loaded here -->
-                    </div>
-                    <div class="loading-spinner" style="display: none">
-                      <i class="fas fa-spinner fa-spin"></i> Loading more...
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="app-card">
-                <div class="app-icon">
-                  <i class="fas fa-paper-plane"></i>
+                <div class="interactive-demo">
+                  <h4>Test Error Handling</h4>
+                  <div class="demo-buttons">
+                    <button class="btn btn-danger" onclick="testNetworkError()">
+                      <i class="fas fa-wifi"></i> Test Network Error
+                    </button>
+                    <button class="btn btn-warning" onclick="testHTTPError()">
+                      <i class="fas fa-server"></i> Test HTTP Error (404)
+                    </button>
+                    <button class="btn btn-info" onclick="testTimeout()">
+                      <i class="fas fa-clock"></i> Test Timeout
+                    </button>
+                    <button class="btn btn-success" onclick="testRetry()">
+                      <i class="fas fa-redo"></i> Test Retry Logic
+                    </button>
+                  </div>
+                  <div class="demo-result" id="error-test-result"></div>
                 </div>
-                <h4>Form Submission</h4>
-                <p>
-                  Submit forms without page reloads and show instant feedback.
-                </p>
-                <div class="app-demo">
-                  <form id="ajax-form" class="ajax-form">
+              </div>
+            </section>
+
+            <!-- Real-world Applications -->
+            <section id="real-world-apps" class="content-section">
+              <h2><i class="fas fa-cogs"></i> Real-world Applications</h2>
+              <div class="real-world-grid">
+                <div class="app-card">
+                  <div class="app-icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <h4>Live Search</h4>
+                  <p>Implement real-time search suggestions as users type.</p>
+                  <div class="app-demo">
                     <input
                       type="text"
-                      name="name"
-                      placeholder="Your name"
-                      required
+                      id="live-search"
+                      placeholder="Search posts..."
+                      class="form-control"
                     />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your email"
-                      required
-                    />
-                    <button type="submit"><i class="fas fa-check"></i> Submit</button>
-                  </form>
-                  <div class="form-feedback" id="form-feedback"></div>
-                </div>
-              </div>
-
-              <div class="app-card">
-                <div class="app-icon">
-                  <i class="fas fa-sync-alt"></i>
-                </div>
-                <h4>Real-time Updates</h4>
-                <p>
-                  Poll server for updates and refresh content automatically.
-                </p>
-                <div class="app-demo">
-                  <div class="realtime-controls">
-                    <button class="btn btn-primary" onclick="startPolling()">
-                      <i class="fas fa-play"></i> Start Updates
-                    </button>
-                    <button class="btn btn-secondary" onclick="stopPolling()">
-                      <i class="fas fa-stop"></i> Stop Updates
-                    </button>
-                  </div>
-                  <div class="realtime-display" id="realtime-display">
-                    <div class="placeholder">Click "Start Updates" to begin polling</div>
+                    <div class="search-results" id="search-results"></div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
 
-          <!-- Quiz Section -->
-          <section class="topic-section">
-            <div class="container">
-              <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
-              <div class="quiz-container" id="ajax-quiz"></div>
-              <div class="quiz-buttons">
-                <button class="btn btn-primary" onclick="submitAjaxQuiz()">
-                  Submit Answers
-                </button>
-                <button class="btn btn-secondary" onclick="resetAjaxQuiz()">Reset Quiz</button>
-              </div>
-              <div class="quiz-results" id="ajax-quiz-results" style="display: none"></div>
-            </div>
-          </section>
-
-          <!-- Resources Section -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-book"></i> Additional Resources</h2>
-            <div class="resources-grid">
-              <div class="resource-card">
-                <div class="resource-icon">
-                  <i class="fab fa-js-square"></i>
+                <div class="app-card">
+                  <div class="app-icon">
+                    <i class="fas fa-infinity"></i>
+                  </div>
+                  <h4>Infinite Scroll</h4>
+                  <p>Load more content automatically as users scroll down.</p>
+                  <div class="app-demo">
+                    <div class="scroll-container" id="scroll-container">
+                      <div class="scroll-content">
+                        <!-- Dynamic content will be loaded here -->
+                      </div>
+                      <div class="loading-spinner" style="display: none">
+                        <i class="fas fa-spinner fa-spin"></i> Loading more...
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="resource-content">
-                  <h4>MDN Web Docs</h4>
+
+                <div class="app-card">
+                  <div class="app-icon">
+                    <i class="fas fa-paper-plane"></i>
+                  </div>
+                  <h4>Form Submission</h4>
                   <p>
-                    Comprehensive documentation for Fetch API and
-                    XMLHttpRequest.
+                    Submit forms without page reloads and show instant feedback.
                   </p>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
-                    class="btn btn-secondary"
-                    target="_blank"
+                  <div class="app-demo">
+                    <form id="ajax-form" class="ajax-form">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                      />
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Your email"
+                        required
+                      />
+                      <button type="submit"><i class="fas fa-check"></i> Submit</button>
+                    </form>
+                    <div class="form-feedback" id="form-feedback"></div>
+                  </div>
+                </div>
+
+                <div class="app-card">
+                  <div class="app-icon">
+                    <i class="fas fa-sync-alt"></i>
+                  </div>
+                  <h4>Real-time Updates</h4>
+                  <p>
+                    Poll server for updates and refresh content automatically.
+                  </p>
+                  <div class="app-demo">
+                    <div class="realtime-controls">
+                      <button class="btn btn-primary" onclick="startPolling()">
+                        <i class="fas fa-play"></i> Start Updates
+                      </button>
+                      <button class="btn btn-secondary" onclick="stopPolling()">
+                        <i class="fas fa-stop"></i> Stop Updates
+                      </button>
+                    </div>
+                    <div class="realtime-display" id="realtime-display">
+                      <div class="placeholder">Click "Start Updates" to begin polling</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section><section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
                   >
-                    <i class="fas fa-external-link-alt"></i> View Documentation
-                  </a>
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
                 </div>
-              </div>
 
-              <div class="resource-card">
-                <div class="resource-icon">
-                  <i class="fas fa-book-open"></i>
-                </div>
-                <div class="resource-content">
-                  <h4>JavaScript.info</h4>
-                  <p>
-                    In-depth tutorials on network requests and AJAX patterns.
-                  </p>
-                  <a
-                    href="https://javascript.info/network"
-                    class="btn btn-secondary"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i> Read Tutorial
-                  </a>
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
                 </div>
               </div>
+            </section>
 
-              <div class="resource-card">
-                <div class="resource-icon">
-                  <i class="fas fa-database"></i>
+            <!-- Next Steps -->
+            <section id="next-steps" class="content-section">
+              <h2><i class="fas fa-step-forward"></i> What's Next?</h2>
+              <div class="next-steps">
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h3>Practice with APIs</h3>
+                    <p>
+                      Try different public APIs to build real applications with
+                      AJAX.
+                    </p>
+                    <a href="#" class="btn btn-primary">Explore APIs</a>
+                  </div>
                 </div>
-                <div class="resource-content">
-                  <h4>JSONPlaceholder</h4>
-                  <p>
-                    Free fake API for testing and prototyping AJAX requests.
-                  </p>
-                  <a
-                    href="https://jsonplaceholder.typicode.com/"
-                    class="btn btn-secondary"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i> Test API
-                  </a>
-                </div>
-              </div>
 
-              <div class="resource-card">
-                <div class="resource-icon">
-                  <i class="fas fa-check-circle"></i>
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h3>Learn jQuery AJAX</h3>
+                    <p>
+                      Discover how jQuery simplifies AJAX operations with its
+                      utility methods.
+                    </p>
+                    <a href="jquery-basics.html" class="btn btn-primary">jQuery Basics</a>
+                  </div>
                 </div>
-                <div class="resource-content">
-                  <h4>Can I Use</h4>
-                  <p>
-                    Check browser support for Fetch API and modern web
-                    features.
-                  </p>
-                  <a
-                    href="https://caniuse.com/fetch"
-                    class="btn btn-secondary"
-                    target="_blank"
-                  >
-                    <i class="fas fa-external-link-alt"></i> Check Support
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
 
-          <!-- Next Steps -->
-          <section class="topic-section">
-            <h2 class="section-header"><i class="fas fa-arrow-right"></i> What's Next?</h2>
-            <div class="next-steps">
-              <div class="step-item">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h3>Practice with APIs</h3>
-                  <p>
-                    Try different public APIs to build real applications with
-                    AJAX.
-                  </p>
-                  <a href="#" class="btn btn-primary">Explore APIs</a>
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h3>Advanced Patterns</h3>
+                    <p>
+                      Master advanced AJAX patterns like caching, interceptors,
+                      and middleware.
+                    </p>
+                    <a href="#" class="btn btn-primary">Advanced Topics</a>
+                  </div>
                 </div>
               </div>
-
-              <div class="step-item">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h3>Learn jQuery AJAX</h3>
-                  <p>
-                    Discover how jQuery simplifies AJAX operations with its
-                    utility methods.
-                  </p>
-                  <a href="jquery-basics.html" class="btn btn-primary">jQuery Basics</a>
-                </div>
-              </div>
-
-              <div class="step-item">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h3>Advanced Patterns</h3>
-                  <p>
-                    Master advanced AJAX patterns like caching, interceptors,
-                    and middleware.
-                  </p>
-                  <a href="#" class="btn btn-primary">Advanced Topics</a>
-                </div>
-              </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
 
-    <!-- Scripts -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

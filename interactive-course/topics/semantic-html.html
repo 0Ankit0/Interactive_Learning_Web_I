@@ -22,75 +22,115 @@
 
     <header class="topic-header">
       <div class="container">
-        <div class="header-content">
-          <div class="icon-container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-shapes"></i>
           </div>
-          <div class="text-container">
-            <h1 class="topic-title">2.4 Semantic HTML</h1>
-            <p class="topic-meta">Meaningful Structure • 90 minutes</p>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Semantic HTML</h1>
+            <p class="topic-subtitle">
+              Meaningful Structure for Better Web Development
+            </p>
             <p class="topic-description">
-              Learn to create meaningful, accessible web pages using semantic
-              HTML elements that improve SEO, accessibility, and code
-              maintainability.
+              Learn to create meaningful, accessible web pages using semantic HTML elements that improve SEO, accessibility, and code maintainability.
             </p>
           </div>
         </div>
-        <div class="progress-container">
-          <div class="progress-bar" id="topic-progress" style="width: 0%"></div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
-        <div class="layout-container">
-          <aside class="topic-sidebar">
-            <h3 class="sidebar-title">Table of Contents</h3>
-            <ul class="sidebar-menu">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
               <li>
-                <a
-                  href="#introduction"
-                  onclick="scrollToSection('introduction')"
-                  >What is Semantic HTML?</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>Semantic HTML Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >What is Semantic HTML?</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#structure" onclick="scrollToSection('structure')"
+                      >Structural Elements</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#content" onclick="scrollToSection('content')"
+                      >Content Elements</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#structure" onclick="scrollToSection('structure')"
-                  >Structural Elements</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>Benefits & Best Practices</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#accessibility"
+                      onclick="scrollToSection('accessibility')"
+                      >Accessibility Benefits</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#seo" onclick="scrollToSection('seo')"
+                      >SEO Advantages</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#best-practices" onclick="scrollToSection('best-practices')"
+                      >Best Practices</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
-                <a href="#content" onclick="scrollToSection('content')"
-                  >Content Elements</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
-              </li>
-              <li>
-                <a
-                  href="#accessibility"
-                  onclick="scrollToSection('accessibility')"
-                  >Accessibility Benefits</a
-                >
-              </li>
-              <li>
-                <a href="#seo" onclick="scrollToSection('seo')"
-                  >SEO Advantages</a
-                >
-              </li>
-              <li>
-                <a href="#practice" onclick="scrollToSection('practice')"
-                  >Interactive Practice</a
-                >
-              </li>
-              <li>
-                <a href="#resources" onclick="scrollToSection('resources')"
-                  >Video Resources</a
-                >
-              </li>
-              <li>
-                <a href="#quiz" onclick="scrollToSection('quiz')"
-                  >Knowledge Check</a
-                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </aside>
@@ -846,47 +886,39 @@
               </div>
             </section>
 
-            <section id="quiz" class="topic-section">
-              <h2 class="section-title"><i class="fas fa-question-circle"></i> Knowledge Check</h2>
-
-              <div class="quiz-container">
-                <div class="quiz-header">
-                  <div class="progress-bar-container">
-                    <div class="progress-bar" id="quiz-progress"></div>
+            <section id="quiz" class="content-section">
+              <h2 class="section-header"><i class="fas fa-question-circle"></i> Knowledge Check</h2>
+              <div class="quiz-info">
+                <p>Test your understanding of semantic HTML with this interactive quiz.</p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="quiz-question">
+                <h4 class="question-text"></h4>
+                <ul class="answer-options"></ul>
+              </div>
+              <div class="quiz-feedback">
+                <div class="feedback-icon">
+                  <i class="fas fa-check-circle correct-icon"></i>
+                  <i class="fas fa-times-circle incorrect-icon"></i>
+                </div>
+                <p class="feedback-text"></p>
+              </div>
+              <div class="quiz-controls">
+                <button class="btn btn-primary next-btn">Next Question</button>
+                <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+              </div>
+              <div class="quiz-results">
+                <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                <div class="results-summary">
+                  <div class="score-circle">
+                    <span class="score-percentage">0%</span>
                   </div>
-                  <span class="progress-label"
-                    >Question <span id="current-q">1</span> of
-                    <span id="total-q">6</span></span
-                  >
+                  <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
                 </div>
-
-                <div id="quiz-content" class="quiz-body">
-                  <!-- Quiz questions will be loaded here -->
-                </div>
-
-                <div class="quiz-footer">
-                  <button
-                    id="prev-btn"
-                    class="btn btn-secondary"
-                    onclick="prevQuestion()"
-                    disabled
-                  >
-                    Previous
-                  </button>
-                  <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()">
-                    Next
-                  </button>
-                  <button
-                    id="submit-btn"
-                    class="btn btn-success"
-                    onclick="submitQuiz()"
-                    style="display: none"
-                  >
-                    Submit Quiz
-                  </button>
-                </div>
-
-                <div id="quiz-results" class="results-container"></div>
+                <div class="results-message"></div>
+                <button class="btn btn-primary restart-btn">Try Again</button>
               </div>
             </section>
 

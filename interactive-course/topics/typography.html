@@ -3,148 +3,210 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typography - Interactive Course</title>
+    <title>Typography in Web Design - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
     />
-  </head>
-  <body>
-    <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typography in Web Design - Interactive Course</title>
-    <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="breadcrumb">
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         <span class="separator">/</span>
-        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <a href="../units/unit1.html">Unit 1</a>
         <span class="separator">/</span>
-        <span class="active">Typography</span>
+        <span class="current">Typography in Web Design</span>
       </div>
     </nav>
 
     <header class="topic-header">
       <div class="container">
-        <div class="header-content">
-          <div class="icon-container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-font"></i>
           </div>
-          <div class="text-container">
+          <div class="topic-header-text">
             <h1 class="topic-title">Typography in Web Design</h1>
-            <p class="topic-subtitle">Font Selection & Text Layout</p>
+            <p class="topic-subtitle">
+              Master the art of text design and readability
+            </p>
             <p class="topic-description">
-              Learn how to use typography to create readable, appealing, and
-              effective web designs. Explore font categories, principles of
-              typographic design, and practical tools for implementation.
+              Learn how to use typography to create readable, appealing, and effective web designs. Explore font categories, principles of typographic design, and practical tools for implementation.
             </p>
           </div>
         </div>
-        <div class="progress-container">
-          <div class="progress-bar" id="topic-progress"></div>
-          <span class="progress-text">0% Complete</span>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
-        <section class="topic-section">
-          <h2 class="section-title">Font Categories</h2>
-          <div class="font-category-grid">
-            <div class="category-card">
-              <div class="card-header">
-                <i class="fas fa-pen-fancy"></i>
-                <h3 class="card-title">Serif</h3>
-              </div>
-              <div class="card-body">
-                <p class="font-example serif">Aa</p>
-                <p class="card-description">
-                  Fonts with small decorative strokes (serifs) at the ends of
-                  letterforms. Often used for body text in print.
-                </p>
-              </div>
-            </div>
-            <div class="category-card">
-              <div class="card-header">
-                <i class="fas fa-bold"></i>
-                <h3 class="card-title">Sans-serif</h3>
-              </div>
-              <div class="card-body">
-                <p class="font-example sans-serif">Aa</p>
-                <p class="card-description">
-                  Fonts without serifs, providing a clean, modern look. Widely
-                  used for web content and headings.
-                </p>
-              </div>
-            </div>
-            <div class="category-card">
-              <div class="card-header">
-                <i class="fas fa-pen-alt"></i>
-                <h3 class="card-title">Monospace</h3>
-              </div>
-              <div class="card-body">
-                <p class="font-example monospace">Aa</p>
-                <p class="card-description">
-                  Fonts where each character occupies the same amount of
-                  horizontal space. Ideal for code blocks.
-                </p>
-              </div>
-            </div>
-            <div class="category-card">
-              <div class="card-header">
-                <i class="fas fa-signature"></i>
-                <h3 class="card-title">Display</h3>
-              </div>
-              <div class="card-body">
-                <p class="font-example display">Aa</p>
-                <p class="card-description">
-                  Decorative fonts used for headings and titles to grab
-                  attention. Not suitable for body text.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Font Categories</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#serif-fonts"
+                      onclick="scrollToSection('serif-fonts')"
+                      >Serif Fonts</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#sans-serif-fonts"
+                      onclick="scrollToSection('sans-serif-fonts')"
+                      >Sans-serif Fonts</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#monospace-fonts"
+                      onclick="scrollToSection('monospace-fonts')"
+                      >Monospace Fonts</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#display-fonts"
+                      onclick="scrollToSection('display-fonts')"
+                      >Display Fonts</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Typography Principles</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#hierarchy"
+                      onclick="scrollToSection('hierarchy')"
+                      >Visual Hierarchy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#spacing-scale"
+                      onclick="scrollToSection('spacing-scale')"
+                      >Spacing & Scale</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#weight-style"
+                      onclick="scrollToSection('weight-style')"
+                      >Weight & Style</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#font-pairing"
+                  onclick="scrollToSection('font-pairing')"
+                  >Font Pairing Explorer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#readability-testing"
+                  onclick="scrollToSection('readability-testing')"
+                  >Readability Testing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#typography-quiz"
+                  onclick="scrollToSection('typography-quiz')"
+                  >Test Your Knowledge</a
+                >
+              </li>
+            </ul>
+          </aside>
 
-        <section class="topic-section">
-          <h2 class="section-title">Typography Principles</h2>
-          <div class="principles-grid">
-            <div class="principle-card">
-              <div class="card-header">
-                <i class="fas fa-sitemap"></i>
-                <h3 class="card-title">Hierarchy</h3>
-              </div>
-              <div class="card-body">
+          <div class="content-main">
+            <!-- Font Categories -->
+            <section class="content-section" id="serif-fonts">
+              <h2 class="section-header"><i class="fas fa-pen-fancy"></i> Serif Fonts</h2>
+              <p class="lead">
+                Fonts with small decorative strokes (serifs) at the ends of letterforms. Often used for body text in print and formal designs.
+              </p>
+              <div class="font-example serif">Aa Bb Cc Dd Ee Ff Gg</div>
+              <p>Serif fonts convey tradition, reliability, and formality. They're excellent for long-form content and printed materials.</p>
+            </section>
+
+            <section class="content-section" id="sans-serif-fonts">
+              <h2 class="section-header"><i class="fas fa-bold"></i> Sans-serif Fonts</h2>
+              <p class="lead">
+                Fonts without serifs, providing a clean, modern look. Widely used for web content and headings.
+              </p>
+              <div class="font-example sans-serif">Aa Bb Cc Dd Ee Ff Gg</div>
+              <p>Sans-serif fonts are highly legible on screens and work well for both headings and body text in digital interfaces.</p>
+            </section>
+
+            <section class="content-section" id="monospace-fonts">
+              <h2 class="section-header"><i class="fas fa-pen-alt"></i> Monospace Fonts</h2>
+              <p class="lead">
+                Fonts where each character occupies the same amount of horizontal space. Ideal for code blocks and technical content.
+              </p>
+              <div class="font-example monospace">Aa Bb Cc Dd Ee Ff Gg</div>
+              <p>Monospace fonts are perfect for displaying code, terminal output, and any content where character alignment is important.</p>
+            </section>
+
+            <section class="content-section" id="display-fonts">
+              <h2 class="section-header"><i class="fas fa-signature"></i> Display Fonts</h2>
+              <p class="lead">
+                Decorative fonts used for headings and titles to grab attention. Not suitable for body text due to poor readability.
+              </p>
+              <div class="font-example display">Aa Bb Cc Dd Ee Ff Gg</div>
+              <p>Display fonts should be used sparingly and at large sizes. They're great for logos, posters, and impactful headlines.</p>
+            </section>
+
+            <!-- Typography Principles -->
+            <section class="content-section" id="hierarchy">
+              <h2 class="section-header"><i class="fas fa-sitemap"></i> Visual Hierarchy</h2>
+              <p class="lead">
+                Use size, weight, and color to guide the reader's eye and establish a clear order of importance.
+              </p>
+              <div class="hierarchy-examples">
                 <h1 class="example-h1">Main Heading (H1)</h1>
                 <h2 class="example-h2">Section Heading (H2)</h2>
                 <h3 class="example-h3">Subsection Heading (H3)</h3>
-                <p class="example-p">
-                  Body text for paragraphs, providing the main content.
-                </p>
+                <p class="example-p">Body text for paragraphs, providing the main content.</p>
                 <small class="example-small">Small text for captions or footnotes</small>
               </div>
-              <div class="card-footer">
-                <p>
-                  Use size, weight, and color to guide the reader's eye and
-                  establish a clear order of importance.
-                </p>
-              </div>
-            </div>
+            </section>
 
             <div class="principle-card">
               <div class="card-header">
@@ -280,21 +342,59 @@
               </div>
             </div>
           </div>
-        </section>
+        </section><section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-        <section class="topic-section">
-          <h2 class="section-title">Test Your Knowledge</h2>
-          <div class="quiz-container" id="typography-quiz"></div>
-          <div class="quiz-controls">
-            <button class="btn btn-primary" onclick="submitTypographyQuiz()">
-              Submit Answers
-            </button>
-            <button class="btn btn-secondary" onclick="resetTypographyQuiz()">Reset Quiz</button>
-          </div>
-          <div class="quiz-results"
-            id="typography-quiz-results"
-          ></div>
-        </section>
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
       </div>
     </main>
 

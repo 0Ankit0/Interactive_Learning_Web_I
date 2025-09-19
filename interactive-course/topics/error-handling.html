@@ -3,101 +3,499 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Handling - Interactive Course</title>
+    <title>Error Handling - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Error Handling - Interactive Course</title>
-        <link rel="stylesheet" href="../dist/css/main.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
-        />
-      </head>
-      <body>
-        <!-- Navigation -->
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <i class="fas fa-code"></i>
-              <span>Web Technology Course</span>
-            </div>
-            <div class="navbar-links">
-              <a href="../index.html" class="nav-link">
-                <i class="fas fa-home"></i> Home
-              </a>
-              <a href="../units/unit5.html" class="nav-link">
-                <i class="fas fa-book-open"></i> Unit 5
-              </a>
-            </div>
-          </div>
-        </nav>
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
+        <span class="separator">/</span>
+        <span class="current">5.1 Error Handling</span>
+      </div>
+    </nav>
 
-        <!-- Breadcrumb -->
-        <div class="breadcrumb">
-          <div class="container">
-            <span class="breadcrumb-item">
-              <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-            </span>
-            <span class="breadcrumb-separator"
-              ><i class="fas fa-chevron-right"></i
-            ></span>
-            <span class="breadcrumb-item">
-              <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
-            </span>
-            <span class="breadcrumb-separator"
-              ><i class="fas fa-chevron-right"></i
-            ></span>
-            <span class="breadcrumb-item active">Error Handling</span>
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Error Handling</h1>
+            <p class="topic-subtitle">
+              Master robust error handling in JavaScript
+            </p>
+            <p class="topic-description">
+              Learn how to handle errors gracefully in JavaScript applications, from basic try-catch blocks to advanced error patterns and best practices.
+            </p>
           </div>
         </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero-section">
-          <div class="container">
-            <div class="hero-content">
-              <h1 class="hero-title">
-                <i class="fas fa-exclamation-triangle"></i> Error Handling
-              </h1>
-              <p class="lead">
-                Master robust error handling in JavaScript. Learn to catch,
-                handle, and debug errors effectively to build reliable
-                applications that gracefully handle unexpected situations.
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Error Handling Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction to Error Handling</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#try-catch" onclick="scrollToSection('try-catch')"
+                      >Try-Catch Blocks</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#error-types"
+                      onclick="scrollToSection('error-types')"
+                      >Types of Errors</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Advanced Error Handling</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#throw" onclick="scrollToSection('throw')"
+                      >Throwing Custom Errors</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#async-errors"
+                      onclick="scrollToSection('async-errors')"
+                      >Async Error Handling</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#best-practices"
+                      onclick="scrollToSection('best-practices')"
+                      >Best Practices</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+          <section id="introduction" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-info-circle"></i> Introduction to Error Handling
+            </h2>
+
+            <div class="info-box">
+              <h3>Why Error Handling Matters</h3>
+              <p>
+                Error handling is crucial for building robust applications that
+                can gracefully handle unexpected situations. Without proper error
+                handling, applications can crash, provide poor user experience,
+                or expose sensitive information.
               </p>
-              <div class="features">
-                <span class="feature-item"
-                  ><i class="fas fa-shield-alt"></i> Robust Code</span
-                >
-                <span class="feature-item"
-                  ><i class="fas fa-bug"></i> Debug Effectively</span
-                >
-                <span class="feature-item"
-                  ><i class="fas fa-recycle"></i> Error Recovery</span
-                >
-                <span class="feature-item"
-                  ><i class="fas fa-smile"></i> Better UX</span
-                >
+            </div>
+
+            <div class="topic-grid two-column">
+              <div class="topic-card">
+                <h4>Benefits of Error Handling</h4>
+                <ul>
+                  <li>Prevents application crashes</li>
+                  <li>Provides better user experience</li>
+                  <li>Helps with debugging and maintenance</li>
+                  <li>Improves application reliability</li>
+                  <li>Allows graceful degradation</li>
+                </ul>
+              </div>
+
+              <div class="topic-card">
+                <h4>Common Error Scenarios</h4>
+                <ul>
+                  <li>Network failures</li>
+                  <li>Invalid user input</li>
+                  <li>File system errors</li>
+                  <li>API failures</li>
+                  <li>Memory issues</li>
+                </ul>
               </div>
             </div>
-            <div class="hero-visual">
-              <div class="code-editor-container">
-                <div class="code-editor">
-                  <div class="editor-header">Error Handling Demo</div>
+          </section>
+
+          <section id="try-catch" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-code"></i> Try-Catch Blocks
+            </h2>
+
+            <div class="code-block">
+              <h3 class="code-header">Basic Try-Catch Syntax</h3>
+              <div class="code-block-inner">
+                <pre><code class="language-javascript">try {
+    // Code that might throw an error
+    const result = riskyOperation();
+    console.log('Success:', result);
+} catch (error) {
+    // Handle the error
+    console.error('Error occurred:', error.message);
+} finally {
+    // Always executed
+    console.log('Cleanup code here');
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="interactive-demo">
+              <h3>Try-Catch Demo</h3>
+              <div class="demo-controls">
+                <button class="btn btn-primary" onclick="runTryCatchDemo()">Run Safe Code</button>
+                <button class="btn btn-danger" onclick="runErrorDemo()">Run Code with Error</button>
+                <button class="btn btn-secondary" onclick="clearDemoOutput()">Clear Output</button>
+              </div>
+
+              <div class="demo-output">
+                <h4>Output:</h4>
+                <pre id="demo-output" class="code-block"></pre>
+              </div>
+            </div>
+          </section>
+
+          <section id="error-types" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-exclamation-circle"></i> Types of Errors
+            </h2>
+
+            <div class="topic-grid three-column">
+              <div class="topic-card">
+                <h4>ReferenceError</h4>
+                <p>Thrown when trying to access a variable that doesn't exist.</p>
+                <div class="code-block">
+                  <pre><code class="language-javascript">// ReferenceError
+console.log(undefinedVariable);</code></pre>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <h4>TypeError</h4>
+                <p>Thrown when an operation is performed on an inappropriate type.</p>
+                <div class="code-block">
+                  <pre><code class="language-javascript">// TypeError
+null.someMethod();</code></pre>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <h4>SyntaxError</h4>
+                <p>Thrown when there's a syntax error in the code.</p>
+                <div class="code-block">
+                  <pre><code class="language-javascript">// SyntaxError
+const obj = {</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="throw" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-hand-paper"></i> Throwing Custom Errors
+            </h2>
+
+            <div class="code-block">
+              <h3 class="code-header">Creating Custom Errors</h3>
+              <div class="code-block-inner">
+                <pre><code class="language-javascript">// Throwing custom errors
+function validateAge(age) {
+    if (age < 0) {
+        throw new Error('Age cannot be negative');
+    }
+    if (age > 150) {
+        throw new RangeError('Age seems unrealistic');
+    }
+    return true;
+}
+
+// Using custom error types
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+function validateEmail(email) {
+    if (!email.includes('@')) {
+        throw new ValidationError('Invalid email format');
+    }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section id="async-errors" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-clock"></i> Async Error Handling
+            </h2>
+
+            <div class="code-block">
+              <h3 class="code-header">Promises with Error Handling</h3>
+              <div class="code-block-inner">
+                <pre><code class="language-javascript">// Promise error handling
+fetch('/api/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('Fetch error:', error));
+
+// Async/await error handling
+async function fetchData() {
+    try {
+        const response = await fetch('/api/data');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Async error:', error);
+        throw error; // Re-throw if needed
+    }
+}</code></pre>
+              </div>
+            </div>
+          </section>
+
+          <section id="best-practices" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-check-double"></i> Best Practices
+            </h2>
+
+            <div class="topic-grid two-column">
+              <div class="topic-card">
+                <h3>Do's</h3>
+                <ul>
+                  <li>Always handle errors appropriately</li>
+                  <li>Provide meaningful error messages</li>
+                  <li>Use specific error types when possible</li>
+                  <li>Log errors for debugging</li>
+                  <li>Test error scenarios</li>
+                </ul>
+              </div>
+
+              <div class="topic-card">
+                <h3>Don'ts</h3>
+                <ul>
+                  <li>Don't ignore errors</li>
+                  <li>Don't expose sensitive information in errors</li>
+                  <li>Don't use try-catch for flow control</li>
+                  <li>Don't swallow errors without logging</li>
+                  <li>Don't re-throw errors without context</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="practice" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-pencil-ruler"></i> Interactive Practice
+            </h2>
+
+            <div class="topic-grid three-column">
+              <div class="topic-card">
+                <h3>Challenge 1: Basic Error Handling</h3>
+                <p>Write a function that handles division by zero:</p>
+                <textarea id="error-challenge-1" class="code-editor-textarea" placeholder="function divide(a, b) { ... }"></textarea>
+                <button class="btn btn-primary" onclick="checkErrorChallenge1()">Check Solution</button>
+                <div id="error-result-1" class="result-box"></div>
+              </div>
+
+              <div class="topic-card">
+                <h3>Challenge 2: Custom Error Types</h3>
+                <p>Create a custom error class for validation:</p>
+                <textarea id="error-challenge-2" class="code-editor-textarea" placeholder="class ValidationError extends Error { ... }"></textarea>
+                <button class="btn btn-primary" onclick="checkErrorChallenge2()">Check Solution</button>
+                <div id="error-result-2" class="result-box"></div>
+              </div>
+
+              <div class="topic-card">
+                <h3>Challenge 3: Async Error Handling</h3>
+                <p>Handle errors in an async function:</p>
+                <textarea id="error-challenge-3" class="code-editor-textarea" placeholder="async function fetchUser(id) { ... }"></textarea>
+                <button class="btn btn-primary" onclick="checkErrorChallenge3()">Check Solution</button>
+                <div id="error-result-3" class="result-box"></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="resources" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-video"></i> Video Resources & Tutorials
+            </h2>
+
+            <div class="resource-grid two-column">
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="card-content">
+                  <h4>JavaScript Error Handling</h4>
+                  <p class="author">Traversy Media</p>
+                  <p>Complete guide to error handling in JavaScript with practical examples.</p>
+                  <a href="https://www.youtube.com/watch?v=8zRZ4Q7Y2Rg" target="_blank" class="btn btn-secondary">Watch Video</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="card-content">
+                  <h4>Async Error Handling</h4>
+                  <p class="author">Web Dev Simplified</p>
+                  <p>Learn to handle errors in asynchronous JavaScript code.</p>
+                  <a href="https://www.youtube.com/watch?v=6XDgEw6FJ4E" target="_blank" class="btn btn-secondary">Watch Video</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-html5"></i></div>
+                <div class="card-content">
+                  <h4>MDN Error Handling Guide</h4>
+                  <p class="author">Mozilla Developer Network</p>
+                  <p>Comprehensive documentation on JavaScript error handling.</p>
+                  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank" class="btn btn-secondary">Read Documentation</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-html5"></i></div>
+                <div class="card-content">
+                  <h4>JavaScript Info - Error Handling</h4>
+                  <p class="author">javascript.info</p>
+                  <p>Detailed guide on try-catch, custom errors, and error handling patterns.</p>
+                  <a href="https://javascript.info/error-handling" target="_blank" class="btn btn-secondary">Read Guide</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="quiz" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-question-circle"></i> Knowledge Check
+            </h2>
+            <div class="quiz-info">
+              <p>Test your understanding of error handling with this interactive quiz.</p>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="quiz-question">
+              <h4 class="question-text"></h4>
+              <ul class="answer-options"></ul>
+            </div>
+            <div class="quiz-feedback">
+              <div class="feedback-icon">
+                <i class="fas fa-check-circle correct-icon"></i>
+                <i class="fas fa-times-circle incorrect-icon"></i>
+              </div>
+              <p class="feedback-text"></p>
+            </div>
+            <div class="quiz-controls">
+              <button class="btn btn-primary next-btn">Next Question</button>
+              <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+            </div>
+            <div class="quiz-results">
+              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+              <div class="results-summary">
+                <div class="score-circle">
+                  <span class="score-percentage">0%</span>
+                </div>
+                <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
+              </div>
+              <div class="results-message"></div>
+              <button class="btn btn-primary restart-btn">Try Again</button>
+            </div>
+          </section>
+
+          <div class="navigation-buttons">
+            <a href="es6-features.html" class="btn btn-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: ES6 Features
+            </a>
+            <a href="jquery-basics.html" class="btn btn-primary">
+              Next: jQuery Basics <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Web Technology I Course. Master error handling for robust JavaScript applications.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>
                   <div class="code-block" id="liveErrorDemo">
                     <div class="code-line">try {</div>
                     <div class="code-line indent">await riskyOperation();</div>
@@ -661,170 +1059,6 @@ function getUserFriendlyMessage(error) {
   return 'Something went wrong. Please try again later.';
 }</code></pre>
                   </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Quiz Section -->
-            <section class="content-section">
-              <h2 class="section-header">
-                <i class="fas fa-question-circle"></i> Test Your Error Handling
-                Knowledge
-              </h2>
-              <div class="quiz-container">
-                <div class="quiz-question">
-                  <h4 class="question-title">
-                    <span class="question-number">1</span> What happens if an
-                    error is not caught in a try-catch block?
-                  </h4>
-                  <ul class="quiz-options">
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q1" value="a" />
-                        <span>The error is silently ignored</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q1" value="b" />
-                        <span>The program crashes</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q1" value="c" />
-                        <span>The error is automatically logged</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q1" value="d" />
-                        <span>The error becomes a warning</span></label
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="quiz-question">
-                  <h4 class="question-title">
-                    <span class="question-number">2</span> Which block always
-                    executes in a try-catch-finally statement?
-                  </h4>
-                  <ul class="quiz-options">
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q2" value="a" />
-                        <span>try</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q2" value="b" />
-                        <span>catch</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q2" value="c" />
-                        <span>finally</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q2" value="d" />
-                        <span>All blocks always execute</span></label
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="quiz-question">
-                  <h4 class="question-title">
-                    <span class="question-number">3</span> How do you handle
-                    errors in async/await functions?
-                  </h4>
-                  <ul class="quiz-options">
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q3" value="a" />
-                        <span>Using try-catch blocks</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q3" value="b" />
-                        <span>Using .catch() method only</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q3" value="c" />
-                        <span
-                          >Errors cannot be handled in async functions</span
-                        ></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q3" value="d" />
-                        <span>Using setTimeout</span></label
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="quiz-question">
-                  <h4 class="question-title">
-                    <span class="question-number">4</span> What is the purpose
-                    of the Error.stack property?
-                  </h4>
-                  <ul class="quiz-options">
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q4" value="a" />
-                        <span>To store the error message</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q4" value="b" />
-                        <span
-                          >To provide a stack trace for debugging</span
-                        ></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q4" value="c" />
-                        <span>To indicate the error type</span></label
-                      >
-                    </li>
-                    <li class="option-item">
-                      <label class="option-label"
-                        ><input type="radio" name="q4" value="d" />
-                        <span>To count the number of errors</span></label
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="quiz-buttons">
-                  <button class="btn btn-primary">Submit Quiz</button>
-                  <button class="btn btn-secondary" style="display: none">
-                    Try Again
-                  </button>
-                </div>
-
-                <div class="quiz-results" style="display: none">
-                  <h3 class="results-title">
-                    <i class="fas fa-poll"></i> Quiz Results
-                  </h3>
-                  <p class="results-summary">
-                    You scored <span id="score">0</span> out of 4 (<span
-                      id="percentage"
-                      >0</span
-                    >%)
-                  </p>
                 </div>
               </div>
             </section>

@@ -46,86 +46,171 @@
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
-        <!-- Introduction Section -->
-        <section class="content-section" data-section="introduction">
-          <div class="section-header">
-            <h2><i class="fas fa-info-circle"></i> What is the DOM?</h2>
-          </div>
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <div class="card-content">
-                <p>
-                  The <strong>Document Object Model (DOM)</strong> is a
-                  programming interface that represents the structure of HTML
-                  and XML documents as a tree of objects. It allows JavaScript
-                  to:
-                </p>
-                <ul class="feature-list">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >What is the DOM?</a
+                >
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Selecting Elements</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
                   <li>
-                    <strong>Access Elements:</strong> Find and select HTML
-                    elements
+                    <a href="#selectors" onclick="scrollToSection('selectors')"
+                      >DOM Selectors</a
+                    >
                   </li>
                   <li>
-                    <strong>Modify Content:</strong> Change text, HTML, and
-                    attributes
-                  </li>
-                  <li>
-                    <strong>Change Styles:</strong> Modify CSS properties
-                    dynamically
-                  </li>
-                  <li>
-                    <strong>Add/Remove Elements:</strong> Create new elements or
-                    delete existing ones
-                  </li>
-                  <li>
-                    <strong>Respond to Events:</strong> Handle user interactions
+                    <a
+                      href="#query-methods"
+                      onclick="scrollToSection('query-methods')"
+                      >Query Methods</a
+                    >
                   </li>
                 </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Modifying Content</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#changing-content"
+                      onclick="scrollToSection('changing-content')"
+                      >Changing Text & HTML</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#modifying-attributes"
+                      onclick="scrollToSection('modifying-attributes')"
+                      >Modifying Attributes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#changing-styles"
+                      onclick="scrollToSection('changing-styles')"
+                      >Changing Styles</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#events" onclick="scrollToSection('events')"
+                  >Event Handling</a
+                >
+              </li>
+              <li>
+                <a href="#examples" onclick="scrollToSection('examples')"
+                  >Practical Examples</a
+                >
+              </li>
+            </ul>
+          </aside>
 
-                <div class="info-box">
-                  <h4>Key Concept:</h4>
-                  <p>
-                    The DOM treats your HTML document as a tree structure where
-                    every element, attribute, and text is a node that can be
-                    accessed and modified with JavaScript.
-                  </p>
-                </div>
+          <div class="content-main">
+            <!-- Introduction Section -->
+            <section class="content-section" data-section="introduction">
+              <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> What is the DOM?</h2>
               </div>
-            </div>
-            <div class="topic-card">
-              <div class="dom-tree-container">
-                <h4 class="text-center">DOM Tree Structure:</h4>
-                <div class="dom-tree">
-                  <div class="dom-node root">
-                    <span class="node-label">document</span>
-                    <div class="dom-children">
-                      <div class="dom-node">
-                        <span class="node-label">html</span>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <div class="card-content">
+                    <p>
+                      The <strong>Document Object Model (DOM)</strong> is a
+                      programming interface that represents the structure of
+                      HTML and XML documents as a tree of objects. It allows
+                      JavaScript to:
+                    </p>
+                    <ul class="feature-list">
+                      <li>
+                        <strong>Access Elements:</strong> Find and select HTML
+                        elements
+                      </li>
+                      <li>
+                        <strong>Modify Content:</strong> Change text, HTML, and
+                        attributes
+                      </li>
+                      <li>
+                        <strong>Change Styles:</strong> Modify CSS properties
+                        dynamically
+                      </li>
+                      <li>
+                        <strong>Add/Remove Elements:</strong> Create new
+                        elements or delete existing ones
+                      </li>
+                      <li>
+                        <strong>Respond to Events:</strong> Handle user
+                        interactions
+                      </li>
+                    </ul>
+
+                    <div class="info-box">
+                      <h4>Key Concept:</h4>
+                      <p>
+                        The DOM treats your HTML document as a tree structure
+                        where every element, attribute, and text is a node that
+                        can be accessed and modified with JavaScript.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="topic-card">
+                  <div class="dom-tree-container">
+                    <h4 class="text-center">DOM Tree Structure:</h4>
+                    <div class="dom-tree">
+                      <div class="dom-node root">
+                        <span class="node-label">document</span>
                         <div class="dom-children">
                           <div class="dom-node">
-                            <span class="node-label">head</span>
+                            <span class="node-label">html</span>
                             <div class="dom-children">
                               <div class="dom-node">
-                                <span class="node-label">title</span>
+                                <span class="node-label">head</span>
+                                <div class="dom-children">
+                                  <div class="dom-node">
+                                    <span class="node-label">title</span>
+                                  </div>
+                                  <div class="dom-node">
+                                    <span class="node-label">meta</span>
+                                  </div>
+                                </div>
                               </div>
                               <div class="dom-node">
-                                <span class="node-label">meta</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="dom-node">
-                            <span class="node-label">body</span>
-                            <div class="dom-children">
-                              <div class="dom-node">
-                                <span class="node-label">h1</span>
-                              </div>
-                              <div class="dom-node">
-                                <span class="node-label">p</span>
-                              </div>
-                              <div class="dom-node">
-                                <span class="node-label">div</span>
+                                <span class="node-label">body</span>
+                                <div class="dom-children">
+                                  <div class="dom-node">
+                                    <span class="node-label">h1</span>
+                                  </div>
+                                  <div class="dom-node">
+                                    <span class="node-label">p</span>
+                                  </div>
+                                  <div class="dom-node">
+                                    <span class="node-label">div</span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -135,454 +220,468 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Element Selection -->
-        <section class="content-section" data-section="selection">
-          <div class="section-header">
-            <h2><i class="fas fa-search"></i> Selecting DOM Elements</h2>
-          </div>
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <h3>DOM Selection Methods</h3>
+            <!-- Element Selection -->
+            <section class="content-section" data-section="selection">
+              <div class="section-header">
+                <h2><i class="fas fa-search"></i> Selecting DOM Elements</h2>
+              </div>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <h3>DOM Selection Methods</h3>
 
-              <div class="feature-list">
-                <div class="feature-item">
-                  <h4>getElementById()</h4>
-                  <p>Select an element by its ID (returns single element)</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// HTML: &lt;div id="myDiv"&gt;Hello&lt;/div&gt;
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <h4>getElementById()</h4>
+                      <p>
+                        Select an element by its ID (returns single element)
+                      </p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// HTML: &lt;div id="myDiv"&gt;Hello&lt;/div&gt;
 const element = document.getElementById('myDiv');
 console.log(element.textContent); // "Hello"</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>getElementsByClassName()</h4>
-                  <p>Select elements by class name (returns HTMLCollection)</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// HTML: &lt;p class="highlight"&gt;Text&lt;/p&gt;
+                    <div class="feature-item">
+                      <h4>getElementsByClassName()</h4>
+                      <p>
+                        Select elements by class name (returns HTMLCollection)
+                      </p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// HTML: &lt;p class="highlight"&gt;Text&lt;/p&gt;
 const elements = document.getElementsByClassName('highlight');
 console.log(elements.length); // Number of elements</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>getElementsByTagName()</h4>
-                  <p>Select elements by tag name (returns HTMLCollection)</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// Select all paragraphs
+                    <div class="feature-item">
+                      <h4>getElementsByTagName()</h4>
+                      <p>
+                        Select elements by tag name (returns HTMLCollection)
+                      </p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// Select all paragraphs
 const paragraphs = document.getElementsByTagName('p');
 for (let p of paragraphs) {
   console.log(p.textContent);
 }</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>querySelector()</h4>
-                  <p>Select first element matching CSS selector</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// Select first element with class 'button'
+                    <div class="feature-item">
+                      <h4>querySelector()</h4>
+                      <p>Select first element matching CSS selector</p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// Select first element with class 'button'
 const button = document.querySelector('.button');
 // Select element by ID
 const header = document.querySelector('#header');</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>querySelectorAll()</h4>
-                  <p>
-                    Select all elements matching CSS selector (returns NodeList)
-                  </p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// Select all buttons
+                    <div class="feature-item">
+                      <h4>querySelectorAll()</h4>
+                      <p>
+                        Select all elements matching CSS selector (returns
+                        NodeList)
+                      </p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// Select all buttons
 const buttons = document.querySelectorAll('button');
 // Select all elements with class 'card'
 const cards = document.querySelectorAll('.card');</code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Interactive Element Selector -->
-            <div class="interactive-demo">
-              <div class="demo-card">
-                <div class="card-header">
-                  <h4>Try Different Selectors:</h4>
-                </div>
-                <div class="demo-controls">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      id="selector-input"
-                      class="form-control"
-                      placeholder="Enter CSS selector (e.g., #main-title, .intro, button)"
-                      value="#main-title"
-                    />
-                    <button onclick="trySelector()" class="btn btn-primary">
-                      <i class="fas fa-search"></i> Select
-                    </button>
-                  </div>
-
-                  <div class="button-group">
-                    <button
-                      onclick="setSelector('#main-title')"
-                      class="btn btn-secondary"
-                    >
-                      #main-title
-                    </button>
-                    <button
-                      onclick="setSelector('.intro')"
-                      class="btn btn-secondary"
-                    >
-                      .intro
-                    </button>
-                    <button
-                      onclick="setSelector('button')"
-                      class="btn btn-secondary"
-                    >
-                      button
-                    </button>
-                    <button
-                      onclick="setSelector('.btn.primary')"
-                      class="btn btn-secondary"
-                    >
-                      .btn.primary
-                    </button>
-                  </div>
-                </div>
-
-                <div class="demo-area">
-                  <h4>Sample HTML:</h4>
-                  <div class="demo-content" id="demo-content">
-                    <h2 id="main-title">Welcome to DOM Manipulation</h2>
-                    <p class="intro">This is an introduction paragraph.</p>
-                    <div class="button-group">
-                      <button class="btn primary">Primary Button</button>
-                      <button class="btn secondary">Secondary Button</button>
+                      </div>
                     </div>
-                    <p class="intro">Another paragraph with the same class.</p>
-                    <span id="status">Status: Ready</span>
                   </div>
                 </div>
+
+                <!-- Interactive Element Selector -->
+                <div class="interactive-demo">
+                  <div class="demo-card">
+                    <div class="card-header">
+                      <h4>Try Different Selectors:</h4>
+                    </div>
+                    <div class="demo-controls">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          id="selector-input"
+                          class="form-control"
+                          placeholder="Enter CSS selector (e.g., #main-title, .intro, button)"
+                          value="#main-title"
+                        />
+                        <button onclick="trySelector()" class="btn btn-primary">
+                          <i class="fas fa-search"></i> Select
+                        </button>
+                      </div>
+
+                      <div class="button-group">
+                        <button
+                          onclick="setSelector('#main-title')"
+                          class="btn btn-secondary"
+                        >
+                          #main-title
+                        </button>
+                        <button
+                          onclick="setSelector('.intro')"
+                          class="btn btn-secondary"
+                        >
+                          .intro
+                        </button>
+                        <button
+                          onclick="setSelector('button')"
+                          class="btn btn-secondary"
+                        >
+                          button
+                        </button>
+                        <button
+                          onclick="setSelector('.btn.primary')"
+                          class="btn btn-secondary"
+                        >
+                          .btn.primary
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="demo-area">
+                      <h4>Sample HTML:</h4>
+                      <div class="demo-content" id="demo-content">
+                        <h2 id="main-title">Welcome to DOM Manipulation</h2>
+                        <p class="intro">This is an introduction paragraph.</p>
+                        <div class="button-group">
+                          <button class="btn primary">Primary Button</button>
+                          <button class="btn secondary">
+                            Secondary Button
+                          </button>
+                        </div>
+                        <p class="intro">
+                          Another paragraph with the same class.
+                        </p>
+                        <span id="status">Status: Ready</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="selector-result" class="result-box"></div>
+                </div>
               </div>
+            </section>
 
-              <div id="selector-result" class="result-box"></div>
-            </div>
-          </div>
-        </section>
+            <!-- Content Manipulation -->
+            <section class="content-section" data-section="content">
+              <div class="section-header">
+                <h2><i class="fas fa-edit"></i> Modifying Content</h2>
+              </div>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <h3>Content Modification Properties</h3>
 
-        <!-- Content Manipulation -->
-        <section class="content-section" data-section="content">
-          <div class="section-header">
-            <h2><i class="fas fa-edit"></i> Modifying Content</h2>
-          </div>
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <h3>Content Modification Properties</h3>
-
-              <div class="feature-list">
-                <div class="feature-item">
-                  <h4>textContent</h4>
-                  <p>Gets or sets the text content (no HTML)</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <h4>textContent</h4>
+                      <p>Gets or sets the text content (no HTML)</p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 element.textContent = 'New text content';
 console.log(element.textContent); // "New text content"</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>innerHTML</h4>
-                  <p>Gets or sets HTML content inside element</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                    <div class="feature-item">
+                      <h4>innerHTML</h4>
+                      <p>Gets or sets HTML content inside element</p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 element.innerHTML = '&lt;strong&gt;Bold text&lt;/strong&gt;';
 // Renders as bold text in the browser</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>outerHTML</h4>
-                  <p>Gets or sets the entire element including its tags</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                    <div class="feature-item">
+                      <h4>outerHTML</h4>
+                      <p>Gets or sets the entire element including its tags</p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 console.log(element.outerHTML);
 // "&lt;div id='myDiv'&gt;content&lt;/div&gt;"</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>value</h4>
-                  <p>Gets or sets the value of form elements</p>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const input = document.getElementById('myInput');
+                    <div class="feature-item">
+                      <h4>value</h4>
+                      <p>Gets or sets the value of form elements</p>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const input = document.getElementById('myInput');
 input.value = 'New input value';
 console.log(input.value); // "New input value"</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Interactive Content Editor -->
+                <div class="interactive-demo">
+                  <div class="demo-card">
+                    <div class="card-header">
+                      <h4>Modify Content:</h4>
+                    </div>
+                    <div class="demo-controls">
+                      <div class="form-group">
+                        <label>Change Title Text:</label>
+                        <input
+                          type="text"
+                          id="title-input"
+                          class="form-control"
+                          placeholder="New title text"
+                        />
+                        <button onclick="changeTitle()" class="btn btn-primary">
+                          Update Title
+                        </button>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Change Paragraph HTML:</label>
+                        <input
+                          type="text"
+                          id="paragraph-input"
+                          class="form-control"
+                          placeholder="New HTML content (e.g., <strong>Bold</strong> text)"
+                        />
+                        <button
+                          onclick="changeParagraph()"
+                          class="btn btn-primary"
+                        >
+                          Update Paragraph
+                        </button>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Change Input Value:</label>
+                        <input
+                          type="text"
+                          id="input-value"
+                          class="form-control"
+                          placeholder="New input value"
+                        />
+                        <button
+                          onclick="changeInputValue()"
+                          class="btn btn-primary"
+                        >
+                          Update Input
+                        </button>
+                      </div>
+
+                      <button onclick="resetContent()" class="btn btn-danger">
+                        <i class="fas fa-undo"></i> Reset All
+                      </button>
+                    </div>
+
+                    <div class="demo-area">
+                      <h4>Target Elements:</h4>
+                      <div class="demo-content">
+                        <h3 id="editable-title">Editable Title</h3>
+                        <p id="editable-paragraph">
+                          This paragraph can be modified.
+                        </p>
+                        <div id="editable-html">
+                          Original <em>HTML</em> content
+                        </div>
+                        <input
+                          type="text"
+                          id="editable-input"
+                          class="form-control"
+                          value="Input value"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <!-- Interactive Content Editor -->
-            <div class="interactive-demo">
-              <div class="demo-card">
-                <div class="card-header">
-                  <h4>Modify Content:</h4>
-                </div>
-                <div class="demo-controls">
-                  <div class="form-group">
-                    <label>Change Title Text:</label>
-                    <input
-                      type="text"
-                      id="title-input"
-                      class="form-control"
-                      placeholder="New title text"
-                    />
-                    <button onclick="changeTitle()" class="btn btn-primary">
-                      Update Title
-                    </button>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Change Paragraph HTML:</label>
-                    <input
-                      type="text"
-                      id="paragraph-input"
-                      class="form-control"
-                      placeholder="New HTML content (e.g., <strong>Bold</strong> text)"
-                    />
-                    <button onclick="changeParagraph()" class="btn btn-primary">
-                      Update Paragraph
-                    </button>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Change Input Value:</label>
-                    <input
-                      type="text"
-                      id="input-value"
-                      class="form-control"
-                      placeholder="New input value"
-                    />
-                    <button
-                      onclick="changeInputValue()"
-                      class="btn btn-primary"
-                    >
-                      Update Input
-                    </button>
-                  </div>
-
-                  <button onclick="resetContent()" class="btn btn-danger">
-                    <i class="fas fa-undo"></i> Reset All
-                  </button>
-                </div>
-
-                <div class="demo-area">
-                  <h4>Target Elements:</h4>
-                  <div class="demo-content">
-                    <h3 id="editable-title">Editable Title</h3>
-                    <p id="editable-paragraph">
-                      This paragraph can be modified.
-                    </p>
-                    <div id="editable-html">Original <em>HTML</em> content</div>
-                    <input
-                      type="text"
-                      id="editable-input"
-                      class="form-control"
-                      value="Input value"
-                    />
-                  </div>
-                </div>
+            <!-- Style Manipulation -->
+            <section class="content-section" data-section="styles">
+              <div class="section-header">
+                <h2><i class="fas fa-paint-brush"></i> Modifying Styles</h2>
               </div>
-            </div>
-          </div>
-        </section>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <h3>Style Modification Techniques</h3>
 
-        <!-- Style Manipulation -->
-        <section class="content-section" data-section="styles">
-          <div class="section-header">
-            <h2><i class="fas fa-paint-brush"></i> Modifying Styles</h2>
-          </div>
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <h3>Style Modification Techniques</h3>
-
-              <div class="feature-list">
-                <div class="feature-item">
-                  <h4>Direct Style Property</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <h4>Direct Style Property</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 element.style.backgroundColor = 'blue';
 element.style.color = 'white';
 element.style.fontSize = '18px';
 element.style.display = 'none'; // Hide element</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>CSS Text Property</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                    <div class="feature-item">
+                      <h4>CSS Text Property</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 element.style.cssText = 'color: red; background: yellow; padding: 10px;';
 // Or
 element.setAttribute('style', 'color: red; background: yellow;');</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>Class Manipulation</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const element = document.getElementById('myDiv');
+                    <div class="feature-item">
+                      <h4>Class Manipulation</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const element = document.getElementById('myDiv');
 element.classList.add('highlight');
 element.classList.remove('old-style');
 element.classList.toggle('active');
 element.classList.contains('highlight'); // true/false</code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Interactive Style Editor -->
-            <div class="interactive-demo">
-              <div class="demo-card">
-                <div class="card-header">
-                  <h4>Style Controls:</h4>
-                </div>
-                <div class="demo-controls">
-                  <div class="form-group">
-                    <label>Background Color:</label>
-                    <input
-                      type="color"
-                      id="bg-color"
-                      value="#3498db"
-                      onchange="updateStyles()"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label>Text Color:</label>
-                    <input
-                      type="color"
-                      id="text-color"
-                      value="#ffffff"
-                      onchange="updateStyles()"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label>Font Size:</label>
-                    <input
-                      type="range"
-                      id="font-size"
-                      min="12"
-                      max="32"
-                      value="16"
-                      onchange="updateStyles()"
-                    />
-                    <span id="font-size-value">16px</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Border Radius:</label>
-                    <input
-                      type="range"
-                      id="border-radius"
-                      min="0"
-                      max="50"
-                      value="8"
-                      onchange="updateStyles()"
-                    />
-                    <span id="border-radius-value">8px</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Padding:</label>
-                    <input
-                      type="range"
-                      id="padding"
-                      min="5"
-                      max="50"
-                      value="20"
-                      onchange="updateStyles()"
-                    />
-                    <span id="padding-value">20px</span>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Width:</label>
-                    <input
-                      type="range"
-                      id="width"
-                      min="200"
-                      max="500"
-                      value="300"
-                      onchange="updateStyles()"
-                    />
-                    <span id="width-value">300px</span>
-                  </div>
-
-                  <div class="form-group">
-                    <h4>CSS Classes:</h4>
-                    <div class="button-group">
-                      <button
-                        onclick="toggleClass('shadow')"
-                        class="btn btn-secondary"
-                      >
-                        Toggle Shadow
-                      </button>
-                      <button
-                        onclick="toggleClass('rotate')"
-                        class="btn btn-secondary"
-                      >
-                        Toggle Rotate
-                      </button>
-                      <button
-                        onclick="toggleClass('pulse')"
-                        class="btn btn-secondary"
-                      >
-                        Toggle Pulse
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="code-block">
-                    <h4>Generated CSS:</h4>
-                    <pre><code id="generated-css-output" class="language-css"></code></pre>
-                  </div>
-                </div>
-
-                <div class="demo-area">
-                  <h4>Style Preview:</h4>
-                  <div class="preview-box">
-                    <div id="style-box" class="style-box">
-                      <h4>Style Me!</h4>
-                      <p>This box can be styled dynamically</p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- Interactive Style Editor -->
+                <div class="interactive-demo">
+                  <div class="demo-card">
+                    <div class="card-header">
+                      <h4>Style Controls:</h4>
+                    </div>
+                    <div class="demo-controls">
+                      <div class="form-group">
+                        <label>Background Color:</label>
+                        <input
+                          type="color"
+                          id="bg-color"
+                          value="#3498db"
+                          onchange="updateStyles()"
+                        />
+                      </div>
+
+                      <div class="form-group">
+                        <label>Text Color:</label>
+                        <input
+                          type="color"
+                          id="text-color"
+                          value="#ffffff"
+                          onchange="updateStyles()"
+                        />
+                      </div>
+
+                      <div class="form-group">
+                        <label>Font Size:</label>
+                        <input
+                          type="range"
+                          id="font-size"
+                          min="12"
+                          max="32"
+                          value="16"
+                          onchange="updateStyles()"
+                        />
+                        <span id="font-size-value">16px</span>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Border Radius:</label>
+                        <input
+                          type="range"
+                          id="border-radius"
+                          min="0"
+                          max="50"
+                          value="8"
+                          onchange="updateStyles()"
+                        />
+                        <span id="border-radius-value">8px</span>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Padding:</label>
+                        <input
+                          type="range"
+                          id="padding"
+                          min="5"
+                          max="50"
+                          value="20"
+                          onchange="updateStyles()"
+                        />
+                        <span id="padding-value">20px</span>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Width:</label>
+                        <input
+                          type="range"
+                          id="width"
+                          min="200"
+                          max="500"
+                          value="300"
+                          onchange="updateStyles()"
+                        />
+                        <span id="width-value">300px</span>
+                      </div>
+
+                      <div class="form-group">
+                        <h4>CSS Classes:</h4>
+                        <div class="button-group">
+                          <button
+                            onclick="toggleClass('shadow')"
+                            class="btn btn-secondary"
+                          >
+                            Toggle Shadow
+                          </button>
+                          <button
+                            onclick="toggleClass('rotate')"
+                            class="btn btn-secondary"
+                          >
+                            Toggle Rotate
+                          </button>
+                          <button
+                            onclick="toggleClass('pulse')"
+                            class="btn btn-secondary"
+                          >
+                            Toggle Pulse
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="code-block">
+                        <h4>Generated CSS:</h4>
+                        <pre><code id="generated-css-output" class="language-css"></code></pre>
+                      </div>
+                    </div>
+
+                    <div class="demo-area">
+                      <h4>Style Preview:</h4>
+                      <div class="preview-box">
+                        <div id="style-box" class="style-box">
+                          <h4>Style Me!</h4>
+                          <p>This box can be styled dynamically</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Attribute Manipulation -->
-        <section class="content-section" data-section="attributes">
-          <div class="section-header">
-            <h2><i class="fas fa-cogs"></i> Working with Attributes</h2>
-          </div>
-          <div class="topic-grid two-column">
-            <div class="topic-card">
-              <h3>Attribute Manipulation Methods</h3>
+            <!-- Attribute Manipulation -->
+            <section class="content-section" data-section="attributes">
+              <div class="section-header">
+                <h2><i class="fas fa-cogs"></i> Working with Attributes</h2>
+              </div>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <h3>Attribute Manipulation Methods</h3>
 
-              <div class="feature-list">
-                <div class="feature-item">
-                  <h4>getAttribute() / setAttribute()</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const link = document.getElementById('myLink');
+                  <div class="feature-list">
+                    <div class="feature-item">
+                      <h4>getAttribute() / setAttribute()</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const link = document.getElementById('myLink');
 
 // Get attribute
 const href = link.getAttribute('href');
@@ -591,13 +690,13 @@ console.log(href); // "https://example.com"
 // Set attribute
 link.setAttribute('href', 'https://newsite.com');
 link.setAttribute('target', '_blank');</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>hasAttribute() / removeAttribute()</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">const img = document.getElementById('myImage');
+                    <div class="feature-item">
+                      <h4>hasAttribute() / removeAttribute()</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">const img = document.getElementById('myImage');
 
 // Check if attribute exists
 if (img.hasAttribute('alt')) {
@@ -606,13 +705,13 @@ if (img.hasAttribute('alt')) {
 
 // Remove attribute
 img.removeAttribute('title');</code></pre>
-                  </div>
-                </div>
+                      </div>
+                    </div>
 
-                <div class="feature-item">
-                  <h4>Data Attributes</h4>
-                  <div class="code-block">
-                    <pre><code class="language-javascript">// HTML: &lt;div data-user-id="123" data-role="admin"&gt;&lt;/div&gt;
+                    <div class="feature-item">
+                      <h4>Data Attributes</h4>
+                      <div class="code-block">
+                        <pre><code class="language-javascript">// HTML: &lt;div data-user-id="123" data-role="admin"&gt;&lt;/div&gt;
 const element = document.getElementById('myDiv');
 
 // Access data attributes
@@ -621,370 +720,419 @@ console.log(element.dataset.role);   // "admin"
 
 // Set data attributes
 element.dataset.status = 'active';</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Interactive Attribute Editor -->
+                <div class="interactive-demo">
+                  <div class="demo-card">
+                    <div class="card-header">
+                      <h4>Modify Attributes:</h4>
+                    </div>
+                    <div class="demo-controls">
+                      <div class="form-group">
+                        <h5>Image Attributes:</h5>
+                        <div class="form-group">
+                          <label>Image Source:</label>
+                          <select
+                            id="img-src"
+                            class="form-select"
+                            onchange="updateImageSrc()"
+                          >
+                            <option
+                              value="https://via.placeholder.com/200x150/3498db/ffffff?text=Demo+Image"
+                            >
+                              Blue Demo
+                            </option>
+                            <option
+                              value="https://via.placeholder.com/200x150/e74c3c/ffffff?text=Red+Image"
+                            >
+                              Red Demo
+                            </option>
+                            <option
+                              value="https://via.placeholder.com/200x150/27ae60/ffffff?text=Green+Image"
+                            >
+                              Green Demo
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label>Alt Text:</label>
+                          <input
+                            type="text"
+                            id="img-alt"
+                            class="form-control"
+                            value="Demo image"
+                            onchange="updateImageAlt()"
+                          />
+                        </div>
+
+                        <div class="form-group">
+                          <label>Data Category:</label>
+                          <input
+                            type="text"
+                            id="img-category"
+                            class="form-control"
+                            value="demo"
+                            onchange="updateImageData()"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <h5>Link Attributes:</h5>
+                        <div class="form-group">
+                          <label>Link URL:</label>
+                          <input
+                            type="text"
+                            id="link-href"
+                            class="form-control"
+                            value="https://example.com"
+                            onchange="updateLinkHref()"
+                          />
+                        </div>
+
+                        <div class="form-group">
+                          <label>Target:</label>
+                          <select
+                            id="link-target"
+                            class="form-select"
+                            onchange="updateLinkTarget()"
+                          >
+                            <option value="_self">Same Window (_self)</option>
+                            <option value="_blank">New Window (_blank)</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="result-box">
+                        <h5>Current Attributes:</h5>
+                        <div id="attribute-list" class="attribute-list"></div>
+                      </div>
+                    </div>
+
+                    <div class="demo-area">
+                      <h4>Demo Elements:</h4>
+                      <div class="demo-content">
+                        <img
+                          id="demo-image"
+                          src="https://via.placeholder.com/200x150/3498db/ffffff?text=Demo+Image"
+                          alt="Demo image"
+                          title="This is a demo image"
+                          data-category="demo"
+                          data-size="medium"
+                        />
+
+                        <a
+                          id="demo-link"
+                          href="https://example.com"
+                          target="_self"
+                          title="Example Link"
+                        >
+                          Visit Example.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <!-- Interactive Attribute Editor -->
-            <div class="interactive-demo">
-              <div class="demo-card">
-                <div class="card-header">
-                  <h4>Modify Attributes:</h4>
-                </div>
-                <div class="demo-controls">
-                  <div class="form-group">
-                    <h5>Image Attributes:</h5>
-                    <div class="form-group">
-                      <label>Image Source:</label>
-                      <select
-                        id="img-src"
-                        class="form-select"
-                        onchange="updateImageSrc()"
+            <!-- Video Resources -->
+            <section class="content-section" data-section="videos">
+              <div class="section-header">
+                <h2><i class="fas fa-video"></i> Video Resources</h2>
+              </div>
+              <div class="resource-grid four-column">
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <div class="video-wrapper">
+                      <iframe
+                        src="https://www.youtube.com/embed/5fb2aPlgoys"
+                        title="JavaScript DOM Crash Course - Traversy Media"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
                       >
-                        <option
-                          value="https://via.placeholder.com/200x150/3498db/ffffff?text=Demo+Image"
-                        >
-                          Blue Demo
-                        </option>
-                        <option
-                          value="https://via.placeholder.com/200x150/e74c3c/ffffff?text=Red+Image"
-                        >
-                          Red Demo
-                        </option>
-                        <option
-                          value="https://via.placeholder.com/200x150/27ae60/ffffff?text=Green+Image"
-                        >
-                          Green Demo
-                        </option>
-                      </select>
+                      </iframe>
                     </div>
-
-                    <div class="form-group">
-                      <label>Alt Text:</label>
-                      <input
-                        type="text"
-                        id="img-alt"
-                        class="form-control"
-                        value="Demo image"
-                        onchange="updateImageAlt()"
-                      />
+                    <div class="card-content">
+                      <h4>JavaScript DOM Crash Course</h4>
+                      <p class="author">Traversy Media</p>
+                      <p class="description">
+                        Complete DOM manipulation tutorial covering all
+                        essential methods.
+                      </p>
+                      <span class="duration">37:45</span>
                     </div>
-
-                    <div class="form-group">
-                      <label>Data Category:</label>
-                      <input
-                        type="text"
-                        id="img-category"
-                        class="form-control"
-                        value="demo"
-                        onchange="updateImageData()"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <h5>Link Attributes:</h5>
-                    <div class="form-group">
-                      <label>Link URL:</label>
-                      <input
-                        type="text"
-                        id="link-href"
-                        class="form-control"
-                        value="https://example.com"
-                        onchange="updateLinkHref()"
-                      />
-                    </div>
-
-                    <div class="form-group">
-                      <label>Target:</label>
-                      <select
-                        id="link-target"
-                        class="form-select"
-                        onchange="updateLinkTarget()"
-                      >
-                        <option value="_self">Same Window (_self)</option>
-                        <option value="_blank">New Window (_blank)</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="result-box">
-                    <h5>Current Attributes:</h5>
-                    <div id="attribute-list" class="attribute-list"></div>
                   </div>
                 </div>
 
-                <div class="demo-area">
-                  <h4>Demo Elements:</h4>
-                  <div class="demo-content">
-                    <img
-                      id="demo-image"
-                      src="https://via.placeholder.com/200x150/3498db/ffffff?text=Demo+Image"
-                      alt="Demo image"
-                      title="This is a demo image"
-                      data-category="demo"
-                      data-size="medium"
-                    />
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <div class="video-wrapper">
+                      <iframe
+                        src="https://www.youtube.com/embed/0ik6X4DJKCc"
+                        title="DOM Manipulation - freeCodeCamp"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      >
+                      </iframe>
+                    </div>
+                    <div class="card-content">
+                      <h4>JavaScript DOM Manipulation</h4>
+                      <p class="author">freeCodeCamp</p>
+                      <p class="description">
+                        Comprehensive DOM manipulation course with practical
+                        projects.
+                      </p>
+                      <span class="duration">2:34:32</span>
+                    </div>
+                  </div>
+                </div>
 
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <div class="video-wrapper">
+                      <iframe
+                        src="https://www.youtube.com/embed/wiozYyXQEVk"
+                        title="DOM Manipulation for Beginners"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      >
+                      </iframe>
+                    </div>
+                    <div class="card-content">
+                      <h4>DOM Manipulation for Beginners</h4>
+                      <p class="author">Web Dev Simplified</p>
+                      <p class="description">
+                        Beginner-friendly introduction to JavaScript DOM
+                        manipulation.
+                      </p>
+                      <span class="duration">21:47</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <div class="video-wrapper">
+                      <iframe
+                        src="https://www.youtube.com/embed/l-0nPnSvbX8"
+                        title="JavaScript DOM - The Complete Guide"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      >
+                      </iframe>
+                    </div>
+                    <div class="card-content">
+                      <h4>JavaScript DOM - The Complete Guide</h4>
+                      <p class="author">Academind</p>
+                      <p class="description">
+                        Advanced DOM concepts and best practices for
+                        professional development.
+                      </p>
+                      <span class="duration">45:12</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- External Resources -->
+            <section class="content-section" data-section="resources">
+              <div class="section-header">
+                <h2><i class="fas fa-book-open"></i> External Resources</h2>
+              </div>
+              <div class="resource-grid three-column">
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-js-square"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>MDN - DOM Introduction</h4>
+                    <p>
+                      Comprehensive guide to the Document Object Model with
+                      detailed examples and API reference.
+                    </p>
                     <a
-                      id="demo-link"
-                      href="https://example.com"
-                      target="_self"
-                      title="Example Link"
+                      href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
+                      target="_blank"
+                      class="btn btn-secondary"
                     >
-                      Visit Example.com
+                      Learn More <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-school"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>W3Schools - HTML DOM</h4>
+                    <p>
+                      Interactive tutorials and examples for learning DOM
+                      manipulation step by step.
+                    </p>
+                    <a
+                      href="https://www.w3schools.com/js/js_htmldom.asp"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      Try Examples <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-book"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>JavaScript.info - DOM</h4>
+                    <p>
+                      In-depth tutorial covering DOM manipulation, events, and
+                      advanced DOM concepts.
+                    </p>
+                    <a
+                      href="https://javascript.info/document"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      Read Tutorial <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-chrome"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>Chrome DevTools - DOM Inspector</h4>
+                    <p>
+                      Learn to inspect and debug DOM elements using browser
+                      developer tools.
+                    </p>
+                    <a
+                      href="https://developers.google.com/web/tools/chrome-devtools/dom"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      Learn DevTools <i class="fas fa-tools"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-gamepad"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>DOM Manipulation Exercises</h4>
+                    <p>
+                      Practice DOM manipulation with interactive coding
+                      challenges and exercises.
+                    </p>
+                    <a
+                      href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      Practice Coding <i class="fas fa-code"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-codepen"></i>
+                  </div>
+                  <div class="card-content">
+                    <h4>CodePen - DOM Examples</h4>
+                    <p>
+                      Explore live DOM manipulation examples and create your own
+                      interactive demos.
+                    </p>
+                    <a
+                      href="https://codepen.io/search/pens?q=dom%20manipulation"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      Browse Examples <i class="fas fa-external-link-alt"></i>
                     </a>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Video Resources -->
-        <section class="content-section" data-section="videos">
-          <div class="section-header">
-            <h2><i class="fas fa-video"></i> Video Resources</h2>
-          </div>
-          <div class="resource-grid four-column">
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <div class="video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/5fb2aPlgoys"
-                    title="JavaScript DOM Crash Course - Traversy Media"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  >
-                  </iframe>
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-question-circle"></i> Knowledge Check
+              </h2>
+              <div class="quiz-info">
+                <p>
+                  Test your understanding of JavaScript DOM manipulation with
+                  this interactive quiz.
+                </p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="quiz-question">
+                <h4 class="question-text"></h4>
+                <ul class="answer-options"></ul>
+              </div>
+              <div class="quiz-feedback">
+                <div class="feedback-icon">
+                  <i class="fas fa-check-circle correct-icon"></i>
+                  <i class="fas fa-times-circle incorrect-icon"></i>
                 </div>
-                <div class="card-content">
-                  <h4>JavaScript DOM Crash Course</h4>
-                  <p class="author">Traversy Media</p>
-                  <p class="description">
-                    Complete DOM manipulation tutorial covering all essential
-                    methods.
+                <p class="feedback-text"></p>
+              </div>
+              <div class="quiz-controls">
+                <button class="btn btn-primary next-btn">Next Question</button>
+                <button class="btn btn-secondary restart-btn">
+                  Restart Quiz
+                </button>
+              </div>
+              <div class="quiz-results">
+                <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                <div class="results-summary">
+                  <div class="score-circle">
+                    <span class="score-percentage">0%</span>
+                  </div>
+                  <p class="score-text">
+                    You scored <span class="score-number">0</span> out of
+                    <span class="score-total">5</span>
                   </p>
-                  <span class="duration">37:45</span>
                 </div>
+                <div class="results-message"></div>
+                <button class="btn btn-primary restart-btn">Try Again</button>
               </div>
-            </div>
+            </section>
 
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <div class="video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/0ik6X4DJKCc"
-                    title="DOM Manipulation - freeCodeCamp"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-                <div class="card-content">
-                  <h4>JavaScript DOM Manipulation</h4>
-                  <p class="author">freeCodeCamp</p>
-                  <p class="description">
-                    Comprehensive DOM manipulation course with practical
-                    projects.
-                  </p>
-                  <span class="duration">2:34:32</span>
-                </div>
+            <!-- Navigation -->
+            <section class="navigation-section">
+              <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="previousTopic()">
+                  <i class="fas fa-arrow-left"></i> Previous: Dialog Boxes
+                </button>
+                <button class="btn btn-primary" onclick="nextTopic()">
+                  Next: Event Handling <i class="fas fa-arrow-right"></i>
+                </button>
               </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <div class="video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/wiozYyXQEVk"
-                    title="DOM Manipulation for Beginners"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-                <div class="card-content">
-                  <h4>DOM Manipulation for Beginners</h4>
-                  <p class="author">Web Dev Simplified</p>
-                  <p class="description">
-                    Beginner-friendly introduction to JavaScript DOM
-                    manipulation.
-                  </p>
-                  <span class="duration">21:47</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <div class="video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/l-0nPnSvbX8"
-                    title="JavaScript DOM - The Complete Guide"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  >
-                  </iframe>
-                </div>
-                <div class="card-content">
-                  <h4>JavaScript DOM - The Complete Guide</h4>
-                  <p class="author">Academind</p>
-                  <p class="description">
-                    Advanced DOM concepts and best practices for professional
-                    development.
-                  </p>
-                  <span class="duration">45:12</span>
-                </div>
-              </div>
-            </div>
+            </section>
           </div>
-        </section>
-
-        <!-- External Resources -->
-        <section class="content-section" data-section="resources">
-          <div class="section-header">
-            <h2><i class="fas fa-book-open"></i> External Resources</h2>
-          </div>
-          <div class="resource-grid three-column">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-js-square"></i>
-              </div>
-              <div class="card-content">
-                <h4>MDN - DOM Introduction</h4>
-                <p>
-                  Comprehensive guide to the Document Object Model with detailed
-                  examples and API reference.
-                </p>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Learn More <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-school"></i>
-              </div>
-              <div class="card-content">
-                <h4>W3Schools - HTML DOM</h4>
-                <p>
-                  Interactive tutorials and examples for learning DOM
-                  manipulation step by step.
-                </p>
-                <a
-                  href="https://www.w3schools.com/js/js_htmldom.asp"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Try Examples <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-book"></i>
-              </div>
-              <div class="card-content">
-                <h4>JavaScript.info - DOM</h4>
-                <p>
-                  In-depth tutorial covering DOM manipulation, events, and
-                  advanced DOM concepts.
-                </p>
-                <a
-                  href="https://javascript.info/document"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Read Tutorial <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-chrome"></i>
-              </div>
-              <div class="card-content">
-                <h4>Chrome DevTools - DOM Inspector</h4>
-                <p>
-                  Learn to inspect and debug DOM elements using browser
-                  developer tools.
-                </p>
-                <a
-                  href="https://developers.google.com/web/tools/chrome-devtools/dom"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Learn DevTools <i class="fas fa-tools"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-gamepad"></i>
-              </div>
-              <div class="card-content">
-                <h4>DOM Manipulation Exercises</h4>
-                <p>
-                  Practice DOM manipulation with interactive coding challenges
-                  and exercises.
-                </p>
-                <a
-                  href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Practice Coding <i class="fas fa-code"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-codepen"></i>
-              </div>
-              <div class="card-content">
-                <h4>CodePen - DOM Examples</h4>
-                <p>
-                  Explore live DOM manipulation examples and create your own
-                  interactive demos.
-                </p>
-                <a
-                  href="https://codepen.io/search/pens?q=dom%20manipulation"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Browse Examples <i class="fas fa-external-link-alt"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="navigation-section">
-          <div class="nav-buttons">
-            <button class="btn btn-secondary" onclick="previousTopic()">
-              <i class="fas fa-arrow-left"></i> Previous: Dialog Boxes
-            </button>
-            <button class="btn btn-primary" onclick="nextTopic()">
-              Next: Event Handling <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
 
@@ -999,11 +1147,6 @@ element.dataset.status = 'active';</code></pre>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <!-- Shared utilities -->
-    <script src="../dist/js/shared-utils.js"></script>
-    <!-- Common topic functionality -->
     <script src="../dist/js/topic.js"></script>
-    <!-- Main application -->
-    <script src="../dist/js/main.js"></script>
   </body>
 </html>

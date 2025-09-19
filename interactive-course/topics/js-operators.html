@@ -11,188 +11,430 @@
   </head>
   <body>
     <nav class="breadcrumb">
-        <div class="container">
-            <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-            <span class="separator">/</span>
-            <a href="../units/unit4.html">Unit 4: JavaScript Basics</a>
-            <span class="separator">/</span>
-            <span class="current">4.4 Operators & Expressions</span>
-        </div>
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit4.html">Unit 4: JavaScript Basics</a>
+        <span class="separator">/</span>
+        <span class="current">4.4 Operators & Expressions</span>
+      </div>
     </nav>
 
     <header class="topic-header">
-        <div class="container">
-            <h1 class="topic-title"><i class="fas fa-calculator"></i> Operators & Expressions</h1>
-            <p class="topic-subtitle">Master JavaScript operators to perform calculations and logic operations</p>
-            <div class="topic-meta">
-                <span><i class="fas fa-clock"></i> 1.5 hours</span>
-                <span><i class="fas fa-layer-group"></i> Beginner</span>
-                <span><i class="fas fa-list-ol"></i> 6 operator types</span>
-            </div>
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Operators & Expressions</h1>
+            <p class="topic-subtitle">JavaScript Operators</p>
+            <p class="topic-description">
+              Master JavaScript operators to perform calculations and logic
+              operations for dynamic programming.
+            </p>
+          </div>
         </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
-        
-        <!-- Premium Video Resources -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-video"></i> JavaScript Operators Video Tutorials</h2>
-          <p class="lead">Learn JavaScript operators with these comprehensive video guides.</p>
-          
-          <div class="resource-grid four-column">
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img src="https://img.youtube.com/vi/FZzyij43A8s/maxresdefault.jpg" alt="JavaScript Operators" loading="lazy" />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">26:45</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Operators - Complete Guide</h3>
-                <p class="author"><i class="fas fa-user"></i> Programming with Mosh</p>
-                <p class="description">Comprehensive tutorial covering all JavaScript operators with practical examples.</p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.8M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
-                </div>
-                <a href="https://www.youtube.com/watch?v=FZzyij43A8s" target="_blank" class="btn btn-secondary">
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
+                >
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Operator Types</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#arithmetic"
+                      onclick="scrollToSection('arithmetic')"
+                      >Arithmetic Operators</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#assignment"
+                      onclick="scrollToSection('assignment')"
+                      >Assignment Operators</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#comparison"
+                      onclick="scrollToSection('comparison')"
+                      >Comparison Operators</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#logical" onclick="scrollToSection('logical')"
+                      >Logical Operators</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#precedence" onclick="scrollToSection('precedence')"
+                  >Operator Precedence</a
+                >
+              </li>
+              <li>
+                <a href="#examples" onclick="scrollToSection('examples')"
+                  >Practical Examples</a
+                >
+              </li>
+            </ul>
+          </aside>
 
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img src="https://img.youtube.com/vi/bQk4MHcBLZ8/maxresdefault.jpg" alt="JavaScript Arithmetic" loading="lazy" />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">19:32</span>
+          <div class="content-main">
+            <!-- Introduction Section -->
+            <section class="content-section" data-section="introduction">
+              <div class="section-header">
+                <h2>
+                  <i class="fas fa-video"></i> JavaScript Operators Learning
+                  Resources
+                </h2>
               </div>
-              <div class="card-content">
-                <h3>JavaScript Arithmetic & Assignment Operators</h3>
-                <p class="author"><i class="fas fa-user"></i> Traversy Media</p>
-                <p class="description">Learn arithmetic and assignment operators with hands-on examples and best practices.</p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.2M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
-                </div>
-                <a href="https://www.youtube.com/watch?v=bQk4MHcBLZ8" target="_blank" class="btn btn-secondary">
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
+              <div class="topic-card">
+                <p class="lead">
+                  Learn JavaScript operators with these comprehensive video
+                  guides and tutorials.
+                </p>
               </div>
-            </div>
 
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img src="https://img.youtube.com/vi/JVL6xEzOCrE/maxresdefault.jpg" alt="Logical Operators" loading="lazy" />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
+              <div class="resource-grid four-column">
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/FZzyij43A8s/maxresdefault.jpg"
+                      alt="JavaScript Operators"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">26:45</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>JavaScript Operators - Complete Guide</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Programming with Mosh
+                    </p>
+                    <p class="description">
+                      Comprehensive tutorial covering all JavaScript operators
+                      with practical examples.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 1.8M views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=FZzyij43A8s"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
                 </div>
-                <span class="duration">15:28</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Logical Operators Explained</h3>
-                <p class="author"><i class="fas fa-user"></i> Web Dev Simplified</p>
-                <p class="description">Master logical operators AND, OR, NOT with practical use cases and examples.</p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 890K views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 99% liked</span>
-                </div>
-                <a href="https://www.youtube.com/watch?v=JVL6xEzOCrE" target="_blank" class="btn btn-secondary">
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
 
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img src="https://img.youtube.com/vi/s-7C09ymzK8/maxresdefault.jpg" alt="Comparison Operators" loading="lazy" />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/bQk4MHcBLZ8/maxresdefault.jpg"
+                      alt="JavaScript Arithmetic"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">19:32</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>JavaScript Arithmetic & Assignment Operators</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Traversy Media
+                    </p>
+                    <p class="description">
+                      Learn arithmetic and assignment operators with hands-on
+                      examples and best practices.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 1.2M views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=bQk4MHcBLZ8"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
                 </div>
-                <span class="duration">22:15</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Comparison Operators & Equality</h3>
-                <p class="author"><i class="fas fa-user"></i> freeCodeCamp.org</p>
-                <p class="description">Understanding == vs ===, comparison operators, and type coercion in JavaScript.</p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.5M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
+
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/JVL6xEzOCrE/maxresdefault.jpg"
+                      alt="Logical Operators"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">15:28</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>JavaScript Logical Operators Explained</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Web Dev Simplified
+                    </p>
+                    <p class="description">
+                      Master logical operators AND, OR, NOT with practical use
+                      cases and examples.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 890K views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 99% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=JVL6xEzOCrE"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
                 </div>
-                <a href="https://www.youtube.com/watch?v=s-7C09ymzK8" target="_blank" class="btn btn-secondary">
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <!-- Interactive Calculator -->
-        <section class="content-section">
-          <div class="interactive-demo">
-            <h2 class="section-header"><i class="fas fa-calculator"></i> Interactive JavaScript Calculator</h2>
-            <p class="lead">Practice arithmetic operations with this interactive calculator!</p>
-            
-            <div class="calculator-display" id="calc-display">0</div>
-            
-            <div class="calculator-buttons">
-              <button class="btn calc-btn calc-clear" onclick="clearCalculator()">C</button>
-              <button class="btn calc-btn calc-operator" onclick="deleteLast()">⌫</button>
-              <button class="btn calc-btn calc-operator" onclick="appendToDisplay('/')">/</button>
-              <button class="btn calc-btn calc-operator" onclick="appendToDisplay('*')">×</button>
-              
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('7')">7</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('8')">8</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('9')">9</button>
-              <button class="btn calc-btn calc-operator" onclick="appendToDisplay('-')">-</button>
-              
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('4')">4</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('5')">5</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('6')">6</button>
-              <button class="btn calc-btn calc-operator" onclick="appendToDisplay('+')">+</button>
-              
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('1')">1</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('2')">2</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('3')">3</button>
-              <button class="btn calc-btn calc-equals" onclick="calculateResult()" rowspan="2">=</button>
-              
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
-              <button class="btn calc-btn calc-number" onclick="appendToDisplay('.')">.</button>
-            </div>
-            
-            <div class="info-box">
-              <h4><i class="fas fa-info-circle"></i> Calculator Features:</h4>
-              <ul class="feature-list">
-                <li>Basic arithmetic operations (+, -, ×, /)</li>
-                <li>Decimal point support</li>
-                <li>Clear (C) and backspace (⌫) functions</li>
-                <li>Real-time expression evaluation</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- JavaScript Operators Categories -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-list-ul"></i> Types of JavaScript Operators</h2>
-          <p class="lead">JavaScript provides various types of operators to perform different operations on data.</p>
-          
-          <div class="topic-grid three-column">
-            
-            <!-- Arithmetic Operators -->
-            <div class="topic-card">
-              <div class="card-header arithmetic-header">
-                <i class="fas fa-calculator"></i>
-                <h3>Arithmetic Operators</h3>
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/s-7C09ymzK8/maxresdefault.jpg"
+                      alt="Comparison Operators"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">22:15</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>JavaScript Comparison Operators & Equality</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> freeCodeCamp.org
+                    </p>
+                    <p class="description">
+                      Understanding == vs ===, comparison operators, and type
+                      coercion in JavaScript.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 1.5M views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=s-7C09ymzK8"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <p>Perform mathematical calculations on numeric values.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">let a = 10, b = 3;
+            </section>
+
+            <!-- Interactive Calculator -->
+            <section class="content-section">
+              <div class="interactive-demo">
+                <h2 class="section-header">
+                  <i class="fas fa-calculator"></i> Interactive JavaScript
+                  Calculator
+                </h2>
+                <p class="lead">
+                  Practice arithmetic operations with this interactive
+                  calculator!
+                </p>
+
+                <div class="calculator-display" id="calc-display">0</div>
+
+                <div class="calculator-buttons">
+                  <button
+                    class="btn calc-btn calc-clear"
+                    onclick="clearCalculator()"
+                  >
+                    C
+                  </button>
+                  <button
+                    class="btn calc-btn calc-operator"
+                    onclick="deleteLast()"
+                  >
+                    ⌫
+                  </button>
+                  <button
+                    class="btn calc-btn calc-operator"
+                    onclick="appendToDisplay('/')"
+                  >
+                    /
+                  </button>
+                  <button
+                    class="btn calc-btn calc-operator"
+                    onclick="appendToDisplay('*')"
+                  >
+                    ×
+                  </button>
+
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('7')"
+                  >
+                    7
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('8')"
+                  >
+                    8
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('9')"
+                  >
+                    9
+                  </button>
+                  <button
+                    class="btn calc-btn calc-operator"
+                    onclick="appendToDisplay('-')"
+                  >
+                    -
+                  </button>
+
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('4')"
+                  >
+                    4
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('5')"
+                  >
+                    5
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('6')"
+                  >
+                    6
+                  </button>
+                  <button
+                    class="btn calc-btn calc-operator"
+                    onclick="appendToDisplay('+')"
+                  >
+                    +
+                  </button>
+
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('1')"
+                  >
+                    1
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('2')"
+                  >
+                    2
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('3')"
+                  >
+                    3
+                  </button>
+                  <button
+                    class="btn calc-btn calc-equals"
+                    onclick="calculateResult()"
+                    rowspan="2"
+                  >
+                    =
+                  </button>
+
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('0')"
+                    style="grid-column: span 2"
+                  >
+                    0
+                  </button>
+                  <button
+                    class="btn calc-btn calc-number"
+                    onclick="appendToDisplay('.')"
+                  >
+                    .
+                  </button>
+                </div>
+
+                <div class="info-box">
+                  <h4>
+                    <i class="fas fa-info-circle"></i> Calculator Features:
+                  </h4>
+                  <ul class="feature-list">
+                    <li>Basic arithmetic operations (+, -, ×, /)</li>
+                    <li>Decimal point support</li>
+                    <li>Clear (C) and backspace (⌫) functions</li>
+                    <li>Real-time expression evaluation</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- JavaScript Operators Categories -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-list-ul"></i> Types of JavaScript Operators
+              </h2>
+              <p class="lead">
+                JavaScript provides various types of operators to perform
+                different operations on data.
+              </p>
+
+              <div class="topic-grid three-column">
+                <!-- Arithmetic Operators -->
+                <div class="topic-card">
+                  <div class="card-header arithmetic-header">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Arithmetic Operators</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Perform mathematical calculations on numeric values.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">let a = 10, b = 3;
 
 console.log(a + b);    // 13 (Addition)
 console.log(a - b);    // 7 (Subtraction)
@@ -203,23 +445,27 @@ console.log(a ** b);   // 1000 (Exponentiation)
 
 // Increment/Decrement
 console.log(++a);      // 11 (Pre-increment)
-console.log(b--);      // 3 (Post-decrement)</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateArithmetic()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
-              </div>
-            </div>
+console.log(b--);      // 3 (Post-decrement)</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateArithmetic()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
 
-            <!-- Assignment Operators -->
-            <div class="topic-card">
-              <div class="card-header assignment-header">
-                <i class="fas fa-equals"></i>
-                <h3>Assignment Operators</h3>
-              </div>
-              <div class="card-body">
-                <p>Assign values to variables, often with operations.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">let x = 5;        // Basic assignment
+                <!-- Assignment Operators -->
+                <div class="topic-card">
+                  <div class="card-header assignment-header">
+                    <i class="fas fa-equals"></i>
+                    <h3>Assignment Operators</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Assign values to variables, often with operations.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">let x = 5;        // Basic assignment
 
 x += 3;           // x = x + 3  → 8
 x -= 2;           // x = x - 2  → 6
@@ -230,23 +476,27 @@ x **= 2;          // x = x ** 2 → 9
 
 // Multiple assignment
 let a, b, c;
-a = b = c = 10;   // All equal 10</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateAssignment()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
-              </div>
-            </div>
+a = b = c = 10;   // All equal 10</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateAssignment()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
 
-            <!-- Comparison Operators -->
-            <div class="topic-card">
-              <div class="card-header comparison-header">
-                <i class="fas fa-balance-scale"></i>
-                <h3>Comparison Operators</h3>
-              </div>
-              <div class="card-body">
-                <p>Compare values and return boolean results.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">let a = 5, b = "5", c = 10;
+                <!-- Comparison Operators -->
+                <div class="topic-card">
+                  <div class="card-header comparison-header">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Comparison Operators</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Compare values and return boolean results.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">let a = 5, b = "5", c = 10;
 
 console.log(a == b);   // true (loose equality)
 console.log(a === b);  // false (strict equality)
@@ -255,23 +505,27 @@ console.log(a !== b);  // true (strict not equal)
 console.log(a < c);    // true (less than)
 console.log(a <= b);   // true (less than or equal)
 console.log(c > a);    // true (greater than)
-console.log(c >= a);   // true (greater than or equal)</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateComparison()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
-              </div>
-            </div>
+console.log(c >= a);   // true (greater than or equal)</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateComparison()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
 
-            <!-- Logical Operators -->
-            <div class="topic-card">
-              <div class="card-header logical-header">
-                <i class="fas fa-brain"></i>
-                <h3>Logical Operators</h3>
-              </div>
-              <div class="card-body">
-                <p>Combine or modify boolean values.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">let a = true, b = false, c = true;
+                <!-- Logical Operators -->
+                <div class="topic-card">
+                  <div class="card-header logical-header">
+                    <i class="fas fa-brain"></i>
+                    <h3>Logical Operators</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Combine or modify boolean values.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">let a = true, b = false, c = true;
 
 // AND operator (&&)
 console.log(a && c);    // true
@@ -284,23 +538,27 @@ console.log(b || false); // false
 // NOT operator (!)
 console.log(!a);        // false
 console.log(!b);        // true
-console.log(!(a && c)); // false</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateLogical()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
-              </div>
-            </div>
+console.log(!(a && c)); // false</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateLogical()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
 
-            <!-- Unary Operators -->
-            <div class="topic-card">
-              <div class="card-header unary-header">
-                <i class="fas fa-plus-square"></i>
-                <h3>Unary Operators</h3>
-              </div>
-              <div class="card-body">
-                <p>Operate on a single operand.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">let x = 5;
+                <!-- Unary Operators -->
+                <div class="topic-card">
+                  <div class="card-header unary-header">
+                    <i class="fas fa-plus-square"></i>
+                    <h3>Unary Operators</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Operate on a single operand.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">let x = 5;
 let str = "123";
 let obj = { name: "John" };
 
@@ -314,23 +572,27 @@ console.log(-x);           // -5 (negation)
 
 // delete operator
 delete obj.name;
-console.log(obj.name);     // undefined</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateUnary()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
-              </div>
-            </div>
+console.log(obj.name);     // undefined</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateUnary()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
 
-            <!-- Ternary Operator -->
-            <div class="topic-card">
-              <div class="card-header ternary-header">
-                <i class="fas fa-question-circle"></i>
-                <h3>Ternary Operator</h3>
-              </div>
-              <div class="card-body">
-                <p>Conditional operator with three operands.</p>
-                <div class="code-block">
-<pre><code class="language-javascript">// Syntax: condition ? valueIfTrue : valueIfFalse
+                <!-- Ternary Operator -->
+                <div class="topic-card">
+                  <div class="card-header ternary-header">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Ternary Operator</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Conditional operator with three operands.</p>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Syntax: condition ? valueIfTrue : valueIfFalse
 
 let age = 18;
 let status = age >= 18 ? "adult" : "minor";
@@ -345,103 +607,136 @@ console.log(grade);         // "B"
 // Nested ternary
 let weather = "sunny";
 let activity = weather === "sunny" ? "beach" : 
-               weather === "rainy" ? "movies" : "park";</code></pre></div>
-                <button class="btn btn-primary" onclick="demonstrateTernary()">
-                  <i class="fas fa-play"></i> Try Examples
-                </button>
+               weather === "rainy" ? "movies" : "park";</code></pre>
+                    </div>
+                    <button
+                      class="btn btn-primary"
+                      onclick="demonstrateTernary()"
+                    >
+                      <i class="fas fa-play"></i> Try Examples
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Operator Precedence -->
-        <section class="content-section">
-          <div class="precedence-table">
-            <h2 class="section-header"><i class="fas fa-sort-numeric-down"></i> Operator Precedence & Associativity</h2>
-            <p class="lead">Understanding the order in which operators are evaluated in expressions.</p>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">1</div>
-              <div><strong>Parentheses, Member Access</strong> <code>() [] .</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">2</div>
-              <div><strong>Function Calls, New</strong> <code>() new</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">3</div>
-              <div><strong>Postfix Increment/Decrement</strong> <code>++ --</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">4</div>
-              <div><strong>Prefix, Unary</strong> <code>++ -- ! ~ + - typeof</code></div>
-              <div class="precedence-associativity">Right to Left</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">5</div>
-              <div><strong>Exponentiation</strong> <code>**</code></div>
-              <div class="precedence-associativity">Right to Left</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">6</div>
-              <div><strong>Multiplication, Division, Modulus</strong> <code>* / %</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">7</div>
-              <div><strong>Addition, Subtraction</strong> <code>+ -</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">8</div>
-              <div><strong>Comparison</strong> <code>&lt; &lt;= &gt; &gt;= in instanceof</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">9</div>
-              <div><strong>Equality</strong> <code>== != === !==</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">10</div>
-              <div><strong>Logical AND</strong> <code>&&</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">11</div>
-              <div><strong>Logical OR</strong> <code>||</code></div>
-              <div class="precedence-associativity">Left to Right</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">12</div>
-              <div><strong>Ternary</strong> <code>? :</code></div>
-              <div class="precedence-associativity">Right to Left</div>
-            </div>
-            
-            <div class="precedence-grid">
-              <div class="precedence-level">13</div>
-              <div><strong>Assignment</strong> <code>= += -= *= /= %=</code></div>
-              <div class="precedence-associativity">Right to Left</div>
-            </div>
-            
-            <div class="info-box">
-              <h4>Precedence Example:</h4>
-              <div class="code-block">
-<pre><code class="language-javascript">let result = 2 + 3 * 4;        // 14 (not 20)
+            <!-- Operator Precedence -->
+            <section class="content-section">
+              <div class="precedence-table">
+                <h2 class="section-header">
+                  <i class="fas fa-sort-numeric-down"></i> Operator Precedence &
+                  Associativity
+                </h2>
+                <p class="lead">
+                  Understanding the order in which operators are evaluated in
+                  expressions.
+                </p>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">1</div>
+                  <div>
+                    <strong>Parentheses, Member Access</strong>
+                    <code>() [] .</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">2</div>
+                  <div>
+                    <strong>Function Calls, New</strong> <code>() new</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">3</div>
+                  <div>
+                    <strong>Postfix Increment/Decrement</strong>
+                    <code>++ --</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">4</div>
+                  <div>
+                    <strong>Prefix, Unary</strong>
+                    <code>++ -- ! ~ + - typeof</code>
+                  </div>
+                  <div class="precedence-associativity">Right to Left</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">5</div>
+                  <div><strong>Exponentiation</strong> <code>**</code></div>
+                  <div class="precedence-associativity">Right to Left</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">6</div>
+                  <div>
+                    <strong>Multiplication, Division, Modulus</strong>
+                    <code>* / %</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">7</div>
+                  <div>
+                    <strong>Addition, Subtraction</strong> <code>+ -</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">8</div>
+                  <div>
+                    <strong>Comparison</strong>
+                    <code>&lt; &lt;= &gt; &gt;= in instanceof</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">9</div>
+                  <div>
+                    <strong>Equality</strong> <code>== != === !==</code>
+                  </div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">10</div>
+                  <div><strong>Logical AND</strong> <code>&&</code></div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">11</div>
+                  <div><strong>Logical OR</strong> <code>||</code></div>
+                  <div class="precedence-associativity">Left to Right</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">12</div>
+                  <div><strong>Ternary</strong> <code>? :</code></div>
+                  <div class="precedence-associativity">Right to Left</div>
+                </div>
+
+                <div class="precedence-grid">
+                  <div class="precedence-level">13</div>
+                  <div>
+                    <strong>Assignment</strong> <code>= += -= *= /= %=</code>
+                  </div>
+                  <div class="precedence-associativity">Right to Left</div>
+                </div>
+
+                <div class="info-box">
+                  <h4>Precedence Example:</h4>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">let result = 2 + 3 * 4;        // 14 (not 20)
 // Multiplication has higher precedence than addition
 // So it's evaluated as: 2 + (3 * 4)
 
@@ -449,154 +744,309 @@ let withParens = (2 + 3) * 4;  // 20
 // Parentheses have highest precedence
 
 let complex = 5 + 2 * 3 ** 2;  // 23
-// Order: 3**2 = 9, then 2*9 = 18, then 5+18 = 23</code></pre></div>
-            </div>
+// Order: 3**2 = 9, then 2*9 = 18, then 5+18 = 23</code></pre>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Interactive Operator Playground -->
+            <section class="content-section">
+              <div class="interactive-demo">
+                <h2 class="section-header">
+                  <i class="fas fa-vial"></i> Operator Testing Playground
+                </h2>
+                <p class="lead">
+                  Test different operators and see the results in real-time!
+                </p>
+
+                <div class="playground-controls">
+                  <input
+                    type="text"
+                    id="operand1"
+                    class="playground-input"
+                    value="10"
+                    placeholder="First operand"
+                  />
+                  <select
+                    id="operator"
+                    class="playground-operator"
+                    onchange="updateResult()"
+                  >
+                    <option value="+">+ (Add)</option>
+                    <option value="-">- (Subtract)</option>
+                    <option value="*">* (Multiply)</option>
+                    <option value="/">&divide; (Divide)</option>
+                    <option value="%">% (Modulus)</option>
+                    <option value="**">** (Power)</option>
+                    <option value="==">&equals;&equals; (Equal)</option>
+                    <option value="===">
+                      &equals;&equals;&equals; (Strict Equal)
+                    </option>
+                    <option value="!=">&ne; (Not Equal)</option>
+                    <option value="!==">&ne;&equals; (Strict Not Equal)</option>
+                    <option value="<">&lt; (Less Than)</option>
+                    <option value="<=">&le; (Less Than Equal)</option>
+                    <option value=">">&gt; (Greater Than)</option>
+                    <option value=">=">&ge; (Greater Than Equal)</option>
+                    <option value="&&">&& (Logical AND)</option>
+                    <option value="||">|| (Logical OR)</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="operand2"
+                    class="playground-input"
+                    value="5"
+                    placeholder="Second operand"
+                  />
+                  <button class="btn btn-primary" onclick="updateResult()">
+                    Calculate
+                  </button>
+                </div>
+
+                <div class="playground-result" id="playground-result">
+                  Click Calculate to see the result
+                </div>
+
+                <div class="example-buttons">
+                  <h4>Quick Examples:</h4>
+                  <div class="button-group">
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(10, '+', 5)"
+                    >
+                      10 + 5
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(15, '-', 7)"
+                    >
+                      15 - 7
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(6, '*', 7)"
+                    >
+                      6 × 7
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(20, '/', 4)"
+                    >
+                      20 ÷ 4
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(17, '%', 5)"
+                    >
+                      17 % 5
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(2, '**', 8)"
+                    >
+                      2 ** 8
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample(5, '===', '5')"
+                    >
+                      5 === "5"
+                    </button>
+                    <button
+                      class="btn btn-secondary"
+                      onclick="setExample('true', '&&', 'false')"
+                    >
+                      true && false
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Essential Resources -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-book-open"></i> Essential JavaScript Operators
+                Resources
+              </h2>
+
+              <div class="resource-grid four-column">
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-js-square"></i>
+                    <h3>MDN: JavaScript Operators</h3>
+                  </div>
+                  <p>
+                    Complete reference for all JavaScript operators with
+                    detailed explanations and examples.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Complete Reference</span>
+                    <span class="tag">Examples</span>
+                    <span class="tag">Browser Support</span>
+                  </div>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Read Documentation <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-book"></i>
+                    <h3>JavaScript.info: Operators</h3>
+                  </div>
+                  <p>
+                    In-depth explanation of JavaScript operators with
+                    interactive examples and best practices.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Interactive</span>
+                    <span class="tag">Detailed</span>
+                    <span class="tag">Modern JS</span>
+                  </div>
+                  <a
+                    href="https://javascript.info/operators"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Learn Operators <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-free-code-camp"></i>
+                    <h3>freeCodeCamp: JS Operators</h3>
+                  </div>
+                  <p>
+                    Interactive exercises to practice JavaScript operators with
+                    real coding challenges.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Hands-on</span>
+                    <span class="tag">Challenges</span>
+                    <span class="tag">Free</span>
+                  </div>
+                  <a
+                    href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/understanding-boolean-values"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Practice Operators <i class="fas fa-code"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-table"></i>
+                    <h3>Operator Precedence Table</h3>
+                  </div>
+                  <p>
+                    Detailed table showing operator precedence and associativity
+                    in JavaScript.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Reference</span>
+                    <span class="tag">Quick Lookup</span>
+                    <span class="tag">Examples</span>
+                  </div>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    View Table <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-question-circle"></i> Knowledge Check
+              </h2>
+              <div class="quiz-info">
+                <p>
+                  Test your understanding of JavaScript operators with this
+                  interactive quiz.
+                </p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="quiz-question">
+                <h4 class="question-text"></h4>
+                <ul class="answer-options"></ul>
+              </div>
+              <div class="quiz-feedback">
+                <div class="feedback-icon">
+                  <i class="fas fa-check-circle correct-icon"></i>
+                  <i class="fas fa-times-circle incorrect-icon"></i>
+                </div>
+                <p class="feedback-text"></p>
+              </div>
+              <div class="quiz-controls">
+                <button class="btn btn-primary next-btn">Next Question</button>
+                <button class="btn btn-secondary restart-btn">
+                  Restart Quiz
+                </button>
+              </div>
+              <div class="quiz-results">
+                <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                <div class="results-summary">
+                  <div class="score-circle">
+                    <span class="score-percentage">0%</span>
+                  </div>
+                  <p class="score-text">
+                    You scored <span class="score-number">0</span> out of
+                    <span class="score-total">5</span>
+                  </p>
+                </div>
+                <div class="results-message"></div>
+                <button class="btn btn-primary restart-btn">Try Again</button>
+              </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="navigation-section">
+              <div class="nav-buttons">
+                <button
+                  class="btn btn-secondary"
+                  onclick="window.location.href='js-variables.html'"
+                >
+                  <i class="fas fa-arrow-left"></i> Previous: Variables & Data
+                  Types
+                </button>
+                <button
+                  class="btn btn-primary"
+                  onclick="window.location.href='../units/unit4.html'"
+                >
+                  Back to Unit 4 <i class="fas fa-book-open"></i>
+                </button>
+              </div>
+            </section>
           </div>
-        </section>
-
-        <!-- Interactive Operator Playground -->
-        <section class="content-section">
-          <div class="interactive-demo">
-            <h2 class="section-header"><i class="fas fa-vial"></i> Operator Testing Playground</h2>
-            <p class="lead">Test different operators and see the results in real-time!</p>
-            
-            <div class="playground-controls">
-              <input type="text" id="operand1" class="playground-input" value="10" placeholder="First operand">
-              <select id="operator" class="playground-operator" onchange="updateResult()">
-                <option value="+">+ (Add)</option>
-                <option value="-">- (Subtract)</option>
-                <option value="*">* (Multiply)</option>
-                <option value="/">&divide; (Divide)</option>
-                <option value="%">% (Modulus)</option>
-                <option value="**">** (Power)</option>
-                <option value="==">&equals;&equals; (Equal)</option>
-                <option value="===">&equals;&equals;&equals; (Strict Equal)</option>
-                <option value="!=">&ne; (Not Equal)</option>
-                <option value="!==">&ne;&equals; (Strict Not Equal)</option>
-                <option value="<">&lt; (Less Than)</option>
-                <option value="<=">&le; (Less Than Equal)</option>
-                <option value=">">&gt; (Greater Than)</option>
-                <option value=">=">&ge; (Greater Than Equal)</option>
-                <option value="&&">&& (Logical AND)</option>
-                <option value="||">|| (Logical OR)</option>
-              </select>
-              <input type="text" id="operand2" class="playground-input" value="5" placeholder="Second operand">
-              <button class="btn btn-primary" onclick="updateResult()">Calculate</button>
-            </div>
-            
-            <div class="playground-result" id="playground-result">
-              Click Calculate to see the result
-            </div>
-            
-            <div class="example-buttons">
-              <h4>Quick Examples:</h4>
-              <div class="button-group">
-                <button class="btn btn-secondary" onclick="setExample(10, '+', 5)">10 + 5</button>
-                <button class="btn btn-secondary" onclick="setExample(15, '-', 7)">15 - 7</button>
-                <button class="btn btn-secondary" onclick="setExample(6, '*', 7)">6 × 7</button>
-                <button class="btn btn-secondary" onclick="setExample(20, '/', 4)">20 ÷ 4</button>
-                <button class="btn btn-secondary" onclick="setExample(17, '%', 5)">17 % 5</button>
-                <button class="btn btn-secondary" onclick="setExample(2, '**', 8)">2 ** 8</button>
-                <button class="btn btn-secondary" onclick="setExample(5, '===', '5')">5 === "5"</button>
-                <button class="btn btn-secondary" onclick="setExample('true', '&&', 'false')">true && false</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Essential Resources -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-book-open"></i> Essential JavaScript Operators Resources</h2>
-          
-          <div class="resource-grid four-column">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-js-square"></i>
-                <h3>MDN: JavaScript Operators</h3>
-              </div>
-              <p>Complete reference for all JavaScript operators with detailed explanations and examples.</p>
-              <div class="tags">
-                <span class="tag">Complete Reference</span>
-                <span class="tag">Examples</span>
-                <span class="tag">Browser Support</span>
-              </div>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank" class="btn btn-secondary">
-                Read Documentation <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-book"></i>
-                <h3>JavaScript.info: Operators</h3>
-              </div>
-              <p>In-depth explanation of JavaScript operators with interactive examples and best practices.</p>
-              <div class="tags">
-                <span class="tag">Interactive</span>
-                <span class="tag">Detailed</span>
-                <span class="tag">Modern JS</span>
-              </div>
-              <a href="https://javascript.info/operators" target="_blank" class="btn btn-secondary">
-                Learn Operators <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-free-code-camp"></i>
-                <h3>freeCodeCamp: JS Operators</h3>
-              </div>
-              <p>Interactive exercises to practice JavaScript operators with real coding challenges.</p>
-              <div class="tags">
-                <span class="tag">Hands-on</span>
-                <span class="tag">Challenges</span>
-                <span class="tag">Free</span>
-              </div>
-              <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/understanding-boolean-values" target="_blank" class="btn btn-secondary">
-                Practice Operators <i class="fas fa-code"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-table"></i>
-                <h3>Operator Precedence Table</h3>
-              </div>
-              <p>Detailed table showing operator precedence and associativity in JavaScript.</p>
-              <div class="tags">
-                <span class="tag">Reference</span>
-                <span class="tag">Quick Lookup</span>
-                <span class="tag">Examples</span>
-              </div>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" class="btn btn-secondary">
-                View Table <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="navigation-section">
-          <div class="nav-buttons">
-            <button class="btn btn-secondary" onclick="window.location.href='js-variables.html'">
-              <i class="fas fa-arrow-left"></i> Previous: Variables & Data Types
-            </button>
-            <button class="btn btn-primary" onclick="window.location.href='../units/unit4.html'">
-              Back to Unit 4 <i class="fas fa-book-open"></i>
-            </button>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 Web Technology I Course. Master JavaScript operators and expressions.</p>
+        <p>
+          &copy; 2025 Web Technology I Course. Master JavaScript operators and
+          expressions.
+        </p>
       </div>
     </footer>
 
-    <!-- JavaScript functionality -->
-    <script src="../dist/js/main.js"></script>
-    <script src="../dist/js/data-loader.js"></script><script src="../dist/js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
   </body>
 </html>

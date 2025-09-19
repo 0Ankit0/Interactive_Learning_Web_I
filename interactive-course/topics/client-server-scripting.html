@@ -6,10 +6,7 @@
     <title>Client-Side vs Server-Side Scripting - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
   </head>
   <body>
@@ -17,9 +14,7 @@
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         <span class="separator">/</span>
-        <a href="../units/unit1.html"
-          >Unit 1: Introduction to Web Technologies</a
-        >
+        <a href="../units/unit1.html">Unit 1</a>
         <span class="separator">/</span>
         <span class="current">1.6 Client-Side vs Server-Side Scripting</span>
       </div>
@@ -27,175 +22,509 @@
 
     <header class="topic-header">
       <div class="container">
-        <div class="topic-header-content">
-          <div class="topic-icon-large">
-            <i class="fas fa-exchange-alt"></i>
-          </div>
-          <div class="topic-header-text">
-            <h1 class="topic-title">Client-Side vs Server-Side Scripting</h1>
-            <p class="topic-subtitle">
-              Understand the fundamental differences between client and
-              server-side programming
-            </p>
-          </div>
-        </div>
-        <div class="progress-bar">
-          <div
-            class="progress-fill"
-            id="topic-progress"
-            style="width: 0%"
-          ></div>
+        <h1 class="topic-title">
+          <i class="fas fa-exchange-alt"></i> Client-Side vs Server-Side Scripting
+        </h1>
+        <p class="topic-subtitle">
+          Understand the fundamental differences between client and server-side programming
+        </p>
+        <div class="topic-meta">
+          <span><i class="fas fa-clock"></i> 90 minutes</span>
+          <span><i class="fas fa-code"></i> 12 examples</span>
+          <span><i class="fas fa-lightbulb"></i> Key concepts</span>
         </div>
       </div>
     </header>
 
-    <main class="main">
+    <main class="main-content">
       <div class="container">
-        <div class="content-layout">
-          <aside class="table-of-contents">
-            <h3>Table of Contents</h3>
-            <ul>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Understanding the Difference</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#understanding-difference"
-                      onclick="scrollToSection('understanding-difference')"
-                      >Overview</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Client-Side Technologies</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#client-technologies"
-                      onclick="scrollToSection('client-technologies')"
-                      >JavaScript & Frameworks</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Server-Side Technologies</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#server-technologies"
-                      onclick="scrollToSection('server-technologies')"
-                      >Node.js, Python & PHP</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Interactive Comparison</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#interactive-demo"
-                      onclick="scrollToSection('interactive-demo')"
-                      >Client vs Server Demo</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#request-flow"
-                      onclick="scrollToSection('request-flow')"
-                      >Request-Response Flow</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Best Practices</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#best-practices"
-                      onclick="scrollToSection('best-practices')"
-                      >Security & Guidelines</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>Learning Resources</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
-                  <li>
-                    <a
-                      href="#video-resources"
-                      onclick="scrollToSection('video-resources')"
-                      >Video Tutorials</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#external-resources"
-                      onclick="scrollToSection('external-resources')"
-                      >Additional Resources</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </aside>
+        <aside class="sidebar">
+          <div class="sidebar-content">
+            <h3 class="sidebar-title">Table of Contents</h3>
+            <nav class="toc">
+              <ul>
+                <li><a href="#understanding-difference">Understanding the Difference</a></li>
+                <li><a href="#client-technologies">Client-Side Technologies</a></li>
+                <li><a href="#server-technologies">Server-Side Technologies</a></li>
+                <li><a href="#interactive-demo">Interactive Comparison</a></li>
+                <li><a href="#request-flow">Request-Response Flow</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+                <li><a href="#video-resources">Video Resources</a></li>
+                <li><a href="#quiz">Knowledge Check</a></li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
 
-          <div class="content-main">
-            <section id="understanding-difference" class="content-section">
-              <h2>
-                <i class="fas fa-info-circle"></i> Understanding the Difference
-              </h2>
+        <div class="content-main">
+          <section id="understanding-difference" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-info-circle"></i> Understanding the Difference
+            </h2>
+
+            <div class="info-box">
+              <h3>Client vs Server Execution</h3>
               <p>
                 Web applications use both client-side and server-side scripting
                 to create dynamic, interactive experiences. Understanding where
                 code executes and why is crucial for web development.
               </p>
+            </div>
+
+            <div class="comparison-table">
+              <div class="comparison-row">
+                <div class="comparison-cell">
+                  <div class="card-header">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Client-Side Scripting</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="feature">
+                      <span class="badge">Runs in: Browser</span>
+                      <span class="badge">Visible to: Everyone</span>
+                    </div>
+                    <div class="feature-list">
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fast, immediate response</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Reduces server load</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Rich user interactions</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Code is visible/editable</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Browser dependent</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comparison-cell">
+                  <div class="card-header">
+                    <i class="fas fa-server"></i>
+                    <h3>Server-Side Scripting</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="feature">
+                      <span class="badge">Runs on: Web Server</span>
+                      <span class="badge">Visible to: Server only</span>
+                    </div>
+                    <div class="feature-list">
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Secure code execution</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Database access</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Platform independent</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Requires server resources</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Network dependency</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="client-technologies" class="content-section">
+            <h2 class="section-header">
+              <i class="fab fa-js-square"></i> Client-Side Technologies
+            </h2>
+
+            <div class="info-box">
+              <h3>Browser-Based Execution</h3>
+              <p>
+                Client-side scripts run in the user's browser and handle user
+                interface interactions, validations, and dynamic content
+                updates.
+              </p>
+            </div>
+
+            <div class="topic-grid three-column">
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-js"></i>
+                  <h4>JavaScript</h4>
+                </div>
+                <div class="card-body">
+                  <p>The primary client-side scripting language for web browsers.</p>
+                  <div class="tags">
+                    <span class="badge">DOM Manipulation</span>
+                    <span class="badge">Event Handling</span>
+                    <span class="badge">AJAX Requests</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-react"></i>
+                  <h4>React</h4>
+                </div>
+                <div class="card-body">
+                  <p>Component-based UI library for building interactive interfaces.</p>
+                  <div class="tags">
+                    <span class="badge">Components</span>
+                    <span class="badge">Virtual DOM</span>
+                    <span class="badge">State Management</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-vuejs"></i>
+                  <h4>Vue.js</h4>
+                </div>
+                <div class="card-body">
+                  <p>Progressive framework for building user interfaces.</p>
+                  <div class="tags">
+                    <span class="badge">Reactive</span>
+                    <span class="badge">Component-based</span>
+                    <span class="badge">Easy Learning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="server-technologies" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-server"></i> Server-Side Technologies
+            </h2>
+
+            <div class="info-box">
+              <h3>Server-Based Processing</h3>
+              <p>
+                Server-side scripts run on web servers and handle business logic,
+                database operations, and secure processing of sensitive data.
+              </p>
+            </div>
+
+            <div class="topic-grid three-column">
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-node-js"></i>
+                  <h4>Node.js</h4>
+                </div>
+                <div class="card-body">
+                  <p>JavaScript runtime built on Chrome's V8 JavaScript engine.</p>
+                  <div class="tags">
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">Non-blocking I/O</span>
+                    <span class="badge">NPM Packages</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-python"></i>
+                  <h4>Python</h4>
+                </div>
+                <div class="card-body">
+                  <p>Popular language for web development with frameworks like Django and Flask.</p>
+                  <div class="tags">
+                    <span class="badge">Readable</span>
+                    <span class="badge">Versatile</span>
+                    <span class="badge">Large Community</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-card">
+                <div class="card-header">
+                  <i class="fab fa-php"></i>
+                  <h4>PHP</h4>
+                </div>
+                <div class="card-body">
+                  <p>Server-side scripting language designed specifically for web development.</p>
+                  <div class="tags">
+                    <span class="badge">Easy Integration</span>
+                    <span class="badge">Wide Support</span>
+                    <span class="badge">WordPress</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="interactive-demo" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-play-circle"></i> Interactive Comparison
+            </h2>
+
+            <div class="interactive-demo">
+              <h3>Client vs Server Processing Demo</h3>
+              <div class="demo-controls">
+                <button class="btn btn-primary" onclick="runClientDemo()">Run Client-Side Demo</button>
+                <button class="btn btn-secondary" onclick="runServerDemo()">Run Server-Side Demo</button>
+                <button class="btn btn-success" onclick="showComparison()">Show Comparison</button>
+              </div>
+
+              <div class="demo-grid two-column">
+                <div class="demo-panel">
+                  <h4>Client-Side Execution</h4>
+                  <div id="client-result" class="result-box">
+                    <p>Click "Run Client-Side Demo" to see immediate processing...</p>
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">// Client-side: Runs instantly in browser
+function processData(data) {
+    return data.toUpperCase();
+}
+
+const result = processData("hello world");
+console.log(result); // HELLO WORLD</code></pre>
+                  </div>
+                </div>
+
+                <div class="demo-panel">
+                  <h4>Server-Side Execution</h4>
+                  <div id="server-result" class="result-box">
+                    <p>Click "Run Server-Side Demo" to see server processing...</p>
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">// Server-side: Requires network request
+app.post('/process', (req, res) => {
+    const result = req.body.data.toUpperCase();
+    res.json({ result });
+});</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="request-flow" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-exchange-alt"></i> Request-Response Flow
+            </h2>
+
+            <div class="flow-diagram">
+              <div class="flow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>User Action</h4>
+                  <p>User clicks button or submits form</p>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Client-Side Processing</h4>
+                  <p>JavaScript handles immediate interactions</p>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>HTTP Request</h4>
+                  <p>Data sent to server if needed</p>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Server-Side Processing</h4>
+                  <p>Server processes request and database operations</p>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h4>HTTP Response</h4>
+                  <p>Server sends back processed data</p>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                  <h4>Client-Side Update</h4>
+                  <p>Browser updates UI with new data</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="best-practices" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-check-double"></i> Best Practices
+            </h2>
+
+            <div class="topic-grid two-column">
+              <div class="topic-card">
+                <h3>Security Considerations</h3>
+                <ul>
+                  <li>Never trust client-side validation alone</li>
+                  <li>Always validate data on the server</li>
+                  <li>Use HTTPS for sensitive data transmission</li>
+                  <li>Implement proper authentication and authorization</li>
+                  <li>Sanitize user inputs to prevent XSS attacks</li>
+                </ul>
+              </div>
+
+              <div class="topic-card">
+                <h3>Performance Guidelines</h3>
+                <ul>
+                  <li>Minimize server round trips for better UX</li>
+                  <li>Use client-side caching when appropriate</li>
+                  <li>Optimize database queries on the server</li>
+                  <li>Compress and minify client-side assets</li>
+                  <li>Use CDNs for static resources</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="video-resources" class="content-section">
+            <h2 class="section-header">
+              <i class="fas fa-video"></i> Video Resources & Tutorials
+            </h2>
+
+            <div class="resource-grid two-column">
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="card-content">
+                  <h4>Client vs Server-Side Scripting</h4>
+                  <p class="author">Traversy Media</p>
+                  <p>Clear explanation of the differences between client and server-side programming.</p>
+                  <a href="https://www.youtube.com/watch?v=1aXZQcKOlmE" target="_blank" class="btn btn-secondary">Watch Video</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+                <div class="card-content">
+                  <h4>Node.js Crash Course</h4>
+                  <p class="author">Traversy Media</p>
+                  <p>Learn server-side JavaScript with Node.js fundamentals.</p>
+                  <a href="https://www.youtube.com/watch?v=fBNz5xF-Kx4" target="_blank" class="btn btn-secondary">Watch Video</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-html5"></i></div>
+                <div class="card-content">
+                  <h4>MDN Web Docs - Client-Server</h4>
+                  <p class="author">Mozilla Developer Network</p>
+                  <p>Comprehensive documentation on client-server architecture.</p>
+                  <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side" target="_blank" class="btn btn-secondary">Read Documentation</a>
+                </div>
+              </div>
+
+              <div class="resource-card">
+                <div class="card-icon"><i class="fab fa-html5"></i></div>
+                <div class="card-content">
+                  <h4>Express.js Guide</h4>
+                  <p class="author">Express.js</p>
+                  <p>Official guide for building web applications with Node.js and Express.</p>
+                  <a href="https://expressjs.com/en/guide/routing.html" target="_blank" class="btn btn-secondary">Read Guide</a>
+                </div>
+              </div>
+            </div>
+          </section><section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          <div class="navigation-buttons">
+            <a href="client-server-architecture.html" class="btn btn-secondary">
+              <i class="fas fa-arrow-left"></i> Previous: Client-Server Architecture
+            </a>
+            <a href="web-browsers-servers.html" class="btn btn-primary">
+              Next: Web Browsers & Servers <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Web Technology I Course. Master the differences between client and server-side programming.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>
 
               <div class="comparison-table">
                 <div class="comparison-row">
@@ -1066,6 +1395,7 @@ if ($_POST['username'] && $_POST['password']) {
                           class="btn-secondary"
                           >Visit Resource</a
                         >
+                        
                       </div>
                     </div>
                   </div>
@@ -1172,19 +1502,10 @@ if ($_POST['username'] && $_POST['password']) {
       </div>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <p>
-          &copy; 2025 Web Technology I Course. Master scripting fundamentals
-          through interactive learning.
-        </p>
-      </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

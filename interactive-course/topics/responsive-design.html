@@ -23,76 +23,118 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
+    <header class="topic-header">
       <div class="container">
-        <div class="hero-content">
-          <div class="icon">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-mobile-alt"></i>
           </div>
-          <div class="text">
-            <h1 class="title">Responsive Design Principles</h1>
-            <p class="subtitle">Mobile-First Web Development</p>
-            <p class="description">
-              Master the art of creating websites that work seamlessly across all
-              devices. Learn media queries, flexible layouts, and mobile-first
-              design strategies for modern web development.
+          <div class="topic-header-text">
+            <h1 class="topic-title">Responsive Design Principles</h1>
+            <p class="topic-subtitle">Mobile-First Web Development</p>
+            <p class="topic-description">
+              Master the art of creating websites that work seamlessly across all devices. Learn media queries, flexible layouts, and mobile-first design strategies for modern web development.
             </p>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="progress-bar">
-            <div class="progress" id="topic-progress"></div>
-          </div>
-          <span class="progress-text">0% Complete</span>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
         </div>
       </div>
     </header>
 
-    <!-- Device Simulation -->
-    <section class="device-simulation">
+    <main class="main">
       <div class="container">
-        <div class="devices">
-          <div class="device mobile">
-            <div class="screen">
-              <div class="content">
-                <div class="block"></div>
-                <div class="block"></div>
-              </div>
-            </div>
-            <span class="label">Mobile</span>
-          </div>
-          <div class="device tablet">
-            <div class="screen">
-              <div class="content">
-                <div class="block-group">
-                  <div class="block"></div>
-                  <div class="block"></div>
-                </div>
-              </div>
-            </div>
-            <span class="label">Tablet</span>
-          </div>
-          <div class="device desktop">
-            <div class="screen">
-              <div class="content">
-                <div class="block-group">
-                  <div class="block"></div>
-                  <div class="block"></div>
-                  <div class="block"></div>
-                </div>
-              </div>
-            </div>
-            <span class="label">Desktop</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Responsive Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#media-queries" onclick="scrollToSection('media-queries')"
+                      >Media Queries</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#flexible-layouts" onclick="scrollToSection('flexible-layouts')"
+                      >Flexible Layouts</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Advanced Techniques</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#mobile-first" onclick="scrollToSection('mobile-first')"
+                      >Mobile-First Design</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#breakpoints" onclick="scrollToSection('breakpoints')"
+                      >Breakpoints</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#testing" onclick="scrollToSection('testing')"
+                      >Testing & Debugging</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <!-- Introduction -->
+          <div class="content-main">
         <section class="topic-section">
           <h2 class="section-header"><i class="fas fa-info-circle"></i> What is Responsive Design?</h2>
           <div class="topic-grid">
@@ -1049,170 +1091,39 @@ img {
         </section>
 
         <!-- Quiz Section -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">1</span>
-                What is the recommended approach for responsive design?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="a" />
-                    <span>Desktop-first design</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="b" />
-                    <span>Mobile-first design</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="c" />
-                    <span>Tablet-first design</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="d" />
-                    <span>No specific approach needed</span>
-                  </label>
-                </li>
-              </ul>
+        <section id="quiz" class="content-section">
+          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+          <div class="quiz-info">
+            <p>Test your understanding of responsive design with this interactive quiz.</p>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="quiz-question">
+            <h4 class="question-text"></h4>
+            <ul class="answer-options"></ul>
+          </div>
+          <div class="quiz-feedback">
+            <div class="feedback-icon">
+              <i class="fas fa-check-circle correct-icon"></i>
+              <i class="fas fa-times-circle incorrect-icon"></i>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">2</span>
-                Which viewport meta tag is essential for responsive design?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="a" />
-                    <span
-                      >&lt;meta name="viewport" content="width=1024"&gt;</span
-                    >
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="b" />
-                    <span
-                      >&lt;meta name="viewport" content="width=device-width,
-                      initial-scale=1.0"&gt;</span
-                    >
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="c" />
-                    <span
-                      >&lt;meta name="viewport"
-                      content="user-scalable=no"&gt;</span
-                    >
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="d" />
-                    <span
-                      >&lt;meta name="viewport" content="width=100%"&gt;</span
-                    >
-                  </label>
-                </li>
-              </ul>
+            <p class="feedback-text"></p>
+          </div>
+          <div class="quiz-controls">
+            <button class="btn btn-primary next-btn">Next Question</button>
+            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+          </div>
+          <div class="quiz-results">
+            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+            <div class="results-summary">
+              <div class="score-circle">
+                <span class="score-percentage">0%</span>
+              </div>
+              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">3</span>
-                What CSS property makes images responsive by default?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="a" />
-                    <span>width: 100%;</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="b" />
-                    <span>max-width: 100%; height: auto;</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="c" />
-                    <span>height: 100%;</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="d" />
-                    <span>display: block;</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">4</span>
-                Which media query targets tablets in a mobile-first approach?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="a" />
-                    <span>@media (max-width: 768px)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="b" />
-                    <span>@media (min-width: 768px)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="c" />
-                    <span>@media (width: 768px)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="d" />
-                    <span>@media screen and (tablet)</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-buttons">
-              <button class="btn btn-primary">Submit Quiz</button>
-              <button
-                class="btn btn-secondary"
-                style="display: none"
-              >
-                Try Again
-              </button>
-            </div>
-
-            <div class="quiz-results" style="display: none">
-              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-              <p>
-                You scored <span id="score">0</span> out of 4 (<span
-                  id="percentage"
-                  >0</span
-                >%)
-              </p>
-            </div>
+            <div class="results-message"></div>
+            <button class="btn btn-primary restart-btn">Try Again</button>
           </div>
         </section>
 

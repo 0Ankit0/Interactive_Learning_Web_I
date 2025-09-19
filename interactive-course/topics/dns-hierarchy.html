@@ -155,8 +155,8 @@
               </p>
 
               <div class="info-box">
-                <div class="feature-grid">
-                  <div class="feature-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h3>Without DNS</h3>
                     <div class="code-example">
                       <h4><i class="fas fa-times-circle"></i> Without DNS</h4>
@@ -169,7 +169,7 @@
                     </div>
                   </div>
 
-                  <div class="feature-card">
+                  <div class="topic-card">
                     <h3>With DNS</h3>
                     <div class="code-example">
                       <h4><i class="fas fa-check-circle"></i> With DNS</h4>
@@ -255,22 +255,22 @@
                 </div>
               </div>
 
-              <div class="feature-grid">
-                <div class="feature-card">
+              <div class="topic-grid">
+                <div class="topic-card">
                   <h4><i class="fas fa-globe"></i> Root Level</h4>
                   <p>
                     The top of the DNS hierarchy, managed by IANA. Represented
                     by a single dot (.) but usually omitted.
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <h4><i class="fas fa-server"></i> Top-Level Domains (TLD)</h4>
                   <p>
                     Generic TLDs (.com, .org, .net) and Country Code TLDs (.us,
                     .uk, .de). Managed by registry operators.
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <h4>
                     <i class="fas fa-building"></i> Second-Level Domains (SLD)
                   </h4>
@@ -279,7 +279,7 @@
                     individuals (e.g., "google" in google.com).
                   </p>
                 </div>
-                <div class="feature-card">
+                <div class="topic-card">
                   <h4><i class="fas fa-laptop-code"></i> Subdomains</h4>
                   <p>
                     Additional levels created by domain owners (e.g., "mail" in
@@ -370,8 +370,8 @@
                 domain name system:
               </p>
 
-              <div class="feature-grid">
-                <div class="feature-card" data-type="A">
+              <div class="topic-grid">
+                <div class="topic-card" data-type="A">
                   <div class="card-header">
                     <span class="badge">A</span>
                     <h4>Address Record</h4>
@@ -382,7 +382,7 @@
                   </div>
                 </div>
 
-                <div class="feature-card" data-type="AAAA">
+                <div class="topic-card" data-type="AAAA">
                   <div class="card-header">
                     <span class="badge">AAAA</span>
                     <h4>IPv6 Address Record</h4>
@@ -393,7 +393,7 @@
                   </div>
                 </div>
 
-                <div class="feature-card" data-type="CNAME">
+                <div class="topic-card" data-type="CNAME">
                   <div class="card-header">
                     <span class="badge">CNAME</span>
                     <h4>Canonical Name</h4>
@@ -404,7 +404,7 @@
                   </div>
                 </div>
 
-                <div class="feature-card" data-type="MX">
+                <div class="topic-card" data-type="MX">
                   <div class="card-header">
                     <span class="badge">MX</span>
                     <h4>Mail Exchange</h4>
@@ -415,7 +415,7 @@
                   </div>
                 </div>
 
-                <div class="feature-card" data-type="NS">
+                <div class="topic-card" data-type="NS">
                   <div class="card-header">
                     <span class="badge">NS</span>
                     <h4>Name Server</h4>
@@ -426,7 +426,7 @@
                   </div>
                 </div>
 
-                <div class="feature-card" data-type="TXT">
+                <div class="topic-card" data-type="TXT">
                   <div class="card-header">
                     <span class="badge">TXT</span>
                     <h4>Text Record</h4>
@@ -557,56 +557,47 @@
             </section>
 
             <!-- Knowledge Check -->
-            <section class="content-section" id="quiz">
+            <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
-              <div class="quiz-container">
-                <div class="quiz-progress">
-                  <div class="quiz-info">
-                    Question <span id="current-question">1</span> of
-                    <span id="total-questions">5</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div id="quiz-progress" class="progress-fill"></div>
-                  </div>
+              <div class="quiz-info">
+                <p>
+                  Test your understanding of DNS hierarchy with this interactive
+                  quiz.
+                </p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="quiz-question">
+                <h4 class="question-text"></h4>
+                <ul class="answer-options"></ul>
+              </div>
+              <div class="quiz-feedback">
+                <div class="feedback-icon">
+                  <i class="fas fa-check-circle correct-icon"></i>
+                  <i class="fas fa-times-circle incorrect-icon"></i>
                 </div>
-
-                <div class="quiz-question">
-                  <h3>Loading question...</h3>
-                  <div class="quiz-options"></div>
-                </div>
-
-                <div
-                  class="quiz-feedback"
-                  id="quiz-feedback"
-                  style="display: none"
-                ></div>
-
-                <div class="quiz-controls">
-                  <button
-                    id="quiz-next"
-                    style="display: none"
-                    onclick="nextQuizQuestion()"
-                  >
-                    Next Question <i class="fas fa-arrow-right"></i>
-                  </button>
-                </div>
-
-                <div
-                  class="quiz-results"
-                  id="quiz-results"
-                  style="display: none"
-                >
-                  <div class="results-icon">
-                    <i class="fas fa-trophy"></i>
+                <p class="feedback-text"></p>
+              </div>
+              <div class="quiz-controls">
+                <button class="btn btn-primary next-btn">Next Question</button>
+                <button class="btn btn-secondary restart-btn">
+                  Restart Quiz
+                </button>
+              </div>
+              <div class="quiz-results">
+                <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                <div class="results-summary">
+                  <div class="score-circle">
+                    <span class="score-percentage">0%</span>
                   </div>
-                  <h3>Quiz Complete!</h3>
-                  <div id="final-score">0/0</div>
-                  <div class="results-actions">
-                    <button class="btn-secondary" onclick="retakeQuiz()">
-                      Retake Quiz
-                    </button>
-                  </div>
+                  <p class="score-text">
+                    You scored <span class="score-number">0</span> out of
+                    <span class="score-total">5</span>
+                  </p>
                 </div>
+                <div class="results-message"></div>
+                <button class="btn btn-primary restart-btn">Try Again</button>
               </div>
             </section>
 

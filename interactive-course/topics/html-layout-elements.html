@@ -11,108 +11,136 @@
     <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <i class="fas fa-code"></i>
-                <span>Web Technology Course</span>
-            </div>
-            <div class="navbar-links">
-                <a href="../index.html" class="nav-link">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <a href="../units/unit2.html" class="nav-link">
-                    <i class="fas fa-book-open"></i> Unit 2
-                </a>
-            </div>
-        </div>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit2.html">Unit 2: HTML</a>
+        <span class="separator">/</span>
+        <span class="current">HTML Layout Elements</span>
+      </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <span class="breadcrumb-item">
-                <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-            </span>
-            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="breadcrumb-item">
-                <a href="../units/unit2.html">Unit 2: HTML</a>
-            </span>
-            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="breadcrumb-item active">HTML Layout Elements</span>
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">HTML Layout Elements</h1>
+            <p class="topic-subtitle">Structural Elements</p>
+            <p class="topic-description">
+              Master HTML layout and structural elements including div, span, aside, iframe, and canvas for modern web development.
+            </p>
+          </div>
         </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>
-                    <i class="fas fa-layer-group"></i>
-                    HTML Layout Elements
-                </h1>
-                <p class="lead">
-                    Master HTML layout and structural elements including div, span, aside, iframe, and canvas. 
-                    Learn how to organize and structure content effectively for modern web development.
-                </p>
-                <div class="features">
-                    <span class="feature-item"><i class="fas fa-box"></i> Container Elements</span>
-                    <span class="feature-item"><i class="fas fa-font"></i> Inline Elements</span>
-                    <span class="feature-item"><i class="fas fa-file-import"></i> Embedded Content</span>
-                    <span class="feature-item"><i class="fas fa-paint-brush"></i> Graphics Canvas</span>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="icon-grid">
-                    <div class="icon-item">
-                        <div class="icon-box">
-                            <i class="fas fa-box"></i>
-                        </div>
-                        <h5>div</h5>
-                    </div>
-                    <div class="icon-item">
-                        <div class="icon-box">
-                            <i class="fas fa-font"></i>
-                        </div>
-                        <h5>span</h5>
-                    </div>
-                    <div class="icon-item">
-                        <div class="icon-box">
-                            <i class="fas fa-columns"></i>
-                        </div>
-                        <h5>aside</h5>
-                    </div>
-                    <div class="icon-item">
-                        <div class="icon-box">
-                            <i class="fas fa-window-maximize"></i>
-                        </div>
-                        <h5>iframe</h5>
-                    </div>
-                    <div class="icon-item">
-                        <div class="icon-box">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h5>canvas</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+          <span class="progress-text">0% Complete</span>
         </div>
-    </section>
+      </div>
+    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
+                >
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Container Elements</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#div"
+                      onclick="scrollToSection('div')"
+                      >Div Element</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#span"
+                      onclick="scrollToSection('span')"
+                      >Span Element</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#aside"
+                      onclick="scrollToSection('aside')"
+                      >Aside Element</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Embedded Content</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#iframe"
+                      onclick="scrollToSection('iframe')"
+                      >Iframe Element</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#canvas"
+                      onclick="scrollToSection('canvas')"
+                      >Canvas Element</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#examples"
+                  onclick="scrollToSection('examples')"
+                  >Practical Examples</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
             <!-- Introduction -->
-            <section class="content-section">
-                <h2 class="section-header"><i class="fas fa-info-circle"></i> Understanding HTML Layout Elements</h2>
+            <section class="content-section" data-section="introduction">
+              <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> Understanding HTML Layout Elements</h2>
+              </div>
+              <div class="topic-card">
                 <p class="lead">
-                    HTML provides several elements for structuring and organizing content on web pages. 
-                    These layout elements serve different purposes and have unique characteristics that make them 
-                    suitable for various use cases in web development.
+                  HTML provides several elements for structuring and organizing content on web pages.
+                  These layout elements serve different purposes and have unique characteristics that make them suitable for various use cases in web development.
                 </p>
+              </div>
                 
                 <div class="feature-grid five-column">
                     <div class="feature-card">
@@ -636,150 +664,39 @@ ctx.fillText('Hello Canvas!', 50, 200);
             </section>
 
             <!-- Quiz Section -->
-            <section class="content-section">
+            <section id="quiz" class="content-section">
                 <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
-                <div class="quiz-container">
-                    <div class="quiz-question">
-                        <h4>
-                            <span class="question-number">1</span>
-                            Which element is best for grouping block-level content for styling purposes?
-                        </h4>
-                        <ul class="quiz-options">
-                            <li>
-                                <label>
-                                    <input type="radio" name="q1" value="a">
-                                    <span>&lt;span&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q1" value="b">
-                                    <span>&lt;div&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q1" value="c">
-                                    <span>&lt;aside&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q1" value="d">
-                                    <span>&lt;iframe&gt;</span>
-                                </label>
-                            </li>
-                        </ul>
+                <div class="quiz-info">
+                    <p>Test your understanding of HTML layout elements with this interactive quiz.</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="quiz-question">
+                    <h4 class="question-text"></h4>
+                    <ul class="answer-options"></ul>
+                </div>
+                <div class="quiz-feedback">
+                    <div class="feedback-icon">
+                        <i class="fas fa-check-circle correct-icon"></i>
+                        <i class="fas fa-times-circle incorrect-icon"></i>
                     </div>
-
-                    <div class="quiz-question">
-                        <h4>
-                            <span class="question-number">2</span>
-                            What is the primary use case for the &lt;span&gt; element?
-                        </h4>
-                        <ul class="quiz-options">
-                            <li>
-                                <label>
-                                    <input type="radio" name="q2" value="a">
-                                    <span>Creating page layouts</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q2" value="b">
-                                    <span>Styling inline content or text portions</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q2" value="c">
-                                    <span>Embedding external content</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q2" value="d">
-                                    <span>Drawing graphics</span>
-                                </label>
-                            </li>
-                        </ul>
+                    <p class="feedback-text"></p>
+                </div>
+                <div class="quiz-controls">
+                    <button class="btn btn-primary next-btn">Next Question</button>
+                    <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+                </div>
+                <div class="quiz-results">
+                    <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                    <div class="results-summary">
+                        <div class="score-circle">
+                            <span class="score-percentage">0%</span>
+                        </div>
+                        <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
                     </div>
-
-                    <div class="quiz-question">
-                        <h4>
-                            <span class="question-number">3</span>
-                            Which element requires JavaScript to be useful for drawing?
-                        </h4>
-                        <ul class="quiz-options">
-                            <li>
-                                <label>
-                                    <input type="radio" name="q3" value="a">
-                                    <span>&lt;aside&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q3" value="b">
-                                    <span>&lt;iframe&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q3" value="c">
-                                    <span>&lt;canvas&gt;</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q3" value="d">
-                                    <span>&lt;div&gt;</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h4>
-                            <span class="question-number">4</span>
-                            What security consideration is most important when using iframes?
-                        </h4>
-                        <ul class="quiz-options">
-                            <li>
-                                <label>
-                                    <input type="radio" name="q4" value="a">
-                                    <span>Validating and trusting iframe sources</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q4" value="b">
-                                    <span>Setting the correct width and height</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q4" value="c">
-                                    <span>Using proper CSS styling</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>
-                                    <input type="radio" name="q4" value="d">
-                                    <span>Adding a title attribute</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="quiz-buttons">
-                        <button class="btn btn-primary">Submit Quiz</button>
-                        <button class="btn btn-secondary" style="display: none;">Try Again</button>
-                    </div>
-
-                    <div class="quiz-results" style="display: none;">
-                        <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-                        <p>You scored <span id="score">0</span> out of 4 (<span id="percentage">0</span>%)</p>
-                    </div>
+                    <div class="results-message"></div>
+                    <button class="btn btn-primary restart-btn">Try Again</button>
                 </div>
             </section>
 
@@ -962,39 +879,14 @@ ctx.fillText('Hello Canvas!', 50, 200);
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3><i class="fas fa-code"></i> Web Technology Course</h3>
-                    <p>Master modern web development with our comprehensive interactive course.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../units/unit2.html">Unit 2: HTML</a></li>
-                        <li><a href="semantic-html.html">Semantic HTML</a></li>
-                    </ul>
-                </div>
-                <div class="footer-resources">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Docs</a></li>
-                        <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools HTML</a></li>
-                        <li><a href="https://validator.w3.org/" target="_blank">HTML Validator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Web Technology Interactive Course. All rights reserved.</p>
-            </div>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 Web Technology I Course. Master HTML layout elements for structured and organized web content.</p>
+      </div>
     </footer>
 
-    <!-- JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
 </body>
 </html>

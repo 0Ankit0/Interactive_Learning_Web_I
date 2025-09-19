@@ -555,64 +555,38 @@ Content-Length: 1234
                 </div>
               </div>
             </section>
-
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
               <div class="quiz-container" id="knowledge-quiz">
                 <div class="quiz-progress">
-                  <div class="progress-bar">
-                    <div
-                      class="progress-fill"
-                      id="quiz-progress"
-                      style="width: 0%"
-                    ></div>
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
-                  <span class="progress-text"
-                    >Question <span id="current-question">1</span> of
-                    <span id="total-questions">5</span></span
-                  >
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
                 </div>
 
-                <div class="quiz-question" id="quiz-question">
-                  <h3>
-                    What is the primary role of a server in client-server
-                    architecture?
-                  </h3>
-                  <div class="quiz-options">
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      To initiate requests for data
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, true)"
-                    >
-                      To provide resources and services to clients
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      To display web pages to users
-                    </button>
-                    <button
-                      class="quiz-option"
-                      onclick="selectQuizAnswer(this, false)"
-                    >
-                      To store temporary user data
-                    </button>
-                  </div>
-                  <div class="quiz-feedback" id="quiz-feedback"></div>
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
                   <button
-                    class="quiz-next"
                     id="quiz-next"
-                    onclick="nextQuestion()"
                     style="display: none"
+                    onclick="nextQuizQuestion()"
                   >
-                    Next Question
+                    Next Question <i class="fas fa-arrow-right"></i>
                   </button>
                 </div>
 
@@ -621,18 +595,15 @@ Content-Length: 1234
                   id="quiz-results"
                   style="display: none"
                 >
-                  <h3>Quiz Complete!</h3>
-                  <div class="score-display">
-                    <div class="score-circle">
-                      <span id="final-score">4/5</span>
-                    </div>
-                    <p>
-                      Great job! You've mastered client-server architecture.
-                    </p>
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
                   </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
                   <div class="results-actions">
-                    <button onclick="retakeQuiz()">Retake Quiz</button>
-                    <button onclick="completeLesson()">Complete Lesson</button>
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
                   </div>
                 </div>
               </div>
@@ -688,5 +659,7 @@ Content-Length: 1234
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

@@ -21,68 +21,130 @@
     />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="breadcrumb">
       <div class="container">
-        <div class="navbar-brand">
-          <i class="fas fa-code"></i>
-          <span>Web Technology Course</span>
-        </div>
-        <div class="navbar-links">
-          <a href="../index.html" class="nav-link">
-            <i class="fas fa-home"></i> Home
-          </a>
-          <a href="../units/unit5.html" class="nav-link">
-            <i class="fas fa-book-open"></i> Unit 5
-          </a>
-        </div>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit5.html">Unit 5</a>
+        <span class="separator">/</span>
+        <span class="current">JSON</span>
       </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
+    <header class="topic-header">
       <div class="container">
-        <span class="breadcrumb-item">
-          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-        </span>
-        <span class="breadcrumb-separator"
-          ><i class="fas fa-chevron-right"></i
-        ></span>
-        <span class="breadcrumb-item">
-          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
-        </span>
-        <span class="breadcrumb-separator"
-          ><i class="fas fa-chevron-right"></i
-        ></span>
-        <span class="breadcrumb-item active">JSON</span>
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">JSON</h1>
+            <p class="topic-subtitle">
+              JavaScript Object Notation for Data Exchange
+            </p>
+            <p class="topic-description">
+              Learn about JSON (JavaScript Object Notation), the lightweight data interchange format that's become the standard for web APIs and data storage.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <main class="main">
       <div class="container">
-        <div class="hero-content">
-          <h1>
-            <i class="fas fa-file-code"></i> JSON (JavaScript Object Notation)
-          </h1>
-          <p class="lead">
-            Master JSON, the lightweight data interchange format. Learn to
-            parse, stringify, and work with JSON data for seamless communication
-            between web applications and APIs.
-          </p>
-          <div class="features">
-            <span class="feature-item"
-              ><i class="fas fa-exchange-alt"></i> Data Exchange</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-feather-alt"></i> Lightweight</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-eye"></i> Human Readable</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-globe"></i> Universal Format</span
-            >
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>JSON Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction to JSON</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#syntax" onclick="scrollToSection('syntax')"
+                      >JSON Syntax</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#data-types" onclick="scrollToSection('data-types')"
+                      >Data Types</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Working with JSON</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#parsing" onclick="scrollToSection('parsing')"
+                      >Parsing JSON</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#stringify" onclick="scrollToSection('stringify')"
+                      >Stringifying Objects</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#api" onclick="scrollToSection('api')"
+                      >JSON with APIs</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
           </div>
         </div>
         <div class="hero-visual">
@@ -713,159 +775,39 @@ fetch('/api/orders', {
         </section>
 
         <!-- Quiz Section -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-question-circle"></i> Test Your JSON Knowledge
-          </h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">1</span> Which method converts a
-                JSON string to a JavaScript object?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label
-                    ><input type="radio" name="q1" value="a" />
-                    <span>JSON.stringify()</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q1" value="b" />
-                    <span>JSON.parse()</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q1" value="c" />
-                    <span>JSON.convert()</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q1" value="d" />
-                    <span>JSON.decode()</span></label
-                  >
-                </li>
-              </ul>
+        <section id="quiz" class="content-section">
+          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+          <div class="quiz-info">
+            <p>Test your understanding of JSON with this interactive quiz.</p>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="quiz-question">
+            <h4 class="question-text"></h4>
+            <ul class="answer-options"></ul>
+          </div>
+          <div class="quiz-feedback">
+            <div class="feedback-icon">
+              <i class="fas fa-check-circle correct-icon"></i>
+              <i class="fas fa-times-circle incorrect-icon"></i>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">2</span> Which of the following is
-                valid JSON?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label
-                    ><input type="radio" name="q2" value="a" />
-                    <span>{"name": 'John', "age": 30}</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q2" value="b" />
-                    <span>{"name": "John", "age": 30}</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q2" value="c" />
-                    <span>{name: "John", age: 30}</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q2" value="d" />
-                    <span>{"name": "John"; "age": 30}</span></label
-                  >
-                </li>
-              </ul>
+            <p class="feedback-text"></p>
+          </div>
+          <div class="quiz-controls">
+            <button class="btn btn-primary next-btn">Next Question</button>
+            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+          </div>
+          <div class="quiz-results">
+            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+            <div class="results-summary">
+              <div class="score-circle">
+                <span class="score-percentage">0%</span>
+              </div>
+              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">3</span> What happens when
-                JSON.parse() encounters invalid JSON?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label
-                    ><input type="radio" name="q3" value="a" />
-                    <span>Returns null</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q3" value="b" />
-                    <span>Returns an empty object</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q3" value="c" />
-                    <span>Throws a SyntaxError</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q3" value="d" />
-                    <span>Returns undefined</span></label
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">4</span> Which data types are NOT
-                supported in JSON?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label
-                    ><input type="radio" name="q4" value="a" />
-                    <span>String and Number</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q4" value="b" />
-                    <span>Boolean and Array</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q4" value="c" />
-                    <span>Function and undefined</span></label
-                  >
-                </li>
-                <li>
-                  <label
-                    ><input type="radio" name="q4" value="d" />
-                    <span>Object and null</span></label
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-buttons">
-              <button class="btn btn-primary">Submit Quiz</button>
-              <button class="btn btn-secondary" style="display: none">
-                Try Again
-              </button>
-            </div>
-
-            <div class="quiz-results" style="display: none">
-              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-              <p>
-                You scored <span id="score">0</span> out of 4 (<span
-                  id="percentage"
-                  >0</span
-                >%)
-              </p>
-            </div>
+            <div class="results-message"></div>
+            <button class="btn btn-primary restart-btn">Try Again</button>
           </div>
         </section>
 

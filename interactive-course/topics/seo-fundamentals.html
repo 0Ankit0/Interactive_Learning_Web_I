@@ -11,50 +11,130 @@
     <link rel="stylesheet" href="dist/css/font-awesome.min.css" />
   </head>
   <body>
-    <div class="topic-container">
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-content">
-            <div class="hero-text">
-              <h1><i class="fas fa-search-dollar"></i> SEO Fundamentals</h1>
-              <p class="lead">
-                Master Search Engine Optimization for better visibility and
-                ranking. Learn meta tags, structured data, performance
-                optimization, and SEO best practices.
-              </p>
-              <div class="features">
-                <span class="feature-item"> <i class="fas fa-tags"></i> Meta Tags </span>
-                <span class="feature-item"> <i class="fas fa-sitemap"></i> Structured Data </span>
-                <span class="feature-item"> <i class="fas fa-tachometer-alt"></i> Performance </span>
-              </div>
-            </div>
-            <div class="hero-visual">
-              <div class="serp-snippet">
-                <div class="serp-header">
-                  <h3>Search Result Preview</h3>
-                  <div class="serp-body">
-                    <div class="serp-url">
-                      <div class="url-text">https://example.com/page</div>
-                      <h4 class="serp-title">Your Optimized Page Title - Brand</h4>
-                      <p class="serp-description">
-                        A compelling meta description that encourages users to
-                        click and tells search engines what your page is
-                        about...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit7.html">Unit 7</a>
+        <span class="separator">/</span>
+        <span class="current">SEO Fundamentals</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-search-dollar"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">SEO Fundamentals</h1>
+            <p class="topic-subtitle">
+              Search Engine Optimization for Better Visibility
+            </p>
+            <p class="topic-description">
+              Master Search Engine Optimization for better visibility and ranking. Learn meta tags, structured data, performance optimization, and SEO best practices.
+            </p>
           </div>
         </div>
-      </section>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <div class="container">
-          <!-- Meta Tags Optimizer -->
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>SEO Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction to SEO</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#meta-tags" onclick="scrollToSection('meta-tags')"
+                      >Meta Tags</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#structured-data" onclick="scrollToSection('structured-data')"
+                      >Structured Data</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Technical SEO</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#performance" onclick="scrollToSection('performance')"
+                      >Performance Optimization</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#mobile-seo" onclick="scrollToSection('mobile-seo')"
+                      >Mobile SEO</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#best-practices" onclick="scrollToSection('best-practices')"
+                      >Best Practices</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
           <section class="topic-section">
             <h2 class="section-header"><i class="fas fa-tags"></i> Meta Tags Optimizer</h2>
             <div class="interactive-tool">
@@ -377,17 +457,39 @@
           </section>
 
           <!-- Quiz Section -->
-          <section class="topic-section">
-            <div class="container">
-              <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
-              <div class="quiz-container" id="seo-quiz"></div>
-              <div class="quiz-buttons">
-                <button class="btn btn-primary" onclick="submitSEOQuiz()">
-                  Submit Answers
-                </button>
-                <button class="btn btn-secondary" onclick="resetSEOQuiz()">Reset Quiz</button>
+          <section id="quiz" class="content-section">
+            <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Knowledge</h2>
+            <div class="quiz-info">
+              <p>Test your understanding of SEO fundamentals with this interactive quiz.</p>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="quiz-question">
+              <h4 class="question-text"></h4>
+              <ul class="answer-options"></ul>
+            </div>
+            <div class="quiz-feedback">
+              <div class="feedback-icon">
+                <i class="fas fa-check-circle correct-icon"></i>
+                <i class="fas fa-times-circle incorrect-icon"></i>
               </div>
-              <div class="quiz-results" id="seo-quiz-results" style="display: none"></div>
+              <p class="feedback-text"></p>
+            </div>
+            <div class="quiz-controls">
+              <button class="btn btn-primary next-btn">Next Question</button>
+              <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+            </div>
+            <div class="quiz-results">
+              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+              <div class="results-summary">
+                <div class="score-circle">
+                  <span class="score-percentage">0%</span>
+                </div>
+                <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
+              </div>
+              <div class="results-message"></div>
+              <button class="btn btn-primary restart-btn">Try Again</button>
             </div>
           </section>
         </div>

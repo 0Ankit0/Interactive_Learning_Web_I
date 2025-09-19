@@ -5,100 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery Basics and Integration - Interactive Course</title>
 
-    <!-- External CSS and Fonts -->
     <link rel="stylesheet" href="../dist/css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"
-    />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
 
     <!-- jQuery CDN for demos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="breadcrumb">
       <div class="container">
-        <div class="navbar-brand">
-          <i class="fas fa-code"></i>
-          <span>Web Technology Course</span>
-        </div>
-        <div class="navbar-links">
-          <a href="../index.html" class="nav-link">
-            <i class="fas fa-home"></i> Home
-          </a>
-          <a href="../units/unit6.html" class="nav-link">
-            <i class="fas fa-book-open"></i> Unit 6
-          </a>
-        </div>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit6.html">Unit 6: JS Frameworks</a>
+        <span class="separator">/</span>
+        <span class="current">jQuery Basics</span>
       </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
+    <header class="topic-header">
       <div class="container">
-        <span class="breadcrumb-item">
-          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-        </span>
-        <span class="breadcrumb-separator"
-          ><i class="fas fa-chevron-right"></i
-        ></span>
-        <span class="breadcrumb-item">
-          <a href="../units/unit6.html">Unit 6: JS Frameworks & Libraries</a>
-        </span>
-        <span class="breadcrumb-separator"
-          ><i class="fas fa-chevron-right"></i
-        ></span>
-        <span class="breadcrumb-item active">jQuery Basics</span>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <h1>
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-code"></i>
-            jQuery Basics & Integration
-          </h1>
-          <p class="lead">
-            Master jQuery, the powerful JavaScript library that simplifies DOM
-            manipulation, event handling, and AJAX requests. Learn to "write
-            less, do more" with jQuery's elegant syntax.
-          </p>
-          <div class="features">
-            <span class="feature-item"
-              ><i class="fas fa-feather-alt"></i> Write Less, Do More</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-code"></i> Simple Syntax</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-sitemap"></i> Fast DOM</span
-            >
-            <span class="feature-item"
-              ><i class="fas fa-sync-alt"></i> Easy AJAX</span
-            >
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">jQuery Basics & Integration</h1>
+            <p class="topic-subtitle">Write Less, Do More</p>
+            <p class="topic-description">
+              Master jQuery, the powerful JavaScript library that simplifies DOM manipulation, event handling, and AJAX requests.
+            </p>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="comparison-card">
-            <div class="comparison-item">
-              <h3><i class="fab fa-js-square"></i> Vanilla JavaScript</h3>
-              <div class="code-block">
-                <pre><code class="language-javascript">document.addEventListener('DOMContentLoaded', function() {
-    var elements = document.querySelectorAll('.btn');
-    for (var i = 0; i < elements.length; i++) {
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <a
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
+                >
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Core Concepts</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#selectors"
+                      onclick="scrollToSection('selectors')"
+                      >jQuery Selectors</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#dom-manipulation"
+                      onclick="scrollToSection('dom-manipulation')"
+                      >DOM Manipulation</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#events"
+                      onclick="scrollToSection('events')"
+                      >Event Handling</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Advanced Features</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#ajax"
+                      onclick="scrollToSection('ajax')"
+                      >AJAX with jQuery</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#animations"
+                      onclick="scrollToSection('animations')"
+                      >Animations & Effects</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a
+                  href="#examples"
+                  onclick="scrollToSection('examples')"
+                  >Practical Examples</a
+                >
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
         elements[i].addEventListener('click', function() {
             this.style.backgroundColor = 'blue';
         });
@@ -1197,162 +1230,41 @@ $.ajax({
         </section>
 
         <!-- Quiz Section -->
-        <section class="content-section">
+        <section id="quiz" class="content-section">
           <h2 class="section-header">
-            <i class="fas fa-question-circle"></i> Test Your Knowledge
+            <i class="fas fa-question-circle"></i> Knowledge Check
           </h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">1</span>
-                Which symbol is commonly used as an alias for the jQuery
-                function?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="a" />
-                    <span>@</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="b" />
-                    <span>$</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="c" />
-                    <span>#</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="d" />
-                    <span>%</span>
-                  </label>
-                </li>
-              </ul>
+          <div class="quiz-info">
+            <p>Test your understanding of jQuery basics with this interactive quiz.</p>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="quiz-question">
+            <h4 class="question-text"></h4>
+            <ul class="answer-options"></ul>
+          </div>
+          <div class="quiz-feedback">
+            <div class="feedback-icon">
+              <i class="fas fa-check-circle correct-icon"></i>
+              <i class="fas fa-times-circle incorrect-icon"></i>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">2</span>
-                What is the correct jQuery method to set the text content of an
-                element?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="a" />
-                    <span>.text()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="b" />
-                    <span>.content()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="c" />
-                    <span>.setText()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="d" />
-                    <span>.innerText()</span>
-                  </label>
-                </li>
-              </ul>
+            <p class="feedback-text"></p>
+          </div>
+          <div class="quiz-controls">
+            <button class="btn btn-primary next-btn">Next Question</button>
+            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+          </div>
+          <div class="quiz-results">
+            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+            <div class="results-summary">
+              <div class="score-circle">
+                <span class="score-percentage">0%</span>
+              </div>
+              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">3</span>
-                Which jQuery method is used to attach event handlers to
-                elements?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="a" />
-                    <span>.bind()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="b" />
-                    <span>.on()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="c" />
-                    <span>.attach()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="d" />
-                    <span>.listen()</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">4</span>
-                What does $(document).ready() ensure?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="a" />
-                    <span>All images are loaded</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="b" />
-                    <span>The DOM is fully constructed</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="c" />
-                    <span>All CSS is loaded</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="d" />
-                    <span>jQuery is loaded</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-buttons">
-              <button class="btn btn-primary">Submit Quiz</button>
-              <button class="btn btn-secondary" style="display: none">
-                Try Again
-              </button>
-            </div>
-
-            <div class="quiz-results" style="display: none">
-              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-              <p>
-                You scored <span id="score">0</span> out of 4 (<span
-                  id="percentage"
-                  >0</span
-                >%)
-              </p>
-            </div>
+            <div class="results-message"></div>
+            <button class="btn btn-primary restart-btn">Try Again</button>
           </div>
         </section>
 

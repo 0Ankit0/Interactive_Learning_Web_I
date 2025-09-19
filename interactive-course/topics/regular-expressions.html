@@ -23,64 +23,130 @@
     />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="breadcrumb">
       <div class="container">
-        <div class="navbar-brand">
-          <i class="fas fa-code"></i>
-          <span>Web Technology Course</span>
-        </div>
-        <div class="navbar-links">
-          <a href="../index.html" class="nav-link"> <i class="fas fa-home"></i> Home </a>
-          <a href="../units/unit5.html" class="nav-link"> <i class="fas fa-book-open"></i> Unit 5 </a>
-        </div>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit5.html">Unit 5</a>
+        <span class="separator">/</span>
+        <span class="current">Regular Expressions</span>
       </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
+    <header class="topic-header">
       <div class="container">
-        <span class="breadcrumb-item">
-          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-        </span>
-        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-        <span class="breadcrumb-item">
-          <a href="../units/unit5.html">Unit 5: Advanced JavaScript</a>
-        </span>
-        <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-        <span class="breadcrumb-item active">Regular Expressions</span>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <h1>
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
             <i class="fas fa-search"></i>
-            Regular Expressions (RegEx)
-          </h1>
-          <p class="lead">
-            Master the art of pattern matching with Regular Expressions. Learn
-            to search, validate, and manipulate text using powerful regex
-            patterns in JavaScript.
-          </p>
-          <div class="features">
-            <span class="feature-item"><i class="fas fa-check-circle"></i> Pattern Matching</span>
-            <span class="feature-item"><i class="fas fa-check-circle"></i> Validation</span>
-            <span class="feature-item"><i class="fas fa-check-circle"></i> Text Manipulation</span>
-            <span class="feature-item"><i class="fas fa-check-circle"></i> Data Parsing</span>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Regular Expressions</h1>
+            <p class="topic-subtitle">
+              Pattern Matching and Text Processing
+            </p>
+            <p class="topic-description">
+              Master regular expressions (regex) for powerful text searching, validation, and manipulation in JavaScript and web development.
+            </p>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="code-editor-container">
-            <div class="code-editor">
-              <div class="editor-header">
-                <div class="title">Live RegEx Pattern</div>
-                <div class="pattern" id="livePattern">
-                  /[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}/g
-                </div>
-                <div class="description">Email Address Pattern</div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>RegEx Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction to RegEx</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#syntax" onclick="scrollToSection('syntax')"
+                      >RegEx Syntax</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#patterns" onclick="scrollToSection('patterns')"
+                      >Common Patterns</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Advanced RegEx</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#methods" onclick="scrollToSection('methods')"
+                      >RegEx Methods</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#groups" onclick="scrollToSection('groups')"
+                      >Groups & Capturing</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#flags" onclick="scrollToSection('flags')"
+                      >RegEx Flags</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Practice & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#practice" onclick="scrollToSection('practice')"
+                      >Interactive Practice</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
               </div>
 
               <div class="editor-content">
@@ -1041,156 +1107,39 @@ Contact us at support@example.com or sales@test.org for help.</textarea
         </section>
 
         <!-- Quiz Section -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-question-circle"></i> Test Your Regex Knowledge</h2>
-          <div class="quiz-container">
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">1</span>
-                What does the regex pattern <code>\d+</code> match?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="a" />
-                    <span>One or more digits</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="b" />
-                    <span>Exactly one digit</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="c" />
-                    <span>Zero or more digits</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q1" value="d" />
-                    <span>Any character followed by a plus sign</span>
-                  </label>
-                </li>
-              </ul>
+        <section id="quiz" class="content-section">
+          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+          <div class="quiz-info">
+            <p>Test your understanding of regular expressions with this interactive quiz.</p>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="quiz-question">
+            <h4 class="question-text"></h4>
+            <ul class="answer-options"></ul>
+          </div>
+          <div class="quiz-feedback">
+            <div class="feedback-icon">
+              <i class="fas fa-check-circle correct-icon"></i>
+              <i class="fas fa-times-circle incorrect-icon"></i>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">2</span>
-                Which method returns <code>true</code> or
-                <code>false</code> when testing a regex?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="a" />
-                    <span>match()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="b" />
-                    <span>test()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="c" />
-                    <span>exec()</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q2" value="d" />
-                    <span>search()</span>
-                  </label>
-                </li>
-              </ul>
+            <p class="feedback-text"></p>
+          </div>
+          <div class="quiz-controls">
+            <button class="btn btn-primary next-btn">Next Question</button>
+            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
+          </div>
+          <div class="quiz-results">
+            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+            <div class="results-summary">
+              <div class="score-circle">
+                <span class="score-percentage">0%</span>
+              </div>
+              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
             </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">3</span>
-                What does the <code>^</code> symbol represent in regex?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="a" />
-                    <span>Start of string</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="b" />
-                    <span>End of string</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="c" />
-                    <span>Negation inside character class</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q3" value="d" />
-                    <span>Both A and C depending on context</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-question">
-              <h4>
-                <span class="question-number">4</span>
-                Which pattern matches a valid email format?
-              </h4>
-              <ul class="quiz-options">
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="a" />
-                    <span>/.*@.*\..*/</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="b" />
-                    <span>/^[^\s@]+@[^\s@]+\.[^\s@]+$/</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="c" />
-                    <span>/\w+@\w+/</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="radio" name="q4" value="d" />
-                    <span>/email/</span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div class="quiz-buttons">
-              <button class="btn btn-primary">Submit Quiz</button>Btn
-              <button class="btn btn-secondary" style="display: none">Try Again</button>
-            </div>
-
-            <div class="quiz-results" style="display: none">
-              <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-              <p>
-                You scored <span id="score">0</span> out of 4 (<span
-                  id="percentage"
-                  >0</span
-                >%)
-              </p>
-            </div>
+            <div class="results-message"></div>
+            <button class="btn btn-primary restart-btn">Try Again</button>
           </div>
         </section>
 

@@ -22,519 +22,603 @@
 
     <header class="topic-header">
       <div class="container">
-        <h1 class="topic-title">
-          <i class="fab fa-js-square"></i> Embedding JavaScript
-        </h1>
-        <p class="topic-subtitle">
-          Learn the different ways to include JavaScript in your web pages
-        </p>
-        <div class="topic-meta">
-          <span><i class="fas fa-clock"></i> 45 minutes</span>
-          <span><i class="fas fa-layer-group"></i> Beginner</span>
-          <span><i class="fas fa-list-ol"></i> 5 methods</span>
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Embedding JavaScript</h1>
+            <p class="topic-subtitle">Different Ways to Include JavaScript</p>
+            <p class="topic-description">
+              Learn the different methods to embed JavaScript in your web pages
+              for optimal performance and maintainability.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+          <span class="progress-text">0% Complete</span>
         </div>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="main">
       <div class="container">
-        <!-- Premium Video Resources -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-video"></i> JavaScript Embedding Video Tutorials
-          </h2>
-          <p class="lead">
-            Master JavaScript embedding with these comprehensive video guides.
-          </p>
-
-          <div class="resource-grid four-column">
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/QSuTH0C_3_Y/maxresdefault.jpg"
-                  alt="JavaScript in HTML"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">18:32</span>
-              </div>
-              <div class="card-content">
-                <h3>How to Add JavaScript to HTML</h3>
-                <p class="author">
-                  <i class="fas fa-user"></i> Web Dev Simplified
-                </p>
-                <p class="description">
-                  Complete guide to embedding JavaScript in HTML documents with
-                  best practices.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.2M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
-                </div>
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
                 <a
-                  href="https://www.youtube.com/watch?v=QSuTH0C_3_Y"
-                  target="_blank"
-                  class="btn btn-secondary"
+                  href="#introduction"
+                  onclick="scrollToSection('introduction')"
+                  >Introduction</a
                 >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/A3ZUpQoYa4I/maxresdefault.jpg"
-                  alt="External JavaScript Files"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">12:15</span>
-              </div>
-              <div class="card-content">
-                <h3>External JavaScript Files Explained</h3>
-                <p class="author"><i class="fas fa-user"></i> Traversy Media</p>
-                <p class="description">
-                  Learn how to organize JavaScript code using external files for
-                  better maintainability.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 890K views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
-                </div>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Embedding Methods</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#inline" onclick="scrollToSection('inline')"
+                      >Inline JavaScript</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#internal" onclick="scrollToSection('internal')"
+                      >Internal JavaScript</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#external" onclick="scrollToSection('external')"
+                      >External JavaScript</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
                 <a
-                  href="https://www.youtube.com/watch?v=A3ZUpQoYa4I"
-                  target="_blank"
-                  class="btn btn-secondary"
+                  href="#best-practices"
+                  onclick="scrollToSection('best-practices')"
+                  >Best Practices</a
                 >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/Hh_se2Zqsdk/maxresdefault.jpg"
-                  alt="JavaScript Best Practices"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">25:47</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Best Practices 2024</h3>
-                <p class="author">
-                  <i class="fas fa-user"></i> Programming with Mosh
-                </p>
-                <p class="description">
-                  Modern JavaScript best practices including proper script
-                  placement and loading strategies.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 2.1M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 99% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=Hh_se2Zqsdk"
-                  target="_blank"
-                  class="btn btn-secondary"
+              </li>
+              <li>
+                <a href="#examples" onclick="scrollToSection('examples')"
+                  >Practical Examples</a
                 >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+            <!-- Introduction Section -->
+            <section class="content-section" data-section="introduction">
+              <div class="section-header">
+                <h2>
+                  <i class="fas fa-video"></i> JavaScript Embedding Methods
+                </h2>
               </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/VlvKffcLd90/maxresdefault.jpg"
-                  alt="Script Tag Placement"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">14:23</span>
-              </div>
-              <div class="card-content">
-                <h3>Where to Place Script Tags in HTML</h3>
-                <p class="author"><i class="fas fa-user"></i> dcode</p>
-                <p class="description">
-                  Understanding script tag placement for optimal page loading
-                  and performance.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 675K views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=VlvKffcLd90"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- JavaScript Embedding Methods -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-code"></i> Methods of Embedding JavaScript
-          </h2>
-          <p class="lead">
-            There are several ways to include JavaScript in your HTML documents.
-            Each method has its own use cases and benefits.
-          </p>
-
-          <div class="topic-grid three-column">
-            <!-- Method 1: Inline JavaScript -->
-            <div class="topic-card">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fas fa-mouse-pointer"></i>
-                </div>
-                <h3>1. Inline JavaScript</h3>
-                <p>JavaScript code directly in HTML attributes</p>
-              </div>
-              <div class="card-body">
-                <h4>How it works:</h4>
-                <div class="code-block">
-                  &lt;button onclick="alert('Hello World!')"&gt;Click
-                  Me&lt;/button&gt; &lt;a href="javascript:void(0)"
-                  onclick="showDetails()"&gt;Show Details&lt;/a&gt; &lt;input
-                  onchange="validateInput(this.value)"&gt;
-                </div>
-
-                <div class="interactive-demo">
-                  <h5>Try it yourself:</h5>
-                  <button
-                    onclick="alert('Hello from inline JavaScript!')"
-                    class="btn btn-primary"
-                  >
-                    <i class="fas fa-hand-pointer"></i> Click Me
-                  </button>
-                  <button
-                    onclick="document.getElementById('inline-demo').style.background = 'lightblue'"
-                    class="btn btn-secondary"
-                  >
-                    Change Color
-                  </button>
-                  <div id="inline-demo" class="demo-box">
-                    This div will change color when you click the button above!
-                  </div>
-                </div>
-
-                <div class="pros-cons-grid">
-                  <div class="pros-card">
-                    <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
-                    <ul>
-                      <li>Quick for small scripts</li>
-                      <li>No external files needed</li>
-                      <li>Good for prototyping</li>
-                    </ul>
-                  </div>
-                  <div class="cons-card">
-                    <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
-                    <ul>
-                      <li>Hard to maintain</li>
-                      <li>Code duplication</li>
-                      <li>Security concerns</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Method 2: Internal JavaScript -->
-            <div class="topic-card">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fas fa-file-code"></i>
-                </div>
-                <h3>2. Internal JavaScript</h3>
-                <p>JavaScript code inside &lt;script&gt; tags</p>
-              </div>
-              <div class="card-body">
-                <h4>How it works:</h4>
-                <div class="code-block">
-                  &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;
-                  &lt;title&gt;My Page&lt;/title&gt; &lt;script&gt; function
-                  greetUser() { alert('Welcome to our website!'); }
-                  document.addEventListener('DOMContentLoaded', function() {
-                  console.log('Page loaded successfully'); }); &lt;/script&gt;
-                  &lt;/head&gt; &lt;body&gt; &lt;button
-                  onclick="greetUser()"&gt;Greet&lt;/button&gt; &lt;/body&gt;
-                  &lt;/html&gt;
-                </div>
-
-                <div class="interactive-demo">
-                  <h5>Try it yourself:</h5>
-                  <button onclick="internalGreet()" class="btn btn-primary">
-                    <i class="fas fa-hand-sparkles"></i> Internal Greet
-                  </button>
-                  <button onclick="showDateTime()" class="btn btn-secondary">
-                    Show Current Time
-                  </button>
-                  <div
-                    id="datetime-display"
-                    class="result-box"
-                    style="display: none"
-                  ></div>
-                </div>
-
-                <div class="pros-cons-grid">
-                  <div class="pros-card">
-                    <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
-                    <ul>
-                      <li>All code in one file</li>
-                      <li>Better than inline</li>
-                      <li>Good for small projects</li>
-                    </ul>
-                  </div>
-                  <div class="cons-card">
-                    <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
-                    <ul>
-                      <li>Large HTML files</li>
-                      <li>Can't reuse code</li>
-                      <li>Harder to debug</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Method 3: External JavaScript -->
-            <div class="topic-card">
-              <div class="card-header">
-                <div class="card-icon">
-                  <i class="fas fa-external-link-alt"></i>
-                </div>
-                <h3>3. External JavaScript</h3>
-                <p>JavaScript code in separate .js files</p>
-              </div>
-              <div class="card-body">
-                <h4>How it works:</h4>
-                <div class="code-block">
-                  // File: scripts/main.js function calculateTotal(price, tax) {
-                  return price + (price * tax); } function
-                  displayMessage(message) {
-                  document.getElementById('output').textContent = message; } //
-                  HTML file &lt;script src="scripts/main.js"&gt;&lt;/script&gt;
-                  &lt;script
-                  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"&gt;&lt;/script&gt;
-                </div>
-
-                <div class="interactive-demo">
-                  <h5>External JavaScript Demo:</h5>
-                  <input
-                    type="number"
-                    id="price-input"
-                    class="form-control"
-                    placeholder="Enter price"
-                  />
-                  <button
-                    onclick="calculateWithExternal()"
-                    class="btn btn-primary"
-                  >
-                    <i class="fas fa-calculator"></i> Calculate Total
-                  </button>
-                  <div
-                    id="calculation-result"
-                    class="result-box"
-                    style="display: none"
-                  ></div>
-                </div>
-
-                <div class="pros-cons-grid">
-                  <div class="pros-card">
-                    <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
-                    <ul>
-                      <li>Reusable code</li>
-                      <li>Cacheable by browsers</li>
-                      <li>Better organization</li>
-                      <li>Team collaboration</li>
-                    </ul>
-                  </div>
-                  <div class="cons-card">
-                    <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
-                    <ul>
-                      <li>Additional HTTP requests</li>
-                      <li>File management</li>
-                      <li>Path dependencies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Script Tag Placement -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-map-marker-alt"></i> Script Tag Placement
-          </h2>
-          <p class="lead">
-            Where you place your script tags affects when and how your
-            JavaScript executes.
-          </p>
-
-          <div class="code-block">
-            <h3>Script Placement Comparison</h3>
-
-            <div class="code-block-inner">
-              <!-- 1. In the &lt;head&gt; section -->
-              &lt;head&gt; &lt;script src="script.js"&gt;&lt;/script&gt;
-              &lt;/head&gt;
-
-              <!-- 2. Before closing &lt;/body&gt; tag -->
-              &lt;body&gt; &lt;!-- Your HTML content --&gt; &lt;script
-              src="script.js"&gt;&lt;/script&gt; &lt;/body&gt;
-
-              <!-- 3. With defer attribute -->
-              &lt;head&gt; &lt;script src="script.js" defer&gt;&lt;/script&gt;
-              &lt;/head&gt;
-
-              <!-- 4. With async attribute -->
-              &lt;head&gt; &lt;script src="script.js" async&gt;&lt;/script&gt;
-              &lt;/head&gt;
-            </div>
-
-            <div class="feature-grid four-column">
-              <div class="feature-card">
-                <h4><i class="fas fa-heading"></i> Head Placement</h4>
-                <p>Blocks HTML parsing until script loads and executes.</p>
-                <strong>Use when:</strong> Script is critical for page
-                functionality.
-              </div>
-
-              <div class="feature-card">
-                <h4><i class="fas fa-shoe-prints"></i> Body End</h4>
-                <p>Executes after HTML is parsed and DOM is ready.</p>
-                <strong>Use when:</strong> Script manipulates DOM elements.
-              </div>
-
-              <div class="feature-card">
-                <h4><i class="fas fa-hourglass-half"></i> Defer Attribute</h4>
-                <p>Downloads while parsing, executes after DOM is complete.</p>
-                <strong>Use when:</strong> Script depends on full DOM but can
-                load early.
-              </div>
-
-              <div class="feature-card">
-                <h4><i class="fas fa-shipping-fast"></i> Async Attribute</h4>
-                <p>Downloads and executes immediately when ready.</p>
-                <strong>Use when:</strong> Script is independent of DOM and
-                other scripts.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Best Practices -->
-        <section class="content-section">
-          <div class="container">
-            <h2 class="section-header">
-              <i class="fas fa-clipboard-check"></i> Best Practices for
-              Embedding JavaScript
-            </h2>
-
-            <div class="feature-list">
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-file-export"></i> 1. Use External Files for
-                  Production
-                </h4>
-                <p>
-                  Keep JavaScript in separate .js files for better
-                  maintainability, caching, and code reuse. Only use inline
-                  JavaScript for very small, page-specific scripts.
+              <div class="topic-card">
+                <p class="lead">
+                  Master JavaScript embedding with these comprehensive video
+                  guides and tutorials.
                 </p>
               </div>
 
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-shoe-prints"></i> 2. Place Scripts at the
-                  Bottom
-                </h4>
-                <p>
-                  Put script tags just before the closing &lt;/body&gt; tag to
-                  ensure DOM elements are loaded before JavaScript tries to
-                  access them.
-                </p>
+              <div class="resource-grid four-column">
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/QSuTH0C_3_Y/maxresdefault.jpg"
+                      alt="JavaScript in HTML"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">18:32</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>How to Add JavaScript to HTML</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Web Dev Simplified
+                    </p>
+                    <p class="description">
+                      Complete guide to embedding JavaScript in HTML documents
+                      with best practices.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 1.2M views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=QSuTH0C_3_Y"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/A3ZUpQoYa4I/maxresdefault.jpg"
+                      alt="External JavaScript Files"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">12:15</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>External JavaScript Files Explained</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Traversy Media
+                    </p>
+                    <p class="description">
+                      Learn how to organize JavaScript code using external files
+                      for better maintainability.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 890K views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=A3ZUpQoYa4I"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/Hh_se2Zqsdk/maxresdefault.jpg"
+                      alt="JavaScript Best Practices"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">25:47</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>JavaScript Best Practices 2024</h3>
+                    <p class="author">
+                      <i class="fas fa-user"></i> Programming with Mosh
+                    </p>
+                    <p class="description">
+                      Modern JavaScript best practices including proper script
+                      placement and loading strategies.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 2.1M views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 99% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=Hh_se2Zqsdk"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
+
+                <div class="resource-card video-card">
+                  <div class="card-thumbnail">
+                    <img
+                      src="https://img.youtube.com/vi/VlvKffcLd90/maxresdefault.jpg"
+                      alt="Script Tag Placement"
+                      loading="lazy"
+                    />
+                    <div class="play-icon">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="duration">14:23</span>
+                  </div>
+                  <div class="card-content">
+                    <h3>Where to Place Script Tags in HTML</h3>
+                    <p class="author"><i class="fas fa-user"></i> dcode</p>
+                    <p class="description">
+                      Understanding script tag placement for optimal page
+                      loading and performance.
+                    </p>
+                    <div class="stats">
+                      <span><i class="fas fa-eye"></i> 675K views</span>
+                      <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
+                    </div>
+                    <a
+                      href="https://www.youtube.com/watch?v=VlvKffcLd90"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fab fa-youtube"></i> Watch on YouTube
+                    </a>
+                  </div>
+                </div>
               </div>
+            </section>
 
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-compress-arrows-alt"></i> 3. Minify and
-                  Compress
-                </h4>
-                <p>
-                  Use minified versions of JavaScript files in production to
-                  reduce file size and improve loading speed.
-                </p>
+            <!-- JavaScript Embedding Methods -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-code"></i> Methods of Embedding JavaScript
+              </h2>
+              <p class="lead">
+                There are several ways to include JavaScript in your HTML
+                documents. Each method has its own use cases and benefits.
+              </p>
+
+              <div class="topic-grid three-column">
+                <!-- Method 1: Inline JavaScript -->
+                <div class="topic-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3>1. Inline JavaScript</h3>
+                    <p>JavaScript code directly in HTML attributes</p>
+                  </div>
+                  <div class="card-body">
+                    <h4>How it works:</h4>
+                    <div class="code-block">
+                      &lt;button onclick="alert('Hello World!')"&gt;Click
+                      Me&lt;/button&gt; &lt;a href="javascript:void(0)"
+                      onclick="showDetails()"&gt;Show Details&lt;/a&gt;
+                      &lt;input onchange="validateInput(this.value)"&gt;
+                    </div>
+
+                    <div class="interactive-demo">
+                      <h5>Try it yourself:</h5>
+                      <button
+                        onclick="alert('Hello from inline JavaScript!')"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-hand-pointer"></i> Click Me
+                      </button>
+                      <button
+                        onclick="document.getElementById('inline-demo').style.background = 'lightblue'"
+                        class="btn btn-secondary"
+                      >
+                        Change Color
+                      </button>
+                      <div id="inline-demo" class="demo-box">
+                        This div will change color when you click the button
+                        above!
+                      </div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                      <div class="pros-card">
+                        <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
+                        <ul>
+                          <li>Quick for small scripts</li>
+                          <li>No external files needed</li>
+                          <li>Good for prototyping</li>
+                        </ul>
+                      </div>
+                      <div class="cons-card">
+                        <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
+                        <ul>
+                          <li>Hard to maintain</li>
+                          <li>Code duplication</li>
+                          <li>Security concerns</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Method 2: Internal JavaScript -->
+                <div class="topic-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3>2. Internal JavaScript</h3>
+                    <p>JavaScript code inside &lt;script&gt; tags</p>
+                  </div>
+                  <div class="card-body">
+                    <h4>How it works:</h4>
+                    <div class="code-block">
+                      &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;
+                      &lt;title&gt;My Page&lt;/title&gt; &lt;script&gt; function
+                      greetUser() { alert('Welcome to our website!'); }
+                      document.addEventListener('DOMContentLoaded', function() {
+                      console.log('Page loaded successfully'); });
+                      &lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;button
+                      onclick="greetUser()"&gt;Greet&lt;/button&gt;
+                      &lt;/body&gt; &lt;/html&gt;
+                    </div>
+
+                    <div class="interactive-demo">
+                      <h5>Try it yourself:</h5>
+                      <button onclick="internalGreet()" class="btn btn-primary">
+                        <i class="fas fa-hand-sparkles"></i> Internal Greet
+                      </button>
+                      <button
+                        onclick="showDateTime()"
+                        class="btn btn-secondary"
+                      >
+                        Show Current Time
+                      </button>
+                      <div
+                        id="datetime-display"
+                        class="result-box"
+                        style="display: none"
+                      ></div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                      <div class="pros-card">
+                        <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
+                        <ul>
+                          <li>All code in one file</li>
+                          <li>Better than inline</li>
+                          <li>Good for small projects</li>
+                        </ul>
+                      </div>
+                      <div class="cons-card">
+                        <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
+                        <ul>
+                          <li>Large HTML files</li>
+                          <li>Can't reuse code</li>
+                          <li>Harder to debug</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Method 3: External JavaScript -->
+                <div class="topic-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <h3>3. External JavaScript</h3>
+                    <p>JavaScript code in separate .js files</p>
+                  </div>
+                  <div class="card-body">
+                    <h4>How it works:</h4>
+                    <div class="code-block">
+                      // File: scripts/main.js function calculateTotal(price,
+                      tax) { return price + (price * tax); } function
+                      displayMessage(message) {
+                      document.getElementById('output').textContent = message; }
+                      // HTML file &lt;script
+                      src="scripts/main.js"&gt;&lt;/script&gt; &lt;script
+                      src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"&gt;&lt;/script&gt;
+                    </div>
+
+                    <div class="interactive-demo">
+                      <h5>External JavaScript Demo:</h5>
+                      <input
+                        type="number"
+                        id="price-input"
+                        class="form-control"
+                        placeholder="Enter price"
+                      />
+                      <button
+                        onclick="calculateWithExternal()"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-calculator"></i> Calculate Total
+                      </button>
+                      <div
+                        id="calculation-result"
+                        class="result-box"
+                        style="display: none"
+                      ></div>
+                    </div>
+
+                    <div class="pros-cons-grid">
+                      <div class="pros-card">
+                        <h5><i class="fas fa-plus-circle"></i> Pros:</h5>
+                        <ul>
+                          <li>Reusable code</li>
+                          <li>Cacheable by browsers</li>
+                          <li>Better organization</li>
+                          <li>Team collaboration</li>
+                        </ul>
+                      </div>
+                      <div class="cons-card">
+                        <h5><i class="fas fa-minus-circle"></i> Cons:</h5>
+                        <ul>
+                          <li>Additional HTTP requests</li>
+                          <li>File management</li>
+                          <li>Path dependencies</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </section>
 
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-shield-alt"></i> 4. Validate User Input
-                </h4>
-                <p>
-                  Always validate and sanitize user input in JavaScript to
-                  prevent security vulnerabilities and ensure data integrity.
-                </p>
+            <!-- Script Tag Placement -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-map-marker-alt"></i> Script Tag Placement
+              </h2>
+              <p class="lead">
+                Where you place your script tags affects when and how your
+                JavaScript executes.
+              </p>
+
+              <div class="code-block">
+                <h3>Script Placement Comparison</h3>
+
+                <div class="code-block-inner">
+                  <!-- 1. In the &lt;head&gt; section -->
+                  &lt;head&gt; &lt;script src="script.js"&gt;&lt;/script&gt;
+                  &lt;/head&gt;
+
+                  <!-- 2. Before closing &lt;/body&gt; tag -->
+                  &lt;body&gt; &lt;!-- Your HTML content --&gt; &lt;script
+                  src="script.js"&gt;&lt;/script&gt; &lt;/body&gt;
+
+                  <!-- 3. With defer attribute -->
+                  &lt;head&gt; &lt;script src="script.js"
+                  defer&gt;&lt;/script&gt; &lt;/head&gt;
+
+                  <!-- 4. With async attribute -->
+                  &lt;head&gt; &lt;script src="script.js"
+                  async&gt;&lt;/script&gt; &lt;/head&gt;
+                </div>
+
+                <div class="feature-grid four-column">
+                  <div class="feature-card">
+                    <h4><i class="fas fa-heading"></i> Head Placement</h4>
+                    <p>Blocks HTML parsing until script loads and executes.</p>
+                    <strong>Use when:</strong> Script is critical for page
+                    functionality.
+                  </div>
+
+                  <div class="feature-card">
+                    <h4><i class="fas fa-shoe-prints"></i> Body End</h4>
+                    <p>Executes after HTML is parsed and DOM is ready.</p>
+                    <strong>Use when:</strong> Script manipulates DOM elements.
+                  </div>
+
+                  <div class="feature-card">
+                    <h4>
+                      <i class="fas fa-hourglass-half"></i> Defer Attribute
+                    </h4>
+                    <p>
+                      Downloads while parsing, executes after DOM is complete.
+                    </p>
+                    <strong>Use when:</strong> Script depends on full DOM but
+                    can load early.
+                  </div>
+
+                  <div class="feature-card">
+                    <h4>
+                      <i class="fas fa-shipping-fast"></i> Async Attribute
+                    </h4>
+                    <p>Downloads and executes immediately when ready.</p>
+                    <strong>Use when:</strong> Script is independent of DOM and
+                    other scripts.
+                  </div>
+                </div>
               </div>
+            </section>
 
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-code-branch"></i> 5. Use Version Control
-                </h4>
-                <p>
-                  Keep JavaScript files in version control systems like Git to
-                  track changes and collaborate with team members effectively.
-                </p>
+            <!-- Best Practices -->
+            <section class="content-section">
+              <div class="container">
+                <h2 class="section-header">
+                  <i class="fas fa-clipboard-check"></i> Best Practices for
+                  Embedding JavaScript
+                </h2>
+
+                <div class="feature-list">
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-file-export"></i> 1. Use External Files
+                      for Production
+                    </h4>
+                    <p>
+                      Keep JavaScript in separate .js files for better
+                      maintainability, caching, and code reuse. Only use inline
+                      JavaScript for very small, page-specific scripts.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-shoe-prints"></i> 2. Place Scripts at the
+                      Bottom
+                    </h4>
+                    <p>
+                      Put script tags just before the closing &lt;/body&gt; tag
+                      to ensure DOM elements are loaded before JavaScript tries
+                      to access them.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-compress-arrows-alt"></i> 3. Minify and
+                      Compress
+                    </h4>
+                    <p>
+                      Use minified versions of JavaScript files in production to
+                      reduce file size and improve loading speed.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-shield-alt"></i> 4. Validate User Input
+                    </h4>
+                    <p>
+                      Always validate and sanitize user input in JavaScript to
+                      prevent security vulnerabilities and ensure data
+                      integrity.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-code-branch"></i> 5. Use Version Control
+                    </h4>
+                    <p>
+                      Keep JavaScript files in version control systems like Git
+                      to track changes and collaborate with team members
+                      effectively.
+                    </p>
+                  </div>
+
+                  <div class="feature-item">
+                    <h4>
+                      <i class="fas fa-mobile-alt"></i> 6. Consider Mobile
+                      Performance
+                    </h4>
+                    <p>
+                      Optimize JavaScript for mobile devices by reducing file
+                      sizes, minimizing DOM manipulation, and using efficient
+                      algorithms.
+                    </p>
+                  </div>
+                </div>
               </div>
+            </section>
 
-              <div class="feature-item">
-                <h4>
-                  <i class="fas fa-mobile-alt"></i> 6. Consider Mobile
-                  Performance
-                </h4>
-                <p>
-                  Optimize JavaScript for mobile devices by reducing file sizes,
-                  minimizing DOM manipulation, and using efficient algorithms.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <!-- Interactive Code Editor -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-terminal"></i> Try Different Embedding Methods
+              </h2>
+              <p class="lead">
+                Practice embedding JavaScript using this interactive editor!
+              </p>
 
-        <!-- Interactive Code Editor -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-terminal"></i> Try Different Embedding Methods
-          </h2>
-          <p class="lead">
-            Practice embedding JavaScript using this interactive editor!
-          </p>
-
-          <div class="interactive-demo">
-            <div class="demo-grid two-column">
-              <div class="code-editor-container">
-                <h4 class="code-header">
-                  <i class="fab fa-html5"></i> HTML Code:
-                </h4>
-                <textarea id="html-editor" class="code-editor-textarea">
+              <div class="interactive-demo">
+                <div class="demo-grid two-column">
+                  <div class="code-editor-container">
+                    <h4 class="code-header">
+                      <i class="fab fa-html5"></i> HTML Code:
+                    </h4>
+                    <textarea id="html-editor" class="code-editor-textarea">
 <!DOCTYPE html>
 <html>
 <head>
@@ -549,146 +633,196 @@
   </script>
 </body>
 </html></textarea
-                >
-                <button
-                  onclick="updatePreview()"
-                  class="btn btn-primary"
-                  style="margin-top: 1rem"
-                >
-                  <i class="fas fa-sync-alt"></i> Update Preview
+                    >
+                    <button
+                      onclick="updatePreview()"
+                      class="btn btn-primary"
+                      style="margin-top: 1rem"
+                    >
+                      <i class="fas fa-sync-alt"></i> Update Preview
+                    </button>
+                  </div>
+
+                  <div class="preview-container">
+                    <h4 class="preview-header">
+                      <i class="fas fa-eye"></i> Live Preview:
+                    </h4>
+                    <iframe id="preview-frame" class="preview-frame"></iframe>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- External Resources -->
+            <section class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-book-open"></i> Essential JavaScript Embedding
+                Resources
+              </h2>
+
+              <div class="resource-grid four-column">
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fab fa-js-square"></i>
+                    <h3>MDN: HTML Script Element</h3>
+                  </div>
+                  <p>
+                    Complete documentation for the HTML script element and all
+                    its attributes.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Reference</span>
+                    <span class="tag">Examples</span>
+                    <span class="tag">Browser Support</span>
+                  </div>
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Read Documentation <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>JavaScript Loading Performance</h3>
+                  </div>
+                  <p>
+                    Learn about defer, async, and script loading optimization
+                    techniques.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Performance</span>
+                    <span class="tag">Best Practices</span>
+                    <span class="tag">Modern JS</span>
+                  </div>
+                  <a
+                    href="https://web.dev/efficiently-load-third-party-javascript/"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Optimize Loading <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-cubes"></i>
+                    <h3>JavaScript Modules Guide</h3>
+                  </div>
+                  <p>
+                    Modern JavaScript modules and ES6 import/export syntax for
+                    better code organization.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">ES6 Modules</span>
+                    <span class="tag">Modern JS</span>
+                    <span class="tag">Code Organization</span>
+                  </div>
+                  <a
+                    href="https://javascript.info/modules-intro"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Learn Modules <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="resource-card">
+                  <div class="card-icon">
+                    <i class="fas fa-tools"></i>
+                    <h3>JavaScript Build Tools</h3>
+                  </div>
+                  <p>
+                    Learn about Webpack, Vite, and other tools for bundling and
+                    optimizing JavaScript.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">Build Tools</span>
+                    <span class="tag">Bundling</span>
+                    <span class="tag">Optimization</span>
+                  </div>
+                  <a
+                    href="https://webpack.js.org/guides/getting-started/"
+                    target="_blank"
+                    class="btn btn-secondary"
+                  >
+                    Explore Tools <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-question-circle"></i> Knowledge Check
+              </h2>
+              <div class="quiz-info">
+                <p>
+                  Test your understanding of JavaScript embedding methods with
+                  this interactive quiz.
+                </p>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="quiz-question">
+                <h4 class="question-text"></h4>
+                <ul class="answer-options"></ul>
+              </div>
+              <div class="quiz-feedback">
+                <div class="feedback-icon">
+                  <i class="fas fa-check-circle correct-icon"></i>
+                  <i class="fas fa-times-circle incorrect-icon"></i>
+                </div>
+                <p class="feedback-text"></p>
+              </div>
+              <div class="quiz-controls">
+                <button class="btn btn-primary next-btn">Next Question</button>
+                <button class="btn btn-secondary restart-btn">
+                  Restart Quiz
                 </button>
               </div>
-
-              <div class="preview-container">
-                <h4 class="preview-header">
-                  <i class="fas fa-eye"></i> Live Preview:
-                </h4>
-                <iframe id="preview-frame" class="preview-frame"></iframe>
+              <div class="quiz-results">
+                <h3><i class="fas fa-poll"></i> Quiz Results</h3>
+                <div class="results-summary">
+                  <div class="score-circle">
+                    <span class="score-percentage">0%</span>
+                  </div>
+                  <p class="score-text">
+                    You scored <span class="score-number">0</span> out of
+                    <span class="score-total">5</span>
+                  </p>
+                </div>
+                <div class="results-message"></div>
+                <button class="btn btn-primary restart-btn">Try Again</button>
               </div>
-            </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="navigation-section">
+              <div class="nav-buttons">
+                <button
+                  class="btn btn-secondary"
+                  onclick="window.location.href='js-introduction.html'"
+                >
+                  <i class="fas fa-arrow-left"></i> Previous: JavaScript
+                  Introduction
+                </button>
+                <button
+                  class="btn btn-primary"
+                  onclick="window.location.href='js-variables.html'"
+                >
+                  Next: Variables & Data Types
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </section>
           </div>
-        </section>
-
-        <!-- External Resources -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-book-open"></i> Essential JavaScript Embedding
-            Resources
-          </h2>
-
-          <div class="resource-grid four-column">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-js-square"></i>
-                <h3>MDN: HTML Script Element</h3>
-              </div>
-              <p>
-                Complete documentation for the HTML script element and all its
-                attributes.
-              </p>
-              <div class="tags">
-                <span class="tag">Reference</span>
-                <span class="tag">Examples</span>
-                <span class="tag">Browser Support</span>
-              </div>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Read Documentation <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-tachometer-alt"></i>
-                <h3>JavaScript Loading Performance</h3>
-              </div>
-              <p>
-                Learn about defer, async, and script loading optimization
-                techniques.
-              </p>
-              <div class="tags">
-                <span class="tag">Performance</span>
-                <span class="tag">Best Practices</span>
-                <span class="tag">Modern JS</span>
-              </div>
-              <a
-                href="https://web.dev/efficiently-load-third-party-javascript/"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Optimize Loading <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-cubes"></i>
-                <h3>JavaScript Modules Guide</h3>
-              </div>
-              <p>
-                Modern JavaScript modules and ES6 import/export syntax for
-                better code organization.
-              </p>
-              <div class="tags">
-                <span class="tag">ES6 Modules</span>
-                <span class="tag">Modern JS</span>
-                <span class="tag">Code Organization</span>
-              </div>
-              <a
-                href="https://javascript.info/modules-intro"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Learn Modules <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-tools"></i>
-                <h3>JavaScript Build Tools</h3>
-              </div>
-              <p>
-                Learn about Webpack, Vite, and other tools for bundling and
-                optimizing JavaScript.
-              </p>
-              <div class="tags">
-                <span class="tag">Build Tools</span>
-                <span class="tag">Bundling</span>
-                <span class="tag">Optimization</span>
-              </div>
-              <a
-                href="https://webpack.js.org/guides/getting-started/"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Explore Tools <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="navigation-section">
-          <div class="nav-buttons">
-            <button
-              class="btn btn-secondary"
-              onclick="window.location.href='js-introduction.html'"
-            >
-              <i class="fas fa-arrow-left"></i> Previous: JavaScript
-              Introduction
-            </button>
-            <button
-              class="btn btn-primary"
-              onclick="window.location.href='js-variables.html'"
-            >
-              Next: Variables & Data Types <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
 
