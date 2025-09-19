@@ -128,85 +128,124 @@
                   >Practical Examples</a
                 >
               </li>
+              <li>
+                <a
+                  href="#quiz"
+                  onclick="scrollToSection('quiz')"
+                  >Knowledge Check</a
+                >
+              </li>
             </ul>
           </aside>
 
           <div class="content-main">
-        elements[i].addEventListener('click', function() {
-            this.style.backgroundColor = 'blue';
-        });
-    }
-});</code></pre>
-              </div>
-              <div class="line-count">8 lines of code</div>
-            </div>
+            <!-- Introduction Section -->
+            <section id="introduction" class="content-section">
+              <h2 class="section-header">
+                <i class="fas fa-info-circle"></i> What is jQuery?
+              </h2>
+              <p class="lead">
+                jQuery is a fast, lightweight, and feature-rich JavaScript
+                library. It makes things like HTML document traversal and
+                manipulation, event handling, animation, and Ajax much simpler
+                with an easy-to-use API that works across different browsers.
+              </p>
 
-            <div class="comparison-separator">
-              <span>VS</span>
-            </div>
+              <div class="comparison-demo">
+                <div class="comparison-item">
+                  <h3><i class="fas fa-code"></i> Vanilla JavaScript</h3>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">const elements = document.querySelectorAll('.btn');
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', function() {
+        this.style.backgroundColor = 'blue';
+    });
+}</code></pre>
+                  </div>
+                  <div class="line-count">8 lines of code</div>
+                </div>
 
-            <div class="comparison-item">
-              <h3><i class="fas fa-code"></i> jQuery</h3>
-              <div class="code-block">
-                <pre><code class="language-javascript">$(document).ready(function() {
+                <div class="comparison-separator">
+                  <span>VS</span>
+                </div>
+
+                <div class="comparison-item">
+                  <h3><i class="fas fa-code"></i> jQuery</h3>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">$(document).ready(function() {
     $('.btn').click(function() {
         $(this).css('background-color', 'blue');
     });
 });</code></pre>
+                  </div>
+                  <div class="line-count">4 lines of code</div>
+                </div>
               </div>
-              <div class="line-count">4 lines of code</div>
-            </div>
-          </div>
 
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-value">85%</div>
-              <div class="stat-label">Less Code</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">3M+</div>
-              <div class="stat-label">Websites</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">15+</div>
-              <div class="stat-label">Years Old</div>
-            </div>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value">85%</div>
+                  <div class="stat-label">Less Code</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">3M+</div>
+                  <div class="stat-label">Websites</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">15+</div>
+                  <div class="stat-label">Years Old</div>
+                </div>
+              </div>
+            </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3><i class="fas fa-code"></i> Web Technology Course</h3>
+            <p>
+              Master modern web development with our comprehensive interactive
+              course.
+            </p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../units/unit6.html">Unit 6: JS Frameworks</a></li>
+              <li><a href="js-introduction.html">JavaScript Basics</a></li>
+            </ul>
+          </div>
+          <div class="footer-resources">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
+              <li>
+                <a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+              </li>
+              <li>
+                <a href="https://api.jquery.com/" target="_blank">jQuery API</a>
+              </li>
+            </ul>
           </div>
         </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Web Technology Interactive Course. All rights reserved.
+          </p>
+        </div>
       </div>
-    </section>
+    </footer>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <!-- Introduction -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-info-circle"></i> What is jQuery?
-          </h2>
-          <div class="section-content">
-            <p class="lead">
-              jQuery is a fast, lightweight, and feature-rich JavaScript
-              library. It makes things like HTML document traversal and
-              manipulation, event handling, animation, and Ajax much simpler
-              with an easy-to-use API that works across different browsers.
-            </p>
-
-            <div class="info-box">
-              <h3 class="info-header">
-                <i class="fas fa-star"></i> Why Use jQuery?
-              </h3>
-              <div class="feature-grid three-column">
-                <div class="feature-card">
-                  <div class="card-icon">
-                    <i class="fas fa-code"></i>
-                  </div>
-                  <h4>Simplified Syntax</h4>
-                  <p>
-                    jQuery's syntax is designed to make it easier to navigate
-                    documents, select DOM elements, and create animations.
-                  </p>
-                </div>
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../dist/js/topic.js"></script>
+  </body>
+</html>
 
                 <div class="feature-card">
                   <div class="card-icon">
