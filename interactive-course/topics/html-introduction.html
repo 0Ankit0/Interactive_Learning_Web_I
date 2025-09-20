@@ -6,8 +6,8 @@
     <title>HTML Introduction - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <nav class="breadcrumb">
@@ -43,30 +43,142 @@
           <aside class="table-of-contents">
             <h3>Table of Contents</h3>
             <ul>
-              <li><a href="#what-is-html">What is HTML?</a></li>
-              <li><a href="#evolution-of-html">Evolution of HTML</a></li>
               <li>
-                <a href="#video-tutorials"
-                    >Video Tutorials & Learning Resources</a
-                  >
-                </li>
-                <li><a href="#try-html-yourself">Try HTML Yourself</a></li>
-                <li><a href="#essential-html-tags">Essential HTML Tags</a></li>
-                <li><a href="#text-formatting">Text Formatting</a></li>
-                <li><a href="#knowledge-check">Knowledge Check</a></li>
-                <li>
-                  <a href="#html-element-matching-game"
-                    >HTML Element Matching Game</a
-                  >
-                </li>
-                <li>
-                  <a href="#essential-external-resources"
-                    >Essential External Resources</a
-                  >
-                </li>
-                <li><a href="#whats-next">What's Next?</a></li>
-                <li><a href="#quiz">Test Your Knowledge</a></li>
-              </ul>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>HTML Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#what-is-html"
+                      onclick="scrollToSection('what-is-html')"
+                      >What is HTML?</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#evolution-of-html"
+                      onclick="scrollToSection('evolution-of-html')"
+                      >Evolution of HTML</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Learning Resources</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#essential-external-resources"
+                      onclick="scrollToSection('essential-external-resources')"
+                      >Video Tutorials & Learning Resources</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#try-html-yourself"
+                      onclick="scrollToSection('try-html-yourself')"
+                      >Try HTML Yourself</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>HTML Elements</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#essential-html-tags"
+                      onclick="scrollToSection('essential-html-tags')"
+                      >Essential HTML Tags</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#text-formatting"
+                      onclick="scrollToSection('text-formatting')"
+                      >Text Formatting</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Interactive Learning</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#quiz"
+                      onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#html-element-matching-game"
+                      onclick="scrollToSection('html-element-matching-game')"
+                      >HTML Element Matching Game</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Resources & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#essential-external-resources"
+                      onclick="scrollToSection('essential-external-resources')"
+                      >Essential External Resources</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#whats-next"
+                      onclick="scrollToSection('whats-next')"
+                      >What's Next?</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Test Your Knowledge</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </aside>
 
           <div class="content-main">
@@ -97,9 +209,7 @@
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
               </div>
-            <div class="section-navigation">
-              <a href="#evolution-of-html" class="nav-link next-link">Next: Evolution of HTML <i class="fas fa-arrow-right"></i></a>
-            </div>
+            
           </section>
 
           <!-- History Timeline -->
@@ -149,166 +259,9 @@
                 </div>
               </div>
             </div>
-            <div class="section-navigation">
-              <a href="#what-is-html" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: What is HTML?</a>
-              <a href="#video-tutorials" class="nav-link next-link">Next: Video Tutorials & Learning Resources <i class="fas fa-arrow-right"></i></a>
-            </div>
           </section>
 
-          <!-- Video Resources Section -->
-          <section id="video-tutorials" class="content-section">
-            <h2 class="section-header">
-              <i class="fas fa-video"></i> Video Tutorials & Learning Resources
-            </h2>
-            <p class="lead">
-              Enhance your learning with these carefully selected video
-              tutorials and external resources.
-            </p>
-
-            <div class="resource-grid four-column">
-              <div class="resource-card video-card">
-                <div class="card-thumbnail">
-                  <img
-                    src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg"
-                    alt="HTML Crash Course"
-                    loading="lazy"
-                  />
-                  <div class="play-icon">
-                    <i class="fab fa-youtube"></i>
-                  </div>
-                  <span class="duration">1:20:26</span>
-                </div>
-                <div class="card-content">
-                  <h3>HTML Crash Course For Absolute Beginners</h3>
-                  <p class="author">
-                    <i class="fas fa-user"></i> Traversy Media
-                  </p>
-                  <p class="description">
-                    Complete HTML tutorial covering all the fundamentals you
-                    need to know to get started with web development.
-                  </p>
-                  <div class="stats">
-                    <span><i class="fas fa-eye"></i> 3.2M views</span>
-                    <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
-                  </div>
-                  <a
-                    href="https://www.youtube.com/watch?v=UB1O30fR-EE"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    <i class="fab fa-youtube"></i> Watch on YouTube
-                  </a>
-                </div>
-              </div>
-
-              <div class="resource-card video-card">
-                <div class="card-thumbnail">
-                  <img
-                    src="https://img.youtube.com/vi/qz0aGYrrlhU/maxresdefault.jpg"
-                    alt="HTML Tutorial"
-                    loading="lazy"
-                  />
-                  <div class="play-icon">
-                    <i class="fab fa-youtube"></i>
-                  </div>
-                  <span class="duration">1:01:33</span>
-                </div>
-                <div class="card-content">
-                  <h3>HTML Tutorial for Beginners: HTML Crash Course</h3>
-                  <p class="author">
-                    <i class="fas fa-user"></i> Programming with Mosh
-                  </p>
-                  <p class="description">
-                    Learn HTML basics in this comprehensive tutorial perfect for
-                    beginners starting their web development journey.
-                  </p>
-                  <div class="stats">
-                    <span><i class="fas fa-eye"></i> 2.8M views</span>
-                    <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
-                  </div>
-                  <a
-                    href="https://www.youtube.com/watch?v=qz0aGYrrlhU"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    <i class="fab fa-youtube"></i> Watch on YouTube
-                  </a>
-                </div>
-              </div>
-
-              <div class="resource-card video-card">
-                <div class="card-thumbnail">
-                  <img
-                    src="https://img.youtube.com/vi/salY_Sm6mv4/maxresdefault.jpg"
-                    alt="Learn HTML in 12 Minutes"
-                    loading="lazy"
-                  />
-                  <div class="play-icon">
-                    <i class="fab fa-youtube"></i>
-                  </div>
-                  <span class="duration">12:14</span>
-                </div>
-                <div class="card-content">
-                  <h3>Learn HTML in 12 Minutes</h3>
-                  <p class="author"><i class="fas fa-user"></i> Jake Wright</p>
-                  <p class="description">
-                    Quick and concise HTML tutorial covering the essential
-                    concepts in just 12 minutes.
-                  </p>
-                  <div class="stats">
-                    <span><i class="fas fa-eye"></i> 1.5M views</span>
-                    <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
-                  </div>
-                  <a
-                    href="https://www.youtube.com/watch?v=salY_Sm6mv4"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    <i class="fab fa-youtube"></i> Watch on YouTube
-                  </a>
-                </div>
-              </div>
-
-              <div class="resource-card video-card">
-                <div class="card-thumbnail">
-                  <img
-                    src="https://img.youtube.com/vi/PlxWf493en4/maxresdefault.jpg"
-                    alt="HTML5 Full Course"
-                    loading="lazy"
-                  />
-                  <div class="play-icon">
-                    <i class="fab fa-youtube"></i>
-                  </div>
-                  <span class="duration">5:23:40</span>
-                </div>
-                <div class="card-content">
-                  <h3>HTML Full Course - Build a Website Tutorial</h3>
-                  <p class="author">
-                    <i class="fas fa-user"></i> freeCodeCamp.org
-                  </p>
-                  <p class="description">
-                    Complete HTML course that takes you from beginner to
-                    building your first website.
-                  </p>
-                  <div class="stats">
-                    <span><i class="fas fa-eye"></i> 4.1M views</span>
-                    <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
-                  </div>
-                  <a
-                    href="https://www.youtube.com/watch?v=PlxWf493en4"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    <i class="fab fa-youtube"></i> Watch on YouTube
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="section-navigation">
-              <a href="#evolution-of-html" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Evolution of HTML</a>
-              <a href="#try-html-yourself" class="nav-link next-link">Next: Try HTML Yourself <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </section>
+         
 
           <section id="try-html-yourself" class="content-section">
             <h2 class="section-header">
@@ -351,10 +304,7 @@
             <button onclick="runHTML()" class="btn btn-primary">
               <i class="fas fa-play"></i> Run Code
             </button>
-            <div class="section-navigation">
-              <a href="#video-tutorials" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Video Tutorials & Learning Resources</a>
-              <a href="#essential-html-tags" class="nav-link next-link">Next: Essential HTML Tags <i class="fas fa-arrow-right"></i></a>
-            </div>
+           
           </section>
 
           <!-- HTML Tags Explorer -->
@@ -362,7 +312,7 @@
             <h2 class="section-header">
               <i class="fas fa-tags"></i> Essential HTML Tags
             </h2>
-            <div class="topic-grid three-column">
+            <div class="topic-grid two-column">
               <div class="topic-card">
                 <h3>&lt;h1&gt; - &lt;h6&gt;</h3>
                 <p>Heading tags for creating hierarchical content structure</p>
@@ -408,10 +358,7 @@
                 </div>
               </div>
             </div>
-            <div class="section-navigation">
-              <a href="#try-html-yourself" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Try HTML Yourself</a>
-              <a href="#text-formatting" class="nav-link next-link">Next: Text Formatting <i class="fas fa-arrow-right"></i></a>
-            </div>
+            
           </section>
 
           <!-- Text Formatting Demo -->
@@ -455,10 +402,7 @@
                 <p>This text will change based on your selection!</p>
               </div>
             </div>
-            <div class="section-navigation">
-              <a href="#essential-html-tags" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Essential HTML Tags</a>
-              <a href="#knowledge-check" class="nav-link next-link">Next: Knowledge Check <i class="fas fa-arrow-right"></i></a>
-            </div>
+           
           </section><section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
@@ -558,10 +502,7 @@
                 <i class="fas fa-redo"></i> Reset Game
               </button>
             </div>
-            <div class="section-navigation">
-              <a href="#knowledge-check" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Knowledge Check</a>
-              <a href="#essential-external-resources" class="nav-link next-link">Next: Essential External Resources <i class="fas fa-arrow-right"></i></a>
-            </div>
+            
           </section>
 
           <!-- External Resources Section -->
@@ -574,7 +515,7 @@
               Expand your knowledge with these trusted external resources and
               tools.
             </p>
-            <div class="topic-grid three-column">
+            <div class="topic-grid two-column">
               <div class="topic-card">
                 <h3><i class="fas fa-book"></i> Documentation & References</h3>
                 <div class="resource-list">
@@ -902,10 +843,7 @@
                 </p>
               </div>
             </div>
-            <div class="section-navigation">
-              <a href="#html-element-matching-game" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: HTML Element Matching Game</a>
-              <a href="#whats-next" class="nav-link next-link">Next: What's Next? <i class="fas fa-arrow-right"></i></a>
-            </div>
+           
           </section>
 
           <!-- Next Steps -->
@@ -923,9 +861,7 @@
               <li>Text formatting techniques</li>
             </ul>
 
-            <div class="section-navigation">
-              <a href="#essential-external-resources" class="nav-link prev-link"><i class="fas fa-arrow-left"></i> Previous: Essential External Resources</a>
-            </div>
+            
 
             <div class="next-step-card">
               <a href="lists-links-images.html" class="next-step-link">
@@ -950,6 +886,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../dist/js/topic.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
   </body>
 </html>

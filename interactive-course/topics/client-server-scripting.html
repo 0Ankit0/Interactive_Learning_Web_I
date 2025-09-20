@@ -6,8 +6,8 @@
     <title>Client-Side vs Server-Side Scripting - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <nav class="breadcrumb">
@@ -42,14 +42,108 @@
           <aside class="table-of-contents">
             <h3>Table of Contents</h3>
             <ul>
-              <li><a href="#understanding-difference">Understanding the Difference</a></li>
-              <li><a href="#client-technologies">Client-Side Technologies</a></li>
-              <li><a href="#server-technologies">Server-Side Technologies</a></li>
-              <li><a href="#interactive-demo">Interactive Comparison</a></li>
-              <li><a href="#request-flow">Request-Response Flow</a></li>
-              <li><a href="#best-practices">Best Practices</a></li>
-              <li><a href="#video-resources">Video Resources</a></li>
-              <li><a href="#quiz">Knowledge Check</a></li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Scripting Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#understanding-difference"
+                      onclick="scrollToSection('understanding-difference')"
+                      >Understanding the Difference</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Technologies</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#client-technologies"
+                      onclick="scrollToSection('client-technologies')"
+                      >Client-Side Technologies</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#server-technologies"
+                      onclick="scrollToSection('server-technologies')"
+                      >Server-Side Technologies</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Interactive Learning</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#interactive-demo"
+                      onclick="scrollToSection('interactive-demo')"
+                      >Interactive Comparison</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#request-flow"
+                      onclick="scrollToSection('request-flow')"
+                      >Request-Response Flow</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Resources & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#best-practices"
+                      onclick="scrollToSection('best-practices')"
+                      >Best Practices</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#video-resources"
+                      onclick="scrollToSection('video-resources')"
+                      >Video Resources</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
+              </li>
             </ul>
           </aside>
 
@@ -1486,10 +1580,10 @@ if ($_POST['username'] && $_POST['password']) {
       </div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

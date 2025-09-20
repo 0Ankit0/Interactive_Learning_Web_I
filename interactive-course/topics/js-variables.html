@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Variables & Data Types - Interactive Web Course</title>
     <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <nav class="breadcrumb">
@@ -58,11 +52,23 @@
             <h3>Table of Contents</h3>
             <ul>
               <li>
-                <a
-                  href="#introduction"
-                  onclick="scrollToSection('introduction')"
-                  >Introduction</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
+                  <span>JavaScript Fundamentals</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction</a
+                    >
+                  </li>
+                </ul>
               </li>
               <li>
                 <button
@@ -131,18 +137,30 @@
                 </ul>
               </li>
               <li>
-                <a
-                  href="#examples"
-                  onclick="scrollToSection('examples')"
-                  >Practical Examples</a
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
                 >
-              </li>
-              <li>
-                <a
-                  href="#quiz"
-                  onclick="scrollToSection('quiz')"
-                  >Knowledge Check</a
-                >
+                  <span>Learning & Assessment</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#examples"
+                      onclick="scrollToSection('examples')"
+                      >Practical Examples</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#quiz"
+                      onclick="scrollToSection('quiz')"
+                      >Knowledge Check</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </aside>
@@ -733,40 +751,56 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
 
         <!-- Quiz Section -->
         <section id="quiz" class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-question-circle"></i> Knowledge Check
-          </h2>
-          <div class="quiz-info">
-            <p>Test your understanding of JavaScript variables with this interactive quiz.</p>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-          <div class="quiz-question">
-            <h4 class="question-text"></h4>
-            <ul class="answer-options"></ul>
-          </div>
-          <div class="quiz-feedback">
-            <div class="feedback-icon">
-              <i class="fas fa-check-circle correct-icon"></i>
-              <i class="fas fa-times-circle incorrect-icon"></i>
-            </div>
-            <p class="feedback-text"></p>
-          </div>
-          <div class="quiz-controls">
-            <button class="btn btn-primary next-btn">Next Question</button>
-            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
-          </div>
-          <div class="quiz-results">
-            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-            <div class="results-summary">
-              <div class="score-circle">
-                <span class="score-percentage">0%</span>
+          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+          <div class="quiz-container" id="knowledge-quiz">
+            <div class="quiz-progress">
+              <div class="quiz-info">
+                Question <span id="current-question">1</span> of
+                <span id="total-questions">5</span>
               </div>
-              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
+              <div class="progress-bar">
+                <div id="quiz-progress" class="progress-fill"></div>
+              </div>
             </div>
-            <div class="results-message"></div>
-            <button class="btn btn-primary restart-btn">Try Again</button>
+
+            <div class="quiz-question">
+              <h3>Loading question...</h3>
+              <div class="quiz-options"></div>
+            </div>
+
+            <div
+              class="quiz-feedback"
+              id="quiz-feedback"
+              style="display: none"
+            ></div>
+
+            <div class="quiz-controls">
+              <button
+                id="quiz-next"
+                style="display: none"
+                onclick="nextQuizQuestion()"
+              >
+                Next Question <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div
+              class="quiz-results"
+              id="quiz-results"
+              style="display: none"
+            >
+              <div class="results-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h3>Quiz Complete!</h3>
+              <div id="final-score">0/0</div>
+              <div class="results-actions">
+                <button class="btn-secondary" onclick="retakeQuiz()">
+                  Retake Quiz
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -787,8 +821,10 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
     </main>
 
     <!-- JavaScript functionality -->
-    <script src="../dist/js/main.js"></script>
-    <script src="../dist/js/data-loader.js"></script>
-    <script src="../dist/js/topic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
   </body>
 </html>

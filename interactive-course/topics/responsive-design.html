@@ -8,8 +8,8 @@
     <!-- External CSS and Fonts -->
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
-    <link rel="stylesheet" href="../dist/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -1093,37 +1093,55 @@ img {
         <!-- Quiz Section -->
         <section id="quiz" class="content-section">
           <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
-          <div class="quiz-info">
-            <p>Test your understanding of responsive design with this interactive quiz.</p>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-          <div class="quiz-question">
-            <h4 class="question-text"></h4>
-            <ul class="answer-options"></ul>
-          </div>
-          <div class="quiz-feedback">
-            <div class="feedback-icon">
-              <i class="fas fa-check-circle correct-icon"></i>
-              <i class="fas fa-times-circle incorrect-icon"></i>
-            </div>
-            <p class="feedback-text"></p>
-          </div>
-          <div class="quiz-controls">
-            <button class="btn btn-primary next-btn">Next Question</button>
-            <button class="btn btn-secondary restart-btn">Restart Quiz</button>
-          </div>
-          <div class="quiz-results">
-            <h3><i class="fas fa-poll"></i> Quiz Results</h3>
-            <div class="results-summary">
-              <div class="score-circle">
-                <span class="score-percentage">0%</span>
+
+          <div class="quiz-container" id="knowledge-quiz">
+            <div class="quiz-progress">
+              <div class="quiz-info">
+                Question <span id="current-question">1</span> of
+                <span id="total-questions">5</span>
               </div>
-              <p class="score-text">You scored <span class="score-number">0</span> out of <span class="score-total">5</span></p>
+              <div class="progress-bar">
+                <div id="quiz-progress" class="progress-fill"></div>
+              </div>
             </div>
-            <div class="results-message"></div>
-            <button class="btn btn-primary restart-btn">Try Again</button>
+
+            <div class="quiz-question">
+              <h3>Loading question...</h3>
+              <div class="quiz-options"></div>
+            </div>
+
+            <div
+              class="quiz-feedback"
+              id="quiz-feedback"
+              style="display: none"
+            ></div>
+
+            <div class="quiz-controls">
+              <button
+                id="quiz-next"
+                style="display: none"
+                onclick="nextQuizQuestion()"
+              >
+                Next Question <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div
+              class="quiz-results"
+              id="quiz-results"
+              style="display: none"
+            >
+              <div class="results-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h3>Quiz Complete!</h3>
+              <div id="final-score">0/0</div>
+              <div class="results-actions">
+                <button class="btn-secondary" onclick="retakeQuiz()">
+                  Retake Quiz
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1424,5 +1442,8 @@ img {
     <!-- JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
   </body>
 </html>
