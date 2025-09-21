@@ -82,6 +82,39 @@ function showDemo(type) {
     topicManager.showDemo(type);
 }
 
+function applyFormatting(formatType) {
+    const displayElement = document.getElementById('format-display');
+    if (!displayElement) return;
+
+    // Reset all formatting first
+    displayElement.style.fontWeight = 'normal';
+    displayElement.style.fontStyle = 'normal';
+    displayElement.style.textDecoration = 'none';
+    displayElement.style.backgroundColor = 'transparent';
+
+    // Apply the selected formatting
+    switch (formatType) {
+        case 'bold':
+            displayElement.style.fontWeight = 'bold';
+            displayElement.innerHTML = '<p><strong>This text is bold!</strong></p>';
+            break;
+        case 'italic':
+            displayElement.style.fontStyle = 'italic';
+            displayElement.innerHTML = '<p><em>This text is italic!</em></p>';
+            break;
+        case 'underline':
+            displayElement.style.textDecoration = 'underline';
+            displayElement.innerHTML = '<p><u>This text is underlined!</u></p>';
+            break;
+        case 'highlight':
+            displayElement.style.backgroundColor = '#ffff00';
+            displayElement.innerHTML = '<p><mark>This text is highlighted!</mark></p>';
+            break;
+        default:
+            displayElement.innerHTML = '<p>This text will change based on your selection!</p>';
+    }
+}
+
 function startLiveUpdates() {
     const messages = currentTopicData.liveUpdates?.messages;
     if (messages) {

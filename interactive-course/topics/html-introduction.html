@@ -138,13 +138,7 @@
                       >Knowledge Check</a
                     >
                   </li>
-                  <li>
-                    <a
-                      href="#html-element-matching-game"
-                      onclick="scrollToSection('html-element-matching-game')"
-                      >HTML Element Matching Game</a
-                    >
-                  </li>
+                  
                 </ul>
               </li>
               <li>
@@ -164,13 +158,7 @@
                       >Essential External Resources</a
                     >
                   </li>
-                  <li>
-                    <a
-                      href="#whats-next"
-                      onclick="scrollToSection('whats-next')"
-                      >What's Next?</a
-                    >
-                  </li>
+                  
                   <li>
                     <a href="#quiz" onclick="scrollToSection('quiz')"
                       >Test Your Knowledge</a
@@ -264,46 +252,41 @@
          
 
           <section id="try-html-yourself" class="content-section">
-            <h2 class="section-header">
-              <i class="fas fa-terminal"></i> Try HTML Yourself
-            </h2>
-            <p class="lead">
-              Edit the HTML code below and see the results instantly!
-            </p>
-
-            <div class="interactive-demo">
-              <div class="code-editor-container">
-                <div class="editor-header">
-                  <i class="fab fa-html5"></i> HTML Editor
-                </div>
-                <textarea
-                  id="html-editor"
-                  class="code-editor-textarea"
-                  placeholder="Type your HTML code here..."
-                >
+            <div class="code-example">
+                <h4>
+                  <i class="fas fa-terminal"></i> Try It: Simple HTML Document
+                </h4>
+                <div class="code-editor-container">
+                  <div class="code-editor">
+                    <div class="editor-header">
+                      <span>HTML</span>
+                      <button onclick="runHTMLExample()" class="run-btn">
+                        Run Code
+                      </button>
+                    </div>
+                    <textarea id="html-code" spellcheck="false">
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Page</title>
+    <title>My First Web Page</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to HTML!</p>
-    <p>Try editing this code and see the changes.</p>
+    <h1>Welcome to the Web!</h1>
+    <p>This is a <a href="#link">hyperlink</a> in a paragraph.</p>
+    <p>The Web connects documents worldwide!</p>
 </body>
 </html></textarea
-                >
-              </div>
-              <div class="preview-container">
-                <div class="preview-header">
-                  <i class="fas fa-eye"></i> Live Preview
+                    >
+                  </div>
+                  <div class="output-preview">
+                    <div class="preview-header">Preview</div>
+                    <iframe
+                      id="html-output"
+                      sandbox="allow-same-origin"
+                    ></iframe>
+                  </div>
                 </div>
-                <iframe id="preview-frame" class="preview-frame"></iframe>
               </div>
-            </div>
-            <button onclick="runHTML()" class="btn btn-primary">
-              <i class="fas fa-play"></i> Run Code
-            </button>
            
           </section>
 
@@ -403,7 +386,218 @@
               </div>
             </div>
            
-          </section><section id="quiz" class="content-section">
+          </section>
+
+          
+
+          <!-- External Resources Section -->
+          <section id="essential-external-resources" class="content-section">
+            <h2 class="section-header">
+               Essential External
+              Resources
+            </h2>
+            <p class="lead">
+              Expand your knowledge with these trusted external resources and
+              tools.
+            </p>
+            <div class="feature-grid">
+              <div class="feature-card">
+                <i class="fab fa-html5"></i>
+                <h4>MDN Web Docs - HTML</h4>
+                <p>
+                  The most comprehensive and authoritative HTML
+                  documentation maintained by Mozilla.
+                </p>
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Visit MDN 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-school"></i>
+                <h4>W3Schools HTML Tutorial</h4>
+                <p>
+                  Interactive HTML tutorial with live examples and a "Try
+                  it Yourself" editor.
+                </p>
+                <a
+                  href="https://www.w3schools.com/html/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Visit W3Schools 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-file-alt"></i>
+                <h4>HTML Living Standard</h4>
+                <p>
+                  The official HTML specification maintained by WHATWG -
+                  the definitive source.
+                </p>
+                <a
+                  href="https://html.spec.whatwg.org/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Read Specification
+                  
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-check-circle"></i>
+                <h4>W3C Markup Validator</h4>
+                <p>
+                  Official HTML validator to check your markup for errors
+                  and ensure standards compliance.
+                </p>
+                <a
+                  href="https://validator.w3.org/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Validate HTML 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fab fa-codepen"></i>
+                <h4>CodePen</h4>
+                <p>
+                  Online code editor perfect for experimenting with HTML,
+                  CSS, and JavaScript.
+                </p>
+                <a
+                  href="https://codepen.io/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Try CodePen 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-palette"></i>
+                <h4>HTML Color Codes</h4>
+                <p>
+                  Comprehensive color picker and HTML color code reference
+                  for web design.
+                </p>
+                <a
+                  href="https://htmlcolorcodes.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Get Colors 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fab fa-free-code-camp"></i>
+                <h4>freeCodeCamp</h4>
+                <p>
+                  Free interactive coding bootcamp with HTML/CSS
+                  certification and projects.
+                </p>
+                <a
+                  href="https://www.freecodecamp.org/learn/responsive-web-design/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Start Course 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-code"></i>
+                <h4>Codecademy</h4>
+                <p>
+                  Interactive HTML course with hands-on exercises and
+                  real-time feedback.
+                </p>
+                <a
+                  href="https://www.codecademy.com/learn/learn-html"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Learn HTML 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-book-reader"></i>
+                <h4>Khan Academy</h4>
+                <p>
+                  Free computer programming course including HTML and CSS
+                  fundamentals.
+                </p>
+                <a
+                  href="https://www.khanacademy.org/computing/computer-programming"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Start Learning 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-image"></i>
+                <h4>Unsplash</h4>
+                <p>
+                  High-quality free images for your web projects and HTML
+                  practice.
+                </p>
+                <a
+                  href="https://unsplash.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Get Images 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fab fa-font-awesome"></i>
+                <h4>Font Awesome</h4>
+                <p>
+                  Icon library used in this course - perfect for adding
+                  icons to your HTML projects.
+                </p>
+                <a
+                  href="https://fontawesome.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Browse Icons 
+                </a>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-question-circle"></i>
+                <h4>Can I Use</h4>
+                <p>
+                  Check browser support for HTML features and ensure
+                  cross-browser compatibility.
+                </p>
+                <a
+                  href="https://caniuse.com/"
+                  target="_blank"
+                  class="btn btn-secondary"
+                >
+                  Check Support 
+                </a>
+              </div>
+            </div>
+            <div class="info-box">
+              
+              <div class="info-content">
+                <h4>💡 Pro Tip</h4>
+                <p>
+                  Bookmark these resources! They'll be invaluable throughout
+                  your web development journey. Start with the interactive
+                  platforms if you prefer hands-on learning, or dive into MDN
+                  for comprehensive technical details.
+                </p>
+              </div>
+            </div>
+           
+          </section>
+<section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
               <div class="quiz-container" id="knowledge-quiz">
@@ -456,423 +650,7 @@
                 </div>
               </div>
             </section>
-
-          <!-- HTML Element Game -->
-          <section id="html-element-matching-game" class="content-section">
-            <h2 class="section-header">
-              <i class="fas fa-gamepad"></i> HTML Element Matching Game
-            </h2>
-            <div class="interactive-demo">
-              <h3>Match the HTML Tags with Their Purposes!</h3>
-              <p>
-                Drag and drop the tags to match them with their correct
-                descriptions:
-              </p>
-              <div id="matching-game" class="matching-game">
-                <div class="draggable-tags">
-                  <div class="draggable-tag" draggable="true" data-tag="p">
-                    &lt;p&gt;
-                  </div>
-                  <div class="draggable-tag" draggable="true" data-tag="img">
-                    &lt;img&gt;
-                  </div>
-                  <div class="draggable-tag" draggable="true" data-tag="a">
-                    &lt;a&gt;
-                  </div>
-                  <div class="draggable-tag" draggable="true" data-tag="h1">
-                    &lt;h1&gt;
-                  </div>
-                </div>
-                <div class="drop-targets">
-                  <div class="drop-target" data-answer="h1">
-                    Main heading or title
-                  </div>
-                  <div class="drop-target" data-answer="p">
-                    Paragraph of text
-                  </div>
-                  <div class="drop-target" data-answer="a">
-                    Hyperlink to another page
-                  </div>
-                  <div class="drop-target" data-answer="img">
-                    Display an image
-                  </div>
-                </div>
-              </div>
-              <button onclick="resetGame()" class="btn btn-secondary">
-                <i class="fas fa-redo"></i> Reset Game
-              </button>
-            </div>
-            
-          </section>
-
-          <!-- External Resources Section -->
-          <section id="essential-external-resources" class="content-section">
-            <h2 class="section-header">
-              <i class="fas fa-external-link-alt"></i> Essential External
-              Resources
-            </h2>
-            <p class="lead">
-              Expand your knowledge with these trusted external resources and
-              tools.
-            </p>
-            <div class="topic-grid two-column">
-              <div class="topic-card">
-                <h3><i class="fas fa-book"></i> Documentation & References</h3>
-                <div class="resource-list">
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fab fa-html5"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>MDN Web Docs - HTML</h4>
-                      <p>
-                        The most comprehensive and authoritative HTML
-                        documentation maintained by Mozilla.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Complete Reference</span>
-                        <span class="tag">Examples</span>
-                        <span class="tag">Browser Support</span>
-                      </div>
-                      <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Visit MDN <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-school"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>W3Schools HTML Tutorial</h4>
-                      <p>
-                        Interactive HTML tutorial with live examples and a "Try
-                        it Yourself" editor.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Interactive</span>
-                        <span class="tag">Beginner Friendly</span>
-                        <span class="tag">Live Editor</span>
-                      </div>
-                      <a
-                        href="https://www.w3schools.com/html/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Visit W3Schools <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>HTML Living Standard</h4>
-                      <p>
-                        The official HTML specification maintained by WHATWG -
-                        the definitive source.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Official Spec</span>
-                        <span class="tag">Latest Standards</span>
-                        <span class="tag">Technical</span>
-                      </div>
-                      <a
-                        href="https://html.spec.whatwg.org/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Read Specification
-                        <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="topic-card">
-                <h3><i class="fas fa-tools"></i> Tools & Validators</h3>
-                <div class="resource-list">
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>W3C Markup Validator</h4>
-                      <p>
-                        Official HTML validator to check your markup for errors
-                        and ensure standards compliance.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Error Detection</span>
-                        <span class="tag">Standards Check</span>
-                        <span class="tag">Free</span>
-                      </div>
-                      <a
-                        href="https://validator.w3.org/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Validate HTML <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fab fa-codepen"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>CodePen</h4>
-                      <p>
-                        Online code editor perfect for experimenting with HTML,
-                        CSS, and JavaScript.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Live Preview</span>
-                        <span class="tag">Share Code</span>
-                        <span class="tag">Community</span>
-                      </div>
-                      <a
-                        href="https://codepen.io/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Try CodePen <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-palette"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>HTML Color Codes</h4>
-                      <p>
-                        Comprehensive color picker and HTML color code reference
-                        for web design.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Color Picker</span>
-                        <span class="tag">Hex Codes</span>
-                        <span class="tag">Palettes</span>
-                      </div>
-                      <a
-                        href="https://htmlcolorcodes.com/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Get Colors <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="topic-card">
-                <h3>
-                  <i class="fas fa-graduation-cap"></i> Interactive Learning
-                  Platforms
-                </h3>
-                <div class="resource-list">
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fab fa-free-code-camp"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>freeCodeCamp</h4>
-                      <p>
-                        Free interactive coding bootcamp with HTML/CSS
-                        certification and projects.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Free Certification</span>
-                        <span class="tag">Projects</span>
-                        <span class="tag">Community</span>
-                      </div>
-                      <a
-                        href="https://www.freecodecamp.org/learn/responsive-web-design/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Start Course <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-code"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>Codecademy</h4>
-                      <p>
-                        Interactive HTML course with hands-on exercises and
-                        real-time feedback.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Interactive</span>
-                        <span class="tag">Structured</span>
-                        <span class="tag">Feedback</span>
-                      </div>
-                      <a
-                        href="https://www.codecademy.com/learn/learn-html"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Learn HTML <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-book-reader"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>Khan Academy</h4>
-                      <p>
-                        Free computer programming course including HTML and CSS
-                        fundamentals.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Free</span>
-                        <span class="tag">Step-by-step</span>
-                        <span class="tag">Beginner</span>
-                      </div>
-                      <a
-                        href="https://www.khanacademy.org/computing/computer-programming"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Start Learning <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="topic-card">
-                <h3><i class="fas fa-camera"></i> Assets & Inspiration</h3>
-                <div class="resource-list">
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-image"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>Unsplash</h4>
-                      <p>
-                        High-quality free images for your web projects and HTML
-                        practice.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Free Images</span>
-                        <span class="tag">High Quality</span>
-                        <span class="tag">Commercial Use</span>
-                      </div>
-                      <a
-                        href="https://unsplash.com/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Get Images <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fab fa-font-awesome"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>Font Awesome</h4>
-                      <p>
-                        Icon library used in this course - perfect for adding
-                        icons to your HTML projects.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Free Icons</span>
-                        <span class="tag">Web Fonts</span>
-                        <span class="tag">Easy to Use</span>
-                      </div>
-                      <a
-                        href="https://fontawesome.com/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Browse Icons <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="resource-item">
-                    <div class="resource-icon">
-                      <i class="fas fa-question-circle"></i>
-                    </div>
-                    <div class="resource-content">
-                      <h4>Can I Use</h4>
-                      <p>
-                        Check browser support for HTML features and ensure
-                        cross-browser compatibility.
-                      </p>
-                      <div class="tags">
-                        <span class="tag">Browser Support</span>
-                        <span class="tag">Compatibility</span>
-                        <span class="tag">Updated</span>
-                      </div>
-                      <a
-                        href="https://caniuse.com/"
-                        target="_blank"
-                        class="btn btn-secondary"
-                      >
-                        Check Support <i class="fas fa-external-link-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="info-box">
-              <div class="info-icon">
-                <i class="fas fa-lightbulb"></i>
-              </div>
-              <div class="info-content">
-                <h4>💡 Pro Tip</h4>
-                <p>
-                  Bookmark these resources! They'll be invaluable throughout
-                  your web development journey. Start with the interactive
-                  platforms if you prefer hands-on learning, or dive into MDN
-                  for comprehensive technical details.
-                </p>
-              </div>
-            </div>
-           
-          </section>
-
-          <!-- Next Steps -->
-          <section id="whats-next" class="content-section">
-            <h2 class="section-header">
-              <i class="fas fa-arrow-right"></i> What's Next?
-            </h2>
-            <p class="lead">
-              Great job completing the HTML Introduction! You've learned:
-            </p>
-            <ul>
-              <li>What HTML is and its purpose</li>
-              <li>The basic structure of an HTML document</li>
-              <li>Essential HTML tags and elements</li>
-              <li>Text formatting techniques</li>
-            </ul>
-
-            
-
-            <div class="next-step-card">
-              <a href="lists-links-images.html" class="next-step-link">
-                <div class="next-step-content">
-                  <i class="fas fa-list-ol"></i>
-                  <h3>Next: Lists, Links and Images</h3>
-                  <p>Learn to create lists, add links, and embed images</p>
-                </div>
-              </a>
-            </div>
-          </section>
+         
           <section class="navigation-section">
             <a href="lists-links-images.html" class="nav-link nav-next">
               <span>Next Topic</span>

@@ -566,11 +566,20 @@ class TopicManager {
         }
 
         if (optionsContainer) {
-            optionsContainer.innerHTML = question.options.map((option, index) => `
+            optionsContainer.innerHTML = question.options.map((option, index) => {
+                // Escape HTML entities to prevent tags from being rendered
+                const escapedOption = option
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+                return `
                 <button class="quiz-option" onclick="selectQuizAnswer(this, ${index === question.correct})" data-index="${index}">
-                    ${option}
+                    ${escapedOption}
                 </button>
-            `).join('');
+                `;
+            }).join('');
         }
 
         // Hide feedback and next button
@@ -603,10 +612,18 @@ class TopicManager {
 
         // Show feedback
         if (feedback) {
+            // Escape HTML entities in the explanation
+            const escapedExplanation = question.explanation
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+
             feedback.innerHTML = `
                 <div class="${isCorrect ? 'correct' : 'incorrect'}">
                     ${isCorrect ? '✓ Correct!' : '✗ Incorrect'}<br>
-                    ${question.explanation}
+                    ${escapedExplanation}
                 </div>
             `;
             feedback.style.display = 'block';
