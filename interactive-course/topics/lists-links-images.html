@@ -232,7 +232,7 @@
               </p>
             </div>
 
-            <div class="topic-grid four-column">
+            <div class="topic-grid two-column">
               <div class="topic-card">
                 <h4>External Links</h4>
                 <div class="code-block">
@@ -406,19 +406,25 @@
               <p>Create a simple image gallery:</p>
 
               <div class="form-grid">
-                <input
-                  type="text"
-                  id="gallery-image-url"
-                  class="form-control"
-                  placeholder="Enter image URL"
-                />
-                <input
-                  type="text"
-                  id="gallery-image-alt"
-                  class="form-control"
-                  placeholder="Enter alt text"
-                />
-                <button class="btn btn-primary" onclick="addToGallery()">
+                <div class="form-group">
+                  <label for="gallery-image-url">Image URL:</label>
+                  <input
+                    type="text"
+                    id="gallery-image-url"
+                    class="form-control"
+                    placeholder="Enter image URL"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="gallery-image-alt">Alt Text:</label>
+                  <input
+                    type="text"
+                    id="gallery-image-alt"
+                    class="form-control"
+                    placeholder="Enter alt text"
+                  />
+                </div>
+                <button class="btn btn-primary align-self-end" onclick="addToGallery()">
                   Add Image
                 </button>
                 <button class="btn btn-danger" onclick="clearGallery()">
@@ -428,7 +434,7 @@
 
               <div class="demo-grid two-column">
                 <div class="code-editor-container">
-                  <h4>HTML Code:</h4>
+                  <h4>Gallery HTML Code</h4>
                   <pre id="gallery-html" class="code-block">
 &lt;div class="gallery"&gt;
     &lt;!-- Images will appear here --&gt;
@@ -529,7 +535,7 @@
             <div class="resource-grid two-column">
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fab fa-youtube"></i>
+                  <img src="https://img.youtube.com/vi/09oErCBjVns/maxresdefault.jpg" alt="HTML Lists Tutorial thumbnail" class="resource-preview">
                 </div>
                 <div class="card-content">
                   <h4>HTML Lists Tutorial</h4>
@@ -550,7 +556,7 @@
 
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fab fa-youtube"></i>
+                  <img src="https://img.youtube.com/vi/qz0aGYrrlhU/maxresdefault.jpg" alt="HTML Links and Images thumbnail" class="resource-preview">
                 </div>
                 <div class="card-content">
                   <h4>HTML Links and Images</h4>
@@ -571,7 +577,7 @@
 
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fab fa-html5"></i>
+                  <img src="https://developer.mozilla.org/mdn-social-share.png" alt="MDN Web Docs logo" class="resource-preview">
                 </div>
                 <div class="card-content">
                   <h4>MDN Links Reference</h4>
@@ -593,7 +599,7 @@
 
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fas fa-camera"></i>
+                  <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=225&fit=crop&crop=center" alt="Photography collection on Unsplash" class="resource-preview">
                 </div>
                 <div class="card-content">
                   <h4>Unsplash - Free Images</h4>
@@ -613,7 +619,7 @@
 
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fas fa-question-circle"></i>
+                  <img src="https://caniuse.com/img/caniuse-logo.png" alt="Can I Use logo" class="resource-preview">
                 </div>
                 <div class="card-content">
                   <h4>Can I Use - Web Standards</h4>
@@ -633,7 +639,7 @@
 
               <div class="resource-card">
                 <div class="card-icon">
-                  <i class="fab fa-codepen"></i>
+                  <img src="https://codepen.io/dummy-logo.png" alt="CodePen logo" class="resource-preview" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-plain.svg'">
                 </div>
                 <div class="card-content">
                   <h4>HTML Lists on CodePen</h4>
@@ -728,5 +734,23 @@
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+
+    <!-- Solution Modal -->
+    <div id="solution-modal" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Solution</h3>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="solution-content" class="solution-content">
+            <!-- Solution content will be inserted here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

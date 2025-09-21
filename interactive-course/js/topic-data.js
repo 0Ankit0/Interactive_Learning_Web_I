@@ -294,15 +294,15 @@ const TOPICS_DATA = {
             questions: [
                 {
                     question: "Which HTML tag is used to create an unordered list?",
-                    options: ["&lt;ol&gt;", "&lt;ul&gt;", "&lt;li&gt;", "&lt;list&gt;"],
+                    options: ["<ol>", "<ul>", "<li>", "<list>"],
                     correct: 1,
-                    explanation: "The &lt;ul&gt; tag creates an unordered list, typically displayed with bullet points."
+                    explanation: "The <ul> tag creates an unordered list, typically displayed with bullet points."
                 },
                 {
                     question: "What is the correct HTML for creating a hyperlink?",
-                    options: ["&lt;a href=\"url\"&gt;Link text&lt;/a&gt;", "&lt;a url=\"url\"&gt;Link text&lt;/a&gt;", "&lt;a&gt;url&lt;/a&gt;", "&lt;link href=\"url\"&gt;Link text&lt;/link&gt;"],
+                    options: ["<a href=\"url\">Link text</a>", "<a url=\"url\">Link text</a>", "<a>url</a>", "<link href=\"url\">Link text</link>"],
                     correct: 0,
-                    explanation: "The &lt;a&gt; tag with href attribute creates a hyperlink to the specified URL."
+                    explanation: "The <a> tag with href attribute creates a hyperlink to the specified URL."
                 },
                 {
                     question: "Which attribute specifies alternative text for an image?",
@@ -318,9 +318,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Which HTML tag is used to create an ordered list?",
-                    options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;dl&gt;"],
+                    options: ["<ul>", "<ol>", "<li>", "<dl>"],
                     correct: 1,
-                    explanation: "The &lt;ol&gt; tag creates an ordered list, typically displayed with numbers."
+                    explanation: "The <ol> tag creates an ordered list, typically displayed with numbers."
                 }
             ]
         },
@@ -358,9 +358,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "What is the correct way to provide multiple audio formats for better browser support?",
-                    options: ["Use multiple &lt;audio&gt; elements", "Use &lt;source&gt; elements inside &lt;audio&gt;", "Use the format attribute", "Use different codecs in one file"],
+                    options: ["Use multiple <audio> elements", "Use <source> elements inside <audio>", "Use the format attribute", "Use different codecs in one file"],
                     correct: 1,
-                    explanation: "Multiple &lt;source&gt; elements inside an &lt;audio&gt; or &lt;video&gt; element allow browsers to choose the best supported format."
+                    explanation: "Multiple <source> elements inside an <audio> or <video> element allow browsers to choose the best supported format."
                 },
                 {
                     question: "Which attribute prevents videos from autoplaying?",
@@ -386,21 +386,21 @@ const TOPICS_DATA = {
             questions: [
                 {
                     question: "Which element is best for grouping block-level content for styling purposes?",
-                    options: ["&lt;span&gt;", "&lt;div&gt;", "&lt;aside&gt;", "&lt;iframe&gt;"],
+                    options: ["<span>", "<div>", "<aside>", "<iframe>"],
                     correct: 1,
-                    explanation: "The &lt;div&gt; element is a generic container for block-level content and is commonly used for grouping elements for styling and layout purposes."
+                    explanation: "The <div> element is a generic container for block-level content and is commonly used for grouping elements for styling and layout purposes."
                 },
                 {
-                    question: "What is the primary use case for the &lt;span&gt; element?",
+                    question: "What is the primary use case for the <span> element?",
                     options: ["Creating page layouts", "Styling inline content or text portions", "Embedding external content", "Drawing graphics"],
                     correct: 1,
-                    explanation: "The &lt;span&gt; element is an inline container used to style portions of text or inline content without affecting the document flow."
+                    explanation: "The <span> element is an inline container used to style portions of text or inline content without affecting the document flow."
                 },
                 {
                     question: "Which element requires JavaScript to be useful for drawing?",
-                    options: ["&lt;aside&gt;", "&lt;iframe&gt;", "&lt;canvas&gt;", "&lt;div&gt;"],
+                    options: ["<aside>", "<iframe>", "<canvas>", "<div>"],
                     correct: 2,
-                    explanation: "The &lt;canvas&gt; element provides a drawing surface that requires JavaScript to create graphics, animations, and interactive content."
+                    explanation: "The <canvas> element provides a drawing surface that requires JavaScript to create graphics, animations, and interactive content."
                 },
                 {
                     question: "What security consideration is most important when using iframes?",
@@ -410,9 +410,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Which HTML element is used to embed external web pages or content?",
-                    options: ["&lt;embed&gt;", "&lt;object&gt;", "&lt;iframe&gt;", "&lt;frame&gt;"],
+                    options: ["<embed>", "<object>", "<iframe>", "<frame>"],
                     correct: 2,
-                    explanation: "The &lt;iframe&gt; element is used to embed another HTML document within the current document."
+                    explanation: "The <iframe> element is used to embed another HTML document within the current document."
                 }
             ]
         },
@@ -438,27 +438,27 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Which element should be used for the main content of a webpage?",
-                    options: ["&lt;div&gt;", "&lt;main&gt;", "&lt;section&gt;", "&lt;article&gt;"],
+                    options: ["<div>", "<main>", "<section>", "<article>"],
                     correct: 1,
-                    explanation: "The &lt;main&gt; element represents the main content of the document, excluding headers, footers, and navigation."
+                    explanation: "The <main> element represents the main content of the document, excluding headers, footers, and navigation."
                 },
                 {
-                    question: "What is the purpose of the &lt;nav&gt; element?",
+                    question: "What is the purpose of the <nav> element?",
                     options: ["To style navigation links", "To contain navigation links", "To create a navigation menu", "To highlight the current page"],
                     correct: 1,
-                    explanation: "The &lt;nav&gt; element is used to contain navigation links, helping screen readers identify navigation areas."
+                    explanation: "The <nav> element is used to contain navigation links, helping screen readers identify navigation areas."
                 },
                 {
                     question: "Which element is best for marking up a standalone piece of content?",
-                    options: ["&lt;section&gt;", "&lt;article&gt;", "&lt;div&gt;", "&lt;span&gt;"],
+                    options: ["<section>", "<article>", "<div>", "<span>"],
                     correct: 1,
-                    explanation: "The &lt;article&gt; element represents a self-contained composition that could be distributed independently."
+                    explanation: "The <article> element represents a self-contained composition that could be distributed independently."
                 },
                 {
-                    question: "What does the &lt;aside&gt; element typically contain?",
+                    question: "What does the <aside> element typically contain?",
                     options: ["Main content", "Navigation", "Sidebar content or related information", "Footer information"],
                     correct: 2,
-                    explanation: "The &lt;aside&gt; element represents content that is tangentially related to the main content, often used for sidebars."
+                    explanation: "The <aside> element represents content that is tangentially related to the main content, often used for sidebars."
                 }
             ]
         },
@@ -1035,21 +1035,21 @@ const TOPICS_DATA = {
             questions: [
                 {
                     question: "Where is the best place to put JavaScript code in an HTML document?",
-                    options: ["In the &lt;head&gt; section", "At the end of the &lt;body&gt; section", "In the &lt;title&gt; tag", "In a &lt;div&gt; element"],
+                    options: ["In the <head> section", "At the end of the <body> section", "In the <title> tag", "In a <div> element"],
                     correct: 1,
                     explanation: "Placing JavaScript at the end of the body ensures the DOM is loaded before the script runs."
                 },
                 {
                     question: "Which HTML tag is used to embed external JavaScript files?",
-                    options: ["&lt;js&gt;", "&lt;script&gt;", "&lt;javascript&gt;", "&lt;code&gt;"],
+                    options: ["<js>", "<script>", "<javascript>", "<code>"],
                     correct: 1,
-                    explanation: "The &lt;script&gt; tag is used to embed JavaScript code, either inline or from external files."
+                    explanation: "The <script> tag is used to embed JavaScript code, either inline or from external files."
                 },
                 {
                     question: "What attribute specifies the path to an external JavaScript file?",
                     options: ["href", "src", "link", "path"],
                     correct: 1,
-                    explanation: "The src attribute in the &lt;script&gt; tag specifies the URL of an external JavaScript file."
+                    explanation: "The src attribute in the <script> tag specifies the URL of an external JavaScript file."
                 },
                 {
                     question: "What happens if JavaScript is disabled in the browser?",
@@ -1133,9 +1133,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Where can JavaScript code be placed in an HTML document?",
-                    options: ["Only in the &lt;head&gt; section", "Only in the &lt;body&gt; section", "In both &lt;head&gt; and &lt;body&gt; sections", "Only in external files"],
+                    options: ["Only in the <head> section", "Only in the <body> section", "In both <head> and <body> sections", "Only in external files"],
                     correct: 2,
-                    explanation: "JavaScript can be placed in both the &lt;head&gt; and &lt;body&gt; sections, or in external files."
+                    explanation: "JavaScript can be placed in both the <head> and <body> sections, or in external files."
                 },
                 {
                     question: "Which of these is NOT a JavaScript data type?",
@@ -1823,9 +1823,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Which HTML element is most important for SEO?",
-                    options: ["&lt;div&gt;", "&lt;title&gt;", "&lt;h1&gt;", "&lt;span&gt;"],
+                    options: ["<div>", "<title>", "<h1>", "<span>"],
                     correct: 1,
-                    explanation: "The &lt;title&gt; element is crucial for SEO as it tells search engines what the page is about and appears in search results."
+                    explanation: "The <title> element is crucial for SEO as it tells search engines what the page is about and appears in search results."
                 },
                 {
                     question: "What is the recommended length for a page title?",
@@ -1863,21 +1863,21 @@ const TOPICS_DATA = {
             questions: [
                 {
                     question: "Which HTML element is used to create a table?",
-                    options: ["&lt;table&gt;", "&lt;tab&gt;", "&lt;tbl&gt;", "&lt;grid&gt;"],
+                    options: ["<table>", "<tab>", "<tbl>", "<grid>"],
                     correct: 0,
-                    explanation: "The &lt;table&gt; element is used to create tables in HTML."
+                    explanation: "The <table> element is used to create tables in HTML."
                 },
                 {
                     question: "What is the correct HTML for creating a table row?",
-                    options: ["&lt;tr&gt;", "&lt;row&gt;", "&lt;td&gt;", "&lt;th&gt;"],
+                    options: ["<tr>", "<row>", "<td>", "<th>"],
                     correct: 0,
-                    explanation: "The &lt;tr&gt; element defines a table row."
+                    explanation: "The <tr> element defines a table row."
                 },
                 {
                     question: "Which element is used for table headers?",
-                    options: ["&lt;td&gt;", "&lt;th&gt;", "&lt;tr&gt;", "&lt;thead&gt;"],
+                    options: ["<td>", "<th>", "<tr>", "<thead>"],
                     correct: 1,
-                    explanation: "The &lt;th&gt; element defines a header cell in a table."
+                    explanation: "The <th> element defines a header cell in a table."
                 },
                 {
                     question: "What is the purpose of the 'action' attribute in a form?",
@@ -2117,9 +2117,9 @@ const TOPICS_DATA = {
                 },
                 {
                     question: "Which HTML element should be used for page headings?",
-                    options: ["&lt;div&gt;", "&lt;span&gt;", "&lt;h1&gt;-&lt;h6&gt;", "&lt;p&gt;"],
+                    options: ["<div>", "<span>", "<h1>-<h6>", "<p>"],
                     correct: 2,
-                    explanation: "Heading elements (&lt;h1&gt; through &lt;h6&gt;) provide semantic structure and are essential for screen reader navigation."
+                    explanation: "Heading elements (<h1> through <h6>) provide semantic structure and are essential for screen reader navigation."
                 }
             ]
         },

@@ -464,3 +464,336 @@ function makeHttpRequest() {
     // Scroll to the HTTP response section
     httpResponseDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
+// Nested Lists Builder Functions
+let listItemCounter = 1;
+
+function addListItem() {
+    const listCode = document.getElementById('list-code');
+    const listPreview = document.getElementById('list-preview');
+
+    if (!listCode || !listPreview) return;
+
+    // Find the last ul in the code
+    const codeText = listCode.textContent;
+    const lastUlIndex = codeText.lastIndexOf('</ul>');
+    if (lastUlIndex === -1) return;
+
+    // Insert new li before the last </ul>
+    const newCode = codeText.slice(0, lastUlIndex) + `    <li>Item ${listItemCounter + 1}</li>\n` + codeText.slice(lastUlIndex);
+    listCode.textContent = newCode;
+
+    // Update preview
+    const newLi = document.createElement('li');
+    newLi.textContent = `Item ${listItemCounter + 1}`;
+    listPreview.querySelector('ul').appendChild(newLi);
+
+    listItemCounter++;
+}
+
+function addNestedList() {
+    const listCode = document.getElementById('list-code');
+    const listPreview = document.getElementById('list-preview');
+
+    if (!listCode || !listPreview) return;
+
+    // Find the last li in the code
+    const codeText = listCode.textContent;
+    const lastLiIndex = codeText.lastIndexOf('</li>');
+    if (lastLiIndex === -1) return;
+
+    // Insert nested ul inside the last li
+    const newCode = codeText.slice(0, lastLiIndex) + `\n        <ul>\n            <li>Nested Item 1</li>\n        </ul>\n    ` + codeText.slice(lastLiIndex);
+    listCode.textContent = newCode;
+
+    // Update preview
+    const lastLi = listPreview.querySelector('li:last-child');
+    if (lastLi) {
+        const nestedUl = document.createElement('ul');
+        const nestedLi = document.createElement('li');
+        nestedLi.textContent = 'Nested Item 1';
+        nestedUl.appendChild(nestedLi);
+        lastLi.appendChild(nestedUl);
+    }
+}
+
+function clearList() {
+    const listCode = document.getElementById('list-code');
+    const listPreview = document.getElementById('list-preview');
+
+    if (!listCode || !listPreview) return;
+
+    // Reset code
+    listCode.textContent = `<ul>
+    <li>Item 1</li>
+</ul>`;
+
+    // Reset preview
+    listPreview.innerHTML = `<ul>
+    <li>Item 1</li>
+</ul>`;
+
+    listItemCounter = 1;
+}
+
+// Link Generator Function
+function generateLink() {
+    const linkText = document.getElementById('link-text').value.trim();
+    const linkUrl = document.getElementById('link-url').value.trim();
+    const linkTarget = document.getElementById('link-target').value;
+    const generatedLink = document.getElementById('generated-link');
+    const linkPreview = document.getElementById('link-preview');
+
+    if (!generatedLink || !linkPreview) return;
+
+    // Validate inputs
+    if (!linkText) {
+        alert('Please enter link text');
+        return;
+    }
+
+    if (!linkUrl) {
+        alert('Please enter a URL');
+        return;
+    }
+
+    // Generate HTML code
+    const htmlCode = `<a href="${linkUrl}" target="${linkTarget}">${linkText}</a>`;
+    generatedLink.textContent = htmlCode;
+
+    // Generate preview link
+    linkPreview.innerHTML = '';
+    const previewLink = document.createElement('a');
+    previewLink.href = linkUrl;
+    previewLink.target = linkTarget;
+    previewLink.textContent = linkText;
+    linkPreview.appendChild(previewLink);
+}
+
+// Image Gallery Builder Functions
+function addToGallery() {
+    const imageUrl = document.getElementById('gallery-image-url').value.trim();
+    const imageAlt = document.getElementById('gallery-image-alt').value.trim();
+    const galleryHtml = document.getElementById('gallery-html');
+    const galleryDisplay = document.getElementById('gallery-display');
+
+    if (!galleryHtml || !galleryDisplay) return;
+
+    // Validate inputs
+    if (!imageUrl) {
+        alert('Please enter an image URL');
+        return;
+    }
+
+    if (!imageAlt) {
+        alert('Please enter alt text for the image');
+        return;
+    }
+
+    // Get current HTML content
+    let currentHtml = galleryHtml.textContent;
+
+    // Add image to HTML code
+    const imageHtml = `    <img src="${imageUrl}" alt="${imageAlt}" class="gallery-image">`;
+    const insertPoint = currentHtml.lastIndexOf('</div>');
+    if (insertPoint !== -1) {
+        currentHtml = currentHtml.slice(0, insertPoint) + '\n' + imageHtml + '\n' + currentHtml.slice(insertPoint);
+        galleryHtml.textContent = currentHtml;
+    }
+
+    // Add image to preview
+    const imgElement = document.createElement('img');
+    imgElement.src = imageUrl;
+    imgElement.alt = imageAlt;
+    imgElement.className = 'gallery-image';
+    imgElement.style.maxWidth = '100%';
+    imgElement.style.height = 'auto';
+    imgElement.style.borderRadius = '4px';
+    imgElement.style.marginBottom = '8px';
+    galleryDisplay.appendChild(imgElement);
+
+    // Clear inputs
+    document.getElementById('gallery-image-url').value = '';
+    document.getElementById('gallery-image-alt').value = '';
+}
+
+function clearGallery() {
+    const galleryHtml = document.getElementById('gallery-html');
+    const galleryDisplay = document.getElementById('gallery-display');
+
+    if (!galleryHtml || !galleryDisplay) return;
+
+    // Reset HTML code
+    galleryHtml.textContent = `<div class="gallery">
+    <!-- Images will appear here -->
+</div>`;
+
+    // Reset preview
+    galleryDisplay.innerHTML = '';
+}
+
+// Modal functions
+function showModal(title, content) {
+    const modal = document.getElementById('solution-modal');
+    const modalTitle = document.querySelector('.modal-title');
+    const solutionContent = document.getElementById('solution-content');
+
+    if (!modal || !modalTitle || !solutionContent) return;
+
+    modalTitle.textContent = title;
+    solutionContent.innerHTML = content;
+    modal.classList.add('show');
+
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+
+    // Highlight code blocks in the modal
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(solutionContent);
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('solution-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal when clicking backdrop
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('solution-modal');
+    if (modal) {
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+});
+
+// Interactive Practice Solution Functions
+function checkRecipe() {
+    const userCode = document.getElementById('recipe-challenge').value.trim();
+    const title = 'Recipe List Solution';
+    const content = `
+        <div class="solution-title">Correct HTML Structure:</div>
+        <div class="solution-code">
+            <pre><code class="language-html">&lt;h2&gt;Chocolate Chip Cookies&lt;/h2&gt;
+&lt;h3&gt;Ingredients:&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;2 1/4 cups all-purpose flour&lt;/li&gt;
+    &lt;li&gt;1 teaspoon baking soda&lt;/li&gt;
+    &lt;li&gt;1 cup unsalted butter&lt;/li&gt;
+    &lt;li&gt;3/4 cup granulated sugar&lt;/li&gt;
+    &lt;li&gt;3/4 cup brown sugar&lt;/li&gt;
+    &lt;li&gt;2 large eggs&lt;/li&gt;
+    &lt;li&gt;2 teaspoons vanilla extract&lt;/li&gt;
+    &lt;li&gt;2 cups chocolate chips&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Cooking Steps:&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;Preheat oven to 375°F (190°C)&lt;/li&gt;
+    &lt;li&gt;Mix dry ingredients in a bowl&lt;/li&gt;
+    &lt;li&gt;Cream butter and sugars together&lt;/li&gt;
+    &lt;li&gt;Add eggs and vanilla, mix well&lt;/li&gt;
+    &lt;li&gt;Combine wet and dry ingredients&lt;/li&gt;
+    &lt;li&gt;Fold in chocolate chips&lt;/li&gt;
+    &lt;li&gt;Drop spoonfuls onto baking sheet&lt;/li&gt;
+    &lt;li&gt;Bake for 9-11 minutes&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This solution demonstrates nested lists - an unordered list for ingredients and an ordered list for cooking steps. Each list item represents a different component of the recipe.</p>
+            <p><strong>Key HTML elements used:</strong></p>
+            <ul>
+                <li><code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> for headings</li>
+                <li><code>&lt;ul&gt;</code> for unordered (bullet) lists</li>
+                <li><code>&lt;ol&gt;</code> for ordered (numbered) lists</li>
+                <li><code>&lt;li&gt;</code> for list items</li>
+            </ul>
+        </div>
+    `;
+
+    showModal(title, content);
+}
+
+function checkNav() {
+    const userCode = document.getElementById('nav-challenge').value.trim();
+    const title = 'Navigation Menu Solution';
+    const content = `
+        <div class="solution-title">Correct HTML Structure:</div>
+        <div class="solution-code">
+            <pre><code class="language-html">&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#portfolio"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This navigation menu uses semantic HTML with proper link structure. The <code>&lt;nav&gt;</code> element indicates this is a navigation section, and the unordered list organizes the menu items.</p>
+            <p><strong>Key HTML elements used:</strong></p>
+            <ul>
+                <li><code>&lt;nav&gt;</code> for semantic navigation section</li>
+                <li><code>&lt;ul&gt;</code> for the menu list</li>
+                <li><code>&lt;li&gt;</code> for each menu item</li>
+                <li><code>&lt;a&gt;</code> with <code>href</code> attributes for navigation links</li>
+            </ul>
+            <p><strong>Best practices:</strong> Use anchor links (#section) for single-page navigation, or full URLs for multi-page sites.</p>
+        </div>
+    `;
+
+    showModal(title, content);
+}
+
+function checkAlbum() {
+    const userCode = document.getElementById('album-challenge').value.trim();
+    const title = 'Photo Album Solution';
+    const content = `
+        <div class="solution-title">Correct HTML Structure:</div>
+        <div class="solution-code">
+            <pre><code class="language-html">&lt;div class="album"&gt;
+    &lt;figure&gt;
+        &lt;img src="photo1.jpg" alt="Beautiful sunset over mountains"&gt;
+        &lt;figcaption&gt;Sunset in the Rockies&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;figure&gt;
+        &lt;img src="photo2.jpg" alt="Colorful autumn leaves"&gt;
+        &lt;figcaption&gt;Fall colors in the park&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;figure&gt;
+        &lt;img src="photo3.jpg" alt="Ocean waves crashing on shore"&gt;
+        &lt;figcaption&gt;Pacific Ocean waves&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This photo album uses semantic HTML with <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements to properly associate images with their captions. This improves accessibility and SEO.</p>
+            <p><strong>Key HTML elements used:</strong></p>
+            <ul>
+                <li><code>&lt;div class="album"&gt;</code> for the container</li>
+                <li><code>&lt;figure&gt;</code> to group each image with its caption</li>
+                <li><code>&lt;img&gt;</code> with descriptive <code>alt</code> text</li>
+                <li><code>&lt;figcaption&gt;</code> for image descriptions/captions</li>
+            </ul>
+            <p><strong>Accessibility note:</strong> Always provide meaningful alt text that describes the image content for screen readers.</p>
+        </div>
+    `;
+
+    showModal(title, content);
+}
