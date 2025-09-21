@@ -797,3 +797,248 @@ function checkAlbum() {
 
     showModal(title, content);
 }
+
+// Table and Form Builder Functions
+function generateTable() {
+    const rows = parseInt(document.getElementById('table-rows').value) || 3;
+    const cols = parseInt(document.getElementById('table-cols').value) || 3;
+    const includeHeader = document.getElementById('table-header').checked;
+    const includeFooter = document.getElementById('table-footer').checked;
+
+    let html = '<table>\n';
+    let previewHtml = '<table>\n';
+
+    // Generate header
+    if (includeHeader) {
+        html += '    <thead>\n        <tr>\n';
+        previewHtml += '    <thead>\n        <tr>\n';
+        for (let c = 1; c <= cols; c++) {
+            html += `            <th>Header ${c}</th>\n`;
+            previewHtml += `            <th>Header ${c}</th>\n`;
+        }
+        html += '        </tr>\n    </thead>\n';
+        previewHtml += '        </tr>\n    </thead>\n';
+    }
+
+    // Generate body
+    html += '    <tbody>\n';
+    previewHtml += '    <tbody>\n';
+    for (let r = 1; r <= rows; r++) {
+        html += '        <tr>\n';
+        previewHtml += '        <tr>\n';
+        for (let c = 1; c <= cols; c++) {
+            html += `            <td>Row ${r}, Col ${c}</td>\n`;
+            previewHtml += `            <td>Row ${r}, Col ${c}</td>\n`;
+        }
+        html += '        </tr>\n';
+        previewHtml += '        </tr>\n';
+    }
+    html += '    </tbody>\n';
+    previewHtml += '    </tbody>\n';
+
+    // Generate footer
+    if (includeFooter) {
+        html += '    <tfoot>\n        <tr>\n';
+        previewHtml += '    <tfoot>\n        <tr>\n';
+        for (let c = 1; c <= cols; c++) {
+            html += `            <td>Footer ${c}</td>\n`;
+            previewHtml += `            <td>Footer ${c}</td>\n`;
+        }
+        html += '        </tr>\n    </tfoot>\n';
+        previewHtml += '        </tr>\n    </tfoot>\n';
+    }
+
+    html += '</table>';
+    previewHtml += '</table>';
+
+    // Display the generated HTML
+    document.getElementById('table-html-output').textContent = html;
+
+    // Display the preview
+    document.getElementById('table-preview-output').innerHTML = previewHtml;
+}
+
+function addFormElement(type) {
+    const formOutput = document.getElementById('form-html-output');
+    const generatedForm = document.getElementById('generated-form');
+
+    let html = '';
+    let elementHtml = '';
+
+    switch (type) {
+        case 'text':
+            html = '    <div class="form-group">\n        <label for="text-input">Text Input:</label>\n        <input type="text" id="text-input" name="text-input" placeholder="Enter text">\n    </div>\n';
+            elementHtml = '<div class="form-group"><label for="text-input">Text Input:</label><input type="text" id="text-input" name="text-input" placeholder="Enter text"></div>';
+            break;
+        case 'email':
+            html = '    <div class="form-group">\n        <label for="email-input">Email:</label>\n        <input type="email" id="email-input" name="email-input" placeholder="Enter email">\n    </div>\n';
+            elementHtml = '<div class="form-group"><label for="email-input">Email:</label><input type="email" id="email-input" name="email-input" placeholder="Enter email"></div>';
+            break;
+        case 'password':
+            html = '    <div class="form-group">\n        <label for="password-input">Password:</label>\n        <input type="password" id="password-input" name="password-input" placeholder="Enter password">\n    </div>\n';
+            elementHtml = '<div class="form-group"><label for="password-input">Password:</label><input type="password" id="password-input" name="password-input" placeholder="Enter password"></div>';
+            break;
+        case 'textarea':
+            html = '    <div class="form-group">\n        <label for="textarea-input">Message:</label>\n        <textarea id="textarea-input" name="textarea-input" rows="4" placeholder="Enter your message"></textarea>\n    </div>\n';
+            elementHtml = '<div class="form-group"><label for="textarea-input">Message:</label><textarea id="textarea-input" name="textarea-input" rows="4" placeholder="Enter your message"></textarea></div>';
+            break;
+        case 'select':
+            html = '    <div class="form-group">\n        <label for="select-input">Choose option:</label>\n        <select id="select-input" name="select-input">\n            <option value="">Select an option</option>\n            <option value="option1">Option 1</option>\n            <option value="option2">Option 2</option>\n            <option value="option3">Option 3</option>\n        </select>\n    </div>\n';
+            elementHtml = '<div class="form-group"><label for="select-input">Choose option:</label><select id="select-input" name="select-input"><option value="">Select an option</option><option value="option1">Option 1</option><option value="option2">Option 2</option><option value="option3">Option 3</option></select></div>';
+            break;
+        case 'checkbox':
+            html = '    <div class="form-group">\n        <label><input type="checkbox" name="checkbox-input" value="checked"> Checkbox option</label>\n    </div>\n';
+            elementHtml = '<div class="form-group"><label><input type="checkbox" name="checkbox-input" value="checked"> Checkbox option</label></div>';
+            break;
+        case 'radio':
+            html = '    <div class="form-group">\n        <label>Radio options:</label><br>\n        <label><input type="radio" name="radio-group" value="option1"> Option 1</label><br>\n        <label><input type="radio" name="radio-group" value="option2"> Option 2</label><br>\n        <label><input type="radio" name="radio-group" value="option3"> Option 3</label>\n    </div>\n';
+            elementHtml = '<div class="form-group"><label>Radio options:</label><br><label><input type="radio" name="radio-group" value="option1"> Option 1</label><br><label><input type="radio" name="radio-group" value="option2"> Option 2</label><br><label><input type="radio" name="radio-group" value="option3"> Option 3</label></div>';
+            break;
+    }
+
+    // Update the HTML output
+    let currentHtml = formOutput.textContent;
+    if (currentHtml.includes('<!-- Form elements will appear here -->')) {
+        currentHtml = currentHtml.replace('<!-- Form elements will appear here -->', '<!-- Form elements will appear here -->\n' + html);
+    } else {
+        currentHtml += '\n' + html;
+    }
+    formOutput.textContent = currentHtml;
+
+    // Update the preview
+    generatedForm.insertAdjacentHTML('beforeend', elementHtml);
+}
+
+function clearForm() {
+    document.getElementById('form-html-output').textContent = '<form>\n    <!-- Form elements will appear here -->\n</form>';
+    document.getElementById('generated-form').innerHTML = '';
+}
+
+function handleValidation(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const resultDiv = document.getElementById('validation-result');
+
+    if (form.checkValidity()) {
+        resultDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Form submitted successfully! All fields are valid.</div>';
+        resultDiv.className = 'result-box success';
+    } else {
+        resultDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Please fill in all required fields correctly.</div>';
+        resultDiv.className = 'result-box error';
+    }
+
+    resultDiv.style.display = 'block';
+}
+
+function checkTable() {
+    const userCode = document.getElementById('table-challenge').value.trim();
+    const resultDiv = document.getElementById('table-result');
+
+    // Basic validation - check if it contains table, tr, td elements
+    const hasTable = /<table[^>]*>/i.test(userCode);
+    const hasRows = /<tr[^>]*>/gi.test(userCode);
+    const hasCells = /<td[^>]*>/gi.test(userCode);
+
+    if (hasTable && hasRows && hasCells) {
+        resultDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Great! Your table structure looks correct. It includes table, row, and cell elements.</div>';
+        resultDiv.className = 'result-box success';
+    } else {
+        let missing = [];
+        if (!hasTable) missing.push('table element');
+        if (!hasRows) missing.push('tr (row) elements');
+        if (!hasCells) missing.push('td (cell) elements');
+
+        resultDiv.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Your table is missing: ${missing.join(', ')}. Try again!</div>`;
+        resultDiv.className = 'result-box error';
+    }
+
+    resultDiv.style.display = 'block';
+}
+
+function checkForm() {
+    const userCode = document.getElementById('form-challenge').value.trim();
+    const resultDiv = document.getElementById('form-result');
+
+    // Basic validation - check if it contains form, input, label elements
+    const hasForm = /<form[^>]*>/i.test(userCode);
+    const hasInputs = /<input[^>]*>/gi.test(userCode);
+    const hasLabels = /<label[^>]*>/gi.test(userCode);
+
+    if (hasForm && hasInputs && hasLabels) {
+        resultDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Excellent! Your form structure looks correct. It includes form, input, and label elements.</div>';
+        resultDiv.className = 'result-box success';
+    } else {
+        let missing = [];
+        if (!hasForm) missing.push('form element');
+        if (!hasInputs) missing.push('input elements');
+        if (!hasLabels) missing.push('label elements');
+
+        resultDiv.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Your form is missing: ${missing.join(', ')}. Try again!</div>`;
+        resultDiv.className = 'result-box error';
+    }
+
+    resultDiv.style.display = 'block';
+}
+
+function checkRegistration() {
+    const userCode = document.getElementById('register-challenge').value.trim();
+    const resultDiv = document.getElementById('register-result');
+
+    // Check for form with validation attributes
+    const hasForm = /<form[^>]*>/i.test(userCode);
+    const hasRequired = /required/gi.test(userCode);
+    const hasEmail = /type="email"/gi.test(userCode);
+    const hasPassword = /type="password"/gi.test(userCode);
+
+    if (hasForm && hasRequired && hasEmail && hasPassword) {
+        resultDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Perfect! Your registration form includes proper validation with required fields, email input, and password field.</div>';
+        resultDiv.className = 'result-box success';
+    } else {
+        let missing = [];
+        if (!hasForm) missing.push('form element');
+        if (!hasRequired) missing.push('required attributes');
+        if (!hasEmail) missing.push('email input type');
+        if (!hasPassword) missing.push('password input type');
+
+        resultDiv.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Your registration form is missing: ${missing.join(', ')}. Try again!</div>`;
+        resultDiv.className = 'result-box error';
+    }
+
+    resultDiv.style.display = 'block';
+}
+
+// Resource Preview Functions
+function openResource(url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+// Enhanced resource card interactions
+document.addEventListener('DOMContentLoaded', function () {
+    // Add click handlers for resource cards
+    const resourceCards = document.querySelectorAll('.resource-card');
+    resourceCards.forEach(card => {
+        card.addEventListener('click', function () {
+            const url = this.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+            if (url) {
+                openResource(url);
+            }
+        });
+
+        // Add keyboard accessibility
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const url = this.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (url) {
+                    openResource(url);
+                }
+            }
+        });
+
+        // Make cards focusable
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Open ${card.querySelector('h4').textContent}`);
+    });
+});

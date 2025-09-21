@@ -125,6 +125,11 @@
                     >
                   </li>
                   <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >External Resources</a
+                    >
+                  </li>
+                  <li>
                     <a href="#quiz" onclick="scrollToSection('quiz')"
                       >Knowledge Check</a
                     >
@@ -250,7 +255,7 @@
                   <label><input type="checkbox" id="table-header" checked /> Include Header</label>
                   <label><input type="checkbox" id="table-footer" /> Include Footer</label>
                 </div>
-                <button class="btn btn-primary" onclick="generateTable()">Generate Table</button>
+                <button class="btn btn-primary align-self-center" onclick="generateTable()">Generate Table</button>
               </div>
 
               <div class="demo-grid two-column">
@@ -521,43 +526,75 @@
             </h2>
 
             <div class="resource-grid two-column">
-              <div class="resource-card">
-                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+              <div class="resource-card" onclick="openResource('https://www.youtube.com/watch?v=dK8bDXQOCVE')">
+                <div class="card-icon">
+                  <img src="https://img.youtube.com/vi/dK8bDXQOCVE/maxresdefault.jpg" alt="HTML Tables Tutorial Thumbnail" class="resource-preview" onerror="this.src='https://img.youtube.com/vi/dK8bDXQOCVE/hqdefault.jpg'">
+                  <div class="play-overlay">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                </div>
                 <div class="card-content">
                   <h4>HTML Tables Tutorial</h4>
                   <p class="author">Web Dev Simplified</p>
                   <p>Complete guide to creating and styling HTML tables.</p>
-                  <a href="https://www.youtube.com/watch?v=dK8bDXQOCVE" target="_blank" class="btn btn-secondary">Watch Video</a>
+                  <div class="resource-meta">
+                    <span class="resource-type video">Video</span>
+                    <span class="resource-duration">15 min</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-icon"><i class="fab fa-youtube"></i></div>
+              <div class="resource-card" onclick="openResource('https://www.youtube.com/watch?v=fNcJuPIZ2WE')">
+                <div class="card-icon">
+                  <img src="https://img.youtube.com/vi/fNcJuPIZ2WE/maxresdefault.jpg" alt="HTML Forms Complete Tutorial Thumbnail" class="resource-preview" onerror="this.src='https://img.youtube.com/vi/fNcJuPIZ2WE/hqdefault.jpg'">
+                  <div class="play-overlay">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                </div>
                 <div class="card-content">
                   <h4>HTML Forms Complete Tutorial</h4>
                   <p class="author">Traversy Media</p>
                   <p>Comprehensive tutorial covering all HTML form elements.</p>
-                  <a href="https://www.youtube.com/watch?v=fNcJuPIZ2WE" target="_blank" class="btn btn-secondary">Watch Video</a>
+                  <div class="resource-meta">
+                    <span class="resource-type video">Video</span>
+                    <span class="resource-duration">25 min</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-icon"><i class="fab fa-html5"></i></div>
+              <div class="resource-card" onclick="openResource('https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables')">
+                <div class="card-icon">
+                  <img src="https://developer.mozilla.org/mdn-social-share.png" alt="MDN Web Docs" class="resource-preview">
+                  <div class="docs-overlay">
+                    <i class="fab fa-html5"></i>
+                  </div>
+                </div>
                 <div class="card-content">
                   <h4>MDN HTML Tables Guide</h4>
                   <p class="author">Mozilla Developer Network</p>
                   <p>Comprehensive documentation on HTML table elements.</p>
-                  <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables" target="_blank" class="btn btn-secondary">Read Documentation</a>
+                  <div class="resource-meta">
+                    <span class="resource-type docs">Documentation</span>
+                    <span class="resource-duration">Reading</span>
+                  </div>
                 </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-icon"><i class="fab fa-html5"></i></div>
+              <div class="resource-card" onclick="openResource('https://developer.mozilla.org/en-US/docs/Learn/Forms')">
+                <div class="card-icon">
+                  <img src="https://developer.mozilla.org/mdn-social-share.png" alt="MDN Web Docs" class="resource-preview">
+                  <div class="docs-overlay">
+                    <i class="fab fa-html5"></i>
+                  </div>
+                </div>
                 <div class="card-content">
                   <h4>MDN HTML Forms Guide</h4>
                   <p class="author">Mozilla Developer Network</p>
                   <p>Complete guide to HTML forms, input types, and form handling.</p>
-                  <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank" class="btn btn-secondary">Read Documentation</a>
+                  <div class="resource-meta">
+                    <span class="resource-type docs">Documentation</span>
+                    <span class="resource-duration">Reading</span>
+                  </div>
                 </div>
               </div>
             </div>

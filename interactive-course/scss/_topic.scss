@@ -4073,12 +4073,14 @@
   border-radius: $border-radius-lg;
   box-shadow: $shadow-md;
   overflow: hidden;
-  transition: transform $transition-base;
+  transition: transform $transition-base, box-shadow $transition-base;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   &:hover {
     transform: scale($hover-scale);
+    box-shadow: $shadow-lg;
   }
 
   .card-icon {
@@ -4094,6 +4096,28 @@
 
       &:hover {
         transform: scale(1.05);
+      }
+    }
+
+    .play-overlay, .docs-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: border-radius('full');
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: font-size('xl');
+      transition: all $transition-base;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: translate(-50%, -50%) scale(1.1);
       }
     }
   }
@@ -4126,9 +4150,35 @@
       flex: 1;
     }
 
-    .btn {
-      align-self: flex-start;
+    .resource-meta {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
       margin-top: auto;
+
+      .resource-type {
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $border-radius-sm;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        text-transform: uppercase;
+
+        &.video {
+          background: #ff0000;
+          color: white;
+        }
+
+        &.docs {
+          background: #005ce6;
+          color: white;
+        }
+      }
+
+      .resource-duration {
+        color: $text-muted;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+      }
     }
   }
 }
