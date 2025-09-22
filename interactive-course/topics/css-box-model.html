@@ -646,142 +646,336 @@ border: 5px solid #ccc;
             </div>
           </section>
 
-          <!-- External Resources -->
-          <section class="content-section" data-section="resources">
-            <div class="section-header">
-              <h2><i class="fas fa-book-open"></i> External Resources</h2>
-            </div>
+          <section id="resources" class="topic-section">
+            <h2 class="section-title"><i class="fas fa-video"></i> Video Resources & External Links</h2>
+            <p class="section-description">
+              Explore curated learning resources to deepen your understanding of the CSS box model. 
+              Each resource is carefully selected for quality and educational value.
+            </p>
+
             <div class="resource-grid three-column">
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fab fa-css3-alt"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>MDN Web Docs - CSS Box Model</h4>
+              <div class="resource-card" data-type="documentation">
+                <div class="card-thumbnail">
+                  <i class="fab fa-css3-alt thumbnail-icon documentation"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-external-link"></i>
                   </div>
                 </div>
-                <p>
-                  Comprehensive documentation on the CSS box model with examples
-                  and browser compatibility.
-                </p>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Visit Resource <i class="fas fa-external-link-alt"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon documentation">
+                      <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">MDN Web Docs - CSS Box Model</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Mozilla</span>
+                        <span class="platform">Official Docs</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Comprehensive documentation on the CSS box model with examples and browser compatibility.
+                    Essential reference for understanding layout fundamentals.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">Box Model</span>
+                    <span class="tag">Reference</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-book"></i>
+                      <span>Reference</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-star"></i>
+                      <span>Official</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
+                      target="_blank"
+                      class="btn btn-primary"
+                    >
+                      <i class="fas fa-external-link"></i> View Docs
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fas fa-school"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>W3Schools - CSS Box Model</h4>
+              <div class="resource-card" data-type="tutorial">
+                <div class="card-thumbnail">
+                  <i class="fas fa-school thumbnail-icon tutorial"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-external-link"></i>
                   </div>
                 </div>
-                <p>
-                  Interactive tutorials and examples for learning the CSS box
-                  model step by step.
-                </p>
-                <a
-                  href="https://www.w3schools.com/css/css_boxmodel.asp"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Visit Resource <i class="fas fa-external-link-alt"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon tutorial">
+                      <i class="fas fa-school"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">W3Schools - CSS Box Model</h4>
+                      <p class="card-subtitle">
+                        <span class="author">W3Schools</span>
+                        <span class="platform">Interactive Tutorial</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Interactive tutorials and examples for learning the CSS box model step by step.
+                    Perfect for beginners getting started with CSS layout.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">Tutorial</span>
+                    <span class="tag">Interactive</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-graduation-cap"></i>
+                      <span>Tutorial</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-clock"></i>
+                      <span>Self-paced</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://www.w3schools.com/css/css_boxmodel.asp"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-external-link"></i> Start Tutorial
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fas fa-newspaper"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>CSS-Tricks - The CSS Box Model</h4>
+              <div class="resource-card" data-type="article">
+                <div class="card-thumbnail">
+                  <i class="fas fa-newspaper thumbnail-icon article"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-external-link"></i>
                   </div>
                 </div>
-                <p>
-                  Detailed article explaining box model concepts with practical
-                  tips and tricks.
-                </p>
-                <a
-                  href="https://css-tricks.com/the-css-box-model/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Visit Resource <i class="fas fa-external-link-alt"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon article">
+                      <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">CSS-Tricks - The CSS Box Model</h4>
+                      <p class="card-subtitle">
+                        <span class="author">CSS-Tricks</span>
+                        <span class="platform">In-depth Article</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Detailed article explaining box model concepts with practical tips and tricks.
+                    Advanced insights for experienced developers.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">Advanced</span>
+                    <span class="tag">Tips</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-book-open"></i>
+                      <span>Article</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-lightbulb"></i>
+                      <span>Advanced</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://css-tricks.com/the-css-box-model/"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-external-link"></i> Read Article
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fas fa-frog"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>Flexbox Froggy</h4>
+              <div class="resource-card" data-type="tool">
+                <div class="card-thumbnail">
+                  <i class="fas fa-frog thumbnail-icon tool"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-play"></i>
                   </div>
                 </div>
-                <p>
-                  Interactive game to learn CSS flexbox which builds on box
-                  model concepts.
-                </p>
-                <a
-                  href="https://flexboxfroggy.com/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Play Game <i class="fas fa-gamepad"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon tool">
+                      <i class="fas fa-frog"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">Flexbox Froggy</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Codepip</span>
+                        <span class="platform">Interactive Game</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Interactive game to learn CSS flexbox which builds on box model concepts.
+                    Fun and engaging way to master layout properties.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">Flexbox</span>
+                    <span class="tag">Game</span>
+                    <span class="tag">Interactive</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-gamepad"></i>
+                      <span>Game</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-clock"></i>
+                      <span>Interactive</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://flexboxfroggy.com/"
+                      target="_blank"
+                      class="btn btn-primary"
+                    >
+                      <i class="fas fa-play"></i> Play Game
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fab fa-chrome"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>Chrome DevTools Box Model</h4>
+              <div class="resource-card" data-type="tool">
+                <div class="card-thumbnail">
+                  <i class="fab fa-chrome thumbnail-icon tool"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-external-link"></i>
                   </div>
                 </div>
-                <p>
-                  Learn how to inspect and debug the box model using browser
-                  developer tools.
-                </p>
-                <a
-                  href="https://developers.google.com/web/tools/chrome-devtools/css"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Learn DevTools <i class="fas fa-tools"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon tool">
+                      <i class="fab fa-chrome"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">Chrome DevTools Box Model</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Google</span>
+                        <span class="platform">Developer Tools</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Learn how to inspect and debug the box model using browser developer tools.
+                    Essential skills for web development debugging.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">DevTools</span>
+                    <span class="tag">Debugging</span>
+                    <span class="tag">Chrome</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-tools"></i>
+                      <span>DevTools</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-bug"></i>
+                      <span>Debugging</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://developers.google.com/web/tools/chrome-devtools/css"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-external-link"></i> Learn DevTools
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div class="resource-card">
-                <div class="card-header">
-                  <div class="card-icon">
-                    <i class="fas fa-calculator"></i>
-                  </div>
-                  <div class="card-title">
-                    <h4>Box Model Calculator Tool</h4>
+              <div class="resource-card" data-type="tool">
+                <div class="card-thumbnail">
+                  <i class="fas fa-calculator thumbnail-icon tool"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-play"></i>
                   </div>
                 </div>
-                <p>
-                  Online calculator to help visualize and calculate box model
-                  dimensions.
-                </p>
-                <a
-                  href="https://codepen.io/psalaets/pen/ygLzyl"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Use Calculator <i class="fas fa-external-link-alt"></i>
-                </a>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon tool">
+                      <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">Box Model Calculator Tool</h4>
+                      <p class="card-subtitle">
+                        <span class="author">CodePen</span>
+                        <span class="platform">Interactive Calculator</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Online calculator to help visualize and calculate box model dimensions.
+                    Interactive tool for understanding spacing and sizing.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">Calculator</span>
+                    <span class="tag">Visualization</span>
+                    <span class="tag">Tool</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-calculator"></i>
+                      <span>Calculator</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-clock"></i>
+                      <span>Interactive</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://codepen.io/psalaets/pen/ygLzyl"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-play"></i> Use Calculator
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

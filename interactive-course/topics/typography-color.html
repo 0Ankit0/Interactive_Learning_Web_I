@@ -140,10 +140,8 @@
                     >
                   </li>
                   <li>
-                    <a
-                      href="#design-tools"
-                      onclick="scrollToSection('design-tools')"
-                      >Design Tools & Resources</a
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >External Resources</a
                     >
                   </li>
                   <li>
@@ -168,8 +166,8 @@
                 design, typography plays a crucial role in user experience,
                 accessibility, and brand communication.
               </p>
-              <div class="concept-tabs">
-                <div class="tab-item">
+              <div class="topic-grid three-column">
+                <div class="topic-card">
                   <div class="tab-icon">
                     <i class="fas fa-pen-nib"></i>
                   </div>
@@ -179,7 +177,7 @@
                     letterforms
                   </p>
                 </div>
-                <div class="tab-item">
+                <div class="topic-card">
                   <div class="tab-icon">
                     <i class="fas fa-sitemap"></i>
                   </div>
@@ -188,7 +186,7 @@
                     Creating visual order and importance through type variations
                   </p>
                 </div>
-                <div class="tab-item">
+                <div class="topic-card">
                   <div class="tab-icon">
                     <i class="fas fa-link"></i>
                   </div>
@@ -208,7 +206,7 @@
                 Create clear information hierarchy using size, weight, color,
                 and spacing to guide readers through your content.
               </p>
-              <div class="hierarchy-tool">
+              <div class="demo-grid">
                 <div class="tool-controls">
                   <div class="form-group">
                     <label for="h1-size">H1 Size</label>
@@ -254,7 +252,7 @@
                 Understanding the anatomy of typefaces helps you make informed
                 decisions about font selection and text treatment.
               </p>
-              <div class="anatomy-diagram">
+              <div class="demo-grid">
                 <div class="diagram-image">
                   <span class="font-sample">Typography</span>
                   <div class="annotations">
@@ -301,18 +299,18 @@
                 Colors evoke emotions and influence user behavior. Understanding
                 color psychology helps create better user experiences.
               </p>
-              <div class="color-examples">
-                <div class="color-card">
+              <div class="topic-grid">
+                <div class="topic-card">
                   <div class="color-sample blue"></div>
                   <h3>Blue</h3>
                   <p>Trust, reliability, calmness</p>
                 </div>
-                <div class="color-card">
+                <div class="topic-card">
                   <div class="color-sample green"></div>
                   <h3>Green</h3>
                   <p>Growth, harmony, freshness</p>
                 </div>
-                <div class="color-card">
+                <div class="topic-card">
                   <div class="color-sample red"></div>
                   <h3>Red</h3>
                   <p>Energy, passion, urgency</p>
@@ -329,7 +327,7 @@
                 principles like complementary, analogous, and triadic color
                 schemes.
               </p>
-              <div class="color-wheel">
+              <div class="demo-grid">
                 <div class="wheel-section primary">Primary</div>
                 <div class="wheel-section secondary">Secondary</div>
                 <div class="wheel-section tertiary">Tertiary</div>
@@ -344,7 +342,7 @@
                 Ensure your color choices meet accessibility standards and
                 provide sufficient contrast for all users.
               </p>
-              <div class="contrast-examples">
+              <div class="demo-grid">
                 <div class="contrast-test">
                   <div class="text-on-background good-contrast">
                     <span>Good Contrast</span>
@@ -372,7 +370,7 @@
                 Apply typography and color theory principles to real-world web
                 design scenarios.
               </p>
-              <div class="application-examples">
+              <div class="topic-grid">
                 <div class="example-card">
                   <h3>E-commerce Site</h3>
                   <p>
@@ -397,31 +395,150 @@
               </div>
             </section>
 
-            <section class="content-section" id="design-tools">
-              <h2 class="section-header">
-                <i class="fas fa-tools"></i> Design Tools & Resources
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
               </h2>
-              <p class="lead">
-                Essential tools and resources for implementing typography and
-                color theory in your designs.
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of typography and color theory. Each resource is carefully
+                selected for quality and educational value.
               </p>
-              <div class="tools-grid">
-                <div class="tool-card">
-                  <i class="fab fa-google"></i>
-                  <h3>Google Fonts</h3>
-                  <p>Free, open-source fonts with excellent web optimization</p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-google thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fab fa-google"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Google Fonts</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Google</span>
+                          <span class="platform">Font Library</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Free, open-source fonts with excellent web optimization.
+                      The most popular web font library with thousands of
+                      typefaces.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Typography</span>
+                      <span class="tag">Fonts</span>
+                      <span class="tag">Free</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://fonts.google.com/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-font"></i> Browse Fonts
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="tool-card">
-                  <i class="fas fa-palette"></i>
-                  <h3>Coolors</h3>
-                  <p>Color palette generator with accessibility checking</p>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-palette thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-palette"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Coolors Color Generator</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Coolors</span>
+                          <span class="platform">Color Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Color palette generator with accessibility checking and
+                      smart color combinations. Create beautiful, accessible
+                      color schemes instantly.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Color</span>
+                      <span class="tag">Accessibility</span>
+                      <span class="tag">Generator</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://coolors.co/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-palette"></i> Generate Colors
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="tool-card">
-                  <i class="fas fa-adjust"></i>
-                  <h3>Contrast Checker</h3>
-                  <p>
-                    Verify color contrast ratios for accessibility compliance
-                  </p>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-adjust thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-adjust"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Contrast Checker</h4>
+                        <p class="card-subtitle">
+                          <span class="author">WebAIM</span>
+                          <span class="platform">Accessibility Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Verify color contrast ratios for accessibility compliance.
+                      Essential tool for ensuring your designs meet WCAG
+                      guidelines.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Accessibility</span>
+                      <span class="tag">Contrast</span>
+                      <span class="tag">WCAG</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://webaim.org/resources/contrastchecker/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-check-circle"></i> Check Contrast
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>

@@ -141,10 +141,8 @@
                     >
                   </li>
                   <li>
-                    <a
-                      href="#design-tools"
-                      onclick="scrollToSection('design-tools')"
-                      >Design Tools & Resources</a
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >External Resources</a
                     >
                   </li>
                   <li>
@@ -382,32 +380,6 @@
               </div>
             </section>
 
-            <section class="content-section" id="design-tools">
-              <h2 class="section-header">
-                <i class="fas fa-tools"></i> Design Tools & Resources
-              </h2>
-              <p class="lead">
-                Explore the essential tools and resources for UI/UX design. From
-                prototyping tools to design systems and learning resources.
-              </p>
-              <div class="tools-grid">
-                <div class="tool-card">
-                  <i class="fab fa-figma"></i>
-                  <h3>Figma</h3>
-                  <p>Collaborative design tool for UI/UX</p>
-                </div>
-                <div class="tool-card">
-                  <i class="fab fa-sketch"></i>
-                  <h3>Sketch</h3>
-                  <p>Professional digital design toolkit</p>
-                </div>
-                <div class="tool-card">
-                  <i class="fas fa-code"></i>
-                  <h3>Adobe XD</h3>
-                  <p>UX/UI design and prototyping tool</p>
-                </div>
-              </div>
-            </section>
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
@@ -457,6 +429,159 @@
                     <button class="btn-secondary" onclick="retakeQuiz()">
                       Retake Quiz
                     </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of UI/UX design. Each resource is carefully selected for quality
+                and educational value.
+              </p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-figma thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fab fa-figma"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Figma Design Platform</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Figma</span>
+                          <span class="platform">Design Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Collaborative design tool for UI/UX design, prototyping,
+                      and handoff. Industry standard for modern design teams and
+                      workflows.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">UI/UX</span>
+                      <span class="tag">Prototyping</span>
+                      <span class="tag">Collaboration</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>Free Plan</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.figma.com/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-palette"></i> Start Designing
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-sketch thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fab fa-sketch"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Sketch Design Toolkit</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Sketch</span>
+                          <span class="platform">Design Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Professional digital design toolkit for UI/UX designers.
+                      Powerful features for creating high-fidelity designs and
+                      prototypes.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">UI/UX</span>
+                      <span class="tag">Design</span>
+                      <span class="tag">Mac</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.sketch.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-palette"></i> Learn Sketch
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-magic thumbnail-icon tool"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-magic"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Adobe XD</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Adobe</span>
+                          <span class="platform">Design Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      UX/UI design and prototyping tool from Adobe. Seamless
+                      integration with other Adobe Creative Cloud applications.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">UI/UX</span>
+                      <span class="tag">Prototyping</span>
+                      <span class="tag">Adobe</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.adobe.com/products/xd.html"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-magic"></i> Try XD
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

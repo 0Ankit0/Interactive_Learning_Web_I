@@ -416,8 +416,8 @@
                 Explore different color formats and see how they work in CSS.
               </p>
 
-              <div class="color-grid">
-                <div class="color-card">
+              <div class="topic-grid">
+                <div class="topic-card">
                   <div class="color-preview" style="background: #ff6b6b"></div>
                   <div class="color-info">
                     <h4>Hex Color</h4>
@@ -425,7 +425,7 @@
                   </div>
                 </div>
 
-                <div class="color-card">
+                <div class="topic-card">
                   <div
                     class="color-preview"
                     style="background: rgb(107, 185, 240)"
@@ -436,7 +436,7 @@
                   </div>
                 </div>
 
-                <div class="color-card">
+                <div class="topic-card">
                   <div
                     class="color-preview"
                     style="background: rgba(255, 193, 7, 0.7)"
@@ -447,7 +447,7 @@
                   </div>
                 </div>
 
-                <div class="color-card">
+                <div class="topic-card">
                   <div
                     class="color-preview"
                     style="background: hsl(291, 64%, 42%)"
@@ -547,101 +547,281 @@
             </section>
 
             <!-- External Resources -->
-            <section id="css-resources" class="content-section">
-              <h2><i class="fas fa-book"></i> Essential CSS Resources</h2>
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-              <div class="resource-grid">
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>MDN CSS Documentation</h3>
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
-                  <p>
-                    The most comprehensive CSS reference with detailed
-                    explanations and browser compatibility information.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Complete Reference</span>
-                    <span class="tag">Examples</span>
-                    <span class="tag">Browser Support</span>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
                   </div>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Visit MDN <i class="fas fa-external-link-alt"></i>
-                  </a>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-utensils"></i>
-                    <h3>CSS Diner</h3>
-                  </div>
-                  <p>
-                    Interactive game to practice CSS selectors. Learn selectors
-                    through fun, bite-sized challenges.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Interactive Game</span>
-                    <span class="tag">Selector Practice</span>
-                    <span class="tag">Progressive</span>
-                  </div>
-                  <a
-                    href="https://flukeout.github.io/"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Play Game <i class="fas fa-gamepad"></i>
-                  </a>
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-frog"></i>
-                    <h3>Flexbox Froggy</h3>
-                  </div>
-                  <p>
-                    Learn CSS Flexbox by helping Froggy and friends reach their
-                    lily pads. Fun and educational!
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Flexbox Game</span>
-                    <span class="tag">Visual Learning</span>
-                    <span class="tag">24 Levels</span>
-                  </div>
-                  <a
-                    href="https://flexboxfroggy.com/"
-                    target="_blank"
-                    class="btn btn-secondary"
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
                   >
-                    Play Flexbox Froggy <i class="fas fa-gamepad"></i>
-                  </a>
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-carrot"></i>
-                    <h3>Grid Garden</h3>
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
                   </div>
-                  <p>
-                    Learn CSS Grid by growing your carrot garden. Master grid
-                    properties through interactive gameplay.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Grid Game</span>
-                    <span class="tag">Interactive</span>
-                    <span class="tag">28 Levels</span>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
                   </div>
-                  <a
-                    href="https://cssgridgarden.com/"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Play Grid Garden <i class="fas fa-gamepad"></i>
-                  </a>
                 </div>
+              </div>
+            </section>
+
+            <section id="resources" class="topic-section">
+              <h2 class="section-title"><i class="fas fa-video"></i> Video Resources & External Links</h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding of CSS basics.
+                Each resource is carefully selected for quality and educational value.
+              </p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-css3-alt thumbnail-icon documentation"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fab fa-css3-alt"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">MDN CSS Documentation</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Mozilla</span>
+                          <span class="platform">Official Docs</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      The most comprehensive CSS reference with detailed explanations and browser compatibility information.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Complete Reference</span>
+                      <span class="tag">Examples</span>
+                      <span class="tag">Browser Support</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-book"></i>
+                        <span>Reference</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Official</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> Visit MDN
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-utensils thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-utensils"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">CSS Diner</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Flukeout</span>
+                          <span class="platform">Interactive Game</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Interactive game to practice CSS selectors. Learn selectors through fun, bite-sized challenges.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Interactive Game</span>
+                      <span class="tag">Selector Practice</span>
+                      <span class="tag">Progressive</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Game</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Interactive</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://flukeout.github.io/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-play"></i> Play Game
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-frog thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-frog"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Flexbox Froggy</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Codepip</span>
+                          <span class="platform">Interactive Game</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn CSS Flexbox by helping Froggy and friends reach their lily pads. Fun and educational!
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Flexbox Game</span>
+                      <span class="tag">Visual Learning</span>
+                      <span class="tag">24 Levels</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Game</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Interactive</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://flexboxfroggy.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-play"></i> Play Flexbox Froggy
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-carrot thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-carrot"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Grid Garden</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Codepip</span>
+                          <span class="platform">Interactive Game</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn CSS Grid by growing your carrot garden. Master grid properties through interactive gameplay.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Grid Game</span>
+                      <span class="tag">Interactive</span>
+                      <span class="tag">28 Levels</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Game</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Interactive</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://cssgridgarden.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-play"></i> Play Grid Garden
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
 
                 <div class="resource-card">
                   <div class="card-icon">
@@ -756,59 +936,6 @@
                   >
                     Create Gradients <i class="fas fa-external-link-alt"></i>
                   </a>
-                </div>
-              </div>
-            </section>
-            <section id="quiz" class="content-section">
-              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
-
-              <div class="quiz-container" id="knowledge-quiz">
-                <div class="quiz-progress">
-                  <div class="quiz-info">
-                    Question <span id="current-question">1</span> of
-                    <span id="total-questions">5</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div id="quiz-progress" class="progress-fill"></div>
-                  </div>
-                </div>
-
-                <div class="quiz-question">
-                  <h3>Loading question...</h3>
-                  <div class="quiz-options"></div>
-                </div>
-
-                <div
-                  class="quiz-feedback"
-                  id="quiz-feedback"
-                  style="display: none"
-                ></div>
-
-                <div class="quiz-controls">
-                  <button
-                    id="quiz-next"
-                    style="display: none"
-                    onclick="nextQuizQuestion()"
-                  >
-                    Next Question <i class="fas fa-arrow-right"></i>
-                  </button>
-                </div>
-
-                <div
-                  class="quiz-results"
-                  id="quiz-results"
-                  style="display: none"
-                >
-                  <div class="results-icon">
-                    <i class="fas fa-trophy"></i>
-                  </div>
-                  <h3>Quiz Complete!</h3>
-                  <div id="final-score">0/0</div>
-                  <div class="results-actions">
-                    <button class="btn-secondary" onclick="retakeQuiz()">
-                      Retake Quiz
-                    </button>
-                  </div>
                 </div>
               </div>
             </section>

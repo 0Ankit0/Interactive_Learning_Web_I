@@ -149,9 +149,7 @@
                     >
                   </li>
                   <li>
-                    <a
-                      href="#external-resources"
-                      onclick="scrollToSection('external-resources')"
+                    <a href="#resources" onclick="scrollToSection('resources')"
                       >External Resources</a
                     >
                   </li>
@@ -607,45 +605,109 @@ Content-Length: 1234
               </div>
             </section>
 
-            <section id="external-resources" class="content-section">
-              <h2>
-                <i class="fas fa-external-link-alt"></i> External Resources
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
               </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of client-server architecture. Each resource is carefully
+                selected for quality and educational value.
+              </p>
 
-              <div class="resource-grid">
-                <div class="resource-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
-                    alt="Client-Server Architecture"
-                    loading="lazy"
-                  />
-                  <h4>Client-Server Model Explained</h4>
-                  <p>
-                    Comprehensive guide to client-server architecture and its
-                    applications in modern computing.
-                  </p>
-                  <a
-                    href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model"
-                    target="_blank"
-                    >Read Article</a
-                  >
+              <div class="resource-grid two-column">
+                <div class="resource-card" data-type="article">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-book-open thumbnail-icon article"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon article">
+                        <i class="fas fa-book-open"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">
+                          Client-Server Model Explained
+                        </h4>
+                        <p class="card-subtitle">
+                          <span class="author">Wikipedia</span>
+                          <span class="platform">Reference</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive guide to client-server architecture and its
+                      applications in modern computing. Understand the
+                      fundamental concepts that power web applications.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Architecture</span>
+                      <span class="tag">Client-Server</span>
+                      <span class="tag">Reference</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-book-open"></i> Read Article
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="resource-card">
-                  <img
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=320&h=240"
-                    alt="HTTP Protocol"
-                    loading="lazy"
-                  />
-                  <h4>HTTP Protocol Fundamentals</h4>
-                  <p>
-                    Learn about the Hypertext Transfer Protocol that powers
-                    client-server communication on the web.
-                  </p>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP"
-                    target="_blank"
-                    >Learn More</a
-                  >
+
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i
+                      class="fas fa-file-code thumbnail-icon documentation"
+                    ></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fas fa-file-code"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">HTTP Protocol Fundamentals</h4>
+                        <p class="card-subtitle">
+                          <span class="author">MDN Web Docs</span>
+                          <span class="platform">Documentation</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn about the Hypertext Transfer Protocol that powers
+                      client-server communication on the web. Essential
+                      knowledge for web developers and network engineers.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">HTTP</span>
+                      <span class="tag">Protocol</span>
+                      <span class="tag">Web</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTTP"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-file-code"></i> View Docs
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
