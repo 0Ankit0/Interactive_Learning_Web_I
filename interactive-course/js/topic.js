@@ -1042,3 +1042,969 @@ document.addEventListener('DOMContentLoaded', function () {
         card.setAttribute('aria-label', `Open ${card.querySelector('h4').textContent}`);
     });
 });
+
+// ============================================================================
+// SEMANTIC HTML STRUCTURE DEMO FUNCTIONS
+// ============================================================================
+
+// Element information data for the semantic structure demo
+const semanticElementInfo = {
+    header: {
+        name: '<header>',
+        purpose: 'Contains introductory content for the page or a section. Usually includes site branding, navigation, and key identifying information.',
+        usage: [
+            'Page header with site branding and main navigation',
+            'Article header with title and metadata',
+            'Section header with heading and description'
+        ],
+        accessibility: 'Provides a landmark for screen readers, helping users navigate to the beginning of content sections.',
+        code: `<header>
+    <h1>Site Title</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+</header>`
+    },
+    nav: {
+        name: '<nav>',
+        purpose: 'Contains navigation links for the site or a section. Groups related navigation elements together.',
+        usage: [
+            'Primary site navigation menu',
+            'Breadcrumb navigation trails',
+            'Pagination controls',
+            'Table of contents for long documents'
+        ],
+        accessibility: 'Creates a navigation landmark that screen readers can jump to directly, improving site navigation.',
+        code: `<nav aria-label="Main navigation">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>`
+    },
+    main: {
+        name: '<main>',
+        purpose: 'Contains the primary content of the document. There should be only one main element per page.',
+        usage: [
+            'Primary content area of a webpage',
+            'Main article content in a blog post',
+            'Core functionality of a web application'
+        ],
+        accessibility: 'Provides the main landmark that helps screen readers skip directly to primary content.',
+        code: `<main>
+    <h1>Page Title</h1>
+    <p>This is the main content of the page...</p>
+    <article>...</article>
+    <section>...</section>
+</main>`
+    },
+    article: {
+        name: '<article>',
+        purpose: 'Contains self-contained content that could be independently distributed or reused.',
+        usage: [
+            'Blog posts and news articles',
+            'Forum posts and comments',
+            'Product cards in e-commerce',
+            'Social media posts'
+        ],
+        accessibility: 'Helps screen readers identify discrete pieces of content that can be consumed independently.',
+        code: `<article>
+    <header>
+        <h2>Article Title</h2>
+        <time datetime="2025-09-22">Sep 22, 2025</time>
+    </header>
+    <p>Article content...</p>
+    <footer>
+        <p>Tags: HTML, Semantic</p>
+    </footer>
+</article>`
+    },
+    section: {
+        name: '<section>',
+        purpose: 'Groups related content together, typically with a heading. Represents a thematic grouping of content.',
+        usage: [
+            'Chapters or major sections of content',
+            'Grouped features or services',
+            'Themed content areas',
+            'Parts of an article or document'
+        ],
+        accessibility: 'Provides structural organization that helps screen readers understand content hierarchy.',
+        code: `<section>
+    <h2>Our Services</h2>
+    <div>
+        <h3>Web Design</h3>
+        <p>Creating beautiful websites...</p>
+    </div>
+    <div>
+        <h3>Development</h3>
+        <p>Building robust applications...</p>
+    </div>
+</section>`
+    },
+    aside: {
+        name: '<aside>',
+        purpose: 'Contains content that is tangentially related to the main content, like sidebars or call-out boxes.',
+        usage: [
+            'Sidebar content and widgets',
+            'Related links and recommended reading',
+            'Advertisements and promotional content',
+            'Author bio or related information'
+        ],
+        accessibility: 'Helps screen readers identify supplementary content that can be skipped if desired.',
+        code: `<aside>
+    <h3>Related Posts</h3>
+    <ul>
+        <li><a href="#post1">Understanding CSS</a></li>
+        <li><a href="#post2">JavaScript Basics</a></li>
+    </ul>
+    
+    <h3>Contact Info</h3>
+    <address>
+        <p>Email: info@example.com</p>
+    </address>
+</aside>`
+    },
+    footer: {
+        name: '<footer>',
+        purpose: 'Contains footer information for its nearest ancestor sectioning element or the page.',
+        usage: [
+            'Page footer with copyright and links',
+            'Article footer with metadata',
+            'Section footer with additional info',
+            'Contact information and social links'
+        ],
+        accessibility: 'Provides a contentinfo landmark for screen readers to find supplementary page information.',
+        code: `<footer>
+    <nav>
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#terms">Terms</a></li>
+        </ul>
+    </nav>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+</footer>`
+    }
+};
+
+/**
+ * Highlight structural elements based on type
+ * @param {string} type - Type of highlighting: 'all', 'landmarks', or 'reset'
+ */
+function highlightStructure(type) {
+    const elements = document.querySelectorAll('.demo-element');
+    const landmarks = ['header-section', 'nav-section', 'main-section', 'aside-section', 'footer-section'];
+
+    // Remove existing highlighting
+    elements.forEach(el => {
+        el.classList.remove('highlighted', 'landmark-highlighted', 'dimmed');
+    });
+
+    switch (type) {
+        case 'all':
+            elements.forEach(el => el.classList.add('highlighted'));
+            break;
+        case 'landmarks':
+            elements.forEach(el => {
+                if (landmarks.some(landmark => el.classList.contains(landmark))) {
+                    el.classList.add('landmark-highlighted');
+                } else {
+                    el.classList.add('dimmed');
+                }
+            });
+            break;
+        case 'reset':
+        default:
+            // Already cleared above
+            break;
+    }
+}
+
+/**
+ * Highlight a specific element and show its information
+ * @param {string} elementType - Type of semantic element to highlight
+ */
+function highlightElement(elementType) {
+    // Remove existing highlights
+    document.querySelectorAll('.demo-element').forEach(el => {
+        el.classList.remove('element-highlighted', 'highlighted', 'landmark-highlighted', 'dimmed');
+    });
+
+    // Highlight the specific element(s)
+    const elementSelector = `[data-element="${elementType}"]`;
+    const elements = document.querySelectorAll(elementSelector);
+
+    elements.forEach(el => {
+        el.classList.add('element-highlighted');
+    });
+
+    // Show element information
+    showElementInfo(elementType);
+
+    // Add a subtle animation
+    elements.forEach(el => {
+        el.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+            el.style.transform = '';
+        }, 300);
+    });
+}
+
+/**
+ * Show detailed information about a semantic element
+ * @param {string} elementType - Type of semantic element
+ */
+function showElementInfo(elementType) {
+    const info = semanticElementInfo[elementType];
+    if (!info) return;
+
+    const panel = document.getElementById('element-info');
+    const nameEl = document.getElementById('info-element-name');
+    const purposeEl = document.getElementById('info-purpose');
+    const usageEl = document.getElementById('info-usage');
+    const accessibilityEl = document.getElementById('info-accessibility');
+    const codeEl = document.getElementById('info-code');
+
+    // Update content
+    nameEl.textContent = `${info.name} Element`;
+    purposeEl.textContent = info.purpose;
+    accessibilityEl.textContent = info.accessibility;
+    codeEl.querySelector('code').textContent = info.code;
+
+    // Update usage list
+    usageEl.innerHTML = '';
+    info.usage.forEach(use => {
+        const li = document.createElement('li');
+        li.textContent = use;
+        usageEl.appendChild(li);
+    });
+
+    // Show panel with animation
+    panel.style.display = 'block';
+    panel.style.opacity = '0';
+    panel.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+        panel.style.opacity = '1';
+        panel.style.transform = 'translateY(0)';
+    }, 10);
+
+    // Highlight code syntax
+    if (window.Prism) {
+        Prism.highlightElement(codeEl.querySelector('code'));
+    }
+}
+
+/**
+ * Close the element information panel
+ */
+function closeElementInfo() {
+    const panel = document.getElementById('element-info');
+    panel.style.opacity = '0';
+    panel.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+        panel.style.display = 'none';
+    }, 300);
+
+    // Remove element highlighting
+    document.querySelectorAll('.demo-element').forEach(el => {
+        el.classList.remove('element-highlighted');
+    });
+}
+
+// Add event listeners for the demo elements when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Make demo elements keyboard accessible
+    const demoElements = document.querySelectorAll('.demo-element[onclick]');
+    demoElements.forEach(element => {
+        element.setAttribute('tabindex', '0');
+        element.setAttribute('role', 'button');
+        element.setAttribute('aria-label', `Learn about ${element.dataset.element} element`);
+
+        element.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                element.click();
+            }
+        });
+    });
+
+    // Close panels when clicking outside
+    document.addEventListener('click', function (e) {
+        const infoPanel = document.getElementById('element-info');
+
+        if (infoPanel && infoPanel.style.display === 'block' &&
+            !infoPanel.contains(e.target) &&
+            !e.target.closest('.demo-element')) {
+            closeElementInfo();
+        }
+    });
+
+    // Handle escape key to close panels
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeElementInfo();
+        }
+    });
+
+    // Initialize accessibility checklist
+    initializeAccessibilityChecklist();
+});
+
+// ============================================================================
+// ACCESSIBILITY BENEFITS SECTION FUNCTIONS
+// ============================================================================
+
+/**
+ * Initialize the accessibility checklist functionality
+ */
+function initializeAccessibilityChecklist() {
+    const checkboxes = document.querySelectorAll('.form-check-input[data-rule]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateAccessibilityScore);
+    });
+    updateAccessibilityScore(); // Initial score update
+}
+
+/**
+ * Update the accessibility score based on checked items
+ */
+function updateAccessibilityScore() {
+    const checkboxes = document.querySelectorAll('.form-check-input[data-rule]');
+    const scoreValue = document.getElementById('score-value');
+    const scoreContainer = document.getElementById('accessibility-score');
+
+    if (!scoreValue || !scoreContainer) return;
+
+    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const totalCount = checkboxes.length;
+
+    scoreValue.textContent = checkedCount;
+
+    // Update score container styling based on score
+    scoreContainer.className = 'score-container';
+    if (checkedCount === totalCount) {
+        scoreContainer.classList.add('score-excellent');
+    } else if (checkedCount >= totalCount * 0.75) {
+        scoreContainer.classList.add('score-good');
+    } else if (checkedCount >= totalCount * 0.5) {
+        scoreContainer.classList.add('score-okay');
+    } else {
+        scoreContainer.classList.add('score-poor');
+    }
+}
+
+/**
+ * Simulate screen reader navigation for semantic vs non-semantic HTML
+ * @param {string} version - 'semantic' or 'nonsemantic'
+ */
+function simulateScreenReader(version) {
+    const readerText = document.getElementById('reader-text');
+    if (!readerText) return;
+
+    // Clear previous content
+    readerText.innerHTML = '';
+    readerText.className = 'reader-output reading';
+
+    let messages = [];
+
+    if (version === 'semantic') {
+        messages = [
+            { text: 'Navigation landmark', delay: 500, type: 'landmark' },
+            { text: 'List with 4 items', delay: 1000, type: 'structure' },
+            { text: 'Link: Home', delay: 1500, type: 'link' },
+            { text: 'Link: About', delay: 2000, type: 'link' },
+            { text: 'Link: Services', delay: 2500, type: 'link' },
+            { text: 'Link: Contact', delay: 3000, type: 'link' },
+            { text: 'End of navigation', delay: 3500, type: 'landmark' },
+            { text: 'Main content landmark', delay: 4000, type: 'landmark' },
+            { text: 'Heading level 1: Welcome to Our Site', delay: 4500, type: 'heading' },
+            { text: 'Article landmark', delay: 5000, type: 'landmark' },
+            { text: 'Heading level 2: Latest News', delay: 5500, type: 'heading' },
+            { text: 'Paragraph: This is our latest article...', delay: 6000, type: 'content' },
+            { text: 'Aside landmark', delay: 6500, type: 'landmark' },
+            { text: 'Heading level 3: Related Links', delay: 7000, type: 'heading' },
+            { text: 'Footer landmark', delay: 7500, type: 'landmark' },
+            { text: 'Copyright 2025 - All rights reserved', delay: 8000, type: 'content' }
+        ];
+    } else {
+        messages = [
+            { text: 'Generic container', delay: 500, type: 'generic' },
+            { text: 'Generic container', delay: 1000, type: 'generic' },
+            { text: 'Link: Home', delay: 1500, type: 'link' },
+            { text: 'Link: About', delay: 2000, type: 'link' },
+            { text: 'Link: Services', delay: 2500, type: 'link' },
+            { text: 'Link: Contact', delay: 3000, type: 'link' },
+            { text: 'Generic container', delay: 3500, type: 'generic' },
+            { text: 'Text: Welcome to Our Site', delay: 4000, type: 'content' },
+            { text: 'Generic container', delay: 4500, type: 'generic' },
+            { text: 'Text: Latest News', delay: 5000, type: 'content' },
+            { text: 'Text: This is our latest article...', delay: 5500, type: 'content' },
+            { text: 'Generic container', delay: 6000, type: 'generic' },
+            { text: 'Text: Related Links', delay: 6500, type: 'content' },
+            { text: 'Generic container', delay: 7000, type: 'generic' },
+            { text: 'Text: Copyright 2025 - All rights reserved', delay: 7500, type: 'content' }
+        ];
+    }
+
+    // Show initial message
+    readerText.innerHTML = '<div class="reader-message initial">Screen reader is analyzing the page structure...</div>';
+
+    // Animate messages
+    messages.forEach((message, index) => {
+        setTimeout(() => {
+            const messageEl = document.createElement('div');
+            messageEl.className = `reader-message ${message.type}`;
+            messageEl.textContent = message.text;
+
+            // Add appropriate icon based on type
+            const icon = document.createElement('i');
+            switch (message.type) {
+                case 'landmark':
+                    icon.className = 'fas fa-map-marker-alt';
+                    break;
+                case 'structure':
+                    icon.className = 'fas fa-list';
+                    break;
+                case 'heading':
+                    icon.className = 'fas fa-heading';
+                    break;
+                case 'link':
+                    icon.className = 'fas fa-link';
+                    break;
+                case 'content':
+                    icon.className = 'fas fa-align-left';
+                    break;
+                case 'generic':
+                    icon.className = 'fas fa-square';
+                    break;
+                default:
+                    icon.className = 'fas fa-circle';
+            }
+
+            messageEl.prepend(icon);
+
+            if (index === 0) {
+                readerText.innerHTML = '';
+            }
+
+            readerText.appendChild(messageEl);
+
+            // Scroll to show latest message
+            messageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Add completion message
+            if (index === messages.length - 1) {
+                setTimeout(() => {
+                    const completionEl = document.createElement('div');
+                    completionEl.className = 'reader-message completion';
+                    completionEl.innerHTML = '<i class="fas fa-check-circle"></i> Screen reader navigation complete';
+                    readerText.appendChild(completionEl);
+                    completionEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 1000);
+            }
+        }, message.delay);
+    });
+}
+
+/**
+ * Toggle all accessibility checklist items
+ * @param {boolean} checked - Whether to check or uncheck all items
+ */
+function toggleAllAccessibilityItems(checked = true) {
+    const checkboxes = document.querySelectorAll('.form-check-input[data-rule]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = checked;
+    });
+    updateAccessibilityScore();
+}
+
+/**
+ * Show detailed accessibility information for a specific rule
+ * @param {string} rule - The accessibility rule to show info for
+ */
+function showAccessibilityInfo(rule) {
+    const accessibilityInfo = {
+        headings: {
+            title: 'Heading Hierarchy',
+            description: 'Use headings (h1-h6) in logical order to create a clear document outline.',
+            examples: [
+                'h1 for main page title (only one per page)',
+                'h2 for major section headings',
+                'h3 for subsection headings',
+                'Never skip heading levels'
+            ],
+            impact: 'Screen readers use headings to navigate content quickly'
+        },
+        landmarks: {
+            title: 'Landmark Elements',
+            description: 'Use semantic HTML5 elements to create page landmarks.',
+            examples: [
+                '<header> for page header',
+                '<nav> for navigation menus',
+                '<main> for primary content',
+                '<aside> for sidebar content',
+                '<footer> for page footer'
+            ],
+            impact: 'Landmarks help users navigate with screen readers and keyboard shortcuts'
+        },
+        'alt-text': {
+            title: 'Image Alt Text',
+            description: 'Provide descriptive alternative text for all meaningful images.',
+            examples: [
+                'Describe the content and function of the image',
+                'Use empty alt="" for decorative images',
+                'Avoid "image of" or "picture of" in descriptions',
+                'Keep descriptions concise but informative'
+            ],
+            impact: 'Essential for users who cannot see images'
+        },
+        labels: {
+            title: 'Form Labels',
+            description: 'Associate labels with form inputs for better accessibility.',
+            examples: [
+                'Use <label for="input-id"> with matching input id',
+                'Or wrap input inside <label> element',
+                'Provide clear, descriptive label text',
+                'Use fieldset and legend for grouped controls'
+            ],
+            impact: 'Screen readers announce labels when inputs receive focus'
+        },
+        'skip-links': {
+            title: 'Skip Navigation',
+            description: 'Provide skip links to help keyboard users bypass repetitive content.',
+            examples: [
+                'Add "Skip to main content" link at page top',
+                'Make skip links visible on focus',
+                'Link to main content area with id attribute',
+                'Consider multiple skip options for complex layouts'
+            ],
+            impact: 'Allows keyboard users to navigate efficiently'
+        },
+        focus: {
+            title: 'Keyboard Navigation',
+            description: 'Ensure all interactive elements can be accessed via keyboard.',
+            examples: [
+                'All links and buttons should be focusable',
+                'Provide visible focus indicators',
+                'Logical tab order throughout the page',
+                'No keyboard traps in dynamic content'
+            ],
+            impact: 'Critical for users who cannot use a mouse'
+        }
+    };
+
+    const info = accessibilityInfo[rule];
+    if (info) {
+        showModal(info.title, `
+            <div class="accessibility-info">
+                <p><strong>Description:</strong> ${info.description}</p>
+                <div class="examples-section">
+                    <strong>Best Practices:</strong>
+                    <ul>
+                        ${info.examples.map(example => `<li>${example}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="impact-section">
+                    <strong>Accessibility Impact:</strong>
+                    <p>${info.impact}</p>
+                </div>
+            </div>
+        `);
+    }
+}
+
+// ============================================================================
+// INTERACTIVE PRACTICE SECTION FUNCTIONS
+// ============================================================================
+
+/**
+ * Check the blog structure challenge solution
+ */
+function checkBlogStructure() {
+    const userInput = document.getElementById('blog-challenge');
+    const resultDiv = document.getElementById('blog-result');
+
+    if (!userInput || !resultDiv) return;
+
+    const solution = userInput.value.trim().toLowerCase();
+    const requiredElements = ['<article>', '<h1>', '<h2>', '<time>', '<p>', '<footer>'];
+    const semanticElements = ['article', 'header', 'h1', 'h2', 'time', 'footer'];
+
+    let score = 0;
+    let feedback = [];
+
+    // Check for required semantic elements
+    semanticElements.forEach(element => {
+        if (solution.includes(`<${element}`)) {
+            score++;
+            feedback.push(`✅ Good: Used &lt;${element}&gt; element`);
+        } else {
+            feedback.push(`❌ Missing: &lt;${element}&gt; element`);
+        }
+    });
+
+    // Check for proper nesting
+    if (solution.includes('<article>') && solution.includes('</article>')) {
+        if (solution.indexOf('<article>') < solution.indexOf('</article>')) {
+            feedback.push('✅ Good: Proper article element nesting');
+            score++;
+        }
+    }
+
+    // Check for datetime attribute
+    if (solution.includes('datetime=')) {
+        feedback.push('✅ Excellent: Used datetime attribute');
+        score++;
+    } else {
+        feedback.push('💡 Tip: Add datetime attribute to &lt;time&gt; element');
+    }
+
+    // Generate result
+    const percentage = Math.round((score / 8) * 100);
+    let resultClass = '';
+    let resultMessage = '';
+
+    if (percentage >= 80) {
+        resultClass = 'success';
+        resultMessage = 'Excellent work!';
+    } else if (percentage >= 60) {
+        resultClass = 'warning';
+        resultMessage = 'Good effort, but needs improvement';
+    } else {
+        resultClass = 'error';
+        resultMessage = 'Keep trying! Check the requirements';
+    }
+
+    resultDiv.innerHTML = `
+        <div class="result-header ${resultClass}">
+            <h5>${resultMessage}</h5>
+            <div class="score">Score: ${score}/8 (${percentage}%)</div>
+        </div>
+        <div class="feedback-list">
+            ${feedback.map(item => `<p>${item}</p>`).join('')}
+        </div>
+        ${percentage < 80 ? '<div class="hint"><strong>Hint:</strong> Use &lt;article&gt;, &lt;h1&gt; or &lt;h2&gt; for title, &lt;time&gt; with datetime attribute, &lt;p&gt; for content, and &lt;footer&gt; for author info.</div>' : ''}
+    `;
+
+    resultDiv.style.display = 'block';
+}
+
+/**
+ * Check the website structure challenge solution
+ */
+function checkWebsiteStructure() {
+    const userInput = document.getElementById('website-challenge');
+    const resultDiv = document.getElementById('website-result');
+
+    if (!userInput || !resultDiv) return;
+
+    const solution = userInput.value.trim().toLowerCase();
+    const requiredElements = [
+        { element: 'header', points: 2, description: 'Header element' },
+        { element: 'nav', points: 2, description: 'Navigation element' },
+        { element: 'main', points: 2, description: 'Main content element' },
+        { element: 'section', points: 1, description: 'Section element' },
+        { element: 'aside', points: 2, description: 'Aside/sidebar element' },
+        { element: 'footer', points: 2, description: 'Footer element' }
+    ];
+
+    let score = 0;
+    let maxScore = 0;
+    let feedback = [];
+
+    // Check for required elements
+    requiredElements.forEach(item => {
+        maxScore += item.points;
+        if (solution.includes(`<${item.element}`)) {
+            score += item.points;
+            feedback.push(`✅ Good: Found &lt;${item.element}&gt; element (${item.points} points)`);
+        } else {
+            feedback.push(`❌ Missing: &lt;${item.element}&gt; element (${item.points} points)`);
+        }
+    });
+
+    // Check for proper structure
+    const structureChecks = [
+        {
+            condition: solution.includes('<header>') && solution.includes('<nav>'),
+            message: '✅ Good: Navigation inside or near header',
+            points: 1
+        },
+        {
+            condition: solution.includes('<main>') && solution.includes('<section>'),
+            message: '✅ Good: Sections organized within main',
+            points: 1
+        },
+        {
+            condition: solution.includes('</header>') && solution.includes('</footer>'),
+            message: '✅ Good: Proper element closing',
+            points: 1
+        }
+    ];
+
+    structureChecks.forEach(check => {
+        maxScore += check.points;
+        if (check.condition) {
+            score += check.points;
+            feedback.push(check.message);
+        }
+    });
+
+    // Generate result
+    const percentage = Math.round((score / maxScore) * 100);
+    let resultClass = '';
+    let resultMessage = '';
+
+    if (percentage >= 85) {
+        resultClass = 'success';
+        resultMessage = 'Outstanding semantic structure!';
+    } else if (percentage >= 70) {
+        resultClass = 'warning';
+        resultMessage = 'Good structure, minor improvements needed';
+    } else {
+        resultClass = 'error';
+        resultMessage = 'Structure needs significant improvement';
+    }
+
+    resultDiv.innerHTML = `
+        <div class="result-header ${resultClass}">
+            <h5>${resultMessage}</h5>
+            <div class="score">Score: ${score}/${maxScore} (${percentage}%)</div>
+        </div>
+        <div class="feedback-list">
+            ${feedback.map(item => `<p>${item}</p>`).join('')}
+        </div>
+        ${percentage < 85 ? '<div class="hint"><strong>Structure Template:</strong><br>&lt;header&gt;&lt;nav&gt;...&lt;/nav&gt;&lt;/header&gt;<br>&lt;main&gt;&lt;section&gt;...&lt;/section&gt;&lt;/main&gt;<br>&lt;aside&gt;...&lt;/aside&gt;<br>&lt;footer&gt;...&lt;/footer&gt;</div>' : ''}
+    `;
+
+    resultDiv.style.display = 'block';
+}
+
+/**
+ * Check the accessibility challenge solution
+ */
+function checkAccessibility() {
+    const userInput = document.getElementById('accessibility-challenge');
+    const resultDiv = document.getElementById('accessibility-result');
+
+    if (!userInput || !resultDiv) return;
+
+    const solution = userInput.value.trim().toLowerCase();
+
+    const accessibilityChecks = [
+        {
+            test: solution.includes('<h1>') || solution.includes('<h2>'),
+            message: '✅ Good: Used proper heading element',
+            error: '❌ Missing: Proper heading element (h1, h2, etc.)',
+            points: 2
+        },
+        {
+            test: solution.includes('alt='),
+            message: '✅ Good: Added alt attribute to image',
+            error: '❌ Missing: Alt attribute for image',
+            points: 2
+        },
+        {
+            test: solution.includes('<label') && solution.includes('for='),
+            message: '✅ Good: Associated label with input using for attribute',
+            error: '❌ Missing: Label with for attribute',
+            points: 2
+        },
+        {
+            test: solution.includes('<main>') || solution.includes('<header>'),
+            message: '✅ Good: Used semantic landmark elements',
+            error: '❌ Missing: Semantic landmark elements',
+            points: 2
+        },
+        {
+            test: solution.includes('id=') && solution.includes('for='),
+            message: '✅ Good: Proper id/for association',
+            error: '❌ Missing: ID/for attribute association',
+            points: 1
+        },
+        {
+            test: !solution.includes('<div>welcome') && (solution.includes('<h1>welcome') || solution.includes('<h2>welcome')),
+            message: '✅ Excellent: Replaced generic div with semantic heading',
+            error: '💡 Tip: Replace the welcome div with a heading element',
+            points: 1
+        }
+    ];
+
+    let score = 0;
+    let maxScore = 0;
+    let feedback = [];
+
+    accessibilityChecks.forEach(check => {
+        maxScore += check.points;
+        if (check.test) {
+            score += check.points;
+            feedback.push(check.message);
+        } else {
+            feedback.push(check.error);
+        }
+    });
+
+    // Generate result
+    const percentage = Math.round((score / maxScore) * 100);
+    let resultClass = '';
+    let resultMessage = '';
+
+    if (percentage >= 90) {
+        resultClass = 'success';
+        resultMessage = 'Perfect accessibility improvements!';
+    } else if (percentage >= 75) {
+        resultClass = 'warning';
+        resultMessage = 'Great improvements, minor issues remain';
+    } else {
+        resultClass = 'error';
+        resultMessage = 'More accessibility work needed';
+    }
+
+    resultDiv.innerHTML = `
+        <div class="result-header ${resultClass}">
+            <h5>${resultMessage}</h5>
+            <div class="score">Score: ${score}/${maxScore} (${percentage}%)</div>
+        </div>
+        <div class="feedback-list">
+            ${feedback.map(item => `<p>${item}</p>`).join('')}
+        </div>
+        ${percentage < 90 ? '<div class="hint"><strong>Accessibility Checklist:</strong><br>• Use &lt;h1&gt; for main heading<br>• Add alt="description" to images<br>• Use &lt;label for="input-id"&gt; with &lt;input id="input-id"&gt;<br>• Replace divs with semantic elements</div>' : ''}
+    `;
+
+    resultDiv.style.display = 'block';
+}
+
+// ============================================================================
+// RESOURCE BOOKMARK FUNCTIONALITY
+// ============================================================================
+
+/**
+ * Toggle bookmark status for resource cards
+ */
+function toggleBookmark(button) {
+    const isBookmarked = button.classList.contains('bookmarked');
+
+    if (isBookmarked) {
+        button.classList.remove('bookmarked');
+        button.innerHTML = '<i class="fas fa-bookmark"></i>';
+        button.title = 'Bookmark this resource';
+
+        // Remove from local storage
+        removeBookmark(getResourceId(button));
+    } else {
+        button.classList.add('bookmarked');
+        button.innerHTML = '<i class="fas fa-bookmark"></i>';
+        button.title = 'Remove bookmark';
+
+        // Add to local storage
+        addBookmark(getResourceId(button));
+
+        // Show brief success message
+        showBookmarkMessage('Resource bookmarked!');
+    }
+}
+
+/**
+ * Get unique ID for a resource based on its card content
+ */
+function getResourceId(button) {
+    const card = button.closest('.resource-card');
+    const title = card.querySelector('.card-title')?.textContent || '';
+    const author = card.querySelector('.author')?.textContent || '';
+    return btoa(title + '|' + author).replace(/[^a-zA-Z0-9]/g, '').substring(0, 16);
+}
+
+/**
+ * Add bookmark to local storage
+ */
+function addBookmark(resourceId) {
+    let bookmarks = JSON.parse(localStorage.getItem('webtech_bookmarks') || '[]');
+    if (!bookmarks.includes(resourceId)) {
+        bookmarks.push(resourceId);
+        localStorage.setItem('webtech_bookmarks', JSON.stringify(bookmarks));
+    }
+}
+
+/**
+ * Remove bookmark from local storage
+ */
+function removeBookmark(resourceId) {
+    let bookmarks = JSON.parse(localStorage.getItem('webtech_bookmarks') || '[]');
+    bookmarks = bookmarks.filter(id => id !== resourceId);
+    localStorage.setItem('webtech_bookmarks', JSON.stringify(bookmarks));
+}
+
+/**
+ * Load bookmarked state for all resource cards on page load
+ */
+function loadBookmarkStates() {
+    const bookmarks = JSON.parse(localStorage.getItem('webtech_bookmarks') || '[]');
+
+    document.querySelectorAll('.bookmark-btn').forEach(button => {
+        const resourceId = getResourceId(button);
+        if (bookmarks.includes(resourceId)) {
+            button.classList.add('bookmarked');
+            button.innerHTML = '<i class="fas fa-bookmark"></i>';
+            button.title = 'Remove bookmark';
+        }
+    });
+}
+
+/**
+ * Show temporary bookmark message
+ */
+function showBookmarkMessage(message) {
+    // Remove any existing message
+    const existingMessage = document.querySelector('.bookmark-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+
+    // Create and show new message
+    const messageEl = document.createElement('div');
+    messageEl.className = 'bookmark-message';
+    messageEl.textContent = message;
+    messageEl.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    `;
+
+    document.body.appendChild(messageEl);
+
+    // Animate in
+    setTimeout(() => {
+        messageEl.style.opacity = '1';
+        messageEl.style.transform = 'translateY(0)';
+    }, 10);
+
+    // Animate out and remove
+    setTimeout(() => {
+        messageEl.style.opacity = '0';
+        messageEl.style.transform = 'translateY(-10px)';
+        setTimeout(() => messageEl.remove(), 300);
+    }, 2000);
+}
+
+// Initialize bookmark states when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Add a small delay to ensure all resource cards are rendered
+    setTimeout(loadBookmarkStates, 100);
+});

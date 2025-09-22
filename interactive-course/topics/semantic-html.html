@@ -135,7 +135,7 @@
             </ul>
           </aside>
 
-          <div class="topic-content">
+          <div class="content-main">
             <section id="introduction" class="topic-section">
               <h2 class="section-title"><i class="fas fa-info-circle"></i> What is Semantic HTML?</h2>
 
@@ -235,113 +235,347 @@
             <section id="structure" class="topic-section">
               <h2 class="section-title"><i class="fas fa-sitemap"></i> Structural Elements</h2>
 
-              <div class="structure-grid">
-                <h3 class="grid-title">Main Structural Elements</h3>
+              <div class="topic-grid three-column">
+               
+                <div class="topic-card" onclick="highlightElement('header')">
+                  <div class="card-icon"><i class="fas fa-heading"></i></div>
+                  <h4 class="card-title">&lt;header&gt;</h4>
+                  <p class="card-description">
+                    Contains introductory content, site branding, navigation
+                  </p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Page header, article header,
+                    section header
+                  </div>
+                </div>
 
-                <div class="element-cards">
-                  <div class="element-card" onclick="highlightElement('header')">
-                    <div class="card-icon"><i class="fas fa-heading"></i></div>
-                    <h4 class="card-title">&lt;header&gt;</h4>
-                    <p class="card-description">
-                      Contains introductory content, site branding, navigation
-                    </p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Page header, article header,
-                      section header
+                <div class="topic-card" onclick="highlightElement('nav')">
+                  <div class="card-icon">
+                    <i class="fas fa-compass"></i>
+                  </div>
+                  <h4 class="card-title">&lt;nav&gt;</h4>
+                  <p class="card-description">
+                    Contains navigation links for the site or page section
+                  </p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Main navigation, breadcrumbs, page
+                    links
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('main')">
+                  <div class="card-icon">
+                    <i class="fas fa-file-alt"></i>
+                  </div>
+                  <h4 class="card-title">&lt;main&gt;</h4>
+                  <p class="card-description">Contains the main content of the document</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Primary content area (only one per
+                    page)
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('section')">
+                  <div class="card-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                  </div>
+                  <h4 class="card-title">&lt;section&gt;</h4>
+                  <p class="card-description">Groups related content together with a heading</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Chapters, tabs, themed content
+                    groups
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('article')">
+                  <div class="card-icon">
+                    <i class="fas fa-newspaper"></i>
+                  </div>
+                  <h4 class="card-title">&lt;article&gt;</h4>
+                  <p class="card-description">Self-contained content that could stand alone</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Blog posts, news articles,
+                    comments
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('aside')">
+                  <div class="card-icon">
+                    <i class="fas fa-columns"></i>
+                  </div>
+                  <h4 class="card-title">&lt;aside&gt;</h4>
+                  <p class="card-description">Content indirectly related to main content</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Sidebars, callout boxes, related
+                    links
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('footer')">
+                  <div class="card-icon">
+                    <i class="fas fa-shoe-prints"></i>
+                  </div>
+                  <h4 class="card-title">&lt;footer&gt;</h4>
+                  <p class="card-description">Contains footer information for its nearest ancestor</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Page footer, article footer,
+                    copyright info
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="structure-demo">
+                <h3 class="demo-title">Complete Page Structure</h3>
+                <p class="demo-description">
+                  This interactive diagram shows how semantic HTML elements work together to create a meaningful page structure. 
+                  Click on any element to see its role and best practices.
+                </p>
+
+                <div class="demo-controls">
+                  <button class="btn btn-primary" onclick="highlightStructure('all')">
+                    <i class="fas fa-eye"></i> Show All Elements
+                  </button>
+                  <button class="btn btn-secondary" onclick="highlightStructure('landmarks')">
+                    <i class="fas fa-map-marker-alt"></i> Show Landmarks Only
+                  </button>
+                </div>
+
+                <div class="demo-container">
+                  <!-- Page Structure Visualization -->
+                  <div class="semantic-page-layout">
+                    
+                    <!-- Header Section -->
+                    <div class="demo-element header-section" id="demo-header" onclick="highlightElement('header')" data-element="header">
+                      <div class="element-label">
+                        <i class="fas fa-heading"></i>
+                        <span class="element-name">&lt;header&gt;</span>
+                        <span class="element-role">Page Header</span>
+                      </div>
+                      <div class="element-content">
+                        <div class="demo-logo">
+                          <i class="fas fa-globe"></i> My Website
+                        </div>
+                        
+                        <!-- Navigation inside header -->
+                        <div class="demo-element nav-section" id="demo-nav" onclick="highlightElement('nav')" data-element="nav">
+                          <div class="element-label">
+                            <i class="fas fa-compass"></i>
+                            <span class="element-name">&lt;nav&gt;</span>
+                            <span class="element-role">Primary Navigation</span>
+                          </div>
+                          <div class="nav-items">
+                            <span class="nav-item">Home</span>
+                            <span class="nav-item">About</span>
+                            <span class="nav-item">Services</span>
+                            <span class="nav-item">Contact</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="demo-main-wrapper">
+                      <div class="demo-element main-section" id="demo-main" onclick="highlightElement('main')" data-element="main">
+                        <div class="element-label">
+                          <i class="fas fa-file-alt"></i>
+                          <span class="element-name">&lt;main&gt;</span>
+                          <span class="element-role">Primary Content</span>
+                        </div>
+
+                        <div class="main-content-layout">
+                          <!-- Primary Content Column -->
+                          <div class="primary-content">
+                            
+                            <!-- Article Section -->
+                            <div class="demo-element article-section" id="demo-article" onclick="highlightElement('article')" data-element="article">
+                              <div class="element-label">
+                                <i class="fas fa-newspaper"></i>
+                                <span class="element-name">&lt;article&gt;</span>
+                                <span class="element-role">Self-contained Content</span>
+                              </div>
+                              <div class="article-content">
+                                <div class="article-header">
+                                  <h3>Blog Post Title</h3>
+                                  <div class="article-meta">
+                                    <time datetime="2025-09-22">Sep 22, 2025</time>
+                                    <span class="author">By John Doe</span>
+                                  </div>
+                                </div>
+                                <p class="article-excerpt">This is the main article content that could stand alone...</p>
+                                <div class="article-tags">
+                                  <span class="tag">HTML</span>
+                                  <span class="tag">Semantic</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Section Elements -->
+                            <div class="demo-element section-group">
+                              <div class="demo-element section-item" id="demo-section-1" onclick="highlightElement('section')" data-element="section">
+                                <div class="element-label">
+                                  <i class="fas fa-puzzle-piece"></i>
+                                  <span class="element-name">&lt;section&gt;</span>
+                                  <span class="element-role">Related Content Group</span>
+                                </div>
+                                <div class="section-content">
+                                  <h4>Services Section</h4>
+                                  <div class="service-items">
+                                    <div class="service-item">Web Design</div>
+                                    <div class="service-item">Development</div>
+                                    <div class="service-item">SEO</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="demo-element section-item" id="demo-section-2" onclick="highlightElement('section')" data-element="section">
+                                <div class="element-label">
+                                  <i class="fas fa-puzzle-piece"></i>
+                                  <span class="element-name">&lt;section&gt;</span>
+                                  <span class="element-role">Testimonials</span>
+                                </div>
+                                <div class="section-content">
+                                  <h4>Client Testimonials</h4>
+                                  <blockquote>
+                                    "Great work on our website redesign!"
+                                  </blockquote>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Sidebar -->
+                          <div class="demo-element aside-section" id="demo-aside" onclick="highlightElement('aside')" data-element="aside">
+                            <div class="element-label">
+                              <i class="fas fa-columns"></i>
+                              <span class="element-name">&lt;aside&gt;</span>
+                              <span class="element-role">Sidebar Content</span>
+                            </div>
+                            <div class="aside-content">
+                              <div class="widget">
+                                <h4>Recent Posts</h4>
+                                <ul class="recent-posts">
+                                  <li>Understanding Semantic HTML</li>
+                                  <li>CSS Grid Layouts</li>
+                                  <li>JavaScript Best Practices</li>
+                                </ul>
+                              </div>
+                              <div class="widget">
+                                <h4>Contact Info</h4>
+                                <div class="contact-details">
+                                  <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                                  <p><i class="fas fa-envelope"></i> info@example.com</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Footer Section -->
+                    <div class="demo-element footer-section" id="demo-footer" onclick="highlightElement('footer')" data-element="footer">
+                      <div class="element-label">
+                        <i class="fas fa-shoe-prints"></i>
+                        <span class="element-name">&lt;footer&gt;</span>
+                        <span class="element-role">Page Footer</span>
+                      </div>
+                      <div class="footer-content">
+                        <div class="footer-columns">
+                          <div class="footer-column">
+                            <h5>Quick Links</h5>
+                            <ul>
+                              <li>Privacy Policy</li>
+                              <li>Terms of Service</li>
+                              <li>Contact Us</li>
+                            </ul>
+                          </div>
+                          <div class="footer-column">
+                            <h5>Follow Us</h5>
+                            <div class="social-links">
+                              <i class="fab fa-facebook"></i>
+                              <i class="fab fa-twitter"></i>
+                              <i class="fab fa-linkedin"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="footer-bottom">
+                          <p>&copy; 2025 My Website. All rights reserved.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="element-card" onclick="highlightElement('nav')">
-                    <div class="card-icon">
-                      <i class="fas fa-compass"></i>
+                  <!-- Element Information Panel -->
+                  <div class="element-info-panel" id="element-info" style="display: none;">
+                    <div class="info-header">
+                      <h4 id="info-element-name">Element Information</h4>
+                      <button class="info-close" onclick="closeElementInfo()">&times;</button>
                     </div>
-                    <h4 class="card-title">&lt;nav&gt;</h4>
-                    <p class="card-description">
-                      Contains navigation links for the site or page section
-                    </p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Main navigation, breadcrumbs, page
-                      links
-                    </div>
-                  </div>
-
-                  <div class="element-card" onclick="highlightElement('main')">
-                    <div class="card-icon">
-                      <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h4 class="card-title">&lt;main&gt;</h4>
-                    <p class="card-description">Contains the main content of the document</p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Primary content area (only one per
-                      page)
-                    </div>
-                  </div>
-
-                  <div class="element-card" onclick="highlightElement('section')">
-                    <div class="card-icon">
-                      <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h4 class="card-title">&lt;section&gt;</h4>
-                    <p class="card-description">Groups related content together with a heading</p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Chapters, tabs, themed content
-                      groups
-                    </div>
-                  </div>
-
-                  <div class="element-card" onclick="highlightElement('article')">
-                    <div class="card-icon">
-                      <i class="fas fa-newspaper"></i>
-                    </div>
-                    <h4 class="card-title">&lt;article&gt;</h4>
-                    <p class="card-description">Self-contained content that could stand alone</p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Blog posts, news articles,
-                      comments
-                    </div>
-                  </div>
-
-                  <div class="element-card" onclick="highlightElement('aside')">
-                    <div class="card-icon">
-                      <i class="fas fa-columns"></i>
-                    </div>
-                    <h4 class="card-title">&lt;aside&gt;</h4>
-                    <p class="card-description">Content indirectly related to main content</p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Sidebars, callout boxes, related
-                      links
-                    </div>
-                  </div>
-
-                  <div class="element-card" onclick="highlightElement('footer')">
-                    <div class="card-icon">
-                      <i class="fas fa-shoe-prints"></i>
-                    </div>
-                    <h4 class="card-title">&lt;footer&gt;</h4>
-                    <p class="card-description">Contains footer information for its nearest ancestor</p>
-                    <div class="usage-example">
-                      <strong>Usage:</strong> Page footer, article footer,
-                      copyright info
+                    <div class="info-content">
+                      <div class="info-section">
+                        <h5>Purpose:</h5>
+                        <p id="info-purpose"></p>
+                      </div>
+                      <div class="info-section">
+                        <h5>When to use:</h5>
+                        <ul id="info-usage"></ul>
+                      </div>
+                      <div class="info-section">
+                        <h5>Accessibility:</h5>
+                        <p id="info-accessibility"></p>
+                      </div>
+                      <div class="info-section">
+                        <h5>Example HTML:</h5>
+                        <pre id="info-code"><code></code></pre>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="structure-demo">
-                  <h3 class="demo-title">Complete Page Structure</h3>
-                  <div class="demo-container">
-                    <div class="demo-element header" id="demo-header">
-                      <span>&lt;header&gt;</span>
-                      <div class="demo-element nav" id="demo-nav">&lt;nav&gt;</div>
-                    </div>
-                    <div class="demo-element main" id="demo-main">
-                      <span>&lt;main&gt;</span>
-                      <div class="main-content-wrapper">
-                        <div class="demo-element article" id="demo-article">&lt;article&gt;</div>
-                        <div class="demo-element section" id="demo-section">&lt;section&gt;</div>
+                <!-- Structure Guidelines -->
+                <div class="structure-guidelines">
+                  <h4 class="guidelines-title">Semantic Structure Guidelines</h4>
+                  <div class="guidelines-grid">
+                    <div class="guideline-item">
+                      <div class="guideline-icon">
+                        <i class="fas fa-layer-group"></i>
                       </div>
-                      <div class="demo-element aside" id="demo-aside">&lt;aside&gt;</div>
+                      <div class="guideline-content">
+                        <h5>Hierarchical Order</h5>
+                        <p>Elements should follow logical document flow: header → main → footer</p>
+                      </div>
                     </div>
-                    <div class="demo-element footer" id="demo-footer">&lt;footer&gt;</div>
+
+                    <div class="guideline-item">
+                      <div class="guideline-icon">
+                        <i class="fas fa-balance-scale"></i>
+                      </div>
+                      <div class="guideline-content">
+                        <h5>One Main Element</h5>
+                        <p>Each page should have exactly one &lt;main&gt; element containing primary content</p>
+                      </div>
+                    </div>
+
+                    <div class="guideline-item">
+                      <div class="guideline-icon">
+                        <i class="fas fa-tags"></i>
+                      </div>
+                      <div class="guideline-content">
+                        <h5>Meaningful Nesting</h5>
+                        <p>Nest elements logically: articles can contain sections, but not vice versa</p>
+                      </div>
+                    </div>
+
+                    <div class="guideline-item">
+                      <div class="guideline-icon">
+                        <i class="fas fa-universal-access"></i>
+                      </div>
+                      <div class="guideline-content">
+                        <h5>Accessibility First</h5>
+                        <p>Use landmarks and headings to create clear navigation paths for screen readers</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -350,155 +584,119 @@
             <section id="content" class="topic-section">
               <h2 class="section-title"><i class="fas fa-file-alt"></i> Content Elements</h2>
 
-              <div class="content-grid">
-                <h3 class="grid-title">Semantic Content Elements</h3>
-
-                <div class="element-showcase">
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;time&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;time datetime="2025-09-09"&gt;September 9, 2025&lt;/time&gt;
+              <div class="topic-grid two-column">
+               
+                <div class="topic-card" onclick="highlightElement('time')">
+                  <h4 class="card-title">&lt;time&gt;</h4>
+                  <p class="card-description">
+                    Represents a specific period in time or a time on a 24-hour clock
+                  </p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Dates, times, durations, article publication dates
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;time datetime="2025-09-09"&gt;September 9, 2025&lt;/time&gt;
 &lt;time datetime="14:30"&gt;2:30 PM&lt;/time&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <time datetime="2025-09-09">September 9, 2025</time><br />
-                      <time datetime="14:30">2:30 PM</time>
-                    </div>
                   </div>
-
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;progress&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <progress value="70" max="100">70%</progress>
-                      <span>70% Complete</span>
-                    </div>
+                  <div class="live-example">
+                    <time datetime="2025-09-09">September 9, 2025</time><br />
+                    <time datetime="14:30">2:30 PM</time>
                   </div>
+                </div>
 
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;mark&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;p&gt;The &lt;mark&gt;highlighted text&lt;/mark&gt; stands out.&lt;/p&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <p>The <mark>highlighted text</mark> stands out.</p>
-                    </div>
+                <div class="topic-card" onclick="highlightElement('progress')">
+                  <h4 class="card-title">&lt;progress&gt;</h4>
+                  <p class="card-description">
+                    Displays the completion progress of a task or process
+                  </p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> File uploads, task completion, skill levels
                   </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;</code></pre>
+                  </div>
+                  <div class="live-example">
+                    <progress value="70" max="100">70%</progress>
+                    <span>70% Complete</span>
+                  </div>
+                </div>
 
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;figure&gt; & &lt;figcaption&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;figure&gt;
+                <div class="topic-card" onclick="highlightElement('mark')">
+                  <h4 class="card-title">&lt;mark&gt;</h4>
+                  <p class="card-description">Represents text that is marked or highlighted for reference</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Search results, highlighted text, important content
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;p&gt;The &lt;mark&gt;highlighted text&lt;/mark&gt; stands out.&lt;/p&gt;</code></pre>
+                  </div>
+                  <div class="live-example">
+                    <p>The <mark>highlighted text</mark> stands out.</p>
+                  </div>
+                </div>
+
+                <div class="topic-card" onclick="highlightElement('figure')">
+                  <h4 class="card-title">&lt;figure&gt; & &lt;figcaption&gt;</h4>
+                  <p class="card-description">Groups media content with its caption for semantic association</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Images with captions, diagrams, code snippets
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;figure&gt;
     &lt;img src="chart.jpg" alt="Sales Chart"&gt;
     &lt;figcaption&gt;Q3 Sales Performance&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <figure class="demo-figure">
-                        <div class="placeholder-img">📊</div>
-                        <figcaption>Q3 Sales Performance</figcaption>
-                      </figure>
-                    </div>
                   </div>
+                  <div class="live-example">
+                    <figure class="demo-figure">
+                      <div class="placeholder-img">📊</div>
+                      <figcaption>Q3 Sales Performance</figcaption>
+                    </figure>
+                  </div>
+                </div>
 
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;details&gt; & &lt;summary&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;details&gt;
+                <div class="topic-card" onclick="highlightElement('details')">
+                  <h4 class="card-title">&lt;details&gt; & &lt;summary&gt;</h4>
+                  <p class="card-description">Creates a disclosure widget that can be expanded/collapsed</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> FAQs, collapsible content, additional information
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;details&gt;
     &lt;summary&gt;Click to expand&lt;/summary&gt;
     &lt;p&gt;Hidden content here!&lt;/p&gt;
 &lt;/details&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <details>
-                        <summary>Click to expand</summary>
-                        <p>Hidden content here!</p>
-                      </details>
-                    </div>
                   </div>
+                  <div class="live-example">
+                    <details>
+                      <summary>Click to expand</summary>
+                      <p>Hidden content here!</p>
+                    </details>
+                  </div>
+                </div>
 
-                  <div class="element-card">
-                    <h4 class="card-title">&lt;blockquote&gt;</h4>
-                    <div class="code-block">
-                      <pre><code class="language-html">&lt;blockquote cite="https://example.com"&gt;
+                <div class="topic-card" onclick="highlightElement('blockquote')">
+                  <h4 class="card-title">&lt;blockquote&gt;</h4>
+                  <p class="card-description">Represents content quoted from another source</p>
+                  <div class="usage-example">
+                    <strong>Usage:</strong> Quotes, testimonials, citations, pull quotes
+                  </div>
+                  <div class="code-block">
+                    <pre><code class="language-html">&lt;blockquote cite="https://example.com"&gt;
     &lt;p&gt;This is a quote from someone famous.&lt;/p&gt;
     &lt;footer&gt;— Famous Person&lt;/footer&gt;
 &lt;/blockquote&gt;</code></pre>
-                    </div>
-                    <div class="live-example">
-                      <blockquote>
-                        <p>This is a quote from someone famous.</p>
-                        <footer>— Famous Person</footer>
-                      </blockquote>
-                    </div>
+                  </div>
+                  <div class="live-example">
+                    <blockquote>
+                      <p>This is a quote from someone famous.</p>
+                      <footer>— Famous Person</footer>
+                    </blockquote>
                   </div>
                 </div>
+
               </div>
 
-              <div class="interactive-builder">
-                <h3 class="builder-title">Semantic Page Builder</h3>
-                <p>
-                  Drag and drop semantic elements to build a proper page
-                  structure:
-                </p>
-
-                <div class="builder-grid">
-                  <div class="element-palette">
-                    <h4 class="palette-title">Available Elements:</h4>
-                    <div class="elements">
-                      <div class="draggable-element" draggable="true" data-element="header">
-                        <i class="fas fa-heading"></i> &lt;header&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="nav">
-                        <i class="fas fa-compass"></i> &lt;nav&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="main">
-                        <i class="fas fa-file-alt"></i> &lt;main&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="article">
-                        <i class="fas fa-newspaper"></i> &lt;article&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="section">
-                        <i class="fas fa-puzzle-piece"></i> &lt;section&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="aside">
-                        <i class="fas fa-columns"></i> &lt;aside&gt;
-                      </div>
-                      <div class="draggable-element" draggable="true" data-element="footer">
-                        <i class="fas fa-shoe-prints"></i> &lt;footer&gt;
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="drop-zone-container">
-                    <h4 class="drop-zone-title">Page Structure:</h4>
-                    <div id="page-builder" class="drop-zone">
-                      <p>Drop semantic elements here to build your page</p>
-                    </div>
-
-                    <div class="builder-controls">
-                      <button class="btn btn-primary" onclick="generateSemanticHTML()">
-                        Generate HTML
-                      </button>
-                      <button class="btn btn-secondary" onclick="clearBuilder()">
-                        Clear All
-                      </button>
-                      <button class="btn btn-info" onclick="loadTemplate()">
-                        Load Template
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="code-output-container">
-                    <h4 class="output-title">Generated HTML:</h4>
-                    <pre id="semantic-html-output" class="code-output">
-&lt;!-- Build your semantic structure --&gt;</pre
-                    >
-                  </div>
-                </div>
-              </div>
             </section>
 
             <section id="accessibility" class="topic-section">
@@ -595,8 +793,8 @@
               <div class="benefits-grid">
                 <h3 class="grid-title">How Semantic HTML Improves SEO</h3>
 
-                <div class="benefit-cards">
-                  <div class="benefit-card">
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
                     <div class="card-icon"><i class="fas fa-search-location"></i></div>
                     <h4 class="card-title">Better Crawling</h4>
                     <p class="card-description">
@@ -605,7 +803,7 @@
                     </p>
                   </div>
 
-                  <div class="benefit-card">
+                  <div class="topic-card">
                     <div class="card-icon"><i class="fas fa-star-of-life"></i></div>
                     <h4 class="card-title">Rich Snippets</h4>
                     <p class="card-description">
@@ -614,7 +812,7 @@
                     </p>
                   </div>
 
-                  <div class="benefit-card">
+                  <div class="topic-card">
                     <div class="card-icon">
                       <i class="fas fa-mobile-alt"></i>
                     </div>
@@ -625,7 +823,7 @@
                     </p>
                   </div>
 
-                  <div class="benefit-card">
+                  <div class="topic-card">
                     <div class="card-icon">
                       <i class="fas fa-share-alt"></i>
                     </div>
@@ -634,24 +832,6 @@
                       Proper markup improves how your content appears when
                       shared on social media.
                     </p>
-                  </div>
-                </div>
-
-                <div class="analyzer-tool">
-                  <h3 class="tool-title">SEO Analyzer Tool</h3>
-                  <p>Paste your HTML code to analyze its semantic structure:</p>
-
-                  <div class="analyzer-container">
-                    <textarea
-                      id="seo-html-input"
-                      class="form-control"
-                      placeholder="Paste your HTML code here..."
-                    ></textarea>
-                    <button class="btn btn-primary" onclick="analyzeSEO()">Analyze SEO</button>
-                  </div>
-
-                  <div id="seo-results" class="results-container">
-                    <!-- SEO analysis results will appear here -->
                   </div>
                 </div>
               </div>
@@ -762,125 +942,301 @@
 
             <section id="resources" class="topic-section">
               <h2 class="section-title"><i class="fas fa-video"></i> Video Resources & External Links</h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding of semantic HTML. 
+                Each resource is carefully selected for quality and educational value.
+              </p>
 
-              <div class="resource-grid">
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-youtube"></i>
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="youtube">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-youtube thumbnail-icon youtube"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">Semantic HTML5 Elements Explained</h4>
-                    <p class="card-subtitle">Web Dev Simplified</p>
+                    <div class="card-header">
+                      <div class="card-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Semantic HTML5 Elements Explained</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Web Dev Simplified</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Complete guide to HTML5 semantic elements and when to use
-                      them.
+                      Complete guide to HTML5 semantic elements and when to use them. 
+                      Perfect for beginners learning the fundamentals of semantic markup.
                     </p>
-                    <a
-                      href="https://www.youtube.com/watch?v=kGW8Al_cga4"
-                      target="_blank"
-                      class="btn btn-secondary"
-                    >
-                      Watch Video <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">HTML5</span>
+                      <span class="tag">Semantic</span>
+                      <span class="tag">Beginner</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>12 min</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span>245K views</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=kGW8Al_cga4"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-play"></i> Watch Video
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-youtube"></i>
+                <div class="resource-card" data-type="youtube">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-youtube thumbnail-icon youtube"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
+                    </div>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">HTML5 Semantic Elements</h4>
-                    <p class="card-subtitle">Traversy Media</p>
+                    <div class="card-header">
+                      <div class="card-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">HTML5 Semantic Elements</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Traversy Media</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Learn about HTML5 semantic elements and how they improve
-                      accessibility and SEO.
+                      Learn about HTML5 semantic elements and how they improve 
+                      accessibility and SEO. Comprehensive coverage with practical examples.
                     </p>
-                    <a
-                      href="https://www.youtube.com/watch?v=ZThq93Yuwd0"
-                      target="_blank"
-                      class="btn btn-secondary"
-                    >
-                      Watch Video <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">HTML5</span>
+                      <span class="tag">SEO</span>
+                      <span class="tag">Accessibility</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>18 min</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span>156K views</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=ZThq93Yuwd0"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-play"></i> Watch Video
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-js-square"></i>
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-firefox-browser thumbnail-icon documentation"></i>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">MDN HTML5 Semantics</h4>
-                    <p class="card-subtitle">Mozilla Developer Network</p>
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fab fa-firefox-browser"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">MDN HTML5 Semantics</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Mozilla Developer Network</span>
+                          <span class="platform">Documentation</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Comprehensive documentation on HTML5 semantic elements.
+                      Comprehensive documentation on HTML5 semantic elements. 
+                      The authoritative reference for web developers.
                     </p>
-                    <a
-                      href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning"
-                      target="_blank"
-                      class="btn btn-secondary"
-                    >
-                      Read Documentation
-                      <i class="fas fa-book-open"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">Reference</span>
+                      <span class="tag">Official</span>
+                      <span class="tag">Complete</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-book"></i>
+                        <span>Reference Guide</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-book-open"></i> Read Documentation
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-universal-access"></i>
+                <div class="resource-card" data-type="guide">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-universal-access thumbnail-icon guide"></i>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">Web Accessibility Guidelines</h4>
-                    <p class="card-subtitle">WCAG 2.1</p>
+                    <div class="card-header">
+                      <div class="card-icon guide">
+                        <i class="fas fa-universal-access"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Web Accessibility Guidelines</h4>
+                        <p class="card-subtitle">
+                          <span class="author">WCAG 2.1</span>
+                          <span class="platform">W3C</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Official web accessibility guidelines and best practices.
+                      Official web accessibility guidelines and best practices. 
+                      Essential reading for creating inclusive web experiences.
                     </p>
-                    <a
-                      href="https://www.w3.org/WAI/WCAG21/quickref/"
-                      target="_blank"
-                      class="btn btn-secondary"
-                    >
-                      View Guidelines <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">Accessibility</span>
+                      <span class="tag">Guidelines</span>
+                      <span class="tag">Standards</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Official Standard</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.w3.org/WAI/WCAG21/quickref/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link-alt"></i> View Guidelines
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-wave-square"></i>
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-wave-square thumbnail-icon tool"></i>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">WAVE Web Accessibility Evaluator</h4>
-                    <p class="card-subtitle">WebAIM</p>
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-wave-square"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">WAVE Web Accessibility Evaluator</h4>
+                        <p class="card-subtitle">
+                          <span class="author">WebAIM</span>
+                          <span class="platform">Online Tool</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Free tool to evaluate web accessibility of your pages.
+                      Free tool to evaluate web accessibility of your pages. 
+                      Get detailed reports and suggestions for improvement.
                     </p>
-                    <a href="https://wave.webaim.org/" target="_blank" class="btn btn-secondary">
-                      Try Tool <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">Testing</span>
+                      <span class="tag">Free</span>
+                      <span class="tag">Analysis</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-tools"></i>
+                        <span>Free Tool</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a href="https://wave.webaim.org/" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-external-link-alt"></i> Try Tool
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-google"></i>
+                <div class="resource-card" data-type="guide">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-google thumbnail-icon guide"></i>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title">Google SEO Starter Guide</h4>
-                    <p class="card-subtitle">Google</p>
+                    <div class="card-header">
+                      <div class="card-icon guide">
+                        <i class="fab fa-google"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Google SEO Starter Guide</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Google</span>
+                          <span class="platform">Developer Guide</span>
+                        </p>
+                      </div>
+                    </div>
                     <p class="card-description">
-                      Official guide on how to optimize your website for search
-                      engines.
+                      Official guide on how to optimize your website for search engines. 
+                      Learn how semantic HTML improves SEO performance.
                     </p>
-                    <a
-                      href="https://developers.google.com/search/docs/beginner/seo-starter-guide"
-                      target="_blank"
-                      class="btn btn-secondary"
-                    >
-                      Read Guide <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="card-tags">
+                      <span class="tag">SEO</span>
+                      <span class="tag">Google</span>
+                      <span class="tag">Official</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-search"></i>
+                        <span>SEO Guide</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developers.google.com/search/docs/beginner/seo-starter-guide"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-book-open"></i> Read Guide
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

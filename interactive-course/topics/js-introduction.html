@@ -161,33 +161,67 @@
               </div>
 
               <div class="resource-grid four-column">
-                <div class="resource-card video-card">
+                <div class="resource-card" data-type="youtube">
                   <div class="card-thumbnail">
                     <img
                       src="https://img.youtube.com/vi/PkZNo7MFNFg/maxresdefault.jpg"
                       alt="JavaScript Crash Course"
                       loading="lazy"
                     />
-                    <div class="play-icon">
-                      <i class="fab fa-youtube"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-play"></i>
                     </div>
-                    <span class="duration">1:40:57</span>
                   </div>
-                  <div class="card-content">
-                    <h3>Learn JavaScript - Full Course for Beginners</h3>
-                    <p class="author">
-                      <i class="fas fa-user"></i> freeCodeCamp.org
-                    </p>
-                    <p class="description">
-                      Comprehensive JavaScript tutorial covering all
-                      fundamentals with practical examples.
-                    </p>
-                    <div class="stats">
-                      <span><i class="fas fa-eye"></i> 8.2M views</span>
-                      <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Learn JavaScript - Full Course for Beginners</h4>
+                        <p class="card-subtitle">
+                          <span class="author">freeCodeCamp.org</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
                     </div>
-                    <a
-                      href="https://www.youtube.com/watch?v=PkZNo7MFNFg"
+                    <p class="card-description">
+                      Comprehensive JavaScript tutorial covering all fundamentals 
+                      with practical examples and hands-on projects.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">Beginner</span>
+                      <span class="tag">freeCodeCamp</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>1:40:57</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span>8.2M views</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span>98%</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=PkZNo7MFNFg"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-play"></i> Watch Video
+                      </a>
+                      <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
                       target="_blank"
                       class="btn btn-secondary"
                     >
