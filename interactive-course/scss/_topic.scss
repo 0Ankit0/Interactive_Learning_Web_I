@@ -1305,6 +1305,186 @@
     }
   }
 
+  // Media control groups
+  .control-group {
+    @include flex-center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+    margin-top: $spacing-lg;
+    padding: $spacing-md;
+    background: linear-gradient(135deg, rgba($bg-light, 0.3), rgba($bg-light, 0.1));
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba($border-light, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+
+    .demo-button {
+      @include button-primary;
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-size-sm;
+      border-radius: $border-radius-md;
+      min-width: 80px;
+      transition: all $transition-fast;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-xs;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(white, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      &:hover:not(.disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.3);
+
+        &::before {
+          left: 100%;
+        }
+      }
+
+      &:active:not(.disabled) {
+        transform: translateY(0);
+        box-shadow: $shadow-sm;
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        background: $bg-light !important;
+        color: $text-secondary !important;
+        border: 1px solid $border-light !important;
+        transform: none !important;
+        box-shadow: none !important;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      i {
+        font-size: $font-size-sm;
+        z-index: 1;
+        position: relative;
+      }
+
+      span {
+        z-index: 1;
+        position: relative;
+      }
+
+      // Icon-only buttons for video controls
+      &:not(:has(span)) {
+        min-width: 50px;
+        padding: $spacing-sm;
+        border-radius: 50%;
+
+        &:hover:not(.disabled) {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .demo-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100px;
+      height: 6px;
+      border-radius: 3px;
+      background: $bg-light;
+      outline: none;
+      transition: background $transition-base;
+      margin: 0 $spacing-sm;
+      vertical-align: middle;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: $primary-color;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all $transition-base;
+
+        &:hover {
+          background: $primary-hover;
+          transform: scale(1.1);
+        }
+      }
+
+      &::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: $primary-color;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all $transition-base;
+
+        &:hover {
+          background: $primary-hover;
+          transform: scale(1.1);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+    }
+
+    // Volume display and time display styling
+    span {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      color: $text-secondary;
+      min-width: 40px;
+      text-align: center;
+      background: $bg-primary;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-sm;
+      border: 1px solid $border-light;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      gap: $spacing-sm;
+      padding: $spacing-sm;
+
+      .demo-button {
+        padding: $spacing-xs $spacing-md;
+        font-size: $font-size-xs;
+        min-width: 70px;
+
+        &:not(:has(span)) {
+          min-width: 40px;
+          padding: $spacing-xs;
+        }
+      }
+
+      .demo-slider {
+        width: 80px;
+      }
+
+      span {
+        font-size: $font-size-xs;
+        min-width: 35px;
+        padding: $spacing-xs;
+      }
+    }
+  }
+
   .demo-visualization {
     position: relative;
     display: flex;
@@ -6604,7 +6784,7 @@
 
 // Resource grid variations
 .resource-grid.two-column {
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   
   @include breakpoint($breakpoint-lg) {
     grid-template-columns: repeat(2, 1fr);
@@ -6615,8 +6795,58 @@
   }
 }
 
+// Video player styles
+.video-player-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .overlay-controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    .demo-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all $transition-base;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.1);
+      }
+
+      i {
+        margin: 0;
+      }
+    }
+  }
+}
+
 .resource-grid.three-column {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   
   @include breakpoint($breakpoint-xl) {
     grid-template-columns: repeat(3, 1fr);
