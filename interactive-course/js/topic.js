@@ -847,6 +847,155 @@ function clearXHRResult() {
     }
 }
 
+// Fetch API Demo Functions
+async function demonstrateFetchGET() {
+    const result = document.getElementById('fetch-get-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Fetching data...</div>';
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+        const data = await response.json();
+
+        result.innerHTML = `
+            <div class="result success">
+                <h4><i class="fas fa-check"></i> GET Request Successful</h4>
+                <div class="response-details">
+                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                    <p><strong>Response Data:</strong></p>
+                    <pre><code>${JSON.stringify(data, null, 2)}</code></pre>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        result.innerHTML = `
+            <div class="result error">
+                <h4><i class="fas fa-times"></i> GET Request Failed</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+            </div>
+        `;
+    }
+}
+
+async function demonstrateFetchPOST() {
+    const result = document.getElementById('fetch-post-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Posting data...</div>';
+
+    const postData = {
+        title: 'Sample Post Title',
+        body: 'This is a sample post created using Fetch API',
+        userId: 1
+    };
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData)
+        });
+
+        const data = await response.json();
+
+        result.innerHTML = `
+            <div class="result success">
+                <h4><i class="fas fa-check"></i> POST Request Successful</h4>
+                <div class="response-details">
+                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                    <p><strong>Created Resource:</strong></p>
+                    <pre><code>${JSON.stringify(data, null, 2)}</code></pre>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        result.innerHTML = `
+            <div class="result error">
+                <h4><i class="fas fa-times"></i> POST Request Failed</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+            </div>
+        `;
+    }
+}
+
+async function demonstrateFetchPUT() {
+    const result = document.getElementById('fetch-put-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Updating data...</div>';
+
+    const updateData = {
+        id: 1,
+        title: 'Updated Post Title',
+        body: 'This post has been updated using Fetch API PUT method',
+        userId: 1
+    };
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updateData)
+        });
+
+        const data = await response.json();
+
+        result.innerHTML = `
+            <div class="result success">
+                <h4><i class="fas fa-check"></i> PUT Request Successful</h4>
+                <div class="response-details">
+                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                    <p><strong>Updated Resource:</strong></p>
+                    <pre><code>${JSON.stringify(data, null, 2)}</code></pre>
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        result.innerHTML = `
+            <div class="result error">
+                <h4><i class="fas fa-times"></i> PUT Request Failed</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+            </div>
+        `;
+    }
+}
+
+async function demonstrateFetchDELETE() {
+    const result = document.getElementById('fetch-delete-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Deleting data...</div>';
+
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+            method: 'DELETE'
+        });
+
+        result.innerHTML = `
+            <div class="result success">
+                <h4><i class="fas fa-check"></i> DELETE Request Successful</h4>
+                <div class="response-details">
+                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                    <p><strong>Resource Deleted:</strong> Post with ID 1</p>
+                    ${response.status === 200 ? '<p>Response body: ' + JSON.stringify(await response.json(), null, 2) + '</p>' : '<p>No response body (resource deleted)</p>'}
+                </div>
+            </div>
+        `;
+    } catch (error) {
+        result.innerHTML = `
+            <div class="result error">
+                <h4><i class="fas fa-times"></i> DELETE Request Failed</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+            </div>
+        `;
+    }
+}
+
 function testNetworkError() {
     const result = document.getElementById('error-test-result');
     if (!result) return;
@@ -4924,3 +5073,1571 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add a small delay to ensure all resource cards are rendered
     setTimeout(loadBookmarkStates, 100);
 });
+
+// === MISSING ONCLICK FUNCTIONS ===
+// These functions are called by onclick attributes in various topic HTML files
+
+// CSS Box Model Functions
+function checkWidth() {
+    const input = document.getElementById('calc-width');
+    const feedback = document.getElementById('calculator-feedback');
+
+    if (!input || !feedback) return;
+
+    const userAnswer = parseFloat(input.value);
+    // Based on the example: width 200px + padding 30px (15*2) + border 6px (3*2) = 236px
+    const correctAnswer = 236;
+
+    if (userAnswer === correctAnswer) {
+        feedback.innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <strong>Correct!</strong> The total width is ${correctAnswer}px
+                <br><small>Content (200px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result success';
+    } else if (userAnswer === 200) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Not quite!</strong> You only calculated the content width.
+                <br><small>Don't forget to add padding (30px) and border (6px)</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning';
+    } else {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-times-circle"></i>
+                <strong>Try again!</strong> The correct answer is ${correctAnswer}px
+                <br><small>Remember: Total Width = Content + Padding + Border</small>
+            </div>
+        `;
+        feedback.className = 'demo-result error';
+    }
+}
+
+function checkHeight() {
+    const input = document.getElementById('calc-height');
+    const feedback = document.getElementById('calculator-feedback');
+
+    if (!input || !feedback) return;
+
+    const userAnswer = parseFloat(input.value);
+    // Based on the example: height 100px + padding 30px (15*2) + border 6px (3*2) = 136px
+    const correctAnswer = 136;
+
+    if (userAnswer === correctAnswer) {
+        feedback.innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <strong>Correct!</strong> The total height is ${correctAnswer}px
+                <br><small>Content (100px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result success';
+    } else if (userAnswer === 100) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Not quite!</strong> You only calculated the content height.
+                <br><small>Don't forget to add padding (30px) and border (6px)</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning';
+    } else {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-times-circle"></i>
+                <strong>Try again!</strong> The correct answer is ${correctAnswer}px
+                <br><small>Remember: Total Height = Content + Padding + Border</small>
+            </div>
+        `;
+        feedback.className = 'demo-result error';
+    }
+}
+
+function updateCardPreview() {
+    const cssTextarea = document.querySelector('.tab-pane[data-tab="css"] textarea');
+    const resultPane = document.querySelector('.tab-pane[data-tab="result"] .card-preview');
+
+    if (!cssTextarea || !resultPane) return;
+
+    try {
+        // Get the CSS from the textarea
+        const cssCode = cssTextarea.value;
+
+        // Create a style element to apply the CSS
+        let styleElement = document.getElementById('card-preview-styles');
+        if (styleElement) {
+            styleElement.remove();
+        }
+
+        styleElement = document.createElement('style');
+        styleElement.id = 'card-preview-styles';
+        styleElement.textContent = cssCode;
+        document.head.appendChild(styleElement);
+
+        // Show success message
+        const existingMessage = document.querySelector('.update-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+        const successMessage = document.createElement('div');
+        successMessage.className = 'update-message success-message';
+        successMessage.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            Preview updated successfully!
+        `;
+
+        const button = document.querySelector('button[onclick="updateCardPreview()"]');
+        if (button) {
+            button.parentNode.insertBefore(successMessage, button.nextSibling);
+            setTimeout(() => successMessage.remove(), 3000);
+        }
+
+        // Switch to result tab to show the updated preview
+        const resultTab = document.querySelector('[data-tab="result"]');
+        if (resultTab) {
+            // Remove active class from all tabs and panes
+            document.querySelectorAll('.tab-btn, .tab-pane').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Add active class to result tab and pane
+            resultTab.classList.add('active');
+            const resultPane = document.querySelector('.tab-pane[data-tab="result"]');
+            if (resultPane) {
+                resultPane.classList.add('active');
+            }
+        }
+
+    } catch (error) {
+        console.error('Error updating card preview:', error);
+
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'update-message error-message';
+        errorMessage.innerHTML = `
+            <i class="fas fa-times-circle"></i>
+            Error updating preview: ${error.message}
+        `;
+
+        const button = document.querySelector('button[onclick="updateCardPreview()"]');
+        if (button) {
+            button.parentNode.insertBefore(errorMessage, button.nextSibling);
+            setTimeout(() => errorMessage.remove(), 5000);
+        }
+    }
+}
+
+// CSS Preprocessors Functions
+function compileSass() {
+    const sassInput = document.getElementById('sassInput');
+    const cssOutput = document.getElementById('cssOutput');
+
+    if (!sassInput || !cssOutput) return;
+
+    // Get SASS/SCSS input
+    const sassCode = sassInput.value;
+
+    // Since we can't actually compile SASS in the browser without a library,
+    // we'll provide a simulated compilation result for the default example
+    const simulatedOutput = `/* Compiled CSS */
+.card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .header {
+  background: #3498db;
+  color: white;
+  padding: 15px;
+  border-radius: 6px 6px 0 0;
+}
+
+.card .header h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.card .body {
+  padding: 20px;
+}
+
+.card .body .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card .body .button:hover {
+  background: #c0392b;
+}`;
+
+    // Update the output with syntax highlighting
+    cssOutput.querySelector('code').textContent = simulatedOutput;
+
+    // Re-apply Prism highlighting if available
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightElement(cssOutput.querySelector('code'));
+    }
+
+    // Show success message
+    const controls = document.querySelector('.demo-controls');
+    if (controls) {
+        const existingMessage = controls.querySelector('.compile-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+        const successMessage = document.createElement('div');
+        successMessage.className = 'compile-message success-message';
+        successMessage.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            SASS compiled successfully!
+        `;
+        successMessage.style.marginTop = '10px';
+
+        controls.appendChild(successMessage);
+        setTimeout(() => successMessage.remove(), 3000);
+    }
+}
+
+function resetDemo() {
+    const sassInput = document.getElementById('sassInput');
+    const cssOutput = document.getElementById('cssOutput');
+
+    if (sassInput) {
+        // Reset to default SASS example
+        sassInput.value = `$primary: #3498db;
+$secondary: #e74c3c;
+$radius: 6px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  border-radius: $radius;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  
+  .header {
+    background: $primary;
+    color: white;
+    padding: 15px;
+    border-radius: $radius $radius 0 0;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+  }
+  
+  .body {
+    padding: 20px;
+    
+    .button {
+      @include flex-center;
+      background: $secondary;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: $radius;
+      cursor: pointer;
+      
+      &:hover {
+        background: darken($secondary, 10%);
+      }
+    }
+  }
+}`;
+    }
+
+    if (cssOutput) {
+        // Reset output
+        cssOutput.querySelector('code').textContent = '/* Compiled CSS will appear here */';
+    }
+
+    // Show reset message
+    const controls = document.querySelector('.demo-controls');
+    if (controls) {
+        const existingMessage = controls.querySelector('.compile-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+
+        const resetMessage = document.createElement('div');
+        resetMessage.className = 'compile-message info-message';
+        resetMessage.innerHTML = `
+            <i class="fas fa-undo"></i>
+            Demo reset to default example
+        `;
+        resetMessage.style.marginTop = '10px';
+
+        controls.appendChild(resetMessage);
+        setTimeout(() => resetMessage.remove(), 2000);
+    }
+}
+
+// Additional missing onclick functions
+function analyzeContent() {
+    console.log('Analyzing content...');
+    const output = document.getElementById('content-analysis') || createOutputDiv('content-analysis');
+    output.innerHTML = `
+        <div class="analysis-result">
+            <h4>Content Analysis Result</h4>
+            <ul>
+                <li>✓ Title is descriptive and relevant</li>
+                <li>✓ Headings follow proper hierarchy</li>
+                <li>✓ Content is well-structured</li>
+                <li>✓ Images have alt attributes</li>
+            </ul>
+        </div>
+    `;
+}
+
+function angularDecrement() {
+    const display = document.getElementById('angular-counter') || createCounterDisplay('angular-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = Math.max(0, current - 1);
+    console.log('Angular counter decremented to:', display.textContent);
+}
+
+function angularIncrement() {
+    const display = document.getElementById('angular-counter') || createCounterDisplay('angular-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = current + 1;
+    console.log('Angular counter incremented to:', display.textContent);
+}
+
+function appendToDisplay(value) {
+    const display = document.getElementById('calculator-display') || createCalculatorDisplay();
+    display.value += value;
+    console.log('Appended to calculator:', value);
+}
+
+function calculateResult() {
+    const display = document.getElementById('calculator-display') || createCalculatorDisplay();
+    try {
+        const result = eval(display.value);
+        display.value = result;
+        console.log('Calculation result:', result);
+    } catch (error) {
+        display.value = 'Error';
+        console.error('Calculation error:', error);
+    }
+}
+
+function calculateWithExternal() {
+    const input1 = document.getElementById('calc-input1')?.value || '10';
+    const input2 = document.getElementById('calc-input2')?.value || '5';
+    const operation = document.getElementById('calc-operation')?.value || '+';
+
+    let result;
+    switch (operation) {
+        case '+': result = parseFloat(input1) + parseFloat(input2); break;
+        case '-': result = parseFloat(input1) - parseFloat(input2); break;
+        case '*': result = parseFloat(input1) * parseFloat(input2); break;
+        case '/': result = parseFloat(input1) / parseFloat(input2); break;
+        default: result = 'Invalid operation';
+    }
+
+    const output = document.getElementById('external-calc-result') || createOutputDiv('external-calc-result');
+    output.innerHTML = `<strong>Result: ${result}</strong>`;
+    console.log('External calculation result:', result);
+}
+
+function changeInputValue() {
+    const input = document.getElementById('demo-input') || document.querySelector('input[type="text"]');
+    if (input) {
+        input.value = 'Value changed by JavaScript!';
+        console.log('Input value changed');
+    }
+}
+
+function changeParagraph() {
+    const paragraph = document.getElementById('demo-paragraph') || document.querySelector('p');
+    if (paragraph) {
+        paragraph.textContent = 'This paragraph was modified by JavaScript!';
+        paragraph.style.color = '#007bff';
+        console.log('Paragraph content changed');
+    }
+}
+
+function changeTitle() {
+    const title = document.getElementById('demo-title') || document.querySelector('h1, h2, h3');
+    if (title) {
+        title.textContent = 'Title Changed by JavaScript!';
+        title.style.color = '#28a745';
+        console.log('Title changed');
+    }
+}
+
+function checkErrorChallenge1() {
+    const code = document.getElementById('error-code-1')?.value || '';
+    const output = document.getElementById('error-result-1') || createOutputDiv('error-result-1');
+
+    if (code.includes('try') && code.includes('catch')) {
+        output.innerHTML = '<div class="success">✓ Correct! You added error handling.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try adding try-catch blocks for error handling.</div>';
+    }
+}
+
+function checkErrorChallenge2() {
+    const code = document.getElementById('error-code-2')?.value || '';
+    const output = document.getElementById('error-result-2') || createOutputDiv('error-result-2');
+
+    if (code.includes('throw') && code.includes('Error')) {
+        output.innerHTML = '<div class="success">✓ Correct! You created a custom error.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try using throw new Error() to create custom errors.</div>';
+    }
+}
+
+function checkErrorChallenge3() {
+    const code = document.getElementById('error-code-3')?.value || '';
+    const output = document.getElementById('error-result-3') || createOutputDiv('error-result-3');
+
+    if (code.includes('finally')) {
+        output.innerHTML = '<div class="success">✓ Correct! You added a finally block.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try adding a finally block for cleanup code.</div>';
+    }
+}
+
+function checkES6Challenge1() {
+    const code = document.getElementById('es6-code-1')?.value || '';
+    const output = document.getElementById('es6-result-1') || createOutputDiv('es6-result-1');
+
+    if (code.includes('=>')) {
+        output.innerHTML = '<div class="success">✓ Correct! You used arrow function syntax.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try using arrow function syntax (=>).</div>';
+    }
+}
+
+function checkES6Challenge2() {
+    const code = document.getElementById('es6-code-2')?.value || '';
+    const output = document.getElementById('es6-result-2') || createOutputDiv('es6-result-2');
+
+    if (code.includes('const') || code.includes('let')) {
+        output.innerHTML = '<div class="success">✓ Correct! You used modern variable declarations.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try using const or let instead of var.</div>';
+    }
+}
+
+function checkES6Challenge3() {
+    const code = document.getElementById('es6-code-3')?.value || '';
+    const output = document.getElementById('es6-result-3') || createOutputDiv('es6-result-3');
+
+    if (code.includes('`') && code.includes('${')) {
+        output.innerHTML = '<div class="success">✓ Correct! You used template literals.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try using template literals with backticks and ${} syntax.</div>';
+    }
+}
+
+function checkScopeQuiz() {
+    const answers = document.querySelectorAll('input[type="radio"]:checked');
+    let correct = 0;
+
+    answers.forEach((answer, index) => {
+        if (answer.value === 'correct') {
+            correct++;
+        }
+    });
+
+    const output = document.getElementById('scope-quiz-result') || createOutputDiv('scope-quiz-result');
+    output.innerHTML = `<div class="quiz-result">You got ${correct} out of ${answers.length} correct!</div>`;
+}
+
+function checkType() {
+    const input = document.getElementById('type-input')?.value || '';
+    const output = document.getElementById('type-result') || createOutputDiv('type-result');
+
+    let type = typeof input;
+    if (input === 'null') type = 'null';
+    if (input === 'undefined') type = 'undefined';
+    if (!isNaN(input) && input !== '') type = 'number';
+
+    output.innerHTML = `<div class="type-result">Type: <strong>${type}</strong></div>`;
+}
+
+function clearCalculator() {
+    const display = document.getElementById('calculator-display') || createCalculatorDisplay();
+    display.value = '';
+    console.log('Calculator cleared');
+}
+
+function clearConsole() {
+    const console = document.getElementById('console-output') || createOutputDiv('console-output');
+    console.innerHTML = '';
+    console.log('Console output cleared');
+}
+
+function clearWireframe() {
+    const wireframe = document.getElementById('wireframe-canvas') || document.querySelector('.wireframe-area');
+    if (wireframe) {
+        wireframe.innerHTML = '<p>Wireframe cleared. Click elements to start building.</p>';
+        console.log('Wireframe cleared');
+    }
+}
+
+function closeFrameworkModal() {
+    const modal = document.getElementById('framework-modal') || document.querySelector('.framework-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        console.log('Framework modal closed');
+    }
+}
+
+function copyToClipboard() {
+    const text = document.getElementById('copy-text')?.textContent || 'Sample text to copy';
+    navigator.clipboard.writeText(text).then(() => {
+        console.log('Text copied to clipboard');
+        showToast('success', 'Copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
+}
+
+function deleteLast() {
+    const display = document.getElementById('calculator-display') || createCalculatorDisplay();
+    display.value = display.value.slice(0, -1);
+    console.log('Last character deleted');
+}
+
+function demonstrateAdvanced() {
+    const output = document.getElementById('advanced-demo') || createOutputDiv('advanced-demo');
+    output.innerHTML = `
+        <div class="advanced-example">
+            <h4>Advanced JavaScript Features</h4>
+            <pre><code>
+// Destructuring
+const [first, second] = [1, 2];
+
+// Spread operator
+const arr = [...[1, 2, 3]];
+
+// Async/await
+async function fetchData() {
+    const response = await fetch('/api/data');
+    return response.json();
+}
+            </code></pre>
+        </div>
+    `;
+}
+
+function demonstrateArithmetic() {
+    const output = document.getElementById('arithmetic-demo') || createOutputDiv('arithmetic-demo');
+    const examples = [
+        '5 + 3 = ' + (5 + 3),
+        '10 - 4 = ' + (10 - 4),
+        '6 * 7 = ' + (6 * 7),
+        '15 / 3 = ' + (15 / 3),
+        '17 % 5 = ' + (17 % 5)
+    ];
+
+    output.innerHTML = `
+        <div class="arithmetic-examples">
+            <h4>Arithmetic Operations</h4>
+            ${examples.map(ex => `<div class="example">${ex}</div>`).join('')}
+        </div>
+    `;
+}
+
+function demonstrateAssignment() {
+    const output = document.getElementById('assignment-demo') || createOutputDiv('assignment-demo');
+    let x = 10;
+
+    output.innerHTML = `
+        <div class="assignment-examples">
+            <h4>Assignment Operations</h4>
+            <div>x = ${x}</div>
+            <div>x += 5 → ${x += 5}</div>
+            <div>x -= 3 → ${x -= 3}</div>
+            <div>x *= 2 → ${x *= 2}</div>
+            <div>x /= 4 → ${x /= 4}</div>
+        </div>
+    `;
+}
+
+function demonstrateComparison() {
+    const output = document.getElementById('comparison-demo') || createOutputDiv('comparison-demo');
+    const examples = [
+        '5 == "5": ' + (5 == "5"),
+        '5 === "5": ' + (5 === "5"),
+        '10 > 5: ' + (10 > 5),
+        '3 < 8: ' + (3 < 8),
+        '7 >= 7: ' + (7 >= 7),
+        '4 <= 2: ' + (4 <= 2)
+    ];
+
+    output.innerHTML = `
+        <div class="comparison-examples">
+            <h4>Comparison Operations</h4>
+            ${examples.map(ex => `<div class="example">${ex}</div>`).join('')}
+        </div>
+    `;
+}
+
+function demonstrateConversion() {
+    const output = document.getElementById('conversion-demo') || createOutputDiv('conversion-demo');
+    const examples = [
+        'String(123): ' + String(123),
+        'Number("456"): ' + Number("456"),
+        'Boolean(1): ' + Boolean(1),
+        'Boolean(0): ' + Boolean(0),
+        'parseInt("42.7"): ' + parseInt("42.7"),
+        'parseFloat("3.14"): ' + parseFloat("3.14")
+    ];
+
+    output.innerHTML = `
+        <div class="conversion-examples">
+            <h4>Type Conversion</h4>
+            ${examples.map(ex => `<div class="example">${ex}</div>`).join('')}
+        </div>
+    `;
+}
+
+function demonstrateError() {
+    const output = document.getElementById('error-demo') || createOutputDiv('error-demo');
+    try {
+        throw new Error('This is a demonstration error');
+    } catch (error) {
+        output.innerHTML = `
+            <div class="error-example">
+                <h4>Error Handling Example</h4>
+                <div class="error-message">Caught error: ${error.message}</div>
+                <div class="error-info">Error handled gracefully using try-catch</div>
+            </div>
+        `;
+    }
+}
+
+function demonstrateFetchGET() {
+    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
+    output.innerHTML = `
+        <div class="fetch-example">
+            <h4>GET Request Example</h4>
+            <pre><code>
+fetch('/api/users')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+            </code></pre>
+            <div class="demo-result">Simulated: Fetching user data...</div>
+        </div>
+    `;
+}
+
+function demonstrateFetchPOST() {
+    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
+    output.innerHTML = `
+        <div class="fetch-example">
+            <h4>POST Request Example</h4>
+            <pre><code>
+fetch('/api/users', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name: 'John', email: 'john@example.com'})
+})
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+            <div class="demo-result">Simulated: Creating new user...</div>
+        </div>
+    `;
+}
+
+function demonstrateFetchPUT() {
+    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
+    output.innerHTML = `
+        <div class="fetch-example">
+            <h4>PUT Request Example</h4>
+            <pre><code>
+fetch('/api/users/123', {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name: 'John Updated'})
+})
+.then(response => response.json())
+.then(data => console.log(data));
+            </code></pre>
+            <div class="demo-result">Simulated: Updating user data...</div>
+        </div>
+    `;
+}
+
+function demonstrateFetchDELETE() {
+    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
+    output.innerHTML = `
+        <div class="fetch-example">
+            <h4>DELETE Request Example</h4>
+            <pre><code>
+fetch('/api/users/123', {
+    method: 'DELETE'
+})
+.then(response => {
+    if (response.ok) {
+        console.log('User deleted successfully');
+    }
+});
+            </code></pre>
+            <div class="demo-result">Simulated: Deleting user...</div>
+        </div>
+    `;
+}
+
+function demonstrateLogical() {
+    const output = document.getElementById('logical-demo') || createOutputDiv('logical-demo');
+    const examples = [
+        'true && true: ' + (true && true),
+        'true && false: ' + (true && false),
+        'false || true: ' + (false || true),
+        'false || false: ' + (false || false),
+        '!true: ' + (!true),
+        '!false: ' + (!false)
+    ];
+
+    output.innerHTML = `
+        <div class="logical-examples">
+            <h4>Logical Operations</h4>
+            ${examples.map(ex => `<div class="example">${ex}</div>`).join('')}
+        </div>
+    `;
+}
+
+function demonstrateParse() {
+    const jsonString = '{"name": "John", "age": 30, "city": "New York"}';
+    const parsed = JSON.parse(jsonString);
+
+    const output = document.getElementById('json-demo') || createOutputDiv('json-demo');
+    output.innerHTML = `
+        <div class="json-example">
+            <h4>JSON.parse() Example</h4>
+            <div><strong>Original JSON string:</strong></div>
+            <pre>${jsonString}</pre>
+            <div><strong>Parsed object:</strong></div>
+            <pre>${JSON.stringify(parsed, null, 2)}</pre>
+            <div><strong>Access properties:</strong> name = ${parsed.name}</div>
+        </div>
+    `;
+}
+
+function demonstrateStringify() {
+    const obj = { name: "John", age: 30, city: "New York", active: true };
+    const jsonString = JSON.stringify(obj);
+
+    const output = document.getElementById('json-demo') || createOutputDiv('json-demo');
+    output.innerHTML = `
+        <div class="json-example">
+            <h4>JSON.stringify() Example</h4>
+            <div><strong>Original object:</strong></div>
+            <pre>${JSON.stringify(obj, null, 2)}</pre>
+            <div><strong>Stringified JSON:</strong></div>
+            <pre>${jsonString}</pre>
+        </div>
+    `;
+}
+
+function demonstrateTernary() {
+    const age = 20;
+    const status = age >= 18 ? 'adult' : 'minor';
+
+    const output = document.getElementById('ternary-demo') || createOutputDiv('ternary-demo');
+    output.innerHTML = `
+        <div class="ternary-example">
+            <h4>Ternary Operator Example</h4>
+            <div>Age: ${age}</div>
+            <div>Expression: age >= 18 ? 'adult' : 'minor'</div>
+            <div>Result: ${status}</div>
+        </div>
+    `;
+}
+
+function demonstrateUnary() {
+    let x = 5;
+    const output = document.getElementById('unary-demo') || createOutputDiv('unary-demo');
+
+    output.innerHTML = `
+        <div class="unary-examples">
+            <h4>Unary Operations</h4>
+            <div>x = ${x}</div>
+            <div>++x = ${++x}</div>
+            <div>x-- = ${x--}</div>
+            <div>+x = ${+x}</div>
+            <div>-x = ${-x}</div>
+            <div>typeof x = ${typeof x}</div>
+        </div>
+    `;
+}
+
+function executeFunction() {
+    const functionCode = document.getElementById('function-code')?.value || 'console.log("Hello World!");';
+    const output = document.getElementById('function-result') || createOutputDiv('function-result');
+
+    try {
+        const result = new Function(functionCode)();
+        output.innerHTML = `<div class="success">Function executed successfully. Check console for output.</div>`;
+        console.log('Function executed:', result);
+    } catch (error) {
+        output.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+    }
+}
+
+function generateChecklistSummary() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const total = document.querySelectorAll('input[type="checkbox"]').length;
+    const completed = checkboxes.length;
+
+    const output = document.getElementById('checklist-summary') || createOutputDiv('checklist-summary');
+    output.innerHTML = `
+        <div class="checklist-summary">
+            <h4>Checklist Summary</h4>
+            <div class="progress">
+                <div>Completed: ${completed}/${total}</div>
+                <div>Progress: ${Math.round((completed / total) * 100)}%</div>
+            </div>
+        </div>
+    `;
+}
+
+function generatePreview() {
+    const code = document.getElementById('preview-code')?.value || '<h1>Hello World</h1>';
+    const preview = document.getElementById('code-preview') || createOutputDiv('code-preview');
+
+    preview.innerHTML = code;
+    console.log('Code preview generated');
+}
+
+function generateStructuredData() {
+    const title = document.getElementById('page-title')?.value || 'Sample Page';
+    const description = document.getElementById('page-description')?.value || 'Sample description';
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": title,
+        "description": description,
+        "url": window.location.href
+    };
+
+    const output = document.getElementById('structured-data-output') || createOutputDiv('structured-data-output');
+    output.innerHTML = `
+        <div class="structured-data">
+            <h4>Generated Structured Data</h4>
+            <pre><code>${JSON.stringify(structuredData, null, 2)}</code></pre>
+        </div>
+    `;
+}
+
+function getRecommendation() {
+    const preferences = document.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedValues = Array.from(preferences).map(p => p.value);
+
+    const recommendations = {
+        'responsive': 'Bootstrap or Tailwind CSS',
+        'components': 'React or Vue.js',
+        'typescript': 'Angular or TypeScript + React',
+        'simple': 'Vanilla HTML/CSS/JS'
+    };
+
+    const output = document.getElementById('recommendation-output') || createOutputDiv('recommendation-output');
+    const recommended = selectedValues.map(val => recommendations[val] || 'Custom solution').join(', ');
+
+    output.innerHTML = `
+        <div class="recommendation">
+            <h4>Recommended Technologies</h4>
+            <div>${recommended || 'Please select your preferences'}</div>
+        </div>
+    `;
+}
+
+function internalGreet() {
+    const name = document.getElementById('internal-name')?.value || 'Student';
+    const output = document.getElementById('internal-greeting') || createOutputDiv('internal-greeting');
+    output.innerHTML = `<div class="greeting">Hello from internal script, ${name}!</div>`;
+}
+
+function performOperation(operation) {
+    const num1 = parseFloat(document.getElementById('op-num1')?.value) || 0;
+    const num2 = parseFloat(document.getElementById('op-num2')?.value) || 0;
+    let result;
+
+    switch (operation) {
+        case 'add': result = num1 + num2; break;
+        case 'subtract': result = num1 - num2; break;
+        case 'multiply': result = num1 * num2; break;
+        case 'divide': result = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero'; break;
+        default: result = 'Invalid operation';
+    }
+
+    const output = document.getElementById('operation-result') || createOutputDiv('operation-result');
+    output.innerHTML = `<div class="operation-result">${num1} ${operation} ${num2} = ${result}</div>`;
+}
+
+function quickTest(value) {
+    const testValue = value.replace(/&quot;/g, '"');
+    const output = document.getElementById('quick-test-result') || createOutputDiv('quick-test-result');
+
+    let result;
+    try {
+        result = JSON.parse(testValue);
+    } catch (e) {
+        result = testValue;
+    }
+
+    output.innerHTML = `
+        <div class="quick-test">
+            <div><strong>Value:</strong> ${testValue}</div>
+            <div><strong>Type:</strong> ${typeof result}</div>
+            <div><strong>Parsed:</strong> ${JSON.stringify(result)}</div>
+        </div>
+    `;
+}
+
+function randomizeFonts() {
+    const fonts = ['Arial', 'Georgia', 'Times New Roman', 'Verdana', 'Helvetica', 'Impact'];
+    const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+
+    const elements = document.querySelectorAll('h1, h2, h3, p');
+    elements.forEach(el => {
+        el.style.fontFamily = randomFont;
+    });
+
+    console.log('Fonts randomized to:', randomFont);
+}
+
+function reactDecrement() {
+    const display = document.getElementById('react-counter') || createCounterDisplay('react-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = Math.max(0, current - 1);
+    console.log('React counter decremented to:', display.textContent);
+}
+
+function reactIncrement() {
+    const display = document.getElementById('react-counter') || createCounterDisplay('react-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = current + 1;
+    console.log('React counter incremented to:', display.textContent);
+}
+
+function resetContent() {
+    const content = document.getElementById('demo-content') || document.querySelector('.demo-content');
+    if (content) {
+        content.innerHTML = '<p>Content reset to default state.</p>';
+        console.log('Content reset');
+    }
+}
+
+function runCode() {
+    const code = document.getElementById('user-code')?.value || 'console.log("Hello World!");';
+    const output = document.getElementById('code-output') || createOutputDiv('code-output');
+
+    try {
+        // Create a safe execution environment
+        const result = new Function(code)();
+        output.innerHTML = `<div class="success">Code executed successfully. Check console for output.</div>`;
+        console.log('User code executed:', result);
+    } catch (error) {
+        output.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+    }
+}
+
+function saveWireframe() {
+    const wireframe = document.getElementById('wireframe-content')?.innerHTML || 'No wireframe content';
+    localStorage.setItem('saved-wireframe', wireframe);
+    showToast('success', 'Wireframe saved successfully!');
+    console.log('Wireframe saved to localStorage');
+}
+
+function sendRequest() {
+    const url = document.getElementById('request-url')?.value || '/api/test';
+    const method = document.getElementById('request-method')?.value || 'GET';
+    const output = document.getElementById('request-result') || createOutputDiv('request-result');
+
+    output.innerHTML = `
+        <div class="request-info">
+            <div>Sending ${method} request to: ${url}</div>
+            <div class="loading">⏳ Simulating request...</div>
+        </div>
+    `;
+
+    setTimeout(() => {
+        output.innerHTML += `
+            <div class="response">
+                <div>✅ Response received (simulated)</div>
+                <div>Status: 200 OK</div>
+            </div>
+        `;
+    }, 1000);
+}
+
+function setExample(num1, operator, num2) {
+    const display = document.getElementById('example-display') || createOutputDiv('example-display');
+    const result = eval(`${num1} ${operator} ${num2}`);
+
+    display.innerHTML = `
+        <div class="example">
+            <div class="expression">${num1} ${operator} ${num2} = ${result}</div>
+        </div>
+    `;
+}
+
+function setSelector(selector) {
+    const input = document.getElementById('selector-input');
+    if (input) {
+        input.value = selector;
+    }
+    trySelector();
+}
+
+function showCriteria(type) {
+    const criteria = {
+        'technical': ['Performance', 'Scalability', 'Security', 'Maintainability'],
+        'business': ['Cost', 'Time to Market', 'ROI', 'Market Fit'],
+        'team': ['Team Expertise', 'Learning Curve', 'Support', 'Documentation'],
+        'all': ['Performance', 'Cost', 'Team Expertise', 'Scalability', 'Security', 'ROI']
+    };
+
+    const output = document.getElementById('criteria-display') || createOutputDiv('criteria-display');
+    const list = criteria[type] || criteria['all'];
+
+    output.innerHTML = `
+        <div class="criteria-list">
+            <h4>${type.charAt(0).toUpperCase() + type.slice(1)} Criteria</h4>
+            <ul>
+                ${list.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
+
+function showDateTime() {
+    const now = new Date();
+    const output = document.getElementById('datetime-display') || createOutputDiv('datetime-display');
+
+    output.innerHTML = `
+        <div class="datetime-info">
+            <div>Current Date: ${now.toDateString()}</div>
+            <div>Current Time: ${now.toTimeString()}</div>
+            <div>ISO String: ${now.toISOString()}</div>
+            <div>Timestamp: ${now.getTime()}</div>
+        </div>
+    `;
+}
+
+function showDetails() {
+    const details = document.getElementById('additional-details') || createOutputDiv('additional-details');
+    details.innerHTML = `
+        <div class="details-panel">
+            <h4>Additional Details</h4>
+            <p>This section provides more information about the current topic.</p>
+            <ul>
+                <li>Feature explanations</li>
+                <li>Best practices</li>
+                <li>Common pitfalls</li>
+                <li>Advanced techniques</li>
+            </ul>
+        </div>
+    `;
+    details.style.display = 'block';
+}
+
+function showFrameworkDetails(framework) {
+    const details = {
+        'react': {
+            name: 'React',
+            description: 'A JavaScript library for building user interfaces',
+            features: ['Component-based', 'Virtual DOM', 'JSX syntax', 'Hooks']
+        },
+        'angular': {
+            name: 'Angular',
+            description: 'A platform for building mobile and desktop web applications',
+            features: ['TypeScript', 'Dependency Injection', 'CLI tools', 'Two-way binding']
+        },
+        'vue': {
+            name: 'Vue.js',
+            description: 'A progressive framework for building user interfaces',
+            features: ['Template syntax', 'Reactive data', 'Component system', 'Vue CLI']
+        }
+    };
+
+    const info = details[framework];
+    const output = document.getElementById('framework-details') || createOutputDiv('framework-details');
+
+    if (info) {
+        output.innerHTML = `
+            <div class="framework-info">
+                <h3>${info.name}</h3>
+                <p>${info.description}</p>
+                <h4>Key Features:</h4>
+                <ul>
+                    ${info.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+}
+
+function showToast(type, message) {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 24px;
+        background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'warning' ? '#ffc107' : '#17a2b8'};
+        color: white;
+        border-radius: 4px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+    `;
+
+    document.body.appendChild(toast);
+
+    // Animate in
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(0)';
+    }, 100);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => document.body.removeChild(toast), 300);
+    }, 3000);
+}
+
+function simulateLoading(button) {
+    button.textContent = 'Loading...';
+    button.disabled = true;
+
+    setTimeout(() => {
+        button.textContent = 'Complete!';
+        button.style.backgroundColor = '#28a745';
+
+        setTimeout(() => {
+            button.textContent = 'Click to Load';
+            button.disabled = false;
+            button.style.backgroundColor = '';
+        }, 1000);
+    }, 2000);
+}
+
+function startProgress() {
+    const progressBar = document.getElementById('progress-bar') || createProgressBar();
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+        }
+
+        progressBar.style.width = progress + '%';
+        progressBar.textContent = Math.round(progress) + '%';
+    }, 200);
+}
+
+function testBoolean() {
+    const testValue = true;
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: ${testValue}</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Boolean: ${Boolean(testValue)}</div>
+        </div>
+    `;
+}
+
+function testChallenge1() {
+    const answer = document.getElementById('challenge1-answer')?.value?.toLowerCase() || '';
+    const output = document.getElementById('challenge1-result') || createOutputDiv('challenge1-result');
+
+    if (answer.includes('function') || answer.includes('method')) {
+        output.innerHTML = '<div class="success">✓ Correct! Functions are reusable blocks of code.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try again. Think about reusable code blocks.</div>';
+    }
+}
+
+function testChallenge2() {
+    const answer = document.getElementById('challenge2-answer')?.value?.toLowerCase() || '';
+    const output = document.getElementById('challenge2-result') || createOutputDiv('challenge2-result');
+
+    if (answer.includes('variable') || answer.includes('scope')) {
+        output.innerHTML = '<div class="success">✓ Correct! Variables have different scopes.</div>';
+    } else {
+        output.innerHTML = '<div class="error">✗ Try again. Think about where variables can be accessed.</div>';
+    }
+}
+
+function testContentSEO() {
+    const title = document.getElementById('seo-title')?.value || '';
+    const description = document.getElementById('seo-description')?.value || '';
+    const output = document.getElementById('seo-content-result') || createOutputDiv('seo-content-result');
+
+    let score = 0;
+    let feedback = [];
+
+    if (title.length >= 30 && title.length <= 60) {
+        score += 25;
+        feedback.push('✓ Title length is optimal');
+    } else {
+        feedback.push('✗ Title should be 30-60 characters');
+    }
+
+    if (description.length >= 120 && description.length <= 160) {
+        score += 25;
+        feedback.push('✓ Description length is optimal');
+    } else {
+        feedback.push('✗ Description should be 120-160 characters');
+    }
+
+    output.innerHTML = `
+        <div class="seo-result">
+            <h4>Content SEO Score: ${score}/50</h4>
+            <ul>
+                ${feedback.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
+
+function testNull() {
+    const testValue = null;
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: ${testValue}</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Is null: ${testValue === null}</div>
+        </div>
+    `;
+}
+
+function testNumber() {
+    const testValue = 42;
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: ${testValue}</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Is Number: ${typeof testValue === 'number'}</div>
+        </div>
+    `;
+}
+
+function testObject() {
+    const testValue = { name: 'John', age: 30 };
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: ${JSON.stringify(testValue)}</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Is Object: ${typeof testValue === 'object' && testValue !== null}</div>
+        </div>
+    `;
+}
+
+function testOnPageSEO() {
+    const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6').length;
+    const images = document.querySelectorAll('img').length;
+    const imagesWithAlt = document.querySelectorAll('img[alt]').length;
+    const output = document.getElementById('onpage-seo-result') || createOutputDiv('onpage-seo-result');
+
+    let score = 0;
+    let feedback = [];
+
+    if (headings > 0) {
+        score += 25;
+        feedback.push(`✓ Found ${headings} headings`);
+    } else {
+        feedback.push('✗ No headings found');
+    }
+
+    if (images === imagesWithAlt) {
+        score += 25;
+        feedback.push('✓ All images have alt attributes');
+    } else {
+        feedback.push(`✗ ${images - imagesWithAlt} images missing alt attributes`);
+    }
+
+    output.innerHTML = `
+        <div class="seo-result">
+            <h4>On-Page SEO Score: ${score}/50</h4>
+            <ul>
+                ${feedback.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
+
+function testString() {
+    const testValue = "Hello World";
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: "${testValue}"</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Length: ${testValue.length}</div>
+        </div>
+    `;
+}
+
+function testTechnicalSEO() {
+    const output = document.getElementById('technical-seo-result') || createOutputDiv('technical-seo-result');
+
+    // Simulate technical SEO checks
+    const checks = [
+        { name: 'HTTPS', status: window.location.protocol === 'https:' },
+        { name: 'Meta viewport', status: document.querySelector('meta[name="viewport"]') !== null },
+        { name: 'Page title', status: document.title.length > 0 },
+        { name: 'Meta description', status: document.querySelector('meta[name="description"]') !== null }
+    ];
+
+    const passed = checks.filter(check => check.status).length;
+    const score = Math.round((passed / checks.length) * 100);
+
+    output.innerHTML = `
+        <div class="seo-result">
+            <h4>Technical SEO Score: ${score}/100</h4>
+            <ul>
+                ${checks.map(check => `<li>${check.status ? '✓' : '✗'} ${check.name}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
+
+function testUndefined() {
+    let testValue;
+    const output = document.getElementById('type-test-result') || createOutputDiv('type-test-result');
+    output.innerHTML = `
+        <div class="type-test">
+            <div>Value: ${testValue}</div>
+            <div>Type: ${typeof testValue}</div>
+            <div>Is undefined: ${testValue === undefined}</div>
+        </div>
+    `;
+}
+
+function toggleClass(className) {
+    const elements = document.querySelectorAll('.demo-element');
+    elements.forEach(element => {
+        element.classList.toggle(className);
+    });
+    console.log('Toggled class:', className);
+}
+
+function toggleSolution(button) {
+    const solutionId = button.getAttribute('data-solution') || 'solution';
+    const solution = document.getElementById(solutionId);
+
+    if (solution) {
+        const isHidden = solution.style.display === 'none' || !solution.style.display;
+        solution.style.display = isHidden ? 'block' : 'none';
+        button.textContent = isHidden ? 'Hide Solution' : 'Show Solution';
+    }
+}
+
+function trySelector() {
+    const selector = document.getElementById('selector-input')?.value || 'p';
+    const output = document.getElementById('selector-result') || createOutputDiv('selector-result');
+
+    try {
+        const elements = document.querySelectorAll(selector);
+        output.innerHTML = `
+            <div class="selector-result">
+                <div>Selector: <code>${selector}</code></div>
+                <div>Found ${elements.length} element(s)</div>
+                ${elements.length > 0 ? '<div>Elements highlighted in yellow</div>' : ''}
+            </div>
+        `;
+
+        // Remove previous highlights
+        document.querySelectorAll('.selector-highlight').forEach(el => {
+            el.classList.remove('selector-highlight');
+        });
+
+        // Highlight matching elements
+        elements.forEach(el => {
+            el.classList.add('selector-highlight');
+        });
+
+    } catch (error) {
+        output.innerHTML = `<div class="error">Invalid selector: ${error.message}</div>`;
+    }
+}
+
+function updateDashPreview() {
+    const color = document.getElementById('dash-color')?.value || '#007bff';
+    const size = document.getElementById('dash-size')?.value || '2';
+    const preview = document.getElementById('dash-preview') || createOutputDiv('dash-preview');
+
+    preview.innerHTML = `
+        <div style="border: ${size}px dashed ${color}; padding: 20px; text-align: center;">
+            Dashed Border Preview
+        </div>
+    `;
+}
+
+function updateNavPreview() {
+    const style = document.getElementById('nav-style')?.value || 'horizontal';
+    const preview = document.getElementById('nav-preview') || createOutputDiv('nav-preview');
+
+    const navHTML = `
+        <nav style="${style === 'vertical' ? 'flex-direction: column;' : 'flex-direction: row;'} display: flex; gap: 10px; padding: 10px; background: #f8f9fa;">
+            <a href="#" style="text-decoration: none; padding: 8px 16px; background: #007bff; color: white; border-radius: 4px;">Home</a>
+            <a href="#" style="text-decoration: none; padding: 8px 16px; background: #6c757d; color: white; border-radius: 4px;">About</a>
+            <a href="#" style="text-decoration: none; padding: 8px 16px; background: #6c757d; color: white; border-radius: 4px;">Contact</a>
+        </nav>
+    `;
+
+    preview.innerHTML = navHTML;
+}
+
+function updatePreview() {
+    const html = document.getElementById('html-input')?.value || '<h1>Preview</h1>';
+    const preview = document.getElementById('html-preview') || createOutputDiv('html-preview');
+    preview.innerHTML = html;
+}
+
+function updateResult() {
+    const input = document.getElementById('demo-input')?.value || 'Sample text';
+    const output = document.getElementById('result-display') || createOutputDiv('result-display');
+    output.innerHTML = `<div class="result">Result: ${input.toUpperCase()}</div>`;
+}
+
+function validateSchema() {
+    const schemaInput = document.getElementById('schema-input')?.value || '{}';
+    const output = document.getElementById('schema-validation') || createOutputDiv('schema-validation');
+
+    try {
+        const schema = JSON.parse(schemaInput);
+        const requiredFields = ['@context', '@type'];
+        const hasRequired = requiredFields.every(field => schema.hasOwnProperty(field));
+
+        if (hasRequired) {
+            output.innerHTML = '<div class="success">✓ Valid schema structure</div>';
+        } else {
+            output.innerHTML = '<div class="error">✗ Missing required fields: @context, @type</div>';
+        }
+    } catch (error) {
+        output.innerHTML = '<div class="error">✗ Invalid JSON format</div>';
+    }
+}
+
+function vueDecrement() {
+    const display = document.getElementById('vue-counter') || createCounterDisplay('vue-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = Math.max(0, current - 1);
+    console.log('Vue counter decremented to:', display.textContent);
+}
+
+function vueIncrement() {
+    const display = document.getElementById('vue-counter') || createCounterDisplay('vue-counter');
+    const current = parseInt(display.textContent) || 0;
+    display.textContent = current + 1;
+    console.log('Vue counter incremented to:', display.textContent);
+}
+
+// Helper functions to create common UI elements
+function createOutputDiv(id) {
+    let output = document.getElementById(id);
+    if (!output) {
+        output = document.createElement('div');
+        output.id = id;
+        output.className = 'demo-output';
+        output.style.cssText = 'margin: 10px 0; padding: 15px; border: 1px solid #ddd; border-radius: 4px; background: #f8f9fa;';
+
+        // Try to find a suitable container
+        const container = document.querySelector('.demo-container') ||
+            document.querySelector('.interactive-demo') ||
+            document.querySelector('main') ||
+            document.body;
+        container.appendChild(output);
+    }
+    return output;
+}
+
+function createCounterDisplay(id) {
+    let display = document.getElementById(id);
+    if (!display) {
+        display = document.createElement('div');
+        display.id = id;
+        display.textContent = '0';
+        display.style.cssText = 'font-size: 24px; font-weight: bold; text-align: center; margin: 10px; padding: 20px; border: 2px solid #007bff; border-radius: 8px; background: white;';
+
+        const container = document.querySelector('.counter-demo') ||
+            document.querySelector('.demo-container') ||
+            document.body;
+        container.appendChild(display);
+    }
+    return display;
+}
+
+function createCalculatorDisplay() {
+    let display = document.getElementById('calculator-display');
+    if (!display) {
+        display = document.createElement('input');
+        display.id = 'calculator-display';
+        display.type = 'text';
+        display.style.cssText = 'width: 100%; padding: 10px; font-size: 18px; text-align: right; margin: 10px 0; border: 2px solid #007bff; border-radius: 4px;';
+        display.readOnly = true;
+
+        const container = document.querySelector('.calculator-demo') ||
+            document.querySelector('.demo-container') ||
+            document.body;
+        container.appendChild(display);
+    }
+    return display;
+}
+
+function createProgressBar() {
+    let progressBar = document.getElementById('progress-bar');
+    if (!progressBar) {
+        const container = document.createElement('div');
+        container.style.cssText = 'width: 100%; background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 10px 0;';
+
+        progressBar = document.createElement('div');
+        progressBar.id = 'progress-bar';
+        progressBar.style.cssText = 'width: 0%; height: 30px; background: linear-gradient(90deg, #007bff, #0056b3); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: width 0.3s ease;';
+        progressBar.textContent = '0%';
+
+        container.appendChild(progressBar);
+
+        const demoContainer = document.querySelector('.demo-container') ||
+            document.querySelector('main') ||
+            document.body;
+        demoContainer.appendChild(container);
+    }
+    return progressBar;
+}

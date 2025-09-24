@@ -128,13 +128,6 @@
                       >Test Your Knowledge</a
                     >
                   </li>
-                  <li>
-                    <a
-                      href="#next-steps"
-                      onclick="scrollToSection('next-steps')"
-                      >What's Next?</a
-                    >
-                  </li>
                 </ul>
               </li>
             </ul>
@@ -143,25 +136,24 @@
           <div class="content-main">
             <section id="ajax-overview" class="content-section">
               <h2><i class="fas fa-info-circle"></i> What is AJAX?</h2>
-              <div class="topic-grid">
-                <p class="lead">
-                  AJAX (Asynchronous JavaScript and XML) is a technique that
-                  allows web pages to communicate with servers asynchronously,
-                  enabling dynamic content updates without full page reloads.
-                </p>
+              <p class="lead">
+                AJAX (Asynchronous JavaScript and XML) is a technique that
+                allows web pages to communicate with servers asynchronously,
+                enabling dynamic content updates without full page reloads.
+              </p>
 
-                <div class="topic-grid">
-                  <div class="topic-card">
-                    <div class="card-icon">
-                      <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4>Asynchronous</h4>
-                    <p>
-                      Requests don't block the user interface, allowing multiple
-                      operations to run simultaneously.
-                    </p>
-                    <div class="code-block">
-                      <pre><code class="language-js">// Non-blocking request
+              <div class="topic-grid three-column">
+                <div class="topic-card">
+                  <div class="card-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <h4>Asynchronous</h4>
+                  <p>
+                    Requests don't block the user interface, allowing multiple
+                    operations to run simultaneously.
+                  </p>
+                  <div class="code-block">
+                    <pre><code class="language-js">// Non-blocking request
 fetch('/api/data')
     .then(response => response.json())
     .then(data => updateUI(data));</code></pre>
@@ -209,18 +201,17 @@ fetch('/api/posts')
             <!-- XMLHttpRequest Section -->
             <section id="xmlhttprequest" class="content-section">
               <h2><i class="fas fa-exchange-alt"></i> XMLHttpRequest</h2>
-              <div class="topic-grid">
-                <p class="lead">
-                  XMLHttpRequest is the traditional JavaScript API for making HTTP
-                  requests. Understanding XMLHttpRequest is fundamental to
-                  mastering AJAX.
-                </p>
+              <p class="lead">
+                XMLHttpRequest is the traditional JavaScript API for making HTTP
+                requests. Understanding XMLHttpRequest is fundamental to
+                mastering AJAX.
+              </p>
 
-                <div class="timeline">
-                  <h4>XMLHttpRequest Lifecycle</h4>
-                  <div class="timeline-item">
-                    <div class="timeline-number">1</div>
-                    <div class="timeline-content">
+                <h4>XMLHttpRequest Lifecycle</h4>
+                <div class="step-container">
+                  <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
                       <h5>Create Instance</h5>
                       <code>const xhr = new XMLHttpRequest();</code>
                       <p>
@@ -229,19 +220,19 @@ fetch('/api/posts')
                       </p>
                     </div>
                   </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-number">2</div>
-                    <div class="timeline-content">
+                  <div class="step-arrow">→</div>
+                  <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
                       <h5>Configure Request</h5>
                       <code>xhr.open('GET', '/api/data', true);</code>
                       <p>Set up the request method, URL, and async flag.</p>
                     </div>
                   </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-number">3</div>
-                    <div class="timeline-content">
+                  <div class="step-arrow">→</div>
+                  <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
                       <h5>Set Event Handlers</h5>
                       <code>xhr.onreadystatechange = handleResponse;</code>
                       <p>
@@ -249,10 +240,10 @@ fetch('/api/posts')
                       </p>
                     </div>
                   </div>
-
-                  <div class="timeline-item">
-                    <div class="timeline-number">4</div>
-                    <div class="timeline-content">
+                  <div class="step-arrow">→</div>
+                  <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
                       <h5>Send Request</h5>
                       <code>xhr.send(data);</code>
                       <p>Send the request to the server with optional data.</p>
@@ -265,7 +256,7 @@ fetch('/api/posts')
                   <div class="demo-controls">
                     <div class="form-group">
                       <label for="xhr-method">HTTP Method:</label>
-                      <select id="xhr-method">
+                      <select id="xhr-method" class="form-control">
                         <option value="GET">GET</option>
                         <option value="POST">POST</option>
                         <option value="PUT">PUT</option>
@@ -280,6 +271,7 @@ fetch('/api/posts')
                         id="xhr-url"
                         value="https://jsonplaceholder.typicode.com/posts/1"
                         placeholder="Enter API URL"
+                        class="form-control"
                       />
                     </div>
 
@@ -287,7 +279,8 @@ fetch('/api/posts')
                       <label for="xhr-data">Request Data (JSON):</label>
                       <textarea
                         id="xhr-data"
-                        placeholder='''{"title": "New Post", "body": "Content", "userId": 1}'''
+                        placeholder='{"title": "New Post", "body": "Content", "userId": 1}'
+                        class="code-editor-textarea"
                       ></textarea>
                     </div>
 
@@ -309,20 +302,18 @@ fetch('/api/posts')
                     </div>
                   </div>
                 </div>
-              </div>
             </section>
 
             <!-- Fetch API Section -->
             <section id="fetch-api" class="content-section">
               <h2><i class="fas fa-rocket"></i> Fetch API</h2>
-              <div class="topic-grid">
-                <p class="lead">
-                  The Fetch API is the modern, promise-based successor to
-                  XMLHttpRequest, providing a cleaner and more powerful way to
-                  make HTTP requests.
-                </p>
+              <p class="lead">
+                The Fetch API is the modern, promise-based successor to
+                XMLHttpRequest, providing a cleaner and more powerful way to
+                make HTTP requests.
+              </p>
 
-                <div class="comparison-grid">
+              <div class="comparison-grid">
                   <div class="comparison-card">
                     <div class="card-header">
                       <h4><i class="fas fa-history"></i> XMLHttpRequest (Legacy)</h4>
@@ -522,19 +513,17 @@ fetch('/api/users/123', {
                     </div>
                   </div>
                 </div>
-              </div>
             </section>
 
             <!-- Error Handling Section -->
             <section id="error-handling" class="content-section">
               <h2><i class="fas fa-exclamation-triangle"></i> Error Handling</h2>
-              <div class="topic-grid">
-                <p class="lead">
-                  Proper error handling is crucial in AJAX applications to provide
-                  good user experience and handle network issues gracefully.
-                </p>
+              <p class="lead">
+                Proper error handling is crucial in AJAX applications to provide
+                good user experience and handle network issues gracefully.
+              </p>
 
-                <div class="error-handling-grid">
+              <div class="topic-grid two-column">
                   <div class="error-card">
                     <h5>Network Errors</h5>
                     <div class="code-block">
@@ -754,48 +743,6 @@ fetchWithTimeout('/api/data', 3000)
                     <button class="btn-secondary" onclick="retakeQuiz()">
                       Retake Quiz
                     </button>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- Next Steps -->
-            <section id="next-steps" class="content-section">
-              <h2><i class="fas fa-step-forward"></i> What's Next?</h2>
-              <div class="next-steps">
-                <div class="step-item">
-                  <div class="step-number">1</div>
-                  <div class="step-content">
-                    <h3>Practice with APIs</h3>
-                    <p>
-                      Try different public APIs to build real applications with
-                      AJAX.
-                    </p>
-                    <a href="#" class="btn btn-primary">Explore APIs</a>
-                  </div>
-                </div>
-
-                <div class="step-item">
-                  <div class="step-number">2</div>
-                  <div class="step-content">
-                    <h3>Learn jQuery AJAX</h3>
-                    <p>
-                      Discover how jQuery simplifies AJAX operations with its
-                      utility methods.
-                    </p>
-                    <a href="jquery-basics.html" class="btn btn-primary">jQuery Basics</a>
-                  </div>
-                </div>
-
-                <div class="step-item">
-                  <div class="step-number">3</div>
-                  <div class="step-content">
-                    <h3>Advanced Patterns</h3>
-                    <p>
-                      Master advanced AJAX patterns like caching, interceptors,
-                      and middleware.
-                    </p>
-                    <a href="#" class="btn btn-primary">Advanced Topics</a>
                   </div>
                 </div>
               </div>

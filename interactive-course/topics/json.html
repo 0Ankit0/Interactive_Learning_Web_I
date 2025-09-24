@@ -892,47 +892,162 @@ fetch('/api/orders', {
           </div>
         </section>
 
-        <!-- Next Steps Section -->
-        <section class="content-section">
-          <h2 class="section-header">
-            <i class="fas fa-arrow-right"></i> Next Steps
-          </h2>
-          <div class="next-steps">
-            <div class="step-item">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h3>Practice with APIs</h3>
-                <p>
-                  Use JSON with real-world APIs to fetch and send data in web
-                  applications.
-                </p>
-              </div>
-            </div>
+          <section id="resources" class="topic-section">
+            <h2 class="section-title">
+              <i class="fas fa-video"></i> Video Resources & External Links
+            </h2>
+            <p class="section-description">
+              Explore curated learning resources to deepen your understanding of JSON. 
+              Each resource is carefully selected for quality and educational value.
+            </p>
 
-            <div class="step-item">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h3>Learn AJAX</h3>
-                <p>
-                  Explore AJAX techniques for asynchronous data exchange using
-                  JSON.
-                </p>
+            <div class="resource-grid three-column">
+              <div class="resource-card" data-type="youtube">
+                <div class="card-thumbnail">
+                  <i class="fab fa-youtube thumbnail-icon youtube"></i>
+                  <div class="play-overlay">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon youtube">
+                      <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">JSON Tutorial</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Programming with Mosh</span>
+                        <span class="platform">YouTube</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Complete guide to JSON syntax, parsing, and usage in web applications.
+                    Perfect for beginners and intermediate developers.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">JSON</span>
+                    <span class="tag">Tutorial</span>
+                    <span class="tag">Beginner</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-clock"></i>
+                      <span>15 min</span>
+                    </div>
+                    <div class="stat">
+                      <i class="fas fa-eye"></i>
+                      <span>180K views</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://www.youtube.com/watch?v=iiADhChRriM"
+                      target="_blank"
+                      class="btn btn-primary"
+                    >
+                      <i class="fas fa-play"></i> Watch Video
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="step-item">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h3>Continue to AJAX</h3>
-                <p>
-                  Advance to the next topic: AJAX for dynamic web applications.
-                </p>
-                <a href="ajax.html" class="btn btn-primary"
-                  >Continue to AJAX →</a
-                >
+              <div class="resource-card" data-type="documentation">
+                <div class="card-thumbnail">
+                  <i class="fab fa-firefox-browser thumbnail-icon documentation"></i>
+                </div>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon documentation">
+                      <i class="fab fa-firefox-browser"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">MDN JSON Guide</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Mozilla Developer Network</span>
+                        <span class="platform">Documentation</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Comprehensive documentation on JSON methods, parsing, and best practices.
+                    Technical reference for web developers.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">Reference</span>
+                    <span class="tag">Technical</span>
+                    <span class="tag">Complete</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-book"></i>
+                      <span>Reference Guide</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a
+                      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+                      target="_blank"
+                      class="btn btn-secondary"
+                    >
+                      <i class="fas fa-book-open"></i> Read Documentation
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="resource-card" data-type="tool">
+                <div class="card-thumbnail">
+                  <i class="fas fa-code thumbnail-icon tool"></i>
+                </div>
+                <div class="card-body">
+                  <div class="card-header">
+                    <div class="card-icon tool">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <div class="card-meta">
+                      <h4 class="card-title">JSON Formatter Tools</h4>
+                      <p class="card-subtitle">
+                        <span class="author">Various Providers</span>
+                        <span class="platform">Online Tools</span>
+                      </p>
+                    </div>
+                  </div>
+                  <p class="card-description">
+                    Free online tools to format, validate, and prettify JSON data.
+                    Essential for debugging and development.
+                  </p>
+                  <div class="card-tags">
+                    <span class="tag">Tools</span>
+                    <span class="tag">Validation</span>
+                    <span class="tag">Free</span>
+                  </div>
+                  <div class="card-stats">
+                    <div class="stat">
+                      <i class="fas fa-tools"></i>
+                      <span>Free Tools</span>
+                    </div>
+                  </div>
+                  <div class="card-actions">
+                    <a href="https://jsonformatter.curiousconcept.com/" target="_blank" class="btn btn-secondary">
+                      <i class="fas fa-external-link-alt"></i> Try JSON Formatter
+                    </a>
+                    <button class="bookmark-btn" onclick="toggleBookmark(this)">
+                      <i class="fas fa-bookmark"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
+          
           <section class="navigation-section">
             <a href="error-handling.html" class="nav-link nav-previous">
               <i class="fas fa-arrow-left"></i>

@@ -685,108 +685,6 @@
               </div>
             </section>
 
-            <!-- External Resources -->
-            <section class="content-section">
-              <h2 class="section-header">
-                <i class="fas fa-book-open"></i> Essential JavaScript Embedding
-                Resources
-              </h2>
-
-              <div class="resource-grid four-column">
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fab fa-js-square"></i>
-                    <h3>MDN: HTML Script Element</h3>
-                  </div>
-                  <p>
-                    Complete documentation for the HTML script element and all
-                    its attributes.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Reference</span>
-                    <span class="tag">Examples</span>
-                    <span class="tag">Browser Support</span>
-                  </div>
-                  <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Read Documentation <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <h3>JavaScript Loading Performance</h3>
-                  </div>
-                  <p>
-                    Learn about defer, async, and script loading optimization
-                    techniques.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Performance</span>
-                    <span class="tag">Best Practices</span>
-                    <span class="tag">Modern JS</span>
-                  </div>
-                  <a
-                    href="https://web.dev/efficiently-load-third-party-javascript/"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Optimize Loading <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-cubes"></i>
-                    <h3>JavaScript Modules Guide</h3>
-                  </div>
-                  <p>
-                    Modern JavaScript modules and ES6 import/export syntax for
-                    better code organization.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">ES6 Modules</span>
-                    <span class="tag">Modern JS</span>
-                    <span class="tag">Code Organization</span>
-                  </div>
-                  <a
-                    href="https://javascript.info/modules-intro"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Learn Modules <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-
-                <div class="resource-card">
-                  <div class="card-icon">
-                    <i class="fas fa-tools"></i>
-                    <h3>JavaScript Build Tools</h3>
-                  </div>
-                  <p>
-                    Learn about Webpack, Vite, and other tools for bundling and
-                    optimizing JavaScript.
-                  </p>
-                  <div class="tags">
-                    <span class="tag">Build Tools</span>
-                    <span class="tag">Bundling</span>
-                    <span class="tag">Optimization</span>
-                  </div>
-                  <a
-                    href="https://webpack.js.org/guides/getting-started/"
-                    target="_blank"
-                    class="btn btn-secondary"
-                  >
-                    Explore Tools <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </section>
-
             <!-- Quiz Section -->
             <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
@@ -837,6 +735,153 @@
                     <button class="btn-secondary" onclick="retakeQuiz()">
                       Retake Quiz
                     </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of JavaScript embedding. Each resource is carefully selected for
+                quality and educational value.
+              </p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="video">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-youtube thumbnail-icon video"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">JavaScript in HTML Tutorial</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Web Dev Simplified</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn how to properly embed JavaScript in HTML documents
+                      with best practices.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">HTML</span>
+                      <span class="tag">Integration</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=P74ieSMAD70"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-book thumbnail-icon documentation"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fas fa-book"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">MDN Script Element</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Mozilla</span>
+                          <span class="platform">Documentation</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Official documentation on the HTML script element and
+                      JavaScript integration.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Documentation</span>
+                      <span class="tag">HTML</span>
+                      <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link-alt"></i> Read Docs
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tutorial">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-code thumbnail-icon tutorial"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tutorial">
+                        <i class="fas fa-code"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">
+                          JavaScript Loading Best Practices
+                        </h4>
+                        <p class="card-subtitle">
+                          <span class="author">web.dev</span>
+                          <span class="platform">Tutorial</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn about async, defer, and other JavaScript loading
+                      optimization techniques.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Performance</span>
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">Best Practices</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://web.dev/efficiently-load-third-party-javascript/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link-alt"></i> Learn More
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
