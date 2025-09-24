@@ -455,11 +455,30 @@ function initializeCustomMediaControls() {
 // Initialize custom media controls
 initializeCustomMediaControls();
 
+// Solution panel toggle functionality
+function toggleSolution(button) {
+    const solutionPanel = button.nextElementSibling;
+    const isVisible = solutionPanel.style.display !== 'none';
+
+    if (isVisible) {
+        solutionPanel.style.display = 'none';
+        button.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+    } else {
+        solutionPanel.style.display = 'block';
+        button.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Solution';
+        // Trigger Prism highlighting for code blocks
+        if (window.Prism) {
+            Prism.highlightAllUnder(solutionPanel);
+        }
+    }
+}
+
 // Export functions for use in other modules
 window.WebTechCourse = {
     navigateToUnit,
     saveProgress,
     showNotification,
     initializeSearch,
-    initializeThemeToggle
+    initializeThemeToggle,
+    toggleSolution
 };

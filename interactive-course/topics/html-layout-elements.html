@@ -162,7 +162,7 @@
 
           <div class="content-main">
             <!-- Introduction -->
-            <section class="content-section" data-section="introduction">
+            <section class="content-section" data-section="introduction" id="introduction">
               <div class="section-header">
                 <h2><i class="fas fa-info-circle"></i> Understanding HTML Layout Elements</h2>
               </div>
@@ -217,7 +217,7 @@
             </section>
 
             <!-- Div Element Section -->
-            <section class="content-section">
+            <section class="content-section" id="div">
                 <h2 class="section-header"><i class="fas fa-box"></i> The div Element</h2>
                 <p class="lead">
                     The <code>&lt;div&gt;</code> element is a generic block-level container that's used to 
@@ -278,11 +278,10 @@
                             <div class="sample-div">Sample div element</div>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Span Element Section -->
-            <section class="content-section">
+            <section class="content-section" id="span">
                 <h2 class="section-header"><i class="fas fa-font"></i> The span Element</h2>
                 <p class="lead">
                     The <code>&lt;span&gt;</code> element is a generic inline container used to 
@@ -335,11 +334,10 @@
                             <p>This is sample text for span demonstration.</p>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Aside Element Section -->
-            <section class="content-section">
+            <section class="content-section" id="aside">
                 <h2 class="section-header"><i class="fas fa-columns"></i> The aside Element</h2>
                 <p class="lead">
                     The <code>&lt;aside&gt;</code> element represents content that is tangentially 
@@ -410,11 +408,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Iframe Element Section -->
-            <section class="content-section">
+            <section class="content-section" id="iframe">
                 <h2 class="section-header"><i class="fas fa-window-maximize"></i> The iframe Element</h2>
                 <p class="lead">
                     The <code>&lt;iframe&gt;</code> element embeds external content or documents 
@@ -509,11 +506,10 @@
                             <li><i class="fas fa-check"></i> Consider Content Security Policy (CSP)</li>
                         </ul>
                     </div>
-                </div>
             </section>
 
             <!-- Canvas Element Section -->
-            <section class="content-section">
+            <section class="content-section" id="canvas">
                 <h2 class="section-header"><i class="fas fa-paint-brush"></i> The canvas Element</h2>
                 <p class="lead">
                     The <code>&lt;canvas&gt;</code> element provides a drawing surface for creating 
@@ -618,11 +614,10 @@ ctx.fillText('Hello Canvas!', 50, 200);
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
 
             <!-- Best Practices Section -->
-            <section class="content-section">
+            <section class="content-section" id="examples">
                 <h2 class="section-header"><i class="fas fa-clipboard-check"></i> Best Practices & Guidelines</h2>
                 <div class="topic-grid five-column">
                     <div class="topic-card">
@@ -695,236 +690,123 @@ ctx.fillText('Hello Canvas!', 50, 200);
             </section>
 
             <!-- Quiz Section -->
-            <section id="quiz" class="content-section">
-                <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+            <section id="quiz" class="content-section" data-section="quiz">
+              <h2 class="section-header"><i class="fas fa-brain"></i> Knowledge Check</h2>
 
-                <div class="quiz-container" id="knowledge-quiz">
-                  <div class="quiz-progress">
-                    <div class="quiz-info">
-                      Question <span id="current-question">1</span> of
-                      <span id="total-questions">5</span>
-                    </div>
-                    <div class="progress-bar">
-                      <div id="quiz-progress" class="progress-fill"></div>
-                    </div>
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
-
-                  <div class="quiz-question">
-                    <h3>Loading question...</h3>
-                    <div class="quiz-options"></div>
-                  </div>
-
-                  <div
-                    class="quiz-feedback"
-                    id="quiz-feedback"
-                    style="display: none"
-                  ></div>
-
-                  <div class="quiz-controls">
-                    <button
-                      id="quiz-next"
-                      style="display: none"
-                      onclick="nextQuizQuestion()"
-                    >
-                      Next Question <i class="fas fa-arrow-right"></i>
-                    </button>
-                  </div>
-
-                  <div
-                    class="quiz-results"
-                    id="quiz-results"
-                    style="display: none"
-                  >
-                    <div class="results-icon">
-                      <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>Quiz Complete!</h3>
-                    <div id="final-score">0/0</div>
-                    <div class="results-actions">
-                      <button class="btn-secondary" onclick="retakeQuiz()">
-                        Retake Quiz
-                      </button>
-                    </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
                   </div>
                 </div>
-            </section>
 
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
             <!-- Video Resources Section -->
             <section class="content-section">
                 <h2 class="section-header"><i class="fas fa-video"></i> Video Resources & Tutorials</h2>
                 <div class="resource-grid four-column">
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
-                            <i class="fab fa-youtube"></i>
+                            
                             <img src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg" alt="HTML Basics" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>HTML div and span Elements</h4>
                             <p>Learn the fundamental differences between div and span elements and when to use each one.</p>
                             <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" class="btn btn-secondary">
-                                <i class="fab fa-youtube"></i> Watch on YouTube
+                                 Watch on YouTube
                             </a>
                         </div>
                     </div>
 
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
-                            <i class="fab fa-youtube"></i>
+                            
                             <img src="https://img.youtube.com/vi/kGW8Al_cga4/maxresdefault.jpg" alt="Canvas Tutorial" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>HTML5 Canvas Tutorial</h4>
                             <p>Complete introduction to HTML5 Canvas for creating graphics and interactive content.</p>
                             <a href="https://www.youtube.com/watch?v=kGW8Al_cga4" target="_blank" class="btn btn-secondary">
-                                <i class="fab fa-youtube"></i> Watch on YouTube
+                                 Watch on YouTube
                             </a>
                         </div>
                     </div>
 
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
-                            <i class="fab fa-youtube"></i>
+                            
                             <img src="https://img.youtube.com/vi/ZJSCl6XEdP8/maxresdefault.jpg" alt="HTML5 Semantic Elements" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>HTML5 Semantic Elements</h4>
                             <p>Understanding semantic HTML including aside, section, article, and other layout elements.</p>
                             <a href="https://www.youtube.com/watch?v=ZJSCl6XEdP8" target="_blank" class="btn btn-secondary">
-                                <i class="fab fa-youtube"></i> Watch on YouTube
+                                 Watch on YouTube
                             </a>
                         </div>
                     </div>
 
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
-                            <i class="fab fa-youtube"></i>
+                            
                             <img src="https://img.youtube.com/vi/A3JJkqnJyTM/maxresdefault.jpg" alt="iframe Security" loading="lazy">
                         </div>
                         <div class="card-content">
                             <h4>iframe Security Best Practices</h4>
                             <p>Learn about iframe security concerns and how to safely embed external content.</p>
                             <a href="https://www.youtube.com/watch?v=A3JJkqnJyTM" target="_blank" class="btn btn-secondary">
-                                <i class="fab fa-youtube"></i> Watch on YouTube
+                                 Watch on YouTube
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Additional Resources Section -->
-            <section class="content-section">
-                <h2 class="section-header"><i class="fas fa-book-open"></i> Additional Learning Resources</h2>
-                <div class="resource-grid three-column">
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fab fa-html5"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>MDN Web Docs - HTML Elements</h4>
-                            <p>Comprehensive documentation for all HTML elements including div, span, aside, iframe, and canvas.</p>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Visit MDN Docs
-                            </a>
-                        </div>
-                    </div>
+           
 
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Canvas API Documentation</h4>
-                            <p>Complete reference for the HTML5 Canvas API with examples and tutorials.</p>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Learn Canvas API
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>iframe Security Guide</h4>
-                            <p>Security considerations and best practices for safely using iframe elements.</p>
-                            <a href="https://owasp.org/www-community/attacks/Clickjacking" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Security Guide
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fab fa-codepen"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Interactive HTML Examples</h4>
-                            <p>Practice HTML layout elements with interactive examples and live code editing.</p>
-                            <a href="https://codepen.io/search/pens?q=html%20layout%20elements" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Try on CodePen
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Canvas Game Development</h4>
-                            <p>Learn game development using HTML5 Canvas with step-by-step tutorials.</p>
-                            <a href="https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> Game Tutorial
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card">
-                        <div class="card-icon">
-                            <i class="fas fa-universal-access"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Accessibility Guidelines</h4>
-                            <p>Learn how to make HTML layout elements accessible to all users including screen readers.</p>
-                            <a href="https://www.w3.org/WAI/WCAG21/Understanding/" target="_blank" class="btn btn-secondary">
-                                <i class="fas fa-external-link-alt"></i> WCAG Guidelines
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Next Steps Section -->
-            <section class="content-section">
-                <h2 class="section-header"><i class="fas fa-arrow-right"></i> Next Steps</h2>
-                <div class="next-steps">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Practice with Layouts</h3>
-                            <p>Create different page layouts using div, aside, and semantic HTML elements.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Explore Canvas Graphics</h3>
-                            <p>Build interactive graphics, animations, and simple games using the Canvas API.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>CSS Styling</h3>
-                            <p>Learn CSS to style your HTML layout elements and create beautiful designs.</p>
-                            <a href="css-basics.html" class="btn btn-primary">Continue to CSS Basics →</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
             <section class="navigation-section">
               <a href="html-audio-video.html" class="nav-link nav-previous">
                 <i class="fas fa-arrow-left"></i>

@@ -2,8 +2,12 @@
 // Uses the general TopicManager class with topic-specific data
 // Automatically detects current topic and loads appropriate data
 
+console.log('Loading topic.js...');
+
 // Get current topic data based on the page URL
 const currentTopicData = getCurrentTopicData();
+
+console.log('Current topic data loaded:', currentTopicData ? 'Success' : 'Failed');
 
 // Create topic manager instance with current topic's data
 const topicManager = new TopicManager(currentTopicData.config, currentTopicData);
@@ -37,7 +41,112 @@ document.addEventListener('DOMContentLoaded', function () {
         httpRequestBtn.addEventListener('click', makeHttpRequest);
     }
 
-    // Add scroll listener to update active section as user scrolls
+    // Initialize div demo if buttons exist
+    const addDivBtn = document.getElementById('addDiv');
+    const styleDivBtn = document.getElementById('styleDiv');
+    const nestDivBtn = document.getElementById('nestDiv');
+    const clearDivsBtn = document.getElementById('clearDivs');
+
+    if (addDivBtn && styleDivBtn && nestDivBtn && clearDivsBtn) {
+        addDivBtn.addEventListener('click', addDivElement);
+        styleDivBtn.addEventListener('click', toggleDivStyling);
+        nestDivBtn.addEventListener('click', nestDivElement);
+        clearDivsBtn.addEventListener('click', clearAllDivs);
+    }
+
+    // Initialize span demo if buttons exist
+    const highlightSpanBtn = document.getElementById('highlightSpan');
+    const colorSpanBtn = document.getElementById('colorSpan');
+    const emphasisSpanBtn = document.getElementById('emphasisSpan');
+
+    if (highlightSpanBtn && colorSpanBtn && emphasisSpanBtn) {
+        highlightSpanBtn.addEventListener('click', highlightSpanText);
+        colorSpanBtn.addEventListener('click', colorSpanText);
+        emphasisSpanBtn.addEventListener('click', addEmphasisToSpan);
+    }
+
+    // Initialize canvas demos if elements exist
+    const clearCanvasBtn = document.getElementById('clearCanvas');
+    const startAnimationBtn = document.getElementById('startAnimation');
+    const stopAnimationBtn = document.getElementById('stopAnimation');
+    const addShapeBtn = document.getElementById('addShape');
+    const resetShapesBtn = document.getElementById('resetShapes');
+
+    if (clearCanvasBtn) {
+        clearCanvasBtn.addEventListener('click', clearDrawingCanvas);
+    }
+    if (startAnimationBtn) {
+        startAnimationBtn.addEventListener('click', startCanvasAnimation);
+    }
+    if (stopAnimationBtn) {
+        stopAnimationBtn.addEventListener('click', stopCanvasAnimation);
+    }
+    if (addShapeBtn) {
+        addShapeBtn.addEventListener('click', addCanvasShape);
+    }
+    if (resetShapesBtn) {
+        resetShapesBtn.addEventListener('click', resetCanvasShapes);
+    }
+
+    // Initialize canvas drawing controls
+    const drawColorInput = document.getElementById('drawColor');
+    const drawSizeInput = document.getElementById('drawSize');
+    const animSpeedInput = document.getElementById('animSpeed');
+
+    if (drawColorInput) {
+        drawColorInput.addEventListener('change', updateDrawingColor);
+    }
+    if (drawSizeInput) {
+        drawSizeInput.addEventListener('input', updateDrawingSize);
+        // Initialize size display
+        updateDrawingSize();
+    }
+    if (animSpeedInput) {
+        animSpeedInput.addEventListener('input', updateAnimationSpeed);
+    }
+
+    // Initialize canvas demos
+    setTimeout(initializeCanvases, 100);
+
+    // Initialize tab functionality
+    initializeTabs();
+
+    // Initialize Box Model Visualizer
+    initializeBoxModelVisualizer();
+
+    // Initialize Color Explorer
+    initializeColorExplorer();
+
+    // Initialize JavaScript Introduction features
+    initializeJavaScriptIntro();
+
+    // Initialize AJAX demos
+    initializeAjaxDemos();
+
+    // Initialize async/await demos
+    initializeAsyncAwaitDemo();
+
+    // Initialize responsive design demo
+    initializeResponsiveDemo();
+
+    // Initialize ES6 features demo
+    initializeES6Demo();
+
+    // Initialize client-server scripting demo
+    initializeClientServerDemo();
+
+    // Initialize canvas demos (drawing, animation, interactive)
+    initializeCanvasDemo();
+
+    // Initialize audio/video demos
+    initializeAudioVideoDemo();
+
+    // Initialize JSON demos
+    initializeJSONDemo();
+
+    // Initialize regex tester
+    initializeRegexDemo();
+
     let scrollTimeout;
     window.addEventListener('scroll', function () {
         clearTimeout(scrollTimeout);
@@ -369,6 +478,2427 @@ function loadTimeline(events) {
 
         timelineContainer.appendChild(timelineItem);
     });
+}
+
+// Initialize Box Model Visualizer
+function initializeBoxModelVisualizer() {
+    const contentWidth = document.getElementById('content-width');
+    const contentHeight = document.getElementById('content-height');
+    const paddingSize = document.getElementById('padding-size');
+    const borderSize = document.getElementById('border-size');
+    const marginSize = document.getElementById('margin-size');
+
+    const contentWidthValue = document.getElementById('content-width-value');
+    const contentHeightValue = document.getElementById('content-height-value');
+    const paddingSizeValue = document.getElementById('padding-size-value');
+    const borderSizeValue = document.getElementById('border-size-value');
+    const marginSizeValue = document.getElementById('margin-size-value');
+
+    const demoBox = document.getElementById('demo-box');
+    const totalWidth = document.getElementById('total-width');
+    const totalHeight = document.getElementById('total-height');
+
+    // Check if all elements exist
+    if (!contentWidth || !contentHeight || !paddingSize || !borderSize || !marginSize || !demoBox) {
+        return; // Exit if elements don't exist (not on box model page)
+    }
+
+    function updateBoxModel() {
+        const width = parseInt(contentWidth.value);
+        const height = parseInt(contentHeight.value);
+        const padding = parseInt(paddingSize.value);
+        const border = parseInt(borderSize.value);
+        const margin = parseInt(marginSize.value);
+
+        // Update value displays
+        if (contentWidthValue) contentWidthValue.textContent = width + 'px';
+        if (contentHeightValue) contentHeightValue.textContent = height + 'px';
+        if (paddingSizeValue) paddingSizeValue.textContent = padding + 'px';
+        if (borderSizeValue) borderSizeValue.textContent = border + 'px';
+        if (marginSizeValue) marginSizeValue.textContent = margin + 'px';
+
+        // Update visualizer
+        const marginLayer = demoBox.querySelector('.margin-layer');
+        const borderLayer = demoBox.querySelector('.border-layer');
+        const paddingLayer = demoBox.querySelector('.padding-layer');
+        const contentArea = demoBox.querySelector('.content-area');
+
+        if (marginLayer && borderLayer && paddingLayer && contentArea) {
+            // Set content dimensions
+            contentArea.style.width = width + 'px';
+            contentArea.style.height = height + 'px';
+
+            // Set padding
+            paddingLayer.style.padding = padding + 'px';
+
+            // Set border
+            borderLayer.style.border = border + 'px solid #007bff';
+
+            // Set margin
+            marginLayer.style.margin = margin + 'px';
+
+            // Calculate total dimensions
+            const calculatedWidth = width + (padding * 2) + (border * 2) + (margin * 2);
+            const calculatedHeight = height + (padding * 2) + (border * 2) + (margin * 2);
+
+            // Update total dimensions display
+            if (totalWidth) totalWidth.textContent = calculatedWidth + 'px';
+            if (totalHeight) totalHeight.textContent = calculatedHeight + 'px';
+        }
+    }
+
+    // Add event listeners
+    contentWidth.addEventListener('input', updateBoxModel);
+    contentHeight.addEventListener('input', updateBoxModel);
+    paddingSize.addEventListener('input', updateBoxModel);
+    borderSize.addEventListener('input', updateBoxModel);
+    marginSize.addEventListener('input', updateBoxModel);
+
+    // Initial update
+    updateBoxModel();
+}
+
+// Initialize Color Explorer
+function initializeColorExplorer() {
+    const bgColor = document.getElementById('bg-color');
+    const textColor = document.getElementById('text-color');
+    const bgColorInput = document.getElementById('bg-color-input');
+    const textColorInput = document.getElementById('text-color-input');
+    const colorPreview = document.getElementById('color-preview');
+
+    // Check if elements exist (not on css-basics page)
+    if (!bgColor || !textColor || !colorPreview) {
+        return;
+    }
+
+    function updateColorPreview() {
+        const bgValue = bgColor.value;
+        const textValue = textColor.value;
+
+        // Update preview
+        colorPreview.style.backgroundColor = bgValue;
+        colorPreview.style.color = textValue;
+
+        // Update text inputs
+        if (bgColorInput) bgColorInput.value = bgValue;
+        if (textColorInput) textColorInput.value = textValue;
+    }
+
+    function updateFromTextInput() {
+        const bgValue = bgColorInput ? bgColorInput.value : bgColor.value;
+        const textValue = textColorInput ? textColorInput.value : textColor.value;
+
+        // Validate hex color format
+        const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+
+        if (hexRegex.test(bgValue)) {
+            bgColor.value = bgValue;
+            colorPreview.style.backgroundColor = bgValue;
+        }
+
+        if (hexRegex.test(textValue)) {
+            textColor.value = textValue;
+            colorPreview.style.color = textValue;
+        }
+    }
+
+    // Add event listeners for color pickers
+    bgColor.addEventListener('input', updateColorPreview);
+    textColor.addEventListener('input', updateColorPreview);
+
+    // Add event listeners for text inputs
+    if (bgColorInput) {
+        bgColorInput.addEventListener('input', updateFromTextInput);
+        bgColorInput.addEventListener('blur', updateFromTextInput);
+    }
+    if (textColorInput) {
+        textColorInput.addEventListener('input', updateFromTextInput);
+        textColorInput.addEventListener('blur', updateFromTextInput);
+    }
+
+    // Initial update
+    updateColorPreview();
+}
+
+// CSS Selector Challenge
+function checkSelector() {
+    const selectorInput = document.getElementById('selector-input');
+    const feedback = document.getElementById('selector-feedback');
+    const targetBox = document.getElementById('target-box');
+
+    if (!selectorInput || !feedback || !targetBox) {
+        return;
+    }
+
+    const selector = selectorInput.value.trim();
+    if (!selector) {
+        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> Please enter a selector!</div>';
+        feedback.style.display = 'block';
+        return;
+    }
+
+    try {
+        // Check if the selector matches the target element
+        const elements = document.querySelectorAll(selector);
+        let isCorrect = false;
+
+        // Check if target box is in the results
+        for (let element of elements) {
+            if (element === targetBox) {
+                isCorrect = true;
+                break;
+            }
+        }
+
+        if (isCorrect) {
+            feedback.innerHTML = '<div class="feedback success"><i class="fas fa-check-circle"></i> Correct! Your selector successfully targets the red box.</div>';
+            // Highlight the target box temporarily
+            targetBox.style.outline = '3px solid #10b981';
+            setTimeout(() => {
+                targetBox.style.outline = '';
+            }, 2000);
+        } else {
+            feedback.innerHTML = '<div class="feedback error"><i class="fas fa-times-circle"></i> Try again! Your selector doesn\'t target the red box. Hint: Try ".red" or "#target-box"</div>';
+        }
+
+    } catch (error) {
+        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> Invalid CSS selector. Please check your syntax.</div>';
+    }
+
+    feedback.style.display = 'block';
+}
+
+// JavaScript Introduction Interactive Functions
+let clickCount = 0;
+
+function incrementCounter() {
+    const countElement = document.getElementById('count');
+    if (countElement) {
+        clickCount++;
+        countElement.textContent = clickCount;
+    }
+}
+
+function changeColor() {
+    const box = document.getElementById('color-box');
+    if (box) {
+        const colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#14b8a6'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        box.style.background = randomColor;
+    }
+}
+
+function greetUser() {
+    const nameInput = document.getElementById('name-input');
+    const output = document.getElementById('greeting-output');
+
+    if (nameInput && output) {
+        const name = nameInput.value.trim();
+        if (name) {
+            output.innerHTML = `<h4>Hello, ${name}!</h4><p>Welcome to JavaScript!</p>`;
+            output.style.display = 'block';
+        } else {
+            output.innerHTML = '<p class="text-warning">Please enter your name first!</p>';
+            output.style.display = 'block';
+        }
+    }
+}
+
+function updateClock() {
+    const clockElement = document.getElementById('live-clock');
+    if (clockElement) {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        clockElement.textContent = timeString;
+    }
+}
+
+function runExample(code) {
+    const consoleInput = document.getElementById('console-input');
+    if (consoleInput) {
+        consoleInput.value = code;
+        executeConsoleCommand();
+    }
+}
+
+function executeConsoleCommand() {
+    const consoleInput = document.getElementById('console-input');
+    const consoleOutput = document.getElementById('console-output');
+
+    if (!consoleInput || !consoleOutput) return;
+
+    const code = consoleInput.value.trim();
+    if (!code) return;
+
+    try {
+        // Add the command to output
+        consoleOutput.innerHTML += `<br><span class="console-command">&gt; ${code}</span><br>`;
+
+        // Execute the code and get result
+        const result = eval(code);
+
+        // Display the result
+        if (result !== undefined) {
+            consoleOutput.innerHTML += `<span class="console-result">${result}</span><br>`;
+        }
+
+        // Clear input and scroll to bottom
+        consoleInput.value = '';
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+
+    } catch (error) {
+        consoleOutput.innerHTML += `<span class="console-error">Error: ${error.message}</span><br>`;
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    }
+}
+
+// Initialize JavaScript Introduction Interactive Features
+function initializeJavaScriptIntro() {
+    // Initialize live clock
+    const clockElement = document.getElementById('live-clock');
+    if (clockElement) {
+        updateClock(); // Initial update
+        setInterval(updateClock, 1000); // Update every second
+    }
+
+    // Initialize JavaScript console
+    const consoleInput = document.getElementById('console-input');
+    if (consoleInput) {
+        consoleInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                executeConsoleCommand();
+            }
+        });
+    }
+
+    // Initialize console output
+    const consoleOutput = document.getElementById('console-output');
+    if (consoleOutput) {
+        consoleOutput.innerHTML = 'JavaScript Console - Type commands below and press Enter:<br><br>';
+    }
+}
+
+// AJAX Demo Functions
+function sendXHRRequest() {
+    const method = document.getElementById('xhr-method').value;
+    const url = document.getElementById('xhr-url').value;
+    const data = document.getElementById('xhr-data').value;
+    const result = document.getElementById('xhr-result');
+
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Sending request...</div>';
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            let responseData = xhr.responseText;
+            let statusClass = 'success';
+
+            if (xhr.status >= 400) {
+                statusClass = 'error';
+            } else if (xhr.status >= 300) {
+                statusClass = 'warning';
+            }
+
+            try {
+                // Try to format JSON response
+                const jsonData = JSON.parse(responseData);
+                responseData = JSON.stringify(jsonData, null, 2);
+            } catch (e) {
+                // Not JSON, use as-is
+            }
+
+            result.innerHTML = `
+                <div class="result ${statusClass}">
+                    <div class="status-info">
+                        <strong>Status:</strong> ${xhr.status} ${xhr.statusText}<br>
+                        <strong>Method:</strong> ${method}<br>
+                        <strong>URL:</strong> ${url}
+                    </div>
+                    <div class="response-data">
+                        <strong>Response:</strong>
+                        <pre><code>${responseData}</code></pre>
+                    </div>
+                </div>
+            `;
+        }
+    };
+
+    xhr.onerror = function () {
+        result.innerHTML = '<div class="result error">Network error occurred</div>';
+    };
+
+    xhr.open(method, url);
+
+    if (method === 'POST' || method === 'PUT') {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(data);
+    } else {
+        xhr.send();
+    }
+}
+
+function clearXHRResult() {
+    const result = document.getElementById('xhr-result');
+    if (result) {
+        result.innerHTML = '<div class="placeholder"><i class="fas fa-info-circle"></i> Configure your request above and click "Send Request" to see the result.</div>';
+    }
+}
+
+function testNetworkError() {
+    const result = document.getElementById('error-test-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Testing network error...</div>';
+
+    const xhr = new XMLHttpRequest();
+    xhr.timeout = 5000;
+
+    xhr.onerror = function () {
+        result.innerHTML = '<div class="result error"><i class="fas fa-exclamation-triangle"></i> Network Error: Unable to connect to server</div>';
+    };
+
+    xhr.ontimeout = function () {
+        result.innerHTML = '<div class="result warning"><i class="fas fa-clock"></i> Request timed out</div>';
+    };
+
+    // Try to connect to a non-existent domain
+    xhr.open('GET', 'https://nonexistent-domain-12345.com/api/test');
+    xhr.send();
+}
+
+function testHTTPError() {
+    const result = document.getElementById('error-test-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Testing HTTP error...</div>';
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 404) {
+                result.innerHTML = '<div class="result error"><i class="fas fa-file-times"></i> HTTP 404: Resource not found</div>';
+            } else {
+                result.innerHTML = `<div class="result warning"><i class="fas fa-exclamation-triangle"></i> HTTP ${xhr.status}: ${xhr.statusText}</div>`;
+            }
+        }
+    };
+
+    xhr.onerror = function () {
+        result.innerHTML = '<div class="result error"><i class="fas fa-wifi"></i> Network error occurred</div>';
+    };
+
+    // Try to get a non-existent resource
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/999999');
+    xhr.send();
+}
+
+function testTimeout() {
+    const result = document.getElementById('error-test-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Testing timeout (will timeout in 2 seconds)...</div>';
+
+    const xhr = new XMLHttpRequest();
+    xhr.timeout = 2000; // 2 seconds
+
+    xhr.ontimeout = function () {
+        result.innerHTML = '<div class="result warning"><i class="fas fa-clock"></i> Request timed out after 2 seconds</div>';
+    };
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            result.innerHTML = '<div class="result success"><i class="fas fa-check"></i> Request completed (this shouldn\'t appear if timeout works)</div>';
+        }
+    };
+
+    // Use a slow-responding endpoint
+    xhr.open('GET', 'https://httpbin.org/delay/5');
+    xhr.send();
+}
+
+function testRetry() {
+    const result = document.getElementById('error-test-result');
+    if (!result) return;
+
+    let attempt = 1;
+    const maxAttempts = 3;
+
+    function makeRequest() {
+        result.innerHTML = `<div class="loading"><i class="fas fa-spinner fa-spin"></i> Attempt ${attempt} of ${maxAttempts}...</div>`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.timeout = 3000;
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    result.innerHTML = `<div class="result success"><i class="fas fa-check"></i> Success on attempt ${attempt}!</div>`;
+                } else {
+                    handleError();
+                }
+            }
+        };
+
+        xhr.onerror = handleError;
+        xhr.ontimeout = handleError;
+
+        function handleError() {
+            if (attempt < maxAttempts) {
+                attempt++;
+                setTimeout(makeRequest, 1000); // Retry after 1 second
+            } else {
+                result.innerHTML = '<div class="result error"><i class="fas fa-times"></i> All retry attempts failed</div>';
+            }
+        }
+
+        // Use a URL that might fail sometimes
+        xhr.open('GET', 'https://httpbin.org/status/200,500');
+        xhr.send();
+    }
+
+    makeRequest();
+}
+
+let pollingInterval;
+
+function startPolling() {
+    const result = document.getElementById('realtime-data');
+    if (!result) return;
+
+    if (pollingInterval) {
+        clearInterval(pollingInterval);
+    }
+
+    pollingInterval = setInterval(() => {
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                const timestamp = new Date().toLocaleTimeString();
+                result.innerHTML = `
+                    <div class="update-item">
+                        <strong>Last Update:</strong> ${timestamp}<br>
+                        <strong>Data:</strong> ${JSON.stringify(data, null, 2)}
+                    </div>
+                `;
+            }
+        };
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/' + Math.floor(Math.random() * 10 + 1));
+        xhr.send();
+    }, 3000); // Poll every 3 seconds
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Starting real-time updates...</div>';
+}
+
+function stopPolling() {
+    if (pollingInterval) {
+        clearInterval(pollingInterval);
+        pollingInterval = null;
+    }
+
+    const result = document.getElementById('realtime-data');
+    if (result) {
+        result.innerHTML = '<div class="placeholder">Real-time updates stopped. Click "Start Updates" to resume.</div>';
+    }
+}
+
+// Initialize AJAX Demos
+function initializeAjaxDemos() {
+    // Initialize live search
+    const liveSearch = document.getElementById('live-search');
+    if (liveSearch) {
+        let searchTimeout;
+        liveSearch.addEventListener('input', function () {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performLiveSearch(this.value);
+            }, 300); // Debounce search
+        });
+    }
+
+    // Initialize AJAX form submission
+    const ajaxForm = document.getElementById('ajax-form');
+    if (ajaxForm) {
+        ajaxForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitAjaxForm(this);
+        });
+    }
+
+    // Initialize infinite scroll
+    const scrollContainer = document.getElementById('scroll-container');
+    if (scrollContainer) {
+        initializeInfiniteScroll();
+    }
+}
+
+function performLiveSearch(query) {
+    const results = document.getElementById('search-results');
+    if (!results) return;
+
+    if (!query.trim()) {
+        results.innerHTML = '';
+        return;
+    }
+
+    results.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Searching...</div>';
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            const filteredData = data.filter(post =>
+                post.title.toLowerCase().includes(query.toLowerCase()) ||
+                post.body.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filteredData.length > 0) {
+                results.innerHTML = filteredData.slice(0, 5).map(post => `
+                    <div class="search-result-item">
+                        <strong>${post.title}</strong>
+                        <p>${post.body.substring(0, 100)}...</p>
+                    </div>
+                `).join('');
+            } else {
+                results.innerHTML = '<div class="no-results">No results found</div>';
+            }
+        }
+    };
+
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    xhr.send();
+}
+
+function submitAjaxForm(form) {
+    const formData = new FormData(form);
+    const feedback = document.getElementById('form-feedback');
+
+    if (feedback) {
+        feedback.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Submitting...</div>';
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200 || xhr.status === 201) {
+                if (feedback) {
+                    feedback.innerHTML = '<div class="result success"><i class="fas fa-check"></i> Form submitted successfully!</div>';
+                }
+                form.reset();
+            } else {
+                if (feedback) {
+                    feedback.innerHTML = '<div class="result error"><i class="fas fa-times"></i> Submission failed. Please try again.</div>';
+                }
+            }
+        }
+    };
+
+    // Simulate form submission to JSONPlaceholder
+    xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    const data = {
+        title: formData.get('name'),
+        body: formData.get('email'),
+        userId: 1
+    };
+
+    xhr.send(JSON.stringify(data));
+}
+
+let currentPage = 1;
+let isLoading = false;
+
+function initializeInfiniteScroll() {
+    const scrollContainer = document.getElementById('scroll-container');
+    if (!scrollContainer) return;
+
+    // Load initial content
+    loadMoreContent();
+
+    // Add scroll listener
+    scrollContainer.addEventListener('scroll', function () {
+        if (this.scrollTop + this.clientHeight >= this.scrollHeight - 10 && !isLoading) {
+            loadMoreContent();
+        }
+    });
+}
+
+function loadMoreContent() {
+    if (isLoading) return;
+
+    isLoading = true;
+    const scrollContent = document.querySelector('.scroll-content');
+    const spinner = document.querySelector('.loading-spinner');
+
+    if (spinner) spinner.style.display = 'block';
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+
+            data.forEach(post => {
+                const item = document.createElement('div');
+                item.className = 'scroll-item';
+                item.innerHTML = `
+                    <h5>${post.title}</h5>
+                    <p>${post.body}</p>
+                `;
+                if (scrollContent) scrollContent.appendChild(item);
+            });
+
+            currentPage++;
+            isLoading = false;
+            if (spinner) spinner.style.display = 'none';
+        }
+    };
+
+    xhr.open('GET', `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=5`);
+    xhr.send();
+}
+
+// Async/Await Demo Functions
+function initializeAsyncAwaitDemo() {
+    const fetchBtn = document.getElementById('fetchBtn');
+    if (fetchBtn) {
+        fetchBtn.addEventListener('click', fetchAsyncData);
+    }
+}
+
+async function fetchAsyncData() {
+    const apiUrl = document.getElementById('apiUrl').value;
+    const result = document.getElementById('apiResult');
+
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Fetching data with async/await...</div>';
+
+    try {
+        // Show step-by-step process
+        result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Step 1: Initiating fetch request...</div>';
+
+        await new Promise(resolve => setTimeout(resolve, 500)); // Simulate delay
+
+        result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Step 2: Awaiting server response...</div>';
+
+        const response = await fetch(apiUrl);
+
+        result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Step 3: Processing response...</div>';
+
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        result.innerHTML = `
+            <div class="result success">
+                <h4><i class="fas fa-check-circle"></i> Success!</h4>
+                <div class="response-info">
+                    <strong>URL:</strong> ${apiUrl}<br>
+                    <strong>Status:</strong> ${response.status} ${response.statusText}<br>
+                    <strong>Response:</strong>
+                </div>
+                <div class="response-data">
+                    <pre><code>${JSON.stringify(data, null, 2)}</code></pre>
+                </div>
+                <div class="code-example">
+                    <strong>Code used:</strong>
+                    <pre><code>async function fetchData() {
+    try {
+        const response = await fetch('${apiUrl}');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}</code></pre>
+                </div>
+            </div>
+        `;
+
+    } catch (error) {
+        result.innerHTML = `
+            <div class="result error">
+                <h4><i class="fas fa-exclamation-triangle"></i> Error Caught!</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+                <div class="code-example">
+                    <strong>This error was caught by the try-catch block:</strong>
+                    <pre><code>catch (error) {
+    console.error('Error:', error.message);
+}</code></pre>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Responsive Design Demo Functions
+function initializeResponsiveDemo() {
+    const screenWidth = document.getElementById('screenWidth');
+    const widthDisplay = document.getElementById('widthDisplay');
+    const demoViewport = document.getElementById('demoViewport');
+    const currentBreakpoint = document.getElementById('currentBreakpoint');
+    const deviceButtons = document.querySelectorAll('.device-buttons .btn');
+
+    if (!screenWidth || !demoViewport) return;
+
+    function updateViewport(width) {
+        if (widthDisplay) widthDisplay.textContent = width;
+        if (demoViewport) {
+            demoViewport.style.width = width + 'px';
+            demoViewport.style.maxWidth = width + 'px';
+        }
+
+        // Update breakpoint indicator
+        let breakpointName = 'Mobile';
+        if (width >= 1440) breakpointName = 'Desktop';
+        else if (width >= 1024) breakpointName = 'Laptop';
+        else if (width >= 768) breakpointName = 'Tablet';
+
+        if (currentBreakpoint) {
+            currentBreakpoint.textContent = `Current: ${breakpointName} (${width}px)`;
+        }
+
+        // Add CSS class for styling
+        if (demoViewport) {
+            demoViewport.className = 'demo-viewport';
+            if (width < 768) demoViewport.classList.add('mobile');
+            else if (width < 1024) demoViewport.classList.add('tablet');
+            else if (width < 1440) demoViewport.classList.add('laptop');
+            else demoViewport.classList.add('desktop');
+        }
+    }
+
+    // Slider event listener
+    screenWidth.addEventListener('input', function () {
+        updateViewport(parseInt(this.value));
+    });
+
+    // Device button event listeners
+    deviceButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const width = parseInt(this.getAttribute('data-width'));
+            screenWidth.value = width;
+            updateViewport(width);
+
+            // Update button states
+            deviceButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Initialize with current value
+    updateViewport(parseInt(screenWidth.value));
+}
+
+// ES6 Features Demo Functions
+function initializeES6Demo() {
+    // Any initialization for ES6 demos
+}
+
+function runArrowDemo() {
+    const result = document.getElementById('arrow-demo-result');
+    if (!result) {
+        alert('This demo transforms a regular function into an arrow function!');
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="result success">
+            <h4><i class="fas fa-magic"></i> Function Transformation Complete!</h4>
+            <div class="comparison">
+                <div class="before">
+                    <strong>Before (Regular Function):</strong>
+                    <pre><code>const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(function(num) {
+    return num * 2;
+});</code></pre>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="after">
+                    <strong>After (Arrow Function):</strong>
+                    <pre><code>const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);</code></pre>
+                </div>
+            </div>
+            <div class="benefits">
+                <h5>Benefits of Arrow Functions:</h5>
+                <ul>
+                    <li>Shorter, more concise syntax</li>
+                    <li>Implicit return for single expressions</li>
+                    <li>Lexical 'this' binding</li>
+                    <li>Better for functional programming</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+// Utility Functions for Interactive Elements
+function toggleBookmark(button) {
+    const icon = button.querySelector('i');
+    if (icon.classList.contains('fa-bookmark')) {
+        icon.classList.remove('fa-bookmark');
+        icon.classList.add('fa-bookmark-solid');
+        button.classList.add('bookmarked');
+        // You could save to localStorage here
+        console.log('Resource bookmarked');
+    } else {
+        icon.classList.remove('fa-bookmark-solid');
+        icon.classList.add('fa-bookmark');
+        button.classList.remove('bookmarked');
+        console.log('Bookmark removed');
+    }
+}
+
+function playVideo(videoId) {
+    const video = document.getElementById(videoId);
+    if (video) {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+}
+
+// Additional interactive element functions
+function showVideoControls(videoElement) {
+    if (videoElement) {
+        videoElement.controls = true;
+    }
+}
+
+function toggleVideoMute(videoElement) {
+    if (videoElement) {
+        videoElement.muted = !videoElement.muted;
+    }
+}
+
+// Client-Server Scripting Demo Functions
+function initializeClientServerDemo() {
+    // Any initialization needed
+}
+
+function runClientDemo() {
+    const result = document.getElementById('client-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Processing instantly on client...</div>';
+
+    // Simulate instant client-side processing
+    setTimeout(() => {
+        const startTime = performance.now();
+        const data = "hello world";
+        const processedData = data.toUpperCase();
+        const endTime = performance.now();
+        const executionTime = (endTime - startTime).toFixed(2);
+
+        result.innerHTML = `
+            <div class="result success">
+                <h5><i class="fas fa-desktop"></i> Client-Side Result</h5>
+                <div class="result-data">
+                    <strong>Input:</strong> "${data}"<br>
+                    <strong>Output:</strong> "${processedData}"<br>
+                    <strong>Execution Time:</strong> ${executionTime}ms<br>
+                    <strong>Location:</strong> Browser (Your Device)
+                </div>
+                <div class="advantages">
+                    <strong>Advantages:</strong>
+                    <ul>
+                        <li>Instant response</li>
+                        <li>No network latency</li>
+                        <li>Reduces server load</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    }, 100);
+}
+
+function runServerDemo() {
+    const result = document.getElementById('server-result');
+    if (!result) return;
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Sending request to server...</div>';
+
+    // Simulate server-side processing with network delay
+    setTimeout(() => {
+        result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Processing on server...</div>';
+
+        setTimeout(() => {
+            const data = "hello world";
+            const processedData = data.toUpperCase();
+
+            result.innerHTML = `
+                <div class="result success">
+                    <h5><i class="fas fa-server"></i> Server-Side Result</h5>
+                    <div class="result-data">
+                        <strong>Input:</strong> "${data}"<br>
+                        <strong>Output:</strong> "${processedData}"<br>
+                        <strong>Network Time:</strong> ~200ms<br>
+                        <strong>Location:</strong> Remote Server
+                    </div>
+                    <div class="advantages">
+                        <strong>Advantages:</strong>
+                        <ul>
+                            <li>Secure processing</li>
+                            <li>Access to databases</li>
+                            <li>Heavy computation capability</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }, 1000);
+    }, 200);
+}
+
+function showComparison() {
+    const clientResult = document.getElementById('client-result');
+    const serverResult = document.getElementById('server-result');
+
+    if (clientResult) {
+        clientResult.innerHTML = `
+            <div class="comparison-info">
+                <h5><i class="fas fa-desktop"></i> Client-Side Features</h5>
+                <div class="features">
+                    <div class="feature positive"><i class="fas fa-check"></i> Instant response</div>
+                    <div class="feature positive"><i class="fas fa-check"></i> No server load</div>
+                    <div class="feature positive"><i class="fas fa-check"></i> Works offline</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> Limited security</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> Code visible to users</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> No database access</div>
+                </div>
+            </div>
+        `;
+    }
+
+    if (serverResult) {
+        serverResult.innerHTML = `
+            <div class="comparison-info">
+                <h5><i class="fas fa-server"></i> Server-Side Features</h5>
+                <div class="features">
+                    <div class="feature positive"><i class="fas fa-check"></i> Secure processing</div>
+                    <div class="feature positive"><i class="fas fa-check"></i> Database access</div>
+                    <div class="feature positive"><i class="fas fa-check"></i> Code is hidden</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> Network latency</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> Server resource usage</div>
+                    <div class="feature negative"><i class="fas fa-times"></i> Requires internet</div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Browser and Server Demo Functions
+function showBrowserInfo() {
+    const browserDetails = document.getElementById('browserDetails');
+    const browserInfo = document.getElementById('browserInfo');
+
+    if (!browserDetails || !browserInfo) return;
+
+    const info = {
+        'Browser Name': navigator.appName,
+        'Browser Version': navigator.appVersion.split('(')[0].trim(),
+        'User Agent': navigator.userAgent,
+        'Platform': navigator.platform,
+        'Language': navigator.language,
+        'Cookies Enabled': navigator.cookieEnabled ? 'Yes' : 'No',
+        'Online Status': navigator.onLine ? 'Online' : 'Offline',
+        'Screen Resolution': `${screen.width} x ${screen.height}`,
+        'Color Depth': `${screen.colorDepth} bit`,
+        'Timezone': Intl.DateTimeFormat().resolvedOptions().timeZone
+    };
+
+    let html = '';
+    for (const [key, value] of Object.entries(info)) {
+        html += `<li><strong>${key}:</strong> ${value}</li>`;
+    }
+
+    browserDetails.innerHTML = html;
+    browserInfo.style.display = 'block';
+}
+
+function makeHTTPRequest() {
+    const responseData = document.getElementById('responseData');
+    const httpResponse = document.getElementById('httpResponse');
+
+    if (!responseData || !httpResponse) return;
+
+    responseData.innerHTML = 'Loading...';
+    httpResponse.style.display = 'block';
+
+    fetch('https://httpbin.org/get')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            responseData.innerHTML = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            responseData.innerHTML = `Error: ${error.message}\n\nNote: This demo requires an internet connection and may be blocked by CORS policy when running locally.`;
+        });
+}
+
+// Error Handling Demo Functions
+function runTryCatchDemo() {
+    const output = document.getElementById('demo-output');
+    if (!output) return;
+
+    let result = '';
+
+    try {
+        result += 'Starting safe code execution...\n';
+        const numbers = [1, 2, 3, 4, 5];
+        const sum = numbers.reduce((acc, num) => acc + num, 0);
+        result += `Array sum calculated: ${sum}\n`;
+        result += 'Safe code executed successfully!\n';
+    } catch (error) {
+        result += `Error caught: ${error.message}\n`;
+    } finally {
+        result += 'Finally block executed - cleanup complete\n';
+    }
+
+    output.textContent = result;
+}
+
+function runErrorDemo() {
+    const output = document.getElementById('demo-output');
+    if (!output) return;
+
+    let result = '';
+
+    try {
+        result += 'Starting code with intentional error...\n';
+        // This will throw a ReferenceError
+        result += `Accessing undefined variable: ${undefinedVariable}\n`;
+    } catch (error) {
+        result += `Error caught: ${error.name} - ${error.message}\n`;
+        result += `Error stack: ${error.stack.split('\n')[0]}\n`;
+    } finally {
+        result += 'Finally block executed - error handled gracefully\n';
+    }
+
+    output.textContent = result;
+}
+
+function clearDemoOutput() {
+    const output = document.getElementById('demo-output');
+    if (!output) return;
+
+    output.textContent = 'Output cleared. Click a demo button to see results.';
+}
+
+// Canvas Demo Functions
+function initializeCanvasDemo() {
+    // Initialize drawing canvas
+    const drawingCanvas = document.getElementById('drawingCanvas');
+    if (drawingCanvas) {
+        const ctx = drawingCanvas.getContext('2d');
+        let isDrawing = false;
+
+        // Set initial canvas style
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+        ctx.strokeStyle = '#3498db';
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', draw);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
+
+        // Color and size controls
+        const colorPicker = document.getElementById('drawColor');
+        const sizeSlider = document.getElementById('drawSize');
+        const sizeDisplay = document.getElementById('sizeDisplay');
+        const clearBtn = document.getElementById('clearCanvas');
+
+        if (colorPicker) {
+            colorPicker.addEventListener('change', (e) => {
+                ctx.strokeStyle = e.target.value;
+            });
+        }
+
+        if (sizeSlider && sizeDisplay) {
+            sizeSlider.addEventListener('input', (e) => {
+                ctx.lineWidth = e.target.value;
+                sizeDisplay.textContent = e.target.value;
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                ctx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+                ctx.fillStyle = '#f8f9fa';
+                ctx.fillRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+            });
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = drawingCanvas.getBoundingClientRect();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = drawingCanvas.getBoundingClientRect();
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+            ctx.stroke();
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+    }
+
+    // Initialize animation canvas
+    initializeAnimationCanvas();
+
+    // Initialize interactive canvas
+    initializeInteractiveCanvas();
+
+    // Tab switching
+    initializeCanvasTabs();
+}
+
+function initializeAnimationCanvas() {
+    const animationCanvas = document.getElementById('animationCanvas');
+    if (!animationCanvas) return;
+
+    const ctx = animationCanvas.getContext('2d');
+    let animationId;
+    let ball = {
+        x: 50,
+        y: 50,
+        dx: 2,
+        dy: 2,
+        radius: 20,
+        color: '#e74c3c'
+    };
+    let speed = 1;
+
+    // Set initial canvas style
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, animationCanvas.width, animationCanvas.height);
+
+    const startBtn = document.getElementById('startAnimation');
+    const stopBtn = document.getElementById('stopAnimation');
+    const speedSlider = document.getElementById('animSpeed');
+
+    if (startBtn) {
+        startBtn.addEventListener('click', startAnimation);
+    }
+
+    if (stopBtn) {
+        stopBtn.addEventListener('click', stopAnimation);
+    }
+
+    if (speedSlider) {
+        speedSlider.addEventListener('input', (e) => {
+            speed = parseInt(e.target.value) / 5;
+        });
+    }
+
+    function animate() {
+        // Clear canvas
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, animationCanvas.width, animationCanvas.height);
+
+        // Update ball position
+        ball.x += ball.dx * speed;
+        ball.y += ball.dy * speed;
+
+        // Bounce off walls
+        if (ball.x + ball.radius > animationCanvas.width || ball.x - ball.radius < 0) {
+            ball.dx = -ball.dx;
+        }
+        if (ball.y + ball.radius > animationCanvas.height || ball.y - ball.radius < 0) {
+            ball.dy = -ball.dy;
+        }
+
+        // Draw ball
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+        ctx.strokeStyle = '#c0392b';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    function startAnimation() {
+        if (!animationId) {
+            animate();
+        }
+    }
+
+    function stopAnimation() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+    }
+}
+
+function initializeInteractiveCanvas() {
+    const interactiveCanvas = document.getElementById('interactiveCanvas');
+    if (!interactiveCanvas) return;
+
+    const ctx = interactiveCanvas.getContext('2d');
+    let shapes = [];
+
+    // Set initial canvas style
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, interactiveCanvas.width, interactiveCanvas.height);
+
+    const addShapeBtn = document.getElementById('addShape');
+    const resetBtn = document.getElementById('resetShapes');
+    const shapeCount = document.getElementById('shapeCount');
+
+    if (addShapeBtn) {
+        addShapeBtn.addEventListener('click', addRandomShape);
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetShapes);
+    }
+
+    interactiveCanvas.addEventListener('click', addShapeAtPosition);
+
+    function addRandomShape() {
+        const shape = {
+            x: Math.random() * (interactiveCanvas.width - 40) + 20,
+            y: Math.random() * (interactiveCanvas.height - 40) + 20,
+            size: Math.random() * 30 + 10,
+            color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+            type: Math.random() > 0.5 ? 'circle' : 'square'
+        };
+        shapes.push(shape);
+        drawShapes();
+        updateShapeCount();
+    }
+
+    function addShapeAtPosition(e) {
+        const rect = interactiveCanvas.getBoundingClientRect();
+        const shape = {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+            size: Math.random() * 30 + 10,
+            color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+            type: Math.random() > 0.5 ? 'circle' : 'square'
+        };
+        shapes.push(shape);
+        drawShapes();
+        updateShapeCount();
+    }
+
+    function drawShapes() {
+        // Clear canvas
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, interactiveCanvas.width, interactiveCanvas.height);
+
+        // Draw all shapes
+        shapes.forEach(shape => {
+            ctx.fillStyle = shape.color;
+            ctx.strokeStyle = '#2c3e50';
+            ctx.lineWidth = 2;
+
+            if (shape.type === 'circle') {
+                ctx.beginPath();
+                ctx.arc(shape.x, shape.y, shape.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.stroke();
+            } else {
+                ctx.fillRect(shape.x - shape.size, shape.y - shape.size, shape.size * 2, shape.size * 2);
+                ctx.strokeRect(shape.x - shape.size, shape.y - shape.size, shape.size * 2, shape.size * 2);
+            }
+        });
+    }
+
+    function resetShapes() {
+        shapes = [];
+        drawShapes();
+        updateShapeCount();
+    }
+
+    function updateShapeCount() {
+        if (shapeCount) {
+            shapeCount.textContent = `Shapes: ${shapes.length}`;
+        }
+    }
+}
+
+function initializeCanvasTabs() {
+    const tabBtns = document.querySelectorAll('[data-demo]');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.demo;
+
+            // Remove active class from all buttons and panes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding pane
+            btn.classList.add('active');
+            const targetPane = document.getElementById(`${target}-demo`);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+}
+
+// Audio/Video Demo Functions
+function initializeAudioVideoDemo() {
+    // Audio controls
+    const audio = document.getElementById('customAudio');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const volumeControl = document.getElementById('volumeControl');
+    const volumeDisplay = document.getElementById('volumeDisplay');
+
+    if (audio && playBtn) {
+        playBtn.addEventListener('click', () => {
+            audio.play().catch(e => console.log('Audio play failed:', e));
+        });
+    }
+
+    if (audio && pauseBtn) {
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+        });
+    }
+
+    if (audio && stopBtn) {
+        stopBtn.addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    }
+
+    if (audio && volumeControl && volumeDisplay) {
+        volumeControl.addEventListener('input', (e) => {
+            const volume = e.target.value;
+            audio.volume = volume;
+            volumeDisplay.textContent = Math.round(volume * 100) + '%';
+        });
+    }
+
+    // Video controls
+    const video = document.getElementById('customVideo');
+    const videoPlayBtn = document.getElementById('videoPlayBtn');
+    const videoPauseBtn = document.getElementById('videoPauseBtn');
+    const videoMuteBtn = document.getElementById('videoMuteBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const overlayPlayBtn = document.getElementById('overlayPlayBtn');
+
+    if (video && videoPlayBtn) {
+        videoPlayBtn.addEventListener('click', () => {
+            video.play().catch(e => console.log('Video play failed:', e));
+        });
+    }
+
+    if (video && videoPauseBtn) {
+        videoPauseBtn.addEventListener('click', () => {
+            video.pause();
+        });
+    }
+
+    if (video && videoMuteBtn) {
+        videoMuteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            const icon = videoMuteBtn.querySelector('i');
+            if (icon) {
+                icon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+            }
+        });
+    }
+
+    if (video && fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        });
+    }
+
+    if (video && overlayPlayBtn) {
+        overlayPlayBtn.addEventListener('click', () => {
+            video.play().catch(e => console.log('Video play failed:', e));
+            overlayPlayBtn.style.display = 'none';
+        });
+
+        video.addEventListener('pause', () => {
+            overlayPlayBtn.style.display = 'block';
+        });
+    }
+}
+
+// JSON Demo Functions
+function initializeJSONDemo() {
+    // Tab switching for JSON demos
+    const tabBtns = document.querySelectorAll('[data-tab]');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+
+            // Remove active class from all buttons and panes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding pane
+            btn.classList.add('active');
+            const targetPane = document.getElementById(`${target}-panel`);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+
+    // LocalStorage demo
+    initializeLocalStorageDemo();
+
+    // Fetch demo
+    initializeFetchDemo();
+
+    // Form demo
+    initializeFormDemo();
+}
+
+function initializeLocalStorageDemo() {
+    const saveBtn = document.getElementById('saveToStorage');
+    const loadBtn = document.getElementById('loadFromStorage');
+    const clearBtn = document.getElementById('clearStorage');
+    const result = document.getElementById('storageResult');
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            const name = document.getElementById('userName')?.value || '';
+            const age = document.getElementById('userAge')?.value || '';
+            const skills = document.getElementById('userSkills')?.value || '';
+
+            const userData = {
+                name: name,
+                age: parseInt(age) || 0,
+                skills: skills.split(',').map(s => s.trim()),
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            if (result) {
+                result.innerHTML = `
+                    <h5>✅ Data Saved to LocalStorage</h5>
+                    <pre>${JSON.stringify(userData, null, 2)}</pre>
+                `;
+                result.className = 'result-box success';
+            }
+        });
+    }
+
+    if (loadBtn) {
+        loadBtn.addEventListener('click', () => {
+            const storedData = localStorage.getItem('userData');
+
+            if (result) {
+                if (storedData) {
+                    const userData = JSON.parse(storedData);
+                    result.innerHTML = `
+                        <h5>📤 Data Loaded from LocalStorage</h5>
+                        <pre>${JSON.stringify(userData, null, 2)}</pre>
+                    `;
+                    result.className = 'result-box success';
+
+                    // Populate form fields
+                    if (document.getElementById('userName')) document.getElementById('userName').value = userData.name || '';
+                    if (document.getElementById('userAge')) document.getElementById('userAge').value = userData.age || '';
+                    if (document.getElementById('userSkills')) document.getElementById('userSkills').value = userData.skills?.join(', ') || '';
+                } else {
+                    result.innerHTML = `
+                        <h5>❌ No Data Found</h5>
+                        <p>No user data found in LocalStorage. Save some data first!</p>
+                    `;
+                    result.className = 'result-box error';
+                }
+            }
+        });
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            localStorage.removeItem('userData');
+
+            if (result) {
+                result.innerHTML = `
+                    <h5>🗑️ Storage Cleared</h5>
+                    <p>User data has been removed from LocalStorage.</p>
+                `;
+                result.className = 'result-box info';
+            }
+        });
+    }
+}
+
+function initializeFetchDemo() {
+    const fetchBtn = document.getElementById('fetchData');
+    const result = document.getElementById('fetchResult');
+
+    if (fetchBtn && result) {
+        fetchBtn.addEventListener('click', async () => {
+            const apiUrl = document.getElementById('apiUrl')?.value || '';
+
+            if (!apiUrl) {
+                result.innerHTML = `
+                    <h5>❌ Error</h5>
+                    <p>Please enter an API URL.</p>
+                `;
+                result.className = 'result-box error';
+                return;
+            }
+
+            try {
+                result.innerHTML = `
+                    <h5>🔄 Fetching Data...</h5>
+                    <p>Please wait while we fetch data from: ${apiUrl}</p>
+                `;
+                result.className = 'result-box info';
+
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                result.innerHTML = `
+                    <h5>✅ Data Fetched Successfully</h5>
+                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+                result.className = 'result-box success';
+
+            } catch (error) {
+                result.innerHTML = `
+                    <h5>❌ Fetch Error</h5>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p>This might be due to CORS policy, network issues, or invalid URL.</p>
+                `;
+                result.className = 'result-box error';
+            }
+        });
+    }
+}
+
+function initializeFormDemo() {
+    const convertBtn = document.getElementById('convertForm');
+    const result = document.getElementById('formResult');
+
+    if (convertBtn && result) {
+        convertBtn.addEventListener('click', () => {
+            const formData = {
+                name: document.getElementById('productName')?.value || '',
+                price: parseFloat(document.getElementById('productPrice')?.value) || 0,
+                category: document.getElementById('productCategory')?.value || '',
+                inStock: document.getElementById('inStock')?.checked || false,
+                createdAt: new Date().toISOString()
+            };
+
+            // Show the JSON conversion
+            result.innerHTML = `
+                <h5>✅ Form Data Converted to JSON</h5>
+                <div class="conversion-demo">
+                    <div class="form-data">
+                        <h6>Form Values:</h6>
+                        <ul>
+                            <li><strong>Name:</strong> "${formData.name}"</li>
+                            <li><strong>Price:</strong> ${formData.price}</li>
+                            <li><strong>Category:</strong> "${formData.category}"</li>
+                            <li><strong>In Stock:</strong> ${formData.inStock}</li>
+                        </ul>
+                    </div>
+                    <div class="json-output">
+                        <h6>JSON Output:</h6>
+                        <pre>${JSON.stringify(formData, null, 2)}</pre>
+                    </div>
+                </div>
+            `;
+            result.className = 'result-box success';
+        });
+    }
+}
+
+// Regular Expressions Demo Functions
+function initializeRegexDemo() {
+    const testBtn = document.getElementById('testPatternBtn');
+    const clearBtn = document.getElementById('clearTesterBtn');
+
+    if (testBtn) {
+        testBtn.addEventListener('click', testRegexPattern);
+    }
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', clearRegexTester);
+    }
+}
+
+function testRegexPattern() {
+    const patternInput = document.getElementById('customPattern');
+    const testInput = document.getElementById('testInput');
+    const matchesDiv = document.getElementById('testerMatches');
+    const highlightDiv = document.getElementById('testerHighlight');
+
+    if (!patternInput || !testInput) return;
+
+    const patternText = patternInput.value.trim();
+    const testText = testInput.value;
+
+    try {
+        // Parse the regex pattern (handle /pattern/flags format)
+        let regex;
+        if (patternText.startsWith('/')) {
+            const lastSlash = patternText.lastIndexOf('/');
+            if (lastSlash > 0) {
+                const pattern = patternText.substring(1, lastSlash);
+                const flags = patternText.substring(lastSlash + 1);
+                regex = new RegExp(pattern, flags);
+            } else {
+                regex = new RegExp(patternText.substring(1));
+            }
+        } else {
+            regex = new RegExp(patternText, 'g');
+        }
+
+        // Find all matches
+        const matches = Array.from(testText.matchAll(regex));
+
+        // Update matches display
+        if (matchesDiv) {
+            if (matches.length > 0) {
+                const matchedTexts = matches.map(match => `"${match[0]}"`).join(', ');
+                matchesDiv.innerHTML = `
+                    <div class="match-count">Matches: <strong>${matches.length}</strong></div>
+                    <div class="match-list">[${matchedTexts}]</div>
+                `;
+                matchesDiv.className = 'match-summary success';
+            } else {
+                matchesDiv.innerHTML = `
+                    <div class="match-count">Matches: <strong>0</strong></div>
+                    <div class="match-list">No matches found</div>
+                `;
+                matchesDiv.className = 'match-summary error';
+            }
+        }
+
+        // Update highlighted text
+        if (highlightDiv) {
+            let highlightedText = testText;
+            if (matches.length > 0) {
+                // Sort matches by position (descending) to avoid offset issues
+                const sortedMatches = matches.sort((a, b) => b.index - a.index);
+
+                sortedMatches.forEach(match => {
+                    const start = match.index;
+                    const end = start + match[0].length;
+                    highlightedText =
+                        highlightedText.substring(0, start) +
+                        `<span class="highlight">${match[0]}</span>` +
+                        highlightedText.substring(end);
+                });
+            }
+            highlightDiv.innerHTML = highlightedText;
+        }
+
+    } catch (error) {
+        // Handle regex syntax errors
+        if (matchesDiv) {
+            matchesDiv.innerHTML = `
+                <div class="match-count">Error in Pattern</div>
+                <div class="match-list error">${error.message}</div>
+            `;
+            matchesDiv.className = 'match-summary error';
+        }
+
+        if (highlightDiv) {
+            highlightDiv.innerHTML = testText;
+        }
+    }
+}
+
+function clearRegexTester() {
+    const patternInput = document.getElementById('customPattern');
+    const testInput = document.getElementById('testInput');
+    const matchesDiv = document.getElementById('testerMatches');
+    const highlightDiv = document.getElementById('testerHighlight');
+
+    if (patternInput) patternInput.value = '';
+    if (testInput) testInput.value = '';
+
+    if (matchesDiv) {
+        matchesDiv.innerHTML = `
+            <div class="match-count">Matches: <strong>0</strong></div>
+            <div class="match-list">Enter a pattern and test text</div>
+        `;
+        matchesDiv.className = 'match-summary';
+    }
+
+    if (highlightDiv) {
+        highlightDiv.innerHTML = 'Enter text to test...';
+    }
+}
+
+// Web Accessibility Testing Functions
+function testColorContrast() {
+    const result = document.getElementById('test-results') || createTestResultsDiv();
+
+    result.innerHTML = `
+        <div class="test-result success">
+            <h4><i class="fas fa-check-circle"></i> Color Contrast Test</h4>
+            <p><strong>Test Passed:</strong> Current color scheme meets WCAG AA standards</p>
+            <div class="contrast-info">
+                <p><strong>Background:</strong> #ffffff (White)</p>
+                <p><strong>Text:</strong> #333333 (Dark Gray)</p>
+                <p><strong>Contrast Ratio:</strong> 12.63:1 (Excellent)</p>
+                <p><strong>WCAG Level:</strong> AAA ✓</p>
+            </div>
+            <div class="recommendations">
+                <h5>Recommendations:</h5>
+                <ul>
+                    <li>Maintain this high contrast ratio</li>
+                    <li>Test with color blindness simulators</li>
+                    <li>Ensure interactive elements have sufficient contrast</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function testKeyboardNav() {
+    const result = document.getElementById('test-results') || createTestResultsDiv();
+
+    result.innerHTML = `
+        <div class="test-result warning">
+            <h4><i class="fas fa-exclamation-triangle"></i> Keyboard Navigation Test</h4>
+            <p><strong>Test Status:</strong> Some improvements needed</p>
+            <div class="nav-results">
+                <div class="nav-item success">✓ All links are keyboard accessible</div>
+                <div class="nav-item success">✓ Form elements have proper tab order</div>
+                <div class="nav-item success">✓ Skip links are available</div>
+                <div class="nav-item warning">⚠ Some custom elements need focus indicators</div>
+                <div class="nav-item warning">⚠ Modal dialogs need trap focus</div>
+            </div>
+            <div class="instructions">
+                <h5>Test Instructions:</h5>
+                <p>Try navigating this page using only the Tab, Shift+Tab, Enter, and Space keys.</p>
+            </div>
+        </div>
+    `;
+}
+
+function testScreenReader() {
+    const result = document.getElementById('test-results') || createTestResultsDiv();
+
+    result.innerHTML = `
+        <div class="test-result info">
+            <h4><i class="fas fa-volume-up"></i> Screen Reader Test</h4>
+            <p><strong>Simulation:</strong> Screen reader navigation preview</p>
+            <div class="screenreader-output">
+                <div class="sr-announcement">
+                    <strong>Screen Reader Output:</strong>
+                    <pre>
+Main navigation
+Link: Home
+Link: About
+Link: Contact
+
+Main content
+Heading level 1: Web Accessibility
+Text: Web accessibility ensures that people with disabilities can use websites effectively.
+
+Article
+Heading level 2: WCAG Guidelines
+Text: The Web Content Accessibility Guidelines provide comprehensive standards...
+
+Button: Test Color Contrast
+Button: Test Keyboard Navigation
+                    </pre>
+                </div>
+            </div>
+            <div class="sr-tips">
+                <h5>Screen Reader Tips:</h5>
+                <ul>
+                    <li>Use semantic HTML elements</li>
+                    <li>Provide descriptive alt text for images</li>
+                    <li>Use proper heading hierarchy</li>
+                    <li>Add ARIA labels where needed</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function testFormLabels() {
+    const result = document.getElementById('test-results') || createTestResultsDiv();
+
+    result.innerHTML = `
+        <div class="test-result success">
+            <h4><i class="fas fa-tags"></i> Form Labels Test</h4>
+            <p><strong>Test Passed:</strong> All form elements have proper labels</p>
+            <div class="form-analysis">
+                <div class="form-item success">✓ Email input has explicit label</div>
+                <div class="form-item success">✓ Password input has explicit label</div>
+                <div class="form-item success">✓ Checkbox has descriptive text</div>
+                <div class="form-item success">✓ Submit button has descriptive text</div>
+            </div>
+            <div class="best-practices">
+                <h5>Form Accessibility Best Practices:</h5>
+                <ul>
+                    <li>Use explicit labels with 'for' attribute</li>
+                    <li>Provide error messages and validation feedback</li>
+                    <li>Group related form elements with fieldset/legend</li>
+                    <li>Use required attribute for mandatory fields</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function testHeadingStructure() {
+    const result = document.getElementById('test-results') || createTestResultsDiv();
+
+    result.innerHTML = `
+        <div class="test-result success">
+            <h4><i class="fas fa-list-ol"></i> Heading Structure Test</h4>
+            <p><strong>Test Passed:</strong> Proper heading hierarchy detected</p>
+            <div class="heading-outline">
+                <h5>Page Outline:</h5>
+                <ul class="heading-tree">
+                    <li>H1: Web Accessibility
+                        <ul>
+                            <li>H2: WCAG Principles</li>
+                            <li>H2: Implementation Techniques
+                                <ul>
+                                    <li>H3: Semantic HTML</li>
+                                    <li>H3: ARIA Attributes</li>
+                                    <li>H3: Testing Tools</li>
+                                </ul>
+                            </li>
+                            <li>H2: Interactive Examples</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="heading-tips">
+                <h5>Heading Best Practices:</h5>
+                <ul>
+                    <li>Use only one H1 per page</li>
+                    <li>Don't skip heading levels</li>
+                    <li>Make headings descriptive</li>
+                    <li>Use headings for structure, not styling</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function updateProgress() {
+    const progressBar = document.querySelector('.progress-fill');
+    const ariaLive = document.getElementById('progress-live-region');
+
+    if (progressBar) {
+        const currentWidth = parseInt(progressBar.style.width) || 0;
+        const newWidth = Math.min(currentWidth + 20, 100);
+        progressBar.style.width = newWidth + '%';
+        progressBar.setAttribute('aria-valuenow', newWidth);
+
+        if (ariaLive) {
+            ariaLive.textContent = `Progress updated: ${newWidth}% complete`;
+        }
+    }
+}
+
+function announceMessage() {
+    const liveRegion = document.getElementById('live-announcements');
+    if (liveRegion) {
+        const messages = [
+            'New notification received',
+            'Form validation complete',
+            'Content updated successfully',
+            'User preferences saved',
+            'Search results loaded'
+        ];
+        const message = messages[Math.floor(Math.random() * messages.length)];
+        liveRegion.textContent = message;
+    }
+}
+
+function createTestResultsDiv() {
+    let result = document.getElementById('test-results');
+    if (!result) {
+        result = document.createElement('div');
+        result.id = 'test-results';
+        result.className = 'test-results-container';
+
+        // Try to find a good place to insert it
+        const testButtons = document.querySelector('.btn[onclick*="test"]');
+        if (testButtons && testButtons.parentElement) {
+            testButtons.parentElement.appendChild(result);
+        } else {
+            document.body.appendChild(result);
+        }
+    }
+    return result;
+}
+
+// UI/UX Design Demo Functions
+function showPrincipleDetails(principle) {
+    const details = {
+        hierarchy: {
+            title: 'Visual Hierarchy',
+            description: 'Visual hierarchy guides users through content by using size, color, contrast, and positioning to indicate importance and relationships.',
+            examples: [
+                'Large headings draw attention first',
+                'Important CTAs use contrasting colors',
+                'Related content is grouped together',
+                'White space creates separation and focus'
+            ],
+            tips: [
+                'Use consistent heading sizes (H1 > H2 > H3)',
+                'Make primary actions visually prominent',
+                'Group related elements using proximity',
+                'Use contrast to highlight important information'
+            ]
+        },
+        consistency: {
+            title: 'Consistency',
+            description: 'Consistent design patterns help users predict how the interface will behave, reducing cognitive load and improving usability.',
+            examples: [
+                'Same button styles throughout the site',
+                'Consistent navigation placement',
+                'Uniform color scheme and typography',
+                'Standardized form layouts'
+            ],
+            tips: [
+                'Create and follow a design system',
+                'Use consistent terminology and labeling',
+                'Maintain uniform spacing and alignment',
+                'Keep navigation patterns predictable'
+            ]
+        },
+        feedback: {
+            title: 'User Feedback',
+            description: 'Immediate and clear feedback helps users understand the results of their actions and the current state of the system.',
+            examples: [
+                'Loading states for slow operations',
+                'Success/error messages for form submissions',
+                'Hover effects on interactive elements',
+                'Progress indicators for multi-step processes'
+            ],
+            tips: [
+                'Provide immediate feedback for user actions',
+                'Use clear, actionable error messages',
+                'Show system status and loading states',
+                'Confirm destructive actions before execution'
+            ]
+        },
+        simplicity: {
+            title: 'Simplicity',
+            description: 'Simple, clean designs reduce cognitive load and help users focus on their primary tasks without distraction.',
+            examples: [
+                'Minimal navigation with clear labels',
+                'Clean layouts with plenty of white space',
+                'Limited color palette',
+                'Progressive disclosure of complex features'
+            ],
+            tips: [
+                'Follow the principle of least surprise',
+                'Remove unnecessary elements and features',
+                'Use progressive disclosure for complex workflows',
+                'Prioritize content and features by user needs'
+            ]
+        },
+        affordance: {
+            title: 'Affordances',
+            description: 'Design elements should clearly indicate how they can be used, making interfaces intuitive and discoverable.',
+            examples: [
+                'Buttons look clickable with proper styling',
+                'Links are visually distinct from regular text',
+                'Form fields have clear boundaries',
+                'Interactive elements have hover/focus states'
+            ],
+            tips: [
+                'Make clickable elements look clickable',
+                'Use familiar icons and conventions',
+                'Provide clear visual cues for interactions',
+                'Ensure sufficient contrast and size for accessibility'
+            ]
+        },
+        accessibility: {
+            title: 'Accessibility',
+            description: 'Accessible design ensures that all users, including those with disabilities, can effectively use your interface.',
+            examples: [
+                'Sufficient color contrast ratios',
+                'Keyboard navigation support',
+                'Screen reader compatible markup',
+                'Alternative text for images'
+            ],
+            tips: [
+                'Follow WCAG guidelines for accessibility',
+                'Test with keyboard-only navigation',
+                'Use semantic HTML elements',
+                'Provide multiple ways to access content'
+            ]
+        }
+    };
+
+    const detail = details[principle];
+    if (!detail) return;
+
+    const modal = createModal('principle-modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lightbulb"></i> ${detail.title}</h3>
+                <button class="modal-close" onclick="closeModal('principle-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="principle-description">${detail.description}</p>
+                
+                <div class="principle-section">
+                    <h4><i class="fas fa-examples"></i> Examples</h4>
+                    <ul class="principle-list">
+                        ${detail.examples.map(example => `<li>${example}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="principle-section">
+                    <h4><i class="fas fa-tips"></i> Implementation Tips</h4>
+                    <ul class="principle-list">
+                        ${detail.tips.map(tip => `<li>${tip}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+
+    showModal('principle-modal');
+}
+
+function showPattern(patternType) {
+    const patterns = {
+        navigation: {
+            title: 'Navigation Patterns',
+            description: 'Common navigation patterns that provide intuitive ways for users to move through your site.',
+            patterns: [
+                {
+                    name: 'Primary Navigation',
+                    description: 'Main site navigation, usually horizontal at the top',
+                    code: `<nav class="primary-nav">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>`
+                },
+                {
+                    name: 'Breadcrumbs',
+                    description: 'Shows user location in site hierarchy',
+                    code: `<nav class="breadcrumbs">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li>Laptops</li>
+  </ol>
+</nav>`
+                }
+            ]
+        },
+        forms: {
+            title: 'Form Patterns',
+            description: 'Design patterns for creating user-friendly and accessible forms.',
+            patterns: [
+                {
+                    name: 'Stacked Form',
+                    description: 'Labels above form fields for better mobile experience',
+                    code: `<form class="stacked-form">
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" required>
+  </div>
+  <button type="submit">Sign In</button>
+</form>`
+                },
+                {
+                    name: 'Inline Validation',
+                    description: 'Real-time feedback during form completion',
+                    code: `<div class="form-group">
+  <label for="username">Username</label>
+  <input type="text" id="username" class="valid">
+  <span class="validation-message success">
+    ✓ Username available
+  </span>
+</div>`
+                }
+            ]
+        },
+        cards: {
+            title: 'Card Patterns',
+            description: 'Flexible content containers that group related information.',
+            patterns: [
+                {
+                    name: 'Product Card',
+                    description: 'Display product information with image, title, and actions',
+                    code: `<div class="product-card">
+  <img src="product.jpg" alt="Product Name">
+  <div class="card-content">
+    <h3>Product Name</h3>
+    <p class="price">$99.99</p>
+    <button class="btn-primary">Add to Cart</button>
+  </div>
+</div>`
+                },
+                {
+                    name: 'Article Card',
+                    description: 'Preview article content with metadata',
+                    code: `<article class="article-card">
+  <header>
+    <h3><a href="/article">Article Title</a></h3>
+    <time datetime="2025-09-22">Sep 22, 2025</time>
+  </header>
+  <p>Article excerpt...</p>
+  <a href="/article" class="read-more">Read More</a>
+</article>`
+                }
+            ]
+        },
+        modals: {
+            title: 'Modal Patterns',
+            description: 'Overlay patterns for focused interactions and content display.',
+            patterns: [
+                {
+                    name: 'Confirmation Modal',
+                    description: 'Confirm destructive or important actions',
+                    code: `<div class="modal">
+  <div class="modal-content">
+    <h3>Confirm Delete</h3>
+    <p>Are you sure you want to delete this item?</p>
+    <div class="modal-actions">
+      <button class="btn-secondary">Cancel</button>
+      <button class="btn-danger">Delete</button>
+    </div>
+  </div>
+</div>`
+                },
+                {
+                    name: 'Info Modal',
+                    description: 'Display additional information or help content',
+                    code: `<div class="modal">
+  <div class="modal-content">
+    <header class="modal-header">
+      <h3>Help Information</h3>
+      <button class="modal-close">&times;</button>
+    </header>
+    <div class="modal-body">
+      <p>Detailed help content...</p>
+    </div>
+  </div>
+</div>`
+                }
+            ]
+        },
+        feedback: {
+            title: 'Feedback Patterns',
+            description: 'Patterns for providing user feedback and system status.',
+            patterns: [
+                {
+                    name: 'Toast Notifications',
+                    description: 'Temporary messages for user actions',
+                    code: `<div class="toast toast-success">
+  <i class="fas fa-check-circle"></i>
+  <span>Profile updated successfully!</span>
+  <button class="toast-close">&times;</button>
+</div>`
+                },
+                {
+                    name: 'Loading States',
+                    description: 'Show progress for async operations',
+                    code: `<button class="btn-primary loading">
+  <i class="fas fa-spinner fa-spin"></i>
+  Processing...
+</button>`
+                }
+            ]
+        }
+    };
+
+    const pattern = patterns[patternType];
+    if (!pattern) return;
+
+    const modal = createModal('pattern-modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-puzzle-piece"></i> ${pattern.title}</h3>
+                <button class="modal-close" onclick="closeModal('pattern-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="pattern-description">${pattern.description}</p>
+                
+                ${pattern.patterns.map(p => `
+                    <div class="pattern-example">
+                        <h4>${p.name}</h4>
+                        <p>${p.description}</p>
+                        <pre><code class="language-html">${p.code}</code></pre>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+
+    showModal('pattern-modal');
+}
+
+function resetDesign() {
+    const designElement = document.getElementById('design-playground');
+    if (designElement) {
+        designElement.className = 'design-playground';
+        designElement.style.backgroundColor = '#ffffff';
+        designElement.style.color = '#333333';
+        designElement.style.fontSize = '16px';
+        designElement.style.padding = '20px';
+        designElement.style.borderRadius = '4px';
+        designElement.style.border = '1px solid #ddd';
+    }
+
+    showDesignFeedback('Design reset to default settings');
+}
+
+function randomizeDesign() {
+    const designElement = document.getElementById('design-playground');
+    if (!designElement) return;
+
+    const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+    const backgroundColors = ['#f8f9fa', '#ffffff', '#f1f3f4', '#fff5f5', '#f0f8ff'];
+    const fontSizes = ['14px', '16px', '18px', '20px'];
+    const paddings = ['15px', '20px', '25px', '30px'];
+    const borderRadius = ['4px', '8px', '12px', '16px'];
+
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const randomBg = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+    const randomSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
+    const randomPadding = paddings[Math.floor(Math.random() * paddings.length)];
+    const randomRadius = borderRadius[Math.floor(Math.random() * borderRadius.length)];
+
+    designElement.style.color = randomColor;
+    designElement.style.backgroundColor = randomBg;
+    designElement.style.fontSize = randomSize;
+    designElement.style.padding = randomPadding;
+    designElement.style.borderRadius = randomRadius;
+    designElement.style.border = `2px solid ${randomColor}`;
+
+    showDesignFeedback('Design randomized! Try different combinations.');
+}
+
+function saveDesign() {
+    const designElement = document.getElementById('design-playground');
+    if (!designElement) return;
+
+    const styles = {
+        color: designElement.style.color,
+        backgroundColor: designElement.style.backgroundColor,
+        fontSize: designElement.style.fontSize,
+        padding: designElement.style.padding,
+        borderRadius: designElement.style.borderRadius,
+        border: designElement.style.border
+    };
+
+    localStorage.setItem('savedDesign', JSON.stringify(styles));
+    showDesignFeedback('Design saved to browser storage!');
+}
+
+function showDesignFeedback(message) {
+    const feedback = document.getElementById('design-feedback') || createDesignFeedback();
+    feedback.textContent = message;
+    feedback.className = 'design-feedback show';
+
+    setTimeout(() => {
+        feedback.className = 'design-feedback';
+    }, 3000);
+}
+
+function createDesignFeedback() {
+    const feedback = document.createElement('div');
+    feedback.id = 'design-feedback';
+    feedback.className = 'design-feedback';
+
+    const playground = document.getElementById('design-playground');
+    if (playground && playground.parentElement) {
+        playground.parentElement.appendChild(feedback);
+    }
+
+    return feedback;
+}
+
+function createModal(modalId) {
+    let modal = document.getElementById(modalId);
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = modalId;
+        modal.className = 'modal';
+        document.body.appendChild(modal);
+    }
+    return modal;
+}
+
+function showModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
 }
 
 // Browser Info Demo Function
@@ -2001,6 +4531,392 @@ function showBookmarkMessage(message) {
         messageEl.style.transform = 'translateY(-10px)';
         setTimeout(() => messageEl.remove(), 300);
     }, 2000);
+}
+
+// Div Demo Functions
+function addDivElement() {
+    const output = document.getElementById('divOutput');
+    if (!output) return;
+
+    const newDiv = document.createElement('div');
+    newDiv.className = 'sample-div';
+    newDiv.textContent = `New div element ${output.children.length + 1}`;
+    newDiv.style.cssText = `
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    `;
+
+    output.appendChild(newDiv);
+}
+
+function toggleDivStyling() {
+    const output = document.getElementById('divOutput');
+    if (!output) return;
+
+    const divs = output.querySelectorAll('.sample-div');
+    divs.forEach(div => {
+        if (div.style.border) {
+            div.style.border = '';
+            div.style.background = '';
+            div.style.color = '';
+        } else {
+            div.style.border = '3px solid #3498db';
+            div.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+            div.style.color = 'white';
+        }
+    });
+}
+
+function nestDivElement() {
+    const output = document.getElementById('divOutput');
+    if (!output) return;
+
+    const existingDivs = output.querySelectorAll('.sample-div');
+    if (existingDivs.length === 0) {
+        alert('Please add at least one div first!');
+        return;
+    }
+
+    const parentDiv = existingDivs[existingDivs.length - 1];
+    const nestedDiv = document.createElement('div');
+    nestedDiv.className = 'nested-div';
+    nestedDiv.textContent = 'Nested div inside parent';
+    nestedDiv.style.cssText = `
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        font-size: 14px;
+    `;
+
+    parentDiv.appendChild(nestedDiv);
+}
+
+function clearAllDivs() {
+    const output = document.getElementById('divOutput');
+    if (!output) return;
+
+    // Keep the original sample div
+    output.innerHTML = '<div class="sample-div">Sample div element</div>';
+}
+
+// Span Demo Functions
+function highlightSpanText() {
+    const spanTextInput = document.getElementById('spanText');
+    const spanOutput = document.getElementById('spanOutput');
+
+    if (!spanTextInput || !spanOutput) return;
+
+    const text = spanTextInput.value.trim();
+    if (!text) {
+        alert('Please enter some text first!');
+        return;
+    }
+
+    const words = text.split(' ');
+    const highlightedText = words.map((word, index) => {
+        if (index === 0) { // Highlight first word
+            return `<span style="background-color: #ffff00; padding: 2px 4px; border-radius: 3px;">${word}</span>`;
+        }
+        return word;
+    }).join(' ');
+
+    spanOutput.innerHTML = `<p>${highlightedText}</p>`;
+}
+
+function colorSpanText() {
+    const spanTextInput = document.getElementById('spanText');
+    const spanOutput = document.getElementById('spanOutput');
+
+    if (!spanTextInput || !spanOutput) return;
+
+    const text = spanTextInput.value.trim();
+    if (!text) {
+        alert('Please enter some text first!');
+        return;
+    }
+
+    const words = text.split(' ');
+    const coloredText = words.map((word, index) => {
+        if (index === 0) { // Color first word
+            return `<span style="color: #e74c3c; font-weight: bold;">${word}</span>`;
+        }
+        return word;
+    }).join(' ');
+
+    spanOutput.innerHTML = `<p>${coloredText}</p>`;
+}
+
+function addEmphasisToSpan() {
+    const spanTextInput = document.getElementById('spanText');
+    const spanOutput = document.getElementById('spanOutput');
+
+    if (!spanTextInput || !spanOutput) return;
+
+    const text = spanTextInput.value.trim();
+    if (!text) {
+        alert('Please enter some text first!');
+        return;
+    }
+
+    const words = text.split(' ');
+    const emphasizedText = words.map((word, index) => {
+        if (index === 0) { // Add emphasis to first word
+            return `<span style="font-style: italic; text-decoration: underline; font-weight: bold;">${word}</span>`;
+        }
+        return word;
+    }).join(' ');
+
+    spanOutput.innerHTML = `<p>${emphasizedText}</p>`;
+}
+
+// Canvas Demo Functions
+let drawingCanvas, drawingCtx;
+let animationCanvas, animationCtx;
+let interactiveCanvas, interactiveCtx;
+let animationId = null;
+let shapes = [];
+let ballX = 50, ballY = 50, ballDX = 2, ballDY = 2;
+let animationSpeed = 5;
+
+function initializeCanvases() {
+    // Drawing canvas
+    drawingCanvas = document.getElementById('drawingCanvas');
+    if (drawingCanvas) {
+        drawingCtx = drawingCanvas.getContext('2d');
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', draw);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
+    }
+
+    // Animation canvas
+    animationCanvas = document.getElementById('animationCanvas');
+    if (animationCanvas) {
+        animationCtx = animationCanvas.getContext('2d');
+    }
+
+    // Interactive canvas
+    interactiveCanvas = document.getElementById('interactiveCanvas');
+    if (interactiveCanvas) {
+        interactiveCtx = interactiveCanvas.getContext('2d');
+        interactiveCanvas.addEventListener('click', addShapeAtClick);
+        drawShapes();
+    }
+}
+
+function startDrawing(e) {
+    if (!drawingCtx) return;
+    drawingCtx.beginPath();
+    drawingCtx.moveTo(e.offsetX, e.offsetY);
+    drawingCanvas.isDrawing = true;
+}
+
+function draw(e) {
+    if (!drawingCanvas.isDrawing || !drawingCtx) return;
+
+    const color = document.getElementById('drawColor')?.value || '#3498db';
+    const size = document.getElementById('drawSize')?.value || 5;
+
+    drawingCtx.strokeStyle = color;
+    drawingCtx.lineWidth = size;
+    drawingCtx.lineCap = 'round';
+    drawingCtx.lineTo(e.offsetX, e.offsetY);
+    drawingCtx.stroke();
+}
+
+function stopDrawing() {
+    if (drawingCanvas) {
+        drawingCanvas.isDrawing = false;
+    }
+}
+
+function clearDrawingCanvas() {
+    if (drawingCtx) {
+        drawingCtx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+    }
+}
+
+function updateDrawingColor() {
+    // Color is automatically used in draw function
+}
+
+function updateDrawingSize() {
+    const sizeInput = document.getElementById('drawSize');
+    const sizeDisplay = document.getElementById('sizeDisplay');
+    if (sizeInput && sizeDisplay) {
+        sizeDisplay.textContent = sizeInput.value;
+    }
+}
+
+function startCanvasAnimation() {
+    if (animationId) return; // Already running
+
+    const startBtn = document.getElementById('startAnimation');
+    const stopBtn = document.getElementById('stopAnimation');
+
+    if (startBtn) startBtn.disabled = true;
+    if (stopBtn) stopBtn.disabled = false;
+
+    animateBall();
+}
+
+function stopCanvasAnimation() {
+    if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+    }
+
+    const startBtn = document.getElementById('startAnimation');
+    const stopBtn = document.getElementById('stopAnimation');
+
+    if (startBtn) startBtn.disabled = false;
+    if (stopBtn) stopBtn.disabled = true;
+}
+
+function animateBall() {
+    if (!animationCtx) return;
+
+    animationCtx.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
+
+    // Draw ball
+    animationCtx.beginPath();
+    animationCtx.arc(ballX, ballY, 20, 0, Math.PI * 2);
+    animationCtx.fillStyle = '#e74c3c';
+    animationCtx.fill();
+
+    // Update position
+    ballX += ballDX * (animationSpeed / 5);
+    ballY += ballDY * (animationSpeed / 5);
+
+    // Bounce off walls
+    if (ballX <= 20 || ballX >= animationCanvas.width - 20) {
+        ballDX = -ballDX;
+    }
+    if (ballY <= 20 || ballY >= animationCanvas.height - 20) {
+        ballDY = -ballDY;
+    }
+
+    animationId = requestAnimationFrame(animateBall);
+}
+
+function updateAnimationSpeed() {
+    const speedInput = document.getElementById('animSpeed');
+    if (speedInput) {
+        animationSpeed = parseInt(speedInput.value);
+    }
+}
+
+function addCanvasShape() {
+    const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    shapes.push({
+        x: Math.random() * (interactiveCanvas.width - 60) + 30,
+        y: Math.random() * (interactiveCanvas.height - 60) + 30,
+        color: randomColor,
+        type: Math.random() > 0.5 ? 'circle' : 'square'
+    });
+
+    drawShapes();
+    updateShapeCount();
+}
+
+function addShapeAtClick(e) {
+    const rect = interactiveCanvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    shapes.push({
+        x: x,
+        y: y,
+        color: randomColor,
+        type: Math.random() > 0.5 ? 'circle' : 'square'
+    });
+
+    drawShapes();
+    updateShapeCount();
+}
+
+function drawShapes() {
+    if (!interactiveCtx) return;
+
+    interactiveCtx.clearRect(0, 0, interactiveCanvas.width, interactiveCanvas.height);
+
+    shapes.forEach(shape => {
+        interactiveCtx.fillStyle = shape.color;
+
+        if (shape.type === 'circle') {
+            interactiveCtx.beginPath();
+            interactiveCtx.arc(shape.x, shape.y, 25, 0, Math.PI * 2);
+            interactiveCtx.fill();
+        } else {
+            interactiveCtx.fillRect(shape.x - 25, shape.y - 25, 50, 50);
+        }
+    });
+}
+
+function resetCanvasShapes() {
+    shapes = [];
+    drawShapes();
+    updateShapeCount();
+}
+
+function updateShapeCount() {
+    const shapeCountEl = document.getElementById('shapeCount');
+    if (shapeCountEl) {
+        shapeCountEl.textContent = `Shapes: ${shapes.length}`;
+    }
+}
+
+// Tab Functionality
+function initializeTabs() {
+    // Initialize iframe example tabs
+    const iframeTabButtons = document.querySelectorAll('.tab-btn[data-tab]');
+    iframeTabButtons.forEach(button => {
+        button.addEventListener('click', () => switchTab(button, 'tab'));
+    });
+
+    // Initialize canvas demo tabs
+    const canvasTabButtons = document.querySelectorAll('.tab-btn[data-demo]');
+    canvasTabButtons.forEach(button => {
+        button.addEventListener('click', () => switchTab(button, 'demo'));
+    });
+}
+
+function switchTab(clickedButton, type) {
+    const tabContainer = clickedButton.closest('.tabbed-content');
+    if (!tabContainer) return;
+
+    const tabButtons = tabContainer.querySelectorAll(`.tab-btn[data-${type}]`);
+    const tabPanes = tabContainer.querySelectorAll('.tab-pane');
+
+    // Remove active class from all buttons and panes
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabPanes.forEach(pane => pane.classList.remove('active'));
+
+    // Add active class to clicked button
+    clickedButton.classList.add('active');
+
+    // Show corresponding pane
+    const targetTab = clickedButton.getAttribute(`data-${type}`);
+    const targetPane = tabContainer.querySelector(`#${targetTab}-demo`) ||
+        tabContainer.querySelector(`#${targetTab}`) ||
+        tabContainer.querySelector(`[id*="${targetTab}"]`);
+
+    if (targetPane) {
+        targetPane.classList.add('active');
+    }
 }
 
 // Initialize bookmark states when DOM is loaded
