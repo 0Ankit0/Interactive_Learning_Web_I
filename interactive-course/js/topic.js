@@ -3369,10 +3369,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Interactive Practice Solution Functions
 function checkRecipe() {
-    const userCode = document.getElementById('recipe-challenge').value.trim();
-    const title = 'Recipe List Solution';
+    const resultBox = document.getElementById('recipe-result');
+    const buttonText = document.getElementById('recipe-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.textContent = 'Check Solution';
+        return;
+    }
+
     const content = `
-        <div class="solution-title">Correct HTML Structure:</div>
+        <h5><i class="fas fa-check-circle"></i> Recipe List Solution</h5>
         <div class="solution-code">
             <pre><code class="language-html">&lt;h2&gt;Chocolate Chip Cookies&lt;/h2&gt;
 &lt;h3&gt;Ingredients:&lt;/h3&gt;
@@ -3411,14 +3421,36 @@ function checkRecipe() {
         </div>
     `;
 
-    showModal(title, content);
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.textContent = 'Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function checkNav() {
-    const userCode = document.getElementById('nav-challenge').value.trim();
-    const title = 'Navigation Menu Solution';
+    const resultBox = document.getElementById('nav-result');
+    const buttonText = document.getElementById('nav-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.textContent = 'Check Solution';
+        return;
+    }
+
     const content = `
-        <div class="solution-title">Correct HTML Structure:</div>
+        <h5><i class="fas fa-check-circle"></i> Navigation Menu Solution</h5>
         <div class="solution-code">
             <pre><code class="language-html">&lt;nav&gt;
     &lt;ul&gt;
@@ -3443,14 +3475,36 @@ function checkNav() {
         </div>
     `;
 
-    showModal(title, content);
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.textContent = 'Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function checkAlbum() {
-    const userCode = document.getElementById('album-challenge').value.trim();
-    const title = 'Photo Album Solution';
+    const resultBox = document.getElementById('album-result');
+    const buttonText = document.getElementById('album-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.textContent = 'Check Solution';
+        return;
+    }
+
     const content = `
-        <div class="solution-title">Correct HTML Structure:</div>
+        <h5><i class="fas fa-check-circle"></i> Photo Album Solution</h5>
         <div class="solution-code">
             <pre><code class="language-html">&lt;div class="album"&gt;
     &lt;figure&gt;
@@ -3482,7 +3536,19 @@ function checkAlbum() {
         </div>
     `;
 
-    showModal(title, content);
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.textContent = 'Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // Table and Form Builder Functions

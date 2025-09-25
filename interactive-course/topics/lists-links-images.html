@@ -455,7 +455,7 @@
               <i class="fas fa-pencil-ruler"></i> Interactive Practice
             </h2>
 
-            <div class="topic-grid three-column">
+            <div class="topic-grid">
               <div class="topic-card">
                 <h3>Challenge 1: Create a Recipe List</h3>
                 <p>
@@ -472,11 +472,11 @@
 &lt;!-- Add your nested lists here --&gt;
                   </textarea>
                   <button class="btn btn-primary" onclick="checkRecipe()">
-                    Check Solution
+                    <span id="recipe-button-text">Check Solution</span>
                   </button>
                 </div>
 
-                <div id="recipe-result" class="result-box"></div>
+                <div id="recipe-result" class="result-box" style="display: none;"></div>
               </div>
 
               <div class="topic-card">
@@ -496,11 +496,11 @@
 &lt;/nav&gt;
                   </textarea>
                   <button class="btn btn-primary" onclick="checkNav()">
-                    Check Solution
+                    <span id="nav-button-text">Check Solution</span>
                   </button>
                 </div>
 
-                <div id="nav-result" class="result-box"></div>
+                <div id="nav-result" class="result-box" style="display: none;"></div>
               </div>
 
               <div class="topic-card">
@@ -518,11 +518,11 @@
 &lt;/div&gt;
                   </textarea>
                   <button class="btn btn-primary" onclick="checkAlbum()">
-                    Check Solution
+                    <span id="album-button-text">Check Solution</span>
                   </button>
                 </div>
 
-                <div id="album-result" class="result-box"></div>
+                <div id="album-result" class="result-box" style="display: none;"></div>
               </div>
             </div>
           </section>
