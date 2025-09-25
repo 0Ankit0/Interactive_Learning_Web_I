@@ -1,5 +1,6 @@
 // Mixins for the Web Technology I Interactive Course
 @use 'variables' as *;
+@use 'sass:color';
 
 // Media query mixins
 @mixin respond-to($breakpoint) {
@@ -152,6 +153,24 @@
     background: $primary-color;
     color: white;
     transform: translateY(-2px);
+  }
+}
+
+@mixin button-danger {
+  @include button-base;
+  background: $danger-color;
+  color: white;
+  border: 2px solid $danger-color;
+  
+  &:hover:not(:disabled) {
+    background: color.scale($danger-color, $lightness: -10%);
+    border-color: color.scale($danger-color, $lightness: -10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba($danger-color, 0.3);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
   }
 }
 

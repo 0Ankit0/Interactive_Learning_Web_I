@@ -6861,7 +6861,7 @@ function sendRequest() {
     }, 1500);
 }
 
-function clearForm() {
+function clearHttpForm() {
     // Clear all form inputs
     document.getElementById('httpMethod').value = 'GET';
     document.getElementById('httpUrl').value = 'https://api.example.com/users';

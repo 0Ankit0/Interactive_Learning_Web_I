@@ -169,6 +169,10 @@ pre {
   @include button-outline;
 }
 
+.btn-danger {
+  @include button-danger;
+}
+
 .btn-topic {
   @include button-primary;
   width: 100%;
