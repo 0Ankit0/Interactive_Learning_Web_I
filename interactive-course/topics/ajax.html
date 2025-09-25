@@ -136,7 +136,7 @@
           <div class="content-main">
             <section id="ajax-overview" class="content-section">
               <h2><i class="fas fa-info-circle"></i> What is AJAX?</h2>
-              <p class="lead">
+              <p class="topic-description">
                 AJAX (Asynchronous JavaScript and XML) is a technique that
                 allows web pages to communicate with servers asynchronously,
                 enabling dynamic content updates without full page reloads.
@@ -201,7 +201,7 @@ fetch('/api/posts')
             <!-- XMLHttpRequest Section -->
             <section id="xmlhttprequest" class="content-section">
               <h2><i class="fas fa-exchange-alt"></i> XMLHttpRequest</h2>
-              <p class="lead">
+              <p class="topic-description">
                 XMLHttpRequest is the traditional JavaScript API for making HTTP
                 requests. Understanding XMLHttpRequest is fundamental to
                 mastering AJAX.
@@ -307,7 +307,7 @@ fetch('/api/posts')
             <!-- Fetch API Section -->
             <section id="fetch-api" class="content-section">
               <h2><i class="fas fa-rocket"></i> Fetch API</h2>
-              <p class="lead">
+              <p class="topic-description">
                 The Fetch API is the modern, promise-based successor to
                 XMLHttpRequest, providing a cleaner and more powerful way to
                 make HTTP requests.
@@ -518,7 +518,7 @@ fetch('/api/users/123', {
             <!-- Error Handling Section -->
             <section id="error-handling" class="content-section">
               <h2><i class="fas fa-exclamation-triangle"></i> Error Handling</h2>
-              <p class="lead">
+              <p class="topic-description">
                 Proper error handling is crucial in AJAX applications to provide
                 good user experience and handle network issues gracefully.
               </p>
@@ -586,16 +586,16 @@ fetchWithTimeout('/api/data', 3000)
                 <div class="interactive-demo">
                   <h4>Test Error Handling</h4>
                   <div class="demo-buttons">
-                    <button class="btn btn-danger" onclick="testNetworkError()">
+                    <button class="btn" onclick="testNetworkError()">
                       <i class="fas fa-wifi"></i> Test Network Error
                     </button>
-                    <button class="btn btn-warning" onclick="testHTTPError()">
+                    <button class="btn" onclick="testHTTPError()">
                       <i class="fas fa-server"></i> Test HTTP Error (404)
                     </button>
-                    <button class="btn btn-info" onclick="testTimeout()">
+                    <button class="btn" onclick="testTimeout()">
                       <i class="fas fa-clock"></i> Test Timeout
                     </button>
-                    <button class="btn btn-success" onclick="testRetry()">
+                    <button class="btn" onclick="testRetry()">
                       <i class="fas fa-redo"></i> Test Retry Logic
                     </button>
                   </div>

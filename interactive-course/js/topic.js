@@ -147,6 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize regex tester
     initializeRegexDemo();
 
+    // Initialize HTTP Protocol Simulator
+    initializeHttpProtocolSimulator();
+
     let scrollTimeout;
     window.addEventListener('scroll', function () {
         clearTimeout(scrollTimeout);
@@ -1496,17 +1499,22 @@ const doubled = numbers.map(num => num * 2);</code></pre>
 // Utility Functions for Interactive Elements
 function toggleBookmark(button) {
     const icon = button.querySelector('i');
-    if (icon.classList.contains('fa-bookmark')) {
-        icon.classList.remove('fa-bookmark');
-        icon.classList.add('fa-bookmark-solid');
-        button.classList.add('bookmarked');
-        // You could save to localStorage here
-        console.log('Resource bookmarked');
-    } else {
-        icon.classList.remove('fa-bookmark-solid');
-        icon.classList.add('fa-bookmark');
+    const isBookmarked = button.classList.contains('bookmarked');
+
+    if (isBookmarked) {
+        // Remove bookmark
+        icon.classList.remove('fas', 'fa-bookmark');
+        icon.classList.add('far', 'fa-bookmark');
         button.classList.remove('bookmarked');
+        button.title = 'Bookmark this resource';
         console.log('Bookmark removed');
+    } else {
+        // Add bookmark
+        icon.classList.remove('far', 'fa-bookmark');
+        icon.classList.add('fas', 'fa-bookmark');
+        button.classList.add('bookmarked');
+        button.title = 'Remove bookmark';
+        console.log('Resource bookmarked');
     }
 }
 
@@ -4568,17 +4576,22 @@ function checkAccessibility() {
  */
 function toggleBookmark(button) {
     const isBookmarked = button.classList.contains('bookmarked');
+    const icon = button.querySelector('i');
 
     if (isBookmarked) {
         button.classList.remove('bookmarked');
-        button.innerHTML = '<i class="fas fa-bookmark"></i>';
+        // Change to outline bookmark icon
+        icon.classList.remove('fas');
+        icon.classList.add('far');
         button.title = 'Bookmark this resource';
 
         // Remove from local storage
         removeBookmark(getResourceId(button));
     } else {
         button.classList.add('bookmarked');
-        button.innerHTML = '<i class="fas fa-bookmark"></i>';
+        // Change to filled bookmark icon
+        icon.classList.remove('far');
+        icon.classList.add('fas');
         button.title = 'Remove bookmark';
 
         // Add to local storage
@@ -6640,4 +6653,257 @@ function createProgressBar() {
         demoContainer.appendChild(container);
     }
     return progressBar;
+}
+
+// ========================
+// HTTP Protocol Simulator Initialization
+// ========================
+
+function initializeHttpProtocolSimulator() {
+    // Initialize HTTP Protocol Simulator if elements exist
+    const httpMethod = document.getElementById('httpMethod');
+    const httpUrl = document.getElementById('httpUrl');
+    const httpHeaders = document.getElementById('httpHeaders');
+    const httpBody = document.getElementById('httpBody');
+
+    if (httpMethod && httpUrl && httpHeaders && httpBody) {
+        // Add event listeners for live updates
+        httpMethod.addEventListener('change', updateRequest);
+        httpUrl.addEventListener('input', updateRequest);
+        httpHeaders.addEventListener('input', updateRequest);
+        httpBody.addEventListener('input', updateRequest);
+
+        // Initialize the request preview
+        updateRequest();
+
+        console.log('HTTP Protocol Simulator initialized successfully');
+    }
+}
+
+// ========================
+// HTTP Protocol Simulator Functions
+// ========================
+
+function updateRequest() {
+    const method = document.getElementById('httpMethod').value;
+    const url = document.getElementById('httpUrl').value;
+    const headers = document.getElementById('httpHeaders').value;
+    const body = document.getElementById('httpBody').value;
+    const requestPreview = document.getElementById('requestPreview');
+    const bodyRow = document.getElementById('bodyRow');
+
+    // Show/hide body input based on method
+    if (method === 'GET' || method === 'HEAD' || method === 'DELETE') {
+        bodyRow.style.display = 'none';
+    } else {
+        bodyRow.style.display = 'block';
+    }
+
+    // Parse URL to get host
+    let host = 'localhost';
+    try {
+        const urlObj = new URL(url);
+        host = urlObj.host;
+    } catch (e) {
+        // If URL is relative or malformed, try to extract from the path
+        if (url.includes('/')) {
+            host = url.split('/')[0] || 'localhost';
+        }
+    }
+
+    // Build request preview
+    let requestText = `${method} ${url} HTTP/1.1\nHost: ${host}\n`;
+
+    // Add headers
+    if (headers.trim()) {
+        const headerLines = headers.split('\n').filter(line => line.trim());
+        headerLines.forEach(header => {
+            if (header.trim()) {
+                requestText += header.trim() + '\n';
+            }
+        });
+    }
+
+    // Add body for POST/PUT/PATCH requests
+    if ((method === 'POST' || method === 'PUT' || method === 'PATCH') && body.trim()) {
+        requestText += '\n' + body.trim();
+    }
+
+    // Update preview
+    requestPreview.innerHTML = `<pre><code class="language-plaintext">${requestText}</code></pre>`;
+}
+
+function sendRequest() {
+    const method = document.getElementById('httpMethod').value;
+    const url = document.getElementById('httpUrl').value;
+    const headers = document.getElementById('httpHeaders').value;
+    const body = document.getElementById('httpBody').value;
+    const responseDisplay = document.getElementById('responseDisplay');
+    const responseStatus = document.getElementById('responseStatus');
+    const responseHeaders = document.getElementById('responseHeaders');
+    const responseBody = document.getElementById('responseBody');
+
+    // Show response display
+    responseDisplay.style.display = 'block';
+
+    // Show loading state
+    responseStatus.innerHTML = '<div class="status-loading"><i class="fas fa-spinner fa-spin"></i> Sending request...</div>';
+    responseHeaders.innerHTML = '';
+    responseBody.innerHTML = '';
+
+    // Simulate network delay
+    setTimeout(() => {
+        // Generate simulated response based on method and URL
+        const simulatedResponse = generateSimulatedResponse(method, url, headers, body);
+
+        // Display status code
+        const statusClass = simulatedResponse.status >= 200 && simulatedResponse.status < 300 ? 'success' :
+            simulatedResponse.status >= 400 ? 'error' : 'info';
+
+        responseStatus.innerHTML = `
+            <div class="status-code ${statusClass}">
+                <i class="fas ${getStatusIcon(simulatedResponse.status)}"></i>
+                HTTP/1.1 ${simulatedResponse.status} ${simulatedResponse.statusText}
+            </div>
+        `;
+
+        // Display headers
+        responseHeaders.innerHTML = `
+            <div class="response-headers">
+                <h5>Response Headers:</h5>
+                <div class="headers-content">
+                    ${simulatedResponse.headers.map(header => `<div class="header-line">${header}</div>`).join('')}
+                </div>
+            </div>
+        `;
+
+        // Display body
+        responseBody.innerHTML = `
+            <div class="response-body">
+                <h5>Response Body:</h5>
+                <div class="body-content">
+                    <pre><code class="language-json">${JSON.stringify(simulatedResponse.body, null, 2)}</code></pre>
+                </div>
+            </div>
+        `;
+
+        // Re-initialize Prism for syntax highlighting
+        if (window.Prism) {
+            Prism.highlightAll();
+        }
+
+    }, 1500);
+}
+
+function clearForm() {
+    // Clear all form inputs
+    document.getElementById('httpMethod').value = 'GET';
+    document.getElementById('httpUrl').value = 'https://api.example.com/users';
+    document.getElementById('httpHeaders').value = `Content-Type: application/json
+Authorization: Bearer token123
+Accept: application/json`;
+    document.getElementById('httpBody').value = `{"name": "John Doe", "email": "john@example.com"}`;
+
+    // Hide response display
+    document.getElementById('responseDisplay').style.display = 'none';
+
+    // Update request preview
+    updateRequest();
+}
+
+function generateSimulatedResponse(method, url, headers, body) {
+    const responses = {
+        GET: {
+            status: 200,
+            statusText: 'OK',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Content-Type: application/json',
+                'Content-Length: 156',
+                'Server: nginx/1.18.0',
+                'Access-Control-Allow-Origin: *'
+            ],
+            body: {
+                id: 123,
+                name: "John Doe",
+                email: "john@example.com",
+                created_at: new Date().toISOString()
+            }
+        },
+        POST: {
+            status: 201,
+            statusText: 'Created',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Content-Type: application/json',
+                'Content-Length: 89',
+                'Location: /api/users/124',
+                'Server: nginx/1.18.0'
+            ],
+            body: {
+                id: 124,
+                message: "Resource created successfully",
+                created_at: new Date().toISOString()
+            }
+        },
+        PUT: {
+            status: 200,
+            statusText: 'OK',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Content-Type: application/json',
+                'Content-Length: 67',
+                'Server: nginx/1.18.0'
+            ],
+            body: {
+                message: "Resource updated successfully",
+                updated_at: new Date().toISOString()
+            }
+        },
+        DELETE: {
+            status: 204,
+            statusText: 'No Content',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Server: nginx/1.18.0'
+            ],
+            body: {}
+        },
+        PATCH: {
+            status: 200,
+            statusText: 'OK',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Content-Type: application/json',
+                'Content-Length: 78',
+                'Server: nginx/1.18.0'
+            ],
+            body: {
+                message: "Resource partially updated",
+                updated_at: new Date().toISOString()
+            }
+        },
+        HEAD: {
+            status: 200,
+            statusText: 'OK',
+            headers: [
+                'Date: ' + new Date().toUTCString(),
+                'Content-Type: application/json',
+                'Content-Length: 156',
+                'Server: nginx/1.18.0',
+                'Last-Modified: ' + new Date(Date.now() - 86400000).toUTCString()
+            ],
+            body: {} // HEAD requests don't return body
+        }
+    };
+
+    return responses[method] || responses.GET;
+}
+
+function getStatusIcon(status) {
+    if (status >= 200 && status < 300) return 'fa-check-circle';
+    if (status >= 300 && status < 400) return 'fa-arrow-right';
+    if (status >= 400 && status < 500) return 'fa-exclamation-triangle';
+    if (status >= 500) return 'fa-times-circle';
+    return 'fa-info-circle';
 }
