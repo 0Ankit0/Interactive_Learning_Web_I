@@ -6877,6 +6877,225 @@ Accept: application/json`;
     updateRequest();
 }
 
+// HTML Audio/Video Solution Functions
+function showBasicMediaSolution() {
+    const resultBox = document.getElementById('basic-media-result');
+    const buttonText = document.getElementById('basic-media-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+        return;
+    }
+
+    const content = `
+        <h5><i class="fas fa-check-circle"></i> Basic Media Player Solution</h5>
+        <div class="solution-code">
+            <pre><code class="language-html">&lt;!-- Audio Player --&gt;
+&lt;audio controls preload="metadata"&gt;
+    &lt;source src="audio/music.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio/music.ogg" type="audio/ogg"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 audio.&lt;/p&gt;
+&lt;/audio&gt;
+
+&lt;!-- Video Player --&gt;
+&lt;video controls width="640" height="360" poster="images/video-poster.jpg"&gt;
+    &lt;source src="video/sample.mp4" type="video/mp4"&gt;
+    &lt;source src="video/sample.webm" type="video/webm"&gt;
+    &lt;p&gt;Your browser doesn't support HTML5 video.&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This solution demonstrates the basic implementation of HTML5 audio and video elements with multiple source formats for cross-browser compatibility.</p>
+            <p><strong>Key features implemented:</strong></p>
+            <ul>
+                <li><code>&lt;audio controls&gt;</code> provides native browser controls</li>
+                <li><code>preload="metadata"</code> optimizes loading performance</li>
+                <li>Multiple <code>&lt;source&gt;</code> elements for format fallbacks</li>
+                <li><code>poster</code> attribute shows thumbnail before video loads</li>
+                <li>Fallback content for browsers without HTML5 support</li>
+            </ul>
+        </div>
+    `;
+
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function showCustomControlsSolution() {
+    const resultBox = document.getElementById('custom-controls-result');
+    const buttonText = document.getElementById('custom-controls-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+        return;
+    }
+
+    const content = `
+        <h5><i class="fas fa-check-circle"></i> Custom Video Controls Solution</h5>
+        <div class="solution-code">
+            <p><strong>JavaScript Implementation:</strong></p>
+            <pre><code class="language-javascript">const video = document.getElementById('customVideo');
+const playBtn = document.getElementById('playBtn');
+const progressBar = document.getElementById('progressBar');
+const timeDisplay = document.getElementById('timeDisplay');
+
+playBtn.addEventListener('click', () => {
+    if (video.paused) {
+        video.play();
+        playBtn.innerHTML = '⏸️';
+    } else {
+        video.pause();
+        playBtn.innerHTML = '▶️';
+    }
+});
+
+video.addEventListener('timeupdate', () => {
+    const progress = (video.currentTime / video.duration) * 100;
+    progressBar.value = progress;
+    
+    const current = formatTime(video.currentTime);
+    const duration = formatTime(video.duration);
+    timeDisplay.textContent = \`\${current} / \${duration}\`;
+});
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return \`\${mins}:\${secs.toString().padStart(2, '0')}\`;
+}</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This solution creates custom video controls using the JavaScript Media API for enhanced user experience and design control.</p>
+            <p><strong>Key implementation details:</strong></p>
+            <ul>
+                <li>Uses <code>video.paused</code> property to toggle play/pause states</li>
+                <li><code>timeupdate</code> event updates progress bar in real-time</li>
+                <li><code>currentTime</code> and <code>duration</code> properties track playback</li>
+                <li><code>formatTime()</code> function converts seconds to MM:SS format</li>
+                <li>Custom controls provide consistent design across browsers</li>
+            </ul>
+        </div>
+    `;
+
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function showResponsiveMediaSolution() {
+    const resultBox = document.getElementById('responsive-media-result');
+    const buttonText = document.getElementById('responsive-media-button-text');
+
+    if (!resultBox) return;
+
+    // Toggle solution display
+    if (resultBox.style.display === 'block') {
+        resultBox.style.display = 'none';
+        if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye"></i> Show Solution';
+        return;
+    }
+
+    const content = `
+        <h5><i class="fas fa-check-circle"></i> Responsive Media Solution</h5>
+        <div class="solution-code">
+            <p><strong>CSS for Responsive Videos:</strong></p>
+            <pre><code class="language-css">.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* or 'contain' for letterboxing */
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .video-container {
+        padding-bottom: 75%; /* 4:3 for mobile */
+    }
+    
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Lazy loading optimization */
+.video-lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-lazy.loaded {
+    opacity: 1;
+}</code></pre>
+        </div>
+        <div class="solution-explanation">
+            <p>This solution implements responsive video containers that adapt to different screen sizes and device orientations while optimizing performance.</p>
+            <p><strong>Key responsive techniques:</strong></p>
+            <ul>
+                <li>Padding-bottom trick maintains aspect ratios</li>
+                <li><code>object-fit</code> controls video scaling behavior</li>
+                <li>Mobile-first media queries adapt to smaller screens</li>
+                <li><code>overflow: hidden</code> prevents layout issues</li>
+                <li>Lazy loading classes improve initial page load times</li>
+                <li>Position absolute ensures proper video containment</li>
+            </ul>
+        </div>
+    `;
+
+    resultBox.innerHTML = content;
+    resultBox.className = 'result-box info';
+    resultBox.style.display = 'block';
+
+    if (buttonText) buttonText.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Solution';
+
+    // Highlight code blocks
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAllUnder(resultBox);
+    }
+
+    // Scroll to the result
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 function generateSimulatedResponse(method, url, headers, body) {
     const responses = {
         GET: {

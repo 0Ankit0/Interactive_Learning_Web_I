@@ -955,24 +955,10 @@ function captureFrame() {
                   <li>Implement proper fallback content</li>
                   <li>Test cross-browser compatibility</li>
                 </ul>
-                <button class="btn btn-secondary" onclick="toggleSolution(this)">
-                  <i class="fas fa-eye"></i> Show Solution
+                <button class="btn btn-secondary" onclick="showBasicMediaSolution()">
+                  <span id="basic-media-button-text"><i class="fas fa-eye"></i> Show Solution</span>
                 </button>
-                <div class="solution-panel" style="display: none">
-                  <pre><code class="language-html">&lt;!-- Audio Player --&gt;
-&lt;audio controls preload="metadata"&gt;
-    &lt;source src="audio/music.mp3" type="audio/mpeg"&gt;
-    &lt;source src="audio/music.ogg" type="audio/ogg"&gt;
-    &lt;p&gt;Your browser doesn't support HTML5 audio.&lt;/p&gt;
-&lt;/audio&gt;
-
-&lt;!-- Video Player --&gt;
-&lt;video controls width="640" height="360" poster="images/video-poster.jpg"&gt;
-    &lt;source src="video/sample.mp4" type="video/mp4"&gt;
-    &lt;source src="video/sample.webm" type="video/webm"&gt;
-    &lt;p&gt;Your browser doesn't support HTML5 video.&lt;/p&gt;
-&lt;/video&gt;</code></pre>
-                </div>
+                <div id="basic-media-result" class="result-box" style="display: none;"></div>
               </div>
             </div>
 
@@ -995,41 +981,10 @@ function captureFrame() {
                   <li>Add fullscreen functionality</li>
                   <li>Display current time and duration</li>
                 </ul>
-                <button class="btn btn-secondary" onclick="toggleSolution(this)">
-                  <i class="fas fa-eye"></i> Show Solution
+                <button class="btn btn-secondary" onclick="showCustomControlsSolution()">
+                  <span id="custom-controls-button-text"><i class="fas fa-eye"></i> Show Solution</span>
                 </button>
-                <div class="solution-panel" style="display: none">
-                  <p><strong>JavaScript Implementation:</strong></p>
-                  <pre><code class="language-javascript">const video = document.getElementById('customVideo');
-const playBtn = document.getElementById('playBtn');
-const progressBar = document.getElementById('progressBar');
-const timeDisplay = document.getElementById('timeDisplay');
-
-playBtn.addEventListener('click', () => {
-    if (video.paused) {
-        video.play();
-        playBtn.innerHTML = '⏸️';
-    } else {
-        video.pause();
-        playBtn.innerHTML = '▶️';
-    }
-});
-
-video.addEventListener('timeupdate', () => {
-    const progress = (video.currentTime / video.duration) * 100;
-    progressBar.value = progress;
-    
-    const current = formatTime(video.currentTime);
-    const duration = formatTime(video.duration);
-    timeDisplay.textContent = `${current} / ${duration}`;
-});
-
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-}</code></pre>
-                </div>
+                <div id="custom-controls-result" class="result-box" style="display: none;"></div>
               </div>
             </div>
 
@@ -1052,32 +1007,10 @@ function formatTime(seconds) {
                   <li>Handle different screen orientations</li>
                   <li>Optimize for mobile data usage</li>
                 </ul>
-                <button class="btn btn-secondary" onclick="toggleSolution(this)">
-                  <i class="fas fa-eye"></i> Show Solution
+                <button class="btn btn-secondary" onclick="showResponsiveMediaSolution()">
+                  <span id="responsive-media-button-text"><i class="fas fa-eye"></i> Show Solution</span>
                 </button>
-                <div class="solution-panel" style="display: none">
-                  <p><strong>CSS for Responsive Videos:</strong></p>
-                  <pre><code class="language-css">.video-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 */
-}
-
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 768px) {
-    .video-container {
-        padding-bottom: 75%; /* 4:3 for mobile */
-    }
-}</code></pre>
-                </div>
+                <div id="responsive-media-result" class="result-box" style="display: none;"></div>
               </div>
             </div>
           </div>
