@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Need of CSS - Interactive Web Course</title>
+    <link rel="stylesheet" href="../dist/css/main.css" />
+    <link rel="stylesheet" href="../dist/css/google-fonts.css" />
+    <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="breadcrumb">
+      <div class="container">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <span class="separator">/</span>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
+        <span class="separator">/</span>
+        <span class="current">Need of CSS</span>
+      </div>
+    </nav>
+
+    <header class="topic-header">
+      <div class="container">
+        <div class="topic-header-content">
+          <div class="topic-icon-large">
+            <i class="fas fa-palette"></i>
+          </div>
+          <div class="topic-header-text">
+            <h1 class="topic-title">Need of CSS</h1>
+            <p class="topic-subtitle">
+              Understand why CSS is essential for modern web development
+            </p>
+            <p class="topic-description">
+              Discover the limitations of HTML styling and learn why CSS is the
+              standard for creating beautiful, maintainable web designs.
+            </p>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            id="topic-progress"
+            style="width: 0%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Why CSS Matters</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#css-introduction"
+                      onclick="scrollToSection('css-introduction')"
+                      >Introduction to CSS</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#problems-without-css"
+                      onclick="scrollToSection('problems-without-css')"
+                      >Problems Without CSS</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#benefits-of-css"
+                      onclick="scrollToSection('benefits-of-css')"
+                      >Benefits of CSS</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Interactive Demos</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#html-vs-css-demo"
+                      onclick="scrollToSection('html-vs-css-demo')"
+                      >HTML vs CSS Demo</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#separation-concerns"
+                      onclick="scrollToSection('separation-concerns')"
+                      >Separation of Concerns</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#maintainability-demo"
+                      onclick="scrollToSection('maintainability-demo')"
+                      >Maintainability Demo</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Resources & Practice</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a href="#quiz" onclick="scrollToSection('quiz')"
+                      >Knowledge Quiz</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#css-resources"
+                      onclick="scrollToSection('css-resources')"
+                      >Essential Resources</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
+            <!-- Introduction Section -->
+            <section id="css-introduction" class="content-section">
+              <h2>Introduction to CSS</h2>
+              <div class="learning-objective">
+                <h4><i class="fas fa-bullseye"></i> Learning Objectives</h4>
+                <ul>
+                  <li>Understand the limitations of HTML for styling</li>
+                  <li>
+                    Recognize the need for separation of content and
+                    presentation
+                  </li>
+                  <li>Identify the benefits CSS brings to web development</li>
+                  <li>Appreciate the importance of maintainable code</li>
+                </ul>
+              </div>
+
+              <p>
+                <strong>CSS (Cascading Style Sheets)</strong> is a stylesheet
+                language used to describe the presentation of a document written
+                in HTML. While HTML provides the structure and content of a
+                webpage, CSS handles the visual presentation - colors, fonts,
+                layouts, animations, and more.
+              </p>
+
+              <p>
+                In the early days of the web, HTML was used for both structure
+                and presentation. However, as websites became more complex, this
+                approach revealed significant limitations that led to the
+                development and adoption of CSS.
+              </p>
+
+              <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> Key Insight</h4>
+                <p>
+                  CSS follows the principle of
+                  <strong>separation of concerns</strong> - separating content
+                  (HTML) from presentation (CSS) for better code organization
+                  and maintainability.
+                </p>
+              </div>
+            </section>
+
+            <!-- Problems Without CSS Section -->
+            <section id="problems-without-css" class="content-section">
+              <h2>Problems Without CSS</h2>
+
+              <h3>1. Inline Styling Limitations</h3>
+              <p>
+                Before CSS, styling was done using HTML attributes and elements
+                like <code>&lt;font&gt;</code>, <code>&lt;center&gt;</code>, and
+                inline styles:
+              </p>
+
+              <pre><code class="language-html">&lt;!-- Old way: Mixing content with presentation --&gt;
+&lt;p&gt;&lt;font color="red" size="4" face="Arial"&gt;This is a red paragraph&lt;/font&gt;&lt;/p&gt;
+&lt;table bgcolor="#cccccc" width="100%" cellpadding="10"&gt;
+  &lt;tr&gt;
+    &lt;td align="center"&gt;&lt;font color="blue" size="6"&gt;Centered Blue Text&lt;/font&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+              <h3>2. Code Repetition</h3>
+              <p>
+                Without CSS, styling information had to be repeated for every
+                element:
+              </p>
+
+              <div class="problem-example">
+                <h4>
+                  <i class="fas fa-exclamation-triangle"></i> Problems with this
+                  approach:
+                </h4>
+                <ul>
+                  <li>
+                    <strong>Repetitive code:</strong> Same styling attributes
+                    repeated multiple times
+                  </li>
+                  <li>
+                    <strong>Large file sizes:</strong> More HTML markup means
+                    bigger files
+                  </li>
+                  <li>
+                    <strong>Difficult maintenance:</strong> Changing colors or
+                    fonts requires editing every element
+                  </li>
+                  <li>
+                    <strong>Inconsistency:</strong> Easy to miss elements when
+                    making changes
+                  </li>
+                  <li>
+                    <strong>Limited functionality:</strong> HTML attributes
+                    can't create complex layouts or animations
+                  </li>
+                </ul>
+              </div>
+
+              <h3>3. Maintenance Nightmare</h3>
+              <p>
+                Imagine having to change the color scheme of a website with
+                hundreds of pages - you'd need to edit every single HTML file
+                and every single styling attribute!
+              </p>
+            </section>
+
+            <!-- Benefits of CSS Section -->
+            <section id="benefits-of-css" class="content-section">
+              <h2>Benefits of CSS</h2>
+
+              <div class="topic-grid three-column">
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h4>Separation of Concerns</h4>
+                    <p>
+                      HTML handles structure and content, CSS handles
+                      presentation. This makes code more organized and easier to
+                      understand.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Reusability</h4>
+                    <p>
+                      Write CSS once, apply it to multiple elements across
+                      multiple pages. Change one rule to update the entire site.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4>Performance</h4>
+                    <p>
+                      CSS files can be cached by browsers, reducing load times.
+                      Smaller HTML files load faster.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Maintainability</h4>
+                    <p>
+                      Easy to update styles across entire websites. Consistent
+                      styling is easier to achieve and maintain.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-magic"></i>
+                    </div>
+                    <h4>Advanced Features</h4>
+                    <p>
+                      CSS provides powerful features like animations,
+                      transitions, responsive design, and complex layouts.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-content">
+                    <div class="card-icon">
+                      <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h4>Accessibility</h4>
+                    <p>
+                      Better semantic HTML with CSS styling improves
+                      accessibility for screen readers and other assistive
+                      technologies.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Interactive Demo: HTML vs CSS -->
+            <section id="html-vs-css-demo" class="content-section">
+              <h2>Interactive Demo: HTML vs CSS Styling</h2>
+
+              <div class="demo-tabs-container">
+                <div class="tabbed-content">
+                  <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="old-way">
+                      Old Way (HTML only)
+                    </button>
+                    <button class="tab-btn" data-tab="new-way">
+                      Modern Way (HTML + CSS)
+                    </button>
+                  </div>
+
+                  <div class="tab-panels">
+                    <!-- Old Way Demo -->
+                    <div id="old-way" class="tab-pane active">
+                      <h4>Old Way: Inline Styling</h4>
+                      <div class="code-preview">
+                        <div class="code-section">
+                          <h5>HTML Code:</h5>
+                          <pre><code class="language-html">&lt;h1&gt;&lt;font color="#2c3e50" size="6" face="Arial"&gt;Welcome to My Site&lt;/font&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;font color="#34495e" size="3" face="Arial"&gt;This is a paragraph with inline styling.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color="#34495e" size="3" face="Arial"&gt;Another paragraph with the same styling repeated.&lt;/font&gt;&lt;/p&gt;
+&lt;table bgcolor="#ecf0f1" width="100%" cellpadding="10"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;font color="#e74c3c" size="4" face="Arial"&gt;&lt;b&gt;Important Notice&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                        </div>
+
+                        <div class="result-section">
+                          <h5>Result:</h5>
+                          <div class="preview-box" id="old-way-preview">
+                            <h1>
+                              <font color="#2c3e50" size="6" face="Arial"
+                                >Welcome to My Site</font
+                              >
+                            </h1>
+                            <p>
+                              <font color="#34495e" size="3" face="Arial"
+                                >This is a paragraph with inline styling.</font
+                              >
+                            </p>
+                            <p>
+                              <font color="#34495e" size="3" face="Arial"
+                                >Another paragraph with the same styling
+                                repeated.</font
+                              >
+                            </p>
+                            <table
+                              bgcolor="#ecf0f1"
+                              width="100%"
+                              cellpadding="10"
+                            >
+                              <tr>
+                                <td>
+                                  <font color="#e74c3c" size="4" face="Arial"
+                                    ><b>Important Notice</b></font
+                                  >
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="problem-highlight">
+                        <h5>
+                          <i class="fas fa-exclamation-circle"></i> Problems
+                          with this approach:
+                        </h5>
+                        <ul>
+                          <li>
+                            Repetitive <code>font</code> tags for every element
+                          </li>
+                          <li>
+                            Hard to maintain - need to change every element
+                            individually
+                          </li>
+                          <li>Mixing presentation with content</li>
+                          <li>Larger file size due to repeated styling code</li>
+                          <li>Inconsistent styling is common</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- New Way Demo -->
+                    <div id="new-way" class="tab-pane">
+                      <h4>Modern Way: CSS Styling</h4>
+                      <div class="code-preview">
+                        <div class="code-section">
+                          <h5>HTML Code:</h5>
+                          <pre><code class="language-html">&lt;h1 class="main-heading"&gt;Welcome to My Site&lt;/h1&gt;
+&lt;p class="content-text"&gt;This is a paragraph with CSS styling.&lt;/p&gt;
+&lt;p class="content-text"&gt;Another paragraph with the same styling.&lt;/p&gt;
+&lt;div class="notice-box"&gt;
+  &lt;p class="notice-text"&gt;Important Notice&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+                          <h5>CSS Code:</h5>
+                          <pre><code class="language-css">.main-heading {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-family: Arial, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.content-text {
+  color: #34495e;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.notice-box {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.notice-text {
+  color: #e74c3c;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}</code></pre>
+                        </div>
+
+                        <div class="result-section">
+                          <h5>Result:</h5>
+                          <div class="preview-box" id="new-way-preview">
+                            <h1 class="demo-main-heading">
+                              Welcome to My Site
+                            </h1>
+                            <p class="demo-content-text">
+                              This is a paragraph with CSS styling.
+                            </p>
+                            <p class="demo-content-text">
+                              Another paragraph with the same styling.
+                            </p>
+                            <div class="demo-notice-box">
+                              <p class="demo-notice-text">Important Notice</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="benefit-highlight">
+                        <h5>
+                          <i class="fas fa-check-circle"></i> Benefits of this
+                          approach:
+                        </h5>
+                        <ul>
+                          <li>
+                            Clean, semantic HTML that describes content
+                            structure
+                          </li>
+                          <li>
+                            Reusable CSS classes that can be applied to multiple
+                            elements
+                          </li>
+                          <li>
+                            Easy to maintain - change CSS once, update entire
+                            site
+                          </li>
+                          <li>
+                            Better performance - CSS can be cached by browsers
+                          </li>
+                          <li>
+                            More powerful styling options (gradients,
+                            animations, responsive design)
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Separation of Concerns Demo -->
+            <section id="separation-concerns" class="content-section">
+              <h2>Separation of Concerns Demo</h2>
+
+              <p>
+                This interactive demo shows how CSS enables separation of
+                concerns by allowing you to change the entire appearance of a
+                webpage without modifying the HTML structure.
+              </p>
+
+              <div class="demo-tabs-container">
+                <div class="theme-selector">
+                  <h4>Choose a Theme:</h4>
+                  <button class="btn-secondary active" data-theme="default">
+                    Default
+                  </button>
+                  <button class="btn-secondary" data-theme="dark">Dark</button>
+                  <button class="btn-secondary" data-theme="colorful">
+                    Colorful
+                  </button>
+                  <button class="btn-secondary" data-theme="minimal">
+                    Minimal
+                  </button>
+                </div>
+
+                <div class="demo-preview" id="theme-demo">
+                  <div class="sample-website default-theme">
+                    <header class="site-header">
+                      <h1 class="site-title">Sample Website</h1>
+                    </header>
+                    <nav class="site-nav">
+                      <a href="#" class="nav-link">Home</a>
+                      <a href="#" class="nav-link">About</a>
+                      <a href="#" class="nav-link">Services</a>
+                      <a href="#" class="nav-link">Contact</a>
+                    </nav>
+                    <main class="site-content">
+                      <article class="main-article">
+                        <h2 class="article-title">Article Title</h2>
+                        <p class="article-text">
+                          This is a sample paragraph to demonstrate how CSS can
+                          completely change the appearance of a webpage without
+                          modifying the HTML structure.
+                        </p>
+                        <p class="article-text">
+                          Notice how the same HTML content can look completely
+                          different with different CSS themes.
+                        </p>
+                      </article>
+                      <aside class="site-sidebar">
+                        <h3 class="sidebar-title">Sidebar</h3>
+                        <p class="sidebar-text">
+                          This is sidebar content that also changes with the
+                          theme.
+                        </p>
+                      </aside>
+                    </main>
+                  </div>
+                </div>
+
+                <div class="concept-explanation">
+                  <h4><i class="fas fa-lightbulb"></i> Key Concept</h4>
+                  <p>
+                    The HTML structure remains exactly the same for all themes.
+                    Only the CSS changes to create completely different visual
+                    presentations. This demonstrates the power of separating
+                    content (HTML) from presentation (CSS).
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Maintainability Demo -->
+            <section id="maintainability-demo" class="content-section">
+              <h2>Maintainability Demo</h2>
+
+              <p>
+                This demo illustrates how CSS makes it easy to maintain
+                consistent styling across a website.
+              </p>
+
+              <div class="maintainability-example">
+                <h4>Scenario: Changing the Primary Color</h4>
+
+                <div class="comparison-grid">
+                  <div class="comparison-item">
+                    <h5>Without CSS (Old Way)</h5>
+                    <div class="task-list">
+                      <p><strong>To change from blue to green:</strong></p>
+                      <ul>
+                        <li>Edit 47 HTML files</li>
+                        <li>Change 156 individual color attributes</li>
+                        <li>Risk missing some elements</li>
+                        <li>Time required: 2-3 hours</li>
+                        <li>Risk of inconsistencies: High</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="comparison-item">
+                    <h5>With CSS (Modern Way)</h5>
+                    <div class="task-list">
+                      <p><strong>To change from blue to green:</strong></p>
+                      <ul>
+                        <li>Edit 1 CSS file</li>
+                        <li>Change 1 CSS variable or property</li>
+                        <li>All elements update automatically</li>
+                        <li>Time required: 30 seconds</li>
+                        <li>Risk of inconsistencies: None</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="interactive-color-demo">
+                  <h5>Try it yourself:</h5>
+                  <p>
+                    Use the color picker to see how easy it is to change colors
+                    with CSS:
+                  </p>
+                  <div class="color-control">
+                    <label for="primary-color">Primary Color: </label>
+                    <input type="color" id="primary-color" value="#3498db" />
+                  </div>
+
+                  <div class="color-demo-content" id="color-demo">
+                    <h3>Website Header</h3>
+                    <p>
+                      This content updates automatically when you change the
+                      color above.
+                    </p>
+                    <button class="btn-primary">Primary Button</button>
+                    <div class="demo-card">
+                      <h4>Card Title</h4>
+                      <p>Card content with primary color accents.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Resources Section -->
+            <section id="css-resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of CSS and its importance in web development. Each resource is
+                carefully selected for quality and educational value.
+              </p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-css3-alt thumbnail-icon documentation"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fab fa-css3-alt"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">MDN CSS Documentation</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Mozilla</span>
+                          <span class="platform">Official Docs</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive CSS reference and tutorials with examples
+                      and browser compatibility. Essential resource for
+                      understanding CSS fundamentals and advanced concepts.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">Reference</span>
+                      <span class="tag">Documentation</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-book"></i>
+                        <span>Reference</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Official</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> View Docs
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tutorial">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-gamepad thumbnail-icon tutorial"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tutorial">
+                        <i class="fas fa-gamepad"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">CSS Diner</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Luke Pacholski</span>
+                          <span class="platform">Interactive Game</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Interactive game that teaches CSS selectors through fun
+                      challenges. Perfect for understanding how CSS targets HTML
+                      elements.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">Selectors</span>
+                      <span class="tag">Interactive</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Beginner</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>30 min</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://cssdiner.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link"></i> Play Game
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="video">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-youtube thumbnail-icon video"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">CSS Crash Course</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Traversy Media</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Complete CSS crash course covering fundamentals to
+                      advanced concepts. Great for understanding why CSS is
+                      essential for modern web development.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">Tutorial</span>
+                      <span class="tag">Complete Course</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-play"></i>
+                        <span>Video</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>1.5 hours</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=yfoY53QXEnI"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-tools thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-tools"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">W3C CSS Validator</h4>
+                        <p class="card-subtitle">
+                          <span class="author">W3C</span>
+                          <span class="platform">Validation Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Official CSS validation service to check your CSS code for
+                      errors and compliance with web standards. Essential tool
+                      for writing clean, error-free CSS.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">Validation</span>
+                      <span class="tag">Standards</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Validator</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Official</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://jigsaw.w3.org/css-validator/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link"></i> Use Validator
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="article">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-newspaper thumbnail-icon article"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon article">
+                        <i class="fas fa-newspaper"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">CSS-Tricks Complete Guide</h4>
+                        <p class="card-subtitle">
+                          <span class="author">CSS-Tricks</span>
+                          <span class="platform">Blog</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive articles and tutorials covering CSS best
+                      practices, tips, and modern techniques. Excellent resource
+                      for understanding CSS evolution and best practices.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">Best Practices</span>
+                      <span class="tag">Modern CSS</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Articles</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Various</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://css-tricks.com/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> Read Articles
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-code thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-code"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">CodePen</h4>
+                        <p class="card-subtitle">
+                          <span class="author">CodePen</span>
+                          <span class="platform">Code Editor</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Online code editor perfect for experimenting with HTML and
+                      CSS. Great for testing CSS concepts and sharing code
+                      examples.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS</span>
+                      <span class="tag">HTML</span>
+                      <span class="tag">Code Editor</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-code"></i>
+                        <span>Editor</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <span>Community</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://codepen.io/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link"></i> Start Coding
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="navigation-section">
+              <a href="css-basics.html" class="nav-link nav-next">
+                <span>Next Topic</span>
+                <span class="nav-topic-title">CSS Basics</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
+    <script>
+      // Tab functionality for HTML vs CSS demo
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-btn[data-tab]");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const targetTab = this.getAttribute("data-tab");
+            const tabContainer = this.closest(".tabbed-content");
+
+            if (!tabContainer) return;
+
+            // Remove active class from all buttons and panes in this container
+            tabContainer
+              .querySelectorAll(".tab-btn")
+              .forEach((btn) => btn.classList.remove("active"));
+            tabContainer
+              .querySelectorAll(".tab-pane")
+              .forEach((pane) => pane.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Show corresponding pane
+            const targetPane = tabContainer.querySelector(`#${targetTab}`);
+            if (targetPane) {
+              targetPane.classList.add("active");
+            }
+          });
+        });
+
+        // Theme switching functionality
+        const themeButtons = document.querySelectorAll("[data-theme]");
+        const sampleWebsite = document.querySelector(".sample-website");
+
+        themeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const theme = this.getAttribute("data-theme");
+
+            // Remove active class from all theme buttons
+            themeButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Remove all theme classes from sample website
+            sampleWebsite.className = "sample-website " + theme + "-theme";
+          });
+        });
+
+        // Color picker functionality for Maintainability Demo
+        const colorPicker = document.getElementById("primary-color");
+        const colorDemoContent = document.getElementById("color-demo");
+
+        if (colorPicker && colorDemoContent) {
+          colorPicker.addEventListener("input", function () {
+            const newColor = this.value;
+
+            // Update CSS custom property for the demo
+            colorDemoContent.style.setProperty(
+              "--demo-primary-color",
+              newColor
+            );
+          });
+
+          // Initialize with default color
+          colorDemoContent.style.setProperty(
+            "--demo-primary-color",
+            colorPicker.value
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1443,6 +1443,52 @@ const TOPICS_DATA = {
         }
     },
 
+    // Need of CSS Topic Data
+    "need-of-css": {
+        quiz: {
+            questions: [
+                {
+                    question: "What was the main problem with styling web pages before CSS?",
+                    options: ["HTML was too slow", "Styling had to be repeated for every element", "Browsers didn't support colors", "Images couldn't be displayed"],
+                    correct: 1,
+                    explanation: "Before CSS, styling information like fonts, colors, and layout had to be specified individually for every HTML element, leading to repetitive and hard-to-maintain code."
+                },
+                {
+                    question: "Which of these is a key benefit of separating content from presentation?",
+                    options: ["Faster internet connection", "Better maintainability", "More colors available", "Smaller images"],
+                    correct: 1,
+                    explanation: "Separating content (HTML) from presentation (CSS) makes websites much easier to maintain because you can change the entire site's appearance by modifying just the CSS files."
+                },
+                {
+                    question: "What does CSS stand for?",
+                    options: ["Computer Style Sheets", "Cascading Style Sheets", "Creative Style System", "Colored Style Sheets"],
+                    correct: 1,
+                    explanation: "CSS stands for Cascading Style Sheets. The 'cascading' refers to how styles can inherit and override each other based on specificity rules."
+                },
+                {
+                    question: "Which approach results in smaller HTML file sizes?",
+                    options: ["Using inline styles with font tags", "Using CSS for styling", "Using only images for design", "Using tables for layout"],
+                    correct: 1,
+                    explanation: "Using CSS results in smaller HTML files because styling information is moved to separate CSS files, eliminating repetitive inline styling code."
+                },
+                {
+                    question: "What is the main principle behind CSS design?",
+                    options: ["Separation of concerns", "Faster loading", "Better graphics", "More animations"],
+                    correct: 0,
+                    explanation: "The main principle is 'separation of concerns' - separating content structure (HTML) from presentation styling (CSS) for better organization and maintainability."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'need-of-css',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: 'css-basics.html'
+        }
+    },
+
     // CSS Basics Topic Data
     "css-basics": {
         quiz: {
@@ -2130,6 +2176,53 @@ const TOPICS_DATA = {
             unitId: 'unit1',
             totalTopicsInUnit: 6,
             nextPageUrl: '../units/unit1.html'
+        }
+    },
+
+    // Need of CSS Topic Data
+    "need-of-css": {
+        // Quiz data
+        quiz: {
+            questions: [
+                {
+                    question: "What is the primary purpose of CSS?",
+                    options: ["To add content to web pages", "To control the presentation and styling of web pages", "To add functionality to web pages", "To create database connections"],
+                    correct: 1,
+                    explanation: "CSS (Cascading Style Sheets) is designed to control the presentation and visual styling of web documents, separating content from presentation."
+                },
+                {
+                    question: "What was the main problem with styling web pages before CSS?",
+                    options: ["Pages loaded too slowly", "Styling had to be repeated for each element", "Browsers couldn't display colors", "Images couldn't be added to pages"],
+                    correct: 1,
+                    explanation: "Before CSS, styling information had to be repeated for every element using HTML attributes like <font>, making maintenance difficult and code repetitive."
+                },
+                {
+                    question: "Which principle does CSS follow for better code organization?",
+                    options: ["Separation of concerns", "Object-oriented programming", "Database normalization", "Agile methodology"],
+                    correct: 0,
+                    explanation: "CSS follows the principle of separation of concerns by separating content (HTML) from presentation (CSS), making code more organized and maintainable."
+                },
+                {
+                    question: "What is a key benefit of using CSS for styling?",
+                    options: ["Smaller HTML files", "Better browser compatibility", "Faster database queries", "Automatic content generation"],
+                    correct: 0,
+                    explanation: "CSS reduces HTML file size by removing inline styling attributes and allows for better caching, resulting in improved performance."
+                },
+                {
+                    question: "How does CSS improve website maintainability?",
+                    options: ["By automatically backing up files", "By allowing one change to update multiple elements", "By compressing images automatically", "By validating HTML syntax"],
+                    correct: 1,
+                    explanation: "CSS allows you to change styling rules once in a stylesheet and have those changes apply to all elements using those rules across multiple pages."
+                }
+            ]
+        },
+
+        // Configuration
+        config: {
+            topicId: 'need-of-css',
+            unitId: 'unit3',
+            totalTopicsInUnit: 6,
+            nextPageUrl: 'css-basics.html'
         }
     }
 };

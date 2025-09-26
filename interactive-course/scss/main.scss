@@ -19,6 +19,9 @@
 @use 'unit' as *;
 @use 'topic' as *;
 
+// 6. Topic-specific styles
+@use 'need-of-css' as *;
+
 // Additional topic partials can be imported here as they are created
 // @use 'web-evolution-topic' as *;
 // @use 'urls-web-topic' as *;
