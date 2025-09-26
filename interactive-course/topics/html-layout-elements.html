@@ -6,6 +6,9 @@
     <title>HTML Layout Elements - Interactive Course</title>
     
     <!-- External CSS and Fonts -->
+     <script src="../js/topic-data.js"></script>
+    <script src="../js/topic-manager.js"></script>
+    <script src="../js/topic.js"></script>
     <link rel="stylesheet" href="../dist/css/main.css" />
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
@@ -452,7 +455,7 @@
         height="450"
         style="border:0;"
         allowfullscreen=""
-        loading="lazy"
+        
         referrerpolicy="no-referrer-when-downgrade"&gt;
 &lt;/iframe&gt;
 
@@ -464,34 +467,51 @@
 &lt;/div&gt;</code></pre>
                     </div>
                     
-                    <div class="interactive-demo">
+                    <!-- Interactive iframe examples using general demo-tabs-container structure -->
+                    <div class="demo-tabs-container">
                         <h4 class="demo-header"><i class="fas fa-vial"></i> iframe Examples</h4>
                         <div class="tabbed-content">
                             <div class="tab-buttons">
                                 <button class="tab-btn active" data-tab="example1">Simple Page</button>
                                 <button class="tab-btn" data-tab="example2">Interactive Content</button>
-                                <button class="tab-btn" data-tab="example3">External Site</button>
+                                <button class="tab-btn" data-tab="example3">YouTube Video</button>
                             </div>
                             <div class="tab-panels">
                                 <div class="tab-pane active" id="example1">
-                                    <iframe src="data:text/html,<html><body style='font-family: Arial; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;'><h2>Hello from iframe!</h2><p>This is content inside an iframe element.</p></body></html>"
-                                            width="100%" 
-                                            height="200"
-                                            title="Simple iframe example">
-                                    </iframe>
+                                    <div style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; background: #f8f9fa;">
+                                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; padding: 30px; font-family: Arial, sans-serif;">
+                                            <h3 style="margin: 0 0 15px 0; font-size: 24px;">Hello from iframe!</h3>
+                                            <p style="margin: 0; font-size: 16px; opacity: 0.9;">This demonstrates content inside an iframe element.</p>
+                                            <div style="margin-top: 20px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                                                <small>📍 This content is embedded via iframe</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="caption"><i class="fas fa-info-circle"></i> Simulated iframe content with styling</p>
                                 </div>
                                 <div class="tab-pane" id="example2">
-                                    <iframe src="data:text/html,<html><head><style>body{font-family: Arial; padding: 20px; background: #f0f0f0;} button{padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;} button:hover{background: #0056b3;}</style></head><body><h3>Interactive Content</h3><p>Current count: <span id='count'>0</span></p><button onclick='document.getElementById(\"count\").textContent = parseInt(document.getElementById(\"count\").textContent) + 1'>Click Me!</button></body></html>"
-                                            width="100%" 
-                                            height="200"
-                                            title="Interactive iframe example">
-                                    </iframe>
+                                    <div style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; background: #f0f0f0;">
+                                        <div style="padding: 30px; font-family: Arial, sans-serif; text-align: center;">
+                                            <h3 style="color: #333; margin-bottom: 20px;">Interactive Content</h3>
+                                            <p style="margin-bottom: 20px;">Current count: <span id="demo-counter" style="font-weight: bold; color: #007bff;">0</span></p>
+                                            <button onclick="document.getElementById('demo-counter').textContent = parseInt(document.getElementById('demo-counter').textContent) + 1" 
+                                                    style="padding: 12px 24px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background 0.2s;">
+                                                Click Me!
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="caption"><i class="fas fa-mouse-pointer"></i> Interactive demo - click the button to increment counter</p>
                                 </div>
                                 <div class="tab-pane" id="example3">
-                                    <div class="info-box warning">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                        <p>External websites may restrict embedding due to security policies (X-Frame-Options).</p>
+                                    <div class="iframe-responsive-container">
+                                        <iframe src="https://www.youtube.com/embed/UB1O30fR-EE?rel=0&amp;showinfo=0&amp;modestbranding=1" 
+                                                title="HTML div and span Elements - YouTube video"
+                                                allowfullscreen
+                                                loading="lazy">
+                                            <p>Your browser does not support iframes. <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch the video on YouTube</a></p>
+                                        </iframe>
                                     </div>
+                                    <p class="caption"><i class="fas fa-video"></i> Real iframe embedding a YouTube video about HTML elements</p>
                                 </div>
                             </div>
                         </div>
@@ -505,6 +525,11 @@
                             <li><i class="fas fa-check"></i> Be aware of clickjacking attacks</li>
                             <li><i class="fas fa-check"></i> Consider Content Security Policy (CSP)</li>
                         </ul>
+                    </div>
+                    
+                    <div class="info-box info">
+                        <h4 class="info-header"><i class="fas fa-info-circle"></i> Browser Behavior Note</h4>
+                        <p>When embedding YouTube videos or other third-party content, you may see "Tracking Prevention" messages in the browser console. These are normal privacy protection features and don't indicate errors in your code.</p>
                     </div>
             </section>
 
@@ -559,7 +584,8 @@ ctx.fillText('Hello Canvas!', 50, 200);
 &lt;/script&gt;</code></pre>
                     </div>
                     
-                    <div class="interactive-demo">
+                    <!-- Interactive canvas examples using general demo-tabs-container structure -->
+                    <div class="demo-tabs-container">
                         <h4 class="demo-header"><i class="fas fa-vial"></i> Interactive Canvas Demos</h4>
                         
                         <div class="tabbed-content">
@@ -584,7 +610,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                                         </label>
                                         <button class="btn btn-danger" id="clearCanvas">Clear</button>
                                     </div>
-                                    <canvas id="drawingCanvas" width="400" height="300"></canvas>
+                                    <canvas id="drawingCanvas" width="400" height="300" style="border: 1px solid #ddd; border-radius: 4px;"></canvas>
                                     <p class="caption">Click and drag to draw on the canvas!</p>
                                 </div>
                                 
@@ -597,7 +623,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                                             Speed: <input type="range" id="animSpeed" min="1" max="10" value="5">
                                         </label>
                                     </div>
-                                    <canvas id="animationCanvas" width="400" height="300"></canvas>
+                                    <canvas id="animationCanvas" width="400" height="300" style="border: 1px solid #ddd; border-radius: 4px;"></canvas>
                                     <p class="caption">Watch the animated bouncing ball!</p>
                                 </div>
                                 
@@ -608,7 +634,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                                         <button class="btn btn-secondary" id="resetShapes">Reset</button>
                                         <span id="shapeCount">Shapes: 0</span>
                                     </div>
-                                    <canvas id="interactiveCanvas" width="400" height="300"></canvas>
+                                    <canvas id="interactiveCanvas" width="400" height="300" style="border: 1px solid #ddd; border-radius: 4px;"></canvas>
                                     <p class="caption">Click the canvas or "Add Shape" button to create interactive shapes!</p>
                                 </div>
                             </div>
@@ -619,72 +645,80 @@ ctx.fillText('Hello Canvas!', 50, 200);
             <!-- Best Practices Section -->
             <section class="content-section" id="examples">
                 <h2 class="section-header"><i class="fas fa-clipboard-check"></i> Best Practices & Guidelines</h2>
-                <div class="topic-grid five-column">
+                <div class="topic-grid two-column">
                     <div class="topic-card">
                         <div class="card-header">
                             <div class="card-icon">
                                 <i class="fas fa-box"></i>
-                                <h3>div Usage</h3>
                             </div>
-                            <ul class="feature-list">
-                                <li><i class="fas fa-check"></i> Use semantic elements when available (header, nav, main, section)</li>
-                                <li><i class="fas fa-check"></i> Keep div nesting to a reasonable depth</li>
-                                <li><i class="fas fa-check"></i> Use meaningful class and id names</li>
-                                <li><i class="fas fa-times"></i> Avoid divitis (excessive div usage)</li>
-                            </ul>
+                            <h3>div Usage</h3>
                         </div>
-                        
-                        <div class="topic-card">
-                            <div class="card-header">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Use semantic elements when available (header, nav, main, section)</li>
+                            <li><i class="fas fa-check"></i> Keep div nesting to a reasonable depth</li>
+                            <li><i class="fas fa-check"></i> Use meaningful class and id names</li>
+                            <li><i class="fas fa-times"></i> Avoid divitis (excessive div usage)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <div class="card-header">
+                            <div class="card-icon">
                                 <i class="fas fa-font"></i>
-                                <h3>span Usage</h3>
                             </div>
-                            <ul class="feature-list">
-                                <li><i class="fas fa-check"></i> Use for styling inline content only</li>
-                                <li><i class="fas fa-check"></i> Consider semantic alternatives (strong, em, mark)</li>
-                                <li><i class="fas fa-times"></i> Don't use span for block-level styling</li>
-                                <li><i class="fas fa-check"></i> Keep spans lightweight and purposeful</li>
-                            </ul>
+                            <h3>span Usage</h3>
                         </div>
-                        
-                        <div class="topic-card">
-                            <div class="card-header">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Use for styling inline content only</li>
+                            <li><i class="fas fa-check"></i> Consider semantic alternatives (strong, em, mark)</li>
+                            <li><i class="fas fa-times"></i> Don't use span for block-level styling</li>
+                            <li><i class="fas fa-check"></i> Keep spans lightweight and purposeful</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <div class="card-header">
+                            <div class="card-icon">
                                 <i class="fas fa-columns"></i>
-                                <h3>aside Usage</h3>
                             </div>
-                            <ul class="feature-list">
-                                <li><i class="fas fa-check"></i> Use for truly tangential content</li>
-                                <li><i class="fas fa-check"></i> Perfect for sidebars and supplementary info</li>
-                                <li><i class="fas fa-check"></i> Improves document structure and accessibility</li>
-                                <li><i class="fas fa-check"></i> Can be nested within articles or stand alone</li>
-                            </ul>
+                            <h3>aside Usage</h3>
                         </div>
-                        
-                        <div class="topic-card">
-                            <div class="card-header">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Use for truly tangential content</li>
+                            <li><i class="fas fa-check"></i> Perfect for sidebars and supplementary info</li>
+                            <li><i class="fas fa-check"></i> Improves document structure and accessibility</li>
+                            <li><i class="fas fa-check"></i> Can be nested within articles or stand alone</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <div class="card-header">
+                            <div class="card-icon">
                                 <i class="fas fa-shield-alt"></i>
-                                <h3>iframe Security</h3>
                             </div>
-                            <ul class="feature-list">
-                                <li><i class="fas fa-check"></i> Always validate and trust iframe sources</li>
-                                <li><i class="fas fa-check"></i> Use sandbox attribute for restrictions</li>
-                                <li><i class="fas fa-check"></i> Implement proper CSP headers</li>
-                                <li><i class="fas fa-check"></i> Consider HTTPS-only content</li>
-                            </ul>
+                            <h3>iframe Security</h3>
                         </div>
-                        
-                        <div class="topic-card">
-                            <div class="card-header">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Always validate and trust iframe sources</li>
+                            <li><i class="fas fa-check"></i> Use sandbox attribute for restrictions</li>
+                            <li><i class="fas fa-check"></i> Implement proper CSP headers</li>
+                            <li><i class="fas fa-check"></i> Consider HTTPS-only content</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <div class="card-header">
+                            <div class="card-icon">
                                 <i class="fas fa-tachometer-alt"></i>
-                                <h3>canvas Performance</h3>
                             </div>
-                            <ul class="feature-list">
-                                <li><i class="fas fa-check"></i> Use requestAnimationFrame for animations</li>
-                                <li><i class="fas fa-check"></i> Batch drawing operations when possible</li>
-                                <li><i class="fas fa-check"></i> Clear only necessary areas</li>
-                                <li><i class="fas fa-check"></i> Consider off-screen canvas for complex graphics</li>
-                            </ul>
+                            <h3>canvas Performance</h3>
                         </div>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Use requestAnimationFrame for animations</li>
+                            <li><i class="fas fa-check"></i> Batch drawing operations when possible</li>
+                            <li><i class="fas fa-check"></i> Clear only necessary areas</li>
+                            <li><i class="fas fa-check"></i> Consider off-screen canvas for complex graphics</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -750,7 +784,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
                             
-                            <img src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg" alt="HTML Basics" loading="lazy">
+                            <img src="https://img.youtube.com/vi/UB1O30fR-EE/maxresdefault.jpg" alt="HTML Basics" >
                         </div>
                         <div class="card-content">
                             <h4>HTML div and span Elements</h4>
@@ -764,7 +798,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
                             
-                            <img src="https://img.youtube.com/vi/kGW8Al_cga4/maxresdefault.jpg" alt="Canvas Tutorial" loading="lazy">
+                            <img src="https://img.youtube.com/vi/kGW8Al_cga4/maxresdefault.jpg" alt="Canvas Tutorial" >
                         </div>
                         <div class="card-content">
                             <h4>HTML5 Canvas Tutorial</h4>
@@ -778,7 +812,7 @@ ctx.fillText('Hello Canvas!', 50, 200);
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
                             
-                            <img src="https://img.youtube.com/vi/ZJSCl6XEdP8/maxresdefault.jpg" alt="HTML5 Semantic Elements" loading="lazy">
+                            <img src="https://img.youtube.com/vi/ZJSCl6XEdP8/maxresdefault.jpg" alt="HTML5 Semantic Elements" >
                         </div>
                         <div class="card-content">
                             <h4>HTML5 Semantic Elements</h4>
@@ -792,12 +826,12 @@ ctx.fillText('Hello Canvas!', 50, 200);
                     <div class="resource-card video-card">
                         <div class="card-thumbnail">
                             
-                            <img src="https://img.youtube.com/vi/A3JJkqnJyTM/maxresdefault.jpg" alt="iframe Security" loading="lazy">
+                            <img src="https://img.youtube.com/vi/sL7sdp02J3s/maxresdefault.jpg" alt="iframe Security" >
                         </div>
                         <div class="card-content">
-                            <h4>iframe Security Best Practices</h4>
-                            <p>Learn about iframe security concerns and how to safely embed external content.</p>
-                            <a href="https://www.youtube.com/watch?v=A3JJkqnJyTM" target="_blank" class="btn btn-secondary">
+                            <h4>Iframe Security Best Practices</h4>
+                            <p>Learn about iframe security concerns and how to safely embed external content with sandbox attributes.</p>
+                            <a href="https://www.youtube.com/watch?v=sL7sdp02J3s" target="_blank" class="btn btn-secondary">
                                  Watch on YouTube
                             </a>
                         </div>
@@ -819,8 +853,61 @@ ctx.fillText('Hello Canvas!', 50, 200);
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="../js/topic-data.js"></script>
-    <script src="../js/topic-manager.js"></script>
-    <script src="../js/topic.js"></script>
+    
+    <script>
+    // Ensure tab functionality works for iframe examples
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listeners for iframe example tabs
+        const tabButtons = document.querySelectorAll('.tab-btn[data-tab]');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                const tabContainer = this.closest('.tabbed-content');
+                
+                if (!tabContainer) return;
+                
+                // Remove active class from all buttons and panes in this container
+                tabContainer.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                tabContainer.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show corresponding pane
+                const targetPane = tabContainer.querySelector(`#${targetTab}`);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                }
+            });
+        });
+        
+        // Initialize canvas demo tabs if they exist
+        const canvasTabButtons = document.querySelectorAll('.tab-btn[data-demo]');
+        
+        canvasTabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetDemo = this.getAttribute('data-demo');
+                const tabContainer = this.closest('.tabbed-content');
+                
+                if (!tabContainer) return;
+                
+                // Remove active class from all buttons and panes in this container
+                tabContainer.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                tabContainer.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show corresponding pane
+                const targetPane = tabContainer.querySelector(`#${targetDemo}-demo`);
+                if (targetPane) {
+                    targetPane.classList.add('active');
+                }
+            });
+        });
+    });
+    </script>
+    
 </body>
 </html>

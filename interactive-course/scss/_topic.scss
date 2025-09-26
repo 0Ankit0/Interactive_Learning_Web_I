@@ -7272,7 +7272,21 @@
 }
 
 // Canvas Demo Styles
-.canvas-demo-container {
+// General demo tabs container for reusable tab functionality
+// Usage:
+// <div class="demo-tabs-container">
+//   <div class="tabbed-content">
+//     <div class="tab-buttons">
+//       <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+//       <button class="tab-btn" data-tab="tab2">Tab 2</button>
+//     </div>
+//     <div class="tab-panels">
+//       <div class="tab-pane active" id="tab1">Content 1</div>
+//       <div class="tab-pane" id="tab2">Content 2</div>
+//     </div>
+//   </div>
+// </div>
+.demo-tabs-container {
   box-shadow: $shadow-lg;
   background: white;
   border-radius: $border-radius-lg;
@@ -7300,15 +7314,22 @@
         padding: $spacing-md $spacing-lg;
         font-weight: $font-weight-medium;
         transition: all $transition-base;
+        cursor: pointer;
 
         &:hover {
           color: $primary-color;
+          background: rgba($primary-color, 0.05);
         }
 
         &.active {
           color: $primary-color;
           border-bottom-color: $primary-color;
           background: rgba($primary-color, 0.1);
+        }
+
+        &:focus {
+          outline: 2px solid rgba($primary-color, 0.3);
+          outline-offset: 2px;
         }
       }
     }
@@ -7348,67 +7369,86 @@
       color: $text-primary;
       font-size: $font-size-sm;
 
-      input[type="color"] {
-        width: 40px;
-        height: 40px;
-        border: 2px solid $border-light;
-        border-radius: $border-radius-md;
-        cursor: pointer;
-      }
-
-      input[type="range"] {
-        width: 120px;
-        height: 6px;
-        background: $bg-secondary;
-        border-radius: $border-radius-full;
-        
-        &::-webkit-slider-thumb {
-          appearance: none;
-          width: 18px;
-          height: 18px;
-          background: $primary-color;
-          border-radius: $border-radius-full;
-          cursor: pointer;
-        }
-      }
-
-      span {
-        font-weight: $font-weight-semibold;
+      i {
         color: $primary-color;
-        min-width: 30px;
+        margin-right: $spacing-xs;
       }
+    }
+
+    input[type="range"] {
+      min-width: 100px;
+      max-width: 150px;
+    }
+
+    input[type="color"] {
+      width: 40px;
+      height: 30px;
+      border: 1px solid $border-light;
+      border-radius: $border-radius-sm;
+      cursor: pointer;
     }
 
     .btn {
-      margin: 0;
+      font-size: $font-size-sm;
+      padding: $spacing-sm $spacing-md;
     }
   }
 
-  canvas {
-    border: 2px solid $border-light;
+  .demo-output {
+    background: $bg-light;
+    padding: $spacing-lg;
     border-radius: $border-radius-md;
-    cursor: crosshair;
-    background: white;
-    transition: border-color $transition-base;
-
-    &:hover {
-      border-color: $primary-color;
-    }
+    border: 1px solid $border-light;
+    margin-bottom: $spacing-lg;
   }
 
   .caption {
-    margin-top: $spacing-md;
+    font-size: $font-size-sm;
     color: $text-secondary;
-    font-style: italic;
+    margin-top: $spacing-md;
     text-align: center;
+    font-style: italic;
+
+    i {
+      margin-right: $spacing-xs;
+      color: $primary-color;
+    }
   }
 
-  .shape-count {
-    margin-top: $spacing-md;
-    font-weight: $font-weight-medium;
-    color: $primary-color;
-    text-align: center;
+  // Canvas specific styles
+  canvas {
+    display: block;
+    margin: 0 auto;
+    cursor: crosshair;
+    
+    &:hover {
+      box-shadow: 0 0 10px rgba($primary-color, 0.3);
+    }
   }
+
+  // Iframe specific styles  
+  .iframe-responsive-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    overflow: hidden;
+    border-radius: $border-radius-md;
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+// Legacy support - canvas-demo-container now extends demo-tabs-container  
+.canvas-demo-container {
+  @extend .demo-tabs-container;
 }
 
 // AJAX Demo Styles
