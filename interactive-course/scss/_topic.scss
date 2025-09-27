@@ -10102,3 +10102,189 @@
     }
   }
 }
+
+// ========================
+// Flexbox and Grid Playground Styles
+// ========================
+
+// Flexbox Demo Container
+.flex-container {
+  min-height: 200px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  
+  .flex-item {
+    @include flex-center;
+    min-width: 60px;
+    min-height: 60px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    margin: 4px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// Grid Demo Container
+.grid-container {
+  min-height: 200px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  
+  .grid-item {
+    @include flex-center;
+    min-height: 60px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// Demo Controls
+.demo-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    label {
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      font-size: $font-size-sm;
+    }
+    
+    .form-select {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      font-size: $font-size-sm;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      margin: 4px 0;
+    }
+    
+    span {
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      font-weight: $font-weight-medium;
+    }
+  }
+}
+
+// Holy Grail Demo
+.holy-grail-demo {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100px 1fr 100px;
+  height: 200px;
+  gap: 4px;
+  font-size: 12px;
+  
+  .header {
+    grid-area: header;
+    background: #3498db;
+    color: white;
+    @include flex-center;
+    padding: 8px;
+  }
+  
+  .nav {
+    grid-area: nav;
+    background: #e74c3c;
+    color: white;
+    @include flex-center;
+    padding: 8px;
+  }
+  
+  .main {
+    grid-area: main;
+    background: #2ecc71;
+    color: white;
+    @include flex-center;
+    padding: 8px;
+  }
+  
+  .aside {
+    grid-area: aside;
+    background: #f39c12;
+    color: white;
+    @include flex-center;
+    padding: 8px;
+  }
+  
+  .footer {
+    grid-area: footer;
+    background: #9b59b6;
+    color: white;
+    @include flex-center;
+    padding: 8px;
+  }
+}
+
+// Card Grid Demo
+.card-grid-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+  
+  .card {
+    background: #ecf0f1;
+    padding: 16px 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 10px;
+    border: 1px solid #bdc3c7;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #d5dbdb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

@@ -287,99 +287,82 @@
                 <div class="topic-card">
                   <h3>Flexbox Properties Reference</h3>
 
-                  <div class="tabbed-content">
-                    <div class="tab-buttons">
-                      <button class="tab-btn active" data-tab="container">
-                        Container Properties
-                      </button>
-                      <button class="tab-btn" data-tab="items">
-                        Item Properties
-                      </button>
-                    </div>
-
-                    <div class="tab-pane active" data-tab="container">
-                      <div class="topic-grid two-column">
-                        <div class="topic-card">
-                          <h4>display: flex</h4>
-                          <p>Defines a flex container</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">.container {
+                  <div class="topic-grid two-column">
+                    <div class="topic-card">
+                      <h4>display: flex</h4>
+                      <p>Defines a flex container</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">.container {
   display: flex;
 }</code></pre>
-                          </div>
-                        </div>
-
-                        <div class="topic-card">
-                          <h4>flex-direction</h4>
-                          <p>Defines the main axis direction</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">flex-direction: row | row-reverse | column | column-reverse;</code></pre>
-                          </div>
-                        </div>
-
-                        <div class="topic-card">
-                          <h4>justify-content</h4>
-                          <p>Aligns items along main axis</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</code></pre>
-                          </div>
-                        </div>
-
-                        <div class="topic-card">
-                          <h4>align-items</h4>
-                          <p>Aligns items along cross axis</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">align-items: stretch | flex-start | flex-end | center | baseline;</code></pre>
-                          </div>
-                        </div>
                       </div>
                     </div>
 
-                    <div class="tab-pane" data-tab="items">
-                      <div class="topic-grid two-column">
-                        <div class="topic-card">
-                          <h4>flex-grow</h4>
-                          <p>How much an item should grow</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">.item {
+                    <div class="topic-card">
+                      <h4>flex-direction</h4>
+                      <p>Defines the main axis direction</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">flex-direction: row | row-reverse | column | column-reverse;</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="topic-card">
+                      <h4>justify-content</h4>
+                      <p>Aligns items along main axis</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="topic-card">
+                      <h4>align-items</h4>
+                      <p>Aligns items along cross axis</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">align-items: stretch | flex-start | flex-end | center | baseline;</code></pre>
+                      </div>
+                    </div>
+
+                    <div class="topic-card">
+                      <h4>flex-grow</h4>
+                      <p>How much an item should grow</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">.item {
   flex-grow: 0; /* default */
   flex-grow: 1; /* grow to fill space */
 }</code></pre>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
 
-                        <div class="topic-card">
-                          <h4>flex-shrink</h4>
-                          <p>How much an item should shrink</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">.item {
+                    <div class="topic-card">
+                      <h4>flex-shrink</h4>
+                      <p>How much an item should shrink</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">.item {
   flex-shrink: 1; /* default */
   flex-shrink: 0; /* don't shrink */
 }</code></pre>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
 
-                        <div class="topic-card">
-                          <h4>flex-basis</h4>
-                          <p>Initial size before growing/shrinking</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">.item {
+                    <div class="topic-card">
+                      <h4>flex-basis</h4>
+                      <p>Initial size before growing/shrinking</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">.item {
   flex-basis: auto; /* default */
   flex-basis: 200px;
   flex-basis: 20%;
 }</code></pre>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
 
-                        <div class="topic-card">
-                          <h4>align-self</h4>
-                          <p>Override align-items for individual item</p>
-                          <div class="code-block">
-                            <pre><code class="language-css">.item {
+                    <div class="topic-card">
+                      <h4>align-self</h4>
+                      <p>Override align-items for individual item</p>
+                      <div class="code-block">
+                        <pre><code class="language-css">.item {
   align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }</code></pre>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -471,8 +454,12 @@
                         <div class="aside">Sidebar</div>
                         <div class="footer">Footer</div>
                       </div>
+                    </div>
+
+                    <div class="topic-card">
+                      <h4>Holy Grail CSS Code</h4>
                       <div class="code-block">
-                        <pre><code class="language-css">.container {
+                        <pre><code class="language-css">.holy-grail-demo {
   display: grid;
   grid-template-areas:
     "header header header"
@@ -480,6 +467,48 @@
     "footer footer footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 200px 1fr 200px;
+  height: 300px;
+  gap: 1rem;
+}
+
+.holy-grail-demo .header { 
+  grid-area: header; 
+  background: #3498db; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
+}
+
+.holy-grail-demo .nav { 
+  grid-area: nav; 
+  background: #2ecc71; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
+}
+
+.holy-grail-demo .main { 
+  grid-area: main; 
+  background: #f39c12; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
+}
+
+.holy-grail-demo .aside { 
+  grid-area: aside; 
+  background: #e74c3c; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
+}
+
+.holy-grail-demo .footer { 
+  grid-area: footer; 
+  background: #9b59b6; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
 }</code></pre>
                       </div>
                     </div>
@@ -510,187 +539,59 @@
             <!-- Practical Exercises -->
             <section class="content-section" data-section="exercises">
               <div class="section-header">
-                <h2><i class="fas fa-pencil-ruler"></i> Practical Exercises</h2>
+                <h2><i class="fas fa-pencil-ruler"></i> Practical Exercise</h2>
               </div>
-              <div class="topic-grid two-column">
-                <div class="topic-card">
-                  <div class="card-header">
-                    <h3>Exercise 1: Flexbox Navigation</h3>
-                  </div>
-                  <p>Create a responsive navigation bar using Flexbox:</p>
+              <div class="topic-card">
+                <div class="card-header">
+                  <h3>Exercise: Center Content with Flexbox</h3>
+                </div>
+                <p>
+                  Practice centering content both horizontally and vertically
+                  using Flexbox properties:
+                </p>
 
-                  <div class="live-editor">
-                    <div class="editor-tabs">
-                      <button class="tab-btn active" data-tab="nav-html">
-                        HTML
-                      </button>
-                      <button class="tab-btn" data-tab="nav-css">CSS</button>
-                      <button class="tab-btn" data-tab="nav-result">
-                        Result
-                      </button>
-                    </div>
-
-                    <div class="tab-pane active" data-tab="nav-html">
-                      <textarea
-                        id="nav-html"
-                        class="code-editor-textarea"
-                        readonly
-                      >
-<nav class="navbar">
-  <div class="nav-brand">
-    <h2>MyWebsite</h2>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>
-                    </textarea
-                      >
-                    </div>
-
-                    <div class="tab-pane" data-tab="nav-css">
-                      <textarea id="nav-css" class="code-editor-textarea">
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #333;
-  color: white;
-}
-
-.nav-brand h2 {
-  margin: 0;
-  color: #4ecdc4;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #4ecdc4;
-}
-                    </textarea
-                      >
-                    </div>
-
-                    <div class="tab-pane" data-tab="nav-result">
-                      <div id="nav-result" class="preview-area"></div>
-                    </div>
-                  </div>
-
-                  <button onclick="updateNavPreview()" class="btn btn-primary">
-                    <i class="fas fa-sync-alt"></i> Update Preview
-                  </button>
+                <div class="code-block">
+                  <h4>HTML:</h4>
+                  <pre><code class="language-html">&lt;div class="center-container"&gt;
+  &lt;div class="center-content"&gt;
+    I'm perfectly centered!
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                 </div>
 
-                <div class="topic-card">
-                  <div class="card-header">
-                    <h3>Exercise 2: Grid Dashboard</h3>
-                  </div>
-                  <p>Create a dashboard layout using CSS Grid:</p>
-
-                  <div class="live-editor">
-                    <div class="editor-tabs">
-                      <button class="tab-btn active" data-tab="dash-html">
-                        HTML
-                      </button>
-                      <button class="tab-btn" data-tab="dash-css">CSS</button>
-                      <button class="tab-btn" data-tab="dash-result">
-                        Result
-                      </button>
-                    </div>
-
-                    <div class="tab-pane active" data-tab="dash-html">
-                      <textarea
-                        id="dash-html"
-                        class="code-editor-textarea"
-                        readonly
-                      >
-<div class="dashboard">
-  <header class="dash-header">Dashboard Header</header>
-  <nav class="dash-sidebar">Sidebar</nav>
-  <main class="dash-main">
-    <div class="widget">Widget 1</div>
-    <div class="widget">Widget 2</div>
-    <div class="widget">Widget 3</div>
-    <div class="widget">Widget 4</div>
-  </main>
-</div>
-                    </textarea
-                      >
-                    </div>
-
-                    <div class="tab-pane" data-tab="dash-css">
-                      <textarea id="dash-css" class="code-editor-textarea">
-.dashboard {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "sidebar main";
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: auto 1fr;
-  height: 400px;
-  gap: 1rem;
-}
-
-.dash-header {
-  grid-area: header;
-  background: #2c3e50;
-  color: white;
-  padding: 1rem;
+                <div class="code-block">
+                  <h4>CSS:</h4>
+                  <pre><code class="language-css">.center-container {
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: 200px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
 }
 
-.dash-sidebar {
-  grid-area: sidebar;
-  background: #34495e;
+.center-content {
+  background: #007bff;
   color: white;
-  padding: 1rem;
-}
-
-.dash-main {
-  grid-area: main;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.widget {
-  background: #ecf0f1;
-  padding: 2rem;
+  padding: 20px;
   border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-                    </textarea
-                      >
-                    </div>
+}</code></pre>
+                </div>
 
-                    <div class="tab-pane" data-tab="dash-result">
-                      <div id="dash-result" class="preview-area"></div>
-                    </div>
-                  </div>
-
-                  <button onclick="updateDashPreview()" class="btn btn-primary">
-                    <i class="fas fa-sync-alt"></i> Update Preview
-                  </button>
+                <div class="info-box">
+                  <h4><i class="fas fa-lightbulb"></i> Key Concepts:</h4>
+                  <ul>
+                    <li>
+                      <strong>justify-content: center</strong> - Centers
+                      horizontally
+                    </li>
+                    <li>
+                      <strong>align-items: center</strong> - Centers vertically
+                    </li>
+                    <li>
+                      <strong>display: flex</strong> - Creates flex container
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>

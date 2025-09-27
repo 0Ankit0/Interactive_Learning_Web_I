@@ -153,6 +153,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize HTTP Protocol Simulator
     initializeHttpProtocolSimulator();
 
+    // Initialize Flexbox and Grid Playgrounds
+    initializeFlexboxPlayground();
+    initializeGridPlayground();
+
     let scrollTimeout;
     window.addEventListener('scroll', function () {
         clearTimeout(scrollTimeout);
@@ -5184,11 +5188,15 @@ function initializeTabs() {
 }
 
 function switchTab(clickedButton, type) {
+    console.log('switchTab called with type:', type);
     const tabContainer = clickedButton.closest('.tabbed-content');
+    console.log('tabContainer found:', tabContainer);
     if (!tabContainer) return;
 
     const tabButtons = tabContainer.querySelectorAll(`.tab-btn[data-${type}]`);
     const tabPanes = tabContainer.querySelectorAll('.tab-pane');
+    console.log('tabButtons found:', tabButtons.length);
+    console.log('tabPanes found:', tabPanes.length);
 
     // Remove active class from all buttons and panes
     tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -5199,12 +5207,17 @@ function switchTab(clickedButton, type) {
 
     // Show corresponding pane
     const targetTab = clickedButton.getAttribute(`data-${type}`);
+    console.log('targetTab:', targetTab);
     const targetPane = tabContainer.querySelector(`#${targetTab}-demo`) ||
         tabContainer.querySelector(`#${targetTab}`) ||
         tabContainer.querySelector(`[id*="${targetTab}"]`);
+    console.log('targetPane found:', targetPane);
 
     if (targetPane) {
         targetPane.classList.add('active');
+        console.log('Active class added to targetPane');
+    } else {
+        console.log('No targetPane found!');
     }
 }
 
@@ -7282,4 +7295,122 @@ function getStatusIcon(status) {
     if (status >= 400 && status < 500) return 'fa-exclamation-triangle';
     if (status >= 500) return 'fa-times-circle';
     return 'fa-info-circle';
+}
+
+// ========================
+// Flexbox and Grid Playground Functions
+// ========================
+
+function initializeFlexboxPlayground() {
+    // Initialize Flexbox Playground controls
+    const flexDirection = document.getElementById('flex-direction');
+    const justifyContent = document.getElementById('justify-content');
+    const alignItems = document.getElementById('align-items');
+    const flexWrap = document.getElementById('flex-wrap');
+
+    if (flexDirection && justifyContent && alignItems && flexWrap) {
+        // Add event listeners for live updates
+        flexDirection.addEventListener('change', updateFlexboxDemo);
+        justifyContent.addEventListener('change', updateFlexboxDemo);
+        alignItems.addEventListener('change', updateFlexboxDemo);
+        flexWrap.addEventListener('change', updateFlexboxDemo);
+
+        // Initialize the flexbox demo
+        updateFlexboxDemo();
+
+        console.log('Flexbox Playground initialized successfully');
+    }
+}
+
+function updateFlexboxDemo() {
+    const flexDirection = document.getElementById('flex-direction')?.value || 'row';
+    const justifyContent = document.getElementById('justify-content')?.value || 'flex-start';
+    const alignItems = document.getElementById('align-items')?.value || 'stretch';
+    const flexWrap = document.getElementById('flex-wrap')?.value || 'nowrap';
+
+    const flexContainer = document.getElementById('flex-demo');
+    const cssOutput = document.getElementById('flex-css-output');
+
+    if (!flexContainer || !cssOutput) return;
+
+    // Apply styles to the flex container
+    flexContainer.style.display = 'flex';
+    flexContainer.style.flexDirection = flexDirection;
+    flexContainer.style.justifyContent = justifyContent;
+    flexContainer.style.alignItems = alignItems;
+    flexContainer.style.flexWrap = flexWrap;
+
+    // Update CSS output
+    const cssCode = `.container {
+  display: flex;
+  flex-direction: ${flexDirection};
+  justify-content: ${justifyContent};
+  align-items: ${alignItems};
+  flex-wrap: ${flexWrap};
+}`;
+
+    cssOutput.textContent = cssCode;
+
+    // Highlight the updated code
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightElement(cssOutput);
+    }
+}
+
+function initializeGridPlayground() {
+    // Initialize Grid Playground controls
+    const gridColumns = document.getElementById('grid-columns');
+    const gridRows = document.getElementById('grid-rows');
+    const gridGap = document.getElementById('grid-gap');
+    const gridGapValue = document.getElementById('grid-gap-value');
+
+    if (gridColumns && gridRows && gridGap && gridGapValue) {
+        // Add event listeners for live updates
+        gridColumns.addEventListener('change', updateGridDemo);
+        gridRows.addEventListener('change', updateGridDemo);
+        gridGap.addEventListener('input', updateGridDemo);
+
+        // Initialize the grid demo
+        updateGridDemo();
+
+        console.log('Grid Playground initialized successfully');
+    }
+}
+
+function updateGridDemo() {
+    const gridColumns = document.getElementById('grid-columns')?.value || 'repeat(3, 1fr)';
+    const gridRows = document.getElementById('grid-rows')?.value || 'repeat(3, 1fr)';
+    const gridGap = document.getElementById('grid-gap')?.value || '10';
+    const gridGapValue = document.getElementById('grid-gap-value');
+
+    const gridContainer = document.getElementById('grid-demo');
+    const cssOutput = document.getElementById('grid-css-output');
+
+    if (!gridContainer || !cssOutput) return;
+
+    // Update gap value display
+    if (gridGapValue) {
+        gridGapValue.textContent = gridGap + 'px';
+    }
+
+    // Apply styles to the grid container
+    gridContainer.style.display = 'grid';
+    gridContainer.style.gridTemplateColumns = gridColumns;
+    gridContainer.style.gridTemplateRows = gridRows;
+    gridContainer.style.gap = gridGap + 'px';
+
+    // Update CSS output
+    const cssCode = `.container {
+  display: grid;
+  grid-template-columns: ${gridColumns};
+  grid-template-rows: ${gridRows};
+  gap: ${gridGap}px;
+}`;
+
+    cssOutput.textContent = cssCode;
+
+    // Highlight the updated code
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightElement(cssOutput);
+    }
 }
