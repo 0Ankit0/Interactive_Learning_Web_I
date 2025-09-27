@@ -17,9 +17,9 @@
       <div class="container">
         <a href="../index.html"><i class="fas fa-home"></i> Home</a>
         <span class="separator">/</span>
-        <a href="../units/unit3.html">Unit 3</a>
+        <a href="../units/unit3.html">Unit 3: CSS</a>
         <span class="separator">/</span>
-        <span class="current">3.4 CSS Preprocessors</span>
+        <span class="current">CSS Preprocessors</span>
       </div>
     </nav>
 
@@ -31,10 +31,7 @@
           </div>
           <div class="topic-header-text">
             <h1 class="topic-title">CSS Preprocessors (SASS, LESS)</h1>
-            <p class="topic-subtitle">
-              Supercharge your CSS development with variables, nesting, and
-              functions • 75 minutes
-            </p>
+            <p class="topic-subtitle">Advanced CSS Development Tools</p>
             <p class="topic-description">
               Learn how to use CSS preprocessors like SASS and LESS to write
               more maintainable, organized, and powerful stylesheets with
@@ -54,11 +51,69 @@
 
     <main class="main">
       <div class="container">
-        <div class="main-content">
-          <div class="content-container">
+        <div class="content-layout">
+          <aside class="table-of-contents">
+            <h3>Table of Contents</h3>
+            <ul>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>CSS Preprocessors</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#introduction"
+                      onclick="scrollToSection('introduction')"
+                      >Introduction</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#sass-features"
+                      onclick="scrollToSection('sass-features')"
+                      >SASS/SCSS Features</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  class="toc-dropdown-toggle"
+                  onclick="toggleTocSection(this)"
+                  aria-expanded="false"
+                >
+                  <span>Interactive Learning</span>
+                  <i class="fas fa-chevron-down toc-chevron"></i>
+                </button>
+                <ul class="toc-dropdown-content">
+                  <li>
+                    <a
+                      href="#interactive-demo"
+                      onclick="scrollToSection('interactive-demo')"
+                      >Interactive Demo</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Learning Resources</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <div class="content-main">
             <!-- Introduction Section -->
-            <section class="content-section">
-              <h2><i class="fab fa-sass"></i> What are CSS Preprocessors?</h2>
+            <section id="introduction" class="content-section">
+              <div class="section-header">
+                <h2><i class="fab fa-sass"></i> What are CSS Preprocessors?</h2>
+              </div>
               <p>
                 CSS preprocessors are scripting languages that extend the
                 default capabilities of CSS. They allow you to use features like
@@ -66,13 +121,12 @@
                 maintainable and organized stylesheets.
               </p>
 
-              <div class="comparison-table">
-                <div class="comparison-cell">
+              <div class="topic-grid two-column">
+                <div class="topic-card">
                   <div class="card-header">
-                    <i class="fab fa-sass"></i>
-                    <h3>SASS/SCSS</h3>
+                    <h3><i class="fab fa-sass"></i> SASS/SCSS</h3>
                   </div>
-                  <div class="card-body">
+                  <div class="card-content">
                     <p>
                       Syntactically Awesome StyleSheets - Most popular CSS
                       preprocessor
@@ -86,12 +140,11 @@
                   </div>
                 </div>
 
-                <div class="comparison-cell">
+                <div class="topic-card">
                   <div class="card-header">
-                    <i class="fab fa-less"></i>
-                    <h3>LESS</h3>
+                    <h3><i class="fab fa-less"></i> LESS</h3>
                   </div>
-                  <div class="card-body">
+                  <div class="card-content">
                     <p>
                       Leaner Style Sheets - JavaScript-based CSS preprocessor
                     </p>
@@ -107,31 +160,38 @@
             </section>
 
             <!-- SASS Section -->
-            <section class="content-section">
-              <h2><i class="fab fa-sass"></i> SASS/SCSS Features</h2>
-
-              <div class="feature-card">
-                <h3>Variables</h3>
-                <div class="code-example">
-                  <h4>SCSS Syntax:</h4>
-                  <pre><code class="language-scss">// Variables
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlprimary-color: #3498db;
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlfont-size: 16px;
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlmargin: 20px;
-
-.header {
-  color: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlprimary-color;
-  font-size: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlfont-size;
-  margin: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlmargin;
-}</code></pre>
-                </div>
+            <section id="sass-features" class="content-section">
+              <div class="section-header">
+                <h2><i class="fab fa-sass"></i> SASS/SCSS Features</h2>
               </div>
 
-              <div class="feature-card">
-                <h3>Nesting</h3>
-                <div class="code-example">
-                  <h4>SCSS Syntax:</h4>
-                  <pre><code class="language-scss">.navbar {
+              <div class="topic-grid">
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3>Variables</h3>
+                  </div>
+                  <div class="code-example">
+                    <h4>SCSS Syntax:</h4>
+                    <pre><code class="language-scss">// Variables
+$primary-color: #3498db;
+$font-size: 16px;
+$margin: 20px;
+
+.header {
+  color: $primary-color;
+  font-size: $font-size;
+  margin: $margin;
+}</code></pre>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3>Nesting</h3>
+                  </div>
+                  <div class="code-example">
+                    <h4>SCSS Syntax:</h4>
+                    <pre><code class="language-scss">.navbar {
   background: #333;
   padding: 10px;
   
@@ -153,24 +213,26 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
     }
   }
 }</code></pre>
+                  </div>
                 </div>
-              </div>
 
-              <div class="feature-card">
-                <h3>Mixins</h3>
-                <div class="code-example">
-                  <h4>SCSS Syntax:</h4>
-                  <pre><code class="language-scss">// Define mixin
-@mixin button-style(d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlbg-color, d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmltext-color: white) {
-  background-color: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlbg-color;
-  color: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmltext-color;
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3>Mixins</h3>
+                  </div>
+                  <div class="code-example">
+                    <h4>SCSS Syntax:</h4>
+                    <pre><code class="language-scss">// Define mixin
+@mixin button-style($bg-color, $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   
   &:hover {
-    background-color: darken(d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlbg-color, 10%);
+    background-color: darken($bg-color, 10%);
   }
 }
 
@@ -182,24 +244,32 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
 .btn-secondary {
   @include button-style(#95a5a6, #333);
 }</code></pre>
+                  </div>
                 </div>
               </div>
             </section>
 
             <!-- Interactive Demo Section -->
             <section id="interactive-demo" class="content-section">
-              <h2><i class="fas fa-play-circle"></i> Interactive SASS Demo</h2>
+              <div class="section-header">
+                <h2>
+                  <i class="fas fa-play-circle"></i> Interactive SASS Demo
+                </h2>
+              </div>
               <div class="interactive-element">
                 <h3>Try SASS Features Live!</h3>
                 <p>See how SASS code compiles to regular CSS:</p>
 
-                <div class="comparison-table">
-                  <div class="comparison-cell">
-                    <h4>SASS/SCSS Input</h4>
-                    <textarea id="sassInput" class="code-input" rows="15">
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlprimary: #3498db;
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlsecondary: #e74c3c;
-d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlradius: 6px;
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <div class="card-header">
+                      <h4>SASS/SCSS Input</h4>
+                    </div>
+                    <div class="card-content">
+                      <textarea id="sassInput" class="code-input" rows="15">
+$primary: #3498db;
+$secondary: #e74c3c;
+$radius: 6px;
 
 @mixin flex-center {
   display: flex;
@@ -209,14 +279,14 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
 
 .card {
   background: white;
-  border-radius: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlradius;
+  border-radius: $radius;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   
   .header {
-    background: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlprimary;
+    background: $primary;
     color: white;
     padding: 15px;
-    border-radius: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlradius d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlradius 0 0;
+    border-radius: $radius $radius 0 0;
     
     h3 {
       margin: 0;
@@ -229,28 +299,33 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
     
     .button {
       @include flex-center;
-      background: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlsecondary;
+      background: $secondary;
       color: white;
       padding: 10px 20px;
       border: none;
-      border-radius: d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlradius;
+      border-radius: $radius;
       cursor: pointer;
       
       &:hover {
-        background: darken(d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css-preprocessors.htmlsecondary, 10%);
+        background: darken($secondary, 10%);
       }
     }
   }
 }</textarea
-                    >
+                      >
+                    </div>
                   </div>
 
-                  <div class="comparison-cell">
-                    <h4>Compiled CSS Output</h4>
-                    <pre
-                      id="cssOutput"
-                      class="code-output"
-                    ><code class="language-css">/* Compiled CSS will appear here */</code></pre>
+                  <div class="topic-card">
+                    <div class="card-header">
+                      <h4>Compiled CSS Output</h4>
+                    </div>
+                    <div class="card-content">
+                      <pre
+                        id="cssOutput"
+                        class="code-output"
+                      ><code class="language-css">/* Compiled CSS will appear here */</code></pre>
+                    </div>
                   </div>
                 </div>
 
@@ -265,10 +340,13 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
               </div>
             </section>
 
-            <section id="resources" class="topic-section">
-              <h2 class="section-title">
-                <i class="fas fa-video"></i> Video Resources & External Links
-              </h2>
+            <!-- Resources Section -->
+            <section id="resources" class="content-section">
+              <div class="section-header">
+                <h2>
+                  <i class="fas fa-video"></i> Video Resources & External Links
+                </h2>
+              </div>
               <p class="section-description">
                 Explore curated learning resources to deepen your understanding
                 of CSS preprocessors. Each resource is carefully selected for
@@ -437,59 +515,13 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
             </section>
 
             <!-- Navigation Section -->
-            <section class="navigation-section">
-              <div class="nav-buttons">
-                <a
-                  href="flexbox-grid.html"
-                  class="nav-button prev"
-                  id="prev-topic"
-                >
+            <section class="content-section">
+              <div class="navigation-section">
+                <a href="flexbox-grid.html" class="nav-link nav-previous">
                   <i class="fas fa-arrow-left"></i>
                   <span>Previous Topic</span>
                   <span class="nav-topic-title">Flexbox and CSS Grid</span>
                 </a>
-                <a href="../units/unit3.html" class="btn-secondary">
-                  <i class="fas fa-list"></i>
-                  <span>All Topics</span>
-                </a>
-                <a
-                  href="css-frameworks.html"
-                  class="nav-button next"
-                  id="next-topic"
-                >
-                  <span>Next Topic</span>
-                  <span class="nav-topic-title">CSS Frameworks</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </section>
-
-            <!-- Resources Section -->
-            <section class="resources-section">
-              <h2><i class="fas fa-bookmark"></i> Resources & References</h2>
-              <div class="resource-grid">
-                <div class="resource-card">
-                  <h3><i class="fab fa-sass"></i> SASS Documentation</h3>
-                  <p>Official SASS documentation and guides</p>
-                  <a
-                    href="https://sass-lang.com/documentation"
-                    target="_blank"
-                    class="btn-primary"
-                  >
-                    Visit Documentation
-                  </a>
-                </div>
-                <div class="resource-card">
-                  <h3><i class="fas fa-code"></i> LESS Documentation</h3>
-                  <p>Official LESS CSS preprocessor guide</p>
-                  <a
-                    href="https://lesscss.org/"
-                    target="_blank"
-                    class="btn-primary"
-                  >
-                    Visit Documentation
-                  </a>
-                </div>
               </div>
             </section>
           </div>
@@ -502,5 +534,163 @@ d:\Teaching material\Web Technology I\Extras\Web-I\interactive-course\topics\css
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    <script>
+      // SASS Demo Functions
+      function compileSass() {
+        const sassInput = document.getElementById("sassInput");
+        const cssOutput = document.getElementById("cssOutput");
+
+        if (!sassInput || !cssOutput) return;
+
+        const sassCode = sassInput.value;
+
+        // Simple SASS to CSS conversion for demo purposes
+        let cssCode = sassCode;
+
+        // Replace variables
+        const variables = {};
+        cssCode = cssCode.replace(
+          /\$([a-zA-Z-]+):\s*([^;]+);/g,
+          (match, name, value) => {
+            variables[name] = value.trim();
+            return "";
+          }
+        );
+
+        // Replace variable usage
+        Object.keys(variables).forEach((varName) => {
+          const regex = new RegExp(`\\$${varName}`, "g");
+          cssCode = cssCode.replace(regex, variables[varName]);
+        });
+
+        // Simple nesting conversion (basic implementation)
+        cssCode = cssCode.replace(
+          /([.#][\w-]+)\s*{([^{}]*{[^{}]*}[^{}]*)*([^{}]*)}/g,
+          (match, selector, nested, lastPart) => {
+            if (!nested) return match;
+
+            let result = selector + " {\n" + (lastPart || "") + "\n}\n\n";
+
+            // Extract nested selectors
+            let nestedRules = nested.match(/([.#&][\w-:]+)\s*{[^{}]*}/g);
+            if (nestedRules) {
+              nestedRules.forEach((rule) => {
+                let nestedSelector = rule.match(/([.#&][\w-:]+)/)[1];
+                let nestedContent = rule.match(/{([^}]*)}/)[1];
+
+                if (nestedSelector.startsWith("&")) {
+                  result +=
+                    selector +
+                    nestedSelector.substring(1) +
+                    " {\n" +
+                    nestedContent +
+                    "\n}\n\n";
+                } else {
+                  result +=
+                    selector +
+                    " " +
+                    nestedSelector +
+                    " {\n" +
+                    nestedContent +
+                    "\n}\n\n";
+                }
+              });
+            }
+
+            return result;
+          }
+        );
+
+        // Remove mixins definitions and replace includes
+        cssCode = cssCode.replace(/@mixin\s+[\w-]+[^}]*}/g, "");
+        cssCode = cssCode.replace(
+          /@include\s+[\w-]+[^;]*;/g,
+          "display: flex;\n  justify-content: center;\n  align-items: center;"
+        );
+
+        // Clean up extra whitespace
+        cssCode = cssCode.replace(/\n\s*\n/g, "\n").trim();
+
+        // Update the output
+        cssOutput.innerHTML = `<code class="language-css">${cssCode}</code>`;
+
+        // Re-highlight the code
+        if (window.Prism) {
+          Prism.highlightElement(cssOutput.querySelector("code"));
+        }
+      }
+
+      function resetDemo() {
+        const sassInput = document.getElementById("sassInput");
+        const cssOutput = document.getElementById("cssOutput");
+
+        if (sassInput) {
+          sassInput.value = `$primary: #3498db;
+$secondary: #e74c3c;
+$radius: 6px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  border-radius: $radius;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  
+  .header {
+    background: $primary;
+    color: white;
+    padding: 15px;
+    border-radius: $radius $radius 0 0;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+  }
+  
+  .body {
+    padding: 20px;
+    
+    .button {
+      @include flex-center;
+      background: $secondary;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: $radius;
+      cursor: pointer;
+      
+      &:hover {
+        background: darken($secondary, 10%);
+      }
+    }
+  }
+}`;
+        }
+
+        if (cssOutput) {
+          cssOutput.innerHTML =
+            '<code class="language-css">/* Compiled CSS will appear here */</code>';
+        }
+      }
+
+      // Bookmark toggle function
+      function toggleBookmark(button) {
+        const icon = button.querySelector("i");
+        if (icon.classList.contains("fas")) {
+          icon.classList.remove("fas");
+          icon.classList.add("far");
+          button.title = "Bookmark this resource";
+        } else {
+          icon.classList.remove("far");
+          icon.classList.add("fas");
+          button.title = "Remove bookmark";
+        }
+      }
+    </script>
   </body>
 </html>
