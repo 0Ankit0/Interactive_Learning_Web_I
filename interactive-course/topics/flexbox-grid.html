@@ -80,58 +80,18 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>CSS Flexbox</span>
+                  <span>CSS Flexbox & Grid</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
                     <a href="#flexbox" onclick="scrollToSection('flexbox')"
-                      >Flexbox Fundamentals</a
+                      >CSS Flexbox</a
                     >
                   </li>
-                  <li>
-                    <a
-                      href="#flexbox-properties"
-                      onclick="scrollToSection('flexbox-properties')"
-                      >Flexbox Properties</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#flexbox-examples"
-                      onclick="scrollToSection('flexbox-examples')"
-                      >Practical Examples</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button
-                  class="toc-dropdown-toggle"
-                  onclick="toggleTocSection(this)"
-                  aria-expanded="false"
-                >
-                  <span>CSS Grid</span>
-                  <i class="fas fa-chevron-down toc-chevron"></i>
-                </button>
-                <ul class="toc-dropdown-content">
                   <li>
                     <a href="#grid" onclick="scrollToSection('grid')"
-                      >Grid Fundamentals</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#grid-properties"
-                      onclick="scrollToSection('grid-properties')"
-                      >Grid Properties</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#grid-examples"
-                      onclick="scrollToSection('grid-examples')"
-                      >Grid Examples</a
+                      >CSS Grid</a
                     >
                   </li>
                 </ul>
@@ -156,6 +116,11 @@
                       >Test Your Knowledge</a
                     >
                   </li>
+                  <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Learning Resources</a
+                    >
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -163,7 +128,7 @@
 
           <div class="content-main">
             <!-- Introduction Section -->
-            <section class="content-section" data-section="introduction">
+            <section class="content-section" id="introduction">
               <div class="section-header">
                 <h2>
                   <i class="fas fa-ruler-combined"></i> Modern Layout Systems
@@ -210,7 +175,7 @@
             </section>
 
             <!-- Flexbox Section -->
-            <section class="content-section" data-section="flexbox">
+            <section class="content-section" id="flexbox">
               <div class="section-header">
                 <h2><i class="fas fa-arrows-alt-h"></i> CSS Flexbox</h2>
               </div>
@@ -371,7 +336,7 @@
             </section>
 
             <!-- CSS Grid Section -->
-            <section class="content-section" data-section="grid">
+            <section class="content-section" id="grid">
               <div class="section-header">
                 <h2><i class="fas fa-th"></i> CSS Grid</h2>
               </div>
@@ -537,7 +502,7 @@
             </section>
 
             <!-- Practical Exercises -->
-            <section class="content-section" data-section="exercises">
+            <section class="content-section" id="exercises">
               <div class="section-header">
                 <h2><i class="fas fa-pencil-ruler"></i> Practical Exercise</h2>
               </div>

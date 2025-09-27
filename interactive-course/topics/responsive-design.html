@@ -71,6 +71,11 @@
                     >
                   </li>
                   <li>
+                    <a href="#viewport" onclick="scrollToSection('viewport')"
+                      >Viewport & Meta Tags</a
+                    >
+                  </li>
+                  <li>
                     <a href="#media-queries" onclick="scrollToSection('media-queries')"
                       >Media Queries</a
                     >
@@ -93,18 +98,13 @@
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
+                    <a href="#responsive-images" onclick="scrollToSection('responsive-images')"
+                      >Responsive Images</a
+                    >
+                  </li>
+                  <li>
                     <a href="#mobile-first" onclick="scrollToSection('mobile-first')"
                       >Mobile-First Design</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#breakpoints" onclick="scrollToSection('breakpoints')"
-                      >Breakpoints</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#testing" onclick="scrollToSection('testing')"
-                      >Testing & Debugging</a
                     >
                   </li>
                 </ul>
@@ -120,13 +120,18 @@
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
-                    <a href="#practice" onclick="scrollToSection('practice')"
-                      >Interactive Practice</a
+                    <a href="#exercise" onclick="scrollToSection('exercise')"
+                      >Practical Exercise</a
                     >
                   </li>
                   <li>
                     <a href="#quiz" onclick="scrollToSection('quiz')"
                       >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Learning Resources</a
                     >
                   </li>
                 </ul>
@@ -135,105 +140,55 @@
           </aside>
 
           <div class="content-main">
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-info-circle"></i> What is Responsive Design?</h2>
-          <div class="topic-grid">
-            <p class="lead">
-              Responsive design is an approach to web design that ensures
-              websites provide an optimal viewing experience across all devices,
-              from desktop computers to mobile phones. It uses flexible layouts,
-              images, and CSS media queries to adapt to different screen sizes
-              and orientations.
-            </p>
-
-            <div class="principles-grid">
-              <h3 class="grid-header"><i class="fas fa-star"></i> Core Principles</h3>
-              <div class="grid-items">
-                <div class="principle-card">
-                  <div class="card-icon">
-                    <i class="fas fa-th-large"></i>
-                  </div>
-                  <h4>Flexible Grid Systems</h4>
+            <!-- Introduction Section -->
+            <section class="content-section" id="introduction">
+              <div class="section-header">
+                <h2>
+                  <i class="fas fa-info-circle"></i> What is Responsive Design?
+                </h2>
+              </div>
+              
                   <p>
-                    Use percentage-based widths and flexible containers that
-                    adapt to screen size.
+                    Responsive design is an approach to web design that ensures
+                    websites provide an optimal viewing experience across all devices,
+                    from desktop computers to mobile phones. It uses flexible layouts,
+                    images, and CSS media queries to adapt to different screen sizes
+                    and orientations.
                   </p>
-                </div>
 
-                <div class="principle-card">
-                  <div class="card-icon">
-                    <i class="fas fa-image"></i>
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fas fa-star"></i> Core Principles</h3>
+                  
+                  <ul>
+                    <li>Flexible Grid Systems - Use percentage-based widths</li>
+                    <li>Flexible Images - Scale proportionally</li>
+                    <li>Media Queries - Apply different CSS rules</li>
+                    <li>Mobile-First Approach - Design for mobile first</li>
+                  </ul>
+                  <div class="info-box">
+                    <h4>Why It Matters:</h4>
+                    <p>58% of web traffic comes from mobile devices. Users expect fast, accessible experiences on all screen sizes.</p>
                   </div>
-                  <h4>Flexible Images</h4>
-                  <p>
-                    Scale images and media content proportionally to prevent
-                    overflow on smaller screens.
-                  </p>
-                </div>
-
-                <div class="principle-card">
-                  <div class="card-icon">
-                    <i class="fas fa-ruler-combined"></i>
-                  </div>
-                  <h4>Media Queries</h4>
-                  <p>
-                    Apply different CSS rules based on device characteristics
-                    like screen width.
-                  </p>
-                </div>
-
-                <div class="principle-card">
-                  <div class="card-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                  </div>
-                  <h4>Mobile-First Approach</h4>
-                  <p>
-                    Design for mobile devices first, then progressively enhance
-                    for larger screens.
-                  </p>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div class="stats-section">
-              <h3>
-                <i class="fas fa-chart-bar"></i> Why Responsive Design Matters
-              </h3>
-              <div class="stats-grid">
-                <div class="stat-item">
-                  <div class="value">58%</div>
-                  <div class="label">Mobile Web Traffic</div>
-                </div>
-                <div class="stat-item">
-                  <div class="value">3.7s</div>
-                  <div class="label">Max Load Time</div>
-                </div>
-                <div class="stat-item">
-                  <div class="value">53%</div>
-                  <div class="label">Users Leave if Slow</div>
-                </div>
-                <div class="stat-item">
-                  <div class="value">61%</div>
-                  <div class="label">Won't Return if Poor UX</div>
-                </div>
+            <!-- Viewport and Meta Tags -->
+            <section class="content-section" id="viewport">
+              <div class="section-header">
+                <h2><i class="fas fa-code"></i> Viewport and Meta Tags</h2>
               </div>
-            </div>
-          </div>
-        </section>
+              <div class="topic-card">
+                <p>
+                  The viewport meta tag is essential for responsive design. It
+                  controls how the webpage is displayed on mobile devices by setting
+                  the viewport's width and initial scale.
+                </p>
 
-        <!-- Viewport and Meta Tags -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-code"></i> Viewport and Meta Tags</h2>
-          <div class="topic-grid">
-            <p>
-              The viewport meta tag is essential for responsive design. It
-              controls how the webpage is displayed on mobile devices by setting
-              the viewport's width and initial scale.
-            </p>
-
-            <div class="code-block">
-              <h4 class="code-header"><i class="fas fa-tag"></i> Essential Viewport Meta Tag</h4>
-              <pre><code class="language-html">&lt;!-- Basic responsive viewport --&gt;
+                <div class="code-block">
+                  <h4>Essential Viewport Meta Tag</h4>
+                  <pre><code class="language-html">&lt;!-- Basic responsive viewport --&gt;
 &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
 
 &lt;!-- Complete viewport control --&gt;
@@ -242,58 +197,41 @@
                initial-scale=1.0, 
                maximum-scale=5.0, 
                minimum-scale=1.0, 
-               user-scalable=yes"&gt;
+               user-scalable=yes"&gt;</code></pre>
+                </div>
 
-&lt;!-- Prevent zoom (not recommended for accessibility) --&gt;
-&lt;meta name="viewport" 
-      content="width=device-width, 
-               initial-scale=1.0, 
-               user-scalable=no"&gt;</code></pre>
-            </div>
-
-            <div class="explanation-grid">
-              <h4 class="grid-header"><i class="fas fa-cogs"></i> Viewport Properties Explained</h4>
-              <div class="grid-items">
-                <div class="explanation-item">
-                  <code>width=device-width</code>
-                  <p>Sets the width to match the device's screen width</p>
-                </div>
-                <div class="explanation-item">
-                  <code>initial-scale=1.0</code>
-                  <p>Sets the initial zoom level when page loads</p>
-                </div>
-                <div class="explanation-item">
-                  <code>maximum-scale</code>
-                  <p>Controls the maximum zoom level users can reach</p>
-                </div>
-                <div class="explanation-item">
-                  <code>user-scalable</code>
-                  <p>Allows or prevents users from zooming</p>
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4>width=device-width</h4>
+                    <p>Sets the width to match the device's screen width</p>
+                  </div>
+                  <div class="topic-card">
+                    <h4>initial-scale=1.0</h4>
+                    <p>Sets the initial zoom level when page loads</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Media Queries -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-ruler-horizontal"></i> CSS Media Queries</h2>
-          <div class="topic-grid">
-            <p>
-              Media queries allow you to apply different CSS styles based on
-              device characteristics such as screen width, height, orientation,
-              and resolution.
-            </p>
+            <!-- Media Queries -->
+            <section class="content-section" id="media-queries">
+              <div class="section-header">
+                <h2><i class="fas fa-ruler-horizontal"></i> CSS Media Queries</h2>
+              </div>
+              <div class="topic-card">
+                <p>
+                  Media queries allow you to apply different CSS styles based on
+                  device characteristics such as screen width, height, orientation,
+                  and resolution.
+                </p>
 
-            <h3 class="subsection-header"><i class="fas fa-code"></i> Media Query Syntax</h3>
-            <div class="code-block">
-              <h4 class="code-header"><i class="fas fa-file-code"></i> Basic Media Query Structure</h4>
-              <pre><code class="language-css">/* Basic media query syntax */
+                <div class="code-block">
+                  <h4>Media Query Syntax</h4>
+                  <pre><code class="language-css">/* Basic media query syntax */
 @media media-type and (media-feature) {
     /* CSS rules */
 }
 
-/* Common breakpoints */
 /* Mobile First Approach */
 /* Base styles for mobile */
 .container {
@@ -316,137 +254,55 @@
         max-width: 1200px;
         padding: 2rem;
     }
-}
-
-/* Large desktop styles */
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1400px;
-    }
 }</code></pre>
-            </div>
+                </div>
 
-            <div class="table-container">
-              <h4 class="table-header"><i class="fas fa-tablet-alt"></i> Common Breakpoints</h4>
-              <div class="responsive-table">
-                <div class="table-header-row">
-                  <div class="table-cell">Device</div>
-                  <div class="table-cell">Screen Width</div>
-                  <div class="table-cell">Media Query</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell">
-                    <i class="fas fa-mobile-alt"></i> Mobile
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Mobile</h4>
+                    <p>320px - 767px</p>
+                    <div class="code-block">
+                      <pre><code class="language-css">@media (max-width: 767px)</code></pre>
+                    </div>
                   </div>
-                  <div class="table-cell">320px - 767px</div>
-                  <div class="table-cell">
-                    <code>@media (max-width: 767px)</code>
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell">
-                    <i class="fas fa-tablet-alt"></i> Tablet
-                  </div>
-                  <div class="table-cell">768px - 1023px</div>
-                  <div class="table-cell">
-                    <code>@media (min-width: 768px)</code>
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell">
-                    <i class="fas fa-desktop"></i> Desktop
-                  </div>
-                  <div class="table-cell">1024px - 1439px</div>
-                  <div class="table-cell">
-                    <code>@media (min-width: 1024px)</code>
-                  </div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell">
-                    <i class="fas fa-tv"></i> Large Desktop
-                  </div>
-                  <div class="table-cell">1440px+</div>
-                  <div class="table-cell">
-                    <code>@media (min-width: 1440px)</code>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="interactive-demo">
-              <h4 class="demo-header"><i class="fas fa-vial"></i> Interactive Media Query Demo</h4>
-              <div class="demo-controls">
-                <div class="slider-container">
-                  <label for="screenWidth"
-                    >Screen Width: <span id="widthDisplay">1200</span>px</label
-                  >
-                  <input
-                    type="range"
-                    id="screenWidth"
-                    min="320"
-                    max="1920"
-                    value="1200"
-                  />
-                  <div class="device-buttons">
-                    <button class="btn btn-outline" data-width="375">Mobile</button>
-                    <button class="btn btn-outline" data-width="768">Tablet</button>
-                    <button class="btn btn-outline" data-width="1024">Laptop</button>
-                    <button class="btn btn-outline" data-width="1440">
-                      Desktop
-                    </button>
+                  <div class="topic-card">
+                    <h4><i class="fas fa-tablet-alt"></i> Tablet</h4>
+                    <p>768px - 1023px</p>
+                    <div class="code-block">
+                      <pre><code class="language-css">@media (min-width: 768px)</code></pre>
+                    </div>
                   </div>
-                </div>
-                <div class="demo-viewport-container">
-                  <div class="demo-viewport" id="demoViewport">
-                    <div class="demo-layout">
-                      <header class="demo-header">Header</header>
-                      <nav class="demo-nav">Navigation</nav>
-                      <main class="demo-main">
-                        <section class="demo-section">Main Content</section>
-                        <aside class="demo-aside">Sidebar</aside>
-                      </main>
-                      <footer class="demo-footer">Footer</footer>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-desktop"></i> Desktop</h4>
+                    <p>1024px - 1439px</p>
+                    <div class="code-block">
+                      <pre><code class="language-css">@media (min-width: 1024px)</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-tv"></i> Large Desktop</h4>
+                    <p>1440px+</p>
+                    <div class="code-block">
+                      <pre><code class="language-css">@media (min-width: 1440px)</code></pre>
                     </div>
                   </div>
                 </div>
-                <div class="breakpoint-indicator" id="currentBreakpoint">
-                  Current: Desktop (1200px)
-                </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Flexible Layouts -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-layer-group"></i> Flexible Layout Techniques</h2>
-          <div class="topic-grid">
-            <p>
-              Creating flexible layouts is crucial for responsive design. Modern
-              CSS provides several powerful tools for building adaptive layouts.
-            </p>
-
-            <div class="interactive-tabs">
-              <div class="tab-buttons">
-                <button class="tab-button active" data-tab="flexbox">
-                  Flexbox
-                </button>
-                <button class="tab-button" data-tab="grid">CSS Grid</button>
-                <button class="tab-button" data-tab="fluid">
-                  Fluid Containers
-                </button>
-                <button class="tab-button" data-tab="responsive-units">
-                  Responsive Units
-                </button>
+            <!-- Flexible Layouts -->
+            <section class="content-section" id="flexible-layouts">
+              <div class="section-header">
+                <h2><i class="fas fa-layer-group"></i> Flexible Layout Techniques</h2>
               </div>
-
-              <div class="tab-content">
-                <!-- Flexbox Tab -->
-                <div class="tab-panel active" id="flexbox-panel">
-                  <h4 class="subsection-header">
-                    <i class="fab fa-css3-alt"></i> Flexbox for Responsive
-                    Design
-                  </h4>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fab fa-css3-alt"></i> Flexbox for Responsive Design</h3>
+                  </div>
                   <div class="code-block">
                     <pre><code class="language-css">/* Responsive flexbox container */
 .flex-container {
@@ -460,41 +316,19 @@
     min-width: 250px;
 }
 
-/* Responsive navigation */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 /* Mobile: Stack items vertically */
 @media (max-width: 767px) {
     .flex-container {
         flex-direction: column;
     }
-    
-    .nav-container {
-        flex-direction: column;
-        text-align: center;
-    }
 }</code></pre>
-                  </div>
-                  <div class="flex-demo">
-                    <div class="flex-container">
-                      <div class="flex-item">Item 1</div>
-                      <div class="flex-item">Item 2</div>
-                      <div class="flex-item">Item 3</div>
-                    </div>
                   </div>
                 </div>
 
-                <!-- CSS Grid Tab -->
-                <div class="tab-panel" id="grid-panel">
-                  <h4 class="subsection-header">
-                    <i class="fas fa-th"></i> CSS Grid for Responsive
-                    Layouts
-                  </h4>
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fas fa-th"></i> CSS Grid for Responsive Layouts</h3>
+                  </div>
                   <div class="code-block">
                     <pre><code class="language-css">/* Responsive grid container */
 .grid-container {
@@ -503,46 +337,19 @@
     gap: 1rem;
 }
 
-/* Complex responsive grid */
-.page-grid {
-    display: grid;
-    grid-template-areas: 
-        "header header"
-        "sidebar main"
-        "footer footer";
-    grid-template-columns: 250px 1fr;
-    gap: 1rem;
-}
-
 /* Mobile: Single column layout */
 @media (max-width: 768px) {
-    .page-grid {
-        grid-template-areas: 
-            "header"
-            "main"
-            "sidebar"
-            "footer";
+    .grid-container {
         grid-template-columns: 1fr;
     }
 }</code></pre>
                   </div>
-                  <div class="grid-demo">
-                    <div class="grid-container">
-                      <div class="grid-item">1</div>
-                      <div class="grid-item">2</div>
-                      <div class="grid-item">3</div>
-                      <div class="grid-item">4</div>
-                      <div class="grid-item">5</div>
-                      <div class="grid-item">6</div>
-                    </div>
-                  </div>
                 </div>
 
-                <!-- Fluid Containers Tab -->
-                <div class="tab-panel" id="fluid-panel">
-                  <h4 class="subsection-header">
-                    <i class="fas fa-water"></i> Fluid Containers and Max-Width
-                  </h4>
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fas fa-water"></i> Fluid Containers</h3>
+                  </div>
                   <div class="code-block">
                     <pre><code class="language-css">/* Fluid container with max-width */
 .container {
@@ -552,24 +359,10 @@
     padding: 0 1rem;
 }
 
-/* Responsive container sizes */
-.container-sm { max-width: 540px; }
-.container-md { max-width: 720px; }
-.container-lg { max-width: 960px; }
-.container-xl { max-width: 1140px; }
-
 /* Percentage-based columns */
-.column {
-    width: 100%;
-    padding: 0 15px;
-}
-
-.col-1 { width: 8.333333%; }
-.col-2 { width: 16.666667%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.333333%; }
 .col-6 { width: 50%; }
-.col-12 { width: 100%; }
+.col-4 { width: 33.333333%; }
+.col-3 { width: 25%; }
 
 /* Mobile: All columns full width */
 @media (max-width: 767px) {
@@ -578,21 +371,12 @@
     }
 }</code></pre>
                   </div>
-                  <div class="fluid-demo">
-                    <div class="fluid-container">
-                      <div class="fluid-item col-3">25%</div>
-                      <div class="fluid-item col-6">50%</div>
-                      <div class="fluid-item col-3">25%</div>
-                    </div>
-                  </div>
                 </div>
 
-                <!-- Responsive Units Tab -->
-                <div class="tab-panel" id="responsive-units-panel">
-                  <h4 class="subsection-header">
-                    <i class="fas fa-text-height"></i> Responsive Units and
-                    Typography
-                  </h4>
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fas fa-text-height"></i> Responsive Units</h3>
+                  </div>
                   <div class="code-block">
                     <pre><code class="language-css">/* Viewport units */
 .hero-section {
@@ -603,21 +387,6 @@
 /* Responsive typography with clamp() */
 .heading {
     font-size: clamp(1.5rem, 4vw, 3rem);
-    /* min: 1.5rem, preferred: 4vw, max: 3rem */
-}
-
-/* Relative units for scalability */
-.card {
-    padding: 2rem;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
-
-/* Em and rem for consistent spacing */
-.text-content {
-    font-size: 1rem;      /* Base font size */
-    line-height: 1.6em;   /* Relative to font size */
-    margin-bottom: 1.5rem; /* Relative to root font size */
 }
 
 /* Responsive font sizing */
@@ -625,39 +394,26 @@ html { font-size: 16px; }
 
 @media (max-width: 768px) {
     html { font-size: 14px; }
-}
-
-@media (min-width: 1200px) {
-    html { font-size: 18px; }
 }</code></pre>
-                  </div>
-                  <div class="units-demo">
-                    <div class="units-container">
-                      <div class="unit-item vw">10vw width</div>
-                      <div class="unit-item vh">20vh height</div>
-                      <div class="unit-item rem">2rem padding</div>
-                      <div class="unit-item em">1.5em margin</div>
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Images and Media -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-images"></i> Responsive Images and Media</h2>
-          <div class="topic-grid">
-            <p>
-              Making images and media responsive ensures they scale properly
-              across different devices and don't break your layout or cause
-              horizontal scrolling.
-            </p>
+            <!-- Images and Media -->
+            <section class="content-section" id="responsive-images">
+              <div class="section-header">
+                <h2><i class="fas fa-images"></i> Responsive Images and Media</h2>
+              </div>
+              <div class="topic-card">
+                <p>
+                  Making images and media responsive ensures they scale properly
+                  across different devices and don't break your layout.
+                </p>
 
-            <div class="code-block">
-              <h4 class="code-header"><i class="fas fa-image"></i> Responsive Images Techniques</h4>
-              <pre><code class="language-css">/* Basic responsive image */
+                <div class="code-block">
+                  <h4>Responsive Images Techniques</h4>
+                  <pre><code class="language-css">/* Basic responsive image */
 img {
     max-width: 100%;
     height: auto;
@@ -679,18 +435,12 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-/* Art direction with picture element */
-.responsive-picture {
-    width: 100%;
-    height: auto;
 }</code></pre>
-            </div>
+                </div>
 
-            <div class="code-block">
-              <h4 class="code-header"><i class="fas fa-file-image"></i> HTML Picture Element</h4>
-              <pre><code class="language-html">&lt;!-- Responsive images with different sources --&gt;
+                <div class="code-block">
+                  <h4>HTML Picture Element</h4>
+                  <pre><code class="language-html">&lt;!-- Responsive images with different sources --&gt;
 &lt;picture&gt;
     &lt;source media="(max-width: 767px)" 
             srcset="image-mobile.jpg"&gt;
@@ -700,138 +450,53 @@ img {
             srcset="image-desktop.jpg"&gt;
     &lt;img src="image-fallback.jpg" 
          alt="Responsive image"&gt;
-&lt;/picture&gt;
-
-&lt;!-- Srcset for different resolutions --&gt;
-&lt;img srcset="image-320.jpg 320w,
-             image-480.jpg 480w,
-             image-800.jpg 800w"
-     sizes="(max-width: 320px) 280px,
-            (max-width: 480px) 440px,
-            800px"
-     src="image-800.jpg"
-     alt="High DPI responsive image"&gt;</code></pre>
-            </div>
-
-            <div class="interactive-demo">
-              <h4 class="demo-header"><i class="fas fa-eye"></i> Responsive Images Demo</h4>
-              <div class="demo-grid">
-                <div class="demo-item">
-                  <h5>Fixed Image (Not Responsive)</h5>
-                  <div class="image-container fixed-image-container" style="overflow: hidden">
-                    <img
-                      src="https://picsum.photos/800/400"
-                      alt="Fixed image"
-                      style="width: 800px; height: 400px"
-                    />
-                  </div>
-                  <p class="feedback error">❌ Breaks layout on small screens</p>
-                </div>
-
-                <div class="demo-item">
-                  <h5>Responsive Image</h5>
-                  <div class="image-container">
-                    <img
-                      src="https://picsum.photos/800/400"
-                      alt="Responsive image"
-                      style="max-width: 100%; height: auto"
-                    />
-                  </div>
-                  <p class="feedback success">✅ Scales with container</p>
-                </div>
-
-                <div class="demo-item">
-                  <h5>Responsive Video Container</h5>
-                  <div class="video-container">
-                    <iframe
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allowfullscreen
-                    >
-                    </iframe>
-                  </div>
-                  <p class="feedback success">✅ Maintains aspect ratio</p>
+&lt;/picture&gt;</code></pre>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Mobile-First Strategy -->
-        <section class="topic-section">
-          <h2 class="section-header">
-            <i class="fas fa-mobile-alt"></i> Mobile-First Design Strategy
-          </h2>
-          <div class="topic-grid">
-            <p>
-              Mobile-first design is an approach where you design for mobile
-              devices first, then progressively enhance the experience for
-              larger screens using min-width media queries.
-            </p>
-
-            <div class="comparison-grid">
-              <div class="comparison-card desktop-first">
-                <div class="card-header">
-                  <h4>
-                    <i class="fas fa-desktop"></i> Desktop-First (Traditional)
-                  </h4>
-                  <div class="flow-diagram">
-                    <div class="flow-item">Desktop Design</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Tablet Adaptation</div>
-                    <div class="arrow">↓</div>
-                    <div class="flow-item">Mobile Adaptation</div>
-                  </div>
-                  <ul class="pros-cons">
-                    <li class="cons">
-                      <i class="fas fa-minus-circle"></i> Requires removing features
-                    </li>
-                    <li class="cons">
-                      <i class="fas fa-file-invoice-dollar"></i> Larger file sizes on mobile
-                    </li>
-                    <li class="cons">
-                      <i class="fas fa-tachometer-alt"></i> Performance issues
-                    </li>
-                    <li class="cons">
-                      <i class="fas fa-code"></i> Complex media queries
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="comparison-card mobile-first">
+            <!-- Mobile-First Strategy -->
+            <section class="content-section" id="mobile-first">
+              <div class="section-header">
+                <h2><i class="fas fa-mobile-alt"></i> Mobile-First Design Strategy</h2>
+              </div>
+              <div class="topic-grid two-column">
+                <div class="topic-card">
                   <div class="card-header">
-                  <h4>
-                    <i class="fas fa-mobile-alt"></i> Mobile-First (Recommended)
-                  </h4>
-                  <div class="flow-diagram">
-                    <div class="flow-item">Mobile Design</div>
-                    <div class="arrow">↑</div>
-                    <div class="flow-item">Tablet Enhancement</div>
-                    <div class="arrow">↑</div>
-                    <div class="flow-item">Desktop Enhancement</div>
+                    <h3><i class="fas fa-desktop"></i> Desktop-First (Traditional)</h3>
                   </div>
-                  <ul class="pros-cons">
-                    <li class="pros">
-                      <i class="fas fa-plus-circle"></i> Progressive enhancement
-                    </li>
-                    <li class="pros">
-                      <i class="fas fa-rocket"></i> Better performance
-                    </li>
-                    <li class="pros">
-                      <i class="fas fa-code"></i> Simpler media queries
-                    </li>
-                    <li class="pros">
-                      <i class="fas fa-align-center"></i> Content-focused design
-                    </li>
+                  <ul>
+                    <li>Start with desktop design</li>
+                    <li>Remove features for smaller screens</li>
+                    <li>Larger file sizes on mobile</li>
+                    <li>Complex media queries</li>
                   </ul>
+                  <div class="info-box">
+                    <h4>Problems:</h4>
+                    <p>Performance issues and complex code maintenance</p>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <div class="card-header">
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile-First (Recommended)</h3>
+                  </div>
+                  <ul>
+                    <li>Start with mobile design</li>
+                    <li>Progressive enhancement</li>
+                    <li>Better performance</li>
+                    <li>Content-focused design</li>
+                  </ul>
+                  <div class="info-box">
+                    <h4>Benefits:</h4>
+                    <p>Faster loading and cleaner code structure</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="code-block">
-              <h4 class="code-header"><i class="fas fa-file-code"></i> Mobile-First CSS Example</h4>
-              <pre><code class="language-css">/* Mobile-first approach */
+              <div class="code-block">
+                <h4>Mobile-First CSS Example</h4>
+                <pre><code class="language-css">/* Mobile-first approach */
 
 /* Base styles (mobile) */
 .navigation {
@@ -841,12 +506,6 @@ img {
     padding: 1rem;
 }
 
-.nav-item {
-    padding: 0.75rem;
-    border-bottom: 1px solid #555;
-    text-align: center;
-}
-
 .content-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -854,30 +513,16 @@ img {
     padding: 1rem;
 }
 
-.sidebar {
-    order: 2; /* Show after main content on mobile */
-}
-
 /* Tablet enhancement (768px+) */
 @media (min-width: 768px) {
     .navigation {
         flex-direction: row;
         justify-content: space-between;
-        padding: 1rem 2rem;
-    }
-    
-    .nav-item {
-        border-bottom: none;
-        border-right: 1px solid #555;
     }
     
     .content-grid {
         grid-template-columns: 2fr 1fr;
         padding: 2rem;
-    }
-    
-    .sidebar {
-        order: 1; /* Show sidebar first on larger screens */
     }
 }
 
@@ -887,518 +532,503 @@ img {
         grid-template-columns: 1fr 3fr 1fr;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 3rem;
-    }
-    
-    .navigation {
-        padding: 1rem 3rem;
     }
 }</code></pre>
-            </div>
-          </div>
-        </section>
+              </div>
+            </section>
 
-        <!-- Performance Considerations -->
-        <section class="topic-section">
-          <h2 class="section-header">
-            <i class="fas fa-tachometer-alt"></i> Performance Considerations
-          </h2>
-          <div class="topic-grid">
-            <p>
-              Responsive design should not compromise performance. Here are key
-              strategies to ensure your responsive sites load quickly on all
-              devices.
-            </p>
+            <!-- Practical Exercise -->
+            <section class="content-section" id="exercise">
+              <div class="section-header">
+                <h2><i class="fas fa-pencil-ruler"></i> Practical Exercise</h2>
+              </div>
+              <div class="topic-card">
+                <div class="card-header">
+                  <h3>Exercise: Create a Responsive Card Layout</h3>
+                </div>
+                <p>Practice creating a responsive card layout that adapts to different screen sizes:</p>
 
-            <div class="performance-grid">
-              <div class="performance-card">
-                <div class="card-icon">
-                  <div class="icon-circle">
-                    <i class="fas fa-images"></i>
-                  </div>
-                  <h4>Optimize Images</h4>
+                <div class="code-block">
+                  <h4>HTML:</h4>
+                  <pre><code class="language-html">&lt;div class="card-container"&gt;
+  &lt;div class="card"&gt;Card 1&lt;/div&gt;
+  &lt;div class="card"&gt;Card 2&lt;/div&gt;
+  &lt;div class="card"&gt;Card 3&lt;/div&gt;
+  &lt;div class="card"&gt;Card 4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="code-block">
+                  <h4>CSS:</h4>
+                  <pre><code class="language-css">/* Mobile: Single column */
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tablet: Two columns */
+@media (min-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: Four columns */
+@media (min-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}</code></pre>
+                </div>
+
+                <div class="info-box">
+                  <h4><i class="fas fa-lightbulb"></i> Key Concepts:</h4>
                   <ul>
-                    <li>Use appropriate image formats (WebP, AVIF)</li>
-                    <li>Implement lazy loading</li>
-                    <li>Use srcset for different screen densities</li>
-                    <li>Compress images without quality loss</li>
+                    <li><strong>Mobile-first approach</strong> - Start with mobile layout</li>
+                    <li><strong>CSS Grid</strong> - Use repeat() and 1fr for flexibility</li>
+                    <li><strong>Media queries</strong> - Progressive enhancement</li>
                   </ul>
                 </div>
+              </div>
+            </section>
 
-                <div class="performance-card">
-                  <div class="card-icon">
-                  <div class="icon-circle">
-                    <i class="fab fa-css3-alt"></i>
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
                   </div>
-                  <h4>Minimize CSS</h4>
-                  <ul>
-                    <li>Use CSS minification</li>
-                    <li>Avoid redundant media queries</li>
-                    <li>Use efficient selectors</li>
-                    <li>Consider critical CSS inlining</li>
-                  </ul>
-                </div>
-
-                <div class="performance-card">
-                  <div class="card-icon">
-                  <div class="icon-circle">
-                    <i class="fas fa-mobile-alt"></i>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
                   </div>
-                  <h4>Mobile Optimization</h4>
-                  <ul>
-                    <li>Prioritize content loading</li>
-                    <li>Use touch-friendly UI elements</li>
-                    <li>Optimize font loading</li>
-                    <li>Reduce HTTP requests</li>
-                  </ul>
                 </div>
 
-                <div class="performance-card">
-                  <div class="card-icon">
-                  <div class="icon-circle">
-                    <i class="fas fa-chart-line"></i>
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
                   </div>
-                  <h4>Performance Metrics</h4>
-                  <ul>
-                    <li>Monitor Core Web Vitals</li>
-                    <li>Test on real devices</li>
-                    <li>Use performance budgets</li>
-                    <li>Regular performance audits</li>
-                  </ul>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <!-- Testing and Tools -->
-        <section class="topic-section">
-          <h2 class="section-header"><i class="fas fa-tools"></i> Testing and Development Tools</h2>
-          <div class="topic-grid">
-            <p>
-              Proper testing across devices and screen sizes is crucial for
-              successful responsive design. Here are essential tools and
-              techniques for testing responsive websites.
-            </p>
+            <!-- Resources Section -->
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Learning Resources & External Links
+              </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of responsive design principles and mobile-first development. Each resource is
+                carefully selected for quality and educational value.
+              </p>
 
-            <div class="tool-grid">
-              <div class="tool-card">
-                <h4><i class="fas fa-desktop"></i> Browser Dev Tools</h4>
-                <ul class="tool-list">
-                  <li>
-                    <strong>Chrome DevTools:</strong> Device simulation,
-                    responsive design mode
-                  </li>
-                  <li>
-                    <strong>Firefox Responsive Design Mode:</strong> Multiple
-                    device presets
-                  </li>
-                  <li>
-                    <strong>Safari Web Inspector:</strong> iOS device simulation
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tool-card">
-                <h4><i class="fas fa-cloud"></i> Testing Platforms</h4>
-                <ul class="tool-list">
-                  <li>
-                    <strong>BrowserStack:</strong> Real device cloud testing
-                  </li>
-                  <li>
-                    <strong>Sauce Labs:</strong> Automated responsive testing
-                  </li>
-                  <li><strong>LambdaTest:</strong> Cross-browser testing</li>
-                </ul>
-              </div>
-
-              <div class="tool-card">
-                <h4><i class="fas fa-paint-brush"></i> Design Tools</h4>
-                <ul class="tool-list">
-                  <li><strong>Figma:</strong> Responsive design prototyping</li>
-                  <li>
-                    <strong>Adobe XD:</strong> Multi-device design systems
-                  </li>
-                  <li>
-                    <strong>Sketch:</strong> Responsive symbols and layouts
-                  </li>
-                </ul>
-              </div>
-
-              <div class="tool-card">
-                <h4><i class="fas fa-tachometer-alt"></i> Performance Tools</h4>
-                <ul class="tool-list">
-                  <li>
-                    <strong>Google PageSpeed Insights:</strong> Mobile
-                    performance analysis
-                  </li>
-                  <li>
-                    <strong>GTmetrix:</strong> Responsive performance metrics
-                  </li>
-                  <li>
-                    <strong>WebPageTest:</strong> Mobile network simulation
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="checklist-container">
-              <h4 class="checklist-header">
-                <i class="fas fa-check-square"></i> Responsive Testing Checklist
-              </h4>
-              <div class="checklists">
-                <div class="checklist">
-                  <h5>Visual Testing</h5>
-                  <ul class="checklist-items">
-                    <li>
-                      <input type="checkbox" /> Layout doesn't break at any
-                      width
-                    </li>
-                    <li>
-                      <input type="checkbox" /> Text remains readable on all
-                      devices
-                    </li>
-                    <li><input type="checkbox" /> Images scale properly</li>
-                    <li>
-                      <input type="checkbox" /> Navigation works on mobile
-                    </li>
-                    <li>
-                      <input type="checkbox" /> Touch targets are adequate
-                      (44px+)
-                    </li>
-                  </ul>
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="documentation">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-mobile-alt thumbnail-icon documentation"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon documentation">
+                        <i class="fas fa-mobile-alt"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">MDN Responsive Design Guide</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Mozilla</span>
+                          <span class="platform">Official Docs</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive guide to responsive web design covering media queries, 
+                      flexible layouts, and mobile-first strategies with practical examples.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Responsive</span>
+                      <span class="tag">Media Queries</span>
+                      <span class="tag">Mobile-First</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-book"></i>
+                        <span>Guide</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Official</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> View Guide
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="checklist">
-                  <h5>Functional Testing</h5>
-                  <ul class="checklist-items">
-                    <li><input type="checkbox" /> Forms work on all devices</li>
-                    <li>
-                      <input type="checkbox" /> Videos/media scale correctly
-                    </li>
-                    <li>
-                      <input type="checkbox" /> Hover effects work on touch
-                    </li>
-                    <li>
-                      <input type="checkbox" /> Page loads quickly on mobile
-                    </li>
-                    <li><input type="checkbox" /> Content is accessible</li>
-                  </ul>
+                <div class="resource-card" data-type="video">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-youtube thumbnail-icon video"></i>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Responsive Web Design Tutorial</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Traversy Media</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Complete responsive design tutorial covering viewport, media queries, 
+                      flexible grids, and mobile-first development approach.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Tutorial</span>
+                      <span class="tag">Responsive</span>
+                      <span class="tag">Complete Course</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-play"></i>
+                        <span>Video</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>1.5 hours</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=srvUrASNj0s"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-tools thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fas fa-tools"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Responsive Design Checker</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Responsinator</span>
+                          <span class="platform">Testing Tool</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Test your responsive designs across multiple device sizes 
+                      and screen resolutions with this interactive testing tool.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Testing</span>
+                      <span class="tag">Responsive</span>
+                      <span class="tag">Device Preview</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Testing</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span>Preview</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="http://www.responsinator.com/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link"></i> Test Site
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="article">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-newspaper thumbnail-icon article"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon article">
+                        <i class="fas fa-newspaper"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">A Complete Guide to Flexbox</h4>
+                        <p class="card-subtitle">
+                          <span class="author">CSS-Tricks</span>
+                          <span class="platform">Article</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive guide to CSS Flexbox for creating flexible and 
+                      responsive layouts with practical examples and use cases.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Flexbox</span>
+                      <span class="tag">Layout</span>
+                      <span class="tag">CSS</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Guide</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>15 min read</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> Read Article
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="article">
+                  <div class="card-thumbnail">
+                    <i class="fas fa-newspaper thumbnail-icon article"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon article">
+                        <i class="fas fa-newspaper"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Complete Guide to CSS Grid</h4>
+                        <p class="card-subtitle">
+                          <span class="author">CSS-Tricks</span>
+                          <span class="platform">Article</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Master CSS Grid for creating complex responsive layouts 
+                      with this comprehensive guide and practical examples.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">CSS Grid</span>
+                      <span class="tag">Layout</span>
+                      <span class="tag">Responsive</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-th"></i>
+                        <span>Grid Guide</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>20 min read</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fas fa-external-link"></i> Read Guide
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="resource-card" data-type="tool">
+                  <div class="card-thumbnail">
+                    <i class="fab fa-google thumbnail-icon tool"></i>
+                    <div class="play-overlay">
+                      <i class="fas fa-external-link"></i>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon tool">
+                        <i class="fab fa-google"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">Web.dev Responsive Design</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Google</span>
+                          <span class="platform">Learning Platform</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Learn responsive web design best practices and performance 
+                      optimization techniques from Google's web development team.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Best Practices</span>
+                      <span class="tag">Performance</span>
+                      <span class="tag">Mobile</span>
+                    </div>
+                    <div class="card-stats">
+                      <div class="stat">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Course</span>
+                      </div>
+                      <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>Google</span>
+                      </div>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://web.dev/responsive-web-design-basics/"
+                        target="_blank"
+                        class="btn btn-secondary"
+                      >
+                        <i class="fas fa-external-link"></i> Learn More
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="navigation-section">
+              <a href="flexbox-grid.html" class="nav-link nav-previous">
+                <i class="fas fa-arrow-left"></i>
+                <span>Previous Topic</span>
+                <span class="nav-topic-title">Flexbox and Grid Layouts</span>
+              </a>
+              <a href="css-preprocessors.html" class="nav-link nav-next">
+                <span>Next Topic</span>
+                <span class="nav-topic-title">CSS Preprocessors</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </section>
           </div>
-        </section>
-
-        <!-- Quiz Section -->
-        <section id="quiz" class="content-section">
-          <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
-
-          <div class="quiz-container" id="knowledge-quiz">
-            <div class="quiz-progress">
-              <div class="quiz-info">
-                Question <span id="current-question">1</span> of
-                <span id="total-questions">5</span>
-              </div>
-              <div class="progress-bar">
-                <div id="quiz-progress" class="progress-fill"></div>
-              </div>
-            </div>
-
-            <div class="quiz-question">
-              <h3>Loading question...</h3>
-              <div class="quiz-options"></div>
-            </div>
-
-            <div
-              class="quiz-feedback"
-              id="quiz-feedback"
-              style="display: none"
-            ></div>
-
-            <div class="quiz-controls">
-              <button
-                id="quiz-next"
-                style="display: none"
-                onclick="nextQuizQuestion()"
-              >
-                Next Question <i class="fas fa-arrow-right"></i>
-              </button>
-            </div>
-
-            <div
-              class="quiz-results"
-              id="quiz-results"
-              style="display: none"
-            >
-              <div class="results-icon">
-                <i class="fas fa-trophy"></i>
-              </div>
-              <h3>Quiz Complete!</h3>
-              <div id="final-score">0/0</div>
-              <div class="results-actions">
-                <button class="btn-secondary" onclick="retakeQuiz()">
-                  Retake Quiz
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Video Resources Section -->
-        <section class="topic-section">
-          <h2 class="section-header">
-            <i class="fas fa-video"></i> Video Resources & External Links
-          </h2>
-          <div class="resource-grid">
-            <div class="resource-card">
-              <div class="card-thumbnail">
-                <i class="fab fa-youtube"></i>
-                <img
-                  src="https://img.youtube.com/vi/srvUrASNj0s/maxresdefault.jpg"
-                  alt="Responsive Design Tutorial"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-content">
-                <h4>Responsive Web Design Tutorial</h4>
-                <p>
-                  Complete guide to responsive design principles, mobile-first
-                  approach, and media queries.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=srvUrASNj0s"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-thumbnail">
-                <i class="fab fa-youtube"></i>
-                <img
-                  src="https://img.youtube.com/vi/K24lUqcT0Ms/maxresdefault.jpg"
-                  alt="CSS Grid Layout"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-content">
-                <h4>CSS Grid Layout for Responsive Design</h4>
-                <p>
-                  Learn how to create powerful responsive layouts using CSS Grid
-                  with practical examples.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=K24lUqcT0Ms"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-thumbnail">
-                <i class="fab fa-youtube"></i>
-                <img
-                  src="https://img.youtube.com/vi/VQraviuwbzU/maxresdefault.jpg"
-                  alt="Flexbox Tutorial"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-content">
-                <h4>Flexbox Complete Tutorial</h4>
-                <p>
-                  Master Flexbox for creating flexible and responsive web
-                  layouts with real-world examples.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=VQraviuwbzU"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-thumbnail">
-                <i class="fab fa-youtube"></i>
-                <img
-                  src="https://img.youtube.com/vi/yU7jJ3NbPdA/maxresdefault.jpg"
-                  alt="Mobile First Design"
-                  loading="lazy"
-                />
-              </div>
-              <div class="card-content">
-                <h4>Mobile-First Design Strategy</h4>
-                <p>
-                  Learn why mobile-first design is important and how to
-                  implement it effectively.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=yU7jJ3NbPdA"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Additional Resources Section -->
-        <section class="topic-section">
-          <h2 class="section-header">
-            <i class="fas fa-book-open"></i> Additional Learning Resources
-          </h2>
-          <div class="resource-grid">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-js-square"></i>
-              </div>
-              <div class="card-content">
-                <h4>MDN Responsive Design Guide</h4>
-                <p>
-                  Comprehensive documentation on responsive design principles
-                  and best practices.
-                </p>
-                <a
-                  href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> Visit MDN Docs
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-google"></i>
-              </div>
-              <div class="card-content">
-                <h4>Google Web Fundamentals</h4>
-                <p>
-                  Google's guide to responsive web design with performance
-                  considerations and best practices.
-                </p>
-                <a
-                  href="https://web.dev/responsive-web-design-basics/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> Learn More
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-css3-alt"></i>
-              </div>
-              <div class="card-content">
-                <h4>CSS Grid Complete Guide</h4>
-                <p>
-                  A complete guide to CSS Grid for creating responsive layouts
-                  with practical examples.
-                </p>
-                <a
-                  href="https://css-tricks.com/snippets/css/complete-guide-grid/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> CSS-Tricks Guide
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-css3"></i>
-              </div>
-              <div class="card-content">
-                <h4>Flexbox Complete Guide</h4>
-                <p>
-                  Learn everything about Flexbox with visual examples and use
-                  cases for responsive design.
-                </p>
-                <a
-                  href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> Flexbox Guide
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-vial"></i>
-              </div>
-              <div class="card-content">
-                <h4>Responsive Design Testing</h4>
-                <p>
-                  Tools and techniques for testing responsive designs across
-                  different devices and browsers.
-                </p>
-                <a
-                  href="https://www.browserstack.com/responsive"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> Testing Tools
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <div class="card-content">
-                <h4>Web Performance Optimization</h4>
-                <p>
-                  Optimize your responsive websites for better performance on
-                  mobile and desktop devices.
-                </p>
-                <a
-                  href="https://web.dev/fast/"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fas fa-external-link-alt"></i> Performance Guide
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Navigation -->
-        <section class="navigation-section">
-          <a href="flexbox-grid.html" class="nav-link nav-previous">
-            <i class="fas fa-arrow-left"></i>
-            <span>Previous Topic</span>
-            <span class="nav-topic-title">Flexbox and Grid Layouts</span>
-          </a>
-          <a href="css-preprocessors.html" class="nav-link nav-next">
-            <span>Next Topic</span>
-            <span class="nav-topic-title">CSS Preprocessors</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </section>
-      </div>
-    </main>
-
-    <!-- JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
