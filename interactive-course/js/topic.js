@@ -117,6 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Color Explorer
     initializeColorExplorer();
 
+    // Initialize CSS Selector Challenge
+    initializeSelectorChallenge();
+
     // Initialize JavaScript Introduction features
     initializeJavaScriptIntro();
 
@@ -578,30 +581,58 @@ function initializeColorExplorer() {
         const bgValue = bgColor.value;
         const textValue = textColor.value;
 
-        // Update preview
-        colorPreview.style.backgroundColor = bgValue;
-        colorPreview.style.color = textValue;
+        // Update preview with !important to override any existing styles
+        colorPreview.style.setProperty('background-color', bgValue, 'important');
+        colorPreview.style.setProperty('color', textValue, 'important');
+
+        // Also update child elements to ensure text color is applied
+        const childElements = colorPreview.querySelectorAll('h3, p, span, div');
+        childElements.forEach(element => {
+            element.style.setProperty('color', textValue, 'important');
+        });
 
         // Update text inputs
         if (bgColorInput) bgColorInput.value = bgValue;
         if (textColorInput) textColorInput.value = textValue;
+
+        // Optional debug logging (can be removed in production)
+        // console.log('Color Explorer Update:', { background: bgValue, text: textValue });
     }
 
     function updateFromTextInput() {
         const bgValue = bgColorInput ? bgColorInput.value : bgColor.value;
         const textValue = textColorInput ? textColorInput.value : textColor.value;
 
-        // Validate hex color format
+        // Validate color format (hex, rgb, rgba, hsl, hsla, named colors)
         const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+        const rgbRegex = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/;
+        const rgbaRegex = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([01]?\.?\d*)\s*\)$/;
+        const hslRegex = /^hsl\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*\)$/;
+        const hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([01]?\.?\d*)\s*\)$/;
+        const namedColors = ['red', 'blue', 'green', 'yellow', 'black', 'white', 'purple', 'orange', 'pink', 'brown', 'gray', 'grey'];
 
-        if (hexRegex.test(bgValue)) {
-            bgColor.value = bgValue;
-            colorPreview.style.backgroundColor = bgValue;
+        function isValidColor(color) {
+            return hexRegex.test(color) ||
+                rgbRegex.test(color) ||
+                rgbaRegex.test(color) ||
+                hslRegex.test(color) ||
+                hslaRegex.test(color) ||
+                namedColors.includes(color.toLowerCase());
         }
 
-        if (hexRegex.test(textValue)) {
+        if (isValidColor(bgValue)) {
+            bgColor.value = bgValue;
+            colorPreview.style.setProperty('background-color', bgValue, 'important');
+        }
+
+        if (isValidColor(textValue)) {
             textColor.value = textValue;
-            colorPreview.style.color = textValue;
+            colorPreview.style.setProperty('color', textValue, 'important');
+            // Also update child elements
+            const childElements = colorPreview.querySelectorAll('h3, p, span, div');
+            childElements.forEach(element => {
+                element.style.setProperty('color', textValue, 'important');
+            });
         }
     }
 
@@ -613,14 +644,36 @@ function initializeColorExplorer() {
     if (bgColorInput) {
         bgColorInput.addEventListener('input', updateFromTextInput);
         bgColorInput.addEventListener('blur', updateFromTextInput);
+        bgColorInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                updateFromTextInput();
+            }
+        });
     }
     if (textColorInput) {
         textColorInput.addEventListener('input', updateFromTextInput);
         textColorInput.addEventListener('blur', updateFromTextInput);
+        textColorInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                updateFromTextInput();
+            }
+        });
     }
 
     // Initial update
     updateColorPreview();
+}
+
+// CSS Selector Challenge Initialization
+function initializeSelectorChallenge() {
+    const selectorInput = document.getElementById('selector-input');
+    if (selectorInput) {
+        selectorInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkSelector();
+            }
+        });
+    }
 }
 
 // CSS Selector Challenge
@@ -635,8 +688,8 @@ function checkSelector() {
 
     const selector = selectorInput.value.trim();
     if (!selector) {
-        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> Please enter a selector!</div>';
-        feedback.style.display = 'block';
+        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> Please enter a CSS selector!</div>';
+        feedback.classList.add('show');
         return;
     }
 
@@ -654,21 +707,29 @@ function checkSelector() {
         }
 
         if (isCorrect) {
-            feedback.innerHTML = '<div class="feedback success"><i class="fas fa-check-circle"></i> Correct! Your selector successfully targets the red box.</div>';
+            feedback.innerHTML = '<div class="feedback success"><i class="fas fa-check-circle"></i> <strong>Correct!</strong> Your selector <code>' + selector + '</code> successfully targets the red box.</div>';
             // Highlight the target box temporarily
+            targetBox.style.transform = 'scale(1.1)';
+            targetBox.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.6)';
             targetBox.style.outline = '3px solid #10b981';
+
             setTimeout(() => {
+                targetBox.style.transform = '';
+                targetBox.style.boxShadow = '';
                 targetBox.style.outline = '';
             }, 2000);
         } else {
-            feedback.innerHTML = '<div class="feedback error"><i class="fas fa-times-circle"></i> Try again! Your selector doesn\'t target the red box. Hint: Try ".red" or "#target-box"</div>';
+            feedback.innerHTML = '<div class="feedback error"><i class="fas fa-times-circle"></i> <strong>Try again!</strong> Your selector <code>' + selector + '</code> doesn\'t target the red box.<br><small><strong>Hint:</strong> Try ".red" or "#target-box"</small></div>';
         }
 
     } catch (error) {
-        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> Invalid CSS selector. Please check your syntax.</div>';
+        feedback.innerHTML = '<div class="feedback error"><i class="fas fa-exclamation-triangle"></i> <strong>Invalid CSS selector.</strong> Please check your syntax.<br><small>Make sure you\'re using proper CSS selector format.</small></div>';
     }
 
-    feedback.style.display = 'block';
+    feedback.classList.add('show');
+
+    // Scroll to feedback
+    feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // JavaScript Introduction Interactive Functions
@@ -5158,25 +5219,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // CSS Box Model Functions
 function checkWidth() {
+    console.log('checkWidth called');
     const input = document.getElementById('calc-width');
     const feedback = document.getElementById('calculator-feedback');
 
-    if (!input || !feedback) return;
+    if (!input || !feedback) {
+        console.error('checkWidth: Missing elements', { input, feedback });
+        return;
+    }
 
-    const userAnswer = parseFloat(input.value);
-    // Based on the example: width 200px + padding 30px (15*2) + border 6px (3*2) = 236px
-    const correctAnswer = 236;
+    const userInput = input.value.trim();
+    if (!userInput) {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Please enter a value!</strong> Enter the total width in pixels.
+            </div>
+        `;
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
+        return;
+    }
+
+    const userAnswer = parseFloat(userInput);
+    if (isNaN(userAnswer)) {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Please enter a valid number!</strong> Enter just the number (e.g., 186).
+            </div>
+        `;
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
+        return;
+    }
+
+    // Based on the example: width 150px + padding 30px (15*2) + border 6px (3*2) = 186px
+    const correctAnswer = 186;
 
     if (userAnswer === correctAnswer) {
         feedback.innerHTML = `
             <div class="success-message">
                 <i class="fas fa-check-circle"></i>
                 <strong>Correct!</strong> The total width is ${correctAnswer}px
-                <br><small>Content (200px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
+                <br><small>Content (150px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
             </div>
         `;
-        feedback.className = 'demo-result success';
-    } else if (userAnswer === 200) {
+        feedback.className = 'demo-result success show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 150) {
         feedback.innerHTML = `
             <div class="warning-message">
                 <i class="fas fa-exclamation-triangle"></i>
@@ -5184,39 +5275,91 @@ function checkWidth() {
                 <br><small>Don't forget to add padding (30px) and border (6px)</small>
             </div>
         `;
-        feedback.className = 'demo-result warning';
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 156) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Close!</strong> You included border but forgot padding.
+                <br><small>Add padding: 15px × 2 = 30px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 180) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Close!</strong> You included padding but forgot border.
+                <br><small>Add border: 3px × 2 = 6px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
     } else {
         feedback.innerHTML = `
             <div class="error-message">
                 <i class="fas fa-times-circle"></i>
                 <strong>Try again!</strong> The correct answer is ${correctAnswer}px
-                <br><small>Remember: Total Width = Content + Padding + Border</small>
+                <br><small>Formula: Content + Left/Right Padding + Left/Right Border<br>150px + (15×2)px + (3×2)px = ${correctAnswer}px</small>
             </div>
         `;
-        feedback.className = 'demo-result error';
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
     }
 }
 
 function checkHeight() {
+    console.log('checkHeight called');
     const input = document.getElementById('calc-height');
     const feedback = document.getElementById('calculator-feedback');
 
-    if (!input || !feedback) return;
+    if (!input || !feedback) {
+        console.error('checkHeight: Missing elements', { input, feedback });
+        return;
+    }
 
-    const userAnswer = parseFloat(input.value);
-    // Based on the example: height 100px + padding 30px (15*2) + border 6px (3*2) = 136px
-    const correctAnswer = 136;
+    const userInput = input.value.trim();
+    if (!userInput) {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Please enter a value!</strong> Enter the total height in pixels.
+            </div>
+        `;
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
+        return;
+    }
+
+    const userAnswer = parseFloat(userInput);
+    if (isNaN(userAnswer)) {
+        feedback.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Please enter a valid number!</strong> Enter just the number (e.g., 116).
+            </div>
+        `;
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
+        return;
+    }
+
+    // Based on the example: height 80px + padding 30px (15*2) + border 6px (3*2) = 116px
+    const correctAnswer = 116;
 
     if (userAnswer === correctAnswer) {
         feedback.innerHTML = `
             <div class="success-message">
                 <i class="fas fa-check-circle"></i>
                 <strong>Correct!</strong> The total height is ${correctAnswer}px
-                <br><small>Content (100px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
+                <br><small>Content (80px) + Padding (30px) + Border (6px) = ${correctAnswer}px</small>
             </div>
         `;
-        feedback.className = 'demo-result success';
-    } else if (userAnswer === 100) {
+        feedback.className = 'demo-result success show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 80) {
         feedback.innerHTML = `
             <div class="warning-message">
                 <i class="fas fa-exclamation-triangle"></i>
@@ -5224,90 +5367,38 @@ function checkHeight() {
                 <br><small>Don't forget to add padding (30px) and border (6px)</small>
             </div>
         `;
-        feedback.className = 'demo-result warning';
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 86) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Close!</strong> You included border but forgot padding.
+                <br><small>Add padding: 15px × 2 = 30px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
+    } else if (userAnswer === 110) {
+        feedback.innerHTML = `
+            <div class="warning-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Close!</strong> You included padding but forgot border.
+                <br><small>Add border: 3px × 2 = 6px</small>
+            </div>
+        `;
+        feedback.className = 'demo-result warning show';
+        feedback.style.display = 'block';
     } else {
         feedback.innerHTML = `
             <div class="error-message">
                 <i class="fas fa-times-circle"></i>
                 <strong>Try again!</strong> The correct answer is ${correctAnswer}px
-                <br><small>Remember: Total Height = Content + Padding + Border</small>
+                <br><small>Formula: Content + Top/Bottom Padding + Top/Bottom Border<br>80px + (15×2)px + (3×2)px = ${correctAnswer}px</small>
             </div>
         `;
-        feedback.className = 'demo-result error';
-    }
-}
-
-function updateCardPreview() {
-    const cssTextarea = document.querySelector('.tab-pane[data-tab="css"] textarea');
-    const resultPane = document.querySelector('.tab-pane[data-tab="result"] .card-preview');
-
-    if (!cssTextarea || !resultPane) return;
-
-    try {
-        // Get the CSS from the textarea
-        const cssCode = cssTextarea.value;
-
-        // Create a style element to apply the CSS
-        let styleElement = document.getElementById('card-preview-styles');
-        if (styleElement) {
-            styleElement.remove();
-        }
-
-        styleElement = document.createElement('style');
-        styleElement.id = 'card-preview-styles';
-        styleElement.textContent = cssCode;
-        document.head.appendChild(styleElement);
-
-        // Show success message
-        const existingMessage = document.querySelector('.update-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-
-        const successMessage = document.createElement('div');
-        successMessage.className = 'update-message success-message';
-        successMessage.innerHTML = `
-            <i class="fas fa-check-circle"></i>
-            Preview updated successfully!
-        `;
-
-        const button = document.querySelector('button[onclick="updateCardPreview()"]');
-        if (button) {
-            button.parentNode.insertBefore(successMessage, button.nextSibling);
-            setTimeout(() => successMessage.remove(), 3000);
-        }
-
-        // Switch to result tab to show the updated preview
-        const resultTab = document.querySelector('[data-tab="result"]');
-        if (resultTab) {
-            // Remove active class from all tabs and panes
-            document.querySelectorAll('.tab-btn, .tab-pane').forEach(el => {
-                el.classList.remove('active');
-            });
-
-            // Add active class to result tab and pane
-            resultTab.classList.add('active');
-            const resultPane = document.querySelector('.tab-pane[data-tab="result"]');
-            if (resultPane) {
-                resultPane.classList.add('active');
-            }
-        }
-
-    } catch (error) {
-        console.error('Error updating card preview:', error);
-
-        const errorMessage = document.createElement('div');
-        errorMessage.className = 'update-message error-message';
-        errorMessage.innerHTML = `
-            <i class="fas fa-times-circle"></i>
-            Error updating preview: ${error.message}
-        `;
-
-        const button = document.querySelector('button[onclick="updateCardPreview()"]');
-        if (button) {
-            button.parentNode.insertBefore(errorMessage, button.nextSibling);
-            setTimeout(() => errorMessage.remove(), 5000);
-        }
+        feedback.className = 'demo-result error show';
+        feedback.style.display = 'block';
     }
 }
 
