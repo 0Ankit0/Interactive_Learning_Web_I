@@ -88,21 +88,7 @@
                     <a
                       href="#function-declarations"
                       onclick="scrollToSection('function-declarations')"
-                      >Function Declarations</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#function-expressions"
-                      onclick="scrollToSection('function-expressions')"
-                      >Function Expressions</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#arrow-functions"
-                      onclick="scrollToSection('arrow-functions')"
-                      >Arrow Functions</a
+                      >Function Declarations and Expressions</a
                     >
                   </li>
                 </ul>
@@ -163,7 +149,11 @@
 
           <div class="content-main">
             <!-- Introduction Section -->
-            <section class="content-section" data-section="introduction">
+            <section
+              id="introduction"
+              class="content-section"
+              data-section="introduction"
+            >
               <div class="section-header">
                 <h2><i class="fas fa-info-circle"></i> What are Functions?</h2>
               </div>
@@ -175,7 +165,7 @@
                       JavaScript. A function is a reusable block of code
                       designed to perform a particular task. Functions help you:
                     </p>
-                    <ul class="feature-list">
+                    <ul class="topic-grid">
                       <li>
                         <strong>Organize code:</strong> Break complex problems
                         into smaller, manageable pieces
@@ -225,7 +215,11 @@
             </section>
 
             <!-- Function Declaration and Expression -->
-            <section class="content-section" data-section="declaration">
+            <section
+              id="function-declarations"
+              class="content-section"
+              data-section="declaration"
+            >
               <div class="section-header">
                 <h2>
                   <i class="fas fa-file-code"></i> Function Declaration vs
@@ -255,7 +249,7 @@ console.log(greet("Alice")); // Works!</code></pre>
                 </div>
 
                 <div class="topic-card">
-                  <h3>Function Expression</h3>
+                  <h3 id="function-expressions">Function Expression</h3>
                   <div class="code-block">
                     <pre><code class="language-javascript">// Function Expression
 const greet = function(name) {
@@ -276,7 +270,7 @@ console.log(greet("Bob")); // Works only after declaration</code></pre>
                 </div>
 
                 <div class="topic-card">
-                  <h3>Arrow Function (ES6)</h3>
+                  <h3 id="arrow-functions">Arrow Function (ES6)</h3>
                   <div class="code-block">
                     <pre><code class="language-javascript">// Arrow Function
 const greet = (name) => {
@@ -380,56 +374,57 @@ return width * height;</textarea
             </section>
 
             <!-- Parameters and Arguments -->
-            <section class="content-section" data-section="parameters">
+            <section
+              id="parameters"
+              class="content-section"
+              data-section="parameters"
+            >
               <div class="section-header">
                 <h2>
                   <i class="fas fa-exchange-alt"></i> Parameters vs Arguments
                 </h2>
               </div>
-              <div class="topic-grid two-column">
-                <div class="topic-card">
-                  <h3>Understanding the Difference</h3>
-                  <div class="comparison-grid">
-                    <div class="comparison-item">
-                      <h4><i class="fas fa-list-ol"></i> Parameters</h4>
-                      <p>Variables listed in the function definition</p>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">function add(a, b) { // a and b are parameters
-  return a + b;
-}</code></pre>
-                      </div>
-                    </div>
+              <div class="topic-card">
+                <h3>Understanding the Difference</h3>
 
-                    <div class="comparison-item">
-                      <h4><i class="fas fa-arrow-down"></i> Arguments</h4>
-                      <p>Actual values passed when calling the function</p>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">add(5, 3); // 5 and 3 are arguments</code></pre>
-                      </div>
-                    </div>
+                <div class="comparison-item">
+                  <h4><i class="fas fa-list-ol"></i> Parameters</h4>
+                  <p>Variables listed in the function definition</p>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">function add(a, b) { // a and b are parameters
+return a + b;
+}</code></pre>
                   </div>
                 </div>
 
-                <div class="topic-card">
-                  <h3>Parameter Techniques</h3>
+                <div class="comparison-item">
+                  <h4><i class="fas fa-arrow-down"></i> Arguments</h4>
+                  <p>Actual values passed when calling the function</p>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">add(5, 3); // 5 and 3 are arguments</code></pre>
+                  </div>
+                </div>
+              </div>
 
-                  <div class="feature-list">
-                    <div class="feature-item">
-                      <h4>Default Parameters</h4>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">function greet(name = "World") {
+              <h3>Parameter Techniques</h3>
+
+              <div class="topic-grid">
+                <div class="topic-card">
+                  <h4>Default Parameters</h4>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">function greet(name = "World") {
   return "Hello, " + name + "!";
 }
 
 console.log(greet());        // "Hello, World!"
 console.log(greet("Alice")); // "Hello, Alice!"</code></pre>
-                      </div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div class="feature-item">
-                      <h4>Rest Parameters</h4>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">function sum(...numbers) {
+                <div class="topic-card">
+                  <h4>Rest Parameters</h4>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">function sum(...numbers) {
   let total = 0;
   for (let num of numbers) {
     total += num;
@@ -438,13 +433,13 @@ console.log(greet("Alice")); // "Hello, Alice!"</code></pre>
 }
 
 console.log(sum(1, 2, 3, 4, 5)); // 15</code></pre>
-                      </div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div class="feature-item">
-                      <h4>Destructuring Parameters</h4>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">function createUser({name, age, email}) {
+                <div class="topic-card">
+                  <h4>Destructuring Parameters</h4>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">function createUser({name, age, email}) {
   return {
     name: name,
     age: age,
@@ -458,8 +453,6 @@ const user = createUser({
   age: 30,
   email: "john@example.com"
 });</code></pre>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -470,226 +463,82 @@ const user = createUser({
               <div class="section-header">
                 <h2><i class="fas fa-undo"></i> Return Values</h2>
               </div>
-              <div class="topic-grid two-column">
+              <h3>Understanding Return Statements</h3>
+              <p>The <code>return</code> statement serves two purposes:</p>
+              <ul>
+                <li>Ends function execution</li>
+                <li>Specifies the value to be returned to the caller</li>
+              </ul>
+              <div class="topic-grid">
                 <div class="topic-card">
-                  <h3>Understanding Return Statements</h3>
-                  <p>The <code>return</code> statement serves two purposes:</p>
-                  <ul>
-                    <li>Ends function execution</li>
-                    <li>Specifies the value to be returned to the caller</li>
-                  </ul>
-
-                  <div class="feature-list">
-                    <div class="feature-item">
-                      <div class="code-block">
-                        <h4>Returning Values</h4>
-                        <pre><code class="language-javascript">function multiply(a, b) {
+                  <div class="code-block">
+                    <h4>Returning Values</h4>
+                    <pre><code class="language-javascript">function multiply(a, b) {
   return a * b; // Returns the product
 }
 
 let result = multiply(4, 5);
 console.log(result); // 20</code></pre>
-                      </div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div class="feature-item">
-                      <div class="code-block">
-                        <h4>Multiple Return Statements</h4>
-                        <pre><code class="language-javascript">function getGrade(score) {
+                <div class="topic-card">
+                  <div class="code-block">
+                    <h4>Multiple Return Statements</h4>
+                    <pre><code class="language-javascript">function getGrade(score) {
   if (score >= 90) return "A";
   if (score >= 80) return "B";
   if (score >= 70) return "C";
   if (score >= 60) return "D";
   return "F";
 }</code></pre>
-                      </div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div class="feature-item">
-                      <div class="code-block">
-                        <h4>No Return Statement</h4>
-                        <pre><code class="language-javascript">function sayHello(name) {
+                <div class="topic-card">
+                  <div class="code-block">
+                    <h4>No Return Statement</h4>
+                    <pre><code class="language-javascript">function sayHello(name) {
   console.log("Hello, " + name);
   // No return statement
 }
 
 let result = sayHello("Alice");
 console.log(result); // undefined</code></pre>
-                      </div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div class="feature-item">
-                      <div class="code-block">
-                        <h4>Early Return</h4>
-                        <pre><code class="language-javascript">function divide(a, b) {
+                <div class="topic-card">
+                  <div class="code-block">
+                    <h4>Early Return</h4>
+                    <pre><code class="language-javascript">function divide(a, b) {
   if (b === 0) {
     return "Cannot divide by zero";
   }
   return a / b;
 }</code></pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="interactive-demo">
-                  <h3>Interactive Return Demo</h3>
-                  <div class="demo-controls">
-                    <div class="form-group">
-                      <label>Enter two numbers:</label>
-                      <input
-                        type="number"
-                        id="return-a"
-                        class="form-control"
-                        value="10"
-                        placeholder="First number"
-                      />
-                      <input
-                        type="number"
-                        id="return-b"
-                        class="form-control"
-                        value="5"
-                        placeholder="Second number"
-                      />
-                    </div>
-
-                    <div class="button-group">
-                      <button
-                        onclick="performOperation('add')"
-                        class="btn btn-primary"
-                      >
-                        Add
-                      </button>
-                      <button
-                        onclick="performOperation('subtract')"
-                        class="btn btn-secondary"
-                      >
-                        Subtract
-                      </button>
-                      <button
-                        onclick="performOperation('multiply')"
-                        class="btn btn-info"
-                      >
-                        Multiply
-                      </button>
-                      <button
-                        onclick="performOperation('divide')"
-                        class="btn btn-warning"
-                      >
-                        Divide
-                      </button>
-                    </div>
-
-                    <div id="return-result" class="result-box"></div>
                   </div>
                 </div>
               </div>
             </section>
 
             <!-- Scope Section -->
-            <section class="content-section" data-section="scope">
+            <section id="scope" class="content-section" data-section="scope">
               <div class="section-header">
                 <h2><i class="fas fa-globe-americas"></i> Variable Scope</h2>
               </div>
-              <div class="topic-grid two-column">
-                <div class="topic-card">
-                  <h3>Understanding Scope</h3>
-                  <p>
-                    Scope determines where variables can be accessed in your
-                    code. JavaScript has several types of scope:
-                  </p>
+              <h3>Understanding Scope</h3>
+              <p>
+                Scope determines where variables can be accessed in your code.
+                JavaScript has several types of scope:
+              </p>
+              <!-- Interactive Scope Visualizer -->
+              <div class="interactive-demo">
+                <h3>Interactive Scope Visualizer</h3>
 
-                  <div class="feature-list">
-                    <div class="feature-item">
-                      <h4><i class="fas fa-globe"></i> Global Scope</h4>
-                      <p>Variables declared outside any function or block</p>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">let globalVar = "I'm global!";
-
-function showGlobal() {
-  console.log(globalVar); // Accessible here
-}
-
-console.log(globalVar); // Accessible here too</code></pre>
-                      </div>
-                    </div>
-
-                    <div class="feature-item">
-                      <h4>
-                        <i class="fas fa-user-friends"></i> Function Scope
-                      </h4>
-                      <p>Variables declared inside a function</p>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">function myFunction() {
-  let functionVar = "I'm local to this function";
-  console.log(functionVar); // Accessible here
-}
-
-// console.log(functionVar); // Error! Not accessible here</code></pre>
-                      </div>
-                    </div>
-
-                    <div class="feature-item">
-                      <h4><i class="fas fa-cube"></i> Block Scope</h4>
-                      <p>Variables declared inside a block (with let/const)</p>
-                      <div class="code-block">
-                        <pre><code class="language-javascript">if (true) {
-  let blockVar = "I'm in a block";
-  const alsoBlock = "Me too!";
-  console.log(blockVar); // Accessible here
-}
-
-// console.log(blockVar); // Error! Not accessible here</code></pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Interactive Scope Visualizer -->
-                <div class="interactive-demo">
-                  <h3>Interactive Scope Visualizer</h3>
-
-                  <div class="scope-visualizer">
-                    <div class="scope-container global-scope">
-                      <h4>Global Scope</h4>
-                      <div class="variable-list">
-                        <span class="variable" data-scope="global"
-                          >globalVar</span
-                        >
-                      </div>
-
-                      <div class="scope-container function-scope">
-                        <h4>Function Scope</h4>
-                        <div class="variable-list">
-                          <span class="variable" data-scope="function"
-                            >functionVar</span
-                          >
-                          <span class="variable inherited" data-scope="global"
-                            >globalVar</span
-                          >
-                        </div>
-
-                        <div class="scope-container block-scope">
-                          <h4>Block Scope</h4>
-                          <div class="variable-list">
-                            <span class="variable" data-scope="block"
-                              >blockVar</span
-                            >
-                            <span
-                              class="variable inherited"
-                              data-scope="function"
-                              >functionVar</span
-                            >
-                            <span class="variable inherited" data-scope="global"
-                              >globalVar</span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="code-block">
-                      <pre><code class="language-javascript">let globalVar = "Global"; // Global scope
+                <div class="scope-visualizer">
+                  <div class="code-block">
+                    <pre><code class="language-javascript">let globalVar = "Global"; // Global scope
 
 function outerFunction() {
   let functionVar = "Function"; // Function scope
@@ -708,14 +557,98 @@ function outerFunction() {
   console.log(functionVar); // ✓
   // console.log(blockVar); // ✗ Error!
 }</code></pre>
-                    </div>
                   </div>
+                </div>
+              </div>
+              <div class="topic-grid three-column">
+                <div class="topic-card">
+                  <h4><i class="fas fa-globe"></i> Global Scope</h4>
+                  <p>Variables declared outside any function or block</p>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">let globalVar = "I'm global!";
+
+function showGlobal() {
+  console.log(globalVar); // Accessible here
+}
+
+console.log(globalVar); // Accessible here too</code></pre>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <h4><i class="fas fa-user-friends"></i> Function Scope</h4>
+                  <p>Variables declared inside a function</p>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">function myFunction() {
+  let functionVar = "I'm local to this function";
+  console.log(functionVar); // Accessible here
+}
+
+// console.log(functionVar); // Error! Not accessible here</code></pre>
+                  </div>
+                </div>
+
+                <div class="topic-card">
+                  <h4><i class="fas fa-cube"></i> Block Scope</h4>
+                  <p>Variables declared inside a block (with let/const)</p>
+                  <div class="code-block">
+                    <pre><code class="language-javascript">if (true) {
+  let blockVar = "I'm in a block";
+  const alsoBlock = "Me too!";
+  console.log(blockVar); // Accessible here
+}
+
+// console.log(blockVar); // Error! Not accessible here</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <h3 id="closures">Closures</h3>
+              <p>
+                A closure is a function that has access to variables in its
+                outer (enclosing) scope, even after the outer function has
+                returned.
+              </p>
+
+              <div class="topic-card">
+                <h4><i class="fas fa-link"></i> How Closures Work</h4>
+                <div class="code-block">
+                  <pre><code class="language-javascript">function outerFunction() {
+  let outerVar = "I'm from outer scope!";
+  
+  function innerFunction() {
+    console.log(outerVar); // Can access outerVar
+  }
+  
+  return innerFunction; // Return the inner function
+}
+
+const closureFunc = outerFunction(); // outerFunction returns innerFunction
+closureFunc(); // Logs: "I'm from outer scope!"</code></pre>
+                </div>
+                <div class="info-box">
+                  <h4>Key Points:</h4>
+                  <ul>
+                    <li>
+                      Inner functions have access to outer function variables
+                    </li>
+                    <li>
+                      Variables are preserved even after outer function returns
+                    </li>
+                    <li>
+                      Useful for data privacy and creating function factories
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
 
             <!-- Practical Exercises -->
-            <section class="content-section" data-section="exercises">
+            <section
+              id="examples"
+              class="content-section"
+              data-section="exercises"
+            >
               <div class="section-header">
                 <h2><i class="fas fa-pencil-ruler"></i> Practical Exercises</h2>
               </div>
@@ -817,36 +750,6 @@ function outer() {
 outer();
 console.log("Global:", x);</code></pre>
                     </div>
-
-                    <div class="quiz-container">
-                      <div class="quiz-question">
-                        <p>
-                          What will be logged to the console? (Select the
-                          correct order)
-                        </p>
-                        <div class="quiz-options">
-                          <label>
-                            <input type="radio" name="scope-quiz" value="a" />
-                            Inner: global, Outer: outer, Global: global
-                          </label>
-                          <label>
-                            <input type="radio" name="scope-quiz" value="b" />
-                            Inner: inner, Outer: outer, Global: global
-                          </label>
-                          <label>
-                            <input type="radio" name="scope-quiz" value="c" />
-                            Inner: outer, Outer: global, Global: global
-                          </label>
-                        </div>
-                        <button
-                          onclick="checkScopeQuiz()"
-                          class="btn btn-primary"
-                        >
-                          Check Answer
-                        </button>
-                        <div id="scope-quiz-result" class="result-box"></div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -908,14 +811,18 @@ console.log("Global:", x);</code></pre>
             </section>
 
             <!-- Video Resources -->
-            <section class="content-section" data-section="videos">
-              <div class="section-header">
-                <h2>
-                  <i class="fas fa-video"></i> Video Resources & External Links
-                </h2>
-              </div>
-              <div class="resource-grid four-column">
-                <div class="resource-card video-card">
+            <section id="resources" class="topic-section">
+              <h2 class="section-title">
+                <i class="fas fa-video"></i> Video Resources & External Links
+              </h2>
+              <p class="section-description">
+                Explore curated learning resources to deepen your understanding
+                of JavaScript functions and scope. Each resource is carefully
+                selected for quality and educational value.
+              </p>
+
+              <div class="resource-grid three-column">
+                <div class="resource-card" data-type="video">
                   <div class="card-thumbnail">
                     <div class="video-wrapper">
                       <iframe
@@ -927,19 +834,48 @@ console.log("Global:", x);</code></pre>
                       >
                       </iframe>
                     </div>
-                    <div class="card-content">
-                      <h4>JavaScript Functions</h4>
-                      <p class="author">Programming with Mosh</p>
-                      <p class="description">
-                        Complete guide to JavaScript functions with practical
-                        examples.
-                      </p>
-                      <span class="duration">22:14</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">JavaScript Functions</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Programming with Mosh</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Complete guide to JavaScript functions with practical
+                      examples.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Functions</span>
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">Tutorial</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=N8ap4k_1QEQ"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
 
-                <div class="resource-card video-card">
+                <div class="resource-card" data-type="video">
                   <div class="card-thumbnail">
                     <div class="video-wrapper">
                       <iframe
@@ -951,43 +887,48 @@ console.log("Global:", x);</code></pre>
                       >
                       </iframe>
                     </div>
-                    <div class="card-content">
-                      <h4>JavaScript Scope Explained</h4>
-                      <p class="author">Web Dev Simplified</p>
-                      <p class="description">
-                        Understanding global, function, and block scope in
-                        JavaScript.
-                      </p>
-                      <span class="duration">10:03</span>
-                    </div>
                   </div>
-                </div>
-
-                <div class="resource-card video-card">
-                  <div class="card-thumbnail">
-                    <div class="video-wrapper">
-                      <iframe
-                        src="https://www.youtube.com/embed/XgSjoHgy9Rw"
-                        title="Arrow Functions vs Regular Functions"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">JavaScript Scope Explained</h4>
+                        <p class="card-subtitle">
+                          <span class="author">Web Dev Simplified</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Understanding global, function, and block scope in
+                      JavaScript.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Scope</span>
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">Variables</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=iLWTnMzWtj4"
+                        target="_blank"
+                        class="btn btn-primary"
                       >
-                      </iframe>
-                    </div>
-                    <div class="card-content">
-                      <h4>Arrow Functions vs Regular Functions</h4>
-                      <p class="author">Traversy Media</p>
-                      <p class="description">
-                        Differences between arrow functions and regular
-                        functions.
-                      </p>
-                      <span class="duration">15:42</span>
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
 
-                <div class="resource-card video-card">
+                <div class="resource-card" data-type="video">
                   <div class="card-thumbnail">
                     <div class="video-wrapper">
                       <iframe
@@ -999,14 +940,45 @@ console.log("Global:", x);</code></pre>
                       >
                       </iframe>
                     </div>
-                    <div class="card-content">
-                      <h4>JavaScript Functions Crash Course</h4>
-                      <p class="author">freeCodeCamp</p>
-                      <p class="description">
-                        Comprehensive functions tutorial from basics to advanced
-                        concepts.
-                      </p>
-                      <span class="duration">45:30</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-header">
+                      <div class="card-icon video">
+                        <i class="fab fa-youtube"></i>
+                      </div>
+                      <div class="card-meta">
+                        <h4 class="card-title">
+                          JavaScript Functions Crash Course
+                        </h4>
+                        <p class="card-subtitle">
+                          <span class="author">freeCodeCamp</span>
+                          <span class="platform">YouTube</span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="card-description">
+                      Comprehensive functions tutorial from basics to advanced
+                      concepts.
+                    </p>
+                    <div class="card-tags">
+                      <span class="tag">Functions</span>
+                      <span class="tag">JavaScript</span>
+                      <span class="tag">Tutorial</span>
+                    </div>
+                    <div class="card-actions">
+                      <a
+                        href="https://www.youtube.com/watch?v=mrYMzpbFz18"
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        <i class="fab fa-youtube"></i> Watch Video
+                      </a>
+                      <button
+                        class="bookmark-btn"
+                        onclick="toggleBookmark(this)"
+                      >
+                        <i class="fas fa-bookmark"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1036,5 +1008,6 @@ console.log("Global:", x);</code></pre>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

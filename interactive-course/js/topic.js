@@ -153,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize HTTP Protocol Simulator
     initializeHttpProtocolSimulator();
 
+    // Initialize function builder
+    initializeFunctionBuilder();
+
     // Initialize Flexbox and Grid Playgrounds
     initializeFlexboxPlayground();
     initializeGridPlayground();
@@ -2495,6 +2498,132 @@ function clearRegexTester() {
 
     if (highlightDiv) {
         highlightDiv.innerHTML = 'Enter text to test...';
+    }
+}
+
+// Function Builder Functions
+function initializeFunctionBuilder() {
+    // Check if function builder elements exist
+    const funcNameInput = document.getElementById('func-name');
+    const funcParamsInput = document.getElementById('func-params');
+    const funcBodyTextarea = document.getElementById('func-body');
+    const funcCallInput = document.getElementById('func-call');
+    const generatedFunctionDiv = document.getElementById('generated-function');
+
+    if (!funcNameInput || !funcParamsInput || !funcBodyTextarea || !funcCallInput || !generatedFunctionDiv) {
+        return; // Function builder not present on this page
+    }
+
+    // Add event listeners to update the generated function in real-time
+    funcNameInput.addEventListener('input', updateGeneratedFunction);
+    funcParamsInput.addEventListener('input', updateGeneratedFunction);
+    funcBodyTextarea.addEventListener('input', updateGeneratedFunction);
+
+    // Generate initial function
+    updateGeneratedFunction();
+}
+
+function updateGeneratedFunction() {
+    const funcNameInput = document.getElementById('func-name');
+    const funcParamsInput = document.getElementById('func-params');
+    const funcBodyTextarea = document.getElementById('func-body');
+    const generatedFunctionDiv = document.getElementById('generated-function');
+
+    if (!funcNameInput || !funcParamsInput || !funcBodyTextarea || !generatedFunctionDiv) {
+        return;
+    }
+
+    const funcName = funcNameInput.value.trim() || 'myFunction';
+    const params = funcParamsInput.value.trim();
+    const body = funcBodyTextarea.value.trim() || 'return "Hello World!";';
+
+    // Generate the function code
+    const functionCode = `function ${funcName}(${params}) {\n  ${body}\n}`;
+
+    // Update the display
+    generatedFunctionDiv.textContent = functionCode;
+
+    // Re-highlight with Prism
+    if (window.Prism) {
+        Prism.highlightElement(generatedFunctionDiv);
+    }
+}
+
+function executeFunction() {
+    const funcNameInput = document.getElementById('func-name');
+    const funcParamsInput = document.getElementById('func-params');
+    const funcBodyTextarea = document.getElementById('func-body');
+    const funcCallInput = document.getElementById('func-call');
+    const executionResultDiv = document.getElementById('execution-result');
+
+    if (!funcNameInput || !funcParamsInput || !funcBodyTextarea || !funcCallInput || !executionResultDiv) {
+        console.error('Function builder elements not found');
+        return;
+    }
+
+    const funcName = funcNameInput.value.trim() || 'myFunction';
+    const params = funcParamsInput.value.trim();
+    const body = funcBodyTextarea.value.trim() || 'return "Hello World!";';
+    const funcCall = funcCallInput.value.trim();
+
+    try {
+        // Create the function code
+        const functionCode = `function ${funcName}(${params}) {\n  ${body}\n}`;
+
+        // Create a safe execution environment
+        const executionCode = `
+            ${functionCode}
+
+            // Execute the function call
+            return ${funcCall};
+        `;
+
+        // Execute in a controlled environment
+        const result = new Function(executionCode)();
+
+        // Display the result
+        executionResultDiv.innerHTML = `
+            <div class="success">
+                <i class="fas fa-check-circle"></i>
+                <strong>Function executed successfully!</strong>
+                <div class="result-details">
+                    <div class="result-value">
+                        <strong>Result:</strong> <code>${JSON.stringify(result)}</code>
+                    </div>
+                    <div class="result-type">
+                        <strong>Type:</strong> <code>${typeof result}</code>
+                    </div>
+                    <div class="function-call">
+                        <strong>Call:</strong> <code>${funcCall}</code>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        console.log('Function executed successfully:', result);
+
+    } catch (error) {
+        // Display the error with helpful information
+        executionResultDiv.innerHTML = `
+            <div class="error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Execution Error:</strong>
+                <div class="error-message">
+                    <code>${error.message}</code>
+                </div>
+                <div class="error-help">
+                    <strong>Troubleshooting tips:</strong>
+                    <ul>
+                        <li>Check that your function syntax is correct</li>
+                        <li>Ensure parameter names match between function definition and call</li>
+                        <li>Verify that the function call uses the correct syntax</li>
+                        <li>Make sure return statements are properly formatted</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+
+        console.error('Function execution error:', error);
     }
 }
 
@@ -6462,24 +6591,138 @@ function testBoolean() {
 }
 
 function testChallenge1() {
-    const answer = document.getElementById('challenge1-answer')?.value?.toLowerCase() || '';
+    const code = document.getElementById('challenge1-code')?.value?.trim() || '';
     const output = document.getElementById('challenge1-result') || createOutputDiv('challenge1-result');
 
-    if (answer.includes('function') || answer.includes('method')) {
-        output.innerHTML = '<div class="success">✓ Correct! Functions are reusable blocks of code.</div>';
-    } else {
-        output.innerHTML = '<div class="error">✗ Try again. Think about reusable code blocks.</div>';
+    if (!code) {
+        output.innerHTML = '<div class="error">✗ Please write some code first.</div>';
+        return;
+    }
+
+    try {
+        // Test the function with sample inputs
+        const testCode = `
+            ${code}
+
+            // Test cases
+            const test1 = celsiusToFahrenheit(0);  // Should return 32
+            const test2 = celsiusToFahrenheit(25); // Should return 77
+            const test3 = celsiusToFahrenheit(100); // Should return 212
+
+            return {test1, test2, test3};
+        `;
+
+        const results = new Function(testCode)();
+
+        // Check if results are correct (allowing for small floating point differences)
+        const isCorrect = Math.abs(results.test1 - 32) < 0.1 &&
+            Math.abs(results.test2 - 77) < 0.1 &&
+            Math.abs(results.test3 - 212) < 0.1;
+
+        if (isCorrect) {
+            output.innerHTML = `
+                <div class="success">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Excellent!</strong> Your temperature converter works perfectly!
+                    <div class="test-results">
+                        <div>0°C = ${results.test1}°F ✓</div>
+                        <div>25°C = ${results.test2}°F ✓</div>
+                        <div>100°C = ${results.test3}°F ✓</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            output.innerHTML = `
+                <div class="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Not quite right.</strong> Check your formula: F = (C × 9/5) + 32
+                    <div class="test-results">
+                        <div>0°C = ${results.test1}°F (expected: 32)</div>
+                        <div>25°C = ${results.test2}°F (expected: 77)</div>
+                        <div>100°C = ${results.test3}°F (expected: 212)</div>
+                    </div>
+                </div>
+            `;
+        }
+
+    } catch (error) {
+        output.innerHTML = `
+            <div class="error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Syntax Error:</strong> ${error.message}
+                <div class="error-help">
+                    Make sure your function is properly defined and uses the correct syntax.
+                </div>
+            </div>
+        `;
     }
 }
 
 function testChallenge2() {
-    const answer = document.getElementById('challenge2-answer')?.value?.toLowerCase() || '';
+    const code = document.getElementById('challenge2-code')?.value?.trim() || '';
     const output = document.getElementById('challenge2-result') || createOutputDiv('challenge2-result');
 
-    if (answer.includes('variable') || answer.includes('scope')) {
-        output.innerHTML = '<div class="success">✓ Correct! Variables have different scopes.</div>';
-    } else {
-        output.innerHTML = '<div class="error">✗ Try again. Think about where variables can be accessed.</div>';
+    if (!code) {
+        output.innerHTML = '<div class="error">✗ Please write some code first.</div>';
+        return;
+    }
+
+    try {
+        // Test the function with sample inputs
+        const testCode = `
+            ${code}
+
+            // Test cases
+            const test1 = findMax([1, 5, 3, 9, 2]); // Should return 9
+            const test2 = findMax([-1, -5, -3]);    // Should return -1
+            const test3 = findMax([42]);            // Should return 42
+
+            return {test1, test2, test3};
+        `;
+
+        const results = new Function(testCode)();
+
+        // Check if results are correct
+        const isCorrect = results.test1 === 9 &&
+            results.test2 === -1 &&
+            results.test3 === 42;
+
+        if (isCorrect) {
+            output.innerHTML = `
+                <div class="success">
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Perfect!</strong> Your findMax function works correctly!
+                    <div class="test-results">
+                        <div>findMax([1, 5, 3, 9, 2]) = ${results.test1} ✓</div>
+                        <div>findMax([-1, -5, -3]) = ${results.test2} ✓</div>
+                        <div>findMax([42]) = ${results.test3} ✓</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            output.innerHTML = `
+                <div class="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Not quite right.</strong> Make sure your function finds the maximum value.
+                    <div class="test-results">
+                        <div>findMax([1, 5, 3, 9, 2]) = ${results.test1} (expected: 9)</div>
+                        <div>findMax([-1, -5, -3]) = ${results.test2} (expected: -1)</div>
+                        <div>findMax([42]) = ${results.test3} (expected: 42)</div>
+                    </div>
+                </div>
+            `;
+        }
+
+    } catch (error) {
+        output.innerHTML = `
+            <div class="error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Syntax Error:</strong> ${error.message}
+                <div class="error-help">
+                    Make sure your function is properly defined and handles arrays correctly.
+                </div>
+            </div>
+        `;
     }
 }
 
