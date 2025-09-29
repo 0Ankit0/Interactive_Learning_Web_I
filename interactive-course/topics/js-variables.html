@@ -8,6 +8,196 @@
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Interactive elements styling -->
+    <style>
+      /* Type checker styles */
+      .type-result-content {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 15px;
+      }
+      
+      .type-result-content.error {
+        background: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+      }
+      
+      .type-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .type-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .type-badge {
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+      
+      .type-badge.type-number { background: #e3f2fd; color: #1565c0; }
+      .type-badge.type-string { background: #f3e5f5; color: #7b1fa2; }
+      .type-badge.type-boolean { background: #e8f5e8; color: #2e7d32; }
+      .type-badge.type-undefined { background: #fff3e0; color: #ef6c00; }
+      .type-badge.type-object { background: #fce4ec; color: #c2185b; }
+      .type-badge.type-function { background: #e1f5fe; color: #0277bd; }
+      
+      /* Console output styles */
+      .console-output {
+        background: #1e1e1e;
+        color: #fff;
+        font-family: 'Courier New', monospace;
+        padding: 15px;
+        border-radius: 4px;
+        min-height: 200px;
+        white-space: pre-wrap;
+        overflow-y: auto;
+        margin-top: 10px;
+      }
+      
+      .log-entry {
+        margin: 2px 0;
+        padding: 2px 0;
+      }
+      
+      .log-entry.error {
+        color: #ff6b6b;
+      }
+      
+      /* Conversion demo styles */
+      .conversion-results {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      
+      .conversion-example {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        font-family: monospace;
+      }
+      
+      .conversion-code {
+        flex: 1;
+        background: #e9ecef;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      
+      .conversion-arrow {
+        color: #6c757d;
+        font-size: 18px;
+      }
+      
+      .conversion-result {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .result-value {
+        font-weight: bold;
+        color: #0056b3;
+      }
+      
+      .result-type {
+        font-size: 12px;
+        color: #6c757d;
+        font-style: italic;
+      }
+      
+      /* Button improvements */
+      .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      
+      .btn-secondary {
+        font-family: monospace;
+        font-size: 13px;
+      }
+      
+      /* Form controls */
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-bottom: 10px;
+        font-family: monospace;
+      }
+      
+      .form-control:focus {
+        outline: none;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+      
+      /* Code editor */
+      .code-editor-textarea {
+        width: 100%;
+        min-height: 200px;
+        padding: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        background: #f8f9fa;
+        resize: vertical;
+      }
+      
+      .code-editor-textarea:focus {
+        outline: none;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+      
+      .demo-grid.two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      
+      @media (max-width: 768px) {
+        .demo-grid.two-column {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .conversion-example {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .conversion-arrow {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="breadcrumb">
@@ -68,6 +258,13 @@
                       >Introduction</a
                     >
                   </li>
+                  <li>
+                    <a
+                      href="#video-resources"
+                      onclick="scrollToSection('video-resources')"
+                      >Video Tutorials</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li>
@@ -82,16 +279,16 @@
                 <ul class="toc-dropdown-content">
                   <li>
                     <a
-                      href="#declaring-variables"
-                      onclick="scrollToSection('declaring-variables')"
-                      >Declaring Variables</a
+                      href="#var-let-const"
+                      onclick="scrollToSection('var-let-const')"
+                      >var, let, const</a
                     >
                   </li>
                   <li>
                     <a
-                      href="#var-let-const"
-                      onclick="scrollToSection('var-let-const')"
-                      >var, let, const</a
+                      href="#data-types"
+                      onclick="scrollToSection('data-types')"
+                      >JavaScript Data Types</a
                     >
                   </li>
                   <li>
@@ -115,16 +312,16 @@
                 <ul class="toc-dropdown-content">
                   <li>
                     <a
-                      href="#primitive-types"
-                      onclick="scrollToSection('primitive-types')"
-                      >Primitive Types</a
+                      href="#data-types"
+                      onclick="scrollToSection('data-types')"
+                      >JavaScript Data Types</a
                     >
                   </li>
                   <li>
                     <a
-                      href="#reference-types"
-                      onclick="scrollToSection('reference-types')"
-                      >Reference Types</a
+                      href="#type-checker"
+                      onclick="scrollToSection('type-checker')"
+                      >Interactive Type Checker</a
                     >
                   </li>
                   <li>
@@ -148,9 +345,16 @@
                 <ul class="toc-dropdown-content">
                   <li>
                     <a
-                      href="#examples"
-                      onclick="scrollToSection('examples')"
-                      >Practical Examples</a
+                      href="#variable-playground"
+                      onclick="scrollToSection('variable-playground')"
+                      >Variable Playground</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#resources"
+                      onclick="scrollToSection('resources')"
+                      >Learning Resources</a
                     >
                   </li>
                   <li>
@@ -166,158 +370,35 @@
           </aside>
 
           <div class="content-main">
+            <section id="introduction" class="content-section">
+              <h2>
+                <i class="fas fa-compass"></i> Introduction to JavaScript Variables & Data Types
+              </h2>
+
+              <div class="definition-box">
+                <h3><i class="fas fa-code"></i> What are Variables?</h3>
+                <p>
+                  Variables are containers that store data values. In JavaScript, variables can hold different types of data and can be reassigned with new values during program execution.
+                </p>
+              </div>
+
+              <div class="definition-box">
+                <h3><i class="fas fa-list-alt"></i> What are Data Types?</h3>
+                <p>
+                  Data types specify what kind of data can be stored in a variable. JavaScript has dynamic typing, meaning variables can hold different types of values throughout their lifecycle.
+                </p>
+              </div>
+            </section>
+
+    
+
         <!-- Variable Declaration Comparison -->
-        <section class="content-section">
-          <div class="container">
-            <h2 class="section-header"><i class="fas fa-code"></i> var vs let vs const</h2>
+        <section id="var-let-const" class="content-section">
+          <h2 class="section-header"><i class="fas fa-code"></i> var vs let vs const</h2>
           <p class="lead">
-            Master JavaScript variables and data types with these excellent
-            tutorials.
+            Understanding the differences between variable declaration
+            keywords in JavaScript.
           </p>
-
-          <div class="resource-grid four-column">
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/9vIqRk4wGbY/maxresdefault.jpg"
-                  alt="JavaScript Variables"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">22:14</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Variables Explained</h3>
-                <p class="author"><i class="fas fa-user"></i> Programming with Mosh</p>
-                <p class="description">
-                  Complete guide to JavaScript variables including var, let,
-                  const and scoping rules.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 2.3M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 98% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=9vIqRk4wGbY"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/Jn7BgDl4J94/maxresdefault.jpg"
-                  alt="JavaScript Data Types"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">18:45</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Data Types - Complete Guide</h3>
-                <p class="author"><i class="fas fa-user"></i> Traversy Media</p>
-                <p class="description">
-                  Learn about all JavaScript data types with practical examples
-                  and use cases.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.8M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 97% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=Jn7BgDl4J94"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/2md4HQNRqJA/maxresdefault.jpg"
-                  alt="Let vs Const vs Var"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">15:32</span>
-              </div>
-              <div class="card-content">
-                <h3>Let vs Const vs Var - JavaScript</h3>
-                <p class="author"><i class="fas fa-user"></i> Web Dev Simplified</p>
-                <p class="description">
-                  Understand the differences between let, const, and var in
-                  modern JavaScript.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.2M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 99% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=2md4HQNRqJA"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-
-            <div class="resource-card video-card">
-              <div class="card-thumbnail">
-                <img
-                  src="https://img.youtube.com/vi/pNqnf4YPqZw/maxresdefault.jpg"
-                  alt="JavaScript Basics"
-                  loading="lazy"
-                />
-                <div class="play-icon">
-                  <i class="fab fa-youtube"></i>
-                </div>
-                <span class="duration">28:17</span>
-              </div>
-              <div class="card-content">
-                <h3>JavaScript Variables and Data Types Crash Course</h3>
-                <p class="author"><i class="fas fa-user"></i> freeCodeCamp.org</p>
-                <p class="description">
-                  Comprehensive crash course covering variables, data types, and
-                  type conversion.
-                </p>
-                <div class="stats">
-                  <span><i class="fas fa-eye"></i> 1.5M views</span>
-                  <span><i class="fas fa-thumbs-up"></i> 96% liked</span>
-                </div>
-                <a
-                  href="https://www.youtube.com/watch?v=pNqnf4YPqZw"
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  <i class="fab fa-youtube"></i> Watch on YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Variable Declaration Comparison -->
-        <section class="content-section">
-          <div class="container">
-            <h2 class="section-header"><i class="fas fa-code"></i> var vs let vs const</h2>
-            <p class="lead">
-              Understanding the differences between variable declaration
-              keywords in JavaScript.
-            </p>
 
             <table class="comparison-table">
               <thead>
@@ -364,30 +445,98 @@
 
             <div class="code-block">
               <h4 class="code-header">Quick Examples:</h4>
-              <div
-                class="code-block-inner"
-              >
-                // var - function scoped var name = "John"; var name = "Jane";
-                // Allowed (redeclaration) name = "Bob"; // Allowed
-                (reassignment) // let - block scoped let age = 25; // let age =
-                30; // Error: Cannot redeclare age = 30; // Allowed
-                (reassignment) // const - block scoped, immutable const PI =
-                3.14159; // PI = 3.14; // Error: Cannot reassign // const E; //
-                Error: Must initialize
+              <pre><code class="language-javascript">
+// var - function scoped
+var name = "John";
+var name = "Jane"; // Allowed (redeclaration)
+name = "Bob"; // Allowed (reassignment)
+
+// let - block scoped
+let age = 25;
+// let age = 30; // Error: Cannot redeclare
+age = 30; // Allowed (reassignment)
+
+// const - block scoped, immutable
+const PI = 3.14159;
+// PI = 3.14; // Error: Cannot reassign
+// const E; // Error: Must initialize
+              </code></pre>
+            </div>
+        </section>
+
+        <!-- Variable Scope -->
+        <section id="scope" class="content-section">
+          <h2 class="section-header"><i class="fas fa-layer-group"></i> Variable Scope</h2>
+          <p class="lead">
+            Understanding where variables can be accessed in your code is crucial for writing effective JavaScript.
+          </p>
+
+          <div class="topic-grid">
+            <div class="topic-card">
+              <i class="fas fa-globe"></i>
+              <h4>Global Scope</h4>
+              <p>Variables declared outside any function or block have global scope and can be accessed from anywhere in the code.</p>
+              <div class="code-block">
+                <pre><code class="language-javascript">
+var globalVar = "I'm global";
+let globalLet = "Me too";
+
+function test() {
+  console.log(globalVar); // Accessible
+  console.log(globalLet); // Accessible
+}
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="topic-card">
+              <i class="fas fa-code"></i>
+              <h4>Function Scope</h4>
+              <p>Variables declared with var inside a function are only accessible within that function.</p>
+              <div class="code-block">
+                <pre><code class="language-javascript">
+function myFunction() {
+  var functionScoped = "Only in function";
+  let alsoFunctionScoped = "Me too";
+  
+  console.log(functionScoped); // Works
+}
+
+// console.log(functionScoped); // Error!
+                </code></pre>
+              </div>
+            </div>
+
+            <div class="topic-card">
+              <i class="fas fa-cube"></i>
+              <h4>Block Scope</h4>
+              <p>Variables declared with let and const inside a block {} are only accessible within that block.</p>
+              <div class="code-block">
+                <pre><code class="language-javascript">
+if (true) {
+  var varExample = "var ignores blocks";
+  let letExample = "let respects blocks";
+  const constExample = "const respects blocks";
+}
+
+console.log(varExample); // Works
+// console.log(letExample); // Error!
+// console.log(constExample); // Error!
+                </code></pre>
               </div>
             </div>
           </div>
         </section>
 
         <!-- JavaScript Data Types -->
-        <section class="content-section">
+        <section id="data-types" class="content-section">
           <h2 class="section-header"><i class="fas fa-list-alt"></i> JavaScript Data Types</h2>
           <p class="lead">
             JavaScript has dynamic typing, meaning variables can hold different
             types of values.
           </p>
 
-          <div class="topic-grid three-column">
+          <div class="topic-grid two-column">
             <!-- Number -->
             <div class="topic-card">
               <div class="card-header">
@@ -397,9 +546,13 @@
               <div class="card-body">
                 <p>Represents both integers and floating-point numbers.</p>
                 <div class="code-block">
-                  let age = 25; // Integer let price = 19.99; // Float let
-                  negative = -42; // Negative let infinity = Infinity; //
-                  Special value let notNumber = NaN; // Not a Number
+                  <pre><code class="language-javascript">
+let age = 25;          // Integer
+let price = 19.99;     // Float
+let negative = -42;    // Negative
+let infinity = Infinity; // Special value
+let notNumber = NaN;   // Not a Number
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testNumber()">
                   <i class="fas fa-play"></i> Test Numbers
@@ -416,10 +569,13 @@
               <div class="card-body">
                 <p>Represents textual data enclosed in quotes.</p>
                 <div class="code-block">
-                  let firstName = "John"; // Double quotes let lastName = 'Doe';
-                  // Single quotes let fullName = `${firstName} ${lastName}`; //
-                  Template literal let multiline = `Line 1 Line 2`; // Multiline
-                  string
+                  <pre><code class="language-javascript">
+let firstName = "John";  // Double quotes
+let lastName = 'Doe';    // Single quotes
+let fullName = `${firstName} ${lastName}`; // Template literal
+let multiline = `Line 1
+Line 2`; // Multiline string
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testString()">
                   <i class="fas fa-play"></i> Test Strings
@@ -436,9 +592,13 @@
               <div class="card-body">
                 <p>Represents logical values: true or false.</p>
                 <div class="code-block">
-                  let isActive = true; let isComplete = false; let hasAccess =
-                  Boolean(1); // true let isEmpty = Boolean(0); // false let
-                  result = 5 > 3; // true
+                  <pre><code class="language-javascript">
+let isActive = true;
+let isComplete = false;
+let hasAccess = Boolean(1);  // true
+let isEmpty = Boolean(0);    // false
+let result = 5 > 3;         // true
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testBoolean()">
                   <i class="fas fa-play"></i> Test Booleans
@@ -455,9 +615,13 @@
               <div class="card-body">
                 <p>Variable declared but not assigned a value.</p>
                 <div class="code-block">
-                  let x; // undefined let y = undefined; // explicitly undefined
-                  function test() {} // returns undefined let obj = {};
-                  console.log(obj.missing); // undefined
+                  <pre><code class="language-javascript">
+let x;                     // undefined
+let y = undefined;         // explicitly undefined
+function test() {}         // returns undefined
+let obj = {};
+console.log(obj.missing);  // undefined
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testUndefined()">
                   <i class="fas fa-play"></i> Test Undefined
@@ -474,10 +638,14 @@
               <div class="card-body">
                 <p>Represents intentional absence of any object value.</p>
                 <div class="code-block">
-                  let data = null; // intentionally empty let response = null;
-                  // no data received // Note: typeof null === "object"
-                  (JavaScript quirk) console.log(null == undefined); // true
-                  console.log(null === undefined); // false
+                  <pre><code class="language-javascript">
+let data = null;           // intentionally empty
+let response = null;       // no data received
+
+// Note: typeof null === "object" (JavaScript quirk)
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testNull()">
                   <i class="fas fa-play"></i> Test Null
@@ -494,9 +662,15 @@
               <div class="card-body">
                 <p>Complex data type for collections and entities.</p>
                 <div class="code-block">
-                  let person = { // Object literal name: "Alice", age: 30 }; let
-                  numbers = [1, 2, 3]; // Array (special object) let today = new
-                  Date(); // Date object let pattern = /abc/g; // RegExp object
+                  <pre><code class="language-javascript">
+let person = {             // Object literal
+  name: "Alice",
+  age: 30
+};
+let numbers = [1, 2, 3];   // Array (special object)
+let today = new Date();    // Date object
+let pattern = /abc/g;      // RegExp object
+                  </code></pre>
                 </div>
                 <button class="btn btn-primary" onclick="testObject()">
                   <i class="fas fa-play"></i> Test Objects
@@ -506,8 +680,8 @@
           </div>
         </section>
 
-        <!-- Interactive Type Tester -->
-        <section class="content-section">
+        <!-- Interactive Type Checker -->
+        <section id="type-checker" class="content-section">
           <div class="interactive-demo">
             <h2 class="section-header"><i class="fas fa-vial"></i> Interactive Type Checker</h2>
             <p class="lead">
@@ -552,7 +726,7 @@
         </section>
 
         <!-- Interactive Variable Playground -->
-        <section class="content-section">
+        <section id="variable-playground" class="content-section">
           <h2 class="section-header"><i class="fas fa-terminal"></i> Variable Playground</h2>
           <p class="lead">Practice creating and modifying variables in real-time!</p>
 
@@ -605,7 +779,7 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
         </section>
 
         <!-- Type Conversion -->
-        <section class="content-section">
+        <section id="type-conversion" class="content-section">
           <h2 class="section-header"><i class="fas fa-exchange-alt"></i> Type Conversion</h2>
           <p class="lead">
             JavaScript can automatically convert between types or you can
@@ -615,30 +789,42 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
           <div class="topic-grid two-column">
             <div class="topic-card">
               <h3>Automatic Type Conversion (Coercion)</h3>
-              <div
-                class="code-block"
-              >
-                // Automatic conversions console.log("5" + 3); // "53" (number to
-                string) console.log("5" - 3); // 2 (string to number)
-                console.log("5" * "2"); // 10 (both to numbers) console.log(true +
-                1); // 2 (boolean to number) console.log(false + 1); // 1 (boolean
-                to number) console.log("" + 42); // "42" (number to string)
-                console.log(Boolean(0)); // false console.log(Boolean(1)); // true
+              <div class="code-block">
+                <pre><code class="language-javascript">
+// Automatic conversions
+console.log("5" + 3);      // "53" (number to string)
+console.log("5" - 3);      // 2 (string to number)
+console.log("5" * "2");    // 10 (both to numbers)
+console.log(true + 1);     // 2 (boolean to number)
+console.log(false + 1);    // 1 (boolean to number)
+console.log("" + 42);      // "42" (number to string)
+console.log(Boolean(0));   // false
+console.log(Boolean(1));   // true
+                </code></pre>
               </div>
             </div>
 
             <div class="topic-card">
               <h3>Explicit Type Conversion</h3>
-              <div
-                class="code-block"
-              >
-                // String conversion let num = 123; let str = String(num); //
-                "123" let str2 = num.toString(); // "123" // Number conversion let
-                text = "456"; let number = Number(text); // 456 let int =
-                parseInt(text); // 456 let float = parseFloat("3.14"); // 3.14 //
-                Boolean conversion let bool1 = Boolean(1); // true let bool2 =
-                Boolean(0); // false let bool3 = Boolean(""); // false let bool4 =
-                Boolean("hi"); // true
+              <div class="code-block">
+                <pre><code class="language-javascript">
+// String conversion
+let num = 123;
+let str = String(num);     // "123"
+let str2 = num.toString(); // "123"
+
+// Number conversion
+let text = "456";
+let number = Number(text); // 456
+let int = parseInt(text);  // 456
+let float = parseFloat("3.14"); // 3.14
+
+// Boolean conversion
+let bool1 = Boolean(1);    // true
+let bool2 = Boolean(0);    // false
+let bool3 = Boolean("");   // false
+let bool4 = Boolean("hi"); // true
+                </code></pre>
               </div>
             </div>
           </div>
@@ -655,100 +841,7 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
           </div>
         </section>
 
-        <!-- Essential Resources -->
-        <section class="content-section">
-          <h2 class="section-header"><i class="fas fa-book-open"></i> Essential JavaScript Variables Resources</h2>
-
-          <div class="resource-grid four-column">
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-js-square"></i>
-                <h3>MDN: JavaScript Variables</h3>
-              </div>
-              <p>
-                Comprehensive guide to variable declarations, scope, and
-                hoisting in JavaScript.
-              </p>
-              <div class="tags">
-                <span class="tag">Complete Reference</span>
-                <span class="tag">Examples</span>
-                <span class="tag">Best Practices</span>
-              </div>
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Read Guide <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fas fa-book"></i>
-                <h3>JavaScript.info: Data Types</h3>
-              </div>
-              <p>
-                In-depth explanation of JavaScript data types with interactive
-                examples.
-              </p>
-              <div class="tags">
-                <span class="tag">Interactive</span>
-                <span class="tag">Detailed</span>
-                <span class="tag">Modern JS</span>
-              </div>
-              <a href="https://javascript.info/types" target="_blank" class="btn btn-secondary">
-                Learn Types <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-free-code-camp"></i>
-                <h3>freeCodeCamp: Variables</h3>
-              </div>
-              <p>
-                Interactive exercises and projects to practice JavaScript
-                variables and data types.
-              </p>
-              <div class="tags">
-                <span class="tag">Hands-on</span>
-                <span class="tag">Projects</span>
-                <span class="tag">Free</span>
-              </div>
-              <a
-                href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Start Exercises <i class="fas fa-code"></i>
-              </a>
-            </div>
-
-            <div class="resource-card">
-              <div class="card-icon">
-                <i class="fab fa-codepen"></i>
-                <h3>CodePen: Variable Examples</h3>
-              </div>
-              <p>
-                Explore creative examples and experiments with JavaScript
-                variables and types.
-              </p>
-              <div class="tags">
-                <span class="tag">Live Examples</span>
-                <span class="tag">Community</span>
-                <span class="tag">Inspiration</span>
-              </div>
-              <a
-                href="https://codepen.io/search/pens?q=javascript%20variables"
-                target="_blank"
-                class="btn btn-secondary"
-              >
-                Browse Examples <i class="fas fa-external-link-alt"></i>
-              </a>
-            </div>
-          </div>
-        </section>
+     
 
         <!-- Quiz Section -->
         <section id="quiz" class="content-section">
@@ -958,5 +1051,359 @@ console.log('Type of isStudent:', typeof isStudent);</textarea>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    
+    <!-- Interactive functionality -->
+    <script>
+      // Variable Playground functionality
+      function runCode() {
+        const code = document.getElementById('js-input').value;
+        const output = document.getElementById('console-output');
+        
+        // Clear previous output
+        output.innerHTML = '';
+        
+        // Create a console.log override to capture output
+        let logs = [];
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+          logs.push(args.map(arg => 
+            typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+          ).join(' '));
+          originalConsoleLog.apply(console, arguments);
+        };
+        
+        try {
+          // Use Function constructor to execute code in a controlled environment
+          const func = new Function(code);
+          const result = func();
+          
+          // Display logs
+          if (logs.length > 0) {
+            logs.forEach(log => {
+              const logElement = document.createElement('div');
+              logElement.className = 'log-entry';
+              logElement.textContent = log;
+              output.appendChild(logElement);
+            });
+          } else if (result !== undefined) {
+            const resultElement = document.createElement('div');
+            resultElement.className = 'log-entry';
+            resultElement.textContent = '→ ' + (typeof result === 'object' ? JSON.stringify(result, null, 2) : String(result));
+            output.appendChild(resultElement);
+          }
+        } catch (error) {
+          const errorElement = document.createElement('div');
+          errorElement.className = 'log-entry error';
+          errorElement.textContent = '❌ Error: ' + error.message;
+          output.appendChild(errorElement);
+        } finally {
+          // Restore original console.log
+          console.log = originalConsoleLog;
+        }
+        
+        if (output.innerHTML === '') {
+          output.innerHTML = '<div class="log-entry">Code executed successfully (no output)</div>';
+        }
+      }
+      
+      function clearConsole() {
+        const output = document.getElementById('console-output');
+        output.innerHTML = 'Console cleared...';
+      }
+      
+      // Type Checker functionality
+      function checkType() {
+        const input = document.getElementById('type-input').value.trim();
+        if (!input) {
+          alert('Please enter a value to check its type!');
+          return;
+        }
+        analyzeType(input);
+      }
+      
+      function quickTest(value) {
+        document.getElementById('type-input').value = value;
+        analyzeType(value);
+      }
+      
+      function analyzeType(input) {
+        const resultDiv = document.getElementById('type-result');
+        resultDiv.style.display = 'block';
+        
+        try {
+          let value;
+          let actualInput = input;
+          
+          // Handle special cases
+          if (input === 'undefined') {
+            value = undefined;
+          } else if (input === 'null') {
+            value = null;
+          } else {
+            // Try to evaluate the input
+            value = eval(input);
+          }
+          
+          const type = typeof value;
+          const isArray = Array.isArray(value);
+          const constructor = value?.constructor?.name || 'N/A';
+          
+          let typeDescription = '';
+          let examples = '';
+          
+          switch (type) {
+            case 'number':
+              if (isNaN(value)) {
+                typeDescription = 'NaN (Not a Number) - represents an invalid number';
+                examples = 'Examples: NaN, 0/0, Math.sqrt(-1)';
+              } else if (!isFinite(value)) {
+                typeDescription = 'Infinity - represents infinite values';
+                examples = 'Examples: Infinity, -Infinity, 1/0';
+              } else if (Number.isInteger(value)) {
+                typeDescription = 'Integer - whole numbers';
+                examples = 'Examples: 42, -17, 0';
+              } else {
+                typeDescription = 'Float - decimal numbers';
+                examples = 'Examples: 3.14, -2.5, 0.1';
+              }
+              break;
+            case 'string':
+              typeDescription = 'String - textual data';
+              examples = 'Examples: "hello", \'world\', `template`';
+              break;
+            case 'boolean':
+              typeDescription = 'Boolean - logical true/false values';
+              examples = 'Examples: true, false, !0, !!1';
+              break;
+            case 'undefined':
+              typeDescription = 'Undefined - variable declared but not assigned';
+              examples = 'Examples: let x; undefined, void 0';
+              break;
+            case 'object':
+              if (value === null) {
+                typeDescription = 'Null - intentional absence of value';
+                examples = 'Examples: null';
+              } else if (isArray) {
+                typeDescription = 'Array - ordered list of values';
+                examples = 'Examples: [], [1,2,3], new Array()';
+              } else if (value instanceof Date) {
+                typeDescription = 'Date - represents dates and times';
+                examples = 'Examples: new Date(), Date.now()';
+              } else if (value instanceof RegExp) {
+                typeDescription = 'RegExp - regular expression for pattern matching';
+                examples = 'Examples: /abc/g, new RegExp("test")';
+              } else {
+                typeDescription = 'Object - collection of key-value pairs';
+                examples = 'Examples: {}, {name: "John"}, new Object()';
+              }
+              break;
+            case 'function':
+              typeDescription = 'Function - executable code block';
+              examples = 'Examples: function(){}, ()=>{}, new Function()';
+              break;
+            default:
+              typeDescription = 'Unknown type';
+          }
+          
+          resultDiv.innerHTML = `
+            <div class="type-result-content">
+              <h4>🔍 Type Analysis Result</h4>
+              <div class="type-info">
+                <div class="type-row"><strong>Value:</strong> <code>${actualInput}</code></div>
+                <div class="type-row"><strong>Type:</strong> <span class="type-badge type-${type}">${type}</span></div>
+                ${constructor !== 'N/A' ? `<div class="type-row"><strong>Constructor:</strong> <code>${constructor}</code></div>` : ''}
+                ${isArray ? `<div class="type-row"><strong>Is Array:</strong> ✅ Yes</div>` : ''}
+                <div class="type-row"><strong>Description:</strong> ${typeDescription}</div>
+                <div class="type-row"><strong>Other ${type} examples:</strong> ${examples}</div>
+              </div>
+            </div>
+          `;
+          
+        } catch (error) {
+          resultDiv.innerHTML = `
+            <div class="type-result-content error">
+              <h4>❌ Error</h4>
+              <p>Could not analyze the input: ${error.message}</p>
+              <p>Please check your syntax and try again.</p>
+            </div>
+          `;
+        }
+      }
+      
+      // Data Type Test Functions
+      function testNumber() {
+        showAlert('Number Type Examples', `
+• Integers: 42, -17, 0
+• Floats: 3.14, -2.5, 0.1
+• Special values: Infinity, -Infinity, NaN
+• Binary: 0b1010 (equals 10)
+• Octal: 0o12 (equals 10)
+• Hex: 0xA (equals 10)
+
+Try these in the console:
+console.log(typeof 42);
+console.log(Number.MAX_VALUE);
+console.log(Number.isInteger(3.14));`);
+      }
+      
+      function testString() {
+        showAlert('String Type Examples', `
+• Double quotes: "Hello World"
+• Single quotes: 'Hello World'  
+• Template literals: \`Hello \${name}\`
+• Escape sequences: "Line 1\\nLine 2"
+• Unicode: "Hello 🌍"
+
+Try these in the console:
+console.log("Hello".length);
+console.log("Hello".toUpperCase());
+console.log(\`2 + 2 = \${2 + 2}\`);`);
+      }
+      
+      function testBoolean() {
+        showAlert('Boolean Type Examples', `
+• Literal values: true, false
+• From comparisons: 5 > 3, "a" === "b"
+• From Boolean(): Boolean(1), Boolean("")
+• Truthy values: any non-zero number, non-empty string, objects
+• Falsy values: 0, "", null, undefined, NaN, false
+
+Try these in the console:
+console.log(Boolean(1));
+console.log(Boolean(""));
+console.log(5 > 3 && 2 < 10);`);
+      }
+      
+      function testUndefined() {
+        showAlert('Undefined Type Examples', `
+• Declared but not assigned: let x;
+• Explicitly set: let y = undefined;
+• Missing object properties: obj.nonExistent
+• Functions with no return: function f() {}
+• Function parameters not passed
+
+Try these in the console:
+let x;
+console.log(x);
+console.log(typeof x);
+console.log({}.missingProp);`);
+      }
+      
+      function testNull() {
+        showAlert('Null Type Examples', `
+• Intentional "no value": let data = null;
+• API responses: fetch().then(response => response || null)
+• Clearing object references: obj = null;
+• Note: typeof null === "object" (JavaScript quirk!)
+
+Try these in the console:
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+console.log(typeof null);        // "object"`);
+      }
+      
+      function testObject() {
+        showAlert('Object Type Examples', `
+• Object literals: {name: "John", age: 30}
+• Arrays: [1, 2, 3, "hello"]
+• Dates: new Date()
+• RegExp: /pattern/flags
+• Functions: function() {} (functions are objects!)
+
+Try these in the console:
+console.log(typeof {});
+console.log(typeof []);
+console.log(Array.isArray([]));
+console.log({name: "John"}.name);`);
+      }
+      
+      // Type Conversion Demo
+      function demonstrateConversion() {
+        const outputDiv = document.getElementById('conversion-output');
+        outputDiv.style.display = 'block';
+        
+        const examples = [
+          {desc: 'String + Number', code: '"5" + 3', result: "5" + 3},
+          {desc: 'String - Number', code: '"5" - 3', result: "5" - 3},
+          {desc: 'String * String', code: '"5" * "2"', result: "5" * "2"},
+          {desc: 'Boolean + Number', code: 'true + 1', result: true + 1},
+          {desc: 'Boolean + Number', code: 'false + 1', result: false + 1},
+          {desc: 'Number to String', code: '"" + 42', result: "" + 42},
+          {desc: 'String to Number', code: 'Number("123")', result: Number("123")},
+          {desc: 'parseInt', code: 'parseInt("123px")', result: parseInt("123px")},
+          {desc: 'parseFloat', code: 'parseFloat("3.14")', result: parseFloat("3.14")},
+          {desc: 'Boolean conversion', code: 'Boolean(0)', result: Boolean(0)},
+          {desc: 'Boolean conversion', code: 'Boolean("hello")', result: Boolean("hello")}
+        ];
+        
+        let html = '<h4>🔄 Type Conversion Results:</h4><div class="conversion-results">';
+        
+        examples.forEach(example => {
+          html += `
+            <div class="conversion-example">
+              <div class="conversion-code">${example.code}</div>
+              <div class="conversion-arrow">→</div>
+              <div class="conversion-result">
+                <span class="result-value">${JSON.stringify(example.result)}</span>
+                <span class="result-type">(${typeof example.result})</span>
+              </div>
+            </div>
+          `;
+        });
+        
+        html += '</div>';
+        outputDiv.innerHTML = html;
+      }
+      
+      // Helper function to show alerts with better formatting
+      function showAlert(title, content) {
+        // Create a modal-style alert
+        const existingModal = document.getElementById('custom-modal');
+        if (existingModal) {
+          existingModal.remove();
+        }
+        
+        const modal = document.createElement('div');
+        modal.id = 'custom-modal';
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 10000;
+        `;
+        
+        const modalContent = document.createElement('div');
+        modalContent.style.cssText = `
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 500px;
+          max-height: 70vh;
+          overflow-y: auto;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        `;
+        
+        modalContent.innerHTML = `
+          <h3 style="margin-top: 0; color: black;">${title}</h3>
+          <pre style="white-space: pre-wrap; font-family: 'Courier New', monospace; padding: 15px; border-radius: 4px; font-size: 14px;">${content}</pre>
+          <button onclick="document.getElementById('custom-modal').remove()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px;">Close</button>
+        `;
+        
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+        
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
