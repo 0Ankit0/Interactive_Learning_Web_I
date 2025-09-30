@@ -160,6 +160,9 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeFlexboxPlayground();
     initializeGridPlayground();
 
+    // Initialize DOM manipulation event listeners
+    initializeDOMManipulation();
+
     let scrollTimeout;
     window.addEventListener('scroll', function () {
         clearTimeout(scrollTimeout);
@@ -5772,26 +5775,32 @@ function calculateWithExternal() {
 }
 
 function changeInputValue() {
-    const input = document.getElementById('demo-input') || document.querySelector('input[type="text"]');
-    if (input) {
-        input.value = 'Value changed by JavaScript!';
+    const input = document.getElementById('input-value');
+    const targetInput = document.getElementById('editable-input');
+    if (input && targetInput) {
+        const newValue = input.value.trim() || 'Value changed by JavaScript!';
+        targetInput.value = newValue;
         console.log('Input value changed');
     }
 }
 
 function changeParagraph() {
-    const paragraph = document.getElementById('demo-paragraph') || document.querySelector('p');
-    if (paragraph) {
-        paragraph.textContent = 'This paragraph was modified by JavaScript!';
+    const input = document.getElementById('paragraph-input');
+    const paragraph = document.getElementById('editable-paragraph');
+    if (input && paragraph) {
+        const newContent = input.value.trim() || '<strong>This paragraph was modified by JavaScript!</strong> <em>HTML content works too.</em>';
+        paragraph.innerHTML = newContent;
         paragraph.style.color = '#007bff';
         console.log('Paragraph content changed');
     }
 }
 
 function changeTitle() {
-    const title = document.getElementById('demo-title') || document.querySelector('h1, h2, h3');
-    if (title) {
-        title.textContent = 'Title Changed by JavaScript!';
+    const input = document.getElementById('title-input');
+    const title = document.getElementById('editable-title');
+    if (input && title) {
+        const newTitle = input.value.trim() || 'Title Changed by JavaScript!';
+        title.textContent = newTitle;
         title.style.color = '#28a745';
         console.log('Title changed');
     }
@@ -6355,11 +6364,36 @@ function reactIncrement() {
 }
 
 function resetContent() {
-    const content = document.getElementById('demo-content') || document.querySelector('.demo-content');
-    if (content) {
-        content.innerHTML = '<p>Content reset to default state.</p>';
-        console.log('Content reset');
+    // Reset title
+    const title = document.getElementById('editable-title');
+    if (title) {
+        title.textContent = 'Editable Title';
+        title.style.color = '';
     }
+
+    // Reset paragraph
+    const paragraph = document.getElementById('editable-paragraph');
+    if (paragraph) {
+        paragraph.innerHTML = 'This paragraph can be modified.';
+        paragraph.style.color = '';
+    }
+
+    // Reset input
+    const input = document.getElementById('editable-input');
+    if (input) {
+        input.value = 'Input value';
+    }
+
+    // Clear the input fields
+    const titleInput = document.getElementById('title-input');
+    const paragraphInput = document.getElementById('paragraph-input');
+    const inputValue = document.getElementById('input-value');
+
+    if (titleInput) titleInput.value = '';
+    if (paragraphInput) paragraphInput.value = '';
+    if (inputValue) inputValue.value = '';
+
+    console.log('Content reset to original state');
 }
 
 function runCode() {
@@ -6920,6 +6954,127 @@ function trySelector() {
 
     } catch (error) {
         output.innerHTML = `<div class="error">Invalid selector: ${error.message}</div>`;
+    }
+}
+
+// DOM Manipulation Functions for js-dom.html
+function updateStyles() {
+    const bgColor = document.getElementById('bg-color')?.value || '#3498db';
+    const textColor = document.getElementById('text-color')?.value || '#ffffff';
+    const fontSize = document.getElementById('font-size')?.value || 16;
+    const borderRadius = document.getElementById('border-radius')?.value || 8;
+    const padding = document.getElementById('padding')?.value || 20;
+    const width = document.getElementById('width')?.value || 300;
+
+    const styleBox = document.getElementById('style-box');
+    const fontSizeValue = document.getElementById('font-size-value');
+    const borderRadiusValue = document.getElementById('border-radius-value');
+    const paddingValue = document.getElementById('padding-value');
+    const widthValue = document.getElementById('width-value');
+    const cssOutput = document.getElementById('generated-css-output');
+
+    if (styleBox) {
+        styleBox.style.backgroundColor = bgColor;
+        styleBox.style.color = textColor;
+        styleBox.style.fontSize = fontSize + 'px';
+        styleBox.style.borderRadius = borderRadius + 'px';
+        styleBox.style.padding = padding + 'px';
+        styleBox.style.width = width + 'px';
+    }
+
+    if (fontSizeValue) fontSizeValue.textContent = fontSize + 'px';
+    if (borderRadiusValue) borderRadiusValue.textContent = borderRadius + 'px';
+    if (paddingValue) paddingValue.textContent = padding + 'px';
+    if (widthValue) widthValue.textContent = width + 'px';
+
+    if (cssOutput) {
+        cssOutput.textContent = `background-color: ${bgColor};
+color: ${textColor};
+font-size: ${fontSize}px;
+border-radius: ${borderRadius}px;
+padding: ${padding}px;
+width: ${width}px;`;
+    }
+}
+
+function updateImageSrc() {
+    const select = document.getElementById('img-src');
+    const img = document.getElementById('demo-image');
+    if (select && img) {
+        img.src = select.value;
+        updateAttributeList();
+    }
+}
+
+function updateImageAlt() {
+    const input = document.getElementById('img-alt');
+    const img = document.getElementById('demo-image');
+    if (input && img) {
+        img.alt = input.value;
+        updateAttributeList();
+    }
+}
+
+function updateImageData() {
+    const input = document.getElementById('img-category');
+    const img = document.getElementById('demo-image');
+    if (input && img) {
+        img.dataset.category = input.value;
+        updateAttributeList();
+    }
+}
+
+function updateLinkHref() {
+    const input = document.getElementById('link-href');
+    const link = document.getElementById('demo-link');
+    if (input && link) {
+        link.href = input.value;
+        updateAttributeList();
+    }
+}
+
+function updateLinkTarget() {
+    const select = document.getElementById('link-target');
+    const link = document.getElementById('demo-link');
+    if (select && link) {
+        link.target = select.value;
+        updateAttributeList();
+    }
+}
+
+function updateAttributeList() {
+    const list = document.getElementById('attribute-list');
+    const img = document.getElementById('demo-image');
+    const link = document.getElementById('demo-link');
+
+    if (list && img && link) {
+        list.innerHTML = `
+            <div><strong>Image attributes:</strong></div>
+            <div>src: ${img.src}</div>
+            <div>alt: ${img.alt}</div>
+            <div>data-category: ${img.dataset.category}</div>
+            <div><strong>Link attributes:</strong></div>
+            <div>href: ${link.href}</div>
+            <div>target: ${link.target}</div>
+        `;
+    }
+}
+
+function addTodoItem() {
+    const input = document.getElementById('demo-todo-input');
+    const list = document.getElementById('demo-todo-list');
+
+    if (input && list && input.value.trim()) {
+        const li = document.createElement('li');
+        li.innerHTML = `${input.value.trim()} <button onclick="removeTodoItem(this)" class="delete-btn">×</button>`;
+        list.appendChild(li);
+        input.value = '';
+    }
+}
+
+function removeTodoItem(button) {
+    if (button && button.parentElement) {
+        button.parentElement.remove();
     }
 }
 
@@ -7656,4 +7811,68 @@ function updateGridDemo() {
     if (typeof Prism !== 'undefined') {
         Prism.highlightElement(cssOutput);
     }
+}
+
+// Initialize DOM manipulation event listeners
+function initializeDOMManipulation() {
+    // Event handling demo
+    const eventButton = document.getElementById('event-button');
+    const hoverBox = document.getElementById('hover-box');
+    const eventInput = document.getElementById('event-input');
+    const eventLog = document.getElementById('event-log');
+
+    if (eventButton) {
+        eventButton.addEventListener('click', function () {
+            logEvent('Button clicked!', 'click');
+        });
+    }
+
+    if (hoverBox) {
+        hoverBox.addEventListener('mouseenter', function () {
+            logEvent('Mouse entered the box!', 'mouseenter');
+            this.style.backgroundColor = '#e74c3c';
+        });
+
+        hoverBox.addEventListener('mouseleave', function () {
+            logEvent('Mouse left the box!', 'mouseleave');
+            this.style.backgroundColor = '#3498db';
+        });
+    }
+
+    if (eventInput) {
+        eventInput.addEventListener('input', function () {
+            logEvent(`Input changed to: "${this.value}"`, 'input');
+        });
+
+        eventInput.addEventListener('focus', function () {
+            logEvent('Input focused!', 'focus');
+        });
+
+        eventInput.addEventListener('blur', function () {
+            logEvent('Input lost focus!', 'blur');
+        });
+    }
+
+    function logEvent(message, type) {
+        if (!eventLog) return;
+
+        const logEntry = document.createElement('div');
+        logEntry.className = 'log-entry';
+        logEntry.innerHTML = `<strong>${type}:</strong> ${message} <small>(${new Date().toLocaleTimeString()})</small>`;
+
+        // Keep only last 10 entries
+        const entries = eventLog.querySelectorAll('.log-entry');
+        if (entries.length >= 10) {
+            entries[0].remove();
+        }
+
+        eventLog.appendChild(logEntry);
+        eventLog.scrollTop = eventLog.scrollHeight;
+    }
+
+    // Initialize style controls
+    updateStyles();
+
+    // Initialize attribute list
+    updateAttributeList();
 }
