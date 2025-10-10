@@ -644,6 +644,157 @@
   }
 }
 
+// JavaScript Console Styles
+.js-console {
+  background: $bg-dark;
+  border: 1px solid $border-dark;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  margin-top: $spacing-lg;
+
+  .console-output {
+    background: $bg-darker;
+    color: $text-light;
+    padding: $spacing-lg;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+    line-height: $line-height-normal;
+
+    .console-command {
+      color: #10b981; // Green for commands
+      margin-bottom: $spacing-xs;
+      font-weight: $font-weight-medium;
+    }
+
+    .console-result {
+      color: $text-light;
+      margin-bottom: $spacing-md;
+      padding-left: $spacing-lg;
+    }
+
+    .console-error {
+      color: $error-color;
+      margin-bottom: $spacing-md;
+      padding-left: $spacing-lg;
+    }
+  }
+
+  .console-input-container {
+    @include flex-center;
+    gap: $spacing-sm;
+    background: $bg-dark;
+    border-top: 1px solid $border-dark;
+    padding: $spacing-md $spacing-lg;
+
+    .prompt {
+      color: #10b981; // Green for prompt
+      font-weight: $font-weight-bold;
+      flex-shrink: 0;
+    }
+
+    .console-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: $text-light;
+      font-family: $font-family-monospace;
+      font-size: $font-size-sm;
+      outline: none;
+      padding: $spacing-xs;
+
+      &::placeholder {
+        color: rgba($text-light, 0.5);
+      }
+
+      &:focus {
+        background: rgba(white, 0.05);
+      }
+    }
+  }
+}
+
+// Console container (for other JS topics)
+.console-container {
+  margin-top: $spacing-xl;
+  background: $bg-dark;
+  border: 1px solid $border-dark;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  .console-header {
+    background: $bg-darker;
+    color: $text-light;
+    padding: $spacing-md $spacing-lg;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    border-bottom: 1px solid $border-dark;
+  }
+
+  .console-output {
+    background: $bg-dark;
+    color: $text-light;
+    padding: $spacing-lg;
+    min-height: 150px;
+    font-family: $font-family-monospace;
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+  }
+}
+
+// Color box for demo
+.color-box {
+  width: 200px;
+  height: 200px;
+  border-radius: $border-radius-md;
+  margin: $spacing-lg auto;
+  transition: background $transition-base;
+  border: 2px solid $border-light;
+}
+
+// Result box for greetings and other output
+.result-box {
+  margin-top: $spacing-lg;
+  padding: $spacing-lg;
+  background: $bg-light;
+  border: 1px solid $border-light;
+  border-radius: $border-radius-md;
+  animation: fadeIn $animation-duration-base ease forwards;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+  }
+}
+
+// Live clock display
+.live-clock {
+  background: $bg-dark;
+  color: $text-light;
+  font-family: $font-family-monospace;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  padding: $spacing-xl;
+  text-align: center;
+  border-radius: $border-radius-md;
+  border: 2px solid $primary-color;
+  margin: $spacing-lg 0;
+  letter-spacing: 2px;
+}
+
 // Bottom navigation section
 .navigation-section {
   @include flex-between;
