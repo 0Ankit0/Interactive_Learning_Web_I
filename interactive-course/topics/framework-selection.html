@@ -63,7 +63,7 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Framework Selection Fundamentals</span>
+                  <span>Getting Started</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
@@ -74,6 +74,13 @@
                       >Introduction</a
                     >
                   </li>
+                  <li>
+                    <a
+                      href="#requirements"
+                      onclick="scrollToSection('requirements')"
+                      >Key Decision Factors</a
+                    >
+                  </li>
                 </ul>
               </li>
               <li>
@@ -82,15 +89,22 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Decision Factors</span>
+                  <span>Interactive Tools</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
                     <a
-                      href="#requirements"
-                      onclick="scrollToSection('requirements')"
-                      >Project Requirements</a
+                      href="#framework-selector"
+                      onclick="scrollToSection('framework-selector')"
+                      >Framework Selector</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#comparison-matrix"
+                      onclick="scrollToSection('comparison-matrix')"
+                      >Comparison Matrix</a
                     >
                   </li>
                 </ul>
@@ -101,13 +115,29 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Analysis & Strategy</span>
+                  <span>Practical Guidance</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
-                    <a href="#quiz" onclick="scrollToSection('quiz')"
-                      >Test Your Knowledge</a
+                    <a
+                      href="#scenarios"
+                      onclick="scrollToSection('scenarios')"
+                      >Real-World Scenarios</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#checklist"
+                      onclick="scrollToSection('checklist')"
+                      >Evaluation Checklist</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#best-practices"
+                      onclick="scrollToSection('best-practices')"
+                      >Best Practices</a
                     >
                   </li>
                 </ul>
@@ -118,13 +148,18 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Assessment</span>
+                  <span>Assessment & Resources</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
                     <a href="#quiz" onclick="scrollToSection('quiz')"
-                      >Test Your Knowledge</a
+                      >Knowledge Check</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Video Resources</a
                     >
                   </li>
                 </ul>
@@ -159,7 +194,7 @@
                 </h2>
               </div>
 
-              <div class="topic-grid four-column">
+              <div class="topic-grid two-column">
                 <div class="topic-card">
                   <div class="card-icon">
                     <i class="fas fa-cogs"></i>
@@ -247,7 +282,7 @@
             </section>
 
             <!-- Interactive Framework Selector -->
-            <section class="content-section">
+            <section class="content-section" id="framework-selector">
               <h2 class="section-header">
                 <i class="fas fa-magic"></i> Interactive Framework Selector
               </h2>
@@ -413,7 +448,7 @@
             </section>
 
             <!-- Decision Matrix -->
-            <section class="content-section">
+            <section class="content-section" id="comparison-matrix">
               <h2 class="section-header">
                 <i class="fas fa-table"></i> Framework Comparison Matrix
               </h2>
@@ -482,19 +517,19 @@
                     <tbody>
                       <tr class="team-criteria">
                         <td class="criteria-label">Learning Curve</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="6"></div>
                           </div>
                           <span class="score-text">Moderate</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="9"></div>
                           </div>
                           <span class="score-text">Steep</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="3"></div>
                           </div>
@@ -503,19 +538,19 @@
                       </tr>
                       <tr class="technical-criteria">
                         <td class="criteria-label">Performance</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="9"></div>
                           </div>
                           <span class="score-text">Excellent</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="7"></div>
                           </div>
                           <span class="score-text">Good</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="9"></div>
                           </div>
@@ -524,19 +559,19 @@
                       </tr>
                       <tr class="business-criteria">
                         <td class="criteria-label">Job Market</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="10"></div>
                           </div>
                           <span class="score-text">Highest</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="7"></div>
                           </div>
                           <span class="score-text">High</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="5"></div>
                           </div>
@@ -545,19 +580,19 @@
                       </tr>
                       <tr class="technical-criteria">
                         <td class="criteria-label">Ecosystem Size</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="10"></div>
                           </div>
                           <span class="score-text">Huge</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="8"></div>
                           </div>
                           <span class="score-text">Complete</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="6"></div>
                           </div>
@@ -566,19 +601,19 @@
                       </tr>
                       <tr class="team-criteria">
                         <td class="criteria-label">Team Collaboration</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="7"></div>
                           </div>
                           <span class="score-text">Flexible</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="9"></div>
                           </div>
                           <span class="score-text">Structured</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="8"></div>
                           </div>
@@ -587,19 +622,19 @@
                       </tr>
                       <tr class="technical-criteria">
                         <td class="criteria-label">Bundle Size</td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="React">
                           <div class="score-bar">
                             <div class="score-fill" data-score="7"></div>
                           </div>
                           <span class="score-text">Medium</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Angular">
                           <div class="score-bar">
                             <div class="score-fill" data-score="4"></div>
                           </div>
                           <span class="score-text">Large</span>
                         </td>
-                        <td class="score-cell">
+                        <td class="score-cell" data-framework="Vue.js">
                           <div class="score-bar">
                             <div class="score-fill" data-score="9"></div>
                           </div>
@@ -613,7 +648,7 @@
             </section>
 
             <!-- Real-World Scenarios -->
-            <section class="content-section">
+            <section class="content-section" id="scenarios">
               <h2 class="section-header">
                 <i class="fas fa-briefcase"></i> Real-World Scenarios
               </h2>
@@ -730,7 +765,7 @@
             </section>
 
             <!-- Evaluation Checklist -->
-            <section class="content-section">
+            <section class="content-section" id="checklist">
               <h2 class="section-header">
                 <i class="fas fa-check-double"></i> Framework Evaluation
                 Checklist
@@ -891,7 +926,7 @@
             </section>
 
             <!-- Best Practices -->
-            <section class="content-section">
+            <section class="content-section" id="best-practices">
               <h2 class="section-header">
                 <i class="fas fa-clipboard-check"></i> Best Practices for
                 Framework Selection
@@ -1213,7 +1248,7 @@
                 <span>Previous Topic</span>
                 <span class="nav-topic-title">Framework Overview</span>
               </a>
-              <a href="ui-ux-design.html" class="nav-link nav-next">
+              <a href="uiux-design.html" class="nav-link nav-next">
                 <span>Next Topic</span>
                 <span class="nav-topic-title">UI/UX Design</span>
                 <i class="fas fa-arrow-right"></i>
@@ -1229,5 +1264,164 @@
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    
+    <script>
+      // Framework Comparison Matrix Filter Function
+      function showCriteria(criteria) {
+        const rows = document.querySelectorAll('.comparison-table tbody tr');
+        const buttons = document.querySelectorAll('.button-group .btn');
+        
+        // Update button states
+        buttons.forEach(btn => {
+          if (btn.getAttribute('data-criteria') === criteria) {
+            btn.classList.add('active');
+            btn.classList.remove('btn-secondary');
+            btn.classList.add('btn-primary');
+          } else {
+            btn.classList.remove('active');
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-secondary');
+          }
+        });
+        
+        // Filter table rows
+        rows.forEach(row => {
+          if (criteria === 'all') {
+            row.classList.remove('hidden');
+            row.style.display = '';
+          } else if (row.classList.contains(criteria + '-criteria')) {
+            row.classList.remove('hidden');
+            row.style.display = '';
+          } else {
+            row.classList.add('hidden');
+            row.style.display = 'none';
+          }
+        });
+      }
+
+      // Framework Selector Recommendation Function (placeholder)
+      function getRecommendation() {
+        const form = document.getElementById('framework-selector-form');
+        const formData = new FormData(form);
+        
+        const projectSize = formData.get('projectSize');
+        const teamSize = formData.get('teamSize');
+        const timeline = formData.get('timeline');
+        const complexity = formData.get('complexity');
+        
+        // Validate all fields are selected
+        if (!projectSize || !teamSize || !timeline || !complexity) {
+          alert('Please answer all questions before getting a recommendation.');
+          return;
+        }
+        
+        // Simple recommendation logic
+        let framework = 'React';
+        let reasons = [];
+        let tagline = 'A JavaScript library for building user interfaces';
+        
+        // Recommendation logic
+        if (complexity === 'high' && teamSize === 'large') {
+          framework = 'Angular';
+          tagline = 'A platform for building mobile and desktop web applications';
+          reasons = [
+            'Built-in TypeScript support for large-scale applications',
+            'Comprehensive framework with all tools included',
+            'Strong architecture for team collaboration',
+            'Excellent for complex, enterprise-level applications'
+          ];
+        } else if (projectSize === 'small' && timeline === 'short') {
+          framework = 'Vue.js';
+          tagline = 'The Progressive JavaScript Framework';
+          reasons = [
+            'Gentle learning curve for quick onboarding',
+            'Lightweight and fast for small projects',
+            'Excellent documentation for rapid development',
+            'Perfect for prototypes and MVPs'
+          ];
+        } else {
+          framework = 'React';
+          tagline = 'A JavaScript library for building user interfaces';
+          reasons = [
+            'Huge ecosystem with extensive third-party libraries',
+            'Strong community support and resources',
+            'Flexible architecture suitable for various project sizes',
+            'Excellent performance and modern development experience'
+          ];
+        }
+        
+        // Get framework icon
+        const frameworkIcons = {
+          'React': 'fab fa-react',
+          'Angular': 'fab fa-angular',
+          'Vue.js': 'fab fa-vuejs'
+        };
+        
+        // Display recommendation
+        const resultBox = document.getElementById('recommendation-result');
+        resultBox.innerHTML = `
+          <div class="recommendation-header">
+            <div class="recommendation-icon">
+              <i class="${frameworkIcons[framework]}"></i>
+            </div>
+            <h3>We Recommend</h3>
+            <p>Based on your project requirements</p>
+          </div>
+          
+          <div class="recommendation-framework">
+            <div class="framework-logo">
+              <i class="${frameworkIcons[framework]}"></i>
+            </div>
+            <h4>${framework}</h4>
+            <p class="framework-tagline">${tagline}</p>
+          </div>
+          
+          <div class="recommendation-reasons">
+            <h5><i class="fas fa-check-circle"></i> Why ${framework}?</h5>
+            <ul>
+              ${reasons.map(reason => `<li>${reason}</li>`).join('')}
+            </ul>
+          </div>
+          
+          <div class="recommendation-alternatives">
+            <h5><i class="fas fa-info-circle"></i> Keep in Mind</h5>
+            <p>This recommendation is based on general guidelines. Consider running a small proof-of-concept with multiple frameworks to see which one fits your team and project best.</p>
+          </div>
+          
+          <div class="recommendation-actions">
+            <a href="https://reactjs.org/" target="_blank" class="btn btn-primary">
+              <i class="fas fa-external-link-alt"></i> Learn More
+            </a>
+            <button class="btn btn-secondary" onclick="document.getElementById('framework-selector-form').reset(); document.getElementById('recommendation-result').classList.remove('show');">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+          </div>
+        `;
+        resultBox.classList.add('show');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Checklist Summary Generator (placeholder)
+      function generateChecklistSummary() {
+        const checkedItems = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+        const totalItems = document.querySelectorAll('.checklist-item input[type="checkbox"]').length;
+        
+        const resultBox = document.getElementById('checklist-results');
+        resultBox.innerHTML = `
+          <div style="text-align: center; padding: 2rem;">
+            <i class="fas fa-clipboard-check" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+            <h4>Evaluation Summary</h4>
+            <p>You've checked <strong>${checkedItems} out of ${totalItems}</strong> considerations.</p>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 1rem;">
+              ${checkedItems === totalItems 
+                ? 'Excellent! You\'ve considered all factors for framework selection.' 
+                : 'Review the unchecked items to ensure comprehensive framework evaluation.'}
+            </p>
+          </div>
+        `;
+        resultBox.classList.add('show');
+        resultBox.style.display = 'block';
+      }
+    </script>
   </body>
 </html>

@@ -11236,3 +11236,858 @@
     }
   }
 }
+
+// ========================================
+// FRAMEWORK SELECTOR STYLES
+// ========================================
+
+// Interactive Framework Selector Form Styles
+#framework-selector-form {
+  background: white;
+  border-radius: $border-radius-xl;
+  padding: $spacing-3xl;
+  box-shadow: $shadow-md;
+  margin-bottom: $spacing-2xl;
+
+  @include breakpoint($breakpoint-md) {
+    padding: $spacing-2xl;
+  }
+
+  @include breakpoint($breakpoint-sm) {
+    padding: $spacing-xl;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-3xl;
+
+    &:last-of-type {
+      margin-bottom: $spacing-2xl;
+    }
+  }
+
+  .form-label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid $border-light;
+
+    i {
+      color: $primary-color;
+      font-size: $font-size-xl;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      font-size: $font-size-base;
+
+      i {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+
+  // Radio Card Group Layout
+  .radio-card-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+
+    @include breakpoint($breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+    }
+
+    @include breakpoint($breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint($breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Radio Card Styles
+  .radio-card {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    transition: all $transition-base;
+
+    // Hide the default radio input
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    // Card Content
+    .card-content {
+      background: white;
+      border: 2px solid $border-light;
+      border-radius: $border-radius-lg;
+      padding: $spacing-xl;
+      text-align: center;
+      transition: all $transition-base;
+      position: relative;
+      overflow: hidden;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-md;
+
+      // Hover effect background
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba($primary-color, 0.05), transparent);
+        transition: left 0.5s ease-in-out;
+      }
+
+      i {
+        font-size: $font-size-3xl;
+        color: $text-secondary;
+        transition: all $transition-base;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint($breakpoint-sm) {
+          font-size: $font-size-2xl;
+        }
+      }
+
+      h4 {
+        margin: 0;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        transition: color $transition-base;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint($breakpoint-sm) {
+          font-size: $font-size-base;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-size: $font-size-sm;
+        color: $text-secondary;
+        transition: color $transition-base;
+        position: relative;
+        z-index: 1;
+
+        @include breakpoint($breakpoint-sm) {
+          font-size: $font-size-xs;
+        }
+      }
+    }
+
+    // Hover State
+    &:hover .card-content {
+      border-color: rgba($primary-color, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba($primary-color, 0.15);
+
+      &::before {
+        left: 100%;
+      }
+
+      i {
+        color: $primary-color;
+        transform: scale(1.1);
+      }
+    }
+
+    // Active/Selected State
+    input[type="radio"]:checked + .card-content {
+      border-color: $primary-color;
+      background: linear-gradient(135deg, rgba($primary-color, 0.08) 0%, rgba($primary-color, 0.02) 100%);
+      box-shadow: 0 6px 20px rgba($primary-color, 0.25), inset 0 0 0 1px rgba($primary-color, 0.1);
+
+      i {
+        color: $primary-color;
+        transform: scale(1.15);
+      }
+
+      h4 {
+        color: $primary-color;
+      }
+
+      p {
+        color: color.adjust($primary-color, $lightness: -10%);
+      }
+
+      // Checkmark indicator
+      &::after {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: $spacing-sm;
+        right: $spacing-sm;
+        width: 28px;
+        height: 28px;
+        background: $primary-color;
+        color: white;
+        border-radius: $border-radius-full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $font-size-sm;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.4);
+        animation: scaleIn 0.3s ease-out;
+        z-index: 2;
+      }
+    }
+
+    // Focus State
+    input[type="radio"]:focus + .card-content {
+      outline: 2px solid $primary-color;
+      outline-offset: 2px;
+    }
+
+    // Disabled State
+    input[type="radio"]:disabled + .card-content {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: $bg-light;
+
+      &:hover {
+        border-color: $border-light;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  // Button Group
+  .button-group {
+    display: flex;
+    gap: $spacing-lg;
+    justify-content: center;
+    margin-top: $spacing-2xl;
+    flex-wrap: wrap;
+
+    @include breakpoint($breakpoint-sm) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      padding: $spacing-lg $spacing-3xl;
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      gap: $spacing-md;
+      min-width: 200px;
+      transition: all $transition-base;
+
+      @include breakpoint($breakpoint-sm) {
+        width: 100%;
+        min-width: auto;
+      }
+
+      i {
+        transition: transform $transition-fast;
+      }
+
+      &:hover i {
+        transform: scale(1.1);
+      }
+
+      &.btn-primary {
+        box-shadow: 0 4px 14px rgba($primary-color, 0.3);
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 8px rgba($primary-color, 0.3);
+        }
+      }
+
+      &.btn-secondary {
+        &:hover {
+          background: $bg-light;
+          border-color: $border-dark;
+        }
+      }
+    }
+  }
+}
+
+// Recommendation Result Box
+#recommendation-result {
+  margin-top: $spacing-3xl;
+  padding: $spacing-3xl;
+  background: white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  border: 2px solid $primary-color;
+  animation: slideInUp 0.5s ease-out;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  .recommendation-header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+    padding-bottom: $spacing-2xl;
+    border-bottom: 2px solid $border-light;
+
+    .recommendation-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-xl;
+      background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: 15%));
+      border-radius: $border-radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba($primary-color, 0.3);
+
+      i {
+        font-size: $font-size-3xl;
+        color: white;
+      }
+    }
+
+    h3 {
+      margin: 0 0 $spacing-md 0;
+      font-size: $font-size-2xl;
+      color: $text-primary;
+      font-weight: $font-weight-bold;
+    }
+
+    p {
+      margin: 0;
+      font-size: $font-size-base;
+      color: $text-secondary;
+    }
+  }
+
+  .recommendation-framework {
+    text-align: center;
+    padding: $spacing-2xl;
+    background: linear-gradient(135deg, rgba($primary-color, 0.08), rgba($primary-color, 0.02));
+    border-radius: $border-radius-lg;
+    margin-bottom: $spacing-2xl;
+
+    .framework-logo {
+      font-size: $font-size-4xl;
+      margin-bottom: $spacing-lg;
+
+      i {
+        color: $primary-color;
+      }
+    }
+
+    h4 {
+      margin: 0 0 $spacing-sm 0;
+      font-size: $font-size-xl;
+      color: $primary-color;
+      font-weight: $font-weight-bold;
+    }
+
+    .framework-tagline {
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      font-style: italic;
+    }
+  }
+
+  .recommendation-reasons {
+    margin-bottom: $spacing-2xl;
+
+    h5 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin-bottom: $spacing-lg;
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+
+      i {
+        color: $success-color;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: $spacing-md $spacing-lg;
+        margin-bottom: $spacing-md;
+        background: $bg-light;
+        border-left: 4px solid $success-color;
+        border-radius: $border-radius-md;
+        display: flex;
+        align-items: flex-start;
+        gap: $spacing-md;
+        transition: all $transition-base;
+
+        &:hover {
+          background: rgba($success-color, 0.1);
+          transform: translateX(5px);
+        }
+
+        &::before {
+          content: '\f00c';
+          font-family: 'Font Awesome 6 Free';
+          font-weight: 900;
+          color: $success-color;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  .recommendation-alternatives {
+    background: rgba($info-color, 0.05);
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba($info-color, 0.2);
+
+    h5 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin-bottom: $spacing-md;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      i {
+        color: $info-color;
+        font-size: $font-size-sm;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: $font-size-sm;
+      color: $text-secondary;
+      line-height: $line-height-relaxed;
+    }
+  }
+
+  .recommendation-actions {
+    display: flex;
+    gap: $spacing-lg;
+    justify-content: center;
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-2xl;
+    border-top: 1px solid $border-light;
+    flex-wrap: wrap;
+
+    @include breakpoint($breakpoint-sm) {
+      flex-direction: column;
+    }
+
+    .btn {
+      padding: $spacing-md $spacing-2xl;
+      font-size: $font-size-sm;
+      gap: $spacing-sm;
+
+      @include breakpoint($breakpoint-sm) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Scale-in animation for checkmark
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// ========================================
+// FRAMEWORK COMPARISON MATRIX STYLES
+// ========================================
+
+// Comparison Matrix Table
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: $spacing-2xl;
+  background: white;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-light;
+
+  thead {
+    background: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: 15%));
+
+    tr {
+      th {
+        padding: $spacing-xl;
+        text-align: center;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        color: white;
+        border-right: 1px solid rgba(white, 0.2);
+        position: relative;
+
+        &:first-child {
+          text-align: left;
+          font-size: $font-size-lg;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        .framework-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: $spacing-sm;
+
+          i {
+            font-size: $font-size-2xl;
+            margin-bottom: $spacing-xs;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+          }
+        }
+
+        &.react-col {
+          background: rgba(#61dafb, 0.15);
+        }
+
+        &.angular-col {
+          background: rgba(#dd0031, 0.15);
+        }
+
+        &.vue-col {
+          background: rgba(#42b883, 0.15);
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color $transition-base;
+      border-bottom: 1px solid $border-light;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: rgba($primary-color, 0.02);
+      }
+
+      // Hide criteria rows based on filter
+      &.technical-criteria,
+      &.business-criteria,
+      &.team-criteria {
+        display: table-row;
+      }
+
+      &.hidden {
+        display: none;
+      }
+
+      td {
+        padding: $spacing-xl;
+        border-right: 1px solid $border-light;
+        vertical-align: middle;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.criteria-label {
+          font-weight: $font-weight-semibold;
+          color: $text-primary;
+          font-size: $font-size-base;
+          background: rgba($primary-color, 0.03);
+          width: 200px;
+
+          @include breakpoint($breakpoint-md) {
+            width: 150px;
+            font-size: $font-size-sm;
+          }
+
+          @include breakpoint($breakpoint-sm) {
+            width: 120px;
+          }
+        }
+
+        &.score-cell {
+          text-align: center;
+
+          .score-bar {
+            width: 100%;
+            max-width: 200px;
+            height: 8px;
+            background: $bg-light;
+            border-radius: $border-radius-sm;
+            overflow: hidden;
+            margin: 0 auto $spacing-sm auto;
+            border: 1px solid $border-light;
+
+            @include breakpoint($breakpoint-md) {
+              max-width: 150px;
+            }
+
+            .score-fill {
+              height: 100%;
+              border-radius: $border-radius-sm;
+              transition: width 0.8s ease-out;
+
+              // Simple color coding based on score
+              &[data-score="1"],
+              &[data-score="2"],
+              &[data-score="3"] {
+                width: calc(var(--score) * 10%);
+                background: #ef4444; // Red for low scores
+              }
+
+              &[data-score="4"],
+              &[data-score="5"],
+              &[data-score="6"] {
+                background: #f59e0b; // Orange for medium scores
+              }
+
+              &[data-score="7"],
+              &[data-score="8"],
+              &[data-score="9"],
+              &[data-score="10"] {
+                background: #10b981; // Green for high scores
+              }
+
+              // Individual widths
+              &[data-score="1"] { width: 10%; }
+              &[data-score="2"] { width: 20%; }
+              &[data-score="3"] { width: 30%; }
+              &[data-score="4"] { width: 40%; }
+              &[data-score="5"] { width: 50%; }
+              &[data-score="6"] { width: 60%; }
+              &[data-score="7"] { width: 70%; }
+              &[data-score="8"] { width: 80%; }
+              &[data-score="9"] { width: 90%; }
+              &[data-score="10"] { width: 100%; }
+            }
+          }
+
+          .score-text {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-medium;
+            color: $text-secondary;
+            display: block;
+
+            @include breakpoint($breakpoint-sm) {
+              font-size: $font-size-xs;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive table
+  @include breakpoint($breakpoint-md) {
+    thead tr th {
+      padding: $spacing-lg $spacing-md;
+      font-size: $font-size-sm;
+
+      .framework-header i {
+        font-size: $font-size-xl;
+      }
+    }
+
+    tbody tr td {
+      padding: $spacing-lg $spacing-md;
+    }
+  }
+
+  @include breakpoint($breakpoint-sm) {
+    display: block;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+
+      tr {
+        display: block;
+        margin-bottom: $spacing-xl;
+        background: white;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow-md;
+        border: 1px solid $border-light;
+        padding: $spacing-lg;
+
+        &:hover {
+          background: white;
+        }
+
+        td {
+          display: block;
+          border: none;
+          padding: $spacing-md 0;
+          width: 100% !important;
+
+          &.criteria-label {
+            font-size: $font-size-lg;
+            font-weight: $font-weight-bold;
+            color: $primary-color;
+            background: transparent;
+            border-bottom: 2px solid $border-light;
+            padding-bottom: $spacing-lg;
+            margin-bottom: $spacing-lg;
+          }
+
+          &.score-cell {
+            padding: $spacing-md 0;
+            text-align: left;
+            border-bottom: 1px solid $border-light;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &::before {
+              content: attr(data-framework);
+              display: block;
+              font-weight: $font-weight-semibold;
+              color: $text-primary;
+              margin-bottom: $spacing-sm;
+              font-size: $font-size-sm;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Filter buttons for comparison matrix
+.button-group {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-2xl;
+  justify-content: center;
+
+  @include breakpoint($breakpoint-sm) {
+    gap: $spacing-sm;
+  }
+
+  .btn {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-sm;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint($breakpoint-sm) {
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-size-xs;
+      flex: 1;
+      min-width: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(white, 0.2), transparent);
+      transition: left 0.5s ease-in-out;
+    }
+
+    &:hover:not(.active) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &.active {
+      background: $primary-color;
+      color: white;
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+      transform: translateY(-1px);
+
+      &:hover {
+        background: color.adjust($primary-color, $lightness: -5%);
+      }
+    }
+  }
+}
+
+// Table container wrapper
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: $border-radius-lg;
+  margin-top: $spacing-xl;
+  
+  // Custom scrollbar for table container
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-light;
+    border-radius: $border-radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-dark;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $text-secondary;
+    }
+  }
+
+  @include breakpoint($breakpoint-sm) {
+    overflow-x: visible;
+    border-radius: 0;
+  }
+}
