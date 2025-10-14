@@ -2387,15 +2387,59 @@ function initializeFormDemo() {
 
 // Regular Expressions Demo Functions
 function initializeRegexDemo() {
+    console.log('Initializing Regex Demo...');
+    
     const testBtn = document.getElementById('testPatternBtn');
     const clearBtn = document.getElementById('clearTesterBtn');
+    const patternInput = document.getElementById('customPattern');
+    const testInput = document.getElementById('testInput');
+
+    console.log('Elements found:', { 
+        testBtn: !!testBtn, 
+        clearBtn: !!clearBtn, 
+        patternInput: !!patternInput, 
+        testInput: !!testInput 
+    });
 
     if (testBtn) {
-        testBtn.addEventListener('click', testRegexPattern);
+        testBtn.addEventListener('click', function() {
+            console.log('Test button clicked!');
+            testRegexPattern();
+        });
+        console.log('Test button listener attached');
+    } else {
+        console.warn('Test button not found!');
     }
 
     if (clearBtn) {
-        clearBtn.addEventListener('click', clearRegexTester);
+        clearBtn.addEventListener('click', function() {
+            console.log('Clear button clicked!');
+            clearRegexTester();
+        });
+        console.log('Clear button listener attached');
+    } else {
+        console.warn('Clear button not found!');
+    }
+
+    // Add Enter key support for pattern input
+    if (patternInput) {
+        patternInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                console.log('Enter pressed in pattern input');
+                testRegexPattern();
+            }
+        });
+    }
+
+    // Add Ctrl+Enter support for test input textarea
+    if (testInput) {
+        testInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                console.log('Ctrl+Enter pressed in test input');
+                testRegexPattern();
+            }
+        });
     }
 }
 
@@ -2405,29 +2449,55 @@ function testRegexPattern() {
     const matchesDiv = document.getElementById('testerMatches');
     const highlightDiv = document.getElementById('testerHighlight');
 
-    if (!patternInput || !testInput) return;
+    if (!patternInput || !testInput) {
+        console.error('Pattern input or test input not found');
+        return;
+    }
 
     const patternText = patternInput.value.trim();
     const testText = testInput.value;
 
+    if (!patternText) {
+        if (matchesDiv) {
+            matchesDiv.innerHTML = `
+                <div class="match-count">Error</div>
+                <div class="match-list error">Please enter a regex pattern</div>
+            `;
+            matchesDiv.className = 'match-summary error';
+        }
+        return;
+    }
+
     try {
         // Parse the regex pattern (handle /pattern/flags format)
         let regex;
+        let flags = 'g'; // Default to global flag
+        
         if (patternText.startsWith('/')) {
             const lastSlash = patternText.lastIndexOf('/');
             if (lastSlash > 0) {
                 const pattern = patternText.substring(1, lastSlash);
-                const flags = patternText.substring(lastSlash + 1);
+                flags = patternText.substring(lastSlash + 1);
+                
+                // Ensure 'g' flag is present for matchAll
+                if (!flags.includes('g')) {
+                    flags += 'g';
+                }
+                
                 regex = new RegExp(pattern, flags);
             } else {
-                regex = new RegExp(patternText.substring(1));
+                regex = new RegExp(patternText.substring(1), 'g');
             }
         } else {
             regex = new RegExp(patternText, 'g');
         }
 
-        // Find all matches
+        console.log('Testing pattern:', regex);
+
+        // Find all matches using matchAll
         const matches = Array.from(testText.matchAll(regex));
+
+        console.log('Found matches:', matches.length);
 
         // Update matches display
         if (matchesDiv) {
@@ -2467,6 +2537,8 @@ function testRegexPattern() {
         }
 
     } catch (error) {
+        console.error('Regex error:', error);
+        
         // Handle regex syntax errors
         if (matchesDiv) {
             matchesDiv.innerHTML = `
