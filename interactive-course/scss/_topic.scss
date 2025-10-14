@@ -768,6 +768,57 @@
     display: block;
   }
 
+  &.success {
+    background: rgba($success-color, 0.1);
+    border-color: $success-color;
+
+    .success {
+      color: $success-color;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-weight: $font-weight-medium;
+
+      i {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+
+  &.error {
+    background: rgba($error-color, 0.1);
+    border-color: $error-color;
+
+    .error {
+      color: $error-color;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-weight: $font-weight-medium;
+
+      i {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+
+  &.warning {
+    background: rgba($warning-color, 0.1);
+    border-color: $warning-color;
+
+    .warning {
+      color: $warning-color;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      font-weight: $font-weight-medium;
+
+      i {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+
   h4 {
     margin-top: 0;
     margin-bottom: $spacing-sm;

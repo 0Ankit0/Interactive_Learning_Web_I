@@ -5879,35 +5879,56 @@ function changeTitle() {
 }
 
 function checkErrorChallenge1() {
-    const code = document.getElementById('error-code-1')?.value || '';
-    const output = document.getElementById('error-result-1') || createOutputDiv('error-result-1');
+    const code = document.getElementById('error-challenge-1')?.value || '';
+    const output = document.getElementById('error-result-1');
 
-    if (code.includes('try') && code.includes('catch')) {
-        output.innerHTML = '<div class="success">✓ Correct! You added error handling.</div>';
+    if (!output) return;
+
+    if (code.includes('try') && code.includes('catch') && code.includes('b') && code.includes('0')) {
+        output.innerHTML = '<div class="success"><i class="fas fa-check-circle"></i> Excellent! You correctly handled division by zero with try-catch.</div>';
+        output.className = 'result-box show success';
+    } else if (code.includes('try') && code.includes('catch')) {
+        output.innerHTML = '<div class="warning"><i class="fas fa-exclamation-circle"></i> Good start! Make sure to check if b is 0 before dividing.</div>';
+        output.className = 'result-box show warning';
     } else {
-        output.innerHTML = '<div class="error">✗ Try adding try-catch blocks for error handling.</div>';
+        output.innerHTML = '<div class="error"><i class="fas fa-times-circle"></i> Try adding try-catch blocks and check for division by zero.</div>';
+        output.className = 'result-box show error';
     }
 }
 
 function checkErrorChallenge2() {
-    const code = document.getElementById('error-code-2')?.value || '';
-    const output = document.getElementById('error-result-2') || createOutputDiv('error-result-2');
+    const code = document.getElementById('error-challenge-2')?.value || '';
+    const output = document.getElementById('error-result-2');
 
-    if (code.includes('throw') && code.includes('Error')) {
-        output.innerHTML = '<div class="success">✓ Correct! You created a custom error.</div>';
+    if (!output) return;
+
+    if (code.includes('class') && code.includes('ValidationError') && code.includes('extends Error')) {
+        output.innerHTML = '<div class="success"><i class="fas fa-check-circle"></i> Perfect! You created a custom ValidationError class.</div>';
+        output.className = 'result-box show success';
+    } else if (code.includes('class') && code.includes('Error')) {
+        output.innerHTML = '<div class="warning"><i class="fas fa-exclamation-circle"></i> Good! Make sure it extends Error and is named ValidationError.</div>';
+        output.className = 'result-box show warning';
     } else {
-        output.innerHTML = '<div class="error">✗ Try using throw new Error() to create custom errors.</div>';
+        output.innerHTML = '<div class="error"><i class="fas fa-times-circle"></i> Try creating a class that extends Error.</div>';
+        output.className = 'result-box show error';
     }
 }
 
 function checkErrorChallenge3() {
-    const code = document.getElementById('error-code-3')?.value || '';
-    const output = document.getElementById('error-result-3') || createOutputDiv('error-result-3');
+    const code = document.getElementById('error-challenge-3')?.value || '';
+    const output = document.getElementById('error-result-3');
 
-    if (code.includes('finally')) {
-        output.innerHTML = '<div class="success">✓ Correct! You added a finally block.</div>';
+    if (!output) return;
+
+    if (code.includes('async') && code.includes('try') && code.includes('catch') && code.includes('await')) {
+        output.innerHTML = '<div class="success"><i class="fas fa-check-circle"></i> Excellent! You properly handled errors in an async function with try-catch.</div>';
+        output.className = 'result-box show success';
+    } else if (code.includes('async') && code.includes('await')) {
+        output.innerHTML = '<div class="warning"><i class="fas fa-exclamation-circle"></i> Good start! Add try-catch to handle potential errors.</div>';
+        output.className = 'result-box show warning';
     } else {
-        output.innerHTML = '<div class="error">✗ Try adding a finally block for cleanup code.</div>';
+        output.innerHTML = '<div class="error"><i class="fas fa-times-circle"></i> Create an async function with try-catch for error handling.</div>';
+        output.className = 'result-box show error';
     }
 }
 
