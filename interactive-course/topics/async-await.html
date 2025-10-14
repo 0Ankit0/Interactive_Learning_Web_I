@@ -105,70 +105,68 @@
           <div class="content-main">
             <section id="async-await-overview" class="content-section">
               <h2><i class="fas fa-info-circle"></i> What is Async/Await?</h2>
+              <p class="lead">
+                Async/await is a modern JavaScript feature for writing
+                asynchronous code that looks and behaves like synchronous
+                code. It is built on top of Promises and makes it easier to
+                work with asynchronous operations such as API calls, timers,
+                and file I/O.
+              </p>
               <div class="topic-grid">
-                <p class="lead">
-                  Async/await is a modern JavaScript feature for writing
-                  asynchronous code that looks and behaves like synchronous
-                  code. It is built on top of Promises and makes it easier to
-                  work with asynchronous operations such as API calls, timers,
-                  and file I/O.
-                </p>
-                <div class="topic-grid">
-                  <div class="topic-card">
-                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                    <h4>Async Functions</h4>
-                    <p>Declare functions as async to use await inside them.</p>
-                    <div class="code-block">
-                      <pre><code class="language-js">async function fetchData() {
+                <div class="topic-card">
+                  <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                  <h4>Async Functions</h4>
+                  <p>Declare functions as async to use await inside them.</p>
+                  <div class="code-block">
+                    <pre><code class="language-js">async function fetchData() {
   const response = await fetch('https://api.example.com/data');
   const data = await response.json();
   return data;
 }</code></pre>
-                    </div>
                   </div>
-                  <div class="topic-card">
-                    <div class="card-icon">
-                      <i class="fas fa-pause-circle"></i>
-                    </div>
-                    <h4>Await Keyword</h4>
-                    <p>
-                      Pause execution until a Promise resolves, making code
-                      easier to read.
-                    </p>
-                    <div class="code-block">
-                      <pre><code class="language-js">const result = await someAsyncOperation();
+                </div>
+                <div class="topic-card">
+                  <div class="card-icon">
+                    <i class="fas fa-pause-circle"></i>
+                  </div>
+                  <h4>Await Keyword</h4>
+                  <p>
+                    Pause execution until a Promise resolves, making code
+                    easier to read.
+                  </p>
+                  <div class="code-block">
+                    <pre><code class="language-js">const result = await someAsyncOperation();
 console.log(result);</code></pre>
-                    </div>
                   </div>
-                  <div class="topic-card">
-                    <div class="card-icon">
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h4>Error Handling</h4>
-                    <p>
-                      Use try/catch blocks for robust error handling in async
-                      code.
-                    </p>
-                    <div class="code-block">
-                      <pre><code class="language-js">try {
+                </div>
+                <div class="topic-card">
+                  <div class="card-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <h4>Error Handling</h4>
+                  <p>
+                    Use try/catch blocks for robust error handling in async
+                    code.
+                  </p>
+                  <div class="code-block">
+                    <pre><code class="language-js">try {
   await doSomethingAsync();
 } catch (error) {
   console.error(error);
 }</code></pre>
-                    </div>
                   </div>
-                  <div class="topic-card">
-                    <div class="card-icon"><i class="fas fa-link"></i></div>
-                    <h4>Promise Integration</h4>
-                    <p>
-                      Async/await works seamlessly with existing Promise-based
-                      APIs.
-                    </p>
-                    <div class="code-block">
-                      <pre><code class="language-js">async function getUser() {
+                </div>
+                <div class="topic-card">
+                  <div class="card-icon"><i class="fas fa-link"></i></div>
+                  <h4>Promise Integration</h4>
+                  <p>
+                    Async/await works seamlessly with existing Promise-based
+                    APIs.
+                  </p>
+                  <div class="code-block">
+                    <pre><code class="language-js">async function getUser() {
   return await fetchUserFromAPI();
 }</code></pre>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -181,18 +179,17 @@ console.log(result);</code></pre>
               </h2>
               <div class="interactive-demo">
                 <div class="demo-controls">
-                  <label for="apiUrl">API URL:</label>
                   <input
                     type="text"
                     id="apiUrl"
                     class="form-control"
                     value="https://jsonplaceholder.typicode.com/todos/1"
                   />
-                  <button id="fetchBtn" class="btn btn-primary">
-                    Fetch Data
-                  </button>
-                  <div id="apiResult" class="demo-result"></div>
                 </div>
+                <button id="fetchBtn" class="btn btn-primary">
+                  Fetch Data
+                </button>
+                <div id="apiResult" class="demo-result"></div>
               </div>
             </section>
             <section id="quiz" class="content-section">
@@ -259,7 +256,7 @@ console.log(result);</code></pre>
                 and educational value.
               </p>
 
-              <div class="resource-grid three-column">
+              <div class="resource-grid two-column">
                 <div class="resource-card" data-type="youtube">
                   <div class="card-thumbnail">
                     <i class="fab fa-youtube thumbnail-icon youtube"></i>
