@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize audio/video demos
     initializeAudioVideoDemo();
 
-    // Initialize JSON demos
-    initializeJSONDemo();
+    // Initialize JSON Validator
+    initializeJSONValidator();
 
     // Initialize regex tester
     initializeRegexDemo();
@@ -2190,197 +2190,141 @@ function initializeAudioVideoDemo() {
 }
 
 // JSON Demo Functions
-function initializeJSONDemo() {
-    // Tab switching for JSON demos
-    const tabBtns = document.querySelectorAll('[data-tab]');
-    const tabPanes = document.querySelectorAll('.tab-pane');
+// JSON Validator Functions
+function initializeJSONValidator() {
+    const validateBtn = document.getElementById('validateJson');
+    const formatBtn = document.getElementById('formatJson');
+    const minifyBtn = document.getElementById('minifyJson');
+    const jsonInput = document.getElementById('jsonInput');
+    const validationResult = document.getElementById('validationResult');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.dataset.tab;
-
-            // Remove active class from all buttons and panes
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
-
-            // Add active class to clicked button and corresponding pane
-            btn.classList.add('active');
-            const targetPane = document.getElementById(`${target}-panel`);
-            if (targetPane) {
-                targetPane.classList.add('active');
-            }
-        });
-    });
-
-    // LocalStorage demo
-    initializeLocalStorageDemo();
-
-    // Fetch demo
-    initializeFetchDemo();
-
-    // Form demo
-    initializeFormDemo();
-}
-
-function initializeLocalStorageDemo() {
-    const saveBtn = document.getElementById('saveToStorage');
-    const loadBtn = document.getElementById('loadFromStorage');
-    const clearBtn = document.getElementById('clearStorage');
-    const result = document.getElementById('storageResult');
-
-    if (saveBtn) {
-        saveBtn.addEventListener('click', () => {
-            const name = document.getElementById('userName')?.value || '';
-            const age = document.getElementById('userAge')?.value || '';
-            const skills = document.getElementById('userSkills')?.value || '';
-
-            const userData = {
-                name: name,
-                age: parseInt(age) || 0,
-                skills: skills.split(',').map(s => s.trim()),
-                timestamp: new Date().toISOString()
-            };
-
-            localStorage.setItem('userData', JSON.stringify(userData));
-
-            if (result) {
-                result.innerHTML = `
-                    <h5>✅ Data Saved to LocalStorage</h5>
-                    <pre>${JSON.stringify(userData, null, 2)}</pre>
-                `;
-                result.className = 'result-box success';
-            }
-        });
-    }
-
-    if (loadBtn) {
-        loadBtn.addEventListener('click', () => {
-            const storedData = localStorage.getItem('userData');
-
-            if (result) {
-                if (storedData) {
-                    const userData = JSON.parse(storedData);
-                    result.innerHTML = `
-                        <h5>📤 Data Loaded from LocalStorage</h5>
-                        <pre>${JSON.stringify(userData, null, 2)}</pre>
-                    `;
-                    result.className = 'result-box success';
-
-                    // Populate form fields
-                    if (document.getElementById('userName')) document.getElementById('userName').value = userData.name || '';
-                    if (document.getElementById('userAge')) document.getElementById('userAge').value = userData.age || '';
-                    if (document.getElementById('userSkills')) document.getElementById('userSkills').value = userData.skills?.join(', ') || '';
-                } else {
-                    result.innerHTML = `
-                        <h5>❌ No Data Found</h5>
-                        <p>No user data found in LocalStorage. Save some data first!</p>
-                    `;
-                    result.className = 'result-box error';
+    if (validateBtn && jsonInput && validationResult) {
+        validateBtn.addEventListener('click', () => {
+            const input = jsonInput.value.trim();
+            const resultBox = validationResult.closest('.result-box');
+            
+            if (!input) {
+                if (resultBox) {
+                    resultBox.className = 'result-box warning show';
                 }
-            }
-        });
-    }
-
-    if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-            localStorage.removeItem('userData');
-
-            if (result) {
-                result.innerHTML = `
-                    <h5>🗑️ Storage Cleared</h5>
-                    <p>User data has been removed from LocalStorage.</p>
+                validationResult.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h5>No Input</h5>
+                    <p>Please enter some JSON to validate.</p>
                 `;
-                result.className = 'result-box info';
-            }
-        });
-    }
-}
-
-function initializeFetchDemo() {
-    const fetchBtn = document.getElementById('fetchData');
-    const result = document.getElementById('fetchResult');
-
-    if (fetchBtn && result) {
-        fetchBtn.addEventListener('click', async () => {
-            const apiUrl = document.getElementById('apiUrl')?.value || '';
-
-            if (!apiUrl) {
-                result.innerHTML = `
-                    <h5>❌ Error</h5>
-                    <p>Please enter an API URL.</p>
-                `;
-                result.className = 'result-box error';
                 return;
             }
 
             try {
-                result.innerHTML = `
-                    <h5>🔄 Fetching Data...</h5>
-                    <p>Please wait while we fetch data from: ${apiUrl}</p>
-                `;
-                result.className = 'result-box info';
-
-                const response = await fetch(apiUrl);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                JSON.parse(input);
+                if (resultBox) {
+                    resultBox.className = 'result-box success show';
                 }
-
-                const data = await response.json();
-
-                result.innerHTML = `
-                    <h5>✅ Data Fetched Successfully</h5>
-                    <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
-                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                validationResult.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <h5>Valid JSON!</h5>
+                    <p>Your JSON is properly formatted and valid.</p>
                 `;
-                result.className = 'result-box success';
-
             } catch (error) {
-                result.innerHTML = `
-                    <h5>❌ Fetch Error</h5>
+                if (resultBox) {
+                    resultBox.className = 'result-box error show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    <h5>Invalid JSON</h5>
                     <p><strong>Error:</strong> ${error.message}</p>
-                    <p>This might be due to CORS policy, network issues, or invalid URL.</p>
+                    <p class="hint">Check for missing commas, quotes, or brackets.</p>
                 `;
-                result.className = 'result-box error';
             }
         });
     }
-}
 
-function initializeFormDemo() {
-    const convertBtn = document.getElementById('convertForm');
-    const result = document.getElementById('formResult');
+    if (formatBtn && jsonInput && validationResult) {
+        formatBtn.addEventListener('click', () => {
+            const input = jsonInput.value.trim();
+            const resultBox = validationResult.closest('.result-box');
+            
+            if (!input) {
+                if (resultBox) {
+                    resultBox.className = 'result-box warning show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h5>No Input</h5>
+                    <p>Please enter some JSON to format.</p>
+                `;
+                return;
+            }
 
-    if (convertBtn && result) {
-        convertBtn.addEventListener('click', () => {
-            const formData = {
-                name: document.getElementById('productName')?.value || '',
-                price: parseFloat(document.getElementById('productPrice')?.value) || 0,
-                category: document.getElementById('productCategory')?.value || '',
-                inStock: document.getElementById('inStock')?.checked || false,
-                createdAt: new Date().toISOString()
-            };
+            try {
+                const parsed = JSON.parse(input);
+                const formatted = JSON.stringify(parsed, null, 2);
+                jsonInput.value = formatted;
+                
+                if (resultBox) {
+                    resultBox.className = 'result-box success show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <h5>JSON Formatted!</h5>
+                    <p>Your JSON has been formatted with proper indentation.</p>
+                `;
+            } catch (error) {
+                if (resultBox) {
+                    resultBox.className = 'result-box error show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    <h5>Cannot Format</h5>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p class="hint">Fix the JSON syntax errors first.</p>
+                `;
+            }
+        });
+    }
 
-            // Show the JSON conversion
-            result.innerHTML = `
-                <h5>✅ Form Data Converted to JSON</h5>
-                <div class="conversion-demo">
-                    <div class="form-data">
-                        <h6>Form Values:</h6>
-                        <ul>
-                            <li><strong>Name:</strong> "${formData.name}"</li>
-                            <li><strong>Price:</strong> ${formData.price}</li>
-                            <li><strong>Category:</strong> "${formData.category}"</li>
-                            <li><strong>In Stock:</strong> ${formData.inStock}</li>
-                        </ul>
-                    </div>
-                    <div class="json-output">
-                        <h6>JSON Output:</h6>
-                        <pre>${JSON.stringify(formData, null, 2)}</pre>
-                    </div>
-                </div>
-            `;
-            result.className = 'result-box success';
+    if (minifyBtn && jsonInput && validationResult) {
+        minifyBtn.addEventListener('click', () => {
+            const input = jsonInput.value.trim();
+            const resultBox = validationResult.closest('.result-box');
+            
+            if (!input) {
+                if (resultBox) {
+                    resultBox.className = 'result-box warning show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h5>No Input</h5>
+                    <p>Please enter some JSON to minify.</p>
+                `;
+                return;
+            }
+
+            try {
+                const parsed = JSON.parse(input);
+                const minified = JSON.stringify(parsed);
+                jsonInput.value = minified;
+                
+                if (resultBox) {
+                    resultBox.className = 'result-box success show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    <h5>JSON Minified!</h5>
+                    <p>Your JSON has been minified (all whitespace removed).</p>
+                    <p><strong>Original size:</strong> ${input.length} chars | <strong>Minified:</strong> ${minified.length} chars</p>
+                `;
+            } catch (error) {
+                if (resultBox) {
+                    resultBox.className = 'result-box error show';
+                }
+                validationResult.innerHTML = `
+                    <i class="fas fa-times-circle"></i>
+                    <h5>Cannot Minify</h5>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p class="hint">Fix the JSON syntax errors first.</p>
+                `;
+            }
         });
     }
 }
@@ -6036,25 +5980,65 @@ function deleteLast() {
 }
 
 function demonstrateAdvanced() {
-    const output = document.getElementById('advanced-demo') || createOutputDiv('advanced-demo');
-    output.innerHTML = `
+    const resultBox = document.getElementById('advancedResult');
+    
+    if (!resultBox) return;
+    
+    // Example object with date
+    const originalObj = {
+        name: "John Doe",
+        age: 30,
+        dateOfBirth: "1994-01-15",
+        registrationDate: "2024-01-01T10:30:00.000Z",
+        hobbies: ["reading", "coding", "gaming"],
+        settings: {
+            theme: "dark",
+            notifications: true
+        }
+    };
+    
+    // Using replacer function to filter properties
+    const filteredJson = JSON.stringify(originalObj, ['name', 'age', 'hobbies'], 2);
+    
+    // Using reviver function to convert date strings to Date objects
+    const jsonWithDates = JSON.stringify(originalObj, null, 2);
+    const revivedObj = JSON.parse(jsonWithDates, (key, value) => {
+        if (key === 'dateOfBirth' || key === 'registrationDate') {
+            return new Date(value);
+        }
+        return value;
+    });
+    
+    resultBox.className = 'result-box success show';
+    resultBox.innerHTML = `
         <div class="advanced-example">
-            <h4>Advanced JavaScript Features</h4>
-            <pre><code>
-// Destructuring
-const [first, second] = [1, 2];
-
-// Spread operator
-const arr = [...[1, 2, 3]];
-
-// Async/await
-async function fetchData() {
-    const response = await fetch('/api/data');
-    return response.json();
-}
-            </code></pre>
+            <h4>Advanced JSON Options</h4>
+            
+            <div><strong>1. Using Replacer Function (filter properties):</strong></div>
+            <pre><code class="language-javascript">JSON.stringify(obj, ['name', 'age', 'hobbies'], 2)</code></pre>
+            <div><strong>Result:</strong></div>
+            <pre><code class="language-json">${filteredJson}</code></pre>
+            
+            <div><strong>2. Using Reviver Function (convert dates):</strong></div>
+            <pre><code class="language-javascript">JSON.parse(jsonString, (key, value) => {
+  if (key === 'dateOfBirth' || key === 'registrationDate') {
+    return new Date(value);
+  }
+  return value;
+})</code></pre>
+            <div><strong>Date objects created:</strong></div>
+            <pre><code class="language-javascript">dateOfBirth: ${revivedObj.dateOfBirth}
+registrationDate: ${revivedObj.registrationDate}</code></pre>
+            
+            <div><strong>3. Pretty Print with Indentation:</strong></div>
+            <pre><code class="language-javascript">JSON.stringify(obj, null, 2) // 2 spaces indentation</code></pre>
         </div>
     `;
+    
+    // Re-highlight syntax
+    if (window.Prism) {
+        Prism.highlightAllUnder(resultBox);
+    }
 }
 
 function demonstrateArithmetic() {
@@ -6130,15 +6114,40 @@ function demonstrateConversion() {
 }
 
 function demonstrateError() {
-    const output = document.getElementById('error-demo') || createOutputDiv('error-demo');
+    const input = document.getElementById('errorInput');
+    const resultBox = document.getElementById('errorResult');
+    
+    if (!input || !resultBox) return;
+    
+    const jsonString = input.value.trim();
+    
     try {
-        throw new Error('This is a demonstration error');
-    } catch (error) {
-        output.innerHTML = `
+        const parsed = JSON.parse(jsonString);
+        resultBox.className = 'result-box success show';
+        resultBox.innerHTML = `
             <div class="error-example">
-                <h4>Error Handling Example</h4>
-                <div class="error-message">Caught error: ${error.message}</div>
-                <div class="error-info">Error handled gracefully using try-catch</div>
+                <h4>✓ Valid JSON</h4>
+                <p><strong>Result:</strong> JSON parsed successfully!</p>
+                <div><strong>Parsed object:</strong></div>
+                <pre><code class="language-json">${JSON.stringify(parsed, null, 2)}</code></pre>
+            </div>
+        `;
+        
+        // Re-highlight syntax
+        if (window.Prism) {
+            Prism.highlightAllUnder(resultBox);
+        }
+    } catch (error) {
+        resultBox.className = 'result-box error show';
+        resultBox.innerHTML = `
+            <div class="error-example">
+                <h4>✗ Invalid JSON</h4>
+                <p><strong>Error caught:</strong> ${error.message}</p>
+                <p><strong>Error type:</strong> ${error.name}</p>
+                <div class="error-info">
+                    This demonstrates how try-catch blocks can gracefully handle JSON parsing errors.
+                    The error was caught and handled without crashing the application.
+                </div>
             </div>
         `;
     }
@@ -6242,36 +6251,91 @@ function demonstrateLogical() {
 }
 
 function demonstrateParse() {
-    const jsonString = '{"name": "John", "age": 30, "city": "New York"}';
-    const parsed = JSON.parse(jsonString);
-
-    const output = document.getElementById('json-demo') || createOutputDiv('json-demo');
-    output.innerHTML = `
-        <div class="json-example">
-            <h4>JSON.parse() Example</h4>
-            <div><strong>Original JSON string:</strong></div>
-            <pre>${jsonString}</pre>
-            <div><strong>Parsed object:</strong></div>
-            <pre>${JSON.stringify(parsed, null, 2)}</pre>
-            <div><strong>Access properties:</strong> name = ${parsed.name}</div>
-        </div>
-    `;
+    const input = document.getElementById('parseInput');
+    const resultBox = document.getElementById('parseResult');
+    
+    if (!input || !resultBox) return;
+    
+    try {
+        const jsonString = input.value;
+        const parsed = JSON.parse(jsonString);
+        
+        resultBox.className = 'result-box success show';
+        resultBox.innerHTML = `
+            <div class="json-example">
+                <h4>✓ Parsed Successfully</h4>
+                <div><strong>Original JSON string:</strong></div>
+                <pre><code class="language-json">${jsonString}</code></pre>
+                <div><strong>Parsed object:</strong></div>
+                <pre><code class="language-json">${JSON.stringify(parsed, null, 2)}</code></pre>
+                <div><strong>Access properties:</strong> name = ${parsed.name || 'N/A'}</div>
+            </div>
+        `;
+        
+        // Re-highlight syntax
+        if (window.Prism) {
+            Prism.highlightAllUnder(resultBox);
+        }
+    } catch (error) {
+        resultBox.className = 'result-box error show';
+        resultBox.innerHTML = `
+            <div class="json-example">
+                <h4>✗ Parse Error</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+            </div>
+        `;
+    }
 }
 
 function demonstrateStringify() {
-    const obj = { name: "John", age: 30, city: "New York", active: true };
-    const jsonString = JSON.stringify(obj);
-
-    const output = document.getElementById('json-demo') || createOutputDiv('json-demo');
-    output.innerHTML = `
-        <div class="json-example">
-            <h4>JSON.stringify() Example</h4>
-            <div><strong>Original object:</strong></div>
-            <pre>${JSON.stringify(obj, null, 2)}</pre>
-            <div><strong>Stringified JSON:</strong></div>
-            <pre>${jsonString}</pre>
-        </div>
-    `;
+    const input = document.getElementById('stringifyInput');
+    const resultBox = document.getElementById('stringifyResult');
+    
+    if (!input || !resultBox) return;
+    
+    try {
+        // Parse the input as a JavaScript object literal
+        const inputValue = input.value.trim();
+        let obj;
+        
+        try {
+            // Try to parse as JSON first
+            obj = JSON.parse(inputValue);
+        } catch {
+            // If that fails, try to evaluate as JavaScript object literal
+            obj = eval('(' + inputValue + ')');
+        }
+        
+        const jsonString = JSON.stringify(obj);
+        const formatted = JSON.stringify(obj, null, 2);
+        
+        resultBox.className = 'result-box success show';
+        resultBox.innerHTML = `
+            <div class="json-example">
+                <h4>✓ Stringified Successfully</h4>
+                <div><strong>Original object:</strong></div>
+                <pre><code class="language-javascript">${inputValue}</code></pre>
+                <div><strong>Formatted JSON:</strong></div>
+                <pre><code class="language-json">${formatted}</code></pre>
+                <div><strong>Compact JSON string:</strong></div>
+                <pre><code class="language-json">${jsonString}</code></pre>
+            </div>
+        `;
+        
+        // Re-highlight syntax
+        if (window.Prism) {
+            Prism.highlightAllUnder(resultBox);
+        }
+    } catch (error) {
+        resultBox.className = 'result-box error show';
+        resultBox.innerHTML = `
+            <div class="json-example">
+                <h4>✗ Stringify Error</h4>
+                <p><strong>Error:</strong> ${error.message}</p>
+                <p>Make sure your input is a valid JavaScript object.</p>
+            </div>
+        `;
+    }
 }
 
 function demonstrateTernary() {
