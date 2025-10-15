@@ -923,7 +923,7 @@ function clearXHRResult() {
 
 // Fetch API Demo Functions
 async function demonstrateFetchGET() {
-    const result = document.getElementById('fetch-get-result');
+    const result = document.getElementById('get-demo-result');
     if (!result) return;
 
     result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Fetching data...</div>';
@@ -953,13 +953,16 @@ async function demonstrateFetchGET() {
 }
 
 async function demonstrateFetchPOST() {
-    const result = document.getElementById('fetch-post-result');
+    const result = document.getElementById('post-demo-result');
     if (!result) return;
+
+    const titleInput = document.getElementById('post-title');
+    const title = titleInput ? titleInput.value : 'Sample Post Title';
 
     result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Posting data...</div>';
 
     const postData = {
-        title: 'Sample Post Title',
+        title: title || 'Sample Post Title',
         body: 'This is a sample post created using Fetch API',
         userId: 1
     };
@@ -996,20 +999,23 @@ async function demonstrateFetchPOST() {
 }
 
 async function demonstrateFetchPUT() {
-    const result = document.getElementById('fetch-put-result');
+    const result = document.getElementById('put-demo-result');
     if (!result) return;
+
+    const idInput = document.getElementById('put-id');
+    const postId = idInput ? idInput.value : '1';
 
     result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Updating data...</div>';
 
     const updateData = {
-        id: 1,
+        id: parseInt(postId),
         title: 'Updated Post Title',
         body: 'This post has been updated using Fetch API PUT method',
         userId: 1
     };
 
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -1040,13 +1046,16 @@ async function demonstrateFetchPUT() {
 }
 
 async function demonstrateFetchDELETE() {
-    const result = document.getElementById('fetch-delete-result');
+    const result = document.getElementById('delete-demo-result');
     if (!result) return;
+
+    const idInput = document.getElementById('delete-id');
+    const postId = idInput ? idInput.value : '1';
 
     result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Deleting data...</div>';
 
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
             method: 'DELETE'
         });
 
@@ -1055,7 +1064,7 @@ async function demonstrateFetchDELETE() {
                 <h4><i class="fas fa-check"></i> DELETE Request Successful</h4>
                 <div class="response-details">
                     <p><strong>Status:</strong> ${response.status} ${response.statusText}</p>
-                    <p><strong>Resource Deleted:</strong> Post with ID 1</p>
+                    <p><strong>Resource Deleted:</strong> Post with ID ${postId}</p>
                     ${response.status === 200 ? '<p>Response body: ' + JSON.stringify(await response.json(), null, 2) + '</p>' : '<p>No response body (resource deleted)</p>'}
                 </div>
             </div>
@@ -1189,12 +1198,14 @@ function testRetry() {
 let pollingInterval;
 
 function startPolling() {
-    const result = document.getElementById('realtime-data');
+    const result = document.getElementById('realtime-display');
     if (!result) return;
 
     if (pollingInterval) {
         clearInterval(pollingInterval);
     }
+
+    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Starting real-time updates...</div>';
 
     pollingInterval = setInterval(() => {
         const xhr = new XMLHttpRequest();
@@ -1205,7 +1216,9 @@ function startPolling() {
                 result.innerHTML = `
                     <div class="update-item">
                         <strong>Last Update:</strong> ${timestamp}<br>
-                        <strong>Data:</strong> ${JSON.stringify(data, null, 2)}
+                        <strong>Post ID:</strong> ${data.id}<br>
+                        <strong>Title:</strong> ${data.title}<br>
+                        <strong>Content:</strong> ${data.body.substring(0, 100)}...
                     </div>
                 `;
             }
@@ -1213,8 +1226,6 @@ function startPolling() {
         xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/' + Math.floor(Math.random() * 10 + 1));
         xhr.send();
     }, 3000); // Poll every 3 seconds
-
-    result.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Starting real-time updates...</div>';
 }
 
 function stopPolling() {
@@ -1223,7 +1234,7 @@ function stopPolling() {
         pollingInterval = null;
     }
 
-    const result = document.getElementById('realtime-data');
+    const result = document.getElementById('realtime-display');
     if (result) {
         result.innerHTML = '<div class="placeholder">Real-time updates stopped. Click "Start Updates" to resume.</div>';
     }
@@ -6151,84 +6162,6 @@ function demonstrateError() {
             </div>
         `;
     }
-}
-
-function demonstrateFetchGET() {
-    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
-    output.innerHTML = `
-        <div class="fetch-example">
-            <h4>GET Request Example</h4>
-            <pre><code>
-fetch('/api/users')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-            </code></pre>
-            <div class="demo-result">Simulated: Fetching user data...</div>
-        </div>
-    `;
-}
-
-function demonstrateFetchPOST() {
-    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
-    output.innerHTML = `
-        <div class="fetch-example">
-            <h4>POST Request Example</h4>
-            <pre><code>
-fetch('/api/users', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({name: 'John', email: 'john@example.com'})
-})
-.then(response => response.json())
-.then(data => console.log(data));
-            </code></pre>
-            <div class="demo-result">Simulated: Creating new user...</div>
-        </div>
-    `;
-}
-
-function demonstrateFetchPUT() {
-    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
-    output.innerHTML = `
-        <div class="fetch-example">
-            <h4>PUT Request Example</h4>
-            <pre><code>
-fetch('/api/users/123', {
-    method: 'PUT',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({name: 'John Updated'})
-})
-.then(response => response.json())
-.then(data => console.log(data));
-            </code></pre>
-            <div class="demo-result">Simulated: Updating user data...</div>
-        </div>
-    `;
-}
-
-function demonstrateFetchDELETE() {
-    const output = document.getElementById('fetch-demo') || createOutputDiv('fetch-demo');
-    output.innerHTML = `
-        <div class="fetch-example">
-            <h4>DELETE Request Example</h4>
-            <pre><code>
-fetch('/api/users/123', {
-    method: 'DELETE'
-})
-.then(response => {
-    if (response.ok) {
-        console.log('User deleted successfully');
-    }
-});
-            </code></pre>
-            <div class="demo-result">Simulated: Deleting user...</div>
-        </div>
-    `;
 }
 
 function demonstrateLogical() {

@@ -9491,6 +9491,19 @@
       gap: $spacing-md;
       margin-bottom: $spacing-md;
     }
+    
+    .update-item {
+      background: $bg-primary;
+      border-left: 3px solid $primary-color;
+      padding: $spacing-md;
+      border-radius: $border-radius-sm;
+      line-height: 1.8;
+      
+      strong {
+        color: $primary-color;
+        font-weight: $font-weight-semibold;
+      }
+    }
   }
 }
 
