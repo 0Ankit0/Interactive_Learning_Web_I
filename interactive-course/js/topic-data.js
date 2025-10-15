@@ -1954,34 +1954,34 @@ const TOPICS_DATA = {
         quiz: {
             questions: [
                 {
-                    question: "What is the optimal line length for readability?",
-                    options: ["40-50 characters", "45-75 characters", "80-100 characters", "100+ characters"],
+                    question: "What is the recommended contrast ratio for normal text according to WCAG AA standards?",
+                    options: ["3:1", "4.5:1", "7:1", "2:1"],
                     correct: 1,
-                    explanation: "The optimal line length for readability is typically 45-75 characters per line, which helps maintain reader focus and reduces eye strain."
+                    explanation: "WCAG AA guidelines require a minimum contrast ratio of 4.5:1 for normal text to ensure readability for users with visual impairments."
                 },
                 {
-                    question: "Which color combination provides the highest contrast?",
-                    options: ["Blue text on white background", "Black text on white background", "Gray text on white background", "Red text on green background"],
+                    question: "What is the ideal ratio between H1 heading size and body text size?",
+                    options: ["1:1 to 1.5:1", "2:1 to 2.5:1", "3:1 to 4:1", "5:1 to 6:1"],
                     correct: 1,
-                    explanation: "Black text on a white background provides the highest contrast ratio, making it the most readable combination."
+                    explanation: "A ratio between 2:1 to 2.5:1 creates optimal visual hierarchy, making headings prominent without overwhelming the body text."
                 },
                 {
-                    question: "What is the minimum contrast ratio for normal text according to WCAG AA?",
-                    options: ["3:1", "4.5:1", "7:1", "10:1"],
-                    correct: 1,
-                    explanation: "WCAG AA guidelines require a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text."
+                    question: "Which color is typically associated with trust and reliability in web design?",
+                    options: ["Red", "Green", "Blue", "Yellow"],
+                    correct: 2,
+                    explanation: "Blue is commonly associated with trust, reliability, and calmness, which is why many corporate and financial websites use it as their primary color."
                 },
                 {
-                    question: "Which font pairing principle creates effective contrast?",
-                    options: ["Use fonts from the same family", "Pair serif with sans-serif", "Use similar x-heights", "Match letter spacing exactly"],
-                    correct: 1,
-                    explanation: "Pairing serif fonts with sans-serif fonts creates effective contrast and visual hierarchy in typography."
+                    question: "What is the recommended body text size for optimal readability on the web?",
+                    options: ["12px", "14px", "16px", "20px"],
+                    correct: 2,
+                    explanation: "16px is considered the optimal body text size for web readability, providing a comfortable reading experience across different devices and screen sizes."
                 },
                 {
-                    question: "What does HSL stand for in color theory?",
-                    options: ["High Saturation Light", "Hue, Saturation, Lightness", "HTML Style Language", "Hexadecimal Style Layout"],
+                    question: "Which of the following best describes the purpose of typographic hierarchy?",
+                    options: ["To make text look artistic", "To create visual order and guide readers through content", "To use as many different fonts as possible", "To make all text the same size"],
                     correct: 1,
-                    explanation: "HSL stands for Hue, Saturation, and Lightness - a cylindrical-coordinate representation of colors."
+                    explanation: "Typographic hierarchy creates visual order using size, weight, color, and spacing to guide readers through content and establish importance of different text elements."
                 }
             ]
         },

@@ -11,6 +11,94 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      /* Custom range slider styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: linear-gradient(to right, #3b82f6 0%, #3b82f6 50%, #e5e7eb 50%, #e5e7eb 100%);
+        outline: none;
+        transition: background 0.3s ease;
+      }
+      
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #3b82f6;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
+        transition: all 0.2s ease;
+      }
+      
+      input[type="range"]::-webkit-slider-thumb:hover {
+        background: #2563eb;
+        transform: scale(1.1);
+        box-shadow: 0 3px 8px rgba(59, 130, 246, 0.6);
+      }
+      
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #3b82f6;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(59, 130, 246, 0.4);
+        transition: all 0.2s ease;
+      }
+      
+      input[type="range"]::-moz-range-thumb:hover {
+        background: #2563eb;
+        transform: scale(1.1);
+        box-shadow: 0 3px 8px rgba(59, 130, 246, 0.6);
+      }
+      
+      input[type="range"]::-moz-range-track {
+        height: 6px;
+        border-radius: 3px;
+        background: #e5e7eb;
+      }
+      
+      /* Color sample styling */
+      .color-sample {
+        width: 100%;
+        height: 100px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+      }
+      
+      .color-sample:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+      
+      .color-sample.blue {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      }
+      
+      .color-sample.green {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+      
+      .color-sample.red {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      }
+      
+      /* Demo grid responsive styling */
+      @media (max-width: 768px) {
+        .demo-grid[style*="grid-template-columns: 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="breadcrumb">
@@ -206,10 +294,15 @@
                 Create clear information hierarchy using size, weight, color,
                 and spacing to guide readers through your content.
               </p>
-              <div class="demo-grid">
-                <div class="tool-controls">
-                  <div class="form-group">
-                    <label for="h1-size">H1 Size</label>
+              <div class="demo-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
+                <div class="tool-controls" style="background: #f8f9fa; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                  <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 18px; color: #333;">
+                    <i class="fas fa-sliders-h"></i> Typography Controls
+                  </h3>
+                  <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="h1-size" style="display: block; margin-bottom: 10px; font-weight: 600; color: #555; font-size: 14px;">
+                      <i class="fas fa-heading"></i> H1 Heading Size
+                    </label>
                     <input
                       type="range"
                       id="h1-size"
@@ -217,11 +310,18 @@
                       min="24"
                       max="48"
                       value="36"
+                      style="width: 100%; height: 6px; border-radius: 3px; outline: none; appearance: none; -webkit-appearance: none;"
                     />
-                    <span id="h1-size-value">36px</span>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: #888;">
+                      <span>24px</span>
+                      <span id="h1-size-value" style="font-weight: 700; color: #3b82f6; font-size: 14px;">36px</span>
+                      <span>48px</span>
+                    </div>
                   </div>
                   <div class="form-group">
-                    <label for="body-size">Body Size</label>
+                    <label for="body-size" style="display: block; margin-bottom: 10px; font-weight: 600; color: #555; font-size: 14px;">
+                      <i class="fas fa-paragraph"></i> Body Text Size
+                    </label>
                     <input
                       type="range"
                       id="body-size"
@@ -229,16 +329,33 @@
                       min="14"
                       max="20"
                       value="16"
+                      style="width: 100%; height: 6px; border-radius: 3px; outline: none; appearance: none; -webkit-appearance: none;"
                     />
-                    <span id="body-size-value">16px</span>
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: #888;">
+                      <span>14px</span>
+                      <span id="body-size-value" style="font-weight: 700; color: #3b82f6; font-size: 14px;">16px</span>
+                      <span>20px</span>
+                    </div>
+                  </div>
+                  <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 6px; border-left: 4px solid #2196f3;">
+                    <h4 style="margin: 0 0 8px 0; font-size: 14px; color: #1976d2;">
+                      <i class="fas fa-info-circle"></i> Typography Tips
+                    </h4>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #555; line-height: 1.6;">
+                      <li>Ideal ratio between H1 and body: 2:1 to 2.5:1</li>
+                      <li>Body text: 16px for optimal readability</li>
+                      <li>Line height: 1.5-1.6 for body text</li>
+                    </ul>
                   </div>
                 </div>
-                <div class="hierarchy-preview">
-                  <h1 id="preview-h1">Main Heading</h1>
-                  <h2 id="preview-h2">Secondary Heading</h2>
-                  <p id="preview-body">
+                <div class="hierarchy-preview" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); min-height: 300px;">
+                  <h1 id="preview-h1" style="margin: 0 0 15px 0;">Main Heading</h1>
+                  <h2 id="preview-h2" style="margin: 0 0 15px 0;">Secondary Heading</h2>
+                  <p id="preview-body" style="margin: 0; line-height: 1.6;">
                     This is body text that demonstrates how different text sizes
-                    work together to create visual hierarchy.
+                    work together to create visual hierarchy. Good typography 
+                    enhances readability and guides users through your content 
+                    naturally and effortlessly.
                   </p>
                 </div>
               </div>
@@ -324,13 +441,146 @@
               </h2>
               <p class="lead">
                 Learn to combine colors effectively using color theory
-                principles like complementary, analogous, and triadic color
-                schemes.
+                principles. Understanding color relationships helps create
+                balanced, aesthetically pleasing designs that evoke the right
+                emotions and improve user experience.
               </p>
-              <div class="demo-grid">
-                <div class="wheel-section primary">Primary</div>
-                <div class="wheel-section secondary">Secondary</div>
-                <div class="wheel-section tertiary">Tertiary</div>
+
+              <!-- Color Scheme Types -->
+              <div class="topic-grid" style="margin-bottom: 40px;">
+                <div class="topic-card" style="border-left: 4px solid #3b82f6;">
+                  <div class="tab-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                    <i class="fas fa-arrows-alt-h"></i>
+                  </div>
+                  <h3 class="tab-title">Complementary</h3>
+                  <p class="tab-description">
+                    Colors opposite each other on the color wheel. Creates high
+                    contrast and vibrant look when used together.
+                  </p>
+                  <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <div style="flex: 1; height: 40px; background: #3b82f6; border-radius: 6px;"></div>
+                    <div style="flex: 1; height: 40px; background: #f97316; border-radius: 6px;"></div>
+                  </div>
+                </div>
+
+                <div class="topic-card" style="border-left: 4px solid #10b981;">
+                  <div class="tab-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <i class="fas fa-water"></i>
+                  </div>
+                  <h3 class="tab-title">Analogous</h3>
+                  <p class="tab-description">
+                    Colors next to each other on the wheel. Creates harmonious,
+                    comfortable designs with natural feel.
+                  </p>
+                  <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <div style="flex: 1; height: 40px; background: #10b981; border-radius: 6px;"></div>
+                    <div style="flex: 1; height: 40px; background: #14b8a6; border-radius: 6px;"></div>
+                    <div style="flex: 1; height: 40px; background: #06b6d4; border-radius: 6px;"></div>
+                  </div>
+                </div>
+
+                <div class="topic-card" style="border-left: 4px solid #8b5cf6;">
+                  <div class="tab-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                    <i class="fas fa-play"></i>
+                  </div>
+                  <h3 class="tab-title">Triadic</h3>
+                  <p class="tab-description">
+                    Three colors evenly spaced on the wheel. Offers strong
+                    visual contrast while retaining balance.
+                  </p>
+                  <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <div style="flex: 1; height: 40px; background: #3b82f6; border-radius: 6px;"></div>
+                    <div style="flex: 1; height: 40px; background: #ef4444; border-radius: 6px;"></div>
+                    <div style="flex: 1; height: 40px; background: #eab308; border-radius: 6px;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Color Scheme Explorer -->
+              <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px;">
+                <h3 style="margin-top: 0; margin-bottom: 20px; font-size: 20px; color: #333;">
+                  <i class="fas fa-palette"></i> Color Scheme Explorer
+                </h3>
+                <p style="color: #666; margin-bottom: 25px;">
+                  Select a color scheme type to see how different colors work together in harmony.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                  <button 
+                    class="scheme-btn active" 
+                    data-scheme="complementary"
+                    onclick="showColorScheme('complementary')"
+                    style="padding: 12px 20px; border: 2px solid #3b82f6; background: #3b82f6; color: white; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 14px;"
+                  >
+                    <i class="fas fa-arrows-alt-h"></i> Complementary
+                  </button>
+                  <button 
+                    class="scheme-btn" 
+                    data-scheme="analogous"
+                    onclick="showColorScheme('analogous')"
+                    style="padding: 12px 20px; border: 2px solid #3b82f6; background: white; color: #3b82f6; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 14px;"
+                  >
+                    <i class="fas fa-water"></i> Analogous
+                  </button>
+                  <button 
+                    class="scheme-btn" 
+                    data-scheme="triadic"
+                    onclick="showColorScheme('triadic')"
+                    style="padding: 12px 20px; border: 2px solid #3b82f6; background: white; color: #3b82f6; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 14px;"
+                  >
+                    <i class="fas fa-play"></i> Triadic
+                  </button>
+                  <button 
+                    class="scheme-btn" 
+                    data-scheme="monochromatic"
+                    onclick="showColorScheme('monochromatic')"
+                    style="padding: 12px 20px; border: 2px solid #3b82f6; background: white; color: #3b82f6; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; font-size: 14px;"
+                  >
+                    <i class="fas fa-square"></i> Monochromatic
+                  </button>
+                </div>
+
+                <!-- Color Scheme Display -->
+                <div id="color-scheme-display" style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                  <div id="scheme-colors" style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+                    <!-- Colors will be inserted here by JavaScript -->
+                  </div>
+                  <div id="scheme-info" style="padding: 20px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h4 style="margin: 0 0 10px 0; color: #1e40af; font-size: 16px;">
+                      <i class="fas fa-info-circle"></i> Complementary Colors
+                    </h4>
+                    <p style="margin: 0; color: #555; line-height: 1.6; font-size: 14px;">
+                      Complementary colors create maximum contrast and visual interest. 
+                      Use one color as dominant and the other for accents. Perfect for 
+                      call-to-action buttons and highlighting important elements.
+                    </p>
+                    <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                      <span style="display: inline-block; padding: 4px 12px; background: #dbeafe; color: #1e40af; border-radius: 4px; font-size: 12px; font-weight: 600;">
+                        <i class="fas fa-check"></i> High Contrast
+                      </span>
+                      <span style="display: inline-block; padding: 4px 12px; background: #dbeafe; color: #1e40af; border-radius: 4px; font-size: 12px; font-weight: 600;">
+                        <i class="fas fa-check"></i> Vibrant
+                      </span>
+                      <span style="display: inline-block; padding: 4px 12px; background: #dbeafe; color: #1e40af; border-radius: 4px; font-size: 12px; font-weight: 600;">
+                        <i class="fas fa-check"></i> Energetic
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Best Practices -->
+              <div style="background: #fef3c7; padding: 25px; border-radius: 10px; border-left: 4px solid #f59e0b;">
+                <h4 style="margin: 0 0 15px 0; color: #92400e; font-size: 18px;">
+                  <i class="fas fa-lightbulb"></i> Color Harmony Best Practices
+                </h4>
+                <ul style="margin: 0; padding-left: 20px; color: #78350f; line-height: 1.8;">
+                  <li><strong>60-30-10 Rule:</strong> Use 60% dominant color, 30% secondary, and 10% accent color</li>
+                  <li><strong>Limit Your Palette:</strong> Stick to 3-5 colors maximum to maintain visual coherence</li>
+                  <li><strong>Consider Context:</strong> Different cultures associate different meanings with colors</li>
+                  <li><strong>Test Accessibility:</strong> Ensure sufficient contrast for readability and inclusivity</li>
+                  <li><strong>Use Neutrals:</strong> Gray, white, and black help balance bright colors</li>
+                </ul>
               </div>
             </section>
 
@@ -339,26 +589,223 @@
                 <i class="fas fa-adjust"></i> Contrast & Accessibility
               </h2>
               <p class="lead">
-                Ensure your color choices meet accessibility standards and
-                provide sufficient contrast for all users.
+                Ensuring your color choices meet accessibility standards is crucial for creating inclusive web experiences. 
+                Proper contrast ratios make content readable for users with visual impairments, color blindness, 
+                or viewing content in challenging conditions like bright sunlight.
               </p>
-              <div class="demo-grid">
-                <div class="contrast-test">
-                  <div class="text-on-background good-contrast">
-                    <span>Good Contrast</span>
+
+              <!-- WCAG Standards Overview -->
+              <div style="background: #f0f9ff; padding: 25px; border-radius: 10px; border-left: 4px solid #3b82f6; margin-bottom: 30px;">
+                <h3 style="margin: 0 0 15px 0; color: #1e40af; font-size: 20px;">
+                  <i class="fas fa-universal-access"></i> WCAG Contrast Standards
+                </h3>
+                <p style="color: #555; margin-bottom: 20px; line-height: 1.6;">
+                  The Web Content Accessibility Guidelines (WCAG) define minimum contrast ratios to ensure text is readable by people with moderately low vision.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                  <div style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #e5e7eb;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                      <div style="background: #10b981; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px;">
+                        AA
+                      </div>
+                      <h4 style="margin: 0; font-size: 16px; color: #333;">Level AA (Minimum)</h4>
+                    </div>
+                    <ul style="margin: 10px 0 0 0; padding-left: 20px; color: #666; font-size: 14px; line-height: 1.8;">
+                      <li><strong>Normal text:</strong> 4.5:1 ratio</li>
+                      <li><strong>Large text:</strong> 3:1 ratio</li>
+                      <li><strong>UI components:</strong> 3:1 ratio</li>
+                    </ul>
                   </div>
-                  <div class="text-on-background poor-contrast">
-                    <span>Poor Contrast</span>
+                  <div style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #e5e7eb;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                      <div style="background: #3b82f6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px;">
+                        AAA
+                      </div>
+                      <h4 style="margin: 0; font-size: 16px; color: #333;">Level AAA (Enhanced)</h4>
+                    </div>
+                    <ul style="margin: 10px 0 0 0; padding-left: 20px; color: #666; font-size: 14px; line-height: 1.8;">
+                      <li><strong>Normal text:</strong> 7:1 ratio</li>
+                      <li><strong>Large text:</strong> 4.5:1 ratio</li>
+                      <li><strong>Best practice:</strong> Highest accessibility</li>
+                    </ul>
                   </div>
                 </div>
-                <div class="wcag-standards">
-                  <h4>WCAG Guidelines</h4>
-                  <ul>
-                    <li>Normal text: 4.5:1 contrast ratio</li>
-                    <li>Large text: 3:1 contrast ratio</li>
-                    <li>Graphics: 3:1 contrast ratio</li>
-                  </ul>
+                <p style="margin: 15px 0 0 0; padding: 12px; background: #dbeafe; border-radius: 6px; color: #1e40af; font-size: 13px;">
+                  <i class="fas fa-info-circle"></i> <strong>Note:</strong> Large text is defined as 18pt (24px) or 14pt (18.66px) bold and larger.
+                </p>
+              </div>
+
+              <!-- Interactive Contrast Examples -->
+              <div style="margin-bottom: 30px;">
+                <h3 style="margin: 0 0 20px 0; font-size: 20px; color: #333;">
+                  <i class="fas fa-eye"></i> Contrast Examples: Good vs. Poor
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                  <!-- Excellent Contrast -->
+                  <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div style="background: #000000; color: #ffffff; padding: 30px; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+                      <div>
+                        <p style="margin: 0; font-size: 18px; font-weight: 600;">Excellent Contrast</p>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.9;">Easy to read</p>
+                      </div>
+                    </div>
+                    <div style="padding: 15px; background: #f9fafb;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="font-size: 13px; color: #666;">Contrast Ratio:</span>
+                        <span style="font-weight: 700; color: #10b981; font-size: 16px;">21:1</span>
+                      </div>
+                      <div style="display: flex; gap: 5px;">
+                        <span style="background: #10b981; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">✓ AAA</span>
+                        <span style="background: #10b981; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">✓ AA</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Good Contrast -->
+                  <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div style="background: #3b82f6; color: #ffffff; padding: 30px; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+                      <div>
+                        <p style="margin: 0; font-size: 18px; font-weight: 600;">Good Contrast</p>
+                        <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.9;">Readable</p>
+                      </div>
+                    </div>
+                    <div style="padding: 15px; background: #f9fafb;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="font-size: 13px; color: #666;">Contrast Ratio:</span>
+                        <span style="font-weight: 700; color: #10b981; font-size: 16px;">4.5:1</span>
+                      </div>
+                      <div style="display: flex; gap: 5px;">
+                        <span style="background: #10b981; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">✓ AA</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Poor Contrast -->
+                  <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div style="background: #e5e7eb; color: #9ca3af; padding: 30px; text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+                      <div>
+                        <p style="margin: 0; font-size: 18px; font-weight: 600;">Poor Contrast</p>
+                        <p style="margin: 5px 0 0 0; font-size: 14px;">Hard to read</p>
+                      </div>
+                    </div>
+                    <div style="padding: 15px; background: #f9fafb;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="font-size: 13px; color: #666;">Contrast Ratio:</span>
+                        <span style="font-weight: 700; color: #ef4444; font-size: 16px;">2.1:1</span>
+                      </div>
+                      <div style="display: flex; gap: 5px;">
+                        <span style="background: #ef4444; color: white; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;">✗ Fails</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <!-- Interactive Contrast Checker -->
+              <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.08); margin-bottom: 30px;">
+                <h3 style="margin: 0 0 20px 0; font-size: 20px; color: #333;">
+                  <i class="fas fa-sliders-h"></i> Interactive Contrast Checker
+                </h3>
+                <p style="color: #666; margin-bottom: 25px;">
+                  Adjust the colors below to see how contrast ratios affect readability. Try to achieve at least AA compliance!
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 25px;">
+                  <!-- Color Controls -->
+                  <div>
+                    <div style="margin-bottom: 20px;">
+                      <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #555; font-size: 14px;">
+                        <i class="fas fa-fill-drip"></i> Background Color
+                      </label>
+                      <input
+                        type="color"
+                        id="bg-contrast-color"
+                        value="#ffffff"
+                        style="width: 100%; height: 50px; border: 2px solid #e5e7eb; border-radius: 8px; cursor: pointer;"
+                      />
+                      <span id="bg-color-hex" style="display: block; margin-top: 8px; font-family: monospace; color: #666; font-size: 13px;">#ffffff</span>
+                    </div>
+                    <div>
+                      <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #555; font-size: 14px;">
+                        <i class="fas fa-font"></i> Text Color
+                      </label>
+                      <input
+                        type="color"
+                        id="text-contrast-color"
+                        value="#000000"
+                        style="width: 100%; height: 50px; border: 2px solid #e5e7eb; border-radius: 8px; cursor: pointer;"
+                      />
+                      <span id="text-color-hex" style="display: block; margin-top: 8px; font-family: monospace; color: #666; font-size: 13px;">#000000</span>
+                    </div>
+                  </div>
+
+                  <!-- Preview Area -->
+                  <div style="background: white; border-radius: 10px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <div id="contrast-preview" style="padding: 20px; border-radius: 8px; background: #ffffff; color: #000000; transition: all 0.3s ease;">
+                      <h4 style="margin: 0 0 10px 0; font-size: 20px;">Sample Heading</h4>
+                      <p style="margin: 0; font-size: 16px; line-height: 1.6;">
+                        This is sample body text to demonstrate how the selected colors work together for readability.
+                      </p>
+                    </div>
+                    <div id="contrast-result" style="margin-top: 15px; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span style="font-weight: 600; color: #1e40af;">Contrast Ratio:</span>
+                        <span id="ratio-value" style="font-size: 24px; font-weight: 700; color: #10b981;">21:1</span>
+                      </div>
+                      <div id="compliance-badges" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AAA Normal</span>
+                        <span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AA Normal</span>
+                        <span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AA Large</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color Blindness Considerations -->
+              <div style="background: #fef3c7; padding: 25px; border-radius: 10px; border-left: 4px solid #f59e0b; margin-bottom: 30px;">
+                <h3 style="margin: 0 0 15px 0; color: #92400e; font-size: 20px;">
+                  <i class="fas fa-eye-slash"></i> Color Blindness Considerations
+                </h3>
+                <p style="color: #78350f; margin-bottom: 15px; line-height: 1.6;">
+                  Approximately 8% of men and 0.5% of women have some form of color vision deficiency. 
+                  Design with these principles in mind:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                  <div style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 6px;">
+                    <h4 style="margin: 0 0 8px 0; color: #92400e; font-size: 14px; font-weight: 600;">
+                      <i class="fas fa-palette"></i> Don't rely on color alone
+                    </h4>
+                    <p style="margin: 0; color: #78350f; font-size: 13px;">Use icons, patterns, or text labels alongside colors</p>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 6px;">
+                    <h4 style="margin: 0 0 8px 0; color: #92400e; font-size: 14px; font-weight: 600;">
+                      <i class="fas fa-adjust"></i> Use high contrast
+                    </h4>
+                    <p style="margin: 0; color: #78350f; font-size: 13px;">Ensure sufficient brightness difference between colors</p>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 6px;">
+                    <h4 style="margin: 0 0 8px 0; color: #92400e; font-size: 14px; font-weight: 600;">
+                      <i class="fas fa-vial"></i> Test your design
+                    </h4>
+                    <p style="margin: 0; color: #78350f; font-size: 13px;">Use color blindness simulators to verify accessibility</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Best Practices -->
+              <div style="background: #ecfdf5; padding: 25px; border-radius: 10px; border-left: 4px solid #10b981;">
+                <h3 style="margin: 0 0 15px 0; color: #065f46; font-size: 20px;">
+                  <i class="fas fa-check-circle"></i> Accessibility Best Practices
+                </h3>
+                <ul style="margin: 0; padding-left: 20px; color: #064e3b; line-height: 2;">
+                  <li><strong>Start with high contrast:</strong> Begin with black on white, then adjust as needed</li>
+                  <li><strong>Test with real users:</strong> Include people with visual impairments in your testing process</li>
+                  <li><strong>Use accessibility tools:</strong> Browser extensions and automated checkers catch many issues</li>
+                  <li><strong>Consider context:</strong> Outdoor viewing requires higher contrast than indoor use</li>
+                  <li><strong>Provide alternatives:</strong> Offer high-contrast modes or themes for users who need them</li>
+                  <li><strong>Focus on content:</strong> Ensure links, buttons, and important text have the highest contrast</li>
+                </ul>
               </div>
             </section>
 
@@ -405,7 +852,7 @@
                 selected for quality and educational value.
               </p>
 
-              <div class="resource-grid three-column">
+              <div class="resource-grid two-column">
                 <div class="resource-card" data-type="tool">
                   <div class="card-thumbnail">
                     <i class="fab fa-google thumbnail-icon tool"></i>
@@ -543,12 +990,73 @@
               </div>
             </section>
 
+            <!-- Quiz Section -->
+            <section class="content-section" id="quiz">
+              <h2 class="section-header">
+                <i class="fas fa-question-circle"></i> Knowledge Check
+              </h2>
+              <p class="lead">
+                Test your understanding of typography and color theory concepts.
+                Answer all questions to see your results!
+              </p>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div id="quiz-results" class="quiz-results" style="display: none">
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <p class="results-score"></p>
+                  <p class="results-message"></p>
+                  <div class="results-actions">
+                    <button class="btn btn-primary" onclick="retakeQuiz()">
+                      <i class="fas fa-redo"></i> Retake Quiz
+                    </button>
+                    <button class="btn btn-secondary" onclick="completeLesson()">
+                      <i class="fas fa-check"></i> Continue Learning
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <!-- Navigation -->
             <section class="navigation-section">
-              <a href="typography.html" class="nav-link nav-previous">
+              <a href="uiux-design.html" class="nav-link nav-previous">
                 <i class="fas fa-arrow-left"></i>
                 <span>Previous Topic</span>
-                <span class="nav-topic-title">Typography</span>
+                <span class="nav-topic-title">UI/UX Design</span>
               </a>
               <a href="web-accessibility.html" class="nav-link nav-next">
                 <span>Next Topic</span>

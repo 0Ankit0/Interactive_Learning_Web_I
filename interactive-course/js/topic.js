@@ -165,6 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // Initialize UI/UX Design page (if elements exist)
     initializeUIUXDesignPage();
+    
+    // Initialize Typography & Color Theory page (if elements exist)
+    initializeTypographyPage();
 
     let scrollTimeout;
     window.addEventListener('scroll', function () {
@@ -272,6 +275,10 @@ function selectQuizAnswer(button, isCorrect) {
 
 function nextQuizQuestion() {
     topicManager.nextQuestion();
+}
+
+function previousQuestion() {
+    topicManager.previousQuestion();
 }
 
 function retakeQuiz() {
@@ -8547,4 +8554,367 @@ function initializeUIUXDesignPage() {
     });
     
     console.log('UI/UX Design Page initialized successfully');
+}
+
+// Initialize Typography & Color Theory Page
+function initializeTypographyPage() {
+    // Check if we're on the typography page
+    const h1Slider = document.getElementById('h1-size');
+    const bodySlider = document.getElementById('body-size');
+    
+    if (!h1Slider || !bodySlider) return;
+    
+    console.log('Initializing Typography Page...');
+    
+    // Get all necessary elements
+    const h1SizeValue = document.getElementById('h1-size-value');
+    const bodySizeValue = document.getElementById('body-size-value');
+    const previewH1 = document.getElementById('preview-h1');
+    const previewH2 = document.getElementById('preview-h2');
+    const previewBody = document.getElementById('preview-body');
+    
+    // Function to update typography hierarchy
+    function updateTypographyHierarchy() {
+        const h1Size = parseInt(h1Slider.value);
+        const bodySize = parseInt(bodySlider.value);
+        
+        // Calculate proportional sizes based on typographic scale
+        const h2Size = Math.round(h1Size * 0.75); // H2 is 75% of H1
+        const h1Weight = 700;
+        const h2Weight = 600;
+        const bodyWeight = 400;
+        
+        // Update displayed values
+        if (h1SizeValue) h1SizeValue.textContent = h1Size + 'px';
+        if (bodySizeValue) bodySizeValue.textContent = bodySize + 'px';
+        
+        // Apply styles to preview elements
+        if (previewH1) {
+            previewH1.style.fontSize = h1Size + 'px';
+            previewH1.style.fontWeight = h1Weight;
+            previewH1.style.lineHeight = '1.2';
+            previewH1.style.marginBottom = '0.5em';
+            previewH1.style.color = '#1a1a1a';
+        }
+        
+        if (previewH2) {
+            previewH2.style.fontSize = h2Size + 'px';
+            previewH2.style.fontWeight = h2Weight;
+            previewH2.style.lineHeight = '1.3';
+            previewH2.style.marginBottom = '0.5em';
+            previewH2.style.color = '#333333';
+        }
+        
+        if (previewBody) {
+            previewBody.style.fontSize = bodySize + 'px';
+            previewBody.style.fontWeight = bodyWeight;
+            previewBody.style.lineHeight = '1.6';
+            previewBody.style.color = '#555555';
+        }
+        
+        // Provide feedback on the hierarchy
+        updateHierarchyFeedback(h1Size, bodySize);
+    }
+    
+    // Function to provide feedback on typography hierarchy
+    function updateHierarchyFeedback(h1Size, bodySize) {
+        const ratio = (h1Size / bodySize).toFixed(2);
+        let feedback = '';
+        let feedbackClass = '';
+        
+        if (ratio >= 2.0 && ratio <= 2.5) {
+            feedback = `✓ Excellent hierarchy! Ratio: ${ratio}:1 - Clear visual distinction`;
+            feedbackClass = 'success';
+        } else if (ratio > 2.5 && ratio <= 3.0) {
+            feedback = `⚠ Good hierarchy, but H1 might be too large. Ratio: ${ratio}:1`;
+            feedbackClass = 'warning';
+        } else if (ratio < 2.0 && ratio >= 1.5) {
+            feedback = `⚠ Hierarchy could be stronger. Ratio: ${ratio}:1 - Consider larger H1`;
+            feedbackClass = 'warning';
+        } else if (ratio < 1.5) {
+            feedback = `✗ Weak hierarchy. Ratio: ${ratio}:1 - H1 should be significantly larger`;
+            feedbackClass = 'error';
+        } else {
+            feedback = `✗ H1 too large. Ratio: ${ratio}:1 - Consider reducing size`;
+            feedbackClass = 'error';
+        }
+        
+        // Find or create feedback element
+        let feedbackElement = document.querySelector('.hierarchy-feedback');
+        if (!feedbackElement) {
+            feedbackElement = document.createElement('div');
+            feedbackElement.className = 'hierarchy-feedback';
+            feedbackElement.style.cssText = `
+                margin-top: 15px;
+                padding: 12px 16px;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            `;
+            
+            const hierarchyPreview = document.querySelector('.hierarchy-preview');
+            if (hierarchyPreview && hierarchyPreview.parentElement) {
+                hierarchyPreview.parentElement.appendChild(feedbackElement);
+            }
+        }
+        
+        // Update feedback styling based on type
+        feedbackElement.textContent = feedback;
+        feedbackElement.className = `hierarchy-feedback ${feedbackClass}`;
+        
+        if (feedbackClass === 'success') {
+            feedbackElement.style.background = '#d4edda';
+            feedbackElement.style.color = '#155724';
+            feedbackElement.style.border = '1px solid #c3e6cb';
+        } else if (feedbackClass === 'warning') {
+            feedbackElement.style.background = '#fff3cd';
+            feedbackElement.style.color = '#856404';
+            feedbackElement.style.border = '1px solid #ffeaa7';
+        } else {
+            feedbackElement.style.background = '#f8d7da';
+            feedbackElement.style.color = '#721c24';
+            feedbackElement.style.border = '1px solid #f5c6cb';
+        }
+    }
+    
+    // Add event listeners
+    h1Slider.addEventListener('input', updateTypographyHierarchy);
+    bodySlider.addEventListener('input', updateTypographyHierarchy);
+    
+    // Initialize with current values
+    updateTypographyHierarchy();
+    
+    // Initialize color scheme explorer if elements exist
+    if (document.getElementById('scheme-colors')) {
+        showColorScheme('complementary');
+    }
+    
+    // Initialize contrast checker if elements exist
+    if (document.getElementById('bg-contrast-color')) {
+        initializeContrastChecker();
+    }
+    
+    console.log('Typography Page initialized successfully');
+}
+// Color Harmony Explorer Function
+function showColorScheme(schemeType) {
+    const schemeColors = document.getElementById('scheme-colors');
+    const schemeInfo = document.getElementById('scheme-info');
+    
+    if (!schemeColors || !schemeInfo) return;
+    
+    // Update button states
+    document.querySelectorAll('.scheme-btn').forEach(btn => {
+        if (btn.getAttribute('data-scheme') === schemeType) {
+            btn.style.background = '#3b82f6';
+            btn.style.color = 'white';
+            btn.classList.add('active');
+        } else {
+            btn.style.background = 'white';
+            btn.style.color = '#3b82f6';
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Define color schemes
+    const schemes = {
+        complementary: {
+            colors: [
+                { hex: '#3b82f6', name: 'Primary Blue' },
+                { hex: '#f97316', name: 'Complementary Orange' }
+            ],
+            title: 'Complementary Colors',
+            description: 'Complementary colors create maximum contrast and visual interest. Use one color as dominant and the other for accents. Perfect for call-to-action buttons and highlighting important elements.',
+            tags: ['High Contrast', 'Vibrant', 'Energetic']
+        },
+        analogous: {
+            colors: [
+                { hex: '#10b981', name: 'Green' },
+                { hex: '#14b8a6', name: 'Teal' },
+                { hex: '#06b6d4', name: 'Cyan' }
+            ],
+            title: 'Analogous Colors',
+            description: 'Analogous colors sit next to each other on the color wheel, creating serene and comfortable designs. Commonly found in nature, these combinations are pleasing to the eye and work well for backgrounds and gradients.',
+            tags: ['Harmonious', 'Natural', 'Calming']
+        },
+        triadic: {
+            colors: [
+                { hex: '#3b82f6', name: 'Blue' },
+                { hex: '#ef4444', name: 'Red' },
+                { hex: '#eab308', name: 'Yellow' }
+            ],
+            title: 'Triadic Colors',
+            description: 'Triadic colors are evenly spaced around the color wheel. This scheme offers strong visual contrast while retaining color harmony and balance. Best used with one dominant color and two accent colors.',
+            tags: ['Balanced', 'Vibrant', 'Playful']
+        },
+        monochromatic: {
+            colors: [
+                { hex: '#1e3a8a', name: 'Dark Blue' },
+                { hex: '#3b82f6', name: 'Blue' },
+                { hex: '#60a5fa', name: 'Light Blue' },
+                { hex: '#dbeafe', name: 'Pale Blue' }
+            ],
+            title: 'Monochromatic Colors',
+            description: 'Monochromatic schemes use variations of a single hue by changing brightness and saturation. Creates a cohesive, sophisticated look that is easy on the eyes. Perfect for minimalist and professional designs.',
+            tags: ['Cohesive', 'Elegant', 'Professional']
+        }
+    };
+    
+    const scheme = schemes[schemeType];
+    
+    // Update colors display
+    schemeColors.innerHTML = scheme.colors.map(color => `
+        <div style="flex: 1; min-width: 120px;">
+            <div style="height: 120px; background: ${color.hex}; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 12px; transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"></div>
+            <p style="margin: 0; font-weight: 600; color: #333; font-size: 14px; text-align: center;">${color.name}</p>
+            <p style="margin: 5px 0 0 0; color: #888; font-size: 12px; text-align: center; font-family: monospace;">${color.hex}</p>
+        </div>
+    `).join('');
+    
+    // Update info
+    const iconMap = {
+        complementary: 'arrows-alt-h',
+        analogous: 'water',
+        triadic: 'play',
+        monochromatic: 'square'
+    };
+    
+    schemeInfo.innerHTML = `
+        <h4 style="margin: 0 0 10px 0; color: #1e40af; font-size: 16px;">
+            <i class="fas fa-${iconMap[schemeType]}"></i> ${scheme.title}
+        </h4>
+        <p style="margin: 0 0 15px 0; color: #555; line-height: 1.6; font-size: 14px;">
+            ${scheme.description}
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            ${scheme.tags.map(tag => `
+                <span style="display: inline-block; padding: 4px 12px; background: #dbeafe; color: #1e40af; border-radius: 4px; font-size: 12px; font-weight: 600;">
+                    <i class="fas fa-check"></i> ${tag}
+                </span>
+            `).join('')}
+        </div>
+    `;
+    
+    // Add subtle animation
+    schemeColors.style.opacity = '0';
+    schemeInfo.style.opacity = '0';
+    
+    setTimeout(() => {
+        schemeColors.style.transition = 'opacity 0.3s ease';
+        schemeInfo.style.transition = 'opacity 0.3s ease';
+        schemeColors.style.opacity = '1';
+        schemeInfo.style.opacity = '1';
+    }, 10);
+}
+
+// Interactive Contrast Checker Function
+function initializeContrastChecker() {
+    const bgColorInput = document.getElementById('bg-contrast-color');
+    const textColorInput = document.getElementById('text-contrast-color');
+    const bgColorHex = document.getElementById('bg-color-hex');
+    const textColorHex = document.getElementById('text-color-hex');
+    const contrastPreview = document.getElementById('contrast-preview');
+    const ratioValue = document.getElementById('ratio-value');
+    const complianceBadges = document.getElementById('compliance-badges');
+    
+    if (!bgColorInput || !textColorInput) return;
+    
+    // Function to calculate relative luminance
+    function getLuminance(r, g, b) {
+        const [rs, gs, bs] = [r, g, b].map(val => {
+            val = val / 255;
+            return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
+        });
+        return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+    }
+    
+    // Function to calculate contrast ratio
+    function getContrastRatio(color1, color2) {
+        const lum1 = getLuminance(...hexToRgb(color1));
+        const lum2 = getLuminance(...hexToRgb(color2));
+        const brightest = Math.max(lum1, lum2);
+        const darkest = Math.min(lum1, lum2);
+        return (brightest + 0.05) / (darkest + 0.05);
+    }
+    
+    // Function to convert hex to RGB
+    function hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? [
+            parseInt(result[1], 16),
+            parseInt(result[2], 16),
+            parseInt(result[3], 16)
+        ] : null;
+    }
+    
+    // Update contrast preview
+    function updateContrast() {
+        const bgColor = bgColorInput.value;
+        const textColor = textColorInput.value;
+        
+        // Update hex displays
+        bgColorHex.textContent = bgColor.toUpperCase();
+        textColorHex.textContent = textColor.toUpperCase();
+        
+        // Update preview
+        contrastPreview.style.background = bgColor;
+        contrastPreview.style.color = textColor;
+        
+        // Calculate contrast ratio
+        const ratio = getContrastRatio(bgColor, textColor);
+        const ratioFormatted = ratio.toFixed(2);
+        
+        // Update ratio display
+        ratioValue.textContent = ratioFormatted + ':1';
+        
+        // Determine compliance levels
+        const aaaNormal = ratio >= 7;
+        const aaNormal = ratio >= 4.5;
+        const aaLarge = ratio >= 3;
+        
+        // Update badges
+        let badges = '';
+        
+        if (aaaNormal) {
+            ratioValue.style.color = '#10b981';
+            badges += '<span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AAA Normal</span>';
+            badges += '<span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AAA Large</span>';
+        } else if (aaNormal) {
+            ratioValue.style.color = '#10b981';
+            badges += '<span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AA Normal</span>';
+            badges += '<span style="background: #10b981; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AA Large</span>';
+        } else if (aaLarge) {
+            ratioValue.style.color = '#f59e0b';
+            badges += '<span style="background: #f59e0b; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✓ AA Large Only</span>';
+            badges += '<span style="background: #ef4444; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✗ Fails Normal Text</span>';
+        } else {
+            ratioValue.style.color = '#ef4444';
+            badges += '<span style="background: #ef4444; color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">✗ Fails All Standards</span>';
+        }
+        
+        complianceBadges.innerHTML = badges;
+        
+        // Update result container background
+        const contrastResult = document.getElementById('contrast-result');
+        if (contrastResult) {
+            if (aaaNormal || aaNormal) {
+                contrastResult.style.background = '#f0f9ff';
+                contrastResult.style.borderLeftColor = '#10b981';
+            } else if (aaLarge) {
+                contrastResult.style.background = '#fffbeb';
+                contrastResult.style.borderLeftColor = '#f59e0b';
+            } else {
+                contrastResult.style.background = '#fef2f2';
+                contrastResult.style.borderLeftColor = '#ef4444';
+            }
+        }
+    }
+    
+    // Add event listeners
+    bgColorInput.addEventListener('input', updateContrast);
+    textColorInput.addEventListener('input', updateContrast);
+    
+    // Initialize
+    updateContrast();
 }
