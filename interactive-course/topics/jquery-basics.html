@@ -147,6 +147,11 @@
                     >
                   </li>
                   <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Video Resources</a
+                    >
+                  </li>
+                  <li>
                     <a href="#quiz" onclick="scrollToSection('quiz')"
                       >Knowledge Check</a
                     >
@@ -200,18 +205,654 @@ for (let i = 0; i < elements.length; i++) {
                 </div>
               </div>
 
-              <div class="stats-grid">
-                <div class="stat-item">
-                  <div class="stat-value">85%</div>
-                  <div class="stat-label">Less Code</div>
+              
+            </section>
+
+            <!-- jQuery Selectors Section -->
+            <section id="selectors" class="content-section">
+              <h2><i class="fas fa-search"></i> jQuery Selectors</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  jQuery selectors allow you to select and manipulate HTML elements. They are based on CSS selectors and provide additional custom selectors.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-hashtag"></i> Basic Selectors</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Element selector
+$('p')  // Selects all &lt;p&gt; elements
+
+// ID selector
+$('#myId')  // Selects element with id="myId"
+
+// Class selector
+$('.myClass')  // Selects all elements with class="myClass"
+
+// Universal selector
+$('*')  // Selects all elements</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-layer-group"></i> Advanced Selectors</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Attribute selector
+$('[href]')  // Elements with href attribute
+$('[href="#"]')  // href equals "#"
+
+// Pseudo selectors
+$('li:first')  // First li element
+$('li:last')   // Last li element
+$('li:even')   // Even li elements
+$('tr:odd')    // Odd tr elements
+
+// Form selectors
+$(':input')    // All input elements
+$(':checked')  // Checked checkboxes/radios</code></pre>
+                    </div>
+                  </div>
                 </div>
-                <div class="stat-item">
-                  <div class="stat-value">3M+</div>
-                  <div class="stat-label">Websites</div>
+
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> Selector Demo</h4>
+                  <div class="demo-controls">
+                    <button class="btn btn-primary" onclick="$('.demo-box').css('background-color', '#3498db')">
+                      Select All Boxes
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('.demo-box:first').css('background-color', '#e74c3c')">
+                      Select First Box
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('.demo-box:even').css('background-color', '#2ecc71')">
+                      Select Even Boxes
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('.demo-box').css('background-color', '#95a5a6')">
+                      Reset
+                    </button>
+                  </div>
+                  <div class="demo-result">
+                    <div class="demo-box" style="display: inline-block; width: 100px; height: 100px; margin: 10px; background-color: #95a5a6; border-radius: 8px;"></div>
+                    <div class="demo-box" style="display: inline-block; width: 100px; height: 100px; margin: 10px; background-color: #95a5a6; border-radius: 8px;"></div>
+                    <div class="demo-box" style="display: inline-block; width: 100px; height: 100px; margin: 10px; background-color: #95a5a6; border-radius: 8px;"></div>
+                    <div class="demo-box" style="display: inline-block; width: 100px; height: 100px; margin: 10px; background-color: #95a5a6; border-radius: 8px;"></div>
+                  </div>
                 </div>
-                <div class="stat-item">
-                  <div class="stat-value">15+</div>
-                  <div class="stat-label">Years Old</div>
+              </div>
+            </section>
+
+            <!-- DOM Manipulation Section -->
+            <section id="dom-manipulation" class="content-section">
+              <h2><i class="fas fa-edit"></i> DOM Manipulation</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  jQuery makes it easy to manipulate the DOM - get and set content, add/remove elements, and modify attributes.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-file-alt"></i> Content Methods</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Get/Set text content
+$('#myDiv').text()           // Get text
+$('#myDiv').text('Hello')    // Set text
+
+// Get/Set HTML content
+$('#myDiv').html()           // Get HTML
+$('#myDiv').html('&lt;b&gt;Bold&lt;/b&gt;')  // Set HTML
+
+// Get/Set value
+$('#myInput').val()          // Get value
+$('#myInput').val('text')    // Set value</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-plus-circle"></i> Add/Remove Elements</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Append content
+$('#myDiv').append('&lt;p&gt;New&lt;/p&gt;')
+$('#myDiv').prepend('&lt;p&gt;First&lt;/p&gt;')
+
+// Insert content
+$('#myDiv').before('&lt;p&gt;Before&lt;/p&gt;')
+$('#myDiv').after('&lt;p&gt;After&lt;/p&gt;')
+
+// Remove elements
+$('#myDiv').remove()         // Remove element
+$('#myDiv').empty()          // Remove children</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-tags"></i> Attributes & Properties</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Attributes
+$('#myLink').attr('href')           // Get
+$('#myLink').attr('href', 'url')    // Set
+$('#myLink').removeAttr('href')     // Remove
+
+// CSS Classes
+$('#myDiv').addClass('active')
+$('#myDiv').removeClass('active')
+$('#myDiv').toggleClass('active')
+$('#myDiv').hasClass('active')      // Check</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-paint-brush"></i> CSS Styling</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Get/Set single CSS property
+$('#myDiv').css('color')              // Get
+$('#myDiv').css('color', 'red')       // Set
+
+// Set multiple properties
+$('#myDiv').css({
+    'color': 'red',
+    'background-color': 'blue',
+    'font-size': '20px'
+});</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> DOM Manipulation Demo</h4>
+                  <div class="demo-controls">
+                    <input type="text" id="demo-input" placeholder="Enter text" class="form-control" style="margin-bottom: 10px;">
+                    <button class="btn btn-primary" onclick="$('#demo-output').text($('#demo-input').val())">
+                      Set Text
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('#demo-output').append('<p>Appended paragraph</p>')">
+                      Append
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('#demo-output').toggleClass('highlight')">
+                      Toggle Class
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('#demo-output').empty()">
+                      Clear
+                    </button>
+                  </div>
+                  <div class="demo-result" id="demo-output" style="min-height: 100px; padding: 20px; background: #f5f5f5; border-radius: 8px; margin-top: 15px;">
+                    <p>Initial content</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Event Handling Section -->
+            <section id="events" class="content-section">
+              <h2><i class="fas fa-mouse-pointer"></i> Event Handling</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  jQuery provides simple methods to attach event handlers to elements and respond to user interactions.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-hand-pointer"></i> Mouse Events</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Click event
+$('#myBtn').click(function() {
+    alert('Button clicked!');
+});
+
+// Double click
+$('#myBtn').dblclick(function() {
+    console.log('Double clicked');
+});
+
+// Hover (mouseenter + mouseleave)
+$('#myDiv').hover(
+    function() { $(this).addClass('hover'); },
+    function() { $(this).removeClass('hover'); }
+);</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-keyboard"></i> Keyboard Events</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Keypress event
+$('#myInput').keypress(function(e) {
+    console.log('Key pressed: ' + e.key);
+});
+
+// Keydown event
+$('#myInput').keydown(function(e) {
+    if (e.key === 'Enter') {
+        console.log('Enter key pressed');
+    }
+});
+
+// Keyup event
+$('#myInput').keyup(function() {
+    var value = $(this).val();
+    console.log('Current value: ' + value);
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-wpforms"></i> Form Events</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Submit event
+$('#myForm').submit(function(e) {
+    e.preventDefault();  // Prevent default submission
+    console.log('Form submitted');
+});
+
+// Focus and blur events
+$('#myInput').focus(function() {
+    $(this).css('background-color', '#ffffcc');
+});
+
+$('#myInput').blur(function() {
+    $(this).css('background-color', '#ffffff');
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-link"></i> Event Delegation</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Attach event to parent for dynamic elements
+$('#parent').on('click', '.child', function() {
+    console.log('Child clicked');
+});
+
+// Multiple events
+$('#myDiv').on({
+    mouseenter: function() { $(this).addClass('hover'); },
+    mouseleave: function() { $(this).removeClass('hover'); },
+    click: function() { $(this).toggleClass('active'); }
+});</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> Event Handling Demo</h4>
+                  <div class="demo-controls">
+                    <button class="btn btn-primary" id="event-btn-1">Click Me</button>
+                    <button class="btn btn-secondary" id="event-btn-2">Hover Me</button>
+                    <input type="text" id="event-input" placeholder="Type here" class="form-control" style="margin-top: 10px;">
+                  </div>
+                  <div class="demo-result" id="event-output" style="min-height: 100px; padding: 20px; background: #f5f5f5; border-radius: 8px; margin-top: 15px;">
+                    <p>Interact with the elements above to see events in action</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- AJAX Section -->
+            <section id="ajax" class="content-section">
+              <h2><i class="fas fa-sync-alt"></i> AJAX with jQuery</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  jQuery simplifies AJAX requests, making it easy to load data from the server without page refresh.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-download"></i> GET Request</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Simple GET request
+$.get('/api/users', function(data) {
+    console.log(data);
+});
+
+// GET with parameters
+$.get('/api/users', { page: 1, limit: 10 }, function(data) {
+    console.log(data);
+});
+
+// Using $.ajax()
+$.ajax({
+    url: '/api/users',
+    method: 'GET',
+    success: function(data) {
+        console.log(data);
+    },
+    error: function(error) {
+        console.error(error);
+    }
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-upload"></i> POST Request</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Simple POST request
+$.post('/api/users', { name: 'John', email: 'john@example.com' }, function(data) {
+    console.log('User created:', data);
+});
+
+// Using $.ajax()
+$.ajax({
+    url: '/api/users',
+    method: 'POST',
+    data: JSON.stringify({ name: 'John' }),
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+    }
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-code"></i> Load Content</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Load HTML into element
+$('#myDiv').load('/content.html');
+
+// Load with selector
+$('#myDiv').load('/page.html #content');
+
+// Load with callback
+$('#myDiv').load('/content.html', function(response, status) {
+    if (status === 'success') {
+        console.log('Content loaded');
+    }
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-file-code"></i> JSON Request</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Get JSON data
+$.getJSON('/api/data.json', function(data) {
+    $.each(data, function(index, item) {
+        console.log(item.name);
+    });
+});
+
+// Get JSON with parameters
+$.getJSON('/api/posts', { userId: 1 }, function(posts) {
+    console.log(posts);
+});</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> AJAX Demo</h4>
+                  <div class="demo-controls">
+                    <button class="btn btn-primary" onclick="$.getJSON('https://jsonplaceholder.typicode.com/posts/1', function(data) { $('#ajax-output').html('<pre>' + JSON.stringify(data, null, 2) + '</pre>'); })">
+                      Load JSON Data
+                    </button>
+                    <button class="btn btn-secondary" onclick="$('#ajax-output').html('<p>Click button to load data</p>')">
+                      Clear
+                    </button>
+                  </div>
+                  <div class="demo-result" id="ajax-output" style="min-height: 100px; padding: 20px; background: #f5f5f5; border-radius: 8px; margin-top: 15px;">
+                    <p>Click button to load data</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Animations & Effects Section -->
+            <section id="animations" class="content-section">
+              <h2><i class="fas fa-magic"></i> Animations & Effects</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  jQuery provides built-in animation methods to create smooth visual effects and transitions.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-eye"></i> Show/Hide Effects</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Show/Hide instantly
+$('#myDiv').show();
+$('#myDiv').hide();
+
+// Show/Hide with duration
+$('#myDiv').show(1000);    // 1 second
+$('#myDiv').hide('slow');  // slow, fast, or milliseconds
+
+// Toggle visibility
+$('#myDiv').toggle();
+$('#myDiv').toggle(500);</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-chevron-down"></i> Slide Effects</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Slide down (show with sliding)
+$('#myDiv').slideDown();
+$('#myDiv').slideDown(1000);
+
+// Slide up (hide with sliding)
+$('#myDiv').slideUp();
+$('#myDiv').slideUp('fast');
+
+// Toggle sliding
+$('#myDiv').slideToggle();
+$('#myDiv').slideToggle(500);</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-adjust"></i> Fade Effects</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Fade in
+$('#myDiv').fadeIn();
+$('#myDiv').fadeIn(1000);
+
+// Fade out
+$('#myDiv').fadeOut();
+$('#myDiv').fadeOut('slow');
+
+// Fade to specific opacity
+$('#myDiv').fadeTo(1000, 0.5);  // 50% opacity
+
+// Toggle fade
+$('#myDiv').fadeToggle();</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-bezier-curve"></i> Custom Animations</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">// Animate CSS properties
+$('#myDiv').animate({
+    left: '250px',
+    opacity: 0.5,
+    height: '150px',
+    width: '150px'
+}, 1000);
+
+// With easing and callback
+$('#myDiv').animate({
+    left: '250px'
+}, {
+    duration: 1000,
+    easing: 'swing',
+    complete: function() {
+        console.log('Animation complete');
+    }
+});</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="interactive-demo">
+                  <h4><i class="fas fa-vial"></i> Animation Demo</h4>
+                  <div class="demo-controls">
+                    <button class="btn btn-primary" onclick="$('#anim-box').fadeToggle()">Fade Toggle</button>
+                    <button class="btn btn-secondary" onclick="$('#anim-box').slideToggle()">Slide Toggle</button>
+                    <button class="btn btn-secondary" onclick="$('#anim-box').animate({width: 'toggle', height: 'toggle'})">Animate</button>
+                    <button class="btn btn-secondary" onclick="$('#anim-box').stop().show()">Reset</button>
+                  </div>
+                  <div class="demo-result">
+                    <div id="anim-box" style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 20px auto; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                      Animated Box
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Practical Examples Section -->
+            <section id="examples" class="content-section">
+              <h2><i class="fas fa-code"></i> Practical Examples</h2>
+              <div class="section-content">
+                <p class="topic-description">
+                  Real-world examples showing how to use jQuery in common web development scenarios.
+                </p>
+
+                <div class="topic-grid two-column">
+                  <div class="topic-card">
+                    <h4><i class="fas fa-list"></i> Accordion Menu</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">$(document).ready(function() {
+    $('.accordion-header').click(function() {
+        // Close all other panels
+        $('.accordion-content').not($(this).next()).slideUp();
+        
+        // Toggle clicked panel
+        $(this).next('.accordion-content').slideToggle();
+        
+        // Toggle active class
+        $(this).toggleClass('active');
+        $('.accordion-header').not(this).removeClass('active');
+    });
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-images"></i> Image Gallery</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">$(document).ready(function() {
+    $('.gallery-thumb').click(function() {
+        var imgSrc = $(this).attr('src');
+        var fullSrc = imgSrc.replace('thumb', 'full');
+        
+        $('#lightbox-img').attr('src', fullSrc);
+        $('#lightbox').fadeIn();
+    });
+    
+    $('.close-lightbox').click(function() {
+        $('#lightbox').fadeOut();
+    });
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-check-square"></i> Form Validation</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">$(document).ready(function() {
+    $('#myForm').submit(function(e) {
+        var isValid = true;
+        
+        // Validate email
+        var email = $('#email').val();
+        if (!email.includes('@')) {
+            $('#email').addClass('error');
+            isValid = false;
+        }
+        
+        // Validate required fields
+        $('[required]').each(function() {
+            if ($(this).val() === '') {
+                $(this).addClass('error');
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+});</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="topic-card">
+                    <h4><i class="fas fa-bars"></i> Mobile Menu Toggle</h4>
+                    <div class="code-block">
+                      <pre><code class="language-javascript">$(document).ready(function() {
+    $('.menu-toggle').click(function() {
+        $('.mobile-menu').slideToggle();
+        $(this).toggleClass('active');
+        
+        // Animate hamburger icon
+        $(this).find('.bar').toggleClass('change');
+    });
+    
+    // Close menu on outside click
+    $(document).click(function(e) {
+        if (!$(e.target).closest('.menu-toggle, .mobile-menu').length) {
+            $('.mobile-menu').slideUp();
+            $('.menu-toggle').removeClass('active');
+        }
+    });
+});</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="content-section">
+              <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
+
+              <div class="quiz-container" id="knowledge-quiz">
+                <div class="quiz-progress">
+                  <div class="quiz-info">
+                    Question <span id="current-question">1</span> of
+                    <span id="total-questions">5</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div id="quiz-progress" class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="quiz-question">
+                  <h3>Loading question...</h3>
+                  <div class="quiz-options"></div>
+                </div>
+
+                <div
+                  class="quiz-feedback"
+                  id="quiz-feedback"
+                  style="display: none"
+                ></div>
+
+                <div class="quiz-controls">
+                  <button
+                    id="quiz-next"
+                    style="display: none"
+                    onclick="nextQuizQuestion()"
+                  >
+                    Next Question <i class="fas fa-arrow-right"></i>
+                  </button>
+                </div>
+
+                <div
+                  class="quiz-results"
+                  id="quiz-results"
+                  style="display: none"
+                >
+                  <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <h3>Quiz Complete!</h3>
+                  <div id="final-score">0/0</div>
+                  <div class="results-actions">
+                    <button class="btn-secondary" onclick="retakeQuiz()">
+                      Retake Quiz
+                    </button>
+                  </div>
                 </div>
               </div>
             </section>
@@ -226,7 +867,7 @@ for (let i = 0; i < elements.length; i++) {
                 educational value.
               </p>
 
-              <div class="resource-grid three-column">
+              <div class="resource-grid two-column">
                 <div class="resource-card" data-type="youtube">
                   <div class="card-thumbnail">
                     <i class="fab fa-youtube thumbnail-icon youtube"></i>
@@ -396,9 +1037,9 @@ for (let i = 0; i < elements.length; i++) {
                 <span>Previous Topic</span>
                 <span class="nav-topic-title">AJAX</span>
               </a>
-              <a href="frameworks-overview.html" class="nav-link nav-next">
+              <a href="framework-overview.html" class="nav-link nav-next">
                 <span>Next Topic</span>
-                <span class="nav-topic-title">Frameworks Overview</span>
+                <span class="nav-topic-title">Framework Overview</span>
                 <i class="fas fa-arrow-right"></i>
               </a>
             </section>
@@ -413,5 +1054,32 @@ for (let i = 0; i < elements.length; i++) {
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
+    
+    <!-- jQuery Demo Scripts -->
+    <script>
+      $(document).ready(function() {
+        // Event demo handlers
+        $('#event-btn-1').click(function() {
+          $('#event-output').html('<p style="color: #2ecc71;"><i class="fas fa-check-circle"></i> Button clicked at ' + new Date().toLocaleTimeString() + '</p>');
+        });
+        
+        $('#event-btn-2').hover(
+          function() {
+            $('#event-output').html('<p style="color: #3498db;"><i class="fas fa-mouse-pointer"></i> Mouse entered the button</p>');
+          },
+          function() {
+            $('#event-output').html('<p style="color: #e74c3c;"><i class="fas fa-hand-paper"></i> Mouse left the button</p>');
+          }
+        );
+        
+        $('#event-input').keyup(function() {
+          var text = $(this).val();
+          $('#event-output').html('<p><i class="fas fa-keyboard"></i> You typed: <strong>' + text + '</strong></p>');
+        });
+        
+        // Add highlight class style
+        $('<style>.highlight { background-color: #fff3cd !important; border: 2px solid #ffc107 !important; }</style>').appendTo('head');
+      });
+    </script>
   </body>
 </html>
