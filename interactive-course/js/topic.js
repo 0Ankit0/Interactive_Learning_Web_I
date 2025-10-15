@@ -162,6 +162,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize DOM manipulation event listeners
     initializeDOMManipulation();
+    
+    // Initialize UI/UX Design page (if elements exist)
+    initializeUIUXDesignPage();
 
     let scrollTimeout;
     window.addEventListener('scroll', function () {
@@ -2964,37 +2967,128 @@ function showPrincipleDetails(principle) {
     const detail = details[principle];
     if (!detail) return;
 
-    const modal = createModal('principle-modal');
-    modal.innerHTML = `
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-lightbulb"></i> ${detail.title}</h3>
-                <button class="modal-close" onclick="closeModal('principle-modal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p class="principle-description">${detail.description}</p>
-                
-                <div class="principle-section">
-                    <h4><i class="fas fa-examples"></i> Examples</h4>
-                    <ul class="principle-list">
-                        ${detail.examples.map(example => `<li>${example}</li>`).join('')}
-                    </ul>
-                </div>
-                
-                <div class="principle-section">
-                    <h4><i class="fas fa-tips"></i> Implementation Tips</h4>
-                    <ul class="principle-list">
-                        ${detail.tips.map(tip => `<li>${tip}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
+    // Find the card that was clicked
+    const card = document.querySelector(`[data-principle="${principle}"]`);
+    if (!card) return;
+    
+    // Check if details are already shown
+    let detailsBox = card.querySelector('.principle-details-box');
+    
+    if (detailsBox) {
+        // Toggle visibility - hide if already shown
+        if (detailsBox.style.display === 'none') {
+            detailsBox.style.display = 'block';
+            card.querySelector('.btn-primary').innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+        } else {
+            detailsBox.style.display = 'none';
+            card.querySelector('.btn-primary').innerHTML = '<i class="fas fa-arrow-right"></i> Learn More';
+        }
+        return;
+    }
+    
+    // Create details box if it doesn't exist
+    detailsBox = document.createElement('div');
+    detailsBox.className = 'principle-details-box';
+    detailsBox.style.cssText = `
+        margin-top: 20px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+        animation: slideDown 0.3s ease-out;
+    `;
+    
+    detailsBox.innerHTML = `
+        <div style="margin-bottom: 20px;">
+            <p style="font-size: 14px; line-height: 1.6; color: #555; margin: 0;">${detail.description}</p>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <h4 style="color: #333; font-size: 16px; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-list-ul" style="color: #3b82f6; font-size: 14px;"></i> Examples
+            </h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                ${detail.examples.map(example => `
+                    <li style="padding: 8px 12px; margin-bottom: 6px; background: white; border-left: 3px solid #3b82f6; border-radius: 4px; color: #444; font-size: 13px;">
+                        <i class="fas fa-check" style="color: #3b82f6; margin-right: 8px; font-size: 12px;"></i>${example}
+                    </li>
+                `).join('')}
+            </ul>
+        </div>
+        
+        <div>
+            <h4 style="color: #333; font-size: 16px; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                <i class="fas fa-lightbulb" style="color: #f59e0b; font-size: 14px;"></i> Implementation Tips
+            </h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                ${detail.tips.map(tip => `
+                    <li style="padding: 8px 12px; margin-bottom: 6px; background: #fffbeb; border-left: 3px solid #f59e0b; border-radius: 4px; color: #444; font-size: 13px;">
+                        <i class="fas fa-star" style="color: #f59e0b; margin-right: 8px; font-size: 12px;"></i>${tip}
+                    </li>
+                `).join('')}
+            </ul>
         </div>
     `;
-
-    showModal('principle-modal');
+    
+    // Add animation keyframe if not already added
+    if (!document.getElementById('principle-animation-style')) {
+        const style = document.createElement('style');
+        style.id = 'principle-animation-style';
+        style.textContent = `
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Append details box to card
+    card.appendChild(detailsBox);
+    
+    // Update button text
+    card.querySelector('.btn-primary').innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+    
+    // Smooth scroll to show the details
+    setTimeout(() => {
+        detailsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
 }
 
 function showPattern(patternType) {
+    // Hide all pattern panels
+    const panels = document.querySelectorAll('.pattern-panel');
+    panels.forEach(panel => {
+        panel.classList.remove('active');
+    });
+    
+    // Remove active class from all tab buttons
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Show the selected pattern panel
+    const selectedPanel = document.getElementById(patternType + '-pattern');
+    if (selectedPanel) {
+        selectedPanel.classList.add('active');
+    }
+    
+    // Add active class to the clicked button
+    const selectedButton = document.querySelector(`[data-pattern="${patternType}"]`);
+    if (selectedButton) {
+        selectedButton.classList.add('active');
+    }
+}
+
+// Legacy showPattern function for modal display (keeping for backward compatibility)
+function showPatternModal(patternType) {
     const patterns = {
         navigation: {
             title: 'Navigation Patterns',
@@ -3175,61 +3269,73 @@ function showPattern(patternType) {
 }
 
 function resetDesign() {
-    const designElement = document.getElementById('design-playground');
-    if (designElement) {
-        designElement.className = 'design-playground';
-        designElement.style.backgroundColor = '#ffffff';
-        designElement.style.color = '#333333';
-        designElement.style.fontSize = '16px';
-        designElement.style.padding = '20px';
-        designElement.style.borderRadius = '4px';
-        designElement.style.border = '1px solid #ddd';
-    }
-
-    showDesignFeedback('Design reset to default settings');
+    // Reset all form controls to default values
+    const layoutType = document.getElementById('layout-type');
+    const colorScheme = document.getElementById('color-scheme');
+    const typography = document.getElementById('typography');
+    const spacing = document.getElementById('spacing');
+    const borderRadius = document.getElementById('border-radius');
+    const shadowIntensity = document.getElementById('shadow-intensity');
+    
+    if (layoutType) layoutType.value = 'card';
+    if (colorScheme) colorScheme.value = 'default';
+    if (typography) typography.value = 'modern';
+    if (spacing) spacing.value = '1';
+    if (borderRadius) borderRadius.value = '8';
+    if (shadowIntensity) shadowIntensity.value = '1';
+    
+    // Trigger update to apply changes
+    updateDesign();
+    
+    showToast('info', 'ℹ Design reset to default settings');
 }
 
 function randomizeDesign() {
-    const designElement = document.getElementById('design-playground');
-    if (!designElement) return;
-
-    const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
-    const backgroundColors = ['#f8f9fa', '#ffffff', '#f1f3f4', '#fff5f5', '#f0f8ff'];
-    const fontSizes = ['14px', '16px', '18px', '20px'];
-    const paddings = ['15px', '20px', '25px', '30px'];
-    const borderRadius = ['4px', '8px', '12px', '16px'];
-
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    const randomBg = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
-    const randomSize = fontSizes[Math.floor(Math.random() * fontSizes.length)];
-    const randomPadding = paddings[Math.floor(Math.random() * paddings.length)];
-    const randomRadius = borderRadius[Math.floor(Math.random() * borderRadius.length)];
-
-    designElement.style.color = randomColor;
-    designElement.style.backgroundColor = randomBg;
-    designElement.style.fontSize = randomSize;
-    designElement.style.padding = randomPadding;
-    designElement.style.borderRadius = randomRadius;
-    designElement.style.border = `2px solid ${randomColor}`;
-
-    showDesignFeedback('Design randomized! Try different combinations.');
+    const layoutType = document.getElementById('layout-type');
+    const colorScheme = document.getElementById('color-scheme');
+    const typography = document.getElementById('typography');
+    const spacing = document.getElementById('spacing');
+    const borderRadius = document.getElementById('border-radius');
+    const shadowIntensity = document.getElementById('shadow-intensity');
+    
+    // Randomize values
+    const layouts = ['card', 'list', 'grid', 'hero'];
+    const schemes = ['default', 'vibrant', 'minimal', 'dark'];
+    const typos = ['modern', 'classic', 'playful', 'technical'];
+    
+    if (layoutType) layoutType.value = layouts[Math.floor(Math.random() * layouts.length)];
+    if (colorScheme) colorScheme.value = schemes[Math.floor(Math.random() * schemes.length)];
+    if (typography) typography.value = typos[Math.floor(Math.random() * typos.length)];
+    if (spacing) spacing.value = (0.5 + Math.random() * 1.5).toFixed(1);
+    if (borderRadius) borderRadius.value = Math.floor(Math.random() * 21).toString();
+    if (shadowIntensity) shadowIntensity.value = Math.floor(Math.random() * 4).toString();
+    
+    // Trigger update to apply changes
+    updateDesign();
+    
+    showToast('success', '🎲 Design randomized! Try different combinations.');
 }
 
 function saveDesign() {
-    const designElement = document.getElementById('design-playground');
-    if (!designElement) return;
+    const layoutType = document.getElementById('layout-type')?.value;
+    const colorScheme = document.getElementById('color-scheme')?.value;
+    const typography = document.getElementById('typography')?.value;
+    const spacing = document.getElementById('spacing')?.value;
+    const borderRadius = document.getElementById('border-radius')?.value;
+    const shadowIntensity = document.getElementById('shadow-intensity')?.value;
 
-    const styles = {
-        color: designElement.style.color,
-        backgroundColor: designElement.style.backgroundColor,
-        fontSize: designElement.style.fontSize,
-        padding: designElement.style.padding,
-        borderRadius: designElement.style.borderRadius,
-        border: designElement.style.border
+    const design = {
+        layoutType,
+        colorScheme,
+        typography,
+        spacing,
+        borderRadius,
+        shadowIntensity,
+        savedAt: new Date().toISOString()
     };
 
-    localStorage.setItem('savedDesign', JSON.stringify(styles));
-    showDesignFeedback('Design saved to browser storage!');
+    localStorage.setItem('savedDesign', JSON.stringify(design));
+    showToast('success', '💾 Design saved successfully!');
 }
 
 function showDesignFeedback(message) {
@@ -3261,6 +3367,27 @@ function createModal(modalId) {
         modal = document.createElement('div');
         modal.id = modalId;
         modal.className = 'modal';
+        modal.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        `;
+        
+        // Close modal when clicking outside content
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal(modalId);
+            }
+        });
+        
         document.body.appendChild(modal);
     }
     return modal;
@@ -3279,6 +3406,236 @@ function closeModal(modalId) {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = '';
+    }
+}
+
+// UI/UX Design Page Functions
+function updateDesign() {
+    const layoutType = document.getElementById('layout-type')?.value || 'card';
+    const colorScheme = document.getElementById('color-scheme')?.value || 'default';
+    const typography = document.getElementById('typography')?.value || 'modern';
+    const spacing = document.getElementById('spacing')?.value || 1;
+    const borderRadius = document.getElementById('border-radius')?.value || 8;
+    const shadowIntensity = document.getElementById('shadow-intensity')?.value || 1;
+    
+    const designPreview = document.getElementById('design-preview');
+    const analysisFeedback = document.getElementById('analysis-feedback');
+    
+    if (!designPreview) return;
+    
+    // Update spacing value display
+    const spacingValue = document.getElementById('spacing-value');
+    if (spacingValue) spacingValue.textContent = spacing + 'x';
+    
+    // Update border radius value display
+    const radiusValue = document.getElementById('radius-value');
+    if (radiusValue) radiusValue.textContent = borderRadius + 'px';
+    
+    // Update shadow value display
+    const shadowValue = document.getElementById('shadow-value');
+    if (shadowValue) {
+        const shadowNames = ['None', 'Light', 'Medium', 'Heavy'];
+        shadowValue.textContent = shadowNames[shadowIntensity] || 'Medium';
+    }
+    
+    // Apply layout type
+    designPreview.className = 'design-preview';
+    designPreview.classList.add(`layout-${layoutType}`);
+    
+    // Apply color scheme
+    const colorSchemes = {
+        default: { bg: '#ffffff', text: '#333333', accent: '#3b82f6' },
+        vibrant: { bg: '#fef3c7', text: '#78350f', accent: '#f59e0b' },
+        minimal: { bg: '#f9fafb', text: '#111827', accent: '#6b7280' },
+        dark: { bg: '#1f2937', text: '#f9fafb', accent: '#3b82f6' }
+    };
+    
+    const colors = colorSchemes[colorScheme] || colorSchemes.default;
+    designPreview.style.backgroundColor = colors.bg;
+    designPreview.style.color = colors.text;
+    designPreview.style.setProperty('--accent-color', colors.accent);
+    
+    // Apply typography
+    const typographyStyles = {
+        modern: { fontFamily: "'Inter', sans-serif", lineHeight: '1.6' },
+        classic: { fontFamily: "'Georgia', serif", lineHeight: '1.8' },
+        playful: { fontFamily: "'Comic Sans MS', cursive", lineHeight: '1.5' },
+        technical: { fontFamily: "'Courier New', monospace", lineHeight: '1.4' }
+    };
+    
+    const typo = typographyStyles[typography] || typographyStyles.modern;
+    designPreview.style.fontFamily = typo.fontFamily;
+    designPreview.style.lineHeight = typo.lineHeight;
+    
+    // Apply spacing
+    const baseSpacing = 20;
+    designPreview.style.padding = (baseSpacing * spacing) + 'px';
+    designPreview.style.gap = (12 * spacing) + 'px';
+    
+    // Apply border radius to all cards
+    const cards = designPreview.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.style.borderRadius = borderRadius + 'px';
+    });
+    
+    // Apply shadow
+    const shadowStyles = [
+        'none',
+        '0 1px 3px rgba(0,0,0,0.12)',
+        '0 4px 6px rgba(0,0,0,0.1)',
+        '0 10px 25px rgba(0,0,0,0.15)'
+    ];
+    const shadow = shadowStyles[shadowIntensity] || shadowStyles[1];
+    cards.forEach(card => {
+        card.style.boxShadow = shadow;
+    });
+    
+    // Update analysis feedback
+    if (analysisFeedback) {
+        const analysis = generateDesignAnalysis(layoutType, colorScheme, typography, spacing, borderRadius, shadowIntensity);
+        analysisFeedback.innerHTML = analysis;
+    }
+}
+
+function generateDesignAnalysis(layout, color, typography, spacing, radius, shadow) {
+    let score = 0;
+    let feedback = [];
+    
+    // Analyze layout
+    if (layout === 'card' || layout === 'grid') {
+        score += 20;
+        feedback.push('✓ Good choice of layout for content organization');
+    } else {
+        feedback.push('• Consider card or grid layout for better scanability');
+    }
+    
+    // Analyze color scheme
+    if (color === 'default' || color === 'minimal') {
+        score += 20;
+        feedback.push('✓ Clean color scheme enhances readability');
+    } else if (color === 'dark') {
+        score += 15;
+        feedback.push('✓ Dark mode is great for reducing eye strain');
+    }
+    
+    // Analyze typography
+    if (typography === 'modern' || typography === 'classic') {
+        score += 20;
+        feedback.push('✓ Professional typography choice');
+    } else {
+        feedback.push('• Consider more professional typography for better readability');
+    }
+    
+    // Analyze spacing
+    const spacingNum = parseFloat(spacing);
+    if (spacingNum >= 0.8 && spacingNum <= 1.5) {
+        score += 20;
+        feedback.push('✓ Good spacing creates visual breathing room');
+    } else if (spacingNum < 0.8) {
+        feedback.push('• Consider increasing spacing for better readability');
+    } else {
+        feedback.push('• Too much spacing may waste screen real estate');
+    }
+    
+    // Analyze border radius
+    const radiusNum = parseInt(radius);
+    if (radiusNum >= 4 && radiusNum <= 12) {
+        score += 10;
+        feedback.push('✓ Subtle rounded corners add visual polish');
+    }
+    
+    // Analyze shadow
+    const shadowNum = parseInt(shadow);
+    if (shadowNum >= 1 && shadowNum <= 2) {
+        score += 10;
+        feedback.push('✓ Appropriate shadow depth creates hierarchy');
+    }
+    
+    const grade = score >= 80 ? 'Excellent' : score >= 60 ? 'Good' : score >= 40 ? 'Fair' : 'Needs Improvement';
+    
+    return `
+        <div class="analysis-score">
+            <strong>Design Score:</strong> ${score}/100 - ${grade}
+        </div>
+        <ul class="analysis-feedback">
+            ${feedback.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+    `;
+}
+
+// Form validation functions
+function validateUsername(input) {
+    const username = input.value.trim();
+    const feedback = input.parentElement.querySelector('.validation-feedback');
+    
+    if (!feedback) return;
+    
+    if (username.length === 0) {
+        feedback.textContent = '';
+        feedback.className = 'validation-feedback';
+        return;
+    }
+    
+    if (username.length < 3) {
+        feedback.textContent = '✗ Username must be at least 3 characters';
+        feedback.className = 'validation-feedback error';
+    } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+        feedback.textContent = '✗ Username can only contain letters, numbers, and underscores';
+        feedback.className = 'validation-feedback error';
+    } else {
+        feedback.textContent = '✓ Username is available';
+        feedback.className = 'validation-feedback success';
+    }
+}
+
+function validatePassword(input) {
+    const password = input.value;
+    const feedback = input.parentElement.querySelector('.validation-feedback');
+    
+    if (!feedback) return;
+    
+    if (password.length === 0) {
+        feedback.textContent = '';
+        feedback.className = 'validation-feedback';
+        return;
+    }
+    
+    const hasLength = password.length >= 8;
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    
+    if (!hasLength) {
+        feedback.textContent = '✗ Password must be at least 8 characters';
+        feedback.className = 'validation-feedback error';
+    } else if (!hasUpper || !hasLower || !hasNumber) {
+        feedback.textContent = '⚠ Password should contain uppercase, lowercase, and numbers';
+        feedback.className = 'validation-feedback warning';
+    } else {
+        feedback.textContent = '✓ Strong password';
+        feedback.className = 'validation-feedback success';
+    }
+}
+
+function validateConfirmPassword(input) {
+    const password = document.getElementById('password')?.value || '';
+    const confirmPassword = input.value;
+    const feedback = input.parentElement.querySelector('.validation-feedback');
+    
+    if (!feedback) return;
+    
+    if (confirmPassword.length === 0) {
+        feedback.textContent = '';
+        feedback.className = 'validation-feedback';
+        return;
+    }
+    
+    if (password !== confirmPassword) {
+        feedback.textContent = '✗ Passwords do not match';
+        feedback.className = 'validation-feedback error';
+    } else {
+        feedback.textContent = '✓ Passwords match';
+        feedback.className = 'validation-feedback success';
     }
 }
 
@@ -4896,10 +5253,34 @@ function toggleBookmark(button) {
  * Get unique ID for a resource based on its card content
  */
 function getResourceId(button) {
-    const card = button.closest('.resource-card');
+    // Try both .resource-card and .topic-card for compatibility
+    const card = button.closest('.resource-card') || button.closest('.topic-card');
+    
+    // If no card found, return a default ID
+    if (!card) {
+        console.warn('No card found for bookmark button');
+        return 'unknown-' + Date.now();
+    }
+    
     const title = card.querySelector('.card-title')?.textContent || '';
     const author = card.querySelector('.author')?.textContent || '';
-    return btoa(title + '|' + author).replace(/[^a-zA-Z0-9]/g, '').substring(0, 16);
+    
+    // If no title or author, try alternative selectors
+    const fallbackTitle = title || card.querySelector('h3, h4, h5')?.textContent || '';
+    const fallbackAuthor = author || card.querySelector('.card-subtitle')?.textContent || '';
+    
+    const idString = (fallbackTitle + '|' + fallbackAuthor).trim();
+    
+    // Generate a safe ID
+    try {
+        return btoa(idString).replace(/[^a-zA-Z0-9]/g, '').substring(0, 16);
+    } catch (e) {
+        // If btoa fails, use a simple hash
+        return 'id-' + idString.split('').reduce((a, b) => {
+            a = ((a << 5) - a) + b.charCodeAt(0);
+            return a & a;
+        }, 0);
+    }
 }
 
 /**
@@ -4929,11 +5310,15 @@ function loadBookmarkStates() {
     const bookmarks = JSON.parse(localStorage.getItem('webtech_bookmarks') || '[]');
 
     document.querySelectorAll('.bookmark-btn').forEach(button => {
-        const resourceId = getResourceId(button);
-        if (bookmarks.includes(resourceId)) {
-            button.classList.add('bookmarked');
-            button.innerHTML = '<i class="fas fa-bookmark"></i>';
-            button.title = 'Remove bookmark';
+        try {
+            const resourceId = getResourceId(button);
+            if (resourceId && bookmarks.includes(resourceId)) {
+                button.classList.add('bookmarked');
+                button.innerHTML = '<i class="fas fa-bookmark"></i>';
+                button.title = 'Remove bookmark';
+            }
+        } catch (error) {
+            console.warn('Error loading bookmark state:', error);
         }
     });
 }
@@ -6637,21 +7022,52 @@ function showFrameworkDetails(framework) {
 }
 
 function showToast(type, message) {
+    // Default messages if not provided
+    if (!message) {
+        const messages = {
+            success: '✓ Operation completed successfully!',
+            error: '✗ An error occurred!',
+            warning: '⚠ Warning: Please review your action.',
+            info: 'ℹ Here is some information.'
+        };
+        message = messages[type] || 'Notification';
+    }
+    
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
-    toast.textContent = message;
+    
+    // Create toast icon
+    const icons = {
+        success: '<i class="fas fa-check-circle"></i>',
+        error: '<i class="fas fa-times-circle"></i>',
+        warning: '<i class="fas fa-exclamation-triangle"></i>',
+        info: '<i class="fas fa-info-circle"></i>'
+    };
+    
+    toast.innerHTML = `
+        ${icons[type] || ''}
+        <span style="margin-left: 8px;">${message}</span>
+        <button class="toast-close" style="margin-left: 15px; background: none; border: none; color: white; cursor: pointer; font-size: 18px; padding: 0; line-height: 1;" onclick="this.parentElement.remove()">&times;</button>
+    `;
+    
     toast.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
-        padding: 12px 24px;
+        padding: 15px 20px;
         background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'warning' ? '#ffc107' : '#17a2b8'};
-        color: white;
-        border-radius: 4px;
-        z-index: 1000;
+        color: ${type === 'warning' ? '#000' : 'white'};
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10001;
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        min-width: 300px;
+        max-width: 500px;
+        font-size: 14px;
     `;
 
     document.body.appendChild(toast);
@@ -6662,44 +7078,186 @@ function showToast(type, message) {
         toast.style.transform = 'translateX(0)';
     }, 100);
 
-    // Remove after 3 seconds
+    // Remove after 4 seconds
     setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(100%)';
-        setTimeout(() => document.body.removeChild(toast), 300);
-    }, 3000);
+        setTimeout(() => {
+            if (toast.parentElement) {
+                toast.parentElement.removeChild(toast);
+            }
+        }, 300);
+    }, 4000);
 }
 
 function simulateLoading(button) {
-    button.textContent = 'Loading...';
+    const btnText = button.querySelector('.btn-text');
+    const spinner = button.querySelector('.spinner');
+    
+    if (btnText && spinner) {
+        // Hide text and show spinner
+        btnText.style.display = 'none';
+        spinner.style.display = 'inline-block';
+    } else {
+        // Fallback to simple text change
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+    }
+    
     button.disabled = true;
+    const originalBg = button.style.backgroundColor;
 
     setTimeout(() => {
-        button.textContent = 'Complete!';
+        if (btnText && spinner) {
+            spinner.style.display = 'none';
+            btnText.textContent = 'Complete!';
+            btnText.style.display = 'inline';
+        } else {
+            button.innerHTML = '<i class="fas fa-check"></i> Complete!';
+        }
         button.style.backgroundColor = '#28a745';
 
         setTimeout(() => {
-            button.textContent = 'Click to Load';
+            if (btnText && spinner) {
+                btnText.textContent = 'Load Data';
+                btnText.style.display = 'inline';
+            } else {
+                button.textContent = 'Load Data';
+            }
             button.disabled = false;
-            button.style.backgroundColor = '';
+            button.style.backgroundColor = originalBg;
         }, 1000);
     }, 2000);
 }
 
 function startProgress() {
-    const progressBar = document.getElementById('progress-bar') || createProgressBar();
+    const progressFill = document.getElementById('progress-fill');
+    if (!progressFill) {
+        console.warn('Progress bar element not found');
+        return;
+    }
+    
     let progress = 0;
-
     const interval = setInterval(() => {
         progress += Math.random() * 10;
         if (progress >= 100) {
             progress = 100;
             clearInterval(interval);
+            setTimeout(() => {
+                progressFill.style.width = '0%';
+            }, 1000);
         }
-
-        progressBar.style.width = progress + '%';
-        progressBar.textContent = Math.round(progress) + '%';
+        progressFill.style.width = progress + '%';
     }, 200);
+}
+
+// Modal handlers for UI/UX patterns section
+function showModal(modalType) {
+    // Create modal container if it doesn't exist
+    let modalContainer = document.getElementById('dynamic-modal');
+    if (!modalContainer) {
+        modalContainer = document.createElement('div');
+        modalContainer.id = 'dynamic-modal';
+        modalContainer.className = 'modal';
+        modalContainer.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        `;
+        document.body.appendChild(modalContainer);
+    }
+
+    // Define modal content based on type
+    let modalContent = '';
+    if (modalType === 'confirmation') {
+        modalContent = `
+            <div class="modal-content" style="background: white; padding: 30px; border-radius: 8px; max-width: 500px; margin: 20px; position: relative;">
+                <div class="modal-header" style="margin-bottom: 20px;">
+                    <h3 style="margin: 0; color: #333;">
+                        <i class="fas fa-exclamation-triangle" style="color: #f39c12; margin-right: 10px;"></i>
+                        Confirm Action
+                    </h3>
+                    <button class="modal-close" onclick="closeModalDynamic()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #999;">&times;</button>
+                </div>
+                <div class="modal-body" style="margin-bottom: 25px;">
+                    <p style="margin: 0; color: #666; line-height: 1.6;">
+                        Are you sure you want to proceed with this action? This is a demonstration of a confirmation modal pattern used for important user decisions.
+                    </p>
+                </div>
+                <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end;">
+                    <button class="btn btn-secondary" onclick="closeModalDynamic()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        Cancel
+                    </button>
+                    <button class="btn btn-danger" onclick="confirmAction()" style="padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        `;
+    } else if (modalType === 'form') {
+        modalContent = `
+            <div class="modal-content" style="background: white; padding: 30px; border-radius: 8px; max-width: 500px; margin: 20px; position: relative;">
+                <div class="modal-header" style="margin-bottom: 20px;">
+                    <h3 style="margin: 0; color: #333;">
+                        <i class="fas fa-edit" style="color: #3b82f6; margin-right: 10px;"></i>
+                        Quick Form
+                    </h3>
+                    <button class="modal-close" onclick="closeModalDynamic()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #999;">&times;</button>
+                </div>
+                <div class="modal-body" style="margin-bottom: 25px;">
+                    <form id="modal-form" onsubmit="submitModalForm(event)">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="modal-name" style="display: block; margin-bottom: 5px; color: #333; font-weight: 500;">Name:</label>
+                            <input type="text" id="modal-name" class="form-control" placeholder="Enter your name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="modal-email" style="display: block; margin-bottom: 5px; color: #333; font-weight: 500;">Email:</label>
+                            <input type="email" id="modal-email" class="form-control" placeholder="Enter your email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                        </div>
+                        <div class="modal-actions" style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" class="btn btn-secondary" onclick="closeModalDynamic()" style="padding: 10px 20px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary" style="padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+    }
+
+    modalContainer.innerHTML = modalContent;
+    modalContainer.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModalDynamic() {
+    const modalContainer = document.getElementById('dynamic-modal');
+    if (modalContainer) {
+        modalContainer.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+function confirmAction() {
+    showToast('success', '✓ Action confirmed successfully!');
+    closeModalDynamic();
+}
+
+function submitModalForm(event) {
+    event.preventDefault();
+    const name = document.getElementById('modal-name')?.value;
+    const email = document.getElementById('modal-email')?.value;
+    showToast('success', `✓ Form submitted for ${name}!`);
+    closeModalDynamic();
 }
 
 function testBoolean() {
@@ -7965,4 +8523,28 @@ function initializeDOMManipulation() {
 
     // Initialize attribute list
     updateAttributeList();
+}
+
+// Initialize UI/UX Design Page
+function initializeUIUXDesignPage() {
+    // Check if we're on the UI/UX design page
+    const designBuilder = document.getElementById('design-preview');
+    if (!designBuilder) return;
+    
+    console.log('Initializing UI/UX Design Page...');
+    
+    // Initialize the design preview with default settings
+    updateDesign();
+    
+    // Add click-outside-modal to close functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            const modalId = e.target.id;
+            if (modalId) {
+                closeModal(modalId);
+            }
+        }
+    });
+    
+    console.log('UI/UX Design Page initialized successfully');
 }

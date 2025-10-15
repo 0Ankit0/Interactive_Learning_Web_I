@@ -58,7 +58,7 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Design Principles</span>
+                  <span>Design Fundamentals</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
@@ -66,17 +66,12 @@
                     <a
                       href="#introduction"
                       onclick="scrollToSection('introduction')"
-                      >Introduction</a
+                      >Core Design Principles</a
                     >
                   </li>
                   <li>
-                    <a href="#hierarchy" onclick="scrollToSection('hierarchy')"
-                      >Visual Hierarchy</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#consistency" onclick="scrollToSection('consistency')"
-                      >Consistency</a
+                    <a href="#principle-details" onclick="scrollToSection('principle-details')"
+                      >Principle Details</a
                     >
                   </li>
                 </ul>
@@ -87,23 +82,18 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>User Experience</span>
+                  <span>Interactive Tools</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
-                    <a href="#usability" onclick="scrollToSection('usability')"
-                      >Usability</a
+                    <a href="#design-builder" onclick="scrollToSection('design-builder')"
+                      >Design Builder</a
                     >
                   </li>
                   <li>
-                    <a href="#accessibility" onclick="scrollToSection('accessibility')"
-                      >Accessibility</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#responsive" onclick="scrollToSection('responsive')"
-                      >Responsive Design</a
+                    <a href="#ui-patterns" onclick="scrollToSection('ui-patterns')"
+                      >UI Patterns Library</a
                     >
                   </li>
                 </ul>
@@ -114,13 +104,18 @@
                   onclick="toggleTocSection(this)"
                   aria-expanded="false"
                 >
-                  <span>Practice & Assessment</span>
+                  <span>Research & Learning</span>
                   <i class="fas fa-chevron-down toc-chevron"></i>
                 </button>
                 <ul class="toc-dropdown-content">
                   <li>
-                    <a href="#practice" onclick="scrollToSection('practice')"
-                      >Interactive Practice</a
+                    <a href="#ux-research" onclick="scrollToSection('ux-research')"
+                      >UX Research Methods</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#resources" onclick="scrollToSection('resources')"
+                      >Video Resources</a
                     >
                   </li>
                   <li>
@@ -134,17 +129,18 @@
           </aside>
 
           <div class="content-main">
-          <section class="topic-section">
+          <section id="introduction" class="content-section">
             <h2 class="section-title">
               <i class="fas fa-star"></i> Core Design Principles
             </h2>
-            <p class="section-intro">
-              Understanding these fundamental principles is essential for
-              creating effective user interfaces:
-            </p>
+            <div class="section-content">
+              <p class="section-intro">
+                Understanding these fundamental principles is essential for
+                creating effective user interfaces:
+              </p>
 
-            <div class="principles-grid">
-              <div class="principle-card" data-principle="hierarchy">
+            <div class="topic-grid">
+              <div class="topic-card" data-principle="hierarchy">
                 <div class="card-icon">
                   <i class="fas fa-sitemap"></i>
                 </div>
@@ -162,7 +158,7 @@
                 </button>
               </div>
 
-              <div class="principle-card" data-principle="consistency">
+              <div class="topic-card" data-principle="consistency">
                 <div class="card-icon">
                   <i class="fas fa-clone"></i>
                 </div>
@@ -180,7 +176,7 @@
                 </button>
               </div>
 
-              <div class="principle-card" data-principle="feedback">
+              <div class="topic-card" data-principle="feedback">
                 <div class="card-icon">
                   <i class="fas fa-comments"></i>
                 </div>
@@ -198,7 +194,7 @@
                 </button>
               </div>
 
-              <div class="principle-card" data-principle="simplicity">
+              <div class="topic-card" data-principle="simplicity">
                 <div class="card-icon">
                   <i class="fas fa-feather-alt"></i>
                 </div>
@@ -216,7 +212,7 @@
                 </button>
               </div>
 
-              <div class="principle-card" data-principle="affordance">
+              <div class="topic-card" data-principle="affordance">
                 <div class="card-icon">
                   <i class="fas fa-mouse-pointer"></i>
                 </div>
@@ -234,7 +230,7 @@
                 </button>
               </div>
 
-              <div class="principle-card" data-principle="accessibility">
+              <div class="topic-card" data-principle="accessibility">
                 <div class="card-icon">
                   <i class="fas fa-universal-access"></i>
                 </div>
@@ -252,24 +248,28 @@
                 </button>
               </div>
             </div>
+            </div>
           </section>
 
           <!-- Interactive Principle Details -->
-          <section class="topic-section principle-details-section">
-            <div id="principle-details-container" class="details-container">
-              <!-- Details will be populated by JavaScript -->
+          <section id="principle-details" class="content-section principle-details-section">
+            <div class="section-content">
+              <div id="principle-details-container" class="details-container">
+                <!-- Details will be populated by JavaScript -->
+              </div>
             </div>
           </section>
 
           <!-- Interactive Design Builder -->
-          <section class="topic-section">
+          <section id="design-builder" class="content-section">
             <h2 class="section-title">
               <i class="fas fa-tools"></i> Interactive Design Builder
             </h2>
-            <p class="section-intro">
-              Experiment with different design principles and see their impact
-              in real-time:
-            </p>
+            <div class="section-content">
+              <p class="section-intro">
+                Experiment with different design principles and see their impact
+                in real-time:
+              </p>
 
             <div class="design-builder">
               <div class="builder-controls">
@@ -428,17 +428,19 @@
                 </div>
               </div>
             </div>
+            </div>
           </section>
 
           <!-- UI Patterns Library -->
-          <section class="topic-section">
+          <section id="ui-patterns" class="content-section">
             <h2 class="section-title">
               <i class="fas fa-puzzle-piece"></i> Common UI Patterns
             </h2>
-            <p class="section-intro">
-              Explore and understand essential UI patterns used in modern web
-              applications:
-            </p>
+            <div class="section-content">
+              <p class="section-intro">
+                Explore and understand essential UI patterns used in modern web
+                applications:
+              </p>
 
             <div class="pattern-tabs">
               <button
@@ -486,8 +488,8 @@
             <div class="pattern-content-container">
               <div id="navigation-pattern" class="pattern-panel active">
                 <h3 class="panel-title">Navigation Patterns</h3>
-                <div class="example-grid">
-                  <div class="example-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h4 class="card-title">Top Navigation Bar</h4>
                     <div class="nav-bar top-nav">
                       <div class="logo">Logo</div>
@@ -511,7 +513,7 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Sidebar Navigation</h4>
                     <div class="sidebar-layout">
                       <div class="sidebar">
@@ -543,7 +545,7 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Breadcrumb Navigation</h4>
                     <div class="breadcrumb-container">
                       <nav class="breadcrumb">
@@ -570,8 +572,8 @@
 
               <div id="forms-pattern" class="pattern-panel">
                 <h3 class="panel-title">Form Patterns</h3>
-                <div class="example-grid">
-                  <div class="example-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h4 class="card-title">Single Column Form</h4>
                     <form class="form-styled single-column">
                       <div class="form-group">
@@ -616,7 +618,7 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Inline Validation</h4>
                     <form class="form-styled inline-validation">
                       <div class="form-group">
@@ -669,8 +671,8 @@
 
               <div id="cards-pattern" class="pattern-panel">
                 <h3 class="panel-title">Card Patterns</h3>
-                <div class="example-grid">
-                  <div class="example-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h4 class="card-title">Product Cards</h4>
                     <div class="card-group">
                       <div class="product-card">
@@ -702,10 +704,10 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Information Cards</h4>
-                    <div class="info-card-group">
-                      <div class="info-card">
+                    <div class="topic-grid info-card-group">
+                      <div class="topic-card info-card">
                         <div class="card-icon">
                           <i class="fas fa-shield-alt"></i>
                         </div>
@@ -715,7 +717,7 @@
                           privacy.
                         </p>
                       </div>
-                      <div class="info-card">
+                      <div class="topic-card info-card">
                         <div class="card-icon">
                           <i class="fas fa-rocket"></i>
                         </div>
@@ -738,8 +740,8 @@
 
               <div id="modals-pattern" class="pattern-panel">
                 <h3 class="panel-title">Modal & Dialog Patterns</h3>
-                <div class="example-grid">
-                  <div class="example-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h4 class="card-title">Confirmation Modal</h4>
                     <button
                       class="btn btn-danger"
@@ -759,7 +761,7 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Form Modal</h4>
                     <button class="btn btn-primary" onclick="showModal('form')">
                       Show Form Modal
@@ -779,8 +781,8 @@
 
               <div id="feedback-pattern" class="pattern-panel">
                 <h3 class="panel-title">Feedback Patterns</h3>
-                <div class="example-grid">
-                  <div class="example-card">
+                <div class="topic-grid">
+                  <div class="topic-card">
                     <h4 class="card-title">Toast Notifications</h4>
                     <div class="button-group">
                       <button
@@ -817,7 +819,7 @@
                     </div>
                   </div>
 
-                  <div class="example-card">
+                  <div class="topic-card">
                     <h4 class="card-title">Loading States</h4>
                     <div class="loader-example">
                       <button
@@ -853,20 +855,22 @@
                 </div>
               </div>
             </div>
+            </div>
           </section>
 
           <!-- UX Research Methods -->
-          <section class="topic-section">
+          <section id="ux-research" class="content-section">
             <h2 class="section-title">
               <i class="fas fa-user-friends"></i> UX Research Methods
             </h2>
-            <p class="section-intro">
-              Learn about essential UX research methods to understand your users
-              better:
-            </p>
+            <div class="section-content">
+              <p class="section-intro">
+                Learn about essential UX research methods to understand your users
+                better:
+              </p>
 
-            <div class="methods-grid">
-              <div class="method-card">
+            <div class="topic-grid">
+              <div class="topic-card">
                 <div class="card-icon">
                   <i class="fas fa-comments"></i>
                 </div>
@@ -891,7 +895,7 @@
                 </div>
               </div>
 
-              <div class="method-card">
+              <div class="topic-card">
                 <div class="card-icon">
                   <i class="fas fa-poll"></i>
                 </div>
@@ -916,7 +920,7 @@
                 </div>
               </div>
 
-              <div class="method-card">
+              <div class="topic-card">
                 <div class="card-icon">
                   <i class="fas fa-vial"></i>
                 </div>
@@ -941,7 +945,7 @@
                 </div>
               </div>
 
-              <div class="method-card">
+              <div class="topic-card">
                 <div class="card-icon">
                   <i class="fas fa-user-tag"></i>
                 </div>
@@ -966,7 +970,11 @@
                 </div>
               </div>
             </div>
-          </section><section id="quiz" class="content-section">
+            </div>
+          </section>
+          
+          
+          <section id="quiz" class="content-section">
               <h2><i class="fas fa-brain"></i> Knowledge Check</h2>
 
               <div class="quiz-container" id="knowledge-quiz">
@@ -1020,15 +1028,16 @@
               </div>
             </section>
 
-            <section id="resources" class="topic-section">
+            <section id="resources" class="content-section">
               <h2 class="section-title"><i class="fas fa-video"></i> Video Resources & External Links</h2>
-              <p class="section-description">
-                Explore curated learning resources to deepen your understanding of UI/UX design. 
-                Each resource is carefully selected for quality and educational value.
-              </p>
+              <div class="section-content">
+                <p class="section-description">
+                  Explore curated learning resources to deepen your understanding of UI/UX design. 
+                  Each resource is carefully selected for quality and educational value.
+                </p>
 
-              <div class="resource-grid three-column">
-                <div class="resource-card" data-type="youtube">
+              <div class="topic-grid two-column">
+                <div class="topic-card" data-type="youtube">
                   <div class="card-thumbnail">
                     <i class="fab fa-youtube thumbnail-icon youtube"></i>
                     <div class="play-overlay">
@@ -1082,7 +1091,7 @@
                   </div>
                 </div>
 
-                <div class="resource-card" data-type="guide">
+                <div class="topic-card" data-type="guide">
                   <div class="card-thumbnail">
                     <i class="fas fa-book-open thumbnail-icon guide"></i>
                   </div>
@@ -1129,7 +1138,7 @@
                   </div>
                 </div>
 
-                <div class="resource-card" data-type="tool">
+                <div class="topic-card" data-type="tool">
                   <div class="card-thumbnail">
                     <i class="fas fa-pencil-ruler thumbnail-icon tool"></i>
                   </div>
@@ -1171,6 +1180,7 @@
                   </div>
                 </div>
               </div>
+              </div>
             </section>
 
             <!-- Navigation -->
@@ -1180,14 +1190,16 @@
                 <span>Previous Topic</span>
                 <span class="nav-topic-title">Framework Selection</span>
               </a>
-              <a href="typography.html" class="nav-link nav-next">
+              <a href="typography-color.html" class="nav-link nav-next">
                 <span>Next Topic</span>
-                <span class="nav-topic-title">Typography</span>
+                <span class="nav-topic-title">Typography & Color Theory</span>
                 <i class="fas fa-arrow-right"></i>
               </a>
             </section>
-        </div>
-      </main>
+          </div> <!-- /.content-main -->
+        </div> <!-- /.content-layout -->
+      </div> <!-- /.container -->
+    </main>
     <script src="../js/topic-data.js"></script>
     <script src="../js/topic-manager.js"></script>
     <script src="../js/topic.js"></script>
