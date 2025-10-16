@@ -8,196 +8,6 @@
     <link rel="stylesheet" href="../dist/css/google-fonts.css" />
     <link rel="stylesheet" href="../dist/css/prism-tomorrow.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <!-- Interactive elements styling -->
-    <style>
-      /* Type checker styles */
-      .type-result-content {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 20px;
-        margin-top: 15px;
-      }
-      
-      .type-result-content.error {
-        background: #f8d7da;
-        border-color: #f5c6cb;
-        color: #721c24;
-      }
-      
-      .type-info {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      
-      .type-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .type-badge {
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      
-      .type-badge.type-number { background: #e3f2fd; color: #1565c0; }
-      .type-badge.type-string { background: #f3e5f5; color: #7b1fa2; }
-      .type-badge.type-boolean { background: #e8f5e8; color: #2e7d32; }
-      .type-badge.type-undefined { background: #fff3e0; color: #ef6c00; }
-      .type-badge.type-object { background: #fce4ec; color: #c2185b; }
-      .type-badge.type-function { background: #e1f5fe; color: #0277bd; }
-      
-      /* Console output styles */
-      .console-output {
-        background: #1e1e1e;
-        color: #fff;
-        font-family: 'Courier New', monospace;
-        padding: 15px;
-        border-radius: 4px;
-        min-height: 200px;
-        white-space: pre-wrap;
-        overflow-y: auto;
-        margin-top: 10px;
-      }
-      
-      .log-entry {
-        margin: 2px 0;
-        padding: 2px 0;
-      }
-      
-      .log-entry.error {
-        color: #ff6b6b;
-      }
-      
-      /* Conversion demo styles */
-      .conversion-results {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 15px;
-      }
-      
-      .conversion-example {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 10px;
-        background: #f8f9fa;
-        border-radius: 6px;
-        font-family: monospace;
-      }
-      
-      .conversion-code {
-        flex: 1;
-        background: #e9ecef;
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-weight: bold;
-      }
-      
-      .conversion-arrow {
-        color: #6c757d;
-        font-size: 18px;
-      }
-      
-      .conversion-result {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      
-      .result-value {
-        font-weight: bold;
-        color: #0056b3;
-      }
-      
-      .result-type {
-        font-size: 12px;
-        color: #6c757d;
-        font-style: italic;
-      }
-      
-      /* Button improvements */
-      .button-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 10px;
-      }
-      
-      .btn-secondary {
-        font-family: monospace;
-        font-size: 13px;
-      }
-      
-      /* Form controls */
-      .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        font-size: 14px;
-        margin-bottom: 10px;
-        font-family: monospace;
-      }
-      
-      .form-control:focus {
-        outline: none;
-        border-color: #80bdff;
-        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-      }
-      
-      /* Code editor */
-      .code-editor-textarea {
-        width: 100%;
-        min-height: 200px;
-        padding: 15px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-        background: #f8f9fa;
-        resize: vertical;
-      }
-      
-      .code-editor-textarea:focus {
-        outline: none;
-        border-color: #80bdff;
-        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-      }
-      
-      .demo-grid.two-column {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 20px;
-      }
-      
-      @media (max-width: 768px) {
-        .demo-grid.two-column {
-          grid-template-columns: 1fr;
-        }
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .conversion-example {
-          flex-direction: column;
-          text-align: center;
-        }
-        
-        .conversion-arrow {
-          transform: rotate(90deg);
-        }
-      }
-    </style>
   </head>
   <body>
     <nav class="breadcrumb">
@@ -906,7 +716,7 @@ let bool4 = Boolean("hi"); // true
           Explore curated learning resources to deepen your understanding of JavaScript variables. Each resource is carefully selected for quality and educational value.
         </p>
 
-        <div class="resource-grid three-column">
+        <div class="resource-grid two-column">
           <div class="resource-card" data-type="video">
             <div class="card-thumbnail">
               <i class="fab fa-youtube thumbnail-icon video"></i>
@@ -1042,6 +852,8 @@ let bool4 = Boolean("hi"); // true
             <i class="fas fa-arrow-right"></i>
           </a>
         </section>
+          </div>
+        </div>
       </div>
     </main>
 
